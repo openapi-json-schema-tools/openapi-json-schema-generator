@@ -29,27 +29,27 @@ public class PetpetidPostPathParameters {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static class PetpetidPostadditionalProperties extends NotAnyTypeJsonSchema.NotAnyTypeJsonSchema1 {
+    public static class PetpetidPostPathParameters4 extends NotAnyTypeJsonSchema.NotAnyTypeJsonSchema1 {
         // NotAnyTypeSchema
-        private static @Nullable PetpetidPostadditionalProperties instance = null;
-        public static PetpetidPostadditionalProperties getInstance() {
+        private static @Nullable PetpetidPostPathParameters4 instance = null;
+        public static PetpetidPostPathParameters4 getInstance() {
             if (instance == null) {
-                instance = new PetpetidPostadditionalProperties();
+                instance = new PetpetidPostPathParameters4();
             }
             return instance;
         }
     }
     
     
-    public static class PetpetidPostPathParametersMap extends FrozenMap<Number> {
-        protected PetpetidPostPathParametersMap(FrozenMap<Number> m) {
+    public static class PetpetidPostPathParameters9 extends FrozenMap<Number> {
+        protected PetpetidPostPathParameters9(FrozenMap<Number> m) {
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of(
             "petId"
         );
         public static final Set<String> optionalKeys = Set.of();
-        public static PetpetidPostPathParametersMap of(Map<String, Number> arg, SchemaConfiguration configuration) throws ValidationException {
+        public static PetpetidPostPathParameters9 of(Map<String, Number> arg, SchemaConfiguration configuration) throws ValidationException {
             return PetpetidPostPathParameters1.getInstance().validate(arg, configuration);
         }
         
@@ -62,36 +62,36 @@ public class PetpetidPostPathParameters {
         }
     }
     
-    public interface SetterForPetpetidPostpetId <T> {
+    public interface SetterForPetpetidPostPathParameters2 <T> {
         Map<String, Number> getInstance();
-        T getBuilderAfterPetpetidPostpetId(Map<String, Number> instance);
+        T getBuilderAfterPetpetidPostPathParameters2(Map<String, Number> instance);
         
         default T petId(int value) {
             var instance = getInstance();
             instance.put("petId", value);
-            return getBuilderAfterPetpetidPostpetId(instance);
+            return getBuilderAfterPetpetidPostPathParameters2(instance);
         }
         
         default T petId(float value) {
             var instance = getInstance();
             instance.put("petId", value);
-            return getBuilderAfterPetpetidPostpetId(instance);
+            return getBuilderAfterPetpetidPostPathParameters2(instance);
         }
         
         default T petId(long value) {
             var instance = getInstance();
             instance.put("petId", value);
-            return getBuilderAfterPetpetidPostpetId(instance);
+            return getBuilderAfterPetpetidPostPathParameters2(instance);
         }
         
         default T petId(double value) {
             var instance = getInstance();
             instance.put("petId", value);
-            return getBuilderAfterPetpetidPostpetId(instance);
+            return getBuilderAfterPetpetidPostPathParameters2(instance);
         }
     }
     
-    public static class PetpetidPostPathParametersMap0Builder implements GenericBuilder<Map<String, Number>> {
+    public static class PetpetidPostPathParameters10 implements GenericBuilder<Map<String, Number>> {
         private final Map<String, Number> instance;
         private static final Set<String> knownKeys = Set.of(
             "petId"
@@ -99,7 +99,7 @@ public class PetpetidPostPathParameters {
         public Set<String> getKnownKeys() {
             return knownKeys;
         }
-        public PetpetidPostPathParametersMap0Builder(Map<String, Number> instance) {
+        public PetpetidPostPathParameters10(Map<String, Number> instance) {
             this.instance = instance;
         }
         public Map<String, Number> build() {
@@ -107,16 +107,16 @@ public class PetpetidPostPathParameters {
         }
     }
     
-    public static class PetpetidPostPathParametersMapBuilder implements SetterForPetpetidPostpetId<PetpetidPostPathParametersMap0Builder> {
+    public static class PetpetidPostPathParameters8 implements SetterForPetpetidPostPathParameters2<PetpetidPostPathParameters10> {
         private final Map<String, Number> instance;
-        public PetpetidPostPathParametersMapBuilder() {
+        public PetpetidPostPathParameters8() {
             this.instance = new LinkedHashMap<>();
         }
         public Map<String, Number> getInstance() {
             return instance;
         }
-        public PetpetidPostPathParametersMap0Builder getBuilderAfterPetpetidPostpetId(Map<String, Number> instance) {
-            return new PetpetidPostPathParametersMap0Builder(instance);
+        public PetpetidPostPathParameters10 getBuilderAfterPetpetidPostPathParameters2(Map<String, Number> instance) {
+            return new PetpetidPostPathParameters10(instance);
         }
     }
     
@@ -125,7 +125,7 @@ public class PetpetidPostPathParameters {
         @Nullable Object getData();
     }
     
-    public record PetpetidPostPathParameters1BoxedMap(PetpetidPostPathParametersMap data) implements PetpetidPostPathParameters1Boxed {
+    public record PetpetidPostPathParameters1BoxedMap(PetpetidPostPathParameters9 data) implements PetpetidPostPathParameters1Boxed {
         @Override
         public @Nullable Object getData() {
             return data;
@@ -133,7 +133,7 @@ public class PetpetidPostPathParameters {
     }
     
     
-    public static class PetpetidPostPathParameters1 extends JsonSchema<PetpetidPostPathParameters1Boxed> implements MapSchemaValidator<PetpetidPostPathParametersMap, PetpetidPostPathParameters1BoxedMap> {
+    public static class PetpetidPostPathParameters1 extends JsonSchema<PetpetidPostPathParameters1Boxed> implements MapSchemaValidator<PetpetidPostPathParameters9, PetpetidPostPathParameters1BoxedMap> {
         private static @Nullable PetpetidPostPathParameters1 instance = null;
     
         protected PetpetidPostPathParameters1() {
@@ -145,7 +145,7 @@ public class PetpetidPostPathParameters {
                 .required(Set.of(
                     "petId"
                 ))
-                .additionalProperties(PetpetidPostadditionalProperties.class)
+                .additionalProperties(PetpetidPostPathParameters4.class)
             );
         }
     
@@ -156,7 +156,7 @@ public class PetpetidPostPathParameters {
             return instance;
         }
         
-        public PetpetidPostPathParametersMap getNewInstance(Map<?, ?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+        public PetpetidPostPathParameters9 getNewInstance(Map<?, ?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
             LinkedHashMap<String, Number> properties = new LinkedHashMap<>();
             for(Map.Entry<?, ?> entry: arg.entrySet()) {
                 @Nullable Object entryKey = entry.getKey();
@@ -179,10 +179,10 @@ public class PetpetidPostPathParameters {
                 properties.put(propertyName, (Number) propertyInstance);
             }
             FrozenMap<Number> castProperties = new FrozenMap<>(properties);
-            return new PetpetidPostPathParametersMap(castProperties);
+            return new PetpetidPostPathParameters9(castProperties);
         }
         
-        public PetpetidPostPathParametersMap validate(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException {
+        public PetpetidPostPathParameters9 validate(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException {
             Set<List<Object>> pathSet = new HashSet<>();
             List<Object> pathToItem = List.of("args[0");
             Map<?, ?> castArg = castToAllowedTypes(arg, pathToItem, pathSet);

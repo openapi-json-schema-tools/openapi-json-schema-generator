@@ -91,9 +91,9 @@ Fakepetiduploadimagewithrequiredfile apiClient = new Fakepetiduploadimagewithreq
 
 
 // Map validation
-FakepetiduploadimagewithrequiredfilePostPathParameters.FakepetiduploadimagewithrequiredfilePostPathParametersMap pathParameters =
+FakepetiduploadimagewithrequiredfilePostPathParameters.FakepetiduploadimagewithrequiredfilePostPathParameters9 pathParameters =
     FakepetiduploadimagewithrequiredfilePostPathParameters.FakepetiduploadimagewithrequiredfilePostPathParameters1.validate(
-    new FakepetiduploadimagewithrequiredfilePostPathParameters.FakepetiduploadimagewithrequiredfilePostPathParametersMapBuilder()
+    new FakepetiduploadimagewithrequiredfilePostPathParameters.FakepetiduploadimagewithrequiredfilePostPathParameters8()
         .petId(1L)
 
     .build(),

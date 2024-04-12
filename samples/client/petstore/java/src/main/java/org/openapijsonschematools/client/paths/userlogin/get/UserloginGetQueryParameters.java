@@ -30,20 +30,20 @@ public class UserloginGetQueryParameters {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static class UserloginGetadditionalProperties extends NotAnyTypeJsonSchema.NotAnyTypeJsonSchema1 {
+    public static class UserloginGetQueryParameters5 extends NotAnyTypeJsonSchema.NotAnyTypeJsonSchema1 {
         // NotAnyTypeSchema
-        private static @Nullable UserloginGetadditionalProperties instance = null;
-        public static UserloginGetadditionalProperties getInstance() {
+        private static @Nullable UserloginGetQueryParameters5 instance = null;
+        public static UserloginGetQueryParameters5 getInstance() {
             if (instance == null) {
-                instance = new UserloginGetadditionalProperties();
+                instance = new UserloginGetQueryParameters5();
             }
             return instance;
         }
     }
     
     
-    public static class UserloginGetQueryParametersMap extends FrozenMap<@Nullable Object> {
-        protected UserloginGetQueryParametersMap(FrozenMap<@Nullable Object> m) {
+    public static class UserloginGetQueryParameters10 extends FrozenMap<@Nullable Object> {
+        protected UserloginGetQueryParameters10(FrozenMap<@Nullable Object> m) {
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of(
@@ -51,7 +51,7 @@ public class UserloginGetQueryParameters {
             "username"
         );
         public static final Set<String> optionalKeys = Set.of();
-        public static UserloginGetQueryParametersMap of(Map<String, ? extends @Nullable Object> arg, SchemaConfiguration configuration) throws ValidationException {
+        public static UserloginGetQueryParameters10 of(Map<String, ? extends @Nullable Object> arg, SchemaConfiguration configuration) throws ValidationException {
             return UserloginGetQueryParameters1.getInstance().validate(arg, configuration);
         }
         
@@ -72,29 +72,29 @@ public class UserloginGetQueryParameters {
         }
     }
     
-    public interface SetterForUserloginGetpassword <T> {
+    public interface SetterForUserloginGetQueryParameters2 <T> {
         Map<String, @Nullable Object> getInstance();
-        T getBuilderAfterUserloginGetpassword(Map<String, @Nullable Object> instance);
+        T getBuilderAfterUserloginGetQueryParameters2(Map<String, @Nullable Object> instance);
         
         default T password(String value) {
             var instance = getInstance();
             instance.put("password", value);
-            return getBuilderAfterUserloginGetpassword(instance);
+            return getBuilderAfterUserloginGetQueryParameters2(instance);
         }
     }
     
-    public interface SetterForUserloginGetusername <T> {
+    public interface SetterForUserloginGetQueryParameters3 <T> {
         Map<String, @Nullable Object> getInstance();
-        T getBuilderAfterUserloginGetusername(Map<String, @Nullable Object> instance);
+        T getBuilderAfterUserloginGetQueryParameters3(Map<String, @Nullable Object> instance);
         
         default T username(String value) {
             var instance = getInstance();
             instance.put("username", value);
-            return getBuilderAfterUserloginGetusername(instance);
+            return getBuilderAfterUserloginGetQueryParameters3(instance);
         }
     }
     
-    public static class UserloginGetQueryParametersMap00Builder implements GenericBuilder<Map<String, @Nullable Object>> {
+    public static class UserloginGetQueryParameters11 implements GenericBuilder<Map<String, @Nullable Object>> {
         private final Map<String, @Nullable Object> instance;
         private static final Set<String> knownKeys = Set.of(
             "password",
@@ -103,7 +103,7 @@ public class UserloginGetQueryParameters {
         public Set<String> getKnownKeys() {
             return knownKeys;
         }
-        public UserloginGetQueryParametersMap00Builder(Map<String, @Nullable Object> instance) {
+        public UserloginGetQueryParameters11(Map<String, @Nullable Object> instance) {
             this.instance = instance;
         }
         public Map<String, @Nullable Object> build() {
@@ -111,45 +111,45 @@ public class UserloginGetQueryParameters {
         }
     }
     
-    public static class UserloginGetQueryParametersMap01Builder implements SetterForUserloginGetusername<UserloginGetQueryParametersMap00Builder> {
+    public static class UserloginGetQueryParameters12 implements SetterForUserloginGetQueryParameters3<UserloginGetQueryParameters11> {
         private final Map<String, @Nullable Object> instance;
-        public UserloginGetQueryParametersMap01Builder(Map<String, @Nullable Object> instance) {
+        public UserloginGetQueryParameters12(Map<String, @Nullable Object> instance) {
             this.instance = instance;
         }
         public Map<String, @Nullable Object> getInstance() {
             return instance;
         }
-        public UserloginGetQueryParametersMap00Builder getBuilderAfterUserloginGetusername(Map<String, @Nullable Object> instance) {
-            return new UserloginGetQueryParametersMap00Builder(instance);
+        public UserloginGetQueryParameters11 getBuilderAfterUserloginGetQueryParameters3(Map<String, @Nullable Object> instance) {
+            return new UserloginGetQueryParameters11(instance);
         }
     }
     
-    public static class UserloginGetQueryParametersMap10Builder implements SetterForUserloginGetpassword<UserloginGetQueryParametersMap00Builder> {
+    public static class UserloginGetQueryParameters13 implements SetterForUserloginGetQueryParameters2<UserloginGetQueryParameters11> {
         private final Map<String, @Nullable Object> instance;
-        public UserloginGetQueryParametersMap10Builder(Map<String, @Nullable Object> instance) {
+        public UserloginGetQueryParameters13(Map<String, @Nullable Object> instance) {
             this.instance = instance;
         }
         public Map<String, @Nullable Object> getInstance() {
             return instance;
         }
-        public UserloginGetQueryParametersMap00Builder getBuilderAfterUserloginGetpassword(Map<String, @Nullable Object> instance) {
-            return new UserloginGetQueryParametersMap00Builder(instance);
+        public UserloginGetQueryParameters11 getBuilderAfterUserloginGetQueryParameters2(Map<String, @Nullable Object> instance) {
+            return new UserloginGetQueryParameters11(instance);
         }
     }
     
-    public static class UserloginGetQueryParametersMapBuilder implements SetterForUserloginGetpassword<UserloginGetQueryParametersMap01Builder>, SetterForUserloginGetusername<UserloginGetQueryParametersMap10Builder> {
+    public static class UserloginGetQueryParameters9 implements SetterForUserloginGetQueryParameters2<UserloginGetQueryParameters12>, SetterForUserloginGetQueryParameters3<UserloginGetQueryParameters13> {
         private final Map<String, @Nullable Object> instance;
-        public UserloginGetQueryParametersMapBuilder() {
+        public UserloginGetQueryParameters9() {
             this.instance = new LinkedHashMap<>();
         }
         public Map<String, @Nullable Object> getInstance() {
             return instance;
         }
-        public UserloginGetQueryParametersMap01Builder getBuilderAfterUserloginGetpassword(Map<String, @Nullable Object> instance) {
-            return new UserloginGetQueryParametersMap01Builder(instance);
+        public UserloginGetQueryParameters12 getBuilderAfterUserloginGetQueryParameters2(Map<String, @Nullable Object> instance) {
+            return new UserloginGetQueryParameters12(instance);
         }
-        public UserloginGetQueryParametersMap10Builder getBuilderAfterUserloginGetusername(Map<String, @Nullable Object> instance) {
-            return new UserloginGetQueryParametersMap10Builder(instance);
+        public UserloginGetQueryParameters13 getBuilderAfterUserloginGetQueryParameters3(Map<String, @Nullable Object> instance) {
+            return new UserloginGetQueryParameters13(instance);
         }
     }
     
@@ -158,7 +158,7 @@ public class UserloginGetQueryParameters {
         @Nullable Object getData();
     }
     
-    public record UserloginGetQueryParameters1BoxedMap(UserloginGetQueryParametersMap data) implements UserloginGetQueryParameters1Boxed {
+    public record UserloginGetQueryParameters1BoxedMap(UserloginGetQueryParameters10 data) implements UserloginGetQueryParameters1Boxed {
         @Override
         public @Nullable Object getData() {
             return data;
@@ -166,7 +166,7 @@ public class UserloginGetQueryParameters {
     }
     
     
-    public static class UserloginGetQueryParameters1 extends JsonSchema<UserloginGetQueryParameters1Boxed> implements MapSchemaValidator<UserloginGetQueryParametersMap, UserloginGetQueryParameters1BoxedMap> {
+    public static class UserloginGetQueryParameters1 extends JsonSchema<UserloginGetQueryParameters1Boxed> implements MapSchemaValidator<UserloginGetQueryParameters10, UserloginGetQueryParameters1BoxedMap> {
         private static @Nullable UserloginGetQueryParameters1 instance = null;
     
         protected UserloginGetQueryParameters1() {
@@ -180,7 +180,7 @@ public class UserloginGetQueryParameters {
                     "password",
                     "username"
                 ))
-                .additionalProperties(UserloginGetadditionalProperties.class)
+                .additionalProperties(UserloginGetQueryParameters5.class)
             );
         }
     
@@ -191,7 +191,7 @@ public class UserloginGetQueryParameters {
             return instance;
         }
         
-        public UserloginGetQueryParametersMap getNewInstance(Map<?, ?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+        public UserloginGetQueryParameters10 getNewInstance(Map<?, ?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
             LinkedHashMap<String, @Nullable Object> properties = new LinkedHashMap<>();
             for(Map.Entry<?, ?> entry: arg.entrySet()) {
                 @Nullable Object entryKey = entry.getKey();
@@ -211,10 +211,10 @@ public class UserloginGetQueryParameters {
                 properties.put(propertyName, propertyInstance);
             }
             FrozenMap<@Nullable Object> castProperties = new FrozenMap<>(properties);
-            return new UserloginGetQueryParametersMap(castProperties);
+            return new UserloginGetQueryParameters10(castProperties);
         }
         
-        public UserloginGetQueryParametersMap validate(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException {
+        public UserloginGetQueryParameters10 validate(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException {
             Set<List<Object>> pathSet = new HashSet<>();
             List<Object> pathToItem = List.of("args[0");
             Map<?, ?> castArg = castToAllowedTypes(arg, pathToItem, pathSet);

@@ -29,27 +29,27 @@ public class StoreorderorderidGetPathParameters {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static class StoreorderorderidGetadditionalProperties extends NotAnyTypeJsonSchema.NotAnyTypeJsonSchema1 {
+    public static class StoreorderorderidGetPathParameters4 extends NotAnyTypeJsonSchema.NotAnyTypeJsonSchema1 {
         // NotAnyTypeSchema
-        private static @Nullable StoreorderorderidGetadditionalProperties instance = null;
-        public static StoreorderorderidGetadditionalProperties getInstance() {
+        private static @Nullable StoreorderorderidGetPathParameters4 instance = null;
+        public static StoreorderorderidGetPathParameters4 getInstance() {
             if (instance == null) {
-                instance = new StoreorderorderidGetadditionalProperties();
+                instance = new StoreorderorderidGetPathParameters4();
             }
             return instance;
         }
     }
     
     
-    public static class StoreorderorderidGetPathParametersMap extends FrozenMap<Number> {
-        protected StoreorderorderidGetPathParametersMap(FrozenMap<Number> m) {
+    public static class StoreorderorderidGetPathParameters9 extends FrozenMap<Number> {
+        protected StoreorderorderidGetPathParameters9(FrozenMap<Number> m) {
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of(
             "order_id"
         );
         public static final Set<String> optionalKeys = Set.of();
-        public static StoreorderorderidGetPathParametersMap of(Map<String, Number> arg, SchemaConfiguration configuration) throws ValidationException {
+        public static StoreorderorderidGetPathParameters9 of(Map<String, Number> arg, SchemaConfiguration configuration) throws ValidationException {
             return StoreorderorderidGetPathParameters1.getInstance().validate(arg, configuration);
         }
         
@@ -62,36 +62,36 @@ public class StoreorderorderidGetPathParameters {
         }
     }
     
-    public interface SetterForStoreorderorderidGetorderId <T> {
+    public interface SetterForStoreorderorderidGetPathParameters2 <T> {
         Map<String, Number> getInstance();
-        T getBuilderAfterStoreorderorderidGetorderId(Map<String, Number> instance);
+        T getBuilderAfterStoreorderorderidGetPathParameters2(Map<String, Number> instance);
         
         default T order_id(int value) {
             var instance = getInstance();
             instance.put("order_id", value);
-            return getBuilderAfterStoreorderorderidGetorderId(instance);
+            return getBuilderAfterStoreorderorderidGetPathParameters2(instance);
         }
         
         default T order_id(float value) {
             var instance = getInstance();
             instance.put("order_id", value);
-            return getBuilderAfterStoreorderorderidGetorderId(instance);
+            return getBuilderAfterStoreorderorderidGetPathParameters2(instance);
         }
         
         default T order_id(long value) {
             var instance = getInstance();
             instance.put("order_id", value);
-            return getBuilderAfterStoreorderorderidGetorderId(instance);
+            return getBuilderAfterStoreorderorderidGetPathParameters2(instance);
         }
         
         default T order_id(double value) {
             var instance = getInstance();
             instance.put("order_id", value);
-            return getBuilderAfterStoreorderorderidGetorderId(instance);
+            return getBuilderAfterStoreorderorderidGetPathParameters2(instance);
         }
     }
     
-    public static class StoreorderorderidGetPathParametersMap0Builder implements GenericBuilder<Map<String, Number>> {
+    public static class StoreorderorderidGetPathParameters10 implements GenericBuilder<Map<String, Number>> {
         private final Map<String, Number> instance;
         private static final Set<String> knownKeys = Set.of(
             "order_id"
@@ -99,7 +99,7 @@ public class StoreorderorderidGetPathParameters {
         public Set<String> getKnownKeys() {
             return knownKeys;
         }
-        public StoreorderorderidGetPathParametersMap0Builder(Map<String, Number> instance) {
+        public StoreorderorderidGetPathParameters10(Map<String, Number> instance) {
             this.instance = instance;
         }
         public Map<String, Number> build() {
@@ -107,16 +107,16 @@ public class StoreorderorderidGetPathParameters {
         }
     }
     
-    public static class StoreorderorderidGetPathParametersMapBuilder implements SetterForStoreorderorderidGetorderId<StoreorderorderidGetPathParametersMap0Builder> {
+    public static class StoreorderorderidGetPathParameters8 implements SetterForStoreorderorderidGetPathParameters2<StoreorderorderidGetPathParameters10> {
         private final Map<String, Number> instance;
-        public StoreorderorderidGetPathParametersMapBuilder() {
+        public StoreorderorderidGetPathParameters8() {
             this.instance = new LinkedHashMap<>();
         }
         public Map<String, Number> getInstance() {
             return instance;
         }
-        public StoreorderorderidGetPathParametersMap0Builder getBuilderAfterStoreorderorderidGetorderId(Map<String, Number> instance) {
-            return new StoreorderorderidGetPathParametersMap0Builder(instance);
+        public StoreorderorderidGetPathParameters10 getBuilderAfterStoreorderorderidGetPathParameters2(Map<String, Number> instance) {
+            return new StoreorderorderidGetPathParameters10(instance);
         }
     }
     
@@ -125,7 +125,7 @@ public class StoreorderorderidGetPathParameters {
         @Nullable Object getData();
     }
     
-    public record StoreorderorderidGetPathParameters1BoxedMap(StoreorderorderidGetPathParametersMap data) implements StoreorderorderidGetPathParameters1Boxed {
+    public record StoreorderorderidGetPathParameters1BoxedMap(StoreorderorderidGetPathParameters9 data) implements StoreorderorderidGetPathParameters1Boxed {
         @Override
         public @Nullable Object getData() {
             return data;
@@ -133,7 +133,7 @@ public class StoreorderorderidGetPathParameters {
     }
     
     
-    public static class StoreorderorderidGetPathParameters1 extends JsonSchema<StoreorderorderidGetPathParameters1Boxed> implements MapSchemaValidator<StoreorderorderidGetPathParametersMap, StoreorderorderidGetPathParameters1BoxedMap> {
+    public static class StoreorderorderidGetPathParameters1 extends JsonSchema<StoreorderorderidGetPathParameters1Boxed> implements MapSchemaValidator<StoreorderorderidGetPathParameters9, StoreorderorderidGetPathParameters1BoxedMap> {
         private static @Nullable StoreorderorderidGetPathParameters1 instance = null;
     
         protected StoreorderorderidGetPathParameters1() {
@@ -145,7 +145,7 @@ public class StoreorderorderidGetPathParameters {
                 .required(Set.of(
                     "order_id"
                 ))
-                .additionalProperties(StoreorderorderidGetadditionalProperties.class)
+                .additionalProperties(StoreorderorderidGetPathParameters4.class)
             );
         }
     
@@ -156,7 +156,7 @@ public class StoreorderorderidGetPathParameters {
             return instance;
         }
         
-        public StoreorderorderidGetPathParametersMap getNewInstance(Map<?, ?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+        public StoreorderorderidGetPathParameters9 getNewInstance(Map<?, ?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
             LinkedHashMap<String, Number> properties = new LinkedHashMap<>();
             for(Map.Entry<?, ?> entry: arg.entrySet()) {
                 @Nullable Object entryKey = entry.getKey();
@@ -179,10 +179,10 @@ public class StoreorderorderidGetPathParameters {
                 properties.put(propertyName, (Number) propertyInstance);
             }
             FrozenMap<Number> castProperties = new FrozenMap<>(properties);
-            return new StoreorderorderidGetPathParametersMap(castProperties);
+            return new StoreorderorderidGetPathParameters9(castProperties);
         }
         
-        public StoreorderorderidGetPathParametersMap validate(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException {
+        public StoreorderorderidGetPathParameters9 validate(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException {
             Set<List<Object>> pathSet = new HashSet<>();
             List<Object> pathToItem = List.of("args[0");
             Map<?, ?> castArg = castToAllowedTypes(arg, pathToItem, pathSet);

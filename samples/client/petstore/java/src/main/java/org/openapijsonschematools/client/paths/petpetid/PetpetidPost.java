@@ -104,14 +104,14 @@ public class PetpetidPost {
     }
 
     public static class PostRequest {
-        public PetpetidPostPathParameters.PetpetidPostPathParametersMap pathParameters;
+        public PetpetidPostPathParameters.PetpetidPostPathParameters9 pathParameters;
         public PetpetidPostRequestBody.@Nullable SealedRequestBody requestBody;
         public ServerInfo.@Nullable ServerIndex serverIndex;
         public PetpetidPostSecurityInfo.@Nullable SecurityIndex securityIndex;
         public @Nullable Duration timeout;
 
         public PostRequest(
-            PetpetidPostPathParameters.PetpetidPostPathParametersMap pathParameters,
+            PetpetidPostPathParameters.PetpetidPostPathParameters9 pathParameters,
             PetpetidPostRequestBody.@Nullable SealedRequestBody requestBody,
             ServerInfo.@Nullable ServerIndex serverIndex,
             PetpetidPostSecurityInfo.@Nullable SecurityIndex securityIndex,
@@ -126,7 +126,7 @@ public class PetpetidPost {
     }
 
     public static class PostNullableRequest {
-        public PetpetidPostPathParameters.@Nullable PetpetidPostPathParametersMap pathParameters;
+        public PetpetidPostPathParameters.@Nullable PetpetidPostPathParameters9 pathParameters;
         public PetpetidPostRequestBody.@Nullable SealedRequestBody requestBody;
         public ServerInfo.@Nullable ServerIndex serverIndex;
         public PetpetidPostSecurityInfo.@Nullable SecurityIndex securityIndex;
@@ -176,7 +176,7 @@ public class PetpetidPost {
     public interface SetterForPathParameters <T> {
         PostNullableRequest getInstance();
         T getBuilderAfterPathParameters(PostNullableRequest instance);
-        default T pathParameters(PetpetidPostPathParameters.PetpetidPostPathParametersMap pathParameters) {
+        default T pathParameters(PetpetidPostPathParameters.PetpetidPostPathParameters9 pathParameters) {
             var instance = getInstance();
             instance.pathParameters = pathParameters;
             return getBuilderAfterPathParameters(instance);

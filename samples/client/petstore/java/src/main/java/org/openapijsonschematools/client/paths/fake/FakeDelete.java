@@ -98,15 +98,15 @@ public class FakeDelete {
     }
 
     public static class DeleteRequest {
-        public FakeDeleteHeaderParameters.FakeDeleteHeaderParametersMap headerParameters;
-        public FakeDeleteQueryParameters.FakeDeleteQueryParametersMap queryParameters;
+        public FakeDeleteHeaderParameters.FakeDeleteHeaderParameters12 headerParameters;
+        public FakeDeleteQueryParameters.FakeDeleteQueryParameters14 queryParameters;
         public ServerInfo.@Nullable ServerIndex serverIndex;
         public FakeDeleteSecurityInfo.@Nullable SecurityIndex securityIndex;
         public @Nullable Duration timeout;
 
         public DeleteRequest(
-            FakeDeleteHeaderParameters.FakeDeleteHeaderParametersMap headerParameters,
-            FakeDeleteQueryParameters.FakeDeleteQueryParametersMap queryParameters,
+            FakeDeleteHeaderParameters.FakeDeleteHeaderParameters12 headerParameters,
+            FakeDeleteQueryParameters.FakeDeleteQueryParameters14 queryParameters,
             ServerInfo.@Nullable ServerIndex serverIndex,
             FakeDeleteSecurityInfo.@Nullable SecurityIndex securityIndex,
             @Nullable Duration timeout
@@ -120,8 +120,8 @@ public class FakeDelete {
     }
 
     public static class DeleteNullableRequest {
-        public FakeDeleteHeaderParameters.@Nullable FakeDeleteHeaderParametersMap headerParameters;
-        public FakeDeleteQueryParameters.@Nullable FakeDeleteQueryParametersMap queryParameters;
+        public FakeDeleteHeaderParameters.@Nullable FakeDeleteHeaderParameters12 headerParameters;
+        public FakeDeleteQueryParameters.@Nullable FakeDeleteQueryParameters14 queryParameters;
         public ServerInfo.@Nullable ServerIndex serverIndex;
         public FakeDeleteSecurityInfo.@Nullable SecurityIndex securityIndex;
         public @Nullable Duration timeout;
@@ -160,7 +160,7 @@ public class FakeDelete {
     public interface SetterForHeaderParameters <T> {
         DeleteNullableRequest getInstance();
         T getBuilderAfterHeaderParameters(DeleteNullableRequest instance);
-        default T headerParameters(FakeDeleteHeaderParameters.FakeDeleteHeaderParametersMap headerParameters) {
+        default T headerParameters(FakeDeleteHeaderParameters.FakeDeleteHeaderParameters12 headerParameters) {
             var instance = getInstance();
             instance.headerParameters = headerParameters;
             return getBuilderAfterHeaderParameters(instance);
@@ -170,7 +170,7 @@ public class FakeDelete {
     public interface SetterForQueryParameters <T> {
         DeleteNullableRequest getInstance();
         T getBuilderAfterQueryParameters(DeleteNullableRequest instance);
-        default T queryParameters(FakeDeleteQueryParameters.FakeDeleteQueryParametersMap queryParameters) {
+        default T queryParameters(FakeDeleteQueryParameters.FakeDeleteQueryParameters14 queryParameters) {
             var instance = getInstance();
             instance.queryParameters = queryParameters;
             return getBuilderAfterQueryParameters(instance);

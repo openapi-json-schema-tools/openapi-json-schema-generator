@@ -29,27 +29,27 @@ public class FakedeletecoffeeidDeletePathParameters {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static class FakedeletecoffeeidDeleteadditionalProperties extends NotAnyTypeJsonSchema.NotAnyTypeJsonSchema1 {
+    public static class FakedeletecoffeeidDeletePathParameters4 extends NotAnyTypeJsonSchema.NotAnyTypeJsonSchema1 {
         // NotAnyTypeSchema
-        private static @Nullable FakedeletecoffeeidDeleteadditionalProperties instance = null;
-        public static FakedeletecoffeeidDeleteadditionalProperties getInstance() {
+        private static @Nullable FakedeletecoffeeidDeletePathParameters4 instance = null;
+        public static FakedeletecoffeeidDeletePathParameters4 getInstance() {
             if (instance == null) {
-                instance = new FakedeletecoffeeidDeleteadditionalProperties();
+                instance = new FakedeletecoffeeidDeletePathParameters4();
             }
             return instance;
         }
     }
     
     
-    public static class FakedeletecoffeeidDeletePathParametersMap extends FrozenMap<String> {
-        protected FakedeletecoffeeidDeletePathParametersMap(FrozenMap<String> m) {
+    public static class FakedeletecoffeeidDeletePathParameters9 extends FrozenMap<String> {
+        protected FakedeletecoffeeidDeletePathParameters9(FrozenMap<String> m) {
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of(
             "id"
         );
         public static final Set<String> optionalKeys = Set.of();
-        public static FakedeletecoffeeidDeletePathParametersMap of(Map<String, String> arg, SchemaConfiguration configuration) throws ValidationException {
+        public static FakedeletecoffeeidDeletePathParameters9 of(Map<String, String> arg, SchemaConfiguration configuration) throws ValidationException {
             return FakedeletecoffeeidDeletePathParameters1.getInstance().validate(arg, configuration);
         }
         
@@ -62,18 +62,18 @@ public class FakedeletecoffeeidDeletePathParameters {
         }
     }
     
-    public interface SetterForFakedeletecoffeeidDeleteid <T> {
+    public interface SetterForFakedeletecoffeeidDeletePathParameters2 <T> {
         Map<String, String> getInstance();
-        T getBuilderAfterFakedeletecoffeeidDeleteid(Map<String, String> instance);
+        T getBuilderAfterFakedeletecoffeeidDeletePathParameters2(Map<String, String> instance);
         
         default T id(String value) {
             var instance = getInstance();
             instance.put("id", value);
-            return getBuilderAfterFakedeletecoffeeidDeleteid(instance);
+            return getBuilderAfterFakedeletecoffeeidDeletePathParameters2(instance);
         }
     }
     
-    public static class FakedeletecoffeeidDeletePathParametersMap0Builder implements GenericBuilder<Map<String, String>> {
+    public static class FakedeletecoffeeidDeletePathParameters10 implements GenericBuilder<Map<String, String>> {
         private final Map<String, String> instance;
         private static final Set<String> knownKeys = Set.of(
             "id"
@@ -81,7 +81,7 @@ public class FakedeletecoffeeidDeletePathParameters {
         public Set<String> getKnownKeys() {
             return knownKeys;
         }
-        public FakedeletecoffeeidDeletePathParametersMap0Builder(Map<String, String> instance) {
+        public FakedeletecoffeeidDeletePathParameters10(Map<String, String> instance) {
             this.instance = instance;
         }
         public Map<String, String> build() {
@@ -89,16 +89,16 @@ public class FakedeletecoffeeidDeletePathParameters {
         }
     }
     
-    public static class FakedeletecoffeeidDeletePathParametersMapBuilder implements SetterForFakedeletecoffeeidDeleteid<FakedeletecoffeeidDeletePathParametersMap0Builder> {
+    public static class FakedeletecoffeeidDeletePathParameters8 implements SetterForFakedeletecoffeeidDeletePathParameters2<FakedeletecoffeeidDeletePathParameters10> {
         private final Map<String, String> instance;
-        public FakedeletecoffeeidDeletePathParametersMapBuilder() {
+        public FakedeletecoffeeidDeletePathParameters8() {
             this.instance = new LinkedHashMap<>();
         }
         public Map<String, String> getInstance() {
             return instance;
         }
-        public FakedeletecoffeeidDeletePathParametersMap0Builder getBuilderAfterFakedeletecoffeeidDeleteid(Map<String, String> instance) {
-            return new FakedeletecoffeeidDeletePathParametersMap0Builder(instance);
+        public FakedeletecoffeeidDeletePathParameters10 getBuilderAfterFakedeletecoffeeidDeletePathParameters2(Map<String, String> instance) {
+            return new FakedeletecoffeeidDeletePathParameters10(instance);
         }
     }
     
@@ -107,7 +107,7 @@ public class FakedeletecoffeeidDeletePathParameters {
         @Nullable Object getData();
     }
     
-    public record FakedeletecoffeeidDeletePathParameters1BoxedMap(FakedeletecoffeeidDeletePathParametersMap data) implements FakedeletecoffeeidDeletePathParameters1Boxed {
+    public record FakedeletecoffeeidDeletePathParameters1BoxedMap(FakedeletecoffeeidDeletePathParameters9 data) implements FakedeletecoffeeidDeletePathParameters1Boxed {
         @Override
         public @Nullable Object getData() {
             return data;
@@ -115,7 +115,7 @@ public class FakedeletecoffeeidDeletePathParameters {
     }
     
     
-    public static class FakedeletecoffeeidDeletePathParameters1 extends JsonSchema<FakedeletecoffeeidDeletePathParameters1Boxed> implements MapSchemaValidator<FakedeletecoffeeidDeletePathParametersMap, FakedeletecoffeeidDeletePathParameters1BoxedMap> {
+    public static class FakedeletecoffeeidDeletePathParameters1 extends JsonSchema<FakedeletecoffeeidDeletePathParameters1Boxed> implements MapSchemaValidator<FakedeletecoffeeidDeletePathParameters9, FakedeletecoffeeidDeletePathParameters1BoxedMap> {
         private static @Nullable FakedeletecoffeeidDeletePathParameters1 instance = null;
     
         protected FakedeletecoffeeidDeletePathParameters1() {
@@ -127,7 +127,7 @@ public class FakedeletecoffeeidDeletePathParameters {
                 .required(Set.of(
                     "id"
                 ))
-                .additionalProperties(FakedeletecoffeeidDeleteadditionalProperties.class)
+                .additionalProperties(FakedeletecoffeeidDeletePathParameters4.class)
             );
         }
     
@@ -138,7 +138,7 @@ public class FakedeletecoffeeidDeletePathParameters {
             return instance;
         }
         
-        public FakedeletecoffeeidDeletePathParametersMap getNewInstance(Map<?, ?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+        public FakedeletecoffeeidDeletePathParameters9 getNewInstance(Map<?, ?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
             LinkedHashMap<String, String> properties = new LinkedHashMap<>();
             for(Map.Entry<?, ?> entry: arg.entrySet()) {
                 @Nullable Object entryKey = entry.getKey();
@@ -161,10 +161,10 @@ public class FakedeletecoffeeidDeletePathParameters {
                 properties.put(propertyName, (String) propertyInstance);
             }
             FrozenMap<String> castProperties = new FrozenMap<>(properties);
-            return new FakedeletecoffeeidDeletePathParametersMap(castProperties);
+            return new FakedeletecoffeeidDeletePathParameters9(castProperties);
         }
         
-        public FakedeletecoffeeidDeletePathParametersMap validate(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException {
+        public FakedeletecoffeeidDeletePathParameters9 validate(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException {
             Set<List<Object>> pathSet = new HashSet<>();
             List<Object> pathToItem = List.of("args[0");
             Map<?, ?> castArg = castToAllowedTypes(arg, pathToItem, pathSet);

@@ -95,9 +95,9 @@ Petfindbystatus apiClient = new Petfindbystatus(apiConfiguration, schemaConfigur
 
 
 // Map validation
-PetfindbystatusGetQueryParameters.PetfindbystatusGetQueryParametersMap queryParameters =
+PetfindbystatusGetQueryParameters.PetfindbystatusGetQueryParameters9 queryParameters =
     PetfindbystatusGetQueryParameters.PetfindbystatusGetQueryParameters1.validate(
-    new PetfindbystatusGetQueryParameters.PetfindbystatusGetQueryParametersMapBuilder()
+    new PetfindbystatusGetQueryParameters.PetfindbystatusGetQueryParameters8()
         .status(
             Arrays.asList(
                 "available"

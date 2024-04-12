@@ -86,14 +86,14 @@ public class CommonparamsubdirPost {
     }
 
     public static class PostRequest {
-        public CommonparamsubdirPostPathParameters.CommonparamsubdirPostPathParametersMap pathParameters;
-        public CommonparamsubdirPostHeaderParameters.@Nullable CommonparamsubdirPostHeaderParametersMap headerParameters;
+        public CommonparamsubdirPostPathParameters.CommonparamsubdirPostPathParameters9 pathParameters;
+        public CommonparamsubdirPostHeaderParameters.@Nullable CommonparamsubdirPostHeaderParameters9 headerParameters;
         public ServerInfo.@Nullable ServerIndex serverIndex;
         public @Nullable Duration timeout;
 
         public PostRequest(
-            CommonparamsubdirPostPathParameters.CommonparamsubdirPostPathParametersMap pathParameters,
-            CommonparamsubdirPostHeaderParameters.@Nullable CommonparamsubdirPostHeaderParametersMap headerParameters,
+            CommonparamsubdirPostPathParameters.CommonparamsubdirPostPathParameters9 pathParameters,
+            CommonparamsubdirPostHeaderParameters.@Nullable CommonparamsubdirPostHeaderParameters9 headerParameters,
             ServerInfo.@Nullable ServerIndex serverIndex,
             @Nullable Duration timeout
         ) {
@@ -105,8 +105,8 @@ public class CommonparamsubdirPost {
     }
 
     public static class PostNullableRequest {
-        public CommonparamsubdirPostPathParameters.@Nullable CommonparamsubdirPostPathParametersMap pathParameters;
-        public CommonparamsubdirPostHeaderParameters.@Nullable CommonparamsubdirPostHeaderParametersMap headerParameters;
+        public CommonparamsubdirPostPathParameters.@Nullable CommonparamsubdirPostPathParameters9 pathParameters;
+        public CommonparamsubdirPostHeaderParameters.@Nullable CommonparamsubdirPostHeaderParameters9 headerParameters;
         public ServerInfo.@Nullable ServerIndex serverIndex;
         public @Nullable Duration timeout;
     }
@@ -114,7 +114,7 @@ public class CommonparamsubdirPost {
     public interface SetterForHeaderParameters <T> {
         PostNullableRequest getInstance();
         T getBuilderAfterHeaderParameters(PostNullableRequest instance);
-        default T headerParameters(CommonparamsubdirPostHeaderParameters.CommonparamsubdirPostHeaderParametersMap headerParameters) {
+        default T headerParameters(CommonparamsubdirPostHeaderParameters.CommonparamsubdirPostHeaderParameters9 headerParameters) {
             var instance = getInstance();
             instance.headerParameters = headerParameters;
             return getBuilderAfterHeaderParameters(instance);
@@ -144,7 +144,7 @@ public class CommonparamsubdirPost {
     public interface SetterForPathParameters <T> {
         PostNullableRequest getInstance();
         T getBuilderAfterPathParameters(PostNullableRequest instance);
-        default T pathParameters(CommonparamsubdirPostPathParameters.CommonparamsubdirPostPathParametersMap pathParameters) {
+        default T pathParameters(CommonparamsubdirPostPathParameters.CommonparamsubdirPostPathParameters9 pathParameters) {
             var instance = getInstance();
             instance.pathParameters = pathParameters;
             return getBuilderAfterPathParameters(instance);

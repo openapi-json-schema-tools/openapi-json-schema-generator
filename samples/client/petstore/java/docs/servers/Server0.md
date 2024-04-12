@@ -11,12 +11,12 @@ petstore server
 | Constructor and Description |
 | --------------------------- |
 | Server0()<br>Creates a server using default values for variables |
-| Server0([Server0Variables.Server0Variables20](../servers/server0/Server0Variables3.md#server0variables20) variables)<br>Creates a server using input values for variables |
+| Server0([Server0Variables.Server0Variables14](../servers/server0/Server0Variables.md#server0variables14) variables)<br>Creates a server using input values for variables |
 
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | --------------------- |
 | String            | url = "http://{server}.swagger.io:{port}/v2"     |
-| [Server0Variables.Server0Variables20](../servers/server0/Server0Variables3.md#server0variables20) | variables |
+| [Server0Variables.Server0Variables14](../servers/server0/Server0Variables.md#server0variables14) | variables |
 
 [[Back to top]](#top) [[Back to Servers]](../../README.md#Servers) [[Back to README]](../../README.md)

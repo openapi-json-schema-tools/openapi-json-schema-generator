@@ -33,20 +33,20 @@ public class Fakeparametercollisions1ababselfabPostCookieParameters {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static class Fakeparametercollisions1ababselfabPostadditionalProperties extends NotAnyTypeJsonSchema.NotAnyTypeJsonSchema1 {
+    public static class Fakeparametercollisions1ababselfabPostCookieParameters8 extends NotAnyTypeJsonSchema.NotAnyTypeJsonSchema1 {
         // NotAnyTypeSchema
-        private static @Nullable Fakeparametercollisions1ababselfabPostadditionalProperties instance = null;
-        public static Fakeparametercollisions1ababselfabPostadditionalProperties getInstance() {
+        private static @Nullable Fakeparametercollisions1ababselfabPostCookieParameters8 instance = null;
+        public static Fakeparametercollisions1ababselfabPostCookieParameters8 getInstance() {
             if (instance == null) {
-                instance = new Fakeparametercollisions1ababselfabPostadditionalProperties();
+                instance = new Fakeparametercollisions1ababselfabPostCookieParameters8();
             }
             return instance;
         }
     }
     
     
-    public static class Fakeparametercollisions1ababselfabPostCookieParametersMap extends FrozenMap<@Nullable Object> {
-        protected Fakeparametercollisions1ababselfabPostCookieParametersMap(FrozenMap<@Nullable Object> m) {
+    public static class Fakeparametercollisions1ababselfabPostCookieParameters13 extends FrozenMap<@Nullable Object> {
+        protected Fakeparametercollisions1ababselfabPostCookieParameters13(FrozenMap<@Nullable Object> m) {
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of();
@@ -57,7 +57,7 @@ public class Fakeparametercollisions1ababselfabPostCookieParameters {
             "A-B",
             "self"
         );
-        public static Fakeparametercollisions1ababselfabPostCookieParametersMap of(Map<String, ? extends @Nullable Object> arg, SchemaConfiguration configuration) throws ValidationException {
+        public static Fakeparametercollisions1ababselfabPostCookieParameters13 of(Map<String, ? extends @Nullable Object> arg, SchemaConfiguration configuration) throws ValidationException {
             return Fakeparametercollisions1ababselfabPostCookieParameters1.getInstance().validate(arg, configuration);
         }
         
@@ -92,62 +92,62 @@ public class Fakeparametercollisions1ababselfabPostCookieParameters {
         }
     }
     
-    public interface SetterForFakeparametercollisions1ababselfabPost1 <T> {
+    public interface SetterForFakeparametercollisions1ababselfabPostCookieParameters2 <T> {
         Map<String, @Nullable Object> getInstance();
-        T getBuilderAfterFakeparametercollisions1ababselfabPost1(Map<String, @Nullable Object> instance);
+        T getBuilderAfterFakeparametercollisions1ababselfabPostCookieParameters2(Map<String, @Nullable Object> instance);
         
         default T positive1(String value) {
             var instance = getInstance();
             instance.put("1", value);
-            return getBuilderAfterFakeparametercollisions1ababselfabPost1(instance);
+            return getBuilderAfterFakeparametercollisions1ababselfabPostCookieParameters2(instance);
         }
     }
     
-    public interface SetterForFakeparametercollisions1ababselfabPostaB <T> {
+    public interface SetterForFakeparametercollisions1ababselfabPostCookieParameters3 <T> {
         Map<String, @Nullable Object> getInstance();
-        T getBuilderAfterFakeparametercollisions1ababselfabPostaB(Map<String, @Nullable Object> instance);
+        T getBuilderAfterFakeparametercollisions1ababselfabPostCookieParameters3(Map<String, @Nullable Object> instance);
         
         default T aB(String value) {
             var instance = getInstance();
             instance.put("aB", value);
-            return getBuilderAfterFakeparametercollisions1ababselfabPostaB(instance);
+            return getBuilderAfterFakeparametercollisions1ababselfabPostCookieParameters3(instance);
         }
     }
     
-    public interface SetterForFakeparametercollisions1ababselfabPostAb <T> {
+    public interface SetterForFakeparametercollisions1ababselfabPostCookieParameters4 <T> {
         Map<String, @Nullable Object> getInstance();
-        T getBuilderAfterFakeparametercollisions1ababselfabPostAb(Map<String, @Nullable Object> instance);
+        T getBuilderAfterFakeparametercollisions1ababselfabPostCookieParameters4(Map<String, @Nullable Object> instance);
         
         default T Ab(String value) {
             var instance = getInstance();
             instance.put("Ab", value);
-            return getBuilderAfterFakeparametercollisions1ababselfabPostAb(instance);
+            return getBuilderAfterFakeparametercollisions1ababselfabPostCookieParameters4(instance);
         }
     }
     
-    public interface SetterForFakeparametercollisions1ababselfabPostAB <T> {
+    public interface SetterForFakeparametercollisions1ababselfabPostCookieParameters5 <T> {
         Map<String, @Nullable Object> getInstance();
-        T getBuilderAfterFakeparametercollisions1ababselfabPostAB(Map<String, @Nullable Object> instance);
+        T getBuilderAfterFakeparametercollisions1ababselfabPostCookieParameters5(Map<String, @Nullable Object> instance);
         
         default T aHyphenMinusB(String value) {
             var instance = getInstance();
             instance.put("A-B", value);
-            return getBuilderAfterFakeparametercollisions1ababselfabPostAB(instance);
+            return getBuilderAfterFakeparametercollisions1ababselfabPostCookieParameters5(instance);
         }
     }
     
-    public interface SetterForFakeparametercollisions1ababselfabPostself <T> {
+    public interface SetterForFakeparametercollisions1ababselfabPostCookieParameters6 <T> {
         Map<String, @Nullable Object> getInstance();
-        T getBuilderAfterFakeparametercollisions1ababselfabPostself(Map<String, @Nullable Object> instance);
+        T getBuilderAfterFakeparametercollisions1ababselfabPostCookieParameters6(Map<String, @Nullable Object> instance);
         
         default T self(String value) {
             var instance = getInstance();
             instance.put("self", value);
-            return getBuilderAfterFakeparametercollisions1ababselfabPostself(instance);
+            return getBuilderAfterFakeparametercollisions1ababselfabPostCookieParameters6(instance);
         }
     }
     
-    public static class Fakeparametercollisions1ababselfabPostCookieParametersMapBuilder implements GenericBuilder<Map<String, @Nullable Object>>, SetterForFakeparametercollisions1ababselfabPost1<Fakeparametercollisions1ababselfabPostCookieParametersMapBuilder>, SetterForFakeparametercollisions1ababselfabPostaB<Fakeparametercollisions1ababselfabPostCookieParametersMapBuilder>, SetterForFakeparametercollisions1ababselfabPostAb<Fakeparametercollisions1ababselfabPostCookieParametersMapBuilder>, SetterForFakeparametercollisions1ababselfabPostAB<Fakeparametercollisions1ababselfabPostCookieParametersMapBuilder>, SetterForFakeparametercollisions1ababselfabPostself<Fakeparametercollisions1ababselfabPostCookieParametersMapBuilder> {
+    public static class Fakeparametercollisions1ababselfabPostCookieParameters12 implements GenericBuilder<Map<String, @Nullable Object>>, SetterForFakeparametercollisions1ababselfabPostCookieParameters2<Fakeparametercollisions1ababselfabPostCookieParameters12>, SetterForFakeparametercollisions1ababselfabPostCookieParameters3<Fakeparametercollisions1ababselfabPostCookieParameters12>, SetterForFakeparametercollisions1ababselfabPostCookieParameters4<Fakeparametercollisions1ababselfabPostCookieParameters12>, SetterForFakeparametercollisions1ababselfabPostCookieParameters5<Fakeparametercollisions1ababselfabPostCookieParameters12>, SetterForFakeparametercollisions1ababselfabPostCookieParameters6<Fakeparametercollisions1ababselfabPostCookieParameters12> {
         private final Map<String, @Nullable Object> instance;
         private static final Set<String> knownKeys = Set.of(
             "1",
@@ -159,7 +159,7 @@ public class Fakeparametercollisions1ababselfabPostCookieParameters {
         public Set<String> getKnownKeys() {
             return knownKeys;
         }
-        public Fakeparametercollisions1ababselfabPostCookieParametersMapBuilder() {
+        public Fakeparametercollisions1ababselfabPostCookieParameters12() {
             this.instance = new LinkedHashMap<>();
         }
         public Map<String, @Nullable Object> build() {
@@ -168,19 +168,19 @@ public class Fakeparametercollisions1ababselfabPostCookieParameters {
         public Map<String, @Nullable Object> getInstance() {
             return instance;
         }
-        public Fakeparametercollisions1ababselfabPostCookieParametersMapBuilder getBuilderAfterFakeparametercollisions1ababselfabPost1(Map<String, @Nullable Object> instance) {
+        public Fakeparametercollisions1ababselfabPostCookieParameters12 getBuilderAfterFakeparametercollisions1ababselfabPostCookieParameters2(Map<String, @Nullable Object> instance) {
             return this;
         }
-        public Fakeparametercollisions1ababselfabPostCookieParametersMapBuilder getBuilderAfterFakeparametercollisions1ababselfabPostaB(Map<String, @Nullable Object> instance) {
+        public Fakeparametercollisions1ababselfabPostCookieParameters12 getBuilderAfterFakeparametercollisions1ababselfabPostCookieParameters3(Map<String, @Nullable Object> instance) {
             return this;
         }
-        public Fakeparametercollisions1ababselfabPostCookieParametersMapBuilder getBuilderAfterFakeparametercollisions1ababselfabPostAb(Map<String, @Nullable Object> instance) {
+        public Fakeparametercollisions1ababselfabPostCookieParameters12 getBuilderAfterFakeparametercollisions1ababselfabPostCookieParameters4(Map<String, @Nullable Object> instance) {
             return this;
         }
-        public Fakeparametercollisions1ababselfabPostCookieParametersMapBuilder getBuilderAfterFakeparametercollisions1ababselfabPostAB(Map<String, @Nullable Object> instance) {
+        public Fakeparametercollisions1ababselfabPostCookieParameters12 getBuilderAfterFakeparametercollisions1ababselfabPostCookieParameters5(Map<String, @Nullable Object> instance) {
             return this;
         }
-        public Fakeparametercollisions1ababselfabPostCookieParametersMapBuilder getBuilderAfterFakeparametercollisions1ababselfabPostself(Map<String, @Nullable Object> instance) {
+        public Fakeparametercollisions1ababselfabPostCookieParameters12 getBuilderAfterFakeparametercollisions1ababselfabPostCookieParameters6(Map<String, @Nullable Object> instance) {
             return this;
         }
     }
@@ -190,7 +190,7 @@ public class Fakeparametercollisions1ababselfabPostCookieParameters {
         @Nullable Object getData();
     }
     
-    public record Fakeparametercollisions1ababselfabPostCookieParameters1BoxedMap(Fakeparametercollisions1ababselfabPostCookieParametersMap data) implements Fakeparametercollisions1ababselfabPostCookieParameters1Boxed {
+    public record Fakeparametercollisions1ababselfabPostCookieParameters1BoxedMap(Fakeparametercollisions1ababselfabPostCookieParameters13 data) implements Fakeparametercollisions1ababselfabPostCookieParameters1Boxed {
         @Override
         public @Nullable Object getData() {
             return data;
@@ -198,7 +198,7 @@ public class Fakeparametercollisions1ababselfabPostCookieParameters {
     }
     
     
-    public static class Fakeparametercollisions1ababselfabPostCookieParameters1 extends JsonSchema<Fakeparametercollisions1ababselfabPostCookieParameters1Boxed> implements MapSchemaValidator<Fakeparametercollisions1ababselfabPostCookieParametersMap, Fakeparametercollisions1ababselfabPostCookieParameters1BoxedMap> {
+    public static class Fakeparametercollisions1ababselfabPostCookieParameters1 extends JsonSchema<Fakeparametercollisions1ababselfabPostCookieParameters1Boxed> implements MapSchemaValidator<Fakeparametercollisions1ababselfabPostCookieParameters13, Fakeparametercollisions1ababselfabPostCookieParameters1BoxedMap> {
         private static @Nullable Fakeparametercollisions1ababselfabPostCookieParameters1 instance = null;
     
         protected Fakeparametercollisions1ababselfabPostCookieParameters1() {
@@ -211,7 +211,7 @@ public class Fakeparametercollisions1ababselfabPostCookieParameters {
                     new PropertyEntry("A-B", Schema18.Schema181.class),
                     new PropertyEntry("self", Schema17.Schema171.class)
                 ))
-                .additionalProperties(Fakeparametercollisions1ababselfabPostadditionalProperties.class)
+                .additionalProperties(Fakeparametercollisions1ababselfabPostCookieParameters8.class)
             );
         }
     
@@ -222,7 +222,7 @@ public class Fakeparametercollisions1ababselfabPostCookieParameters {
             return instance;
         }
         
-        public Fakeparametercollisions1ababselfabPostCookieParametersMap getNewInstance(Map<?, ?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+        public Fakeparametercollisions1ababselfabPostCookieParameters13 getNewInstance(Map<?, ?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
             LinkedHashMap<String, @Nullable Object> properties = new LinkedHashMap<>();
             for(Map.Entry<?, ?> entry: arg.entrySet()) {
                 @Nullable Object entryKey = entry.getKey();
@@ -242,10 +242,10 @@ public class Fakeparametercollisions1ababselfabPostCookieParameters {
                 properties.put(propertyName, propertyInstance);
             }
             FrozenMap<@Nullable Object> castProperties = new FrozenMap<>(properties);
-            return new Fakeparametercollisions1ababselfabPostCookieParametersMap(castProperties);
+            return new Fakeparametercollisions1ababselfabPostCookieParameters13(castProperties);
         }
         
-        public Fakeparametercollisions1ababselfabPostCookieParametersMap validate(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException {
+        public Fakeparametercollisions1ababselfabPostCookieParameters13 validate(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException {
             Set<List<Object>> pathSet = new HashSet<>();
             List<Object> pathToItem = List.of("args[0");
             Map<?, ?> castArg = castToAllowedTypes(arg, pathToItem, pathSet);

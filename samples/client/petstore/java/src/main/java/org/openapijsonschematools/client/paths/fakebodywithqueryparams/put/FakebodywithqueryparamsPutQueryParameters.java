@@ -29,27 +29,27 @@ public class FakebodywithqueryparamsPutQueryParameters {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static class FakebodywithqueryparamsPutadditionalProperties extends NotAnyTypeJsonSchema.NotAnyTypeJsonSchema1 {
+    public static class FakebodywithqueryparamsPutQueryParameters4 extends NotAnyTypeJsonSchema.NotAnyTypeJsonSchema1 {
         // NotAnyTypeSchema
-        private static @Nullable FakebodywithqueryparamsPutadditionalProperties instance = null;
-        public static FakebodywithqueryparamsPutadditionalProperties getInstance() {
+        private static @Nullable FakebodywithqueryparamsPutQueryParameters4 instance = null;
+        public static FakebodywithqueryparamsPutQueryParameters4 getInstance() {
             if (instance == null) {
-                instance = new FakebodywithqueryparamsPutadditionalProperties();
+                instance = new FakebodywithqueryparamsPutQueryParameters4();
             }
             return instance;
         }
     }
     
     
-    public static class FakebodywithqueryparamsPutQueryParametersMap extends FrozenMap<String> {
-        protected FakebodywithqueryparamsPutQueryParametersMap(FrozenMap<String> m) {
+    public static class FakebodywithqueryparamsPutQueryParameters9 extends FrozenMap<String> {
+        protected FakebodywithqueryparamsPutQueryParameters9(FrozenMap<String> m) {
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of(
             "query"
         );
         public static final Set<String> optionalKeys = Set.of();
-        public static FakebodywithqueryparamsPutQueryParametersMap of(Map<String, String> arg, SchemaConfiguration configuration) throws ValidationException {
+        public static FakebodywithqueryparamsPutQueryParameters9 of(Map<String, String> arg, SchemaConfiguration configuration) throws ValidationException {
             return FakebodywithqueryparamsPutQueryParameters1.getInstance().validate(arg, configuration);
         }
         
@@ -62,18 +62,18 @@ public class FakebodywithqueryparamsPutQueryParameters {
         }
     }
     
-    public interface SetterForFakebodywithqueryparamsPutquery <T> {
+    public interface SetterForFakebodywithqueryparamsPutQueryParameters2 <T> {
         Map<String, String> getInstance();
-        T getBuilderAfterFakebodywithqueryparamsPutquery(Map<String, String> instance);
+        T getBuilderAfterFakebodywithqueryparamsPutQueryParameters2(Map<String, String> instance);
         
         default T query(String value) {
             var instance = getInstance();
             instance.put("query", value);
-            return getBuilderAfterFakebodywithqueryparamsPutquery(instance);
+            return getBuilderAfterFakebodywithqueryparamsPutQueryParameters2(instance);
         }
     }
     
-    public static class FakebodywithqueryparamsPutQueryParametersMap0Builder implements GenericBuilder<Map<String, String>> {
+    public static class FakebodywithqueryparamsPutQueryParameters10 implements GenericBuilder<Map<String, String>> {
         private final Map<String, String> instance;
         private static final Set<String> knownKeys = Set.of(
             "query"
@@ -81,7 +81,7 @@ public class FakebodywithqueryparamsPutQueryParameters {
         public Set<String> getKnownKeys() {
             return knownKeys;
         }
-        public FakebodywithqueryparamsPutQueryParametersMap0Builder(Map<String, String> instance) {
+        public FakebodywithqueryparamsPutQueryParameters10(Map<String, String> instance) {
             this.instance = instance;
         }
         public Map<String, String> build() {
@@ -89,16 +89,16 @@ public class FakebodywithqueryparamsPutQueryParameters {
         }
     }
     
-    public static class FakebodywithqueryparamsPutQueryParametersMapBuilder implements SetterForFakebodywithqueryparamsPutquery<FakebodywithqueryparamsPutQueryParametersMap0Builder> {
+    public static class FakebodywithqueryparamsPutQueryParameters8 implements SetterForFakebodywithqueryparamsPutQueryParameters2<FakebodywithqueryparamsPutQueryParameters10> {
         private final Map<String, String> instance;
-        public FakebodywithqueryparamsPutQueryParametersMapBuilder() {
+        public FakebodywithqueryparamsPutQueryParameters8() {
             this.instance = new LinkedHashMap<>();
         }
         public Map<String, String> getInstance() {
             return instance;
         }
-        public FakebodywithqueryparamsPutQueryParametersMap0Builder getBuilderAfterFakebodywithqueryparamsPutquery(Map<String, String> instance) {
-            return new FakebodywithqueryparamsPutQueryParametersMap0Builder(instance);
+        public FakebodywithqueryparamsPutQueryParameters10 getBuilderAfterFakebodywithqueryparamsPutQueryParameters2(Map<String, String> instance) {
+            return new FakebodywithqueryparamsPutQueryParameters10(instance);
         }
     }
     
@@ -107,7 +107,7 @@ public class FakebodywithqueryparamsPutQueryParameters {
         @Nullable Object getData();
     }
     
-    public record FakebodywithqueryparamsPutQueryParameters1BoxedMap(FakebodywithqueryparamsPutQueryParametersMap data) implements FakebodywithqueryparamsPutQueryParameters1Boxed {
+    public record FakebodywithqueryparamsPutQueryParameters1BoxedMap(FakebodywithqueryparamsPutQueryParameters9 data) implements FakebodywithqueryparamsPutQueryParameters1Boxed {
         @Override
         public @Nullable Object getData() {
             return data;
@@ -115,7 +115,7 @@ public class FakebodywithqueryparamsPutQueryParameters {
     }
     
     
-    public static class FakebodywithqueryparamsPutQueryParameters1 extends JsonSchema<FakebodywithqueryparamsPutQueryParameters1Boxed> implements MapSchemaValidator<FakebodywithqueryparamsPutQueryParametersMap, FakebodywithqueryparamsPutQueryParameters1BoxedMap> {
+    public static class FakebodywithqueryparamsPutQueryParameters1 extends JsonSchema<FakebodywithqueryparamsPutQueryParameters1Boxed> implements MapSchemaValidator<FakebodywithqueryparamsPutQueryParameters9, FakebodywithqueryparamsPutQueryParameters1BoxedMap> {
         private static @Nullable FakebodywithqueryparamsPutQueryParameters1 instance = null;
     
         protected FakebodywithqueryparamsPutQueryParameters1() {
@@ -127,7 +127,7 @@ public class FakebodywithqueryparamsPutQueryParameters {
                 .required(Set.of(
                     "query"
                 ))
-                .additionalProperties(FakebodywithqueryparamsPutadditionalProperties.class)
+                .additionalProperties(FakebodywithqueryparamsPutQueryParameters4.class)
             );
         }
     
@@ -138,7 +138,7 @@ public class FakebodywithqueryparamsPutQueryParameters {
             return instance;
         }
         
-        public FakebodywithqueryparamsPutQueryParametersMap getNewInstance(Map<?, ?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+        public FakebodywithqueryparamsPutQueryParameters9 getNewInstance(Map<?, ?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
             LinkedHashMap<String, String> properties = new LinkedHashMap<>();
             for(Map.Entry<?, ?> entry: arg.entrySet()) {
                 @Nullable Object entryKey = entry.getKey();
@@ -161,10 +161,10 @@ public class FakebodywithqueryparamsPutQueryParameters {
                 properties.put(propertyName, (String) propertyInstance);
             }
             FrozenMap<String> castProperties = new FrozenMap<>(properties);
-            return new FakebodywithqueryparamsPutQueryParametersMap(castProperties);
+            return new FakebodywithqueryparamsPutQueryParameters9(castProperties);
         }
         
-        public FakebodywithqueryparamsPutQueryParametersMap validate(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException {
+        public FakebodywithqueryparamsPutQueryParameters9 validate(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException {
             Set<List<Object>> pathSet = new HashSet<>();
             List<Object> pathToItem = List.of("args[0");
             Map<?, ?> castArg = castToAllowedTypes(arg, pathToItem, pathSet);

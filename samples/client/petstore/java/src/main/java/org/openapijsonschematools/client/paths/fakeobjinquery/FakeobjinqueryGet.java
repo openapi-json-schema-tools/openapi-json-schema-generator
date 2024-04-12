@@ -83,7 +83,7 @@ public class FakeobjinqueryGet {
     }
 
     public static class GetRequest {
-        public FakeobjinqueryGetQueryParameters.@Nullable FakeobjinqueryGetQueryParametersMap queryParameters;
+        public FakeobjinqueryGetQueryParameters.@Nullable FakeobjinqueryGetQueryParameters9 queryParameters;
         public ServerInfo.@Nullable ServerIndex serverIndex;
         public @Nullable Duration timeout;
     }
@@ -91,7 +91,7 @@ public class FakeobjinqueryGet {
     public interface SetterForQueryParameters <T> {
         GetRequest getInstance();
         T getBuilderAfterQueryParameters(GetRequest instance);
-        default T queryParameters(FakeobjinqueryGetQueryParameters.FakeobjinqueryGetQueryParametersMap queryParameters) {
+        default T queryParameters(FakeobjinqueryGetQueryParameters.FakeobjinqueryGetQueryParameters9 queryParameters) {
             var instance = getInstance();
             instance.queryParameters = queryParameters;
             return getBuilderAfterQueryParameters(instance);

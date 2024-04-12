@@ -444,9 +444,9 @@ User apiClient = new User(apiConfiguration, schemaConfiguration);
 
 
 // Map validation
-UserloginGetQueryParameters.UserloginGetQueryParametersMap queryParameters =
+UserloginGetQueryParameters.UserloginGetQueryParameters10 queryParameters =
     UserloginGetQueryParameters.UserloginGetQueryParameters1.validate(
-    new UserloginGetQueryParameters.UserloginGetQueryParametersMapBuilder()
+    new UserloginGetQueryParameters.UserloginGetQueryParameters9()
         .password("a")
 
         .username("a")
@@ -557,9 +557,9 @@ User apiClient = new User(apiConfiguration, schemaConfiguration);
 
 
 // Map validation
-UserusernameDeletePathParameters.UserusernameDeletePathParametersMap pathParameters =
+UserusernameDeletePathParameters.UserusernameDeletePathParameters9 pathParameters =
     UserusernameDeletePathParameters.UserusernameDeletePathParameters1.validate(
-    new UserusernameDeletePathParameters.UserusernameDeletePathParametersMapBuilder()
+    new UserusernameDeletePathParameters.UserusernameDeletePathParameters8()
         .username("a")
 
     .build(),
@@ -663,9 +663,9 @@ User apiClient = new User(apiConfiguration, schemaConfiguration);
 
 
 // Map validation
-UserusernameGetPathParameters.UserusernameGetPathParametersMap pathParameters =
+UserusernameGetPathParameters.UserusernameGetPathParameters9 pathParameters =
     UserusernameGetPathParameters.UserusernameGetPathParameters1.validate(
-    new UserusernameGetPathParameters.UserusernameGetPathParametersMapBuilder()
+    new UserusernameGetPathParameters.UserusernameGetPathParameters8()
         .username("a")
 
     .build(),
@@ -802,9 +802,9 @@ User1BoxedMap requestBodyPayload =
 UserusernamePut.SealedRequestBody requestBody = new UserusernamePut.ApplicationjsonRequestBody(requestBodyPayload);
 
 // Map validation
-UserusernamePutPathParameters.UserusernamePutPathParametersMap pathParameters =
+UserusernamePutPathParameters.UserusernamePutPathParameters9 pathParameters =
     UserusernamePutPathParameters.UserusernamePutPathParameters1.validate(
-    new UserusernamePutPathParameters.UserusernamePutPathParametersMapBuilder()
+    new UserusernamePutPathParameters.UserusernamePutPathParameters8()
         .username("a")
 
     .build(),

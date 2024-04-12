@@ -83,9 +83,9 @@ Fakeparametercollisions1ababselfab apiClient = new Fakeparametercollisions1ababs
 
 
 // Map validation
-Fakeparametercollisions1ababselfabPostPathParameters.Fakeparametercollisions1ababselfabPostPathParametersMap pathParameters =
+Fakeparametercollisions1ababselfabPostPathParameters.Fakeparametercollisions1ababselfabPostPathParameters13 pathParameters =
     Fakeparametercollisions1ababselfabPostPathParameters.Fakeparametercollisions1ababselfabPostPathParameters1.validate(
-    new Fakeparametercollisions1ababselfabPostPathParameters.Fakeparametercollisions1ababselfabPostPathParametersMapBuilder()
+    new Fakeparametercollisions1ababselfabPostPathParameters.Fakeparametercollisions1ababselfabPostPathParameters12()
         .positive1("a")
 
         .aHyphenMinusB("a")

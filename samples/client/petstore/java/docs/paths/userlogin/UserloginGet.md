@@ -76,9 +76,9 @@ UserloginGet.Get apiClient = new UserloginGet.Get(apiConfiguration, schemaConfig
 
 
 // Map validation
-UserloginGetQueryParameters.UserloginGetQueryParametersMap queryParameters =
+UserloginGetQueryParameters.UserloginGetQueryParameters10 queryParameters =
     UserloginGetQueryParameters.UserloginGetQueryParameters1.validate(
-    new UserloginGetQueryParameters.UserloginGetQueryParametersMapBuilder()
+    new UserloginGetQueryParameters.UserloginGetQueryParameters9()
         .password("a")
 
         .username("a")
@@ -147,7 +147,7 @@ a class that stores the final request inputs
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | --------------------- |
-| [UserloginGetQueryParameters.UserloginGetQueryParametersMap](../../paths/userlogin/get/UserloginGetQueryParameters.md#userlogingetqueryparametersmap) | queryParameters |
+| [UserloginGetQueryParameters.UserloginGetQueryParameters10](../../paths/userlogin/get/UserloginGetQueryParameters.md#userlogingetqueryparameters10) | queryParameters |
 | [ServerInfo.@Nullable ServerIndex](../../ServerInfo.md#serverindex) | serverIndex<br>optional. Note: this will override the value in apiConfiguration |
 | @Nullable Duration | timeout<br>optional. Note: this will override the value in apiConfiguration |
 
@@ -159,7 +159,7 @@ a class that stores the initial request inputs
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | --------------------- |
-| [UserloginGetQueryParameters.@Nullable UserloginGetQueryParametersMap](../../paths/userlogin/get/UserloginGetQueryParameters.md#userlogingetqueryparametersmap) | queryParameters |
+| [UserloginGetQueryParameters.@Nullable UserloginGetQueryParameters10](../../paths/userlogin/get/UserloginGetQueryParameters.md#userlogingetqueryparameters10) | queryParameters |
 | [ServerInfo.@Nullable ServerIndex](../../ServerInfo.md#serverindex) | serverIndex |
 | @Nullable Duration | timeout |
 
@@ -193,6 +193,6 @@ a builder for request inputs
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [Get0RequestBuilder](#get0requestbuilder) | queryParameters([UserloginGetQueryParametersUserloginGetQueryParametersMap](../../paths/userlogin/get/UserloginGetQueryParameters.md#userlogingetqueryparametersmap) queryParameters)<br>sets the property |
+| [Get0RequestBuilder](#get0requestbuilder) | queryParameters([UserloginGetQueryParametersUserloginGetQueryParameters10](../../paths/userlogin/get/UserloginGetQueryParameters.md#userlogingetqueryparameters10) queryParameters)<br>sets the property |
 
 [[Back to top]](#top) [[Back to README]](../../../README.md)

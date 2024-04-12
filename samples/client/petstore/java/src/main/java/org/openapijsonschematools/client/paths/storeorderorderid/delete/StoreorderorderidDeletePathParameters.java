@@ -29,27 +29,27 @@ public class StoreorderorderidDeletePathParameters {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static class StoreorderorderidDeleteadditionalProperties extends NotAnyTypeJsonSchema.NotAnyTypeJsonSchema1 {
+    public static class StoreorderorderidDeletePathParameters4 extends NotAnyTypeJsonSchema.NotAnyTypeJsonSchema1 {
         // NotAnyTypeSchema
-        private static @Nullable StoreorderorderidDeleteadditionalProperties instance = null;
-        public static StoreorderorderidDeleteadditionalProperties getInstance() {
+        private static @Nullable StoreorderorderidDeletePathParameters4 instance = null;
+        public static StoreorderorderidDeletePathParameters4 getInstance() {
             if (instance == null) {
-                instance = new StoreorderorderidDeleteadditionalProperties();
+                instance = new StoreorderorderidDeletePathParameters4();
             }
             return instance;
         }
     }
     
     
-    public static class StoreorderorderidDeletePathParametersMap extends FrozenMap<String> {
-        protected StoreorderorderidDeletePathParametersMap(FrozenMap<String> m) {
+    public static class StoreorderorderidDeletePathParameters9 extends FrozenMap<String> {
+        protected StoreorderorderidDeletePathParameters9(FrozenMap<String> m) {
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of(
             "order_id"
         );
         public static final Set<String> optionalKeys = Set.of();
-        public static StoreorderorderidDeletePathParametersMap of(Map<String, String> arg, SchemaConfiguration configuration) throws ValidationException {
+        public static StoreorderorderidDeletePathParameters9 of(Map<String, String> arg, SchemaConfiguration configuration) throws ValidationException {
             return StoreorderorderidDeletePathParameters1.getInstance().validate(arg, configuration);
         }
         
@@ -62,18 +62,18 @@ public class StoreorderorderidDeletePathParameters {
         }
     }
     
-    public interface SetterForStoreorderorderidDeleteorderId <T> {
+    public interface SetterForStoreorderorderidDeletePathParameters2 <T> {
         Map<String, String> getInstance();
-        T getBuilderAfterStoreorderorderidDeleteorderId(Map<String, String> instance);
+        T getBuilderAfterStoreorderorderidDeletePathParameters2(Map<String, String> instance);
         
         default T order_id(String value) {
             var instance = getInstance();
             instance.put("order_id", value);
-            return getBuilderAfterStoreorderorderidDeleteorderId(instance);
+            return getBuilderAfterStoreorderorderidDeletePathParameters2(instance);
         }
     }
     
-    public static class StoreorderorderidDeletePathParametersMap0Builder implements GenericBuilder<Map<String, String>> {
+    public static class StoreorderorderidDeletePathParameters10 implements GenericBuilder<Map<String, String>> {
         private final Map<String, String> instance;
         private static final Set<String> knownKeys = Set.of(
             "order_id"
@@ -81,7 +81,7 @@ public class StoreorderorderidDeletePathParameters {
         public Set<String> getKnownKeys() {
             return knownKeys;
         }
-        public StoreorderorderidDeletePathParametersMap0Builder(Map<String, String> instance) {
+        public StoreorderorderidDeletePathParameters10(Map<String, String> instance) {
             this.instance = instance;
         }
         public Map<String, String> build() {
@@ -89,16 +89,16 @@ public class StoreorderorderidDeletePathParameters {
         }
     }
     
-    public static class StoreorderorderidDeletePathParametersMapBuilder implements SetterForStoreorderorderidDeleteorderId<StoreorderorderidDeletePathParametersMap0Builder> {
+    public static class StoreorderorderidDeletePathParameters8 implements SetterForStoreorderorderidDeletePathParameters2<StoreorderorderidDeletePathParameters10> {
         private final Map<String, String> instance;
-        public StoreorderorderidDeletePathParametersMapBuilder() {
+        public StoreorderorderidDeletePathParameters8() {
             this.instance = new LinkedHashMap<>();
         }
         public Map<String, String> getInstance() {
             return instance;
         }
-        public StoreorderorderidDeletePathParametersMap0Builder getBuilderAfterStoreorderorderidDeleteorderId(Map<String, String> instance) {
-            return new StoreorderorderidDeletePathParametersMap0Builder(instance);
+        public StoreorderorderidDeletePathParameters10 getBuilderAfterStoreorderorderidDeletePathParameters2(Map<String, String> instance) {
+            return new StoreorderorderidDeletePathParameters10(instance);
         }
     }
     
@@ -107,7 +107,7 @@ public class StoreorderorderidDeletePathParameters {
         @Nullable Object getData();
     }
     
-    public record StoreorderorderidDeletePathParameters1BoxedMap(StoreorderorderidDeletePathParametersMap data) implements StoreorderorderidDeletePathParameters1Boxed {
+    public record StoreorderorderidDeletePathParameters1BoxedMap(StoreorderorderidDeletePathParameters9 data) implements StoreorderorderidDeletePathParameters1Boxed {
         @Override
         public @Nullable Object getData() {
             return data;
@@ -115,7 +115,7 @@ public class StoreorderorderidDeletePathParameters {
     }
     
     
-    public static class StoreorderorderidDeletePathParameters1 extends JsonSchema<StoreorderorderidDeletePathParameters1Boxed> implements MapSchemaValidator<StoreorderorderidDeletePathParametersMap, StoreorderorderidDeletePathParameters1BoxedMap> {
+    public static class StoreorderorderidDeletePathParameters1 extends JsonSchema<StoreorderorderidDeletePathParameters1Boxed> implements MapSchemaValidator<StoreorderorderidDeletePathParameters9, StoreorderorderidDeletePathParameters1BoxedMap> {
         private static @Nullable StoreorderorderidDeletePathParameters1 instance = null;
     
         protected StoreorderorderidDeletePathParameters1() {
@@ -127,7 +127,7 @@ public class StoreorderorderidDeletePathParameters {
                 .required(Set.of(
                     "order_id"
                 ))
-                .additionalProperties(StoreorderorderidDeleteadditionalProperties.class)
+                .additionalProperties(StoreorderorderidDeletePathParameters4.class)
             );
         }
     
@@ -138,7 +138,7 @@ public class StoreorderorderidDeletePathParameters {
             return instance;
         }
         
-        public StoreorderorderidDeletePathParametersMap getNewInstance(Map<?, ?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+        public StoreorderorderidDeletePathParameters9 getNewInstance(Map<?, ?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
             LinkedHashMap<String, String> properties = new LinkedHashMap<>();
             for(Map.Entry<?, ?> entry: arg.entrySet()) {
                 @Nullable Object entryKey = entry.getKey();
@@ -161,10 +161,10 @@ public class StoreorderorderidDeletePathParameters {
                 properties.put(propertyName, (String) propertyInstance);
             }
             FrozenMap<String> castProperties = new FrozenMap<>(properties);
-            return new StoreorderorderidDeletePathParametersMap(castProperties);
+            return new StoreorderorderidDeletePathParameters9(castProperties);
         }
         
-        public StoreorderorderidDeletePathParametersMap validate(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException {
+        public StoreorderorderidDeletePathParameters9 validate(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException {
             Set<List<Object>> pathSet = new HashSet<>();
             List<Object> pathToItem = List.of("args[0");
             Map<?, ?> castArg = castToAllowedTypes(arg, pathToItem, pathSet);

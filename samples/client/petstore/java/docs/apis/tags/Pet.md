@@ -108,9 +108,9 @@ Pet apiClient = new Pet(apiConfiguration, schemaConfiguration);
 
 
 // Map validation
-FakepetiduploadimagewithrequiredfilePostPathParameters.FakepetiduploadimagewithrequiredfilePostPathParametersMap pathParameters =
+FakepetiduploadimagewithrequiredfilePostPathParameters.FakepetiduploadimagewithrequiredfilePostPathParameters9 pathParameters =
     FakepetiduploadimagewithrequiredfilePostPathParameters.FakepetiduploadimagewithrequiredfilePostPathParameters1.validate(
-    new FakepetiduploadimagewithrequiredfilePostPathParameters.FakepetiduploadimagewithrequiredfilePostPathParametersMapBuilder()
+    new FakepetiduploadimagewithrequiredfilePostPathParameters.FakepetiduploadimagewithrequiredfilePostPathParameters8()
         .petId(1L)
 
     .build(),
@@ -520,9 +520,9 @@ Pet apiClient = new Pet(apiConfiguration, schemaConfiguration);
 
 
 // Map validation
-PetfindbytagsGetQueryParameters.PetfindbytagsGetQueryParametersMap queryParameters =
+PetfindbytagsGetQueryParameters.PetfindbytagsGetQueryParameters9 queryParameters =
     PetfindbytagsGetQueryParameters.PetfindbytagsGetQueryParameters1.validate(
-    new PetfindbytagsGetQueryParameters.PetfindbytagsGetQueryParametersMapBuilder()
+    new PetfindbytagsGetQueryParameters.PetfindbytagsGetQueryParameters8()
         .tags(
             Arrays.asList(
                 "a"
@@ -642,9 +642,9 @@ Pet apiClient = new Pet(apiConfiguration, schemaConfiguration);
 
 
 // Map validation
-PetfindbystatusGetQueryParameters.PetfindbystatusGetQueryParametersMap queryParameters =
+PetfindbystatusGetQueryParameters.PetfindbystatusGetQueryParameters9 queryParameters =
     PetfindbystatusGetQueryParameters.PetfindbystatusGetQueryParameters1.validate(
-    new PetfindbystatusGetQueryParameters.PetfindbystatusGetQueryParametersMapBuilder()
+    new PetfindbystatusGetQueryParameters.PetfindbystatusGetQueryParameters8()
         .status(
             Arrays.asList(
                 "available"
@@ -761,9 +761,9 @@ Pet apiClient = new Pet(apiConfiguration, schemaConfiguration);
 
 
 // Map validation
-PetpetiduploadimagePostPathParameters.PetpetiduploadimagePostPathParametersMap pathParameters =
+PetpetiduploadimagePostPathParameters.PetpetiduploadimagePostPathParameters9 pathParameters =
     PetpetiduploadimagePostPathParameters.PetpetiduploadimagePostPathParameters1.validate(
-    new PetpetiduploadimagePostPathParameters.PetpetiduploadimagePostPathParametersMapBuilder()
+    new PetpetiduploadimagePostPathParameters.PetpetiduploadimagePostPathParameters8()
         .petId(1L)
 
     .build(),
@@ -877,9 +877,9 @@ Pet apiClient = new Pet(apiConfiguration, schemaConfiguration);
 
 
 // Map validation
-PetpetidDeletePathParameters.PetpetidDeletePathParametersMap pathParameters =
+PetpetidDeletePathParameters.PetpetidDeletePathParameters9 pathParameters =
     PetpetidDeletePathParameters.PetpetidDeletePathParameters1.validate(
-    new PetpetidDeletePathParameters.PetpetidDeletePathParametersMapBuilder()
+    new PetpetidDeletePathParameters.PetpetidDeletePathParameters8()
         .petId(1L)
 
     .build(),
@@ -994,9 +994,9 @@ Pet apiClient = new Pet(apiConfiguration, schemaConfiguration);
 
 
 // Map validation
-PetpetidGetPathParameters.PetpetidGetPathParametersMap pathParameters =
+PetpetidGetPathParameters.PetpetidGetPathParameters9 pathParameters =
     PetpetidGetPathParameters.PetpetidGetPathParameters1.validate(
-    new PetpetidGetPathParameters.PetpetidGetPathParametersMapBuilder()
+    new PetpetidGetPathParameters.PetpetidGetPathParameters8()
         .petId(1L)
 
     .build(),
@@ -1118,9 +1118,9 @@ Pet apiClient = new Pet(apiConfiguration, schemaConfiguration);
 
 
 // Map validation
-PetpetidPostPathParameters.PetpetidPostPathParametersMap pathParameters =
+PetpetidPostPathParameters.PetpetidPostPathParameters9 pathParameters =
     PetpetidPostPathParameters.PetpetidPostPathParameters1.validate(
-    new PetpetidPostPathParameters.PetpetidPostPathParametersMapBuilder()
+    new PetpetidPostPathParameters.PetpetidPostPathParameters8()
         .petId(1L)
 
     .build(),

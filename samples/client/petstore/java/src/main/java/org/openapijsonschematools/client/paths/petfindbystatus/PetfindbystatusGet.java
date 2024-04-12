@@ -93,13 +93,13 @@ public class PetfindbystatusGet {
     }
 
     public static class GetRequest {
-        public PetfindbystatusGetQueryParameters.PetfindbystatusGetQueryParametersMap queryParameters;
+        public PetfindbystatusGetQueryParameters.PetfindbystatusGetQueryParameters9 queryParameters;
         public PetfindbystatusServerInfo.@Nullable ServerIndex serverIndex;
         public PetfindbystatusGetSecurityInfo.@Nullable SecurityIndex securityIndex;
         public @Nullable Duration timeout;
 
         public GetRequest(
-            PetfindbystatusGetQueryParameters.PetfindbystatusGetQueryParametersMap queryParameters,
+            PetfindbystatusGetQueryParameters.PetfindbystatusGetQueryParameters9 queryParameters,
             PetfindbystatusServerInfo.@Nullable ServerIndex serverIndex,
             PetfindbystatusGetSecurityInfo.@Nullable SecurityIndex securityIndex,
             @Nullable Duration timeout
@@ -112,7 +112,7 @@ public class PetfindbystatusGet {
     }
 
     public static class GetNullableRequest {
-        public PetfindbystatusGetQueryParameters.@Nullable PetfindbystatusGetQueryParametersMap queryParameters;
+        public PetfindbystatusGetQueryParameters.@Nullable PetfindbystatusGetQueryParameters9 queryParameters;
         public PetfindbystatusServerInfo.@Nullable ServerIndex serverIndex;
         public PetfindbystatusGetSecurityInfo.@Nullable SecurityIndex securityIndex;
         public @Nullable Duration timeout;
@@ -151,7 +151,7 @@ public class PetfindbystatusGet {
     public interface SetterForQueryParameters <T> {
         GetNullableRequest getInstance();
         T getBuilderAfterQueryParameters(GetNullableRequest instance);
-        default T queryParameters(PetfindbystatusGetQueryParameters.PetfindbystatusGetQueryParametersMap queryParameters) {
+        default T queryParameters(PetfindbystatusGetQueryParameters.PetfindbystatusGetQueryParameters9 queryParameters) {
             var instance = getInstance();
             instance.queryParameters = queryParameters;
             return getBuilderAfterQueryParameters(instance);

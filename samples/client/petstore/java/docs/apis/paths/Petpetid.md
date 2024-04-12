@@ -99,9 +99,9 @@ Petpetid apiClient = new Petpetid(apiConfiguration, schemaConfiguration);
 
 
 // Map validation
-PetpetidDeletePathParameters.PetpetidDeletePathParametersMap pathParameters =
+PetpetidDeletePathParameters.PetpetidDeletePathParameters9 pathParameters =
     PetpetidDeletePathParameters.PetpetidDeletePathParameters1.validate(
-    new PetpetidDeletePathParameters.PetpetidDeletePathParametersMapBuilder()
+    new PetpetidDeletePathParameters.PetpetidDeletePathParameters8()
         .petId(1L)
 
     .build(),
@@ -216,9 +216,9 @@ Petpetid apiClient = new Petpetid(apiConfiguration, schemaConfiguration);
 
 
 // Map validation
-PetpetidGetPathParameters.PetpetidGetPathParametersMap pathParameters =
+PetpetidGetPathParameters.PetpetidGetPathParameters9 pathParameters =
     PetpetidGetPathParameters.PetpetidGetPathParameters1.validate(
-    new PetpetidGetPathParameters.PetpetidGetPathParametersMapBuilder()
+    new PetpetidGetPathParameters.PetpetidGetPathParameters8()
         .petId(1L)
 
     .build(),
@@ -340,9 +340,9 @@ Petpetid apiClient = new Petpetid(apiConfiguration, schemaConfiguration);
 
 
 // Map validation
-PetpetidPostPathParameters.PetpetidPostPathParametersMap pathParameters =
+PetpetidPostPathParameters.PetpetidPostPathParameters9 pathParameters =
     PetpetidPostPathParameters.PetpetidPostPathParameters1.validate(
-    new PetpetidPostPathParameters.PetpetidPostPathParametersMapBuilder()
+    new PetpetidPostPathParameters.PetpetidPostPathParameters8()
         .petId(1L)
 
     .build(),

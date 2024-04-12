@@ -79,12 +79,12 @@ public class UserusernameDelete {
     }
 
     public static class DeleteRequest {
-        public UserusernameDeletePathParameters.UserusernameDeletePathParametersMap pathParameters;
+        public UserusernameDeletePathParameters.UserusernameDeletePathParameters9 pathParameters;
         public ServerInfo.@Nullable ServerIndex serverIndex;
         public @Nullable Duration timeout;
 
         public DeleteRequest(
-            UserusernameDeletePathParameters.UserusernameDeletePathParametersMap pathParameters,
+            UserusernameDeletePathParameters.UserusernameDeletePathParameters9 pathParameters,
             ServerInfo.@Nullable ServerIndex serverIndex,
             @Nullable Duration timeout
         ) {
@@ -95,7 +95,7 @@ public class UserusernameDelete {
     }
 
     public static class DeleteNullableRequest {
-        public UserusernameDeletePathParameters.@Nullable UserusernameDeletePathParametersMap pathParameters;
+        public UserusernameDeletePathParameters.@Nullable UserusernameDeletePathParameters9 pathParameters;
         public ServerInfo.@Nullable ServerIndex serverIndex;
         public @Nullable Duration timeout;
     }
@@ -123,7 +123,7 @@ public class UserusernameDelete {
     public interface SetterForPathParameters <T> {
         DeleteNullableRequest getInstance();
         T getBuilderAfterPathParameters(DeleteNullableRequest instance);
-        default T pathParameters(UserusernameDeletePathParameters.UserusernameDeletePathParametersMap pathParameters) {
+        default T pathParameters(UserusernameDeletePathParameters.UserusernameDeletePathParameters9 pathParameters) {
             var instance = getInstance();
             instance.pathParameters = pathParameters;
             return getBuilderAfterPathParameters(instance);

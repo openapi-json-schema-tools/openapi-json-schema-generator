@@ -85,9 +85,9 @@ PetpetiduploadimagePost.Post apiClient = new PetpetiduploadimagePost.Post(apiCon
 
 
 // Map validation
-PetpetiduploadimagePostPathParameters.PetpetiduploadimagePostPathParametersMap pathParameters =
+PetpetiduploadimagePostPathParameters.PetpetiduploadimagePostPathParameters9 pathParameters =
     PetpetiduploadimagePostPathParameters.PetpetiduploadimagePostPathParameters1.validate(
-    new PetpetiduploadimagePostPathParameters.PetpetiduploadimagePostPathParametersMapBuilder()
+    new PetpetiduploadimagePostPathParameters.PetpetiduploadimagePostPathParameters8()
         .petId(1L)
 
     .build(),
@@ -146,7 +146,7 @@ a class that stores the final request inputs
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | --------------------- |
-| [PetpetiduploadimagePostPathParameters.PetpetiduploadimagePostPathParametersMap](../../paths/petpetiduploadimage/post/PetpetiduploadimagePostPathParameters.md#petpetiduploadimagepostpathparametersmap) | pathParameters |
+| [PetpetiduploadimagePostPathParameters.PetpetiduploadimagePostPathParameters9](../../paths/petpetiduploadimage/post/PetpetiduploadimagePostPathParameters.md#petpetiduploadimagepostpathparameters9) | pathParameters |
 | [PetpetiduploadimagePostRequestBody.@Nullable SealedRequestBody](../../paths/petpetiduploadimage/post/PetpetiduploadimagePostRequestBody.md#sealedrequestbody) | requestBody<br>optional |
 | [ServerInfo.@Nullable ServerIndex](../../ServerInfo.md#serverindex) | serverIndex<br>optional. Note: this will override the value in apiConfiguration |
 | [PetpetiduploadimagePostSecurityInfo.@Nullable SecurityIndex](../../paths/petpetiduploadimage/post/PetpetiduploadimagePostSecurityInfo.md#securityindex) | securityIndex<br>optional. Note: this will override the value in apiConfiguration |
@@ -160,7 +160,7 @@ a class that stores the initial request inputs
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | --------------------- |
-| [PetpetiduploadimagePostPathParameters.@Nullable PetpetiduploadimagePostPathParametersMap](../../paths/petpetiduploadimage/post/PetpetiduploadimagePostPathParameters.md#petpetiduploadimagepostpathparametersmap) | pathParameters |
+| [PetpetiduploadimagePostPathParameters.@Nullable PetpetiduploadimagePostPathParameters9](../../paths/petpetiduploadimage/post/PetpetiduploadimagePostPathParameters.md#petpetiduploadimagepostpathparameters9) | pathParameters |
 | [PetpetiduploadimagePostRequestBody.@Nullable SealedRequestBody](../../paths/petpetiduploadimage/post/PetpetiduploadimagePostRequestBody.md#sealedrequestbody) | requestBody |
 | [ServerInfo.@Nullable ServerIndex](../../ServerInfo.md#serverindex) | serverIndex |
 | [PetpetiduploadimagePostSecurityInfo.@Nullable SecurityIndex](../../paths/petpetiduploadimage/post/PetpetiduploadimagePostSecurityInfo.md#securityindex) | securityIndex |
@@ -198,6 +198,6 @@ a builder for request inputs
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [Post0RequestBuilder](#post0requestbuilder) | pathParameters([PetpetiduploadimagePostPathParametersPetpetiduploadimagePostPathParametersMap](../../paths/petpetiduploadimage/post/PetpetiduploadimagePostPathParameters.md#petpetiduploadimagepostpathparametersmap) pathParameters)<br>sets the property |
+| [Post0RequestBuilder](#post0requestbuilder) | pathParameters([PetpetiduploadimagePostPathParametersPetpetiduploadimagePostPathParameters9](../../paths/petpetiduploadimage/post/PetpetiduploadimagePostPathParameters.md#petpetiduploadimagepostpathparameters9) pathParameters)<br>sets the property |
 
 [[Back to top]](#top) [[Back to README]](../../../README.md)

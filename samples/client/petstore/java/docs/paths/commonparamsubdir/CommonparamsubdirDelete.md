@@ -75,9 +75,9 @@ CommonparamsubdirDelete.Delete apiClient = new CommonparamsubdirDelete.Delete(ap
 
 
 // Map validation
-CommonparamsubdirDeletePathParameters.CommonparamsubdirDeletePathParametersMap pathParameters =
+CommonparamsubdirDeletePathParameters.CommonparamsubdirDeletePathParameters9 pathParameters =
     CommonparamsubdirDeletePathParameters.CommonparamsubdirDeletePathParameters1.validate(
-    new CommonparamsubdirDeletePathParameters.CommonparamsubdirDeletePathParametersMapBuilder()
+    new CommonparamsubdirDeletePathParameters.CommonparamsubdirDeletePathParameters8()
         .subDir("c")
 
     .build(),
@@ -135,8 +135,8 @@ a class that stores the final request inputs
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | --------------------- |
-| [CommonparamsubdirDeletePathParameters.CommonparamsubdirDeletePathParametersMap](../../paths/commonparamsubdir/delete/CommonparamsubdirDeletePathParameters.md#commonparamsubdirdeletepathparametersmap) | pathParameters |
-| [CommonparamsubdirDeleteHeaderParameters.@Nullable CommonparamsubdirDeleteHeaderParametersMap](../../paths/commonparamsubdir/delete/CommonparamsubdirDeleteHeaderParameters.md#commonparamsubdirdeleteheaderparametersmap) | headerParameters<br>optional |
+| [CommonparamsubdirDeletePathParameters.CommonparamsubdirDeletePathParameters9](../../paths/commonparamsubdir/delete/CommonparamsubdirDeletePathParameters.md#commonparamsubdirdeletepathparameters9) | pathParameters |
+| [CommonparamsubdirDeleteHeaderParameters.@Nullable CommonparamsubdirDeleteHeaderParameters9](../../paths/commonparamsubdir/delete/CommonparamsubdirDeleteHeaderParameters.md#commonparamsubdirdeleteheaderparameters9) | headerParameters<br>optional |
 | [ServerInfo.@Nullable ServerIndex](../../ServerInfo.md#serverindex) | serverIndex<br>optional. Note: this will override the value in apiConfiguration |
 | @Nullable Duration | timeout<br>optional. Note: this will override the value in apiConfiguration |
 
@@ -148,8 +148,8 @@ a class that stores the initial request inputs
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | --------------------- |
-| [CommonparamsubdirDeletePathParameters.@Nullable CommonparamsubdirDeletePathParametersMap](../../paths/commonparamsubdir/delete/CommonparamsubdirDeletePathParameters.md#commonparamsubdirdeletepathparametersmap) | pathParameters |
-| [CommonparamsubdirDeleteHeaderParameters.@Nullable CommonparamsubdirDeleteHeaderParametersMap](../../paths/commonparamsubdir/delete/CommonparamsubdirDeleteHeaderParameters.md#commonparamsubdirdeleteheaderparametersmap) | headerParameters |
+| [CommonparamsubdirDeletePathParameters.@Nullable CommonparamsubdirDeletePathParameters9](../../paths/commonparamsubdir/delete/CommonparamsubdirDeletePathParameters.md#commonparamsubdirdeletepathparameters9) | pathParameters |
+| [CommonparamsubdirDeleteHeaderParameters.@Nullable CommonparamsubdirDeleteHeaderParameters9](../../paths/commonparamsubdir/delete/CommonparamsubdirDeleteHeaderParameters.md#commonparamsubdirdeleteheaderparameters9) | headerParameters |
 | [ServerInfo.@Nullable ServerIndex](../../ServerInfo.md#serverindex) | serverIndex |
 | @Nullable Duration | timeout |
 
@@ -167,7 +167,7 @@ a builder for request inputs
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [DeleteRequest](#deleterequest) | build()<br>Returns the request input used to call an endpoint method |
-| [Delete0RequestBuilder](#delete0requestbuilder) | headerParameters([CommonparamsubdirDeleteHeaderParametersCommonparamsubdirDeleteHeaderParametersMap](../../paths/commonparamsubdir/delete/CommonparamsubdirDeleteHeaderParameters.md#commonparamsubdirdeleteheaderparametersmap) headerParameters)<br>sets the optional property |
+| [Delete0RequestBuilder](#delete0requestbuilder) | headerParameters([CommonparamsubdirDeleteHeaderParametersCommonparamsubdirDeleteHeaderParameters9](../../paths/commonparamsubdir/delete/CommonparamsubdirDeleteHeaderParameters.md#commonparamsubdirdeleteheaderparameters9) headerParameters)<br>sets the optional property |
 | [Delete0RequestBuilder](#delete0requestbuilder) | serverIndex([ServerInfo.ServerIndex](../../ServerInfo.md#serverindex) serverIndex)<br>sets the optional property. Note: this will override the value in apiConfiguration |
 | [Delete0RequestBuilder](#delete0requestbuilder) | timeout(Duration timeout)<br>sets the optional property. Note: this will override the value in apiConfiguration |
 
@@ -184,6 +184,6 @@ a builder for request inputs
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [Delete0RequestBuilder](#delete0requestbuilder) | pathParameters([CommonparamsubdirDeletePathParametersCommonparamsubdirDeletePathParametersMap](../../paths/commonparamsubdir/delete/CommonparamsubdirDeletePathParameters.md#commonparamsubdirdeletepathparametersmap) pathParameters)<br>sets the property |
+| [Delete0RequestBuilder](#delete0requestbuilder) | pathParameters([CommonparamsubdirDeletePathParametersCommonparamsubdirDeletePathParameters9](../../paths/commonparamsubdir/delete/CommonparamsubdirDeletePathParameters.md#commonparamsubdirdeletepathparameters9) pathParameters)<br>sets the property |
 
 [[Back to top]](#top) [[Back to README]](../../../README.md)

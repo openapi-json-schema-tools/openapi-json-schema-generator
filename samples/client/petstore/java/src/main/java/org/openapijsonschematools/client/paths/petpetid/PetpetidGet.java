@@ -92,13 +92,13 @@ public class PetpetidGet {
     }
 
     public static class GetRequest {
-        public PetpetidGetPathParameters.PetpetidGetPathParametersMap pathParameters;
+        public PetpetidGetPathParameters.PetpetidGetPathParameters9 pathParameters;
         public ServerInfo.@Nullable ServerIndex serverIndex;
         public PetpetidGetSecurityInfo.@Nullable SecurityIndex securityIndex;
         public @Nullable Duration timeout;
 
         public GetRequest(
-            PetpetidGetPathParameters.PetpetidGetPathParametersMap pathParameters,
+            PetpetidGetPathParameters.PetpetidGetPathParameters9 pathParameters,
             ServerInfo.@Nullable ServerIndex serverIndex,
             PetpetidGetSecurityInfo.@Nullable SecurityIndex securityIndex,
             @Nullable Duration timeout
@@ -111,7 +111,7 @@ public class PetpetidGet {
     }
 
     public static class GetNullableRequest {
-        public PetpetidGetPathParameters.@Nullable PetpetidGetPathParametersMap pathParameters;
+        public PetpetidGetPathParameters.@Nullable PetpetidGetPathParameters9 pathParameters;
         public ServerInfo.@Nullable ServerIndex serverIndex;
         public PetpetidGetSecurityInfo.@Nullable SecurityIndex securityIndex;
         public @Nullable Duration timeout;
@@ -150,7 +150,7 @@ public class PetpetidGet {
     public interface SetterForPathParameters <T> {
         GetNullableRequest getInstance();
         T getBuilderAfterPathParameters(GetNullableRequest instance);
-        default T pathParameters(PetpetidGetPathParameters.PetpetidGetPathParametersMap pathParameters) {
+        default T pathParameters(PetpetidGetPathParameters.PetpetidGetPathParameters9 pathParameters) {
             var instance = getInstance();
             instance.pathParameters = pathParameters;
             return getBuilderAfterPathParameters(instance);

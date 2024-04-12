@@ -29,27 +29,27 @@ public class CommonparamsubdirDeleteHeaderParameters {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static class CommonparamsubdirDeleteadditionalProperties extends NotAnyTypeJsonSchema.NotAnyTypeJsonSchema1 {
+    public static class CommonparamsubdirDeleteHeaderParameters4 extends NotAnyTypeJsonSchema.NotAnyTypeJsonSchema1 {
         // NotAnyTypeSchema
-        private static @Nullable CommonparamsubdirDeleteadditionalProperties instance = null;
-        public static CommonparamsubdirDeleteadditionalProperties getInstance() {
+        private static @Nullable CommonparamsubdirDeleteHeaderParameters4 instance = null;
+        public static CommonparamsubdirDeleteHeaderParameters4 getInstance() {
             if (instance == null) {
-                instance = new CommonparamsubdirDeleteadditionalProperties();
+                instance = new CommonparamsubdirDeleteHeaderParameters4();
             }
             return instance;
         }
     }
     
     
-    public static class CommonparamsubdirDeleteHeaderParametersMap extends FrozenMap<String> {
-        protected CommonparamsubdirDeleteHeaderParametersMap(FrozenMap<String> m) {
+    public static class CommonparamsubdirDeleteHeaderParameters9 extends FrozenMap<String> {
+        protected CommonparamsubdirDeleteHeaderParameters9(FrozenMap<String> m) {
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of();
         public static final Set<String> optionalKeys = Set.of(
             "someHeader"
         );
-        public static CommonparamsubdirDeleteHeaderParametersMap of(Map<String, String> arg, SchemaConfiguration configuration) throws ValidationException {
+        public static CommonparamsubdirDeleteHeaderParameters9 of(Map<String, String> arg, SchemaConfiguration configuration) throws ValidationException {
             return CommonparamsubdirDeleteHeaderParameters1.getInstance().validate(arg, configuration);
         }
         
@@ -58,18 +58,18 @@ public class CommonparamsubdirDeleteHeaderParameters {
         }
     }
     
-    public interface SetterForCommonparamsubdirDeletesomeHeader <T> {
+    public interface SetterForCommonparamsubdirDeleteHeaderParameters2 <T> {
         Map<String, String> getInstance();
-        T getBuilderAfterCommonparamsubdirDeletesomeHeader(Map<String, String> instance);
+        T getBuilderAfterCommonparamsubdirDeleteHeaderParameters2(Map<String, String> instance);
         
         default T someHeader(String value) {
             var instance = getInstance();
             instance.put("someHeader", value);
-            return getBuilderAfterCommonparamsubdirDeletesomeHeader(instance);
+            return getBuilderAfterCommonparamsubdirDeleteHeaderParameters2(instance);
         }
     }
     
-    public static class CommonparamsubdirDeleteHeaderParametersMapBuilder implements GenericBuilder<Map<String, String>>, SetterForCommonparamsubdirDeletesomeHeader<CommonparamsubdirDeleteHeaderParametersMapBuilder> {
+    public static class CommonparamsubdirDeleteHeaderParameters8 implements GenericBuilder<Map<String, String>>, SetterForCommonparamsubdirDeleteHeaderParameters2<CommonparamsubdirDeleteHeaderParameters8> {
         private final Map<String, String> instance;
         private static final Set<String> knownKeys = Set.of(
             "someHeader"
@@ -77,7 +77,7 @@ public class CommonparamsubdirDeleteHeaderParameters {
         public Set<String> getKnownKeys() {
             return knownKeys;
         }
-        public CommonparamsubdirDeleteHeaderParametersMapBuilder() {
+        public CommonparamsubdirDeleteHeaderParameters8() {
             this.instance = new LinkedHashMap<>();
         }
         public Map<String, String> build() {
@@ -86,7 +86,7 @@ public class CommonparamsubdirDeleteHeaderParameters {
         public Map<String, String> getInstance() {
             return instance;
         }
-        public CommonparamsubdirDeleteHeaderParametersMapBuilder getBuilderAfterCommonparamsubdirDeletesomeHeader(Map<String, String> instance) {
+        public CommonparamsubdirDeleteHeaderParameters8 getBuilderAfterCommonparamsubdirDeleteHeaderParameters2(Map<String, String> instance) {
             return this;
         }
     }
@@ -96,7 +96,7 @@ public class CommonparamsubdirDeleteHeaderParameters {
         @Nullable Object getData();
     }
     
-    public record CommonparamsubdirDeleteHeaderParameters1BoxedMap(CommonparamsubdirDeleteHeaderParametersMap data) implements CommonparamsubdirDeleteHeaderParameters1Boxed {
+    public record CommonparamsubdirDeleteHeaderParameters1BoxedMap(CommonparamsubdirDeleteHeaderParameters9 data) implements CommonparamsubdirDeleteHeaderParameters1Boxed {
         @Override
         public @Nullable Object getData() {
             return data;
@@ -104,7 +104,7 @@ public class CommonparamsubdirDeleteHeaderParameters {
     }
     
     
-    public static class CommonparamsubdirDeleteHeaderParameters1 extends JsonSchema<CommonparamsubdirDeleteHeaderParameters1Boxed> implements MapSchemaValidator<CommonparamsubdirDeleteHeaderParametersMap, CommonparamsubdirDeleteHeaderParameters1BoxedMap> {
+    public static class CommonparamsubdirDeleteHeaderParameters1 extends JsonSchema<CommonparamsubdirDeleteHeaderParameters1Boxed> implements MapSchemaValidator<CommonparamsubdirDeleteHeaderParameters9, CommonparamsubdirDeleteHeaderParameters1BoxedMap> {
         private static @Nullable CommonparamsubdirDeleteHeaderParameters1 instance = null;
     
         protected CommonparamsubdirDeleteHeaderParameters1() {
@@ -113,7 +113,7 @@ public class CommonparamsubdirDeleteHeaderParameters {
                 .properties(Map.ofEntries(
                     new PropertyEntry("someHeader", Schema0.Schema01.class)
                 ))
-                .additionalProperties(CommonparamsubdirDeleteadditionalProperties.class)
+                .additionalProperties(CommonparamsubdirDeleteHeaderParameters4.class)
             );
         }
     
@@ -124,7 +124,7 @@ public class CommonparamsubdirDeleteHeaderParameters {
             return instance;
         }
         
-        public CommonparamsubdirDeleteHeaderParametersMap getNewInstance(Map<?, ?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+        public CommonparamsubdirDeleteHeaderParameters9 getNewInstance(Map<?, ?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
             LinkedHashMap<String, String> properties = new LinkedHashMap<>();
             for(Map.Entry<?, ?> entry: arg.entrySet()) {
                 @Nullable Object entryKey = entry.getKey();
@@ -147,10 +147,10 @@ public class CommonparamsubdirDeleteHeaderParameters {
                 properties.put(propertyName, (String) propertyInstance);
             }
             FrozenMap<String> castProperties = new FrozenMap<>(properties);
-            return new CommonparamsubdirDeleteHeaderParametersMap(castProperties);
+            return new CommonparamsubdirDeleteHeaderParameters9(castProperties);
         }
         
-        public CommonparamsubdirDeleteHeaderParametersMap validate(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException {
+        public CommonparamsubdirDeleteHeaderParameters9 validate(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException {
             Set<List<Object>> pathSet = new HashSet<>();
             List<Object> pathToItem = List.of("args[0");
             Map<?, ?> castArg = castToAllowedTypes(arg, pathToItem, pathSet);

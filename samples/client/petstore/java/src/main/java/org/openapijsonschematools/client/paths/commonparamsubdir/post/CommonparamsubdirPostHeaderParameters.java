@@ -29,27 +29,27 @@ public class CommonparamsubdirPostHeaderParameters {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static class CommonparamsubdirPostadditionalProperties extends NotAnyTypeJsonSchema.NotAnyTypeJsonSchema1 {
+    public static class CommonparamsubdirPostHeaderParameters4 extends NotAnyTypeJsonSchema.NotAnyTypeJsonSchema1 {
         // NotAnyTypeSchema
-        private static @Nullable CommonparamsubdirPostadditionalProperties instance = null;
-        public static CommonparamsubdirPostadditionalProperties getInstance() {
+        private static @Nullable CommonparamsubdirPostHeaderParameters4 instance = null;
+        public static CommonparamsubdirPostHeaderParameters4 getInstance() {
             if (instance == null) {
-                instance = new CommonparamsubdirPostadditionalProperties();
+                instance = new CommonparamsubdirPostHeaderParameters4();
             }
             return instance;
         }
     }
     
     
-    public static class CommonparamsubdirPostHeaderParametersMap extends FrozenMap<String> {
-        protected CommonparamsubdirPostHeaderParametersMap(FrozenMap<String> m) {
+    public static class CommonparamsubdirPostHeaderParameters9 extends FrozenMap<String> {
+        protected CommonparamsubdirPostHeaderParameters9(FrozenMap<String> m) {
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of();
         public static final Set<String> optionalKeys = Set.of(
             "someHeader"
         );
-        public static CommonparamsubdirPostHeaderParametersMap of(Map<String, String> arg, SchemaConfiguration configuration) throws ValidationException {
+        public static CommonparamsubdirPostHeaderParameters9 of(Map<String, String> arg, SchemaConfiguration configuration) throws ValidationException {
             return CommonparamsubdirPostHeaderParameters1.getInstance().validate(arg, configuration);
         }
         
@@ -58,18 +58,18 @@ public class CommonparamsubdirPostHeaderParameters {
         }
     }
     
-    public interface SetterForCommonparamsubdirPostsomeHeader <T> {
+    public interface SetterForCommonparamsubdirPostHeaderParameters2 <T> {
         Map<String, String> getInstance();
-        T getBuilderAfterCommonparamsubdirPostsomeHeader(Map<String, String> instance);
+        T getBuilderAfterCommonparamsubdirPostHeaderParameters2(Map<String, String> instance);
         
         default T someHeader(String value) {
             var instance = getInstance();
             instance.put("someHeader", value);
-            return getBuilderAfterCommonparamsubdirPostsomeHeader(instance);
+            return getBuilderAfterCommonparamsubdirPostHeaderParameters2(instance);
         }
     }
     
-    public static class CommonparamsubdirPostHeaderParametersMapBuilder implements GenericBuilder<Map<String, String>>, SetterForCommonparamsubdirPostsomeHeader<CommonparamsubdirPostHeaderParametersMapBuilder> {
+    public static class CommonparamsubdirPostHeaderParameters8 implements GenericBuilder<Map<String, String>>, SetterForCommonparamsubdirPostHeaderParameters2<CommonparamsubdirPostHeaderParameters8> {
         private final Map<String, String> instance;
         private static final Set<String> knownKeys = Set.of(
             "someHeader"
@@ -77,7 +77,7 @@ public class CommonparamsubdirPostHeaderParameters {
         public Set<String> getKnownKeys() {
             return knownKeys;
         }
-        public CommonparamsubdirPostHeaderParametersMapBuilder() {
+        public CommonparamsubdirPostHeaderParameters8() {
             this.instance = new LinkedHashMap<>();
         }
         public Map<String, String> build() {
@@ -86,7 +86,7 @@ public class CommonparamsubdirPostHeaderParameters {
         public Map<String, String> getInstance() {
             return instance;
         }
-        public CommonparamsubdirPostHeaderParametersMapBuilder getBuilderAfterCommonparamsubdirPostsomeHeader(Map<String, String> instance) {
+        public CommonparamsubdirPostHeaderParameters8 getBuilderAfterCommonparamsubdirPostHeaderParameters2(Map<String, String> instance) {
             return this;
         }
     }
@@ -96,7 +96,7 @@ public class CommonparamsubdirPostHeaderParameters {
         @Nullable Object getData();
     }
     
-    public record CommonparamsubdirPostHeaderParameters1BoxedMap(CommonparamsubdirPostHeaderParametersMap data) implements CommonparamsubdirPostHeaderParameters1Boxed {
+    public record CommonparamsubdirPostHeaderParameters1BoxedMap(CommonparamsubdirPostHeaderParameters9 data) implements CommonparamsubdirPostHeaderParameters1Boxed {
         @Override
         public @Nullable Object getData() {
             return data;
@@ -104,7 +104,7 @@ public class CommonparamsubdirPostHeaderParameters {
     }
     
     
-    public static class CommonparamsubdirPostHeaderParameters1 extends JsonSchema<CommonparamsubdirPostHeaderParameters1Boxed> implements MapSchemaValidator<CommonparamsubdirPostHeaderParametersMap, CommonparamsubdirPostHeaderParameters1BoxedMap> {
+    public static class CommonparamsubdirPostHeaderParameters1 extends JsonSchema<CommonparamsubdirPostHeaderParameters1Boxed> implements MapSchemaValidator<CommonparamsubdirPostHeaderParameters9, CommonparamsubdirPostHeaderParameters1BoxedMap> {
         private static @Nullable CommonparamsubdirPostHeaderParameters1 instance = null;
     
         protected CommonparamsubdirPostHeaderParameters1() {
@@ -113,7 +113,7 @@ public class CommonparamsubdirPostHeaderParameters {
                 .properties(Map.ofEntries(
                     new PropertyEntry("someHeader", Schema0.Schema01.class)
                 ))
-                .additionalProperties(CommonparamsubdirPostadditionalProperties.class)
+                .additionalProperties(CommonparamsubdirPostHeaderParameters4.class)
             );
         }
     
@@ -124,7 +124,7 @@ public class CommonparamsubdirPostHeaderParameters {
             return instance;
         }
         
-        public CommonparamsubdirPostHeaderParametersMap getNewInstance(Map<?, ?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+        public CommonparamsubdirPostHeaderParameters9 getNewInstance(Map<?, ?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
             LinkedHashMap<String, String> properties = new LinkedHashMap<>();
             for(Map.Entry<?, ?> entry: arg.entrySet()) {
                 @Nullable Object entryKey = entry.getKey();
@@ -147,10 +147,10 @@ public class CommonparamsubdirPostHeaderParameters {
                 properties.put(propertyName, (String) propertyInstance);
             }
             FrozenMap<String> castProperties = new FrozenMap<>(properties);
-            return new CommonparamsubdirPostHeaderParametersMap(castProperties);
+            return new CommonparamsubdirPostHeaderParameters9(castProperties);
         }
         
-        public CommonparamsubdirPostHeaderParametersMap validate(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException {
+        public CommonparamsubdirPostHeaderParameters9 validate(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException {
             Set<List<Object>> pathSet = new HashSet<>();
             List<Object> pathToItem = List.of("args[0");
             Map<?, ?> castArg = castToAllowedTypes(arg, pathToItem, pathSet);

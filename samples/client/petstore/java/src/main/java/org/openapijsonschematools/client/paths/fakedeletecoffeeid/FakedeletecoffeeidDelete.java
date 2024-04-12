@@ -79,12 +79,12 @@ public class FakedeletecoffeeidDelete {
     }
 
     public static class DeleteRequest {
-        public FakedeletecoffeeidDeletePathParameters.FakedeletecoffeeidDeletePathParametersMap pathParameters;
+        public FakedeletecoffeeidDeletePathParameters.FakedeletecoffeeidDeletePathParameters9 pathParameters;
         public ServerInfo.@Nullable ServerIndex serverIndex;
         public @Nullable Duration timeout;
 
         public DeleteRequest(
-            FakedeletecoffeeidDeletePathParameters.FakedeletecoffeeidDeletePathParametersMap pathParameters,
+            FakedeletecoffeeidDeletePathParameters.FakedeletecoffeeidDeletePathParameters9 pathParameters,
             ServerInfo.@Nullable ServerIndex serverIndex,
             @Nullable Duration timeout
         ) {
@@ -95,7 +95,7 @@ public class FakedeletecoffeeidDelete {
     }
 
     public static class DeleteNullableRequest {
-        public FakedeletecoffeeidDeletePathParameters.@Nullable FakedeletecoffeeidDeletePathParametersMap pathParameters;
+        public FakedeletecoffeeidDeletePathParameters.@Nullable FakedeletecoffeeidDeletePathParameters9 pathParameters;
         public ServerInfo.@Nullable ServerIndex serverIndex;
         public @Nullable Duration timeout;
     }
@@ -123,7 +123,7 @@ public class FakedeletecoffeeidDelete {
     public interface SetterForPathParameters <T> {
         DeleteNullableRequest getInstance();
         T getBuilderAfterPathParameters(DeleteNullableRequest instance);
-        default T pathParameters(FakedeletecoffeeidDeletePathParameters.FakedeletecoffeeidDeletePathParametersMap pathParameters) {
+        default T pathParameters(FakedeletecoffeeidDeletePathParameters.FakedeletecoffeeidDeletePathParameters9 pathParameters) {
             var instance = getInstance();
             instance.pathParameters = pathParameters;
             return getBuilderAfterPathParameters(instance);

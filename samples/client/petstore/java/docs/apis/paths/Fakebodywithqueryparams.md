@@ -107,9 +107,9 @@ User1BoxedMap requestBodyPayload =
 FakebodywithqueryparamsPut.SealedRequestBody requestBody = new FakebodywithqueryparamsPut.ApplicationjsonRequestBody(requestBodyPayload);
 
 // Map validation
-FakebodywithqueryparamsPutQueryParameters.FakebodywithqueryparamsPutQueryParametersMap queryParameters =
+FakebodywithqueryparamsPutQueryParameters.FakebodywithqueryparamsPutQueryParameters9 queryParameters =
     FakebodywithqueryparamsPutQueryParameters.FakebodywithqueryparamsPutQueryParameters1.validate(
-    new FakebodywithqueryparamsPutQueryParameters.FakebodywithqueryparamsPutQueryParametersMapBuilder()
+    new FakebodywithqueryparamsPutQueryParameters.FakebodywithqueryparamsPutQueryParameters8()
         .query("a")
 
     .build(),

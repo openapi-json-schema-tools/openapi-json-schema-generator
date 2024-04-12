@@ -15,24 +15,24 @@ A class that contains necessary nested
 | sealed interface | [Server0Variables.Server0Variables1Boxed](#server0variables1boxed)<br> sealed interface for validated payloads |
 | record | [Server0Variables.Server0Variables1BoxedMap](#server0variables1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [Server0Variables.Server0Variables1](#server0variables1)<br> schema class |
-| static class | [Server0Variables.Server0Variables19](#server0variables19)<br> builder for Map payloads |
-| static class | [Server0Variables.Server0Variables20](#server0variables20)<br> output class for Map payloads |
-| sealed interface | [Server0Variables.Server0Variables8Boxed](#server0variables8boxed)<br> sealed interface for validated payloads |
-| record | [Server0Variables.Server0Variables8BoxedString](#server0variables8boxedstring)<br> boxed class to store validated String payloads |
-| static class | [Server0Variables.Server0Variables8](#server0variables8)<br> schema class |
-| enum | [Server0Variables.StringServer0Variables10](#stringserver0variables10)<br>String enum |
-| sealed interface | [Server0Variables.Server0Variables4Boxed](#server0variables4boxed)<br> sealed interface for validated payloads |
-| record | [Server0Variables.Server0Variables4BoxedString](#server0variables4boxedstring)<br> boxed class to store validated String payloads |
-| static class | [Server0Variables.Server0Variables4](#server0variables4)<br> schema class |
+| static class | [Server0Variables.Server0Variables13](#server0variables13)<br> builder for Map payloads |
+| static class | [Server0Variables.Server0Variables14](#server0variables14)<br> output class for Map payloads |
+| sealed interface | [Server0Variables.Server0Variables5Boxed](#server0variables5boxed)<br> sealed interface for validated payloads |
+| record | [Server0Variables.Server0Variables5BoxedString](#server0variables5boxedstring)<br> boxed class to store validated String payloads |
+| static class | [Server0Variables.Server0Variables5](#server0variables5)<br> schema class |
 | enum | [Server0Variables.StringServer0Variables6](#stringserver0variables6)<br>String enum |
-| sealed interface | [Server0Variables.Server0Variables13Boxed](#server0variables13boxed)<br> sealed interface for validated payloads |
-| record | [Server0Variables.Server0Variables13BoxedVoid](#server0variables13boxedvoid)<br> boxed class to store validated null payloads |
-| record | [Server0Variables.Server0Variables13BoxedBoolean](#server0variables13boxedboolean)<br> boxed class to store validated boolean payloads |
-| record | [Server0Variables.Server0Variables13BoxedNumber](#server0variables13boxednumber)<br> boxed class to store validated Number payloads |
-| record | [Server0Variables.Server0Variables13BoxedString](#server0variables13boxedstring)<br> boxed class to store validated String payloads |
-| record | [Server0Variables.Server0Variables13BoxedList](#server0variables13boxedlist)<br> boxed class to store validated List payloads |
-| record | [Server0Variables.Server0Variables13BoxedMap](#server0variables13boxedmap)<br> boxed class to store validated Map payloads |
-| static class | [Server0Variables.Server0Variables13](#server0variables13)<br> schema class |
+| sealed interface | [Server0Variables.Server0Variables2Boxed](#server0variables2boxed)<br> sealed interface for validated payloads |
+| record | [Server0Variables.Server0Variables2BoxedString](#server0variables2boxedstring)<br> boxed class to store validated String payloads |
+| static class | [Server0Variables.Server0Variables2](#server0variables2)<br> schema class |
+| enum | [Server0Variables.StringServer0Variables3](#stringserver0variables3)<br>String enum |
+| sealed interface | [Server0Variables.Server0Variables9Boxed](#server0variables9boxed)<br> sealed interface for validated payloads |
+| record | [Server0Variables.Server0Variables9BoxedVoid](#server0variables9boxedvoid)<br> boxed class to store validated null payloads |
+| record | [Server0Variables.Server0Variables9BoxedBoolean](#server0variables9boxedboolean)<br> boxed class to store validated boolean payloads |
+| record | [Server0Variables.Server0Variables9BoxedNumber](#server0variables9boxednumber)<br> boxed class to store validated Number payloads |
+| record | [Server0Variables.Server0Variables9BoxedString](#server0variables9boxedstring)<br> boxed class to store validated String payloads |
+| record | [Server0Variables.Server0Variables9BoxedList](#server0variables9boxedlist)<br> boxed class to store validated List payloads |
+| record | [Server0Variables.Server0Variables9BoxedMap](#server0variables9boxedmap)<br> boxed class to store validated Map payloads |
+| static class | [Server0Variables.Server0Variables9](#server0variables9)<br> schema class |
 
 ## Server0Variables1Boxed
 public sealed interface Server0Variables1Boxed<br>
@@ -50,12 +50,12 @@ record that stores validated Map payloads, sealed permits implementation
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| Server0Variables1BoxedMap([Server0Variables20](#server0variables20) data)<br>Creates an instance, private visibility |
+| Server0Variables1BoxedMap([Server0Variables14](#server0variables14) data)<br>Creates an instance, private visibility |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [Server0Variables20](#server0variables20) | data()<br>validated payload |
+| [Server0Variables14](#server0variables14) | data()<br>validated payload |
 | @Nullable Object | getData()<br>validated payload |
 
 ## Server0Variables1
@@ -81,9 +81,9 @@ import java.util.AbstractMap;
 static final SchemaConfiguration configuration = new SchemaConfiguration(new JsonSchemaKeywordFlags.Builder().build());
 
 // Map validation
-Server0Variables.Server0Variables20 validatedPayload =
+Server0Variables.Server0Variables14 validatedPayload =
     Server0Variables.Server0Variables1.validate(
-    new Server0Variables.Server0Variables19()
+    new Server0Variables.Server0Variables13()
         .port("80")
 
         .server("petstore")
@@ -97,20 +97,20 @@ Server0Variables.Server0Variables20 validatedPayload =
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |
 | Set<Class<?>> | type = Set.of(Map.class) |
-| Map<String, Class<? extends JsonSchema>> | properties = Map.ofEntries(<br>&nbsp;&nbsp;&nbsp;&nbsp;new PropertyEntry("server", [Server0Variables4.class](#server0variables4))),<br>&nbsp;&nbsp;&nbsp;&nbsp;new PropertyEntry("port", [Server0Variables8.class](#server0variables8)))<br>)<br> |
+| Map<String, Class<? extends JsonSchema>> | properties = Map.ofEntries(<br>&nbsp;&nbsp;&nbsp;&nbsp;new PropertyEntry("server", [Server0Variables2.class](#server0variables2))),<br>&nbsp;&nbsp;&nbsp;&nbsp;new PropertyEntry("port", [Server0Variables5.class](#server0variables5)))<br>)<br> |
 | Set<String> | required = Set.of(<br>&nbsp;&nbsp;&nbsp;&nbsp;"port",<br>&nbsp;&nbsp;&nbsp;&nbsp;"server"<br>)<br> |
-| Class<? extends JsonSchema> | additionalProperties = [Server0Variables13.class](#server0variables13) |
+| Class<? extends JsonSchema> | additionalProperties = [Server0Variables9.class](#server0variables9) |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [Server0Variables20](#server0variables20) | validate([Map&lt;?, ?&gt;](#server0variables19) arg, SchemaConfiguration configuration) |
-| [Server0Variables1BoxedMap](#server0variables1boxedmap) | validateAndBox([Map&lt;?, ?&gt;](#server0variables19) arg, SchemaConfiguration configuration) |
+| [Server0Variables14](#server0variables14) | validate([Map&lt;?, ?&gt;](#server0variables13) arg, SchemaConfiguration configuration) |
+| [Server0Variables1BoxedMap](#server0variables1boxedmap) | validateAndBox([Map&lt;?, ?&gt;](#server0variables13) arg, SchemaConfiguration configuration) |
 | [Server0Variables1Boxed](#server0variables1boxed) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 
-## Server0Variables21
-public class Server0Variables21<br>
+## Server0Variables15
+public class Server0Variables15<br>
 builder for `Map<String, String>`
 
 A class that builds the Map input type
@@ -118,15 +118,15 @@ A class that builds the Map input type
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| Server0Variables21(Map<String, String> instance)<br>Creates a builder that contains the passed instance |
+| Server0Variables15(Map<String, String> instance)<br>Creates a builder that contains the passed instance |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | Map<String, String> | build()<br>Returns map input that should be used with Schema.validate |
 
-## Server0Variables22
-public class Server0Variables22<br>
+## Server0Variables16
+public class Server0Variables16<br>
 builder for `Map<String, String>`
 
 A class that builds the Map input type
@@ -134,16 +134,16 @@ A class that builds the Map input type
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| Server0Variables22(Map<String, String> instance)<br>Creates a builder that contains the passed instance |
+| Server0Variables16(Map<String, String> instance)<br>Creates a builder that contains the passed instance |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [Server0Variables21](#server0variables21) | server(String value) |
-| [Server0Variables21](#server0variables21) | server([StringServer0Variables6](#stringserver0variables6) value) |
+| [Server0Variables15](#server0variables15) | server(String value) |
+| [Server0Variables15](#server0variables15) | server([StringServer0Variables3](#stringserver0variables3) value) |
 
-## Server0Variables23
-public class Server0Variables23<br>
+## Server0Variables17
+public class Server0Variables17<br>
 builder for `Map<String, String>`
 
 A class that builds the Map input type
@@ -151,16 +151,16 @@ A class that builds the Map input type
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| Server0Variables23(Map<String, String> instance)<br>Creates a builder that contains the passed instance |
+| Server0Variables17(Map<String, String> instance)<br>Creates a builder that contains the passed instance |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [Server0Variables21](#server0variables21) | port(String value) |
-| [Server0Variables21](#server0variables21) | port([StringServer0Variables10](#stringserver0variables10) value) |
+| [Server0Variables15](#server0variables15) | port(String value) |
+| [Server0Variables15](#server0variables15) | port([StringServer0Variables6](#stringserver0variables6) value) |
 
-## Server0Variables19
-public class Server0Variables19<br>
+## Server0Variables13
+public class Server0Variables13<br>
 builder for `Map<String, String>`
 
 A class that builds the Map input type
@@ -168,18 +168,18 @@ A class that builds the Map input type
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| Server0Variables19()<br>Creates a builder that contains an empty map |
+| Server0Variables13()<br>Creates a builder that contains an empty map |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [Server0Variables22](#server0variables22) | port(String value) |
-| [Server0Variables22](#server0variables22) | port([StringServer0Variables10](#stringserver0variables10) value) |
-| [Server0Variables23](#server0variables23) | server(String value) |
-| [Server0Variables23](#server0variables23) | server([StringServer0Variables6](#stringserver0variables6) value) |
+| [Server0Variables16](#server0variables16) | port(String value) |
+| [Server0Variables16](#server0variables16) | port([StringServer0Variables6](#stringserver0variables6) value) |
+| [Server0Variables17](#server0variables17) | server(String value) |
+| [Server0Variables17](#server0variables17) | server([StringServer0Variables3](#stringserver0variables3) value) |
 
-## Server0Variables20
-public static class Server0Variables20<br>
+## Server0Variables14
+public static class Server0Variables14<br>
 extends FrozenMap<String, String>
 
 A class to store validated Map payloads
@@ -187,27 +187,27 @@ A class to store validated Map payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [Server0Variables20](#server0variables20) | of([Map<String, String>](#server0variables19) arg, SchemaConfiguration configuration) |
+| static [Server0Variables14](#server0variables14) | of([Map<String, String>](#server0variables13) arg, SchemaConfiguration configuration) |
 | String | port()<br> must be one of ["80", "8080"] if omitted the server will use the default value of 80 |
 | String | server()<br> must be one of ["petstore", "qa-petstore", "dev-petstore"] if omitted the server will use the default value of petstore |
 
-## Server0Variables8Boxed
-public sealed interface Server0Variables8Boxed<br>
+## Server0Variables5Boxed
+public sealed interface Server0Variables5Boxed<br>
 permits<br>
-[Server0Variables8BoxedString](#server0variables8boxedstring)
+[Server0Variables5BoxedString](#server0variables5boxedstring)
 
 sealed interface that stores validated payloads using boxed classes
 
-## Server0Variables8BoxedString
-public record Server0Variables8BoxedString<br>
-implements [Server0Variables8Boxed](#server0variables8boxed)
+## Server0Variables5BoxedString
+public record Server0Variables5BoxedString<br>
+implements [Server0Variables5Boxed](#server0variables5boxed)
 
 record that stores validated String payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| Server0Variables8BoxedString(String data)<br>Creates an instance, private visibility |
+| Server0Variables5BoxedString(String data)<br>Creates an instance, private visibility |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
@@ -215,8 +215,8 @@ record that stores validated String payloads, sealed permits implementation
 | String | data()<br>validated payload |
 | @Nullable Object | getData()<br>validated payload |
 
-## Server0Variables8
-public static class Server0Variables8<br>
+## Server0Variables5
+public static class Server0Variables5<br>
 extends JsonSchema
 
 A schema class that validates payloads
@@ -241,7 +241,7 @@ import java.util.AbstractMap;
 static final SchemaConfiguration configuration = new SchemaConfiguration(new JsonSchemaKeywordFlags.Builder().build());
 
 // String validation
-String validatedPayload = Server0Variables.Server0Variables8.validate(
+String validatedPayload = Server0Variables.Server0Variables5.validate(
     "80",
     configuration
 );
@@ -258,14 +258,14 @@ String validatedPayload = Server0Variables.Server0Variables8.validate(
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | String | validate(String arg, SchemaConfiguration configuration) |
-| String | validate([StringServer0Variables10](#stringserver0variables10) arg, SchemaConfiguration configuration) |
-| [Server0Variables8BoxedString](#server0variables8boxedstring) | validateAndBox(String arg, SchemaConfiguration configuration) |
-| [Server0Variables8Boxed](#server0variables8boxed) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
+| String | validate([StringServer0Variables6](#stringserver0variables6) arg, SchemaConfiguration configuration) |
+| [Server0Variables5BoxedString](#server0variables5boxedstring) | validateAndBox(String arg, SchemaConfiguration configuration) |
+| [Server0Variables5Boxed](#server0variables5boxed) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 
-## StringServer0Variables10
-public enum StringServer0Variables10<br>
-extends `Enum<StringServer0Variables10>`
+## StringServer0Variables6
+public enum StringServer0Variables6<br>
+extends `Enum<StringServer0Variables6>`
 
 A class that stores String enum values
 
@@ -275,23 +275,23 @@ A class that stores String enum values
 | POSITIVE_80 | value = "80" |
 | POSITIVE_8080 | value = "8080" |
 
-## Server0Variables4Boxed
-public sealed interface Server0Variables4Boxed<br>
+## Server0Variables2Boxed
+public sealed interface Server0Variables2Boxed<br>
 permits<br>
-[Server0Variables4BoxedString](#server0variables4boxedstring)
+[Server0Variables2BoxedString](#server0variables2boxedstring)
 
 sealed interface that stores validated payloads using boxed classes
 
-## Server0Variables4BoxedString
-public record Server0Variables4BoxedString<br>
-implements [Server0Variables4Boxed](#server0variables4boxed)
+## Server0Variables2BoxedString
+public record Server0Variables2BoxedString<br>
+implements [Server0Variables2Boxed](#server0variables2boxed)
 
 record that stores validated String payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| Server0Variables4BoxedString(String data)<br>Creates an instance, private visibility |
+| Server0Variables2BoxedString(String data)<br>Creates an instance, private visibility |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
@@ -299,8 +299,8 @@ record that stores validated String payloads, sealed permits implementation
 | String | data()<br>validated payload |
 | @Nullable Object | getData()<br>validated payload |
 
-## Server0Variables4
-public static class Server0Variables4<br>
+## Server0Variables2
+public static class Server0Variables2<br>
 extends JsonSchema
 
 A schema class that validates payloads
@@ -325,7 +325,7 @@ import java.util.AbstractMap;
 static final SchemaConfiguration configuration = new SchemaConfiguration(new JsonSchemaKeywordFlags.Builder().build());
 
 // String validation
-String validatedPayload = Server0Variables.Server0Variables4.validate(
+String validatedPayload = Server0Variables.Server0Variables2.validate(
     "petstore",
     configuration
 );
@@ -342,14 +342,14 @@ String validatedPayload = Server0Variables.Server0Variables4.validate(
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | String | validate(String arg, SchemaConfiguration configuration) |
-| String | validate([StringServer0Variables6](#stringserver0variables6) arg, SchemaConfiguration configuration) |
-| [Server0Variables4BoxedString](#server0variables4boxedstring) | validateAndBox(String arg, SchemaConfiguration configuration) |
-| [Server0Variables4Boxed](#server0variables4boxed) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
+| String | validate([StringServer0Variables3](#stringserver0variables3) arg, SchemaConfiguration configuration) |
+| [Server0Variables2BoxedString](#server0variables2boxedstring) | validateAndBox(String arg, SchemaConfiguration configuration) |
+| [Server0Variables2Boxed](#server0variables2boxed) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 
-## StringServer0Variables6
-public enum StringServer0Variables6<br>
-extends `Enum<StringServer0Variables6>`
+## StringServer0Variables3
+public enum StringServer0Variables3<br>
+extends `Enum<StringServer0Variables3>`
 
 A class that stores String enum values
 
@@ -360,28 +360,28 @@ A class that stores String enum values
 | QA_HYPHEN_MINUS_PETSTORE | value = "qa-petstore" |
 | DEV_HYPHEN_MINUS_PETSTORE | value = "dev-petstore" |
 
-## Server0Variables13Boxed
-public sealed interface Server0Variables13Boxed<br>
+## Server0Variables9Boxed
+public sealed interface Server0Variables9Boxed<br>
 permits<br>
-[Server0Variables13BoxedVoid](#server0variables13boxedvoid),
-[Server0Variables13BoxedBoolean](#server0variables13boxedboolean),
-[Server0Variables13BoxedNumber](#server0variables13boxednumber),
-[Server0Variables13BoxedString](#server0variables13boxedstring),
-[Server0Variables13BoxedList](#server0variables13boxedlist),
-[Server0Variables13BoxedMap](#server0variables13boxedmap)
+[Server0Variables9BoxedVoid](#server0variables9boxedvoid),
+[Server0Variables9BoxedBoolean](#server0variables9boxedboolean),
+[Server0Variables9BoxedNumber](#server0variables9boxednumber),
+[Server0Variables9BoxedString](#server0variables9boxedstring),
+[Server0Variables9BoxedList](#server0variables9boxedlist),
+[Server0Variables9BoxedMap](#server0variables9boxedmap)
 
 sealed interface that stores validated payloads using boxed classes
 
-## Server0Variables13BoxedVoid
-public record Server0Variables13BoxedVoid<br>
-implements [Server0Variables13Boxed](#server0variables13boxed)
+## Server0Variables9BoxedVoid
+public record Server0Variables9BoxedVoid<br>
+implements [Server0Variables9Boxed](#server0variables9boxed)
 
 record that stores validated null payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| Server0Variables13BoxedVoid(Void data)<br>Creates an instance, private visibility |
+| Server0Variables9BoxedVoid(Void data)<br>Creates an instance, private visibility |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
@@ -389,16 +389,16 @@ record that stores validated null payloads, sealed permits implementation
 | Void | data()<br>validated payload |
 | @Nullable Object | getData()<br>validated payload |
 
-## Server0Variables13BoxedBoolean
-public record Server0Variables13BoxedBoolean<br>
-implements [Server0Variables13Boxed](#server0variables13boxed)
+## Server0Variables9BoxedBoolean
+public record Server0Variables9BoxedBoolean<br>
+implements [Server0Variables9Boxed](#server0variables9boxed)
 
 record that stores validated boolean payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| Server0Variables13BoxedBoolean(boolean data)<br>Creates an instance, private visibility |
+| Server0Variables9BoxedBoolean(boolean data)<br>Creates an instance, private visibility |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
@@ -406,16 +406,16 @@ record that stores validated boolean payloads, sealed permits implementation
 | boolean | data()<br>validated payload |
 | @Nullable Object | getData()<br>validated payload |
 
-## Server0Variables13BoxedNumber
-public record Server0Variables13BoxedNumber<br>
-implements [Server0Variables13Boxed](#server0variables13boxed)
+## Server0Variables9BoxedNumber
+public record Server0Variables9BoxedNumber<br>
+implements [Server0Variables9Boxed](#server0variables9boxed)
 
 record that stores validated Number payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| Server0Variables13BoxedNumber(Number data)<br>Creates an instance, private visibility |
+| Server0Variables9BoxedNumber(Number data)<br>Creates an instance, private visibility |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
@@ -423,16 +423,16 @@ record that stores validated Number payloads, sealed permits implementation
 | Number | data()<br>validated payload |
 | @Nullable Object | getData()<br>validated payload |
 
-## Server0Variables13BoxedString
-public record Server0Variables13BoxedString<br>
-implements [Server0Variables13Boxed](#server0variables13boxed)
+## Server0Variables9BoxedString
+public record Server0Variables9BoxedString<br>
+implements [Server0Variables9Boxed](#server0variables9boxed)
 
 record that stores validated String payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| Server0Variables13BoxedString(String data)<br>Creates an instance, private visibility |
+| Server0Variables9BoxedString(String data)<br>Creates an instance, private visibility |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
@@ -440,16 +440,16 @@ record that stores validated String payloads, sealed permits implementation
 | String | data()<br>validated payload |
 | @Nullable Object | getData()<br>validated payload |
 
-## Server0Variables13BoxedList
-public record Server0Variables13BoxedList<br>
-implements [Server0Variables13Boxed](#server0variables13boxed)
+## Server0Variables9BoxedList
+public record Server0Variables9BoxedList<br>
+implements [Server0Variables9Boxed](#server0variables9boxed)
 
 record that stores validated List payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| Server0Variables13BoxedList(FrozenList<@Nullable Object> data)<br>Creates an instance, private visibility |
+| Server0Variables9BoxedList(FrozenList<@Nullable Object> data)<br>Creates an instance, private visibility |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
@@ -457,16 +457,16 @@ record that stores validated List payloads, sealed permits implementation
 | FrozenList<@Nullable Object> | data()<br>validated payload |
 | @Nullable Object | getData()<br>validated payload |
 
-## Server0Variables13BoxedMap
-public record Server0Variables13BoxedMap<br>
-implements [Server0Variables13Boxed](#server0variables13boxed)
+## Server0Variables9BoxedMap
+public record Server0Variables9BoxedMap<br>
+implements [Server0Variables9Boxed](#server0variables9boxed)
 
 record that stores validated Map payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| Server0Variables13BoxedMap(FrozenMap<@Nullable Object> data)<br>Creates an instance, private visibility |
+| Server0Variables9BoxedMap(FrozenMap<@Nullable Object> data)<br>Creates an instance, private visibility |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
@@ -474,8 +474,8 @@ record that stores validated Map payloads, sealed permits implementation
 | FrozenMap<@Nullable Object> | data()<br>validated payload |
 | @Nullable Object | getData()<br>validated payload |
 
-## Server0Variables13
-public static class Server0Variables13<br>
+## Server0Variables9
+public static class Server0Variables9<br>
 extends NotAnyTypeJsonSchema.NotAnyTypeJsonSchema1
 
 A schema class that validates payloads

@@ -74,9 +74,9 @@ FakecasesensitiveparamsPut.Put apiClient = new FakecasesensitiveparamsPut.Put(ap
 
 
 // Map validation
-FakecasesensitiveparamsPutQueryParameters.FakecasesensitiveparamsPutQueryParametersMap queryParameters =
+FakecasesensitiveparamsPutQueryParameters.FakecasesensitiveparamsPutQueryParameters11 queryParameters =
     FakecasesensitiveparamsPutQueryParameters.FakecasesensitiveparamsPutQueryParameters1.validate(
-    new FakecasesensitiveparamsPutQueryParameters.FakecasesensitiveparamsPutQueryParametersMapBuilder()
+    new FakecasesensitiveparamsPutQueryParameters.FakecasesensitiveparamsPutQueryParameters10()
         .SomeVar("a")
 
         .someVar("a")
@@ -138,7 +138,7 @@ a class that stores the final request inputs
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | --------------------- |
-| [FakecasesensitiveparamsPutQueryParameters.FakecasesensitiveparamsPutQueryParametersMap](../../paths/fakecasesensitiveparams/put/FakecasesensitiveparamsPutQueryParameters.md#fakecasesensitiveparamsputqueryparametersmap) | queryParameters |
+| [FakecasesensitiveparamsPutQueryParameters.FakecasesensitiveparamsPutQueryParameters11](../../paths/fakecasesensitiveparams/put/FakecasesensitiveparamsPutQueryParameters.md#fakecasesensitiveparamsputqueryparameters11) | queryParameters |
 | [ServerInfo.@Nullable ServerIndex](../../ServerInfo.md#serverindex) | serverIndex<br>optional. Note: this will override the value in apiConfiguration |
 | @Nullable Duration | timeout<br>optional. Note: this will override the value in apiConfiguration |
 
@@ -150,7 +150,7 @@ a class that stores the initial request inputs
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | --------------------- |
-| [FakecasesensitiveparamsPutQueryParameters.@Nullable FakecasesensitiveparamsPutQueryParametersMap](../../paths/fakecasesensitiveparams/put/FakecasesensitiveparamsPutQueryParameters.md#fakecasesensitiveparamsputqueryparametersmap) | queryParameters |
+| [FakecasesensitiveparamsPutQueryParameters.@Nullable FakecasesensitiveparamsPutQueryParameters11](../../paths/fakecasesensitiveparams/put/FakecasesensitiveparamsPutQueryParameters.md#fakecasesensitiveparamsputqueryparameters11) | queryParameters |
 | [ServerInfo.@Nullable ServerIndex](../../ServerInfo.md#serverindex) | serverIndex |
 | @Nullable Duration | timeout |
 
@@ -184,6 +184,6 @@ a builder for request inputs
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [Put0RequestBuilder](#put0requestbuilder) | queryParameters([FakecasesensitiveparamsPutQueryParametersFakecasesensitiveparamsPutQueryParametersMap](../../paths/fakecasesensitiveparams/put/FakecasesensitiveparamsPutQueryParameters.md#fakecasesensitiveparamsputqueryparametersmap) queryParameters)<br>sets the property |
+| [Put0RequestBuilder](#put0requestbuilder) | queryParameters([FakecasesensitiveparamsPutQueryParametersFakecasesensitiveparamsPutQueryParameters11](../../paths/fakecasesensitiveparams/put/FakecasesensitiveparamsPutQueryParameters.md#fakecasesensitiveparamsputqueryparameters11) queryParameters)<br>sets the property |
 
 [[Back to top]](#top) [[Back to README]](../../../README.md)

@@ -145,7 +145,7 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
         } else {
             // #/servers/0/variables
             pathPieces[2] = toServerFilename(pathPieces[2], jsonPath).toLowerCase(Locale.ROOT);
-            pathPieces[3] = getPascalCase(CodegenKeyType.SCHEMA, pathPieces[3], jsonPath);
+            pathPieces[3] = getSchemaFilename(jsonPath);
         }
     }
 
@@ -1265,6 +1265,11 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
         - so all header schemas must be named by their header name to prevent collisions
          */
         String[] pathPieces = sourceJsonPath.split("/");
+
+
+        String lastFragment = pathPieces[pathPieces.length-1];
+        boolean operationParametersSchema = sourceJsonPath.startsWith("#/paths/") && xParameters.contains(lastFragment);
+        boolean serverVariables = (lastFragment.equals("variables") && Set.of(4,6,7).contains(pathPieces.length));
         if (sourceJsonPath.endsWith("/schema")) {
             if (sourceJsonPath.startsWith("#/paths") && sourceJsonPath.contains("/parameters/")) {
                 if (pathPieces[3].equals("parameters")) {
@@ -1307,8 +1312,23 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
             String responseFragment = pathPieces[pathPieces.length-2];
             String pascalCaseResponse = getPascalCaseResponse(responseFragment, responseJsonPath);
             usedKey =  pascalCaseResponse + camelize(usedKey);
+        } else if (operationParametersSchema) {
+            String prefix = getPathClassNamePrefix(sourceJsonPath);
+            usedKey = prefix + lastFragment;
+        } else if (serverVariables) {
+            if (pathPieces.length == 4) {
+                // #/servers/0/variables -> 4
+                usedKey = "Server" + pathPieces[2] + "Variables";
+            } else if (pathPieces.length == 6) {
+                // #/paths/somePath/servers/0/variables -> 6
+                CodegenKey pathKey = getKey(ModelUtils.decodeSlashes(pathPieces[2]), "paths", sourceJsonPath);
+                usedKey = pathKey.pascalCase + "Server" + pathPieces[4] + "Variables";
+            } else {
+                // #/paths/somePath/get/servers/0/variables -> 7
+                String prefix = getPathClassNamePrefix(sourceJsonPath);
+                usedKey = prefix + "Server" + pathPieces[5] + "Variables";
+            }
         }
-
         HashMap<String, Integer> keyToQty = sourceJsonPathToKeyToQty.getOrDefault(sourceJsonPath, new HashMap<>());
         if (useCache) {
             if (!sourceJsonPathToKeyToQty.containsKey(sourceJsonPath)) {
@@ -1359,28 +1379,7 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
             return modelName;
         }
         String[] pathPieces = jsonPath.split("/");
-        String lastFragment = pathPieces[pathPieces.length-1];
-        boolean operationParametersSchema = jsonPath.startsWith("#/paths/") && xParameters.contains(lastFragment);
-        if (operationParametersSchema) {
-            String prefix = getPathClassNamePrefix(jsonPath);
-            lastFragment = prefix + lastFragment;
-        }
-        boolean serverVariables = (lastFragment.equals("variables") && Set.of(4,6,7).contains(pathPieces.length));
-        if (serverVariables) {
-            if (pathPieces.length == 4) {
-                // #/servers/0/variables -> 4
-                lastFragment = "Server" + pathPieces[2] + "Variables";
-            } else if (pathPieces.length == 6) {
-                // #/paths/somePath/servers/0/variables -> 6
-                CodegenKey pathKey = getKey(ModelUtils.decodeSlashes(pathPieces[2]), "paths", jsonPath);
-                lastFragment = pathKey.pascalCase + "Server" + pathPieces[4] + "Variables";
-            } else {
-                // #/paths/somePath/get/servers/0/variables -> 7
-                String prefix = getPathClassNamePrefix(jsonPath);
-                lastFragment = prefix + "Server" + pathPieces[5] + "Variables";
-            }
-        }
-        return getSchemaPascalCaseName(lastFragment, jsonPath, false);
+        return getSchemaPascalCaseName(pathPieces[pathPieces.length-1], jsonPath, false);
     }
 
     protected CodegenKey getContainerJsonPathPiece(String expectedComponentType, String currentJsonPath, String sourceJsonPath) {
@@ -2639,31 +2638,6 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
     public String getPascalCase(CodegenKeyType type, String lastJsonPathFragment, String jsonPath) {
         switch (type) {
             case SCHEMA:
-                if (jsonPath != null) {
-                    String[] pathPieces = jsonPath.split("/");
-                    String lastFragment = pathPieces[pathPieces.length-1];
-                    boolean operationParametersSchema = jsonPath.startsWith("#/paths/") && xParameters.contains(lastFragment);
-                    if (operationParametersSchema) {
-                        // for path/query/header/cookie parameter schemas add a prefix
-                        String prefix = getPathClassNamePrefix(jsonPath);
-                        lastJsonPathFragment = prefix + lastJsonPathFragment;
-                    }
-                    boolean serverVariables = (lastFragment.equals("variables") && Set.of(4,6,7).contains(pathPieces.length));
-                    if (serverVariables) {
-                        if (pathPieces.length == 4) {
-                            // #/servers/0/variables -> 4
-                            lastJsonPathFragment = "Server" + pathPieces[2] + "Variables";
-                        } else if (pathPieces.length == 6) {
-                            // #/paths/somePath/servers/0/variables -> 6
-                            CodegenKey pathKey = getKey(ModelUtils.decodeSlashes(pathPieces[2]), "paths", jsonPath);
-                            lastJsonPathFragment = pathKey.pascalCase + "Server" + pathPieces[4] + "Variables";
-                        } else {
-                            // #/paths/somePath/get/servers/0/variables -> 7
-                            String prefix = getPathClassNamePrefix(jsonPath);
-                            lastJsonPathFragment = prefix + "Server" + pathPieces[5] + "Variables";
-                        }
-                    }
-                }
                 return getSchemaPascalCaseName(lastJsonPathFragment, jsonPath, true);
             case PATH:
                 return camelize(toPathFilename(lastJsonPathFragment, jsonPath));

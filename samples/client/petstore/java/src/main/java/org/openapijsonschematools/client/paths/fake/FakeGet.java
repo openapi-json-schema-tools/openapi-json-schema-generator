@@ -104,8 +104,8 @@ public class FakeGet {
 
     public static class GetRequest {
         public FakeGetRequestBody.@Nullable SealedRequestBody requestBody;
-        public FakeGetHeaderParameters.@Nullable FakeGetHeaderParametersMap headerParameters;
-        public FakeGetQueryParameters.@Nullable FakeGetQueryParametersMap queryParameters;
+        public FakeGetHeaderParameters.@Nullable FakeGetHeaderParameters10 headerParameters;
+        public FakeGetQueryParameters.@Nullable FakeGetQueryParameters12 queryParameters;
         public ServerInfo.@Nullable ServerIndex serverIndex;
         public @Nullable Duration timeout;
     }
@@ -123,7 +123,7 @@ public class FakeGet {
     public interface SetterForHeaderParameters <T> {
         GetRequest getInstance();
         T getBuilderAfterHeaderParameters(GetRequest instance);
-        default T headerParameters(FakeGetHeaderParameters.FakeGetHeaderParametersMap headerParameters) {
+        default T headerParameters(FakeGetHeaderParameters.FakeGetHeaderParameters10 headerParameters) {
             var instance = getInstance();
             instance.headerParameters = headerParameters;
             return getBuilderAfterHeaderParameters(instance);
@@ -133,7 +133,7 @@ public class FakeGet {
     public interface SetterForQueryParameters <T> {
         GetRequest getInstance();
         T getBuilderAfterQueryParameters(GetRequest instance);
-        default T queryParameters(FakeGetQueryParameters.FakeGetQueryParametersMap queryParameters) {
+        default T queryParameters(FakeGetQueryParameters.FakeGetQueryParameters12 queryParameters) {
             var instance = getInstance();
             instance.queryParameters = queryParameters;
             return getBuilderAfterQueryParameters(instance);

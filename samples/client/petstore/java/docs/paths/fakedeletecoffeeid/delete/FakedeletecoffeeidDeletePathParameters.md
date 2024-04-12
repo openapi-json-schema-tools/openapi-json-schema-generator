@@ -14,16 +14,16 @@ A class that contains necessary nested
 | sealed interface | [FakedeletecoffeeidDeletePathParameters.FakedeletecoffeeidDeletePathParameters1Boxed](#fakedeletecoffeeiddeletepathparameters1boxed)<br> sealed interface for validated payloads |
 | record | [FakedeletecoffeeidDeletePathParameters.FakedeletecoffeeidDeletePathParameters1BoxedMap](#fakedeletecoffeeiddeletepathparameters1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [FakedeletecoffeeidDeletePathParameters.FakedeletecoffeeidDeletePathParameters1](#fakedeletecoffeeiddeletepathparameters1)<br> schema class |
-| static class | [FakedeletecoffeeidDeletePathParameters.FakedeletecoffeeidDeletePathParametersMapBuilder](#fakedeletecoffeeiddeletepathparametersmapbuilder)<br> builder for Map payloads |
-| static class | [FakedeletecoffeeidDeletePathParameters.FakedeletecoffeeidDeletePathParametersMap](#fakedeletecoffeeiddeletepathparametersmap)<br> output class for Map payloads |
-| sealed interface | [FakedeletecoffeeidDeletePathParameters.FakedeletecoffeeidDeleteadditionalPropertiesBoxed](#fakedeletecoffeeiddeleteadditionalpropertiesboxed)<br> sealed interface for validated payloads |
-| record | [FakedeletecoffeeidDeletePathParameters.FakedeletecoffeeidDeleteadditionalPropertiesBoxedVoid](#fakedeletecoffeeiddeleteadditionalpropertiesboxedvoid)<br> boxed class to store validated null payloads |
-| record | [FakedeletecoffeeidDeletePathParameters.FakedeletecoffeeidDeleteadditionalPropertiesBoxedBoolean](#fakedeletecoffeeiddeleteadditionalpropertiesboxedboolean)<br> boxed class to store validated boolean payloads |
-| record | [FakedeletecoffeeidDeletePathParameters.FakedeletecoffeeidDeleteadditionalPropertiesBoxedNumber](#fakedeletecoffeeiddeleteadditionalpropertiesboxednumber)<br> boxed class to store validated Number payloads |
-| record | [FakedeletecoffeeidDeletePathParameters.FakedeletecoffeeidDeleteadditionalPropertiesBoxedString](#fakedeletecoffeeiddeleteadditionalpropertiesboxedstring)<br> boxed class to store validated String payloads |
-| record | [FakedeletecoffeeidDeletePathParameters.FakedeletecoffeeidDeleteadditionalPropertiesBoxedList](#fakedeletecoffeeiddeleteadditionalpropertiesboxedlist)<br> boxed class to store validated List payloads |
-| record | [FakedeletecoffeeidDeletePathParameters.FakedeletecoffeeidDeleteadditionalPropertiesBoxedMap](#fakedeletecoffeeiddeleteadditionalpropertiesboxedmap)<br> boxed class to store validated Map payloads |
-| static class | [FakedeletecoffeeidDeletePathParameters.FakedeletecoffeeidDeleteadditionalProperties](#fakedeletecoffeeiddeleteadditionalproperties)<br> schema class |
+| static class | [FakedeletecoffeeidDeletePathParameters.FakedeletecoffeeidDeletePathParameters8](#fakedeletecoffeeiddeletepathparameters8)<br> builder for Map payloads |
+| static class | [FakedeletecoffeeidDeletePathParameters.FakedeletecoffeeidDeletePathParameters9](#fakedeletecoffeeiddeletepathparameters9)<br> output class for Map payloads |
+| sealed interface | [FakedeletecoffeeidDeletePathParameters.FakedeletecoffeeidDeletePathParameters4Boxed](#fakedeletecoffeeiddeletepathparameters4boxed)<br> sealed interface for validated payloads |
+| record | [FakedeletecoffeeidDeletePathParameters.FakedeletecoffeeidDeletePathParameters4BoxedVoid](#fakedeletecoffeeiddeletepathparameters4boxedvoid)<br> boxed class to store validated null payloads |
+| record | [FakedeletecoffeeidDeletePathParameters.FakedeletecoffeeidDeletePathParameters4BoxedBoolean](#fakedeletecoffeeiddeletepathparameters4boxedboolean)<br> boxed class to store validated boolean payloads |
+| record | [FakedeletecoffeeidDeletePathParameters.FakedeletecoffeeidDeletePathParameters4BoxedNumber](#fakedeletecoffeeiddeletepathparameters4boxednumber)<br> boxed class to store validated Number payloads |
+| record | [FakedeletecoffeeidDeletePathParameters.FakedeletecoffeeidDeletePathParameters4BoxedString](#fakedeletecoffeeiddeletepathparameters4boxedstring)<br> boxed class to store validated String payloads |
+| record | [FakedeletecoffeeidDeletePathParameters.FakedeletecoffeeidDeletePathParameters4BoxedList](#fakedeletecoffeeiddeletepathparameters4boxedlist)<br> boxed class to store validated List payloads |
+| record | [FakedeletecoffeeidDeletePathParameters.FakedeletecoffeeidDeletePathParameters4BoxedMap](#fakedeletecoffeeiddeletepathparameters4boxedmap)<br> boxed class to store validated Map payloads |
+| static class | [FakedeletecoffeeidDeletePathParameters.FakedeletecoffeeidDeletePathParameters4](#fakedeletecoffeeiddeletepathparameters4)<br> schema class |
 
 ## FakedeletecoffeeidDeletePathParameters1Boxed
 public sealed interface FakedeletecoffeeidDeletePathParameters1Boxed<br>
@@ -41,12 +41,12 @@ record that stores validated Map payloads, sealed permits implementation
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| FakedeletecoffeeidDeletePathParameters1BoxedMap([FakedeletecoffeeidDeletePathParametersMap](#fakedeletecoffeeiddeletepathparametersmap) data)<br>Creates an instance, private visibility |
+| FakedeletecoffeeidDeletePathParameters1BoxedMap([FakedeletecoffeeidDeletePathParameters9](#fakedeletecoffeeiddeletepathparameters9) data)<br>Creates an instance, private visibility |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [FakedeletecoffeeidDeletePathParametersMap](#fakedeletecoffeeiddeletepathparametersmap) | data()<br>validated payload |
+| [FakedeletecoffeeidDeletePathParameters9](#fakedeletecoffeeiddeletepathparameters9) | data()<br>validated payload |
 | @Nullable Object | getData()<br>validated payload |
 
 ## FakedeletecoffeeidDeletePathParameters1
@@ -72,9 +72,9 @@ import java.util.AbstractMap;
 static final SchemaConfiguration configuration = new SchemaConfiguration(new JsonSchemaKeywordFlags.Builder().build());
 
 // Map validation
-FakedeletecoffeeidDeletePathParameters.FakedeletecoffeeidDeletePathParametersMap validatedPayload =
+FakedeletecoffeeidDeletePathParameters.FakedeletecoffeeidDeletePathParameters9 validatedPayload =
     FakedeletecoffeeidDeletePathParameters.FakedeletecoffeeidDeletePathParameters1.validate(
-    new FakedeletecoffeeidDeletePathParameters.FakedeletecoffeeidDeletePathParametersMapBuilder()
+    new FakedeletecoffeeidDeletePathParameters.FakedeletecoffeeidDeletePathParameters8()
         .id("a")
 
     .build(),
@@ -88,18 +88,18 @@ FakedeletecoffeeidDeletePathParameters.FakedeletecoffeeidDeletePathParametersMap
 | Set<Class<?>> | type = Set.of(Map.class) |
 | Map<String, Class<? extends JsonSchema>> | properties = Map.ofEntries(<br>&nbsp;&nbsp;&nbsp;&nbsp;new PropertyEntry("id", [Schema0.Schema01.class](../../../paths/fakedeletecoffeeid/delete/parameters/parameter0/Schema0.md#schema01))<br>)<br> |
 | Set<String> | required = Set.of(<br>&nbsp;&nbsp;&nbsp;&nbsp;"id"<br>)<br> |
-| Class<? extends JsonSchema> | additionalProperties = [FakedeletecoffeeidDeleteadditionalProperties.class](#fakedeletecoffeeiddeleteadditionalproperties) |
+| Class<? extends JsonSchema> | additionalProperties = [FakedeletecoffeeidDeletePathParameters4.class](#fakedeletecoffeeiddeletepathparameters4) |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [FakedeletecoffeeidDeletePathParametersMap](#fakedeletecoffeeiddeletepathparametersmap) | validate([Map&lt;?, ?&gt;](#fakedeletecoffeeiddeletepathparametersmapbuilder) arg, SchemaConfiguration configuration) |
-| [FakedeletecoffeeidDeletePathParameters1BoxedMap](#fakedeletecoffeeiddeletepathparameters1boxedmap) | validateAndBox([Map&lt;?, ?&gt;](#fakedeletecoffeeiddeletepathparametersmapbuilder) arg, SchemaConfiguration configuration) |
+| [FakedeletecoffeeidDeletePathParameters9](#fakedeletecoffeeiddeletepathparameters9) | validate([Map&lt;?, ?&gt;](#fakedeletecoffeeiddeletepathparameters8) arg, SchemaConfiguration configuration) |
+| [FakedeletecoffeeidDeletePathParameters1BoxedMap](#fakedeletecoffeeiddeletepathparameters1boxedmap) | validateAndBox([Map&lt;?, ?&gt;](#fakedeletecoffeeiddeletepathparameters8) arg, SchemaConfiguration configuration) |
 | [FakedeletecoffeeidDeletePathParameters1Boxed](#fakedeletecoffeeiddeletepathparameters1boxed) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 
-## FakedeletecoffeeidDeletePathParametersMap0Builder
-public class FakedeletecoffeeidDeletePathParametersMap0Builder<br>
+## FakedeletecoffeeidDeletePathParameters10
+public class FakedeletecoffeeidDeletePathParameters10<br>
 builder for `Map<String, String>`
 
 A class that builds the Map input type
@@ -107,15 +107,15 @@ A class that builds the Map input type
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| FakedeletecoffeeidDeletePathParametersMap0Builder(Map<String, String> instance)<br>Creates a builder that contains the passed instance |
+| FakedeletecoffeeidDeletePathParameters10(Map<String, String> instance)<br>Creates a builder that contains the passed instance |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | Map<String, String> | build()<br>Returns map input that should be used with Schema.validate |
 
-## FakedeletecoffeeidDeletePathParametersMapBuilder
-public class FakedeletecoffeeidDeletePathParametersMapBuilder<br>
+## FakedeletecoffeeidDeletePathParameters8
+public class FakedeletecoffeeidDeletePathParameters8<br>
 builder for `Map<String, String>`
 
 A class that builds the Map input type
@@ -123,15 +123,15 @@ A class that builds the Map input type
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| FakedeletecoffeeidDeletePathParametersMapBuilder()<br>Creates a builder that contains an empty map |
+| FakedeletecoffeeidDeletePathParameters8()<br>Creates a builder that contains an empty map |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [FakedeletecoffeeidDeletePathParametersMap0Builder](#fakedeletecoffeeiddeletepathparametersmap0builder) | id(String value) |
+| [FakedeletecoffeeidDeletePathParameters10](#fakedeletecoffeeiddeletepathparameters10) | id(String value) |
 
-## FakedeletecoffeeidDeletePathParametersMap
-public static class FakedeletecoffeeidDeletePathParametersMap<br>
+## FakedeletecoffeeidDeletePathParameters9
+public static class FakedeletecoffeeidDeletePathParameters9<br>
 extends FrozenMap<String, String>
 
 A class to store validated Map payloads
@@ -139,31 +139,31 @@ A class to store validated Map payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [FakedeletecoffeeidDeletePathParametersMap](#fakedeletecoffeeiddeletepathparametersmap) | of([Map<String, String>](#fakedeletecoffeeiddeletepathparametersmapbuilder) arg, SchemaConfiguration configuration) |
+| static [FakedeletecoffeeidDeletePathParameters9](#fakedeletecoffeeiddeletepathparameters9) | of([Map<String, String>](#fakedeletecoffeeiddeletepathparameters8) arg, SchemaConfiguration configuration) |
 | String | id()<br> |
 
-## FakedeletecoffeeidDeleteadditionalPropertiesBoxed
-public sealed interface FakedeletecoffeeidDeleteadditionalPropertiesBoxed<br>
+## FakedeletecoffeeidDeletePathParameters4Boxed
+public sealed interface FakedeletecoffeeidDeletePathParameters4Boxed<br>
 permits<br>
-[FakedeletecoffeeidDeleteadditionalPropertiesBoxedVoid](#fakedeletecoffeeiddeleteadditionalpropertiesboxedvoid),
-[FakedeletecoffeeidDeleteadditionalPropertiesBoxedBoolean](#fakedeletecoffeeiddeleteadditionalpropertiesboxedboolean),
-[FakedeletecoffeeidDeleteadditionalPropertiesBoxedNumber](#fakedeletecoffeeiddeleteadditionalpropertiesboxednumber),
-[FakedeletecoffeeidDeleteadditionalPropertiesBoxedString](#fakedeletecoffeeiddeleteadditionalpropertiesboxedstring),
-[FakedeletecoffeeidDeleteadditionalPropertiesBoxedList](#fakedeletecoffeeiddeleteadditionalpropertiesboxedlist),
-[FakedeletecoffeeidDeleteadditionalPropertiesBoxedMap](#fakedeletecoffeeiddeleteadditionalpropertiesboxedmap)
+[FakedeletecoffeeidDeletePathParameters4BoxedVoid](#fakedeletecoffeeiddeletepathparameters4boxedvoid),
+[FakedeletecoffeeidDeletePathParameters4BoxedBoolean](#fakedeletecoffeeiddeletepathparameters4boxedboolean),
+[FakedeletecoffeeidDeletePathParameters4BoxedNumber](#fakedeletecoffeeiddeletepathparameters4boxednumber),
+[FakedeletecoffeeidDeletePathParameters4BoxedString](#fakedeletecoffeeiddeletepathparameters4boxedstring),
+[FakedeletecoffeeidDeletePathParameters4BoxedList](#fakedeletecoffeeiddeletepathparameters4boxedlist),
+[FakedeletecoffeeidDeletePathParameters4BoxedMap](#fakedeletecoffeeiddeletepathparameters4boxedmap)
 
 sealed interface that stores validated payloads using boxed classes
 
-## FakedeletecoffeeidDeleteadditionalPropertiesBoxedVoid
-public record FakedeletecoffeeidDeleteadditionalPropertiesBoxedVoid<br>
-implements [FakedeletecoffeeidDeleteadditionalPropertiesBoxed](#fakedeletecoffeeiddeleteadditionalpropertiesboxed)
+## FakedeletecoffeeidDeletePathParameters4BoxedVoid
+public record FakedeletecoffeeidDeletePathParameters4BoxedVoid<br>
+implements [FakedeletecoffeeidDeletePathParameters4Boxed](#fakedeletecoffeeiddeletepathparameters4boxed)
 
 record that stores validated null payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| FakedeletecoffeeidDeleteadditionalPropertiesBoxedVoid(Void data)<br>Creates an instance, private visibility |
+| FakedeletecoffeeidDeletePathParameters4BoxedVoid(Void data)<br>Creates an instance, private visibility |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
@@ -171,16 +171,16 @@ record that stores validated null payloads, sealed permits implementation
 | Void | data()<br>validated payload |
 | @Nullable Object | getData()<br>validated payload |
 
-## FakedeletecoffeeidDeleteadditionalPropertiesBoxedBoolean
-public record FakedeletecoffeeidDeleteadditionalPropertiesBoxedBoolean<br>
-implements [FakedeletecoffeeidDeleteadditionalPropertiesBoxed](#fakedeletecoffeeiddeleteadditionalpropertiesboxed)
+## FakedeletecoffeeidDeletePathParameters4BoxedBoolean
+public record FakedeletecoffeeidDeletePathParameters4BoxedBoolean<br>
+implements [FakedeletecoffeeidDeletePathParameters4Boxed](#fakedeletecoffeeiddeletepathparameters4boxed)
 
 record that stores validated boolean payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| FakedeletecoffeeidDeleteadditionalPropertiesBoxedBoolean(boolean data)<br>Creates an instance, private visibility |
+| FakedeletecoffeeidDeletePathParameters4BoxedBoolean(boolean data)<br>Creates an instance, private visibility |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
@@ -188,16 +188,16 @@ record that stores validated boolean payloads, sealed permits implementation
 | boolean | data()<br>validated payload |
 | @Nullable Object | getData()<br>validated payload |
 
-## FakedeletecoffeeidDeleteadditionalPropertiesBoxedNumber
-public record FakedeletecoffeeidDeleteadditionalPropertiesBoxedNumber<br>
-implements [FakedeletecoffeeidDeleteadditionalPropertiesBoxed](#fakedeletecoffeeiddeleteadditionalpropertiesboxed)
+## FakedeletecoffeeidDeletePathParameters4BoxedNumber
+public record FakedeletecoffeeidDeletePathParameters4BoxedNumber<br>
+implements [FakedeletecoffeeidDeletePathParameters4Boxed](#fakedeletecoffeeiddeletepathparameters4boxed)
 
 record that stores validated Number payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| FakedeletecoffeeidDeleteadditionalPropertiesBoxedNumber(Number data)<br>Creates an instance, private visibility |
+| FakedeletecoffeeidDeletePathParameters4BoxedNumber(Number data)<br>Creates an instance, private visibility |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
@@ -205,16 +205,16 @@ record that stores validated Number payloads, sealed permits implementation
 | Number | data()<br>validated payload |
 | @Nullable Object | getData()<br>validated payload |
 
-## FakedeletecoffeeidDeleteadditionalPropertiesBoxedString
-public record FakedeletecoffeeidDeleteadditionalPropertiesBoxedString<br>
-implements [FakedeletecoffeeidDeleteadditionalPropertiesBoxed](#fakedeletecoffeeiddeleteadditionalpropertiesboxed)
+## FakedeletecoffeeidDeletePathParameters4BoxedString
+public record FakedeletecoffeeidDeletePathParameters4BoxedString<br>
+implements [FakedeletecoffeeidDeletePathParameters4Boxed](#fakedeletecoffeeiddeletepathparameters4boxed)
 
 record that stores validated String payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| FakedeletecoffeeidDeleteadditionalPropertiesBoxedString(String data)<br>Creates an instance, private visibility |
+| FakedeletecoffeeidDeletePathParameters4BoxedString(String data)<br>Creates an instance, private visibility |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
@@ -222,16 +222,16 @@ record that stores validated String payloads, sealed permits implementation
 | String | data()<br>validated payload |
 | @Nullable Object | getData()<br>validated payload |
 
-## FakedeletecoffeeidDeleteadditionalPropertiesBoxedList
-public record FakedeletecoffeeidDeleteadditionalPropertiesBoxedList<br>
-implements [FakedeletecoffeeidDeleteadditionalPropertiesBoxed](#fakedeletecoffeeiddeleteadditionalpropertiesboxed)
+## FakedeletecoffeeidDeletePathParameters4BoxedList
+public record FakedeletecoffeeidDeletePathParameters4BoxedList<br>
+implements [FakedeletecoffeeidDeletePathParameters4Boxed](#fakedeletecoffeeiddeletepathparameters4boxed)
 
 record that stores validated List payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| FakedeletecoffeeidDeleteadditionalPropertiesBoxedList(FrozenList<@Nullable Object> data)<br>Creates an instance, private visibility |
+| FakedeletecoffeeidDeletePathParameters4BoxedList(FrozenList<@Nullable Object> data)<br>Creates an instance, private visibility |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
@@ -239,16 +239,16 @@ record that stores validated List payloads, sealed permits implementation
 | FrozenList<@Nullable Object> | data()<br>validated payload |
 | @Nullable Object | getData()<br>validated payload |
 
-## FakedeletecoffeeidDeleteadditionalPropertiesBoxedMap
-public record FakedeletecoffeeidDeleteadditionalPropertiesBoxedMap<br>
-implements [FakedeletecoffeeidDeleteadditionalPropertiesBoxed](#fakedeletecoffeeiddeleteadditionalpropertiesboxed)
+## FakedeletecoffeeidDeletePathParameters4BoxedMap
+public record FakedeletecoffeeidDeletePathParameters4BoxedMap<br>
+implements [FakedeletecoffeeidDeletePathParameters4Boxed](#fakedeletecoffeeiddeletepathparameters4boxed)
 
 record that stores validated Map payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| FakedeletecoffeeidDeleteadditionalPropertiesBoxedMap(FrozenMap<@Nullable Object> data)<br>Creates an instance, private visibility |
+| FakedeletecoffeeidDeletePathParameters4BoxedMap(FrozenMap<@Nullable Object> data)<br>Creates an instance, private visibility |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
@@ -256,8 +256,8 @@ record that stores validated Map payloads, sealed permits implementation
 | FrozenMap<@Nullable Object> | data()<br>validated payload |
 | @Nullable Object | getData()<br>validated payload |
 
-## FakedeletecoffeeidDeleteadditionalProperties
-public static class FakedeletecoffeeidDeleteadditionalProperties<br>
+## FakedeletecoffeeidDeletePathParameters4
+public static class FakedeletecoffeeidDeletePathParameters4<br>
 extends NotAnyTypeJsonSchema.NotAnyTypeJsonSchema1
 
 A schema class that validates payloads

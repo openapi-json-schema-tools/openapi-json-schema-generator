@@ -14,16 +14,16 @@ A class that contains necessary nested
 | sealed interface | [FakeDeleteQueryParameters.FakeDeleteQueryParameters1Boxed](#fakedeletequeryparameters1boxed)<br> sealed interface for validated payloads |
 | record | [FakeDeleteQueryParameters.FakeDeleteQueryParameters1BoxedMap](#fakedeletequeryparameters1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [FakeDeleteQueryParameters.FakeDeleteQueryParameters1](#fakedeletequeryparameters1)<br> schema class |
-| static class | [FakeDeleteQueryParameters.FakeDeleteQueryParametersMapBuilder](#fakedeletequeryparametersmapbuilder)<br> builder for Map payloads |
-| static class | [FakeDeleteQueryParameters.FakeDeleteQueryParametersMap](#fakedeletequeryparametersmap)<br> output class for Map payloads |
-| sealed interface | [FakeDeleteQueryParameters.FakeDeleteadditionalPropertiesBoxed](#fakedeleteadditionalpropertiesboxed)<br> sealed interface for validated payloads |
-| record | [FakeDeleteQueryParameters.FakeDeleteadditionalPropertiesBoxedVoid](#fakedeleteadditionalpropertiesboxedvoid)<br> boxed class to store validated null payloads |
-| record | [FakeDeleteQueryParameters.FakeDeleteadditionalPropertiesBoxedBoolean](#fakedeleteadditionalpropertiesboxedboolean)<br> boxed class to store validated boolean payloads |
-| record | [FakeDeleteQueryParameters.FakeDeleteadditionalPropertiesBoxedNumber](#fakedeleteadditionalpropertiesboxednumber)<br> boxed class to store validated Number payloads |
-| record | [FakeDeleteQueryParameters.FakeDeleteadditionalPropertiesBoxedString](#fakedeleteadditionalpropertiesboxedstring)<br> boxed class to store validated String payloads |
-| record | [FakeDeleteQueryParameters.FakeDeleteadditionalPropertiesBoxedList](#fakedeleteadditionalpropertiesboxedlist)<br> boxed class to store validated List payloads |
-| record | [FakeDeleteQueryParameters.FakeDeleteadditionalPropertiesBoxedMap](#fakedeleteadditionalpropertiesboxedmap)<br> boxed class to store validated Map payloads |
-| static class | [FakeDeleteQueryParameters.FakeDeleteadditionalProperties](#fakedeleteadditionalproperties)<br> schema class |
+| static class | [FakeDeleteQueryParameters.FakeDeleteQueryParameters13](#fakedeletequeryparameters13)<br> builder for Map payloads |
+| static class | [FakeDeleteQueryParameters.FakeDeleteQueryParameters14](#fakedeletequeryparameters14)<br> output class for Map payloads |
+| sealed interface | [FakeDeleteQueryParameters.FakeDeleteQueryParameters7Boxed](#fakedeletequeryparameters7boxed)<br> sealed interface for validated payloads |
+| record | [FakeDeleteQueryParameters.FakeDeleteQueryParameters7BoxedVoid](#fakedeletequeryparameters7boxedvoid)<br> boxed class to store validated null payloads |
+| record | [FakeDeleteQueryParameters.FakeDeleteQueryParameters7BoxedBoolean](#fakedeletequeryparameters7boxedboolean)<br> boxed class to store validated boolean payloads |
+| record | [FakeDeleteQueryParameters.FakeDeleteQueryParameters7BoxedNumber](#fakedeletequeryparameters7boxednumber)<br> boxed class to store validated Number payloads |
+| record | [FakeDeleteQueryParameters.FakeDeleteQueryParameters7BoxedString](#fakedeletequeryparameters7boxedstring)<br> boxed class to store validated String payloads |
+| record | [FakeDeleteQueryParameters.FakeDeleteQueryParameters7BoxedList](#fakedeletequeryparameters7boxedlist)<br> boxed class to store validated List payloads |
+| record | [FakeDeleteQueryParameters.FakeDeleteQueryParameters7BoxedMap](#fakedeletequeryparameters7boxedmap)<br> boxed class to store validated Map payloads |
+| static class | [FakeDeleteQueryParameters.FakeDeleteQueryParameters7](#fakedeletequeryparameters7)<br> schema class |
 
 ## FakeDeleteQueryParameters1Boxed
 public sealed interface FakeDeleteQueryParameters1Boxed<br>
@@ -41,12 +41,12 @@ record that stores validated Map payloads, sealed permits implementation
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| FakeDeleteQueryParameters1BoxedMap([FakeDeleteQueryParametersMap](#fakedeletequeryparametersmap) data)<br>Creates an instance, private visibility |
+| FakeDeleteQueryParameters1BoxedMap([FakeDeleteQueryParameters14](#fakedeletequeryparameters14) data)<br>Creates an instance, private visibility |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [FakeDeleteQueryParametersMap](#fakedeletequeryparametersmap) | data()<br>validated payload |
+| [FakeDeleteQueryParameters14](#fakedeletequeryparameters14) | data()<br>validated payload |
 | @Nullable Object | getData()<br>validated payload |
 
 ## FakeDeleteQueryParameters1
@@ -72,9 +72,9 @@ import java.util.AbstractMap;
 static final SchemaConfiguration configuration = new SchemaConfiguration(new JsonSchemaKeywordFlags.Builder().build());
 
 // Map validation
-FakeDeleteQueryParameters.FakeDeleteQueryParametersMap validatedPayload =
+FakeDeleteQueryParameters.FakeDeleteQueryParameters14 validatedPayload =
     FakeDeleteQueryParameters.FakeDeleteQueryParameters1.validate(
-    new FakeDeleteQueryParameters.FakeDeleteQueryParametersMapBuilder()
+    new FakeDeleteQueryParameters.FakeDeleteQueryParameters13()
         .required_int64_group(1L)
 
         .required_string_group("a")
@@ -94,18 +94,18 @@ FakeDeleteQueryParameters.FakeDeleteQueryParametersMap validatedPayload =
 | Set<Class<?>> | type = Set.of(Map.class) |
 | Map<String, Class<? extends JsonSchema>> | properties = Map.ofEntries(<br>&nbsp;&nbsp;&nbsp;&nbsp;new PropertyEntry("required_string_group", [Schema0.Schema01.class](../../../paths/fake/delete/parameters/parameter0/Schema0.md#schema01)),<br>&nbsp;&nbsp;&nbsp;&nbsp;new PropertyEntry("int64_group", [Schema5.Schema51.class](../../../paths/fake/delete/parameters/parameter5/Schema5.md#schema51)),<br>&nbsp;&nbsp;&nbsp;&nbsp;new PropertyEntry("string_group", [Schema3.Schema31.class](../../../paths/fake/delete/parameters/parameter3/Schema3.md#schema31)),<br>&nbsp;&nbsp;&nbsp;&nbsp;new PropertyEntry("required_int64_group", [Schema2.Schema21.class](../../../paths/fake/delete/parameters/parameter2/Schema2.md#schema21))<br>)<br> |
 | Set<String> | required = Set.of(<br>&nbsp;&nbsp;&nbsp;&nbsp;"required_int64_group",<br>&nbsp;&nbsp;&nbsp;&nbsp;"required_string_group"<br>)<br> |
-| Class<? extends JsonSchema> | additionalProperties = [FakeDeleteadditionalProperties.class](#fakedeleteadditionalproperties) |
+| Class<? extends JsonSchema> | additionalProperties = [FakeDeleteQueryParameters7.class](#fakedeletequeryparameters7) |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [FakeDeleteQueryParametersMap](#fakedeletequeryparametersmap) | validate([Map&lt;?, ?&gt;](#fakedeletequeryparametersmapbuilder) arg, SchemaConfiguration configuration) |
-| [FakeDeleteQueryParameters1BoxedMap](#fakedeletequeryparameters1boxedmap) | validateAndBox([Map&lt;?, ?&gt;](#fakedeletequeryparametersmapbuilder) arg, SchemaConfiguration configuration) |
+| [FakeDeleteQueryParameters14](#fakedeletequeryparameters14) | validate([Map&lt;?, ?&gt;](#fakedeletequeryparameters13) arg, SchemaConfiguration configuration) |
+| [FakeDeleteQueryParameters1BoxedMap](#fakedeletequeryparameters1boxedmap) | validateAndBox([Map&lt;?, ?&gt;](#fakedeletequeryparameters13) arg, SchemaConfiguration configuration) |
 | [FakeDeleteQueryParameters1Boxed](#fakedeletequeryparameters1boxed) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 
-## FakeDeleteQueryParametersMap00Builder
-public class FakeDeleteQueryParametersMap00Builder<br>
+## FakeDeleteQueryParameters15
+public class FakeDeleteQueryParameters15<br>
 builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
@@ -113,20 +113,20 @@ A class that builds the Map input type
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| FakeDeleteQueryParametersMap00Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+| FakeDeleteQueryParameters15(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | Map<String, @Nullable Object> | build()<br>Returns map input that should be used with Schema.validate |
-| [FakeDeleteQueryParametersMap00Builder](#fakedeletequeryparametersmap00builder) | int64_group(int value) |
-| [FakeDeleteQueryParametersMap00Builder](#fakedeletequeryparametersmap00builder) | int64_group(float value) |
-| [FakeDeleteQueryParametersMap00Builder](#fakedeletequeryparametersmap00builder) | int64_group(long value) |
-| [FakeDeleteQueryParametersMap00Builder](#fakedeletequeryparametersmap00builder) | int64_group(double value) |
-| [FakeDeleteQueryParametersMap00Builder](#fakedeletequeryparametersmap00builder) | string_group(String value) |
+| [FakeDeleteQueryParameters15](#fakedeletequeryparameters15) | int64_group(int value) |
+| [FakeDeleteQueryParameters15](#fakedeletequeryparameters15) | int64_group(float value) |
+| [FakeDeleteQueryParameters15](#fakedeletequeryparameters15) | int64_group(long value) |
+| [FakeDeleteQueryParameters15](#fakedeletequeryparameters15) | int64_group(double value) |
+| [FakeDeleteQueryParameters15](#fakedeletequeryparameters15) | string_group(String value) |
 
-## FakeDeleteQueryParametersMap01Builder
-public class FakeDeleteQueryParametersMap01Builder<br>
+## FakeDeleteQueryParameters16
+public class FakeDeleteQueryParameters16<br>
 builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
@@ -134,15 +134,15 @@ A class that builds the Map input type
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| FakeDeleteQueryParametersMap01Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+| FakeDeleteQueryParameters16(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [FakeDeleteQueryParametersMap00Builder](#fakedeletequeryparametersmap00builder) | required_string_group(String value) |
+| [FakeDeleteQueryParameters15](#fakedeletequeryparameters15) | required_string_group(String value) |
 
-## FakeDeleteQueryParametersMap10Builder
-public class FakeDeleteQueryParametersMap10Builder<br>
+## FakeDeleteQueryParameters17
+public class FakeDeleteQueryParameters17<br>
 builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
@@ -150,18 +150,18 @@ A class that builds the Map input type
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| FakeDeleteQueryParametersMap10Builder(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
+| FakeDeleteQueryParameters17(Map<String, @Nullable Object> instance)<br>Creates a builder that contains the passed instance |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [FakeDeleteQueryParametersMap00Builder](#fakedeletequeryparametersmap00builder) | required_int64_group(int value) |
-| [FakeDeleteQueryParametersMap00Builder](#fakedeletequeryparametersmap00builder) | required_int64_group(float value) |
-| [FakeDeleteQueryParametersMap00Builder](#fakedeletequeryparametersmap00builder) | required_int64_group(long value) |
-| [FakeDeleteQueryParametersMap00Builder](#fakedeletequeryparametersmap00builder) | required_int64_group(double value) |
+| [FakeDeleteQueryParameters15](#fakedeletequeryparameters15) | required_int64_group(int value) |
+| [FakeDeleteQueryParameters15](#fakedeletequeryparameters15) | required_int64_group(float value) |
+| [FakeDeleteQueryParameters15](#fakedeletequeryparameters15) | required_int64_group(long value) |
+| [FakeDeleteQueryParameters15](#fakedeletequeryparameters15) | required_int64_group(double value) |
 
-## FakeDeleteQueryParametersMapBuilder
-public class FakeDeleteQueryParametersMapBuilder<br>
+## FakeDeleteQueryParameters13
+public class FakeDeleteQueryParameters13<br>
 builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
@@ -169,19 +169,19 @@ A class that builds the Map input type
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| FakeDeleteQueryParametersMapBuilder()<br>Creates a builder that contains an empty map |
+| FakeDeleteQueryParameters13()<br>Creates a builder that contains an empty map |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [FakeDeleteQueryParametersMap01Builder](#fakedeletequeryparametersmap01builder) | required_int64_group(int value) |
-| [FakeDeleteQueryParametersMap01Builder](#fakedeletequeryparametersmap01builder) | required_int64_group(float value) |
-| [FakeDeleteQueryParametersMap01Builder](#fakedeletequeryparametersmap01builder) | required_int64_group(long value) |
-| [FakeDeleteQueryParametersMap01Builder](#fakedeletequeryparametersmap01builder) | required_int64_group(double value) |
-| [FakeDeleteQueryParametersMap10Builder](#fakedeletequeryparametersmap10builder) | required_string_group(String value) |
+| [FakeDeleteQueryParameters16](#fakedeletequeryparameters16) | required_int64_group(int value) |
+| [FakeDeleteQueryParameters16](#fakedeletequeryparameters16) | required_int64_group(float value) |
+| [FakeDeleteQueryParameters16](#fakedeletequeryparameters16) | required_int64_group(long value) |
+| [FakeDeleteQueryParameters16](#fakedeletequeryparameters16) | required_int64_group(double value) |
+| [FakeDeleteQueryParameters17](#fakedeletequeryparameters17) | required_string_group(String value) |
 
-## FakeDeleteQueryParametersMap
-public static class FakeDeleteQueryParametersMap<br>
+## FakeDeleteQueryParameters14
+public static class FakeDeleteQueryParameters14<br>
 extends FrozenMap<String, @Nullable Object>
 
 A class to store validated Map payloads
@@ -189,34 +189,34 @@ A class to store validated Map payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [FakeDeleteQueryParametersMap](#fakedeletequeryparametersmap) | of([Map<String, ? extends @Nullable Object>](#fakedeletequeryparametersmapbuilder) arg, SchemaConfiguration configuration) |
+| static [FakeDeleteQueryParameters14](#fakedeletequeryparameters14) | of([Map<String, ? extends @Nullable Object>](#fakedeletequeryparameters13) arg, SchemaConfiguration configuration) |
 | Number | required_int64_group()<br> |
 | String | required_string_group()<br> |
 | Number | int64_group()<br>[optional] |
 | String | string_group()<br>[optional] |
 
-## FakeDeleteadditionalPropertiesBoxed
-public sealed interface FakeDeleteadditionalPropertiesBoxed<br>
+## FakeDeleteQueryParameters7Boxed
+public sealed interface FakeDeleteQueryParameters7Boxed<br>
 permits<br>
-[FakeDeleteadditionalPropertiesBoxedVoid](#fakedeleteadditionalpropertiesboxedvoid),
-[FakeDeleteadditionalPropertiesBoxedBoolean](#fakedeleteadditionalpropertiesboxedboolean),
-[FakeDeleteadditionalPropertiesBoxedNumber](#fakedeleteadditionalpropertiesboxednumber),
-[FakeDeleteadditionalPropertiesBoxedString](#fakedeleteadditionalpropertiesboxedstring),
-[FakeDeleteadditionalPropertiesBoxedList](#fakedeleteadditionalpropertiesboxedlist),
-[FakeDeleteadditionalPropertiesBoxedMap](#fakedeleteadditionalpropertiesboxedmap)
+[FakeDeleteQueryParameters7BoxedVoid](#fakedeletequeryparameters7boxedvoid),
+[FakeDeleteQueryParameters7BoxedBoolean](#fakedeletequeryparameters7boxedboolean),
+[FakeDeleteQueryParameters7BoxedNumber](#fakedeletequeryparameters7boxednumber),
+[FakeDeleteQueryParameters7BoxedString](#fakedeletequeryparameters7boxedstring),
+[FakeDeleteQueryParameters7BoxedList](#fakedeletequeryparameters7boxedlist),
+[FakeDeleteQueryParameters7BoxedMap](#fakedeletequeryparameters7boxedmap)
 
 sealed interface that stores validated payloads using boxed classes
 
-## FakeDeleteadditionalPropertiesBoxedVoid
-public record FakeDeleteadditionalPropertiesBoxedVoid<br>
-implements [FakeDeleteadditionalPropertiesBoxed](#fakedeleteadditionalpropertiesboxed)
+## FakeDeleteQueryParameters7BoxedVoid
+public record FakeDeleteQueryParameters7BoxedVoid<br>
+implements [FakeDeleteQueryParameters7Boxed](#fakedeletequeryparameters7boxed)
 
 record that stores validated null payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| FakeDeleteadditionalPropertiesBoxedVoid(Void data)<br>Creates an instance, private visibility |
+| FakeDeleteQueryParameters7BoxedVoid(Void data)<br>Creates an instance, private visibility |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
@@ -224,16 +224,16 @@ record that stores validated null payloads, sealed permits implementation
 | Void | data()<br>validated payload |
 | @Nullable Object | getData()<br>validated payload |
 
-## FakeDeleteadditionalPropertiesBoxedBoolean
-public record FakeDeleteadditionalPropertiesBoxedBoolean<br>
-implements [FakeDeleteadditionalPropertiesBoxed](#fakedeleteadditionalpropertiesboxed)
+## FakeDeleteQueryParameters7BoxedBoolean
+public record FakeDeleteQueryParameters7BoxedBoolean<br>
+implements [FakeDeleteQueryParameters7Boxed](#fakedeletequeryparameters7boxed)
 
 record that stores validated boolean payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| FakeDeleteadditionalPropertiesBoxedBoolean(boolean data)<br>Creates an instance, private visibility |
+| FakeDeleteQueryParameters7BoxedBoolean(boolean data)<br>Creates an instance, private visibility |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
@@ -241,16 +241,16 @@ record that stores validated boolean payloads, sealed permits implementation
 | boolean | data()<br>validated payload |
 | @Nullable Object | getData()<br>validated payload |
 
-## FakeDeleteadditionalPropertiesBoxedNumber
-public record FakeDeleteadditionalPropertiesBoxedNumber<br>
-implements [FakeDeleteadditionalPropertiesBoxed](#fakedeleteadditionalpropertiesboxed)
+## FakeDeleteQueryParameters7BoxedNumber
+public record FakeDeleteQueryParameters7BoxedNumber<br>
+implements [FakeDeleteQueryParameters7Boxed](#fakedeletequeryparameters7boxed)
 
 record that stores validated Number payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| FakeDeleteadditionalPropertiesBoxedNumber(Number data)<br>Creates an instance, private visibility |
+| FakeDeleteQueryParameters7BoxedNumber(Number data)<br>Creates an instance, private visibility |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
@@ -258,16 +258,16 @@ record that stores validated Number payloads, sealed permits implementation
 | Number | data()<br>validated payload |
 | @Nullable Object | getData()<br>validated payload |
 
-## FakeDeleteadditionalPropertiesBoxedString
-public record FakeDeleteadditionalPropertiesBoxedString<br>
-implements [FakeDeleteadditionalPropertiesBoxed](#fakedeleteadditionalpropertiesboxed)
+## FakeDeleteQueryParameters7BoxedString
+public record FakeDeleteQueryParameters7BoxedString<br>
+implements [FakeDeleteQueryParameters7Boxed](#fakedeletequeryparameters7boxed)
 
 record that stores validated String payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| FakeDeleteadditionalPropertiesBoxedString(String data)<br>Creates an instance, private visibility |
+| FakeDeleteQueryParameters7BoxedString(String data)<br>Creates an instance, private visibility |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
@@ -275,16 +275,16 @@ record that stores validated String payloads, sealed permits implementation
 | String | data()<br>validated payload |
 | @Nullable Object | getData()<br>validated payload |
 
-## FakeDeleteadditionalPropertiesBoxedList
-public record FakeDeleteadditionalPropertiesBoxedList<br>
-implements [FakeDeleteadditionalPropertiesBoxed](#fakedeleteadditionalpropertiesboxed)
+## FakeDeleteQueryParameters7BoxedList
+public record FakeDeleteQueryParameters7BoxedList<br>
+implements [FakeDeleteQueryParameters7Boxed](#fakedeletequeryparameters7boxed)
 
 record that stores validated List payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| FakeDeleteadditionalPropertiesBoxedList(FrozenList<@Nullable Object> data)<br>Creates an instance, private visibility |
+| FakeDeleteQueryParameters7BoxedList(FrozenList<@Nullable Object> data)<br>Creates an instance, private visibility |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
@@ -292,16 +292,16 @@ record that stores validated List payloads, sealed permits implementation
 | FrozenList<@Nullable Object> | data()<br>validated payload |
 | @Nullable Object | getData()<br>validated payload |
 
-## FakeDeleteadditionalPropertiesBoxedMap
-public record FakeDeleteadditionalPropertiesBoxedMap<br>
-implements [FakeDeleteadditionalPropertiesBoxed](#fakedeleteadditionalpropertiesboxed)
+## FakeDeleteQueryParameters7BoxedMap
+public record FakeDeleteQueryParameters7BoxedMap<br>
+implements [FakeDeleteQueryParameters7Boxed](#fakedeletequeryparameters7boxed)
 
 record that stores validated Map payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| FakeDeleteadditionalPropertiesBoxedMap(FrozenMap<@Nullable Object> data)<br>Creates an instance, private visibility |
+| FakeDeleteQueryParameters7BoxedMap(FrozenMap<@Nullable Object> data)<br>Creates an instance, private visibility |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
@@ -309,8 +309,8 @@ record that stores validated Map payloads, sealed permits implementation
 | FrozenMap<@Nullable Object> | data()<br>validated payload |
 | @Nullable Object | getData()<br>validated payload |
 
-## FakeDeleteadditionalProperties
-public static class FakeDeleteadditionalProperties<br>
+## FakeDeleteQueryParameters7
+public static class FakeDeleteQueryParameters7<br>
 extends NotAnyTypeJsonSchema.NotAnyTypeJsonSchema1
 
 A schema class that validates payloads

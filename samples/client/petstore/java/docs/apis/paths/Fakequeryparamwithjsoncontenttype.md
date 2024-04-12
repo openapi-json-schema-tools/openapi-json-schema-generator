@@ -79,9 +79,9 @@ Fakequeryparamwithjsoncontenttype apiClient = new Fakequeryparamwithjsoncontentt
 
 
 // Map validation
-FakequeryparamwithjsoncontenttypeGetQueryParameters.FakequeryparamwithjsoncontenttypeGetQueryParametersMap queryParameters =
+FakequeryparamwithjsoncontenttypeGetQueryParameters.FakequeryparamwithjsoncontenttypeGetQueryParameters9 queryParameters =
     FakequeryparamwithjsoncontenttypeGetQueryParameters.FakequeryparamwithjsoncontenttypeGetQueryParameters1.validate(
-    new FakequeryparamwithjsoncontenttypeGetQueryParameters.FakequeryparamwithjsoncontenttypeGetQueryParametersMapBuilder()
+    new FakequeryparamwithjsoncontenttypeGetQueryParameters.FakequeryparamwithjsoncontenttypeGetQueryParameters8()
     .build(),
     schemaConfiguration
 );

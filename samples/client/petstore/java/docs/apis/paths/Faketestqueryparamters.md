@@ -81,9 +81,9 @@ Faketestqueryparamters apiClient = new Faketestqueryparamters(apiConfiguration, 
 
 
 // Map validation
-FaketestqueryparamtersPutQueryParameters.FaketestqueryparamtersPutQueryParametersMap queryParameters =
+FaketestqueryparamtersPutQueryParameters.FaketestqueryparamtersPutQueryParameters14 queryParameters =
     FaketestqueryparamtersPutQueryParameters.FaketestqueryparamtersPutQueryParameters1.validate(
-    new FaketestqueryparamtersPutQueryParameters.FaketestqueryparamtersPutQueryParametersMapBuilder()
+    new FaketestqueryparamtersPutQueryParameters.FaketestqueryparamtersPutQueryParameters13()
         .context(
             Arrays.asList(
                 "a"

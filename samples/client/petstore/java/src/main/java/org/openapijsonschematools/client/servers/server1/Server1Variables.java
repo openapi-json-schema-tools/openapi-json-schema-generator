@@ -33,23 +33,23 @@ public class Server1Variables {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static class Server1Variables9 extends NotAnyTypeJsonSchema.NotAnyTypeJsonSchema1 {
+    public static class Server1Variables6 extends NotAnyTypeJsonSchema.NotAnyTypeJsonSchema1 {
         // NotAnyTypeSchema
-        private static @Nullable Server1Variables9 instance = null;
-        public static Server1Variables9 getInstance() {
+        private static @Nullable Server1Variables6 instance = null;
+        public static Server1Variables6 getInstance() {
             if (instance == null) {
-                instance = new Server1Variables9();
+                instance = new Server1Variables6();
             }
             return instance;
         }
     }
     
-    public enum StringServer1Variables6 implements StringValueMethod {
+    public enum StringServer1Variables3 implements StringValueMethod {
         V1("v1"),
         V2("v2");
         private final String value;
     
-        StringServer1Variables6(String value) {
+        StringServer1Variables3(String value) {
             this.value = value;
         }
         public String value() {
@@ -58,11 +58,11 @@ public class Server1Variables {
     }
     
     
-    public sealed interface Server1Variables4Boxed permits Server1Variables4BoxedString {
+    public sealed interface Server1Variables2Boxed permits Server1Variables2BoxedString {
         @Nullable Object getData();
     }
     
-    public record Server1Variables4BoxedString(String data) implements Server1Variables4Boxed {
+    public record Server1Variables2BoxedString(String data) implements Server1Variables2Boxed {
         @Override
         public @Nullable Object getData() {
             return data;
@@ -71,10 +71,10 @@ public class Server1Variables {
     
     
     
-    public static class Server1Variables4 extends JsonSchema<Server1Variables4Boxed> implements StringSchemaValidator<Server1Variables4BoxedString>, StringEnumValidator<StringServer1Variables6>, DefaultValueMethod<String> {
-        private static @Nullable Server1Variables4 instance = null;
+    public static class Server1Variables2 extends JsonSchema<Server1Variables2Boxed> implements StringSchemaValidator<Server1Variables2BoxedString>, StringEnumValidator<StringServer1Variables3>, DefaultValueMethod<String> {
+        private static @Nullable Server1Variables2 instance = null;
     
-        protected Server1Variables4() {
+        protected Server1Variables2() {
             super(new JsonSchemaInfo()
                 .type(Set.of(
                     String.class
@@ -87,9 +87,9 @@ public class Server1Variables {
             );
         }
     
-        public static Server1Variables4 getInstance() {
+        public static Server1Variables2 getInstance() {
             if (instance == null) {
-                instance = new Server1Variables4();
+                instance = new Server1Variables2();
             }
             return instance;
         }
@@ -106,7 +106,7 @@ public class Server1Variables {
         }
         
         @Override
-        public String validate(StringServer1Variables6 arg,SchemaConfiguration configuration) throws ValidationException {
+        public String validate(StringServer1Variables3 arg,SchemaConfiguration configuration) throws ValidationException {
             return validate(arg.value(), configuration);
         }
         
@@ -131,11 +131,11 @@ public class Server1Variables {
             throw new ValidationException("Invalid type stored in defaultValue");
         }
         @Override
-        public Server1Variables4BoxedString validateAndBox(String arg, SchemaConfiguration configuration) throws ValidationException {
-            return new Server1Variables4BoxedString(validate(arg, configuration));
+        public Server1Variables2BoxedString validateAndBox(String arg, SchemaConfiguration configuration) throws ValidationException {
+            return new Server1Variables2BoxedString(validate(arg, configuration));
         }
         @Override
-        public Server1Variables4Boxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException {
+        public Server1Variables2Boxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException {
             if (arg instanceof String castArg) {
                 return validateAndBox(castArg, configuration);
             }
@@ -143,15 +143,15 @@ public class Server1Variables {
         }
     }    
     
-    public static class Server1Variables16 extends FrozenMap<String> {
-        protected Server1Variables16(FrozenMap<String> m) {
+    public static class Server1Variables11 extends FrozenMap<String> {
+        protected Server1Variables11(FrozenMap<String> m) {
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of(
             "version"
         );
         public static final Set<String> optionalKeys = Set.of();
-        public static Server1Variables16 of(Map<String, String> arg, SchemaConfiguration configuration) throws ValidationException {
+        public static Server1Variables11 of(Map<String, String> arg, SchemaConfiguration configuration) throws ValidationException {
             return Server1Variables1.getInstance().validate(arg, configuration);
         }
         
@@ -164,24 +164,24 @@ public class Server1Variables {
         }
     }
     
-    public interface SetterForServer1Variables4 <T> {
+    public interface SetterForServer1Variables2 <T> {
         Map<String, String> getInstance();
-        T getBuilderAfterServer1Variables4(Map<String, String> instance);
+        T getBuilderAfterServer1Variables2(Map<String, String> instance);
         
         default T version(String value) {
             var instance = getInstance();
             instance.put("version", value);
-            return getBuilderAfterServer1Variables4(instance);
+            return getBuilderAfterServer1Variables2(instance);
         }
         
-        default T version(StringServer1Variables6 value) {
+        default T version(StringServer1Variables3 value) {
             var instance = getInstance();
             instance.put("version", value.value());
-            return getBuilderAfterServer1Variables4(instance);
+            return getBuilderAfterServer1Variables2(instance);
         }
     }
     
-    public static class Server1Variables17 implements GenericBuilder<Map<String, String>> {
+    public static class Server1Variables12 implements GenericBuilder<Map<String, String>> {
         private final Map<String, String> instance;
         private static final Set<String> knownKeys = Set.of(
             "version"
@@ -189,7 +189,7 @@ public class Server1Variables {
         public Set<String> getKnownKeys() {
             return knownKeys;
         }
-        public Server1Variables17(Map<String, String> instance) {
+        public Server1Variables12(Map<String, String> instance) {
             this.instance = instance;
         }
         public Map<String, String> build() {
@@ -197,16 +197,16 @@ public class Server1Variables {
         }
     }
     
-    public static class Server1Variables15 implements SetterForServer1Variables4<Server1Variables17> {
+    public static class Server1Variables10 implements SetterForServer1Variables2<Server1Variables12> {
         private final Map<String, String> instance;
-        public Server1Variables15() {
+        public Server1Variables10() {
             this.instance = new LinkedHashMap<>();
         }
         public Map<String, String> getInstance() {
             return instance;
         }
-        public Server1Variables17 getBuilderAfterServer1Variables4(Map<String, String> instance) {
-            return new Server1Variables17(instance);
+        public Server1Variables12 getBuilderAfterServer1Variables2(Map<String, String> instance) {
+            return new Server1Variables12(instance);
         }
     }
     
@@ -215,7 +215,7 @@ public class Server1Variables {
         @Nullable Object getData();
     }
     
-    public record Server1Variables1BoxedMap(Server1Variables16 data) implements Server1Variables1Boxed {
+    public record Server1Variables1BoxedMap(Server1Variables11 data) implements Server1Variables1Boxed {
         @Override
         public @Nullable Object getData() {
             return data;
@@ -223,19 +223,19 @@ public class Server1Variables {
     }
     
     
-    public static class Server1Variables1 extends JsonSchema<Server1Variables1Boxed> implements MapSchemaValidator<Server1Variables16, Server1Variables1BoxedMap> {
+    public static class Server1Variables1 extends JsonSchema<Server1Variables1Boxed> implements MapSchemaValidator<Server1Variables11, Server1Variables1BoxedMap> {
         private static @Nullable Server1Variables1 instance = null;
     
         protected Server1Variables1() {
             super(new JsonSchemaInfo()
                 .type(Set.of(Map.class))
                 .properties(Map.ofEntries(
-                    new PropertyEntry("version", Server1Variables4.class)
+                    new PropertyEntry("version", Server1Variables2.class)
                 ))
                 .required(Set.of(
                     "version"
                 ))
-                .additionalProperties(Server1Variables9.class)
+                .additionalProperties(Server1Variables6.class)
             );
         }
     
@@ -246,7 +246,7 @@ public class Server1Variables {
             return instance;
         }
         
-        public Server1Variables16 getNewInstance(Map<?, ?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+        public Server1Variables11 getNewInstance(Map<?, ?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
             LinkedHashMap<String, String> properties = new LinkedHashMap<>();
             for(Map.Entry<?, ?> entry: arg.entrySet()) {
                 @Nullable Object entryKey = entry.getKey();
@@ -269,10 +269,10 @@ public class Server1Variables {
                 properties.put(propertyName, (String) propertyInstance);
             }
             FrozenMap<String> castProperties = new FrozenMap<>(properties);
-            return new Server1Variables16(castProperties);
+            return new Server1Variables11(castProperties);
         }
         
-        public Server1Variables16 validate(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException {
+        public Server1Variables11 validate(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException {
             Set<List<Object>> pathSet = new HashSet<>();
             List<Object> pathToItem = List.of("args[0");
             Map<?, ?> castArg = castToAllowedTypes(arg, pathToItem, pathSet);

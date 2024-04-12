@@ -89,9 +89,9 @@ FakeDelete.Delete apiClient = new FakeDelete.Delete(apiConfiguration, schemaConf
 
 
 // Map validation
-FakeDeleteHeaderParameters.FakeDeleteHeaderParametersMap headerParameters =
+FakeDeleteHeaderParameters.FakeDeleteHeaderParameters12 headerParameters =
     FakeDeleteHeaderParameters.FakeDeleteHeaderParameters1.validate(
-    new FakeDeleteHeaderParameters.FakeDeleteHeaderParametersMapBuilder()
+    new FakeDeleteHeaderParameters.FakeDeleteHeaderParameters11()
         .required_boolean_group("true")
 
         .boolean_group("true")
@@ -101,9 +101,9 @@ FakeDeleteHeaderParameters.FakeDeleteHeaderParametersMap headerParameters =
 );
 
 // Map validation
-FakeDeleteQueryParameters.FakeDeleteQueryParametersMap queryParameters =
+FakeDeleteQueryParameters.FakeDeleteQueryParameters14 queryParameters =
     FakeDeleteQueryParameters.FakeDeleteQueryParameters1.validate(
-    new FakeDeleteQueryParameters.FakeDeleteQueryParametersMapBuilder()
+    new FakeDeleteQueryParameters.FakeDeleteQueryParameters13()
         .required_int64_group(1L)
 
         .required_string_group("a")
@@ -168,8 +168,8 @@ a class that stores the final request inputs
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | --------------------- |
-| [FakeDeleteHeaderParameters.FakeDeleteHeaderParametersMap](../../paths/fake/delete/FakeDeleteHeaderParameters.md#fakedeleteheaderparametersmap) | headerParameters |
-| [FakeDeleteQueryParameters.FakeDeleteQueryParametersMap](../../paths/fake/delete/FakeDeleteQueryParameters.md#fakedeletequeryparametersmap) | queryParameters |
+| [FakeDeleteHeaderParameters.FakeDeleteHeaderParameters12](../../paths/fake/delete/FakeDeleteHeaderParameters.md#fakedeleteheaderparameters12) | headerParameters |
+| [FakeDeleteQueryParameters.FakeDeleteQueryParameters14](../../paths/fake/delete/FakeDeleteQueryParameters.md#fakedeletequeryparameters14) | queryParameters |
 | [ServerInfo.@Nullable ServerIndex](../../ServerInfo.md#serverindex) | serverIndex<br>optional. Note: this will override the value in apiConfiguration |
 | [FakeDeleteSecurityInfo.@Nullable SecurityIndex](../../paths/fake/delete/FakeDeleteSecurityInfo.md#securityindex) | securityIndex<br>optional. Note: this will override the value in apiConfiguration |
 | @Nullable Duration | timeout<br>optional. Note: this will override the value in apiConfiguration |
@@ -182,8 +182,8 @@ a class that stores the initial request inputs
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | --------------------- |
-| [FakeDeleteHeaderParameters.@Nullable FakeDeleteHeaderParametersMap](../../paths/fake/delete/FakeDeleteHeaderParameters.md#fakedeleteheaderparametersmap) | headerParameters |
-| [FakeDeleteQueryParameters.@Nullable FakeDeleteQueryParametersMap](../../paths/fake/delete/FakeDeleteQueryParameters.md#fakedeletequeryparametersmap) | queryParameters |
+| [FakeDeleteHeaderParameters.@Nullable FakeDeleteHeaderParameters12](../../paths/fake/delete/FakeDeleteHeaderParameters.md#fakedeleteheaderparameters12) | headerParameters |
+| [FakeDeleteQueryParameters.@Nullable FakeDeleteQueryParameters14](../../paths/fake/delete/FakeDeleteQueryParameters.md#fakedeletequeryparameters14) | queryParameters |
 | [ServerInfo.@Nullable ServerIndex](../../ServerInfo.md#serverindex) | serverIndex |
 | [FakeDeleteSecurityInfo.@Nullable SecurityIndex](../../paths/fake/delete/FakeDeleteSecurityInfo.md#securityindex) | securityIndex |
 | @Nullable Duration | timeout |
@@ -219,7 +219,7 @@ a builder for request inputs
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [Delete00RequestBuilder](#delete00requestbuilder) | queryParameters([FakeDeleteQueryParametersFakeDeleteQueryParametersMap](../../paths/fake/delete/FakeDeleteQueryParameters.md#fakedeletequeryparametersmap) queryParameters)<br>sets the property |
+| [Delete00RequestBuilder](#delete00requestbuilder) | queryParameters([FakeDeleteQueryParametersFakeDeleteQueryParameters14](../../paths/fake/delete/FakeDeleteQueryParameters.md#fakedeletequeryparameters14) queryParameters)<br>sets the property |
 
 ## Delete10RequestBuilder
 public static class Delete10RequestBuilder<br>
@@ -234,7 +234,7 @@ a builder for request inputs
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [Delete00RequestBuilder](#delete00requestbuilder) | headerParameters([FakeDeleteHeaderParametersFakeDeleteHeaderParametersMap](../../paths/fake/delete/FakeDeleteHeaderParameters.md#fakedeleteheaderparametersmap) headerParameters)<br>sets the property |
+| [Delete00RequestBuilder](#delete00requestbuilder) | headerParameters([FakeDeleteHeaderParametersFakeDeleteHeaderParameters12](../../paths/fake/delete/FakeDeleteHeaderParameters.md#fakedeleteheaderparameters12) headerParameters)<br>sets the property |
 
 ## DeleteRequestBuilder
 public static class DeleteRequestBuilder<br>
@@ -249,7 +249,7 @@ a builder for request inputs
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [Delete01RequestBuilder](#delete01requestbuilder) | headerParameters([FakeDeleteHeaderParametersFakeDeleteHeaderParametersMap](../../paths/fake/delete/FakeDeleteHeaderParameters.md#fakedeleteheaderparametersmap) headerParameters)<br>sets the property |
-| [Delete10RequestBuilder](#delete10requestbuilder) | queryParameters([FakeDeleteQueryParametersFakeDeleteQueryParametersMap](../../paths/fake/delete/FakeDeleteQueryParameters.md#fakedeletequeryparametersmap) queryParameters)<br>sets the property |
+| [Delete01RequestBuilder](#delete01requestbuilder) | headerParameters([FakeDeleteHeaderParametersFakeDeleteHeaderParameters12](../../paths/fake/delete/FakeDeleteHeaderParameters.md#fakedeleteheaderparameters12) headerParameters)<br>sets the property |
+| [Delete10RequestBuilder](#delete10requestbuilder) | queryParameters([FakeDeleteQueryParametersFakeDeleteQueryParameters14](../../paths/fake/delete/FakeDeleteQueryParameters.md#fakedeletequeryparameters14) queryParameters)<br>sets the property |
 
 [[Back to top]](#top) [[Back to README]](../../../README.md)

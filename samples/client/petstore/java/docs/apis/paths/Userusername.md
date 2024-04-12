@@ -86,9 +86,9 @@ Userusername apiClient = new Userusername(apiConfiguration, schemaConfiguration)
 
 
 // Map validation
-UserusernameDeletePathParameters.UserusernameDeletePathParametersMap pathParameters =
+UserusernameDeletePathParameters.UserusernameDeletePathParameters9 pathParameters =
     UserusernameDeletePathParameters.UserusernameDeletePathParameters1.validate(
-    new UserusernameDeletePathParameters.UserusernameDeletePathParametersMapBuilder()
+    new UserusernameDeletePathParameters.UserusernameDeletePathParameters8()
         .username("a")
 
     .build(),
@@ -192,9 +192,9 @@ Userusername apiClient = new Userusername(apiConfiguration, schemaConfiguration)
 
 
 // Map validation
-UserusernameGetPathParameters.UserusernameGetPathParametersMap pathParameters =
+UserusernameGetPathParameters.UserusernameGetPathParameters9 pathParameters =
     UserusernameGetPathParameters.UserusernameGetPathParameters1.validate(
-    new UserusernameGetPathParameters.UserusernameGetPathParametersMapBuilder()
+    new UserusernameGetPathParameters.UserusernameGetPathParameters8()
         .username("a")
 
     .build(),
@@ -331,9 +331,9 @@ User1BoxedMap requestBodyPayload =
 UserusernamePut.SealedRequestBody requestBody = new UserusernamePut.ApplicationjsonRequestBody(requestBodyPayload);
 
 // Map validation
-UserusernamePutPathParameters.UserusernamePutPathParametersMap pathParameters =
+UserusernamePutPathParameters.UserusernamePutPathParameters9 pathParameters =
     UserusernamePutPathParameters.UserusernamePutPathParameters1.validate(
-    new UserusernamePutPathParameters.UserusernamePutPathParametersMapBuilder()
+    new UserusernamePutPathParameters.UserusernamePutPathParameters8()
         .username("a")
 
     .build(),

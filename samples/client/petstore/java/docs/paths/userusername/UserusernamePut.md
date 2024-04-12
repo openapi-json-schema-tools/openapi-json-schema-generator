@@ -105,9 +105,9 @@ User1BoxedMap requestBodyPayload =
 UserusernamePut.SealedRequestBody requestBody = new UserusernamePut.ApplicationjsonRequestBody(requestBodyPayload);
 
 // Map validation
-UserusernamePutPathParameters.UserusernamePutPathParametersMap pathParameters =
+UserusernamePutPathParameters.UserusernamePutPathParameters9 pathParameters =
     UserusernamePutPathParameters.UserusernamePutPathParameters1.validate(
-    new UserusernamePutPathParameters.UserusernamePutPathParametersMapBuilder()
+    new UserusernamePutPathParameters.UserusernamePutPathParameters8()
         .username("a")
 
     .build(),
@@ -169,7 +169,7 @@ a class that stores the final request inputs
 | Modifier and Type | Field and Description |
 | ----------------- | --------------------- |
 | [UserusernamePutRequestBody.SealedRequestBody](../../paths/userusername/put/UserusernamePutRequestBody.md#sealedrequestbody) | requestBody |
-| [UserusernamePutPathParameters.UserusernamePutPathParametersMap](../../paths/userusername/put/UserusernamePutPathParameters.md#userusernameputpathparametersmap) | pathParameters |
+| [UserusernamePutPathParameters.UserusernamePutPathParameters9](../../paths/userusername/put/UserusernamePutPathParameters.md#userusernameputpathparameters9) | pathParameters |
 | [ServerInfo.@Nullable ServerIndex](../../ServerInfo.md#serverindex) | serverIndex<br>optional. Note: this will override the value in apiConfiguration |
 | @Nullable Duration | timeout<br>optional. Note: this will override the value in apiConfiguration |
 
@@ -182,7 +182,7 @@ a class that stores the initial request inputs
 | Modifier and Type | Field and Description |
 | ----------------- | --------------------- |
 | [UserusernamePutRequestBody.@Nullable SealedRequestBody](../../paths/userusername/put/UserusernamePutRequestBody.md#sealedrequestbody) | requestBody |
-| [UserusernamePutPathParameters.@Nullable UserusernamePutPathParametersMap](../../paths/userusername/put/UserusernamePutPathParameters.md#userusernameputpathparametersmap) | pathParameters |
+| [UserusernamePutPathParameters.@Nullable UserusernamePutPathParameters9](../../paths/userusername/put/UserusernamePutPathParameters.md#userusernameputpathparameters9) | pathParameters |
 | [ServerInfo.@Nullable ServerIndex](../../ServerInfo.md#serverindex) | serverIndex |
 | @Nullable Duration | timeout |
 
@@ -216,7 +216,7 @@ a builder for request inputs
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [Put00RequestBuilder](#put00requestbuilder) | pathParameters([UserusernamePutPathParametersUserusernamePutPathParametersMap](../../paths/userusername/put/UserusernamePutPathParameters.md#userusernameputpathparametersmap) pathParameters)<br>sets the property |
+| [Put00RequestBuilder](#put00requestbuilder) | pathParameters([UserusernamePutPathParametersUserusernamePutPathParameters9](../../paths/userusername/put/UserusernamePutPathParameters.md#userusernameputpathparameters9) pathParameters)<br>sets the property |
 
 ## Put10RequestBuilder
 public static class Put10RequestBuilder<br>
@@ -247,6 +247,6 @@ a builder for request inputs
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [Put01RequestBuilder](#put01requestbuilder) | requestBody([UserusernamePutRequestBody.SealedRequestBody](../../paths/userusername/put/UserusernamePutRequestBody.md#sealedrequestbody) requestBody)<br>sets the property |
-| [Put10RequestBuilder](#put10requestbuilder) | pathParameters([UserusernamePutPathParametersUserusernamePutPathParametersMap](../../paths/userusername/put/UserusernamePutPathParameters.md#userusernameputpathparametersmap) pathParameters)<br>sets the property |
+| [Put10RequestBuilder](#put10requestbuilder) | pathParameters([UserusernamePutPathParametersUserusernamePutPathParameters9](../../paths/userusername/put/UserusernamePutPathParameters.md#userusernameputpathparameters9) pathParameters)<br>sets the property |
 
 [[Back to top]](#top) [[Back to README]](../../../README.md)

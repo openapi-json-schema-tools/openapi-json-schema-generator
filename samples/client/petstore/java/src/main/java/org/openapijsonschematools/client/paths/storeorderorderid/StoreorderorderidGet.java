@@ -79,12 +79,12 @@ public class StoreorderorderidGet {
     }
 
     public static class GetRequest {
-        public StoreorderorderidGetPathParameters.StoreorderorderidGetPathParametersMap pathParameters;
+        public StoreorderorderidGetPathParameters.StoreorderorderidGetPathParameters9 pathParameters;
         public ServerInfo.@Nullable ServerIndex serverIndex;
         public @Nullable Duration timeout;
 
         public GetRequest(
-            StoreorderorderidGetPathParameters.StoreorderorderidGetPathParametersMap pathParameters,
+            StoreorderorderidGetPathParameters.StoreorderorderidGetPathParameters9 pathParameters,
             ServerInfo.@Nullable ServerIndex serverIndex,
             @Nullable Duration timeout
         ) {
@@ -95,7 +95,7 @@ public class StoreorderorderidGet {
     }
 
     public static class GetNullableRequest {
-        public StoreorderorderidGetPathParameters.@Nullable StoreorderorderidGetPathParametersMap pathParameters;
+        public StoreorderorderidGetPathParameters.@Nullable StoreorderorderidGetPathParameters9 pathParameters;
         public ServerInfo.@Nullable ServerIndex serverIndex;
         public @Nullable Duration timeout;
     }
@@ -123,7 +123,7 @@ public class StoreorderorderidGet {
     public interface SetterForPathParameters <T> {
         GetNullableRequest getInstance();
         T getBuilderAfterPathParameters(GetNullableRequest instance);
-        default T pathParameters(StoreorderorderidGetPathParameters.StoreorderorderidGetPathParametersMap pathParameters) {
+        default T pathParameters(StoreorderorderidGetPathParameters.StoreorderorderidGetPathParameters9 pathParameters) {
             var instance = getInstance();
             instance.pathParameters = pathParameters;
             return getBuilderAfterPathParameters(instance);

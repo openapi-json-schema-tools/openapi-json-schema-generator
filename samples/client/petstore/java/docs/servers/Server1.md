@@ -11,12 +11,12 @@ The local server
 | Constructor and Description |
 | --------------------------- |
 | Server1()<br>Creates a server using default values for variables |
-| Server1([Server1Variables.Server1Variables16](../servers/server1/Server1Variables3.md#server1variables16) variables)<br>Creates a server using input values for variables |
+| Server1([Server1Variables.Server1Variables11](../servers/server1/Server1Variables.md#server1variables11) variables)<br>Creates a server using input values for variables |
 
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | --------------------- |
 | String            | url = "https://localhost:8080/{version}"     |
-| [Server1Variables.Server1Variables16](../servers/server1/Server1Variables3.md#server1variables16) | variables |
+| [Server1Variables.Server1Variables11](../servers/server1/Server1Variables.md#server1variables11) | variables |
 
 [[Back to top]](#top) [[Back to Servers]](../../README.md#Servers) [[Back to README]](../../README.md)

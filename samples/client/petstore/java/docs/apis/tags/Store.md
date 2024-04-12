@@ -191,9 +191,9 @@ Store apiClient = new Store(apiConfiguration, schemaConfiguration);
 
 
 // Map validation
-StoreorderorderidDeletePathParameters.StoreorderorderidDeletePathParametersMap pathParameters =
+StoreorderorderidDeletePathParameters.StoreorderorderidDeletePathParameters9 pathParameters =
     StoreorderorderidDeletePathParameters.StoreorderorderidDeletePathParameters1.validate(
-    new StoreorderorderidDeletePathParameters.StoreorderorderidDeletePathParametersMapBuilder()
+    new StoreorderorderidDeletePathParameters.StoreorderorderidDeletePathParameters8()
         .order_id("a")
 
     .build(),
@@ -296,9 +296,9 @@ Store apiClient = new Store(apiConfiguration, schemaConfiguration);
 
 
 // Map validation
-StoreorderorderidGetPathParameters.StoreorderorderidGetPathParametersMap pathParameters =
+StoreorderorderidGetPathParameters.StoreorderorderidGetPathParameters9 pathParameters =
     StoreorderorderidGetPathParameters.StoreorderorderidGetPathParameters1.validate(
-    new StoreorderorderidGetPathParameters.StoreorderorderidGetPathParametersMapBuilder()
+    new StoreorderorderidGetPathParameters.StoreorderorderidGetPathParameters8()
         .order_id(1L)
 
     .build(),

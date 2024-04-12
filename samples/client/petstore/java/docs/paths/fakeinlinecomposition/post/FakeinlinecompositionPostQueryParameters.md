@@ -14,16 +14,16 @@ A class that contains necessary nested
 | sealed interface | [FakeinlinecompositionPostQueryParameters.FakeinlinecompositionPostQueryParameters1Boxed](#fakeinlinecompositionpostqueryparameters1boxed)<br> sealed interface for validated payloads |
 | record | [FakeinlinecompositionPostQueryParameters.FakeinlinecompositionPostQueryParameters1BoxedMap](#fakeinlinecompositionpostqueryparameters1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [FakeinlinecompositionPostQueryParameters.FakeinlinecompositionPostQueryParameters1](#fakeinlinecompositionpostqueryparameters1)<br> schema class |
-| static class | [FakeinlinecompositionPostQueryParameters.FakeinlinecompositionPostQueryParametersMapBuilder](#fakeinlinecompositionpostqueryparametersmapbuilder)<br> builder for Map payloads |
-| static class | [FakeinlinecompositionPostQueryParameters.FakeinlinecompositionPostQueryParametersMap](#fakeinlinecompositionpostqueryparametersmap)<br> output class for Map payloads |
-| sealed interface | [FakeinlinecompositionPostQueryParameters.FakeinlinecompositionPostadditionalPropertiesBoxed](#fakeinlinecompositionpostadditionalpropertiesboxed)<br> sealed interface for validated payloads |
-| record | [FakeinlinecompositionPostQueryParameters.FakeinlinecompositionPostadditionalPropertiesBoxedVoid](#fakeinlinecompositionpostadditionalpropertiesboxedvoid)<br> boxed class to store validated null payloads |
-| record | [FakeinlinecompositionPostQueryParameters.FakeinlinecompositionPostadditionalPropertiesBoxedBoolean](#fakeinlinecompositionpostadditionalpropertiesboxedboolean)<br> boxed class to store validated boolean payloads |
-| record | [FakeinlinecompositionPostQueryParameters.FakeinlinecompositionPostadditionalPropertiesBoxedNumber](#fakeinlinecompositionpostadditionalpropertiesboxednumber)<br> boxed class to store validated Number payloads |
-| record | [FakeinlinecompositionPostQueryParameters.FakeinlinecompositionPostadditionalPropertiesBoxedString](#fakeinlinecompositionpostadditionalpropertiesboxedstring)<br> boxed class to store validated String payloads |
-| record | [FakeinlinecompositionPostQueryParameters.FakeinlinecompositionPostadditionalPropertiesBoxedList](#fakeinlinecompositionpostadditionalpropertiesboxedlist)<br> boxed class to store validated List payloads |
-| record | [FakeinlinecompositionPostQueryParameters.FakeinlinecompositionPostadditionalPropertiesBoxedMap](#fakeinlinecompositionpostadditionalpropertiesboxedmap)<br> boxed class to store validated Map payloads |
-| static class | [FakeinlinecompositionPostQueryParameters.FakeinlinecompositionPostadditionalProperties](#fakeinlinecompositionpostadditionalproperties)<br> schema class |
+| static class | [FakeinlinecompositionPostQueryParameters.FakeinlinecompositionPostQueryParameters9](#fakeinlinecompositionpostqueryparameters9)<br> builder for Map payloads |
+| static class | [FakeinlinecompositionPostQueryParameters.FakeinlinecompositionPostQueryParameters10](#fakeinlinecompositionpostqueryparameters10)<br> output class for Map payloads |
+| sealed interface | [FakeinlinecompositionPostQueryParameters.FakeinlinecompositionPostQueryParameters5Boxed](#fakeinlinecompositionpostqueryparameters5boxed)<br> sealed interface for validated payloads |
+| record | [FakeinlinecompositionPostQueryParameters.FakeinlinecompositionPostQueryParameters5BoxedVoid](#fakeinlinecompositionpostqueryparameters5boxedvoid)<br> boxed class to store validated null payloads |
+| record | [FakeinlinecompositionPostQueryParameters.FakeinlinecompositionPostQueryParameters5BoxedBoolean](#fakeinlinecompositionpostqueryparameters5boxedboolean)<br> boxed class to store validated boolean payloads |
+| record | [FakeinlinecompositionPostQueryParameters.FakeinlinecompositionPostQueryParameters5BoxedNumber](#fakeinlinecompositionpostqueryparameters5boxednumber)<br> boxed class to store validated Number payloads |
+| record | [FakeinlinecompositionPostQueryParameters.FakeinlinecompositionPostQueryParameters5BoxedString](#fakeinlinecompositionpostqueryparameters5boxedstring)<br> boxed class to store validated String payloads |
+| record | [FakeinlinecompositionPostQueryParameters.FakeinlinecompositionPostQueryParameters5BoxedList](#fakeinlinecompositionpostqueryparameters5boxedlist)<br> boxed class to store validated List payloads |
+| record | [FakeinlinecompositionPostQueryParameters.FakeinlinecompositionPostQueryParameters5BoxedMap](#fakeinlinecompositionpostqueryparameters5boxedmap)<br> boxed class to store validated Map payloads |
+| static class | [FakeinlinecompositionPostQueryParameters.FakeinlinecompositionPostQueryParameters5](#fakeinlinecompositionpostqueryparameters5)<br> schema class |
 
 ## FakeinlinecompositionPostQueryParameters1Boxed
 public sealed interface FakeinlinecompositionPostQueryParameters1Boxed<br>
@@ -41,12 +41,12 @@ record that stores validated Map payloads, sealed permits implementation
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| FakeinlinecompositionPostQueryParameters1BoxedMap([FakeinlinecompositionPostQueryParametersMap](#fakeinlinecompositionpostqueryparametersmap) data)<br>Creates an instance, private visibility |
+| FakeinlinecompositionPostQueryParameters1BoxedMap([FakeinlinecompositionPostQueryParameters10](#fakeinlinecompositionpostqueryparameters10) data)<br>Creates an instance, private visibility |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [FakeinlinecompositionPostQueryParametersMap](#fakeinlinecompositionpostqueryparametersmap) | data()<br>validated payload |
+| [FakeinlinecompositionPostQueryParameters10](#fakeinlinecompositionpostqueryparameters10) | data()<br>validated payload |
 | @Nullable Object | getData()<br>validated payload |
 
 ## FakeinlinecompositionPostQueryParameters1
@@ -72,9 +72,9 @@ import java.util.AbstractMap;
 static final SchemaConfiguration configuration = new SchemaConfiguration(new JsonSchemaKeywordFlags.Builder().build());
 
 // Map validation
-FakeinlinecompositionPostQueryParameters.FakeinlinecompositionPostQueryParametersMap validatedPayload =
+FakeinlinecompositionPostQueryParameters.FakeinlinecompositionPostQueryParameters10 validatedPayload =
     FakeinlinecompositionPostQueryParameters.FakeinlinecompositionPostQueryParameters1.validate(
-    new FakeinlinecompositionPostQueryParameters.FakeinlinecompositionPostQueryParametersMapBuilder()
+    new FakeinlinecompositionPostQueryParameters.FakeinlinecompositionPostQueryParameters9()
         .compositionInProperty(
             MapUtils.makeMap(
             )
@@ -89,18 +89,18 @@ FakeinlinecompositionPostQueryParameters.FakeinlinecompositionPostQueryParameter
 | ----------------- | ---------------------- |
 | Set<Class<?>> | type = Set.of(Map.class) |
 | Map<String, Class<? extends JsonSchema>> | properties = Map.ofEntries(<br>&nbsp;&nbsp;&nbsp;&nbsp;new PropertyEntry("compositionAtRoot", [Schema0.Schema01.class](../../../paths/fakeinlinecomposition/post/parameters/parameter0/Schema0.md#schema01)),<br>&nbsp;&nbsp;&nbsp;&nbsp;new PropertyEntry("compositionInProperty", [Schema1.Schema11.class](../../../paths/fakeinlinecomposition/post/parameters/parameter1/Schema1.md#schema11))<br>)<br> |
-| Class<? extends JsonSchema> | additionalProperties = [FakeinlinecompositionPostadditionalProperties.class](#fakeinlinecompositionpostadditionalproperties) |
+| Class<? extends JsonSchema> | additionalProperties = [FakeinlinecompositionPostQueryParameters5.class](#fakeinlinecompositionpostqueryparameters5) |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [FakeinlinecompositionPostQueryParametersMap](#fakeinlinecompositionpostqueryparametersmap) | validate([Map&lt;?, ?&gt;](#fakeinlinecompositionpostqueryparametersmapbuilder) arg, SchemaConfiguration configuration) |
-| [FakeinlinecompositionPostQueryParameters1BoxedMap](#fakeinlinecompositionpostqueryparameters1boxedmap) | validateAndBox([Map&lt;?, ?&gt;](#fakeinlinecompositionpostqueryparametersmapbuilder) arg, SchemaConfiguration configuration) |
+| [FakeinlinecompositionPostQueryParameters10](#fakeinlinecompositionpostqueryparameters10) | validate([Map&lt;?, ?&gt;](#fakeinlinecompositionpostqueryparameters9) arg, SchemaConfiguration configuration) |
+| [FakeinlinecompositionPostQueryParameters1BoxedMap](#fakeinlinecompositionpostqueryparameters1boxedmap) | validateAndBox([Map&lt;?, ?&gt;](#fakeinlinecompositionpostqueryparameters9) arg, SchemaConfiguration configuration) |
 | [FakeinlinecompositionPostQueryParameters1Boxed](#fakeinlinecompositionpostqueryparameters1boxed) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 
-## FakeinlinecompositionPostQueryParametersMapBuilder
-public class FakeinlinecompositionPostQueryParametersMapBuilder<br>
+## FakeinlinecompositionPostQueryParameters9
+public class FakeinlinecompositionPostQueryParameters9<br>
 builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
@@ -108,25 +108,25 @@ A class that builds the Map input type
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| FakeinlinecompositionPostQueryParametersMapBuilder()<br>Creates a builder that contains an empty map |
+| FakeinlinecompositionPostQueryParameters9()<br>Creates a builder that contains an empty map |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | Map<String, @Nullable Object> | build()<br>Returns map input that should be used with Schema.validate |
-| [FakeinlinecompositionPostQueryParametersMapBuilder](#fakeinlinecompositionpostqueryparametersmapbuilder) | compositionAtRoot(Void value) |
-| [FakeinlinecompositionPostQueryParametersMapBuilder](#fakeinlinecompositionpostqueryparametersmapbuilder) | compositionAtRoot(boolean value) |
-| [FakeinlinecompositionPostQueryParametersMapBuilder](#fakeinlinecompositionpostqueryparametersmapbuilder) | compositionAtRoot(String value) |
-| [FakeinlinecompositionPostQueryParametersMapBuilder](#fakeinlinecompositionpostqueryparametersmapbuilder) | compositionAtRoot(int value) |
-| [FakeinlinecompositionPostQueryParametersMapBuilder](#fakeinlinecompositionpostqueryparametersmapbuilder) | compositionAtRoot(float value) |
-| [FakeinlinecompositionPostQueryParametersMapBuilder](#fakeinlinecompositionpostqueryparametersmapbuilder) | compositionAtRoot(long value) |
-| [FakeinlinecompositionPostQueryParametersMapBuilder](#fakeinlinecompositionpostqueryparametersmapbuilder) | compositionAtRoot(double value) |
-| [FakeinlinecompositionPostQueryParametersMapBuilder](#fakeinlinecompositionpostqueryparametersmapbuilder) | compositionAtRoot(List<?> value) |
-| [FakeinlinecompositionPostQueryParametersMapBuilder](#fakeinlinecompositionpostqueryparametersmapbuilder) | compositionAtRoot(Map<String, ?> value) |
-| [FakeinlinecompositionPostQueryParametersMapBuilder](#fakeinlinecompositionpostqueryparametersmapbuilder) | compositionInProperty(Map<String, @Nullable Object> value) |
+| [FakeinlinecompositionPostQueryParameters9](#fakeinlinecompositionpostqueryparameters9) | compositionAtRoot(Void value) |
+| [FakeinlinecompositionPostQueryParameters9](#fakeinlinecompositionpostqueryparameters9) | compositionAtRoot(boolean value) |
+| [FakeinlinecompositionPostQueryParameters9](#fakeinlinecompositionpostqueryparameters9) | compositionAtRoot(String value) |
+| [FakeinlinecompositionPostQueryParameters9](#fakeinlinecompositionpostqueryparameters9) | compositionAtRoot(int value) |
+| [FakeinlinecompositionPostQueryParameters9](#fakeinlinecompositionpostqueryparameters9) | compositionAtRoot(float value) |
+| [FakeinlinecompositionPostQueryParameters9](#fakeinlinecompositionpostqueryparameters9) | compositionAtRoot(long value) |
+| [FakeinlinecompositionPostQueryParameters9](#fakeinlinecompositionpostqueryparameters9) | compositionAtRoot(double value) |
+| [FakeinlinecompositionPostQueryParameters9](#fakeinlinecompositionpostqueryparameters9) | compositionAtRoot(List<?> value) |
+| [FakeinlinecompositionPostQueryParameters9](#fakeinlinecompositionpostqueryparameters9) | compositionAtRoot(Map<String, ?> value) |
+| [FakeinlinecompositionPostQueryParameters9](#fakeinlinecompositionpostqueryparameters9) | compositionInProperty(Map<String, @Nullable Object> value) |
 
-## FakeinlinecompositionPostQueryParametersMap
-public static class FakeinlinecompositionPostQueryParametersMap<br>
+## FakeinlinecompositionPostQueryParameters10
+public static class FakeinlinecompositionPostQueryParameters10<br>
 extends FrozenMap<String, @Nullable Object>
 
 A class to store validated Map payloads
@@ -134,32 +134,32 @@ A class to store validated Map payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [FakeinlinecompositionPostQueryParametersMap](#fakeinlinecompositionpostqueryparametersmap) | of([Map<String, ? extends @Nullable Object>](#fakeinlinecompositionpostqueryparametersmapbuilder) arg, SchemaConfiguration configuration) |
+| static [FakeinlinecompositionPostQueryParameters10](#fakeinlinecompositionpostqueryparameters10) | of([Map<String, ? extends @Nullable Object>](#fakeinlinecompositionpostqueryparameters9) arg, SchemaConfiguration configuration) |
 | @Nullable Object | compositionAtRoot()<br>[optional] |
 | [Schema1.SchemaMap1](../../../paths/fakeinlinecomposition/post/parameters/parameter1/Schema1.md#schemamap1) | compositionInProperty()<br>[optional] |
 
-## FakeinlinecompositionPostadditionalPropertiesBoxed
-public sealed interface FakeinlinecompositionPostadditionalPropertiesBoxed<br>
+## FakeinlinecompositionPostQueryParameters5Boxed
+public sealed interface FakeinlinecompositionPostQueryParameters5Boxed<br>
 permits<br>
-[FakeinlinecompositionPostadditionalPropertiesBoxedVoid](#fakeinlinecompositionpostadditionalpropertiesboxedvoid),
-[FakeinlinecompositionPostadditionalPropertiesBoxedBoolean](#fakeinlinecompositionpostadditionalpropertiesboxedboolean),
-[FakeinlinecompositionPostadditionalPropertiesBoxedNumber](#fakeinlinecompositionpostadditionalpropertiesboxednumber),
-[FakeinlinecompositionPostadditionalPropertiesBoxedString](#fakeinlinecompositionpostadditionalpropertiesboxedstring),
-[FakeinlinecompositionPostadditionalPropertiesBoxedList](#fakeinlinecompositionpostadditionalpropertiesboxedlist),
-[FakeinlinecompositionPostadditionalPropertiesBoxedMap](#fakeinlinecompositionpostadditionalpropertiesboxedmap)
+[FakeinlinecompositionPostQueryParameters5BoxedVoid](#fakeinlinecompositionpostqueryparameters5boxedvoid),
+[FakeinlinecompositionPostQueryParameters5BoxedBoolean](#fakeinlinecompositionpostqueryparameters5boxedboolean),
+[FakeinlinecompositionPostQueryParameters5BoxedNumber](#fakeinlinecompositionpostqueryparameters5boxednumber),
+[FakeinlinecompositionPostQueryParameters5BoxedString](#fakeinlinecompositionpostqueryparameters5boxedstring),
+[FakeinlinecompositionPostQueryParameters5BoxedList](#fakeinlinecompositionpostqueryparameters5boxedlist),
+[FakeinlinecompositionPostQueryParameters5BoxedMap](#fakeinlinecompositionpostqueryparameters5boxedmap)
 
 sealed interface that stores validated payloads using boxed classes
 
-## FakeinlinecompositionPostadditionalPropertiesBoxedVoid
-public record FakeinlinecompositionPostadditionalPropertiesBoxedVoid<br>
-implements [FakeinlinecompositionPostadditionalPropertiesBoxed](#fakeinlinecompositionpostadditionalpropertiesboxed)
+## FakeinlinecompositionPostQueryParameters5BoxedVoid
+public record FakeinlinecompositionPostQueryParameters5BoxedVoid<br>
+implements [FakeinlinecompositionPostQueryParameters5Boxed](#fakeinlinecompositionpostqueryparameters5boxed)
 
 record that stores validated null payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| FakeinlinecompositionPostadditionalPropertiesBoxedVoid(Void data)<br>Creates an instance, private visibility |
+| FakeinlinecompositionPostQueryParameters5BoxedVoid(Void data)<br>Creates an instance, private visibility |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
@@ -167,16 +167,16 @@ record that stores validated null payloads, sealed permits implementation
 | Void | data()<br>validated payload |
 | @Nullable Object | getData()<br>validated payload |
 
-## FakeinlinecompositionPostadditionalPropertiesBoxedBoolean
-public record FakeinlinecompositionPostadditionalPropertiesBoxedBoolean<br>
-implements [FakeinlinecompositionPostadditionalPropertiesBoxed](#fakeinlinecompositionpostadditionalpropertiesboxed)
+## FakeinlinecompositionPostQueryParameters5BoxedBoolean
+public record FakeinlinecompositionPostQueryParameters5BoxedBoolean<br>
+implements [FakeinlinecompositionPostQueryParameters5Boxed](#fakeinlinecompositionpostqueryparameters5boxed)
 
 record that stores validated boolean payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| FakeinlinecompositionPostadditionalPropertiesBoxedBoolean(boolean data)<br>Creates an instance, private visibility |
+| FakeinlinecompositionPostQueryParameters5BoxedBoolean(boolean data)<br>Creates an instance, private visibility |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
@@ -184,16 +184,16 @@ record that stores validated boolean payloads, sealed permits implementation
 | boolean | data()<br>validated payload |
 | @Nullable Object | getData()<br>validated payload |
 
-## FakeinlinecompositionPostadditionalPropertiesBoxedNumber
-public record FakeinlinecompositionPostadditionalPropertiesBoxedNumber<br>
-implements [FakeinlinecompositionPostadditionalPropertiesBoxed](#fakeinlinecompositionpostadditionalpropertiesboxed)
+## FakeinlinecompositionPostQueryParameters5BoxedNumber
+public record FakeinlinecompositionPostQueryParameters5BoxedNumber<br>
+implements [FakeinlinecompositionPostQueryParameters5Boxed](#fakeinlinecompositionpostqueryparameters5boxed)
 
 record that stores validated Number payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| FakeinlinecompositionPostadditionalPropertiesBoxedNumber(Number data)<br>Creates an instance, private visibility |
+| FakeinlinecompositionPostQueryParameters5BoxedNumber(Number data)<br>Creates an instance, private visibility |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
@@ -201,16 +201,16 @@ record that stores validated Number payloads, sealed permits implementation
 | Number | data()<br>validated payload |
 | @Nullable Object | getData()<br>validated payload |
 
-## FakeinlinecompositionPostadditionalPropertiesBoxedString
-public record FakeinlinecompositionPostadditionalPropertiesBoxedString<br>
-implements [FakeinlinecompositionPostadditionalPropertiesBoxed](#fakeinlinecompositionpostadditionalpropertiesboxed)
+## FakeinlinecompositionPostQueryParameters5BoxedString
+public record FakeinlinecompositionPostQueryParameters5BoxedString<br>
+implements [FakeinlinecompositionPostQueryParameters5Boxed](#fakeinlinecompositionpostqueryparameters5boxed)
 
 record that stores validated String payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| FakeinlinecompositionPostadditionalPropertiesBoxedString(String data)<br>Creates an instance, private visibility |
+| FakeinlinecompositionPostQueryParameters5BoxedString(String data)<br>Creates an instance, private visibility |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
@@ -218,16 +218,16 @@ record that stores validated String payloads, sealed permits implementation
 | String | data()<br>validated payload |
 | @Nullable Object | getData()<br>validated payload |
 
-## FakeinlinecompositionPostadditionalPropertiesBoxedList
-public record FakeinlinecompositionPostadditionalPropertiesBoxedList<br>
-implements [FakeinlinecompositionPostadditionalPropertiesBoxed](#fakeinlinecompositionpostadditionalpropertiesboxed)
+## FakeinlinecompositionPostQueryParameters5BoxedList
+public record FakeinlinecompositionPostQueryParameters5BoxedList<br>
+implements [FakeinlinecompositionPostQueryParameters5Boxed](#fakeinlinecompositionpostqueryparameters5boxed)
 
 record that stores validated List payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| FakeinlinecompositionPostadditionalPropertiesBoxedList(FrozenList<@Nullable Object> data)<br>Creates an instance, private visibility |
+| FakeinlinecompositionPostQueryParameters5BoxedList(FrozenList<@Nullable Object> data)<br>Creates an instance, private visibility |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
@@ -235,16 +235,16 @@ record that stores validated List payloads, sealed permits implementation
 | FrozenList<@Nullable Object> | data()<br>validated payload |
 | @Nullable Object | getData()<br>validated payload |
 
-## FakeinlinecompositionPostadditionalPropertiesBoxedMap
-public record FakeinlinecompositionPostadditionalPropertiesBoxedMap<br>
-implements [FakeinlinecompositionPostadditionalPropertiesBoxed](#fakeinlinecompositionpostadditionalpropertiesboxed)
+## FakeinlinecompositionPostQueryParameters5BoxedMap
+public record FakeinlinecompositionPostQueryParameters5BoxedMap<br>
+implements [FakeinlinecompositionPostQueryParameters5Boxed](#fakeinlinecompositionpostqueryparameters5boxed)
 
 record that stores validated Map payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| FakeinlinecompositionPostadditionalPropertiesBoxedMap(FrozenMap<@Nullable Object> data)<br>Creates an instance, private visibility |
+| FakeinlinecompositionPostQueryParameters5BoxedMap(FrozenMap<@Nullable Object> data)<br>Creates an instance, private visibility |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
@@ -252,8 +252,8 @@ record that stores validated Map payloads, sealed permits implementation
 | FrozenMap<@Nullable Object> | data()<br>validated payload |
 | @Nullable Object | getData()<br>validated payload |
 
-## FakeinlinecompositionPostadditionalProperties
-public static class FakeinlinecompositionPostadditionalProperties<br>
+## FakeinlinecompositionPostQueryParameters5
+public static class FakeinlinecompositionPostQueryParameters5<br>
 extends NotAnyTypeJsonSchema.NotAnyTypeJsonSchema1
 
 A schema class that validates payloads

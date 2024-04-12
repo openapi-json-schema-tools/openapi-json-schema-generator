@@ -79,12 +79,12 @@ public class UserusernameGet {
     }
 
     public static class GetRequest {
-        public UserusernameGetPathParameters.UserusernameGetPathParametersMap pathParameters;
+        public UserusernameGetPathParameters.UserusernameGetPathParameters9 pathParameters;
         public ServerInfo.@Nullable ServerIndex serverIndex;
         public @Nullable Duration timeout;
 
         public GetRequest(
-            UserusernameGetPathParameters.UserusernameGetPathParametersMap pathParameters,
+            UserusernameGetPathParameters.UserusernameGetPathParameters9 pathParameters,
             ServerInfo.@Nullable ServerIndex serverIndex,
             @Nullable Duration timeout
         ) {
@@ -95,7 +95,7 @@ public class UserusernameGet {
     }
 
     public static class GetNullableRequest {
-        public UserusernameGetPathParameters.@Nullable UserusernameGetPathParametersMap pathParameters;
+        public UserusernameGetPathParameters.@Nullable UserusernameGetPathParameters9 pathParameters;
         public ServerInfo.@Nullable ServerIndex serverIndex;
         public @Nullable Duration timeout;
     }
@@ -123,7 +123,7 @@ public class UserusernameGet {
     public interface SetterForPathParameters <T> {
         GetNullableRequest getInstance();
         T getBuilderAfterPathParameters(GetNullableRequest instance);
-        default T pathParameters(UserusernameGetPathParameters.UserusernameGetPathParametersMap pathParameters) {
+        default T pathParameters(UserusernameGetPathParameters.UserusernameGetPathParameters9 pathParameters) {
             var instance = getInstance();
             instance.pathParameters = pathParameters;
             return getBuilderAfterPathParameters(instance);

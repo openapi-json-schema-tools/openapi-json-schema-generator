@@ -120,7 +120,7 @@ a class that stores the final request inputs
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | --------------------- |
-| [FakerefobjinqueryGetQueryParameters.@Nullable FakerefobjinqueryGetQueryParametersMap](../../paths/fakerefobjinquery/get/FakerefobjinqueryGetQueryParameters.md#fakerefobjinquerygetqueryparametersmap) | queryParameters<br>optional |
+| [FakerefobjinqueryGetQueryParameters.@Nullable FakerefobjinqueryGetQueryParameters9](../../paths/fakerefobjinquery/get/FakerefobjinqueryGetQueryParameters.md#fakerefobjinquerygetqueryparameters9) | queryParameters<br>optional |
 | [ServerInfo.@Nullable ServerIndex](../../ServerInfo.md#serverindex) | serverIndex<br>optional. Note: this will override the value in apiConfiguration |
 | @Nullable Duration | timeout<br>optional. Note: this will override the value in apiConfiguration |
 
@@ -138,7 +138,7 @@ a builder for request inputs
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [GetRequest](#getrequest) | build()<br>Returns the request input used to call an endpoint method |
-| [GetRequestBuilder](#getrequestbuilder) | queryParameters([FakerefobjinqueryGetQueryParametersFakerefobjinqueryGetQueryParametersMap](../../paths/fakerefobjinquery/get/FakerefobjinqueryGetQueryParameters.md#fakerefobjinquerygetqueryparametersmap) queryParameters)<br>sets the optional property |
+| [GetRequestBuilder](#getrequestbuilder) | queryParameters([FakerefobjinqueryGetQueryParametersFakerefobjinqueryGetQueryParameters9](../../paths/fakerefobjinquery/get/FakerefobjinqueryGetQueryParameters.md#fakerefobjinquerygetqueryparameters9) queryParameters)<br>sets the optional property |
 | [GetRequestBuilder](#getrequestbuilder) | serverIndex([ServerInfo.ServerIndex](../../ServerInfo.md#serverindex) serverIndex)<br>sets the optional property. Note: this will override the value in apiConfiguration |
 | [GetRequestBuilder](#getrequestbuilder) | timeout(Duration timeout)<br>sets the optional property. Note: this will override the value in apiConfiguration |
 

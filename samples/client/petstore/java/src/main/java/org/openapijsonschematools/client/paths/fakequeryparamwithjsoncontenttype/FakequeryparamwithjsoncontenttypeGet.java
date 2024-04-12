@@ -80,12 +80,12 @@ public class FakequeryparamwithjsoncontenttypeGet {
     }
 
     public static class GetRequest {
-        public FakequeryparamwithjsoncontenttypeGetQueryParameters.FakequeryparamwithjsoncontenttypeGetQueryParametersMap queryParameters;
+        public FakequeryparamwithjsoncontenttypeGetQueryParameters.FakequeryparamwithjsoncontenttypeGetQueryParameters9 queryParameters;
         public ServerInfo.@Nullable ServerIndex serverIndex;
         public @Nullable Duration timeout;
 
         public GetRequest(
-            FakequeryparamwithjsoncontenttypeGetQueryParameters.FakequeryparamwithjsoncontenttypeGetQueryParametersMap queryParameters,
+            FakequeryparamwithjsoncontenttypeGetQueryParameters.FakequeryparamwithjsoncontenttypeGetQueryParameters9 queryParameters,
             ServerInfo.@Nullable ServerIndex serverIndex,
             @Nullable Duration timeout
         ) {
@@ -96,7 +96,7 @@ public class FakequeryparamwithjsoncontenttypeGet {
     }
 
     public static class GetNullableRequest {
-        public FakequeryparamwithjsoncontenttypeGetQueryParameters.@Nullable FakequeryparamwithjsoncontenttypeGetQueryParametersMap queryParameters;
+        public FakequeryparamwithjsoncontenttypeGetQueryParameters.@Nullable FakequeryparamwithjsoncontenttypeGetQueryParameters9 queryParameters;
         public ServerInfo.@Nullable ServerIndex serverIndex;
         public @Nullable Duration timeout;
     }
@@ -124,7 +124,7 @@ public class FakequeryparamwithjsoncontenttypeGet {
     public interface SetterForQueryParameters <T> {
         GetNullableRequest getInstance();
         T getBuilderAfterQueryParameters(GetNullableRequest instance);
-        default T queryParameters(FakequeryparamwithjsoncontenttypeGetQueryParameters.FakequeryparamwithjsoncontenttypeGetQueryParametersMap queryParameters) {
+        default T queryParameters(FakequeryparamwithjsoncontenttypeGetQueryParameters.FakequeryparamwithjsoncontenttypeGetQueryParameters9 queryParameters) {
             var instance = getInstance();
             instance.queryParameters = queryParameters;
             return getBuilderAfterQueryParameters(instance);

@@ -82,9 +82,9 @@ Fakedeletecoffeeid apiClient = new Fakedeletecoffeeid(apiConfiguration, schemaCo
 
 
 // Map validation
-FakedeletecoffeeidDeletePathParameters.FakedeletecoffeeidDeletePathParametersMap pathParameters =
+FakedeletecoffeeidDeletePathParameters.FakedeletecoffeeidDeletePathParameters9 pathParameters =
     FakedeletecoffeeidDeletePathParameters.FakedeletecoffeeidDeletePathParameters1.validate(
-    new FakedeletecoffeeidDeletePathParameters.FakedeletecoffeeidDeletePathParametersMapBuilder()
+    new FakedeletecoffeeidDeletePathParameters.FakedeletecoffeeidDeletePathParameters8()
         .id("a")
 
     .build(),

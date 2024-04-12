@@ -33,20 +33,20 @@ public class Fakeparametercollisions1ababselfabPostPathParameters {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static class Fakeparametercollisions1ababselfabPostadditionalProperties extends NotAnyTypeJsonSchema.NotAnyTypeJsonSchema1 {
+    public static class Fakeparametercollisions1ababselfabPostPathParameters8 extends NotAnyTypeJsonSchema.NotAnyTypeJsonSchema1 {
         // NotAnyTypeSchema
-        private static @Nullable Fakeparametercollisions1ababselfabPostadditionalProperties instance = null;
-        public static Fakeparametercollisions1ababselfabPostadditionalProperties getInstance() {
+        private static @Nullable Fakeparametercollisions1ababselfabPostPathParameters8 instance = null;
+        public static Fakeparametercollisions1ababselfabPostPathParameters8 getInstance() {
             if (instance == null) {
-                instance = new Fakeparametercollisions1ababselfabPostadditionalProperties();
+                instance = new Fakeparametercollisions1ababselfabPostPathParameters8();
             }
             return instance;
         }
     }
     
     
-    public static class Fakeparametercollisions1ababselfabPostPathParametersMap extends FrozenMap<@Nullable Object> {
-        protected Fakeparametercollisions1ababselfabPostPathParametersMap(FrozenMap<@Nullable Object> m) {
+    public static class Fakeparametercollisions1ababselfabPostPathParameters13 extends FrozenMap<@Nullable Object> {
+        protected Fakeparametercollisions1ababselfabPostPathParameters13(FrozenMap<@Nullable Object> m) {
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of(
@@ -57,7 +57,7 @@ public class Fakeparametercollisions1ababselfabPostPathParameters {
             "self"
         );
         public static final Set<String> optionalKeys = Set.of();
-        public static Fakeparametercollisions1ababselfabPostPathParametersMap of(Map<String, ? extends @Nullable Object> arg, SchemaConfiguration configuration) throws ValidationException {
+        public static Fakeparametercollisions1ababselfabPostPathParameters13 of(Map<String, ? extends @Nullable Object> arg, SchemaConfiguration configuration) throws ValidationException {
             return Fakeparametercollisions1ababselfabPostPathParameters1.getInstance().validate(arg, configuration);
         }
         
@@ -86,62 +86,62 @@ public class Fakeparametercollisions1ababselfabPostPathParameters {
         }
     }
     
-    public interface SetterForFakeparametercollisions1ababselfabPost1 <T> {
+    public interface SetterForFakeparametercollisions1ababselfabPostPathParameters2 <T> {
         Map<String, @Nullable Object> getInstance();
-        T getBuilderAfterFakeparametercollisions1ababselfabPost1(Map<String, @Nullable Object> instance);
+        T getBuilderAfterFakeparametercollisions1ababselfabPostPathParameters2(Map<String, @Nullable Object> instance);
         
         default T positive1(String value) {
             var instance = getInstance();
             instance.put("1", value);
-            return getBuilderAfterFakeparametercollisions1ababselfabPost1(instance);
+            return getBuilderAfterFakeparametercollisions1ababselfabPostPathParameters2(instance);
         }
     }
     
-    public interface SetterForFakeparametercollisions1ababselfabPostAB <T> {
+    public interface SetterForFakeparametercollisions1ababselfabPostPathParameters5 <T> {
         Map<String, @Nullable Object> getInstance();
-        T getBuilderAfterFakeparametercollisions1ababselfabPostAB(Map<String, @Nullable Object> instance);
+        T getBuilderAfterFakeparametercollisions1ababselfabPostPathParameters5(Map<String, @Nullable Object> instance);
         
         default T aHyphenMinusB(String value) {
             var instance = getInstance();
             instance.put("A-B", value);
-            return getBuilderAfterFakeparametercollisions1ababselfabPostAB(instance);
+            return getBuilderAfterFakeparametercollisions1ababselfabPostPathParameters5(instance);
         }
     }
     
-    public interface SetterForFakeparametercollisions1ababselfabPostAb <T> {
+    public interface SetterForFakeparametercollisions1ababselfabPostPathParameters4 <T> {
         Map<String, @Nullable Object> getInstance();
-        T getBuilderAfterFakeparametercollisions1ababselfabPostAb(Map<String, @Nullable Object> instance);
+        T getBuilderAfterFakeparametercollisions1ababselfabPostPathParameters4(Map<String, @Nullable Object> instance);
         
         default T Ab(String value) {
             var instance = getInstance();
             instance.put("Ab", value);
-            return getBuilderAfterFakeparametercollisions1ababselfabPostAb(instance);
+            return getBuilderAfterFakeparametercollisions1ababselfabPostPathParameters4(instance);
         }
     }
     
-    public interface SetterForFakeparametercollisions1ababselfabPostaB <T> {
+    public interface SetterForFakeparametercollisions1ababselfabPostPathParameters3 <T> {
         Map<String, @Nullable Object> getInstance();
-        T getBuilderAfterFakeparametercollisions1ababselfabPostaB(Map<String, @Nullable Object> instance);
+        T getBuilderAfterFakeparametercollisions1ababselfabPostPathParameters3(Map<String, @Nullable Object> instance);
         
         default T aB(String value) {
             var instance = getInstance();
             instance.put("aB", value);
-            return getBuilderAfterFakeparametercollisions1ababselfabPostaB(instance);
+            return getBuilderAfterFakeparametercollisions1ababselfabPostPathParameters3(instance);
         }
     }
     
-    public interface SetterForFakeparametercollisions1ababselfabPostself <T> {
+    public interface SetterForFakeparametercollisions1ababselfabPostPathParameters6 <T> {
         Map<String, @Nullable Object> getInstance();
-        T getBuilderAfterFakeparametercollisions1ababselfabPostself(Map<String, @Nullable Object> instance);
+        T getBuilderAfterFakeparametercollisions1ababselfabPostPathParameters6(Map<String, @Nullable Object> instance);
         
         default T self(String value) {
             var instance = getInstance();
             instance.put("self", value);
-            return getBuilderAfterFakeparametercollisions1ababselfabPostself(instance);
+            return getBuilderAfterFakeparametercollisions1ababselfabPostPathParameters6(instance);
         }
     }
     
-    public static class Fakeparametercollisions1ababselfabPostPathParametersMap00000Builder implements GenericBuilder<Map<String, @Nullable Object>> {
+    public static class Fakeparametercollisions1ababselfabPostPathParameters14 implements GenericBuilder<Map<String, @Nullable Object>> {
         private final Map<String, @Nullable Object> instance;
         private static final Set<String> knownKeys = Set.of(
             "1",
@@ -153,7 +153,7 @@ public class Fakeparametercollisions1ababselfabPostPathParameters {
         public Set<String> getKnownKeys() {
             return knownKeys;
         }
-        public Fakeparametercollisions1ababselfabPostPathParametersMap00000Builder(Map<String, @Nullable Object> instance) {
+        public Fakeparametercollisions1ababselfabPostPathParameters14(Map<String, @Nullable Object> instance) {
             this.instance = instance;
         }
         public Map<String, @Nullable Object> build() {
@@ -161,553 +161,553 @@ public class Fakeparametercollisions1ababselfabPostPathParameters {
         }
     }
     
-    public static class Fakeparametercollisions1ababselfabPostPathParametersMap00001Builder implements SetterForFakeparametercollisions1ababselfabPostself<Fakeparametercollisions1ababselfabPostPathParametersMap00000Builder> {
+    public static class Fakeparametercollisions1ababselfabPostPathParameters15 implements SetterForFakeparametercollisions1ababselfabPostPathParameters6<Fakeparametercollisions1ababselfabPostPathParameters14> {
         private final Map<String, @Nullable Object> instance;
-        public Fakeparametercollisions1ababselfabPostPathParametersMap00001Builder(Map<String, @Nullable Object> instance) {
+        public Fakeparametercollisions1ababselfabPostPathParameters15(Map<String, @Nullable Object> instance) {
             this.instance = instance;
         }
         public Map<String, @Nullable Object> getInstance() {
             return instance;
         }
-        public Fakeparametercollisions1ababselfabPostPathParametersMap00000Builder getBuilderAfterFakeparametercollisions1ababselfabPostself(Map<String, @Nullable Object> instance) {
-            return new Fakeparametercollisions1ababselfabPostPathParametersMap00000Builder(instance);
+        public Fakeparametercollisions1ababselfabPostPathParameters14 getBuilderAfterFakeparametercollisions1ababselfabPostPathParameters6(Map<String, @Nullable Object> instance) {
+            return new Fakeparametercollisions1ababselfabPostPathParameters14(instance);
         }
     }
     
-    public static class Fakeparametercollisions1ababselfabPostPathParametersMap00010Builder implements SetterForFakeparametercollisions1ababselfabPostaB<Fakeparametercollisions1ababselfabPostPathParametersMap00000Builder> {
+    public static class Fakeparametercollisions1ababselfabPostPathParameters16 implements SetterForFakeparametercollisions1ababselfabPostPathParameters3<Fakeparametercollisions1ababselfabPostPathParameters14> {
         private final Map<String, @Nullable Object> instance;
-        public Fakeparametercollisions1ababselfabPostPathParametersMap00010Builder(Map<String, @Nullable Object> instance) {
+        public Fakeparametercollisions1ababselfabPostPathParameters16(Map<String, @Nullable Object> instance) {
             this.instance = instance;
         }
         public Map<String, @Nullable Object> getInstance() {
             return instance;
         }
-        public Fakeparametercollisions1ababselfabPostPathParametersMap00000Builder getBuilderAfterFakeparametercollisions1ababselfabPostaB(Map<String, @Nullable Object> instance) {
-            return new Fakeparametercollisions1ababselfabPostPathParametersMap00000Builder(instance);
+        public Fakeparametercollisions1ababselfabPostPathParameters14 getBuilderAfterFakeparametercollisions1ababselfabPostPathParameters3(Map<String, @Nullable Object> instance) {
+            return new Fakeparametercollisions1ababselfabPostPathParameters14(instance);
         }
     }
     
-    public static class Fakeparametercollisions1ababselfabPostPathParametersMap00011Builder implements SetterForFakeparametercollisions1ababselfabPostaB<Fakeparametercollisions1ababselfabPostPathParametersMap00001Builder>, SetterForFakeparametercollisions1ababselfabPostself<Fakeparametercollisions1ababselfabPostPathParametersMap00010Builder> {
+    public static class Fakeparametercollisions1ababselfabPostPathParameters17 implements SetterForFakeparametercollisions1ababselfabPostPathParameters3<Fakeparametercollisions1ababselfabPostPathParameters15>, SetterForFakeparametercollisions1ababselfabPostPathParameters6<Fakeparametercollisions1ababselfabPostPathParameters16> {
         private final Map<String, @Nullable Object> instance;
-        public Fakeparametercollisions1ababselfabPostPathParametersMap00011Builder(Map<String, @Nullable Object> instance) {
+        public Fakeparametercollisions1ababselfabPostPathParameters17(Map<String, @Nullable Object> instance) {
             this.instance = instance;
         }
         public Map<String, @Nullable Object> getInstance() {
             return instance;
         }
-        public Fakeparametercollisions1ababselfabPostPathParametersMap00001Builder getBuilderAfterFakeparametercollisions1ababselfabPostaB(Map<String, @Nullable Object> instance) {
-            return new Fakeparametercollisions1ababselfabPostPathParametersMap00001Builder(instance);
+        public Fakeparametercollisions1ababselfabPostPathParameters15 getBuilderAfterFakeparametercollisions1ababselfabPostPathParameters3(Map<String, @Nullable Object> instance) {
+            return new Fakeparametercollisions1ababselfabPostPathParameters15(instance);
         }
-        public Fakeparametercollisions1ababselfabPostPathParametersMap00010Builder getBuilderAfterFakeparametercollisions1ababselfabPostself(Map<String, @Nullable Object> instance) {
-            return new Fakeparametercollisions1ababselfabPostPathParametersMap00010Builder(instance);
+        public Fakeparametercollisions1ababselfabPostPathParameters16 getBuilderAfterFakeparametercollisions1ababselfabPostPathParameters6(Map<String, @Nullable Object> instance) {
+            return new Fakeparametercollisions1ababselfabPostPathParameters16(instance);
         }
     }
     
-    public static class Fakeparametercollisions1ababselfabPostPathParametersMap00100Builder implements SetterForFakeparametercollisions1ababselfabPostAb<Fakeparametercollisions1ababselfabPostPathParametersMap00000Builder> {
+    public static class Fakeparametercollisions1ababselfabPostPathParameters18 implements SetterForFakeparametercollisions1ababselfabPostPathParameters4<Fakeparametercollisions1ababselfabPostPathParameters14> {
         private final Map<String, @Nullable Object> instance;
-        public Fakeparametercollisions1ababselfabPostPathParametersMap00100Builder(Map<String, @Nullable Object> instance) {
+        public Fakeparametercollisions1ababselfabPostPathParameters18(Map<String, @Nullable Object> instance) {
             this.instance = instance;
         }
         public Map<String, @Nullable Object> getInstance() {
             return instance;
         }
-        public Fakeparametercollisions1ababselfabPostPathParametersMap00000Builder getBuilderAfterFakeparametercollisions1ababselfabPostAb(Map<String, @Nullable Object> instance) {
-            return new Fakeparametercollisions1ababselfabPostPathParametersMap00000Builder(instance);
+        public Fakeparametercollisions1ababselfabPostPathParameters14 getBuilderAfterFakeparametercollisions1ababselfabPostPathParameters4(Map<String, @Nullable Object> instance) {
+            return new Fakeparametercollisions1ababselfabPostPathParameters14(instance);
         }
     }
     
-    public static class Fakeparametercollisions1ababselfabPostPathParametersMap00101Builder implements SetterForFakeparametercollisions1ababselfabPostAb<Fakeparametercollisions1ababselfabPostPathParametersMap00001Builder>, SetterForFakeparametercollisions1ababselfabPostself<Fakeparametercollisions1ababselfabPostPathParametersMap00100Builder> {
+    public static class Fakeparametercollisions1ababselfabPostPathParameters19 implements SetterForFakeparametercollisions1ababselfabPostPathParameters4<Fakeparametercollisions1ababselfabPostPathParameters15>, SetterForFakeparametercollisions1ababselfabPostPathParameters6<Fakeparametercollisions1ababselfabPostPathParameters18> {
         private final Map<String, @Nullable Object> instance;
-        public Fakeparametercollisions1ababselfabPostPathParametersMap00101Builder(Map<String, @Nullable Object> instance) {
+        public Fakeparametercollisions1ababselfabPostPathParameters19(Map<String, @Nullable Object> instance) {
             this.instance = instance;
         }
         public Map<String, @Nullable Object> getInstance() {
             return instance;
         }
-        public Fakeparametercollisions1ababselfabPostPathParametersMap00001Builder getBuilderAfterFakeparametercollisions1ababselfabPostAb(Map<String, @Nullable Object> instance) {
-            return new Fakeparametercollisions1ababselfabPostPathParametersMap00001Builder(instance);
+        public Fakeparametercollisions1ababselfabPostPathParameters15 getBuilderAfterFakeparametercollisions1ababselfabPostPathParameters4(Map<String, @Nullable Object> instance) {
+            return new Fakeparametercollisions1ababselfabPostPathParameters15(instance);
         }
-        public Fakeparametercollisions1ababselfabPostPathParametersMap00100Builder getBuilderAfterFakeparametercollisions1ababselfabPostself(Map<String, @Nullable Object> instance) {
-            return new Fakeparametercollisions1ababselfabPostPathParametersMap00100Builder(instance);
+        public Fakeparametercollisions1ababselfabPostPathParameters18 getBuilderAfterFakeparametercollisions1ababselfabPostPathParameters6(Map<String, @Nullable Object> instance) {
+            return new Fakeparametercollisions1ababselfabPostPathParameters18(instance);
         }
     }
     
-    public static class Fakeparametercollisions1ababselfabPostPathParametersMap00110Builder implements SetterForFakeparametercollisions1ababselfabPostAb<Fakeparametercollisions1ababselfabPostPathParametersMap00010Builder>, SetterForFakeparametercollisions1ababselfabPostaB<Fakeparametercollisions1ababselfabPostPathParametersMap00100Builder> {
+    public static class Fakeparametercollisions1ababselfabPostPathParameters20 implements SetterForFakeparametercollisions1ababselfabPostPathParameters4<Fakeparametercollisions1ababselfabPostPathParameters16>, SetterForFakeparametercollisions1ababselfabPostPathParameters3<Fakeparametercollisions1ababselfabPostPathParameters18> {
         private final Map<String, @Nullable Object> instance;
-        public Fakeparametercollisions1ababselfabPostPathParametersMap00110Builder(Map<String, @Nullable Object> instance) {
+        public Fakeparametercollisions1ababselfabPostPathParameters20(Map<String, @Nullable Object> instance) {
             this.instance = instance;
         }
         public Map<String, @Nullable Object> getInstance() {
             return instance;
         }
-        public Fakeparametercollisions1ababselfabPostPathParametersMap00010Builder getBuilderAfterFakeparametercollisions1ababselfabPostAb(Map<String, @Nullable Object> instance) {
-            return new Fakeparametercollisions1ababselfabPostPathParametersMap00010Builder(instance);
+        public Fakeparametercollisions1ababselfabPostPathParameters16 getBuilderAfterFakeparametercollisions1ababselfabPostPathParameters4(Map<String, @Nullable Object> instance) {
+            return new Fakeparametercollisions1ababselfabPostPathParameters16(instance);
         }
-        public Fakeparametercollisions1ababselfabPostPathParametersMap00100Builder getBuilderAfterFakeparametercollisions1ababselfabPostaB(Map<String, @Nullable Object> instance) {
-            return new Fakeparametercollisions1ababselfabPostPathParametersMap00100Builder(instance);
+        public Fakeparametercollisions1ababselfabPostPathParameters18 getBuilderAfterFakeparametercollisions1ababselfabPostPathParameters3(Map<String, @Nullable Object> instance) {
+            return new Fakeparametercollisions1ababselfabPostPathParameters18(instance);
         }
     }
     
-    public static class Fakeparametercollisions1ababselfabPostPathParametersMap00111Builder implements SetterForFakeparametercollisions1ababselfabPostAb<Fakeparametercollisions1ababselfabPostPathParametersMap00011Builder>, SetterForFakeparametercollisions1ababselfabPostaB<Fakeparametercollisions1ababselfabPostPathParametersMap00101Builder>, SetterForFakeparametercollisions1ababselfabPostself<Fakeparametercollisions1ababselfabPostPathParametersMap00110Builder> {
+    public static class Fakeparametercollisions1ababselfabPostPathParameters21 implements SetterForFakeparametercollisions1ababselfabPostPathParameters4<Fakeparametercollisions1ababselfabPostPathParameters17>, SetterForFakeparametercollisions1ababselfabPostPathParameters3<Fakeparametercollisions1ababselfabPostPathParameters19>, SetterForFakeparametercollisions1ababselfabPostPathParameters6<Fakeparametercollisions1ababselfabPostPathParameters20> {
         private final Map<String, @Nullable Object> instance;
-        public Fakeparametercollisions1ababselfabPostPathParametersMap00111Builder(Map<String, @Nullable Object> instance) {
+        public Fakeparametercollisions1ababselfabPostPathParameters21(Map<String, @Nullable Object> instance) {
             this.instance = instance;
         }
         public Map<String, @Nullable Object> getInstance() {
             return instance;
         }
-        public Fakeparametercollisions1ababselfabPostPathParametersMap00011Builder getBuilderAfterFakeparametercollisions1ababselfabPostAb(Map<String, @Nullable Object> instance) {
-            return new Fakeparametercollisions1ababselfabPostPathParametersMap00011Builder(instance);
+        public Fakeparametercollisions1ababselfabPostPathParameters17 getBuilderAfterFakeparametercollisions1ababselfabPostPathParameters4(Map<String, @Nullable Object> instance) {
+            return new Fakeparametercollisions1ababselfabPostPathParameters17(instance);
         }
-        public Fakeparametercollisions1ababselfabPostPathParametersMap00101Builder getBuilderAfterFakeparametercollisions1ababselfabPostaB(Map<String, @Nullable Object> instance) {
-            return new Fakeparametercollisions1ababselfabPostPathParametersMap00101Builder(instance);
+        public Fakeparametercollisions1ababselfabPostPathParameters19 getBuilderAfterFakeparametercollisions1ababselfabPostPathParameters3(Map<String, @Nullable Object> instance) {
+            return new Fakeparametercollisions1ababselfabPostPathParameters19(instance);
         }
-        public Fakeparametercollisions1ababselfabPostPathParametersMap00110Builder getBuilderAfterFakeparametercollisions1ababselfabPostself(Map<String, @Nullable Object> instance) {
-            return new Fakeparametercollisions1ababselfabPostPathParametersMap00110Builder(instance);
+        public Fakeparametercollisions1ababselfabPostPathParameters20 getBuilderAfterFakeparametercollisions1ababselfabPostPathParameters6(Map<String, @Nullable Object> instance) {
+            return new Fakeparametercollisions1ababselfabPostPathParameters20(instance);
         }
     }
     
-    public static class Fakeparametercollisions1ababselfabPostPathParametersMap01000Builder implements SetterForFakeparametercollisions1ababselfabPostAB<Fakeparametercollisions1ababselfabPostPathParametersMap00000Builder> {
+    public static class Fakeparametercollisions1ababselfabPostPathParameters22 implements SetterForFakeparametercollisions1ababselfabPostPathParameters5<Fakeparametercollisions1ababselfabPostPathParameters14> {
         private final Map<String, @Nullable Object> instance;
-        public Fakeparametercollisions1ababselfabPostPathParametersMap01000Builder(Map<String, @Nullable Object> instance) {
+        public Fakeparametercollisions1ababselfabPostPathParameters22(Map<String, @Nullable Object> instance) {
             this.instance = instance;
         }
         public Map<String, @Nullable Object> getInstance() {
             return instance;
         }
-        public Fakeparametercollisions1ababselfabPostPathParametersMap00000Builder getBuilderAfterFakeparametercollisions1ababselfabPostAB(Map<String, @Nullable Object> instance) {
-            return new Fakeparametercollisions1ababselfabPostPathParametersMap00000Builder(instance);
+        public Fakeparametercollisions1ababselfabPostPathParameters14 getBuilderAfterFakeparametercollisions1ababselfabPostPathParameters5(Map<String, @Nullable Object> instance) {
+            return new Fakeparametercollisions1ababselfabPostPathParameters14(instance);
         }
     }
     
-    public static class Fakeparametercollisions1ababselfabPostPathParametersMap01001Builder implements SetterForFakeparametercollisions1ababselfabPostAB<Fakeparametercollisions1ababselfabPostPathParametersMap00001Builder>, SetterForFakeparametercollisions1ababselfabPostself<Fakeparametercollisions1ababselfabPostPathParametersMap01000Builder> {
+    public static class Fakeparametercollisions1ababselfabPostPathParameters23 implements SetterForFakeparametercollisions1ababselfabPostPathParameters5<Fakeparametercollisions1ababselfabPostPathParameters15>, SetterForFakeparametercollisions1ababselfabPostPathParameters6<Fakeparametercollisions1ababselfabPostPathParameters22> {
         private final Map<String, @Nullable Object> instance;
-        public Fakeparametercollisions1ababselfabPostPathParametersMap01001Builder(Map<String, @Nullable Object> instance) {
+        public Fakeparametercollisions1ababselfabPostPathParameters23(Map<String, @Nullable Object> instance) {
             this.instance = instance;
         }
         public Map<String, @Nullable Object> getInstance() {
             return instance;
         }
-        public Fakeparametercollisions1ababselfabPostPathParametersMap00001Builder getBuilderAfterFakeparametercollisions1ababselfabPostAB(Map<String, @Nullable Object> instance) {
-            return new Fakeparametercollisions1ababselfabPostPathParametersMap00001Builder(instance);
+        public Fakeparametercollisions1ababselfabPostPathParameters15 getBuilderAfterFakeparametercollisions1ababselfabPostPathParameters5(Map<String, @Nullable Object> instance) {
+            return new Fakeparametercollisions1ababselfabPostPathParameters15(instance);
         }
-        public Fakeparametercollisions1ababselfabPostPathParametersMap01000Builder getBuilderAfterFakeparametercollisions1ababselfabPostself(Map<String, @Nullable Object> instance) {
-            return new Fakeparametercollisions1ababselfabPostPathParametersMap01000Builder(instance);
+        public Fakeparametercollisions1ababselfabPostPathParameters22 getBuilderAfterFakeparametercollisions1ababselfabPostPathParameters6(Map<String, @Nullable Object> instance) {
+            return new Fakeparametercollisions1ababselfabPostPathParameters22(instance);
         }
     }
     
-    public static class Fakeparametercollisions1ababselfabPostPathParametersMap01010Builder implements SetterForFakeparametercollisions1ababselfabPostAB<Fakeparametercollisions1ababselfabPostPathParametersMap00010Builder>, SetterForFakeparametercollisions1ababselfabPostaB<Fakeparametercollisions1ababselfabPostPathParametersMap01000Builder> {
+    public static class Fakeparametercollisions1ababselfabPostPathParameters24 implements SetterForFakeparametercollisions1ababselfabPostPathParameters5<Fakeparametercollisions1ababselfabPostPathParameters16>, SetterForFakeparametercollisions1ababselfabPostPathParameters3<Fakeparametercollisions1ababselfabPostPathParameters22> {
         private final Map<String, @Nullable Object> instance;
-        public Fakeparametercollisions1ababselfabPostPathParametersMap01010Builder(Map<String, @Nullable Object> instance) {
+        public Fakeparametercollisions1ababselfabPostPathParameters24(Map<String, @Nullable Object> instance) {
             this.instance = instance;
         }
         public Map<String, @Nullable Object> getInstance() {
             return instance;
         }
-        public Fakeparametercollisions1ababselfabPostPathParametersMap00010Builder getBuilderAfterFakeparametercollisions1ababselfabPostAB(Map<String, @Nullable Object> instance) {
-            return new Fakeparametercollisions1ababselfabPostPathParametersMap00010Builder(instance);
+        public Fakeparametercollisions1ababselfabPostPathParameters16 getBuilderAfterFakeparametercollisions1ababselfabPostPathParameters5(Map<String, @Nullable Object> instance) {
+            return new Fakeparametercollisions1ababselfabPostPathParameters16(instance);
         }
-        public Fakeparametercollisions1ababselfabPostPathParametersMap01000Builder getBuilderAfterFakeparametercollisions1ababselfabPostaB(Map<String, @Nullable Object> instance) {
-            return new Fakeparametercollisions1ababselfabPostPathParametersMap01000Builder(instance);
+        public Fakeparametercollisions1ababselfabPostPathParameters22 getBuilderAfterFakeparametercollisions1ababselfabPostPathParameters3(Map<String, @Nullable Object> instance) {
+            return new Fakeparametercollisions1ababselfabPostPathParameters22(instance);
         }
     }
     
-    public static class Fakeparametercollisions1ababselfabPostPathParametersMap01011Builder implements SetterForFakeparametercollisions1ababselfabPostAB<Fakeparametercollisions1ababselfabPostPathParametersMap00011Builder>, SetterForFakeparametercollisions1ababselfabPostaB<Fakeparametercollisions1ababselfabPostPathParametersMap01001Builder>, SetterForFakeparametercollisions1ababselfabPostself<Fakeparametercollisions1ababselfabPostPathParametersMap01010Builder> {
+    public static class Fakeparametercollisions1ababselfabPostPathParameters25 implements SetterForFakeparametercollisions1ababselfabPostPathParameters5<Fakeparametercollisions1ababselfabPostPathParameters17>, SetterForFakeparametercollisions1ababselfabPostPathParameters3<Fakeparametercollisions1ababselfabPostPathParameters23>, SetterForFakeparametercollisions1ababselfabPostPathParameters6<Fakeparametercollisions1ababselfabPostPathParameters24> {
         private final Map<String, @Nullable Object> instance;
-        public Fakeparametercollisions1ababselfabPostPathParametersMap01011Builder(Map<String, @Nullable Object> instance) {
+        public Fakeparametercollisions1ababselfabPostPathParameters25(Map<String, @Nullable Object> instance) {
             this.instance = instance;
         }
         public Map<String, @Nullable Object> getInstance() {
             return instance;
         }
-        public Fakeparametercollisions1ababselfabPostPathParametersMap00011Builder getBuilderAfterFakeparametercollisions1ababselfabPostAB(Map<String, @Nullable Object> instance) {
-            return new Fakeparametercollisions1ababselfabPostPathParametersMap00011Builder(instance);
+        public Fakeparametercollisions1ababselfabPostPathParameters17 getBuilderAfterFakeparametercollisions1ababselfabPostPathParameters5(Map<String, @Nullable Object> instance) {
+            return new Fakeparametercollisions1ababselfabPostPathParameters17(instance);
         }
-        public Fakeparametercollisions1ababselfabPostPathParametersMap01001Builder getBuilderAfterFakeparametercollisions1ababselfabPostaB(Map<String, @Nullable Object> instance) {
-            return new Fakeparametercollisions1ababselfabPostPathParametersMap01001Builder(instance);
+        public Fakeparametercollisions1ababselfabPostPathParameters23 getBuilderAfterFakeparametercollisions1ababselfabPostPathParameters3(Map<String, @Nullable Object> instance) {
+            return new Fakeparametercollisions1ababselfabPostPathParameters23(instance);
         }
-        public Fakeparametercollisions1ababselfabPostPathParametersMap01010Builder getBuilderAfterFakeparametercollisions1ababselfabPostself(Map<String, @Nullable Object> instance) {
-            return new Fakeparametercollisions1ababselfabPostPathParametersMap01010Builder(instance);
+        public Fakeparametercollisions1ababselfabPostPathParameters24 getBuilderAfterFakeparametercollisions1ababselfabPostPathParameters6(Map<String, @Nullable Object> instance) {
+            return new Fakeparametercollisions1ababselfabPostPathParameters24(instance);
         }
     }
     
-    public static class Fakeparametercollisions1ababselfabPostPathParametersMap01100Builder implements SetterForFakeparametercollisions1ababselfabPostAB<Fakeparametercollisions1ababselfabPostPathParametersMap00100Builder>, SetterForFakeparametercollisions1ababselfabPostAb<Fakeparametercollisions1ababselfabPostPathParametersMap01000Builder> {
+    public static class Fakeparametercollisions1ababselfabPostPathParameters26 implements SetterForFakeparametercollisions1ababselfabPostPathParameters5<Fakeparametercollisions1ababselfabPostPathParameters18>, SetterForFakeparametercollisions1ababselfabPostPathParameters4<Fakeparametercollisions1ababselfabPostPathParameters22> {
         private final Map<String, @Nullable Object> instance;
-        public Fakeparametercollisions1ababselfabPostPathParametersMap01100Builder(Map<String, @Nullable Object> instance) {
+        public Fakeparametercollisions1ababselfabPostPathParameters26(Map<String, @Nullable Object> instance) {
             this.instance = instance;
         }
         public Map<String, @Nullable Object> getInstance() {
             return instance;
         }
-        public Fakeparametercollisions1ababselfabPostPathParametersMap00100Builder getBuilderAfterFakeparametercollisions1ababselfabPostAB(Map<String, @Nullable Object> instance) {
-            return new Fakeparametercollisions1ababselfabPostPathParametersMap00100Builder(instance);
+        public Fakeparametercollisions1ababselfabPostPathParameters18 getBuilderAfterFakeparametercollisions1ababselfabPostPathParameters5(Map<String, @Nullable Object> instance) {
+            return new Fakeparametercollisions1ababselfabPostPathParameters18(instance);
         }
-        public Fakeparametercollisions1ababselfabPostPathParametersMap01000Builder getBuilderAfterFakeparametercollisions1ababselfabPostAb(Map<String, @Nullable Object> instance) {
-            return new Fakeparametercollisions1ababselfabPostPathParametersMap01000Builder(instance);
+        public Fakeparametercollisions1ababselfabPostPathParameters22 getBuilderAfterFakeparametercollisions1ababselfabPostPathParameters4(Map<String, @Nullable Object> instance) {
+            return new Fakeparametercollisions1ababselfabPostPathParameters22(instance);
         }
     }
     
-    public static class Fakeparametercollisions1ababselfabPostPathParametersMap01101Builder implements SetterForFakeparametercollisions1ababselfabPostAB<Fakeparametercollisions1ababselfabPostPathParametersMap00101Builder>, SetterForFakeparametercollisions1ababselfabPostAb<Fakeparametercollisions1ababselfabPostPathParametersMap01001Builder>, SetterForFakeparametercollisions1ababselfabPostself<Fakeparametercollisions1ababselfabPostPathParametersMap01100Builder> {
+    public static class Fakeparametercollisions1ababselfabPostPathParameters27 implements SetterForFakeparametercollisions1ababselfabPostPathParameters5<Fakeparametercollisions1ababselfabPostPathParameters19>, SetterForFakeparametercollisions1ababselfabPostPathParameters4<Fakeparametercollisions1ababselfabPostPathParameters23>, SetterForFakeparametercollisions1ababselfabPostPathParameters6<Fakeparametercollisions1ababselfabPostPathParameters26> {
         private final Map<String, @Nullable Object> instance;
-        public Fakeparametercollisions1ababselfabPostPathParametersMap01101Builder(Map<String, @Nullable Object> instance) {
+        public Fakeparametercollisions1ababselfabPostPathParameters27(Map<String, @Nullable Object> instance) {
             this.instance = instance;
         }
         public Map<String, @Nullable Object> getInstance() {
             return instance;
         }
-        public Fakeparametercollisions1ababselfabPostPathParametersMap00101Builder getBuilderAfterFakeparametercollisions1ababselfabPostAB(Map<String, @Nullable Object> instance) {
-            return new Fakeparametercollisions1ababselfabPostPathParametersMap00101Builder(instance);
+        public Fakeparametercollisions1ababselfabPostPathParameters19 getBuilderAfterFakeparametercollisions1ababselfabPostPathParameters5(Map<String, @Nullable Object> instance) {
+            return new Fakeparametercollisions1ababselfabPostPathParameters19(instance);
         }
-        public Fakeparametercollisions1ababselfabPostPathParametersMap01001Builder getBuilderAfterFakeparametercollisions1ababselfabPostAb(Map<String, @Nullable Object> instance) {
-            return new Fakeparametercollisions1ababselfabPostPathParametersMap01001Builder(instance);
+        public Fakeparametercollisions1ababselfabPostPathParameters23 getBuilderAfterFakeparametercollisions1ababselfabPostPathParameters4(Map<String, @Nullable Object> instance) {
+            return new Fakeparametercollisions1ababselfabPostPathParameters23(instance);
         }
-        public Fakeparametercollisions1ababselfabPostPathParametersMap01100Builder getBuilderAfterFakeparametercollisions1ababselfabPostself(Map<String, @Nullable Object> instance) {
-            return new Fakeparametercollisions1ababselfabPostPathParametersMap01100Builder(instance);
+        public Fakeparametercollisions1ababselfabPostPathParameters26 getBuilderAfterFakeparametercollisions1ababselfabPostPathParameters6(Map<String, @Nullable Object> instance) {
+            return new Fakeparametercollisions1ababselfabPostPathParameters26(instance);
         }
     }
     
-    public static class Fakeparametercollisions1ababselfabPostPathParametersMap01110Builder implements SetterForFakeparametercollisions1ababselfabPostAB<Fakeparametercollisions1ababselfabPostPathParametersMap00110Builder>, SetterForFakeparametercollisions1ababselfabPostAb<Fakeparametercollisions1ababselfabPostPathParametersMap01010Builder>, SetterForFakeparametercollisions1ababselfabPostaB<Fakeparametercollisions1ababselfabPostPathParametersMap01100Builder> {
+    public static class Fakeparametercollisions1ababselfabPostPathParameters28 implements SetterForFakeparametercollisions1ababselfabPostPathParameters5<Fakeparametercollisions1ababselfabPostPathParameters20>, SetterForFakeparametercollisions1ababselfabPostPathParameters4<Fakeparametercollisions1ababselfabPostPathParameters24>, SetterForFakeparametercollisions1ababselfabPostPathParameters3<Fakeparametercollisions1ababselfabPostPathParameters26> {
         private final Map<String, @Nullable Object> instance;
-        public Fakeparametercollisions1ababselfabPostPathParametersMap01110Builder(Map<String, @Nullable Object> instance) {
+        public Fakeparametercollisions1ababselfabPostPathParameters28(Map<String, @Nullable Object> instance) {
             this.instance = instance;
         }
         public Map<String, @Nullable Object> getInstance() {
             return instance;
         }
-        public Fakeparametercollisions1ababselfabPostPathParametersMap00110Builder getBuilderAfterFakeparametercollisions1ababselfabPostAB(Map<String, @Nullable Object> instance) {
-            return new Fakeparametercollisions1ababselfabPostPathParametersMap00110Builder(instance);
+        public Fakeparametercollisions1ababselfabPostPathParameters20 getBuilderAfterFakeparametercollisions1ababselfabPostPathParameters5(Map<String, @Nullable Object> instance) {
+            return new Fakeparametercollisions1ababselfabPostPathParameters20(instance);
         }
-        public Fakeparametercollisions1ababselfabPostPathParametersMap01010Builder getBuilderAfterFakeparametercollisions1ababselfabPostAb(Map<String, @Nullable Object> instance) {
-            return new Fakeparametercollisions1ababselfabPostPathParametersMap01010Builder(instance);
+        public Fakeparametercollisions1ababselfabPostPathParameters24 getBuilderAfterFakeparametercollisions1ababselfabPostPathParameters4(Map<String, @Nullable Object> instance) {
+            return new Fakeparametercollisions1ababselfabPostPathParameters24(instance);
         }
-        public Fakeparametercollisions1ababselfabPostPathParametersMap01100Builder getBuilderAfterFakeparametercollisions1ababselfabPostaB(Map<String, @Nullable Object> instance) {
-            return new Fakeparametercollisions1ababselfabPostPathParametersMap01100Builder(instance);
+        public Fakeparametercollisions1ababselfabPostPathParameters26 getBuilderAfterFakeparametercollisions1ababselfabPostPathParameters3(Map<String, @Nullable Object> instance) {
+            return new Fakeparametercollisions1ababselfabPostPathParameters26(instance);
         }
     }
     
-    public static class Fakeparametercollisions1ababselfabPostPathParametersMap01111Builder implements SetterForFakeparametercollisions1ababselfabPostAB<Fakeparametercollisions1ababselfabPostPathParametersMap00111Builder>, SetterForFakeparametercollisions1ababselfabPostAb<Fakeparametercollisions1ababselfabPostPathParametersMap01011Builder>, SetterForFakeparametercollisions1ababselfabPostaB<Fakeparametercollisions1ababselfabPostPathParametersMap01101Builder>, SetterForFakeparametercollisions1ababselfabPostself<Fakeparametercollisions1ababselfabPostPathParametersMap01110Builder> {
+    public static class Fakeparametercollisions1ababselfabPostPathParameters29 implements SetterForFakeparametercollisions1ababselfabPostPathParameters5<Fakeparametercollisions1ababselfabPostPathParameters21>, SetterForFakeparametercollisions1ababselfabPostPathParameters4<Fakeparametercollisions1ababselfabPostPathParameters25>, SetterForFakeparametercollisions1ababselfabPostPathParameters3<Fakeparametercollisions1ababselfabPostPathParameters27>, SetterForFakeparametercollisions1ababselfabPostPathParameters6<Fakeparametercollisions1ababselfabPostPathParameters28> {
         private final Map<String, @Nullable Object> instance;
-        public Fakeparametercollisions1ababselfabPostPathParametersMap01111Builder(Map<String, @Nullable Object> instance) {
+        public Fakeparametercollisions1ababselfabPostPathParameters29(Map<String, @Nullable Object> instance) {
             this.instance = instance;
         }
         public Map<String, @Nullable Object> getInstance() {
             return instance;
         }
-        public Fakeparametercollisions1ababselfabPostPathParametersMap00111Builder getBuilderAfterFakeparametercollisions1ababselfabPostAB(Map<String, @Nullable Object> instance) {
-            return new Fakeparametercollisions1ababselfabPostPathParametersMap00111Builder(instance);
+        public Fakeparametercollisions1ababselfabPostPathParameters21 getBuilderAfterFakeparametercollisions1ababselfabPostPathParameters5(Map<String, @Nullable Object> instance) {
+            return new Fakeparametercollisions1ababselfabPostPathParameters21(instance);
         }
-        public Fakeparametercollisions1ababselfabPostPathParametersMap01011Builder getBuilderAfterFakeparametercollisions1ababselfabPostAb(Map<String, @Nullable Object> instance) {
-            return new Fakeparametercollisions1ababselfabPostPathParametersMap01011Builder(instance);
+        public Fakeparametercollisions1ababselfabPostPathParameters25 getBuilderAfterFakeparametercollisions1ababselfabPostPathParameters4(Map<String, @Nullable Object> instance) {
+            return new Fakeparametercollisions1ababselfabPostPathParameters25(instance);
         }
-        public Fakeparametercollisions1ababselfabPostPathParametersMap01101Builder getBuilderAfterFakeparametercollisions1ababselfabPostaB(Map<String, @Nullable Object> instance) {
-            return new Fakeparametercollisions1ababselfabPostPathParametersMap01101Builder(instance);
+        public Fakeparametercollisions1ababselfabPostPathParameters27 getBuilderAfterFakeparametercollisions1ababselfabPostPathParameters3(Map<String, @Nullable Object> instance) {
+            return new Fakeparametercollisions1ababselfabPostPathParameters27(instance);
         }
-        public Fakeparametercollisions1ababselfabPostPathParametersMap01110Builder getBuilderAfterFakeparametercollisions1ababselfabPostself(Map<String, @Nullable Object> instance) {
-            return new Fakeparametercollisions1ababselfabPostPathParametersMap01110Builder(instance);
+        public Fakeparametercollisions1ababselfabPostPathParameters28 getBuilderAfterFakeparametercollisions1ababselfabPostPathParameters6(Map<String, @Nullable Object> instance) {
+            return new Fakeparametercollisions1ababselfabPostPathParameters28(instance);
         }
     }
     
-    public static class Fakeparametercollisions1ababselfabPostPathParametersMap10000Builder implements SetterForFakeparametercollisions1ababselfabPost1<Fakeparametercollisions1ababselfabPostPathParametersMap00000Builder> {
+    public static class Fakeparametercollisions1ababselfabPostPathParameters30 implements SetterForFakeparametercollisions1ababselfabPostPathParameters2<Fakeparametercollisions1ababselfabPostPathParameters14> {
         private final Map<String, @Nullable Object> instance;
-        public Fakeparametercollisions1ababselfabPostPathParametersMap10000Builder(Map<String, @Nullable Object> instance) {
+        public Fakeparametercollisions1ababselfabPostPathParameters30(Map<String, @Nullable Object> instance) {
             this.instance = instance;
         }
         public Map<String, @Nullable Object> getInstance() {
             return instance;
         }
-        public Fakeparametercollisions1ababselfabPostPathParametersMap00000Builder getBuilderAfterFakeparametercollisions1ababselfabPost1(Map<String, @Nullable Object> instance) {
-            return new Fakeparametercollisions1ababselfabPostPathParametersMap00000Builder(instance);
+        public Fakeparametercollisions1ababselfabPostPathParameters14 getBuilderAfterFakeparametercollisions1ababselfabPostPathParameters2(Map<String, @Nullable Object> instance) {
+            return new Fakeparametercollisions1ababselfabPostPathParameters14(instance);
         }
     }
     
-    public static class Fakeparametercollisions1ababselfabPostPathParametersMap10001Builder implements SetterForFakeparametercollisions1ababselfabPost1<Fakeparametercollisions1ababselfabPostPathParametersMap00001Builder>, SetterForFakeparametercollisions1ababselfabPostself<Fakeparametercollisions1ababselfabPostPathParametersMap10000Builder> {
+    public static class Fakeparametercollisions1ababselfabPostPathParameters31 implements SetterForFakeparametercollisions1ababselfabPostPathParameters2<Fakeparametercollisions1ababselfabPostPathParameters15>, SetterForFakeparametercollisions1ababselfabPostPathParameters6<Fakeparametercollisions1ababselfabPostPathParameters30> {
         private final Map<String, @Nullable Object> instance;
-        public Fakeparametercollisions1ababselfabPostPathParametersMap10001Builder(Map<String, @Nullable Object> instance) {
+        public Fakeparametercollisions1ababselfabPostPathParameters31(Map<String, @Nullable Object> instance) {
             this.instance = instance;
         }
         public Map<String, @Nullable Object> getInstance() {
             return instance;
         }
-        public Fakeparametercollisions1ababselfabPostPathParametersMap00001Builder getBuilderAfterFakeparametercollisions1ababselfabPost1(Map<String, @Nullable Object> instance) {
-            return new Fakeparametercollisions1ababselfabPostPathParametersMap00001Builder(instance);
+        public Fakeparametercollisions1ababselfabPostPathParameters15 getBuilderAfterFakeparametercollisions1ababselfabPostPathParameters2(Map<String, @Nullable Object> instance) {
+            return new Fakeparametercollisions1ababselfabPostPathParameters15(instance);
         }
-        public Fakeparametercollisions1ababselfabPostPathParametersMap10000Builder getBuilderAfterFakeparametercollisions1ababselfabPostself(Map<String, @Nullable Object> instance) {
-            return new Fakeparametercollisions1ababselfabPostPathParametersMap10000Builder(instance);
+        public Fakeparametercollisions1ababselfabPostPathParameters30 getBuilderAfterFakeparametercollisions1ababselfabPostPathParameters6(Map<String, @Nullable Object> instance) {
+            return new Fakeparametercollisions1ababselfabPostPathParameters30(instance);
         }
     }
     
-    public static class Fakeparametercollisions1ababselfabPostPathParametersMap10010Builder implements SetterForFakeparametercollisions1ababselfabPost1<Fakeparametercollisions1ababselfabPostPathParametersMap00010Builder>, SetterForFakeparametercollisions1ababselfabPostaB<Fakeparametercollisions1ababselfabPostPathParametersMap10000Builder> {
+    public static class Fakeparametercollisions1ababselfabPostPathParameters32 implements SetterForFakeparametercollisions1ababselfabPostPathParameters2<Fakeparametercollisions1ababselfabPostPathParameters16>, SetterForFakeparametercollisions1ababselfabPostPathParameters3<Fakeparametercollisions1ababselfabPostPathParameters30> {
         private final Map<String, @Nullable Object> instance;
-        public Fakeparametercollisions1ababselfabPostPathParametersMap10010Builder(Map<String, @Nullable Object> instance) {
+        public Fakeparametercollisions1ababselfabPostPathParameters32(Map<String, @Nullable Object> instance) {
             this.instance = instance;
         }
         public Map<String, @Nullable Object> getInstance() {
             return instance;
         }
-        public Fakeparametercollisions1ababselfabPostPathParametersMap00010Builder getBuilderAfterFakeparametercollisions1ababselfabPost1(Map<String, @Nullable Object> instance) {
-            return new Fakeparametercollisions1ababselfabPostPathParametersMap00010Builder(instance);
+        public Fakeparametercollisions1ababselfabPostPathParameters16 getBuilderAfterFakeparametercollisions1ababselfabPostPathParameters2(Map<String, @Nullable Object> instance) {
+            return new Fakeparametercollisions1ababselfabPostPathParameters16(instance);
         }
-        public Fakeparametercollisions1ababselfabPostPathParametersMap10000Builder getBuilderAfterFakeparametercollisions1ababselfabPostaB(Map<String, @Nullable Object> instance) {
-            return new Fakeparametercollisions1ababselfabPostPathParametersMap10000Builder(instance);
+        public Fakeparametercollisions1ababselfabPostPathParameters30 getBuilderAfterFakeparametercollisions1ababselfabPostPathParameters3(Map<String, @Nullable Object> instance) {
+            return new Fakeparametercollisions1ababselfabPostPathParameters30(instance);
         }
     }
     
-    public static class Fakeparametercollisions1ababselfabPostPathParametersMap10011Builder implements SetterForFakeparametercollisions1ababselfabPost1<Fakeparametercollisions1ababselfabPostPathParametersMap00011Builder>, SetterForFakeparametercollisions1ababselfabPostaB<Fakeparametercollisions1ababselfabPostPathParametersMap10001Builder>, SetterForFakeparametercollisions1ababselfabPostself<Fakeparametercollisions1ababselfabPostPathParametersMap10010Builder> {
+    public static class Fakeparametercollisions1ababselfabPostPathParameters33 implements SetterForFakeparametercollisions1ababselfabPostPathParameters2<Fakeparametercollisions1ababselfabPostPathParameters17>, SetterForFakeparametercollisions1ababselfabPostPathParameters3<Fakeparametercollisions1ababselfabPostPathParameters31>, SetterForFakeparametercollisions1ababselfabPostPathParameters6<Fakeparametercollisions1ababselfabPostPathParameters32> {
         private final Map<String, @Nullable Object> instance;
-        public Fakeparametercollisions1ababselfabPostPathParametersMap10011Builder(Map<String, @Nullable Object> instance) {
+        public Fakeparametercollisions1ababselfabPostPathParameters33(Map<String, @Nullable Object> instance) {
             this.instance = instance;
         }
         public Map<String, @Nullable Object> getInstance() {
             return instance;
         }
-        public Fakeparametercollisions1ababselfabPostPathParametersMap00011Builder getBuilderAfterFakeparametercollisions1ababselfabPost1(Map<String, @Nullable Object> instance) {
-            return new Fakeparametercollisions1ababselfabPostPathParametersMap00011Builder(instance);
+        public Fakeparametercollisions1ababselfabPostPathParameters17 getBuilderAfterFakeparametercollisions1ababselfabPostPathParameters2(Map<String, @Nullable Object> instance) {
+            return new Fakeparametercollisions1ababselfabPostPathParameters17(instance);
         }
-        public Fakeparametercollisions1ababselfabPostPathParametersMap10001Builder getBuilderAfterFakeparametercollisions1ababselfabPostaB(Map<String, @Nullable Object> instance) {
-            return new Fakeparametercollisions1ababselfabPostPathParametersMap10001Builder(instance);
+        public Fakeparametercollisions1ababselfabPostPathParameters31 getBuilderAfterFakeparametercollisions1ababselfabPostPathParameters3(Map<String, @Nullable Object> instance) {
+            return new Fakeparametercollisions1ababselfabPostPathParameters31(instance);
         }
-        public Fakeparametercollisions1ababselfabPostPathParametersMap10010Builder getBuilderAfterFakeparametercollisions1ababselfabPostself(Map<String, @Nullable Object> instance) {
-            return new Fakeparametercollisions1ababselfabPostPathParametersMap10010Builder(instance);
+        public Fakeparametercollisions1ababselfabPostPathParameters32 getBuilderAfterFakeparametercollisions1ababselfabPostPathParameters6(Map<String, @Nullable Object> instance) {
+            return new Fakeparametercollisions1ababselfabPostPathParameters32(instance);
         }
     }
     
-    public static class Fakeparametercollisions1ababselfabPostPathParametersMap10100Builder implements SetterForFakeparametercollisions1ababselfabPost1<Fakeparametercollisions1ababselfabPostPathParametersMap00100Builder>, SetterForFakeparametercollisions1ababselfabPostAb<Fakeparametercollisions1ababselfabPostPathParametersMap10000Builder> {
+    public static class Fakeparametercollisions1ababselfabPostPathParameters34 implements SetterForFakeparametercollisions1ababselfabPostPathParameters2<Fakeparametercollisions1ababselfabPostPathParameters18>, SetterForFakeparametercollisions1ababselfabPostPathParameters4<Fakeparametercollisions1ababselfabPostPathParameters30> {
         private final Map<String, @Nullable Object> instance;
-        public Fakeparametercollisions1ababselfabPostPathParametersMap10100Builder(Map<String, @Nullable Object> instance) {
+        public Fakeparametercollisions1ababselfabPostPathParameters34(Map<String, @Nullable Object> instance) {
             this.instance = instance;
         }
         public Map<String, @Nullable Object> getInstance() {
             return instance;
         }
-        public Fakeparametercollisions1ababselfabPostPathParametersMap00100Builder getBuilderAfterFakeparametercollisions1ababselfabPost1(Map<String, @Nullable Object> instance) {
-            return new Fakeparametercollisions1ababselfabPostPathParametersMap00100Builder(instance);
+        public Fakeparametercollisions1ababselfabPostPathParameters18 getBuilderAfterFakeparametercollisions1ababselfabPostPathParameters2(Map<String, @Nullable Object> instance) {
+            return new Fakeparametercollisions1ababselfabPostPathParameters18(instance);
         }
-        public Fakeparametercollisions1ababselfabPostPathParametersMap10000Builder getBuilderAfterFakeparametercollisions1ababselfabPostAb(Map<String, @Nullable Object> instance) {
-            return new Fakeparametercollisions1ababselfabPostPathParametersMap10000Builder(instance);
+        public Fakeparametercollisions1ababselfabPostPathParameters30 getBuilderAfterFakeparametercollisions1ababselfabPostPathParameters4(Map<String, @Nullable Object> instance) {
+            return new Fakeparametercollisions1ababselfabPostPathParameters30(instance);
         }
     }
     
-    public static class Fakeparametercollisions1ababselfabPostPathParametersMap10101Builder implements SetterForFakeparametercollisions1ababselfabPost1<Fakeparametercollisions1ababselfabPostPathParametersMap00101Builder>, SetterForFakeparametercollisions1ababselfabPostAb<Fakeparametercollisions1ababselfabPostPathParametersMap10001Builder>, SetterForFakeparametercollisions1ababselfabPostself<Fakeparametercollisions1ababselfabPostPathParametersMap10100Builder> {
+    public static class Fakeparametercollisions1ababselfabPostPathParameters35 implements SetterForFakeparametercollisions1ababselfabPostPathParameters2<Fakeparametercollisions1ababselfabPostPathParameters19>, SetterForFakeparametercollisions1ababselfabPostPathParameters4<Fakeparametercollisions1ababselfabPostPathParameters31>, SetterForFakeparametercollisions1ababselfabPostPathParameters6<Fakeparametercollisions1ababselfabPostPathParameters34> {
         private final Map<String, @Nullable Object> instance;
-        public Fakeparametercollisions1ababselfabPostPathParametersMap10101Builder(Map<String, @Nullable Object> instance) {
+        public Fakeparametercollisions1ababselfabPostPathParameters35(Map<String, @Nullable Object> instance) {
             this.instance = instance;
         }
         public Map<String, @Nullable Object> getInstance() {
             return instance;
         }
-        public Fakeparametercollisions1ababselfabPostPathParametersMap00101Builder getBuilderAfterFakeparametercollisions1ababselfabPost1(Map<String, @Nullable Object> instance) {
-            return new Fakeparametercollisions1ababselfabPostPathParametersMap00101Builder(instance);
+        public Fakeparametercollisions1ababselfabPostPathParameters19 getBuilderAfterFakeparametercollisions1ababselfabPostPathParameters2(Map<String, @Nullable Object> instance) {
+            return new Fakeparametercollisions1ababselfabPostPathParameters19(instance);
         }
-        public Fakeparametercollisions1ababselfabPostPathParametersMap10001Builder getBuilderAfterFakeparametercollisions1ababselfabPostAb(Map<String, @Nullable Object> instance) {
-            return new Fakeparametercollisions1ababselfabPostPathParametersMap10001Builder(instance);
+        public Fakeparametercollisions1ababselfabPostPathParameters31 getBuilderAfterFakeparametercollisions1ababselfabPostPathParameters4(Map<String, @Nullable Object> instance) {
+            return new Fakeparametercollisions1ababselfabPostPathParameters31(instance);
         }
-        public Fakeparametercollisions1ababselfabPostPathParametersMap10100Builder getBuilderAfterFakeparametercollisions1ababselfabPostself(Map<String, @Nullable Object> instance) {
-            return new Fakeparametercollisions1ababselfabPostPathParametersMap10100Builder(instance);
+        public Fakeparametercollisions1ababselfabPostPathParameters34 getBuilderAfterFakeparametercollisions1ababselfabPostPathParameters6(Map<String, @Nullable Object> instance) {
+            return new Fakeparametercollisions1ababselfabPostPathParameters34(instance);
         }
     }
     
-    public static class Fakeparametercollisions1ababselfabPostPathParametersMap10110Builder implements SetterForFakeparametercollisions1ababselfabPost1<Fakeparametercollisions1ababselfabPostPathParametersMap00110Builder>, SetterForFakeparametercollisions1ababselfabPostAb<Fakeparametercollisions1ababselfabPostPathParametersMap10010Builder>, SetterForFakeparametercollisions1ababselfabPostaB<Fakeparametercollisions1ababselfabPostPathParametersMap10100Builder> {
+    public static class Fakeparametercollisions1ababselfabPostPathParameters36 implements SetterForFakeparametercollisions1ababselfabPostPathParameters2<Fakeparametercollisions1ababselfabPostPathParameters20>, SetterForFakeparametercollisions1ababselfabPostPathParameters4<Fakeparametercollisions1ababselfabPostPathParameters32>, SetterForFakeparametercollisions1ababselfabPostPathParameters3<Fakeparametercollisions1ababselfabPostPathParameters34> {
         private final Map<String, @Nullable Object> instance;
-        public Fakeparametercollisions1ababselfabPostPathParametersMap10110Builder(Map<String, @Nullable Object> instance) {
+        public Fakeparametercollisions1ababselfabPostPathParameters36(Map<String, @Nullable Object> instance) {
             this.instance = instance;
         }
         public Map<String, @Nullable Object> getInstance() {
             return instance;
         }
-        public Fakeparametercollisions1ababselfabPostPathParametersMap00110Builder getBuilderAfterFakeparametercollisions1ababselfabPost1(Map<String, @Nullable Object> instance) {
-            return new Fakeparametercollisions1ababselfabPostPathParametersMap00110Builder(instance);
+        public Fakeparametercollisions1ababselfabPostPathParameters20 getBuilderAfterFakeparametercollisions1ababselfabPostPathParameters2(Map<String, @Nullable Object> instance) {
+            return new Fakeparametercollisions1ababselfabPostPathParameters20(instance);
         }
-        public Fakeparametercollisions1ababselfabPostPathParametersMap10010Builder getBuilderAfterFakeparametercollisions1ababselfabPostAb(Map<String, @Nullable Object> instance) {
-            return new Fakeparametercollisions1ababselfabPostPathParametersMap10010Builder(instance);
+        public Fakeparametercollisions1ababselfabPostPathParameters32 getBuilderAfterFakeparametercollisions1ababselfabPostPathParameters4(Map<String, @Nullable Object> instance) {
+            return new Fakeparametercollisions1ababselfabPostPathParameters32(instance);
         }
-        public Fakeparametercollisions1ababselfabPostPathParametersMap10100Builder getBuilderAfterFakeparametercollisions1ababselfabPostaB(Map<String, @Nullable Object> instance) {
-            return new Fakeparametercollisions1ababselfabPostPathParametersMap10100Builder(instance);
+        public Fakeparametercollisions1ababselfabPostPathParameters34 getBuilderAfterFakeparametercollisions1ababselfabPostPathParameters3(Map<String, @Nullable Object> instance) {
+            return new Fakeparametercollisions1ababselfabPostPathParameters34(instance);
         }
     }
     
-    public static class Fakeparametercollisions1ababselfabPostPathParametersMap10111Builder implements SetterForFakeparametercollisions1ababselfabPost1<Fakeparametercollisions1ababselfabPostPathParametersMap00111Builder>, SetterForFakeparametercollisions1ababselfabPostAb<Fakeparametercollisions1ababselfabPostPathParametersMap10011Builder>, SetterForFakeparametercollisions1ababselfabPostaB<Fakeparametercollisions1ababselfabPostPathParametersMap10101Builder>, SetterForFakeparametercollisions1ababselfabPostself<Fakeparametercollisions1ababselfabPostPathParametersMap10110Builder> {
+    public static class Fakeparametercollisions1ababselfabPostPathParameters37 implements SetterForFakeparametercollisions1ababselfabPostPathParameters2<Fakeparametercollisions1ababselfabPostPathParameters21>, SetterForFakeparametercollisions1ababselfabPostPathParameters4<Fakeparametercollisions1ababselfabPostPathParameters33>, SetterForFakeparametercollisions1ababselfabPostPathParameters3<Fakeparametercollisions1ababselfabPostPathParameters35>, SetterForFakeparametercollisions1ababselfabPostPathParameters6<Fakeparametercollisions1ababselfabPostPathParameters36> {
         private final Map<String, @Nullable Object> instance;
-        public Fakeparametercollisions1ababselfabPostPathParametersMap10111Builder(Map<String, @Nullable Object> instance) {
+        public Fakeparametercollisions1ababselfabPostPathParameters37(Map<String, @Nullable Object> instance) {
             this.instance = instance;
         }
         public Map<String, @Nullable Object> getInstance() {
             return instance;
         }
-        public Fakeparametercollisions1ababselfabPostPathParametersMap00111Builder getBuilderAfterFakeparametercollisions1ababselfabPost1(Map<String, @Nullable Object> instance) {
-            return new Fakeparametercollisions1ababselfabPostPathParametersMap00111Builder(instance);
+        public Fakeparametercollisions1ababselfabPostPathParameters21 getBuilderAfterFakeparametercollisions1ababselfabPostPathParameters2(Map<String, @Nullable Object> instance) {
+            return new Fakeparametercollisions1ababselfabPostPathParameters21(instance);
         }
-        public Fakeparametercollisions1ababselfabPostPathParametersMap10011Builder getBuilderAfterFakeparametercollisions1ababselfabPostAb(Map<String, @Nullable Object> instance) {
-            return new Fakeparametercollisions1ababselfabPostPathParametersMap10011Builder(instance);
+        public Fakeparametercollisions1ababselfabPostPathParameters33 getBuilderAfterFakeparametercollisions1ababselfabPostPathParameters4(Map<String, @Nullable Object> instance) {
+            return new Fakeparametercollisions1ababselfabPostPathParameters33(instance);
         }
-        public Fakeparametercollisions1ababselfabPostPathParametersMap10101Builder getBuilderAfterFakeparametercollisions1ababselfabPostaB(Map<String, @Nullable Object> instance) {
-            return new Fakeparametercollisions1ababselfabPostPathParametersMap10101Builder(instance);
+        public Fakeparametercollisions1ababselfabPostPathParameters35 getBuilderAfterFakeparametercollisions1ababselfabPostPathParameters3(Map<String, @Nullable Object> instance) {
+            return new Fakeparametercollisions1ababselfabPostPathParameters35(instance);
         }
-        public Fakeparametercollisions1ababselfabPostPathParametersMap10110Builder getBuilderAfterFakeparametercollisions1ababselfabPostself(Map<String, @Nullable Object> instance) {
-            return new Fakeparametercollisions1ababselfabPostPathParametersMap10110Builder(instance);
+        public Fakeparametercollisions1ababselfabPostPathParameters36 getBuilderAfterFakeparametercollisions1ababselfabPostPathParameters6(Map<String, @Nullable Object> instance) {
+            return new Fakeparametercollisions1ababselfabPostPathParameters36(instance);
         }
     }
     
-    public static class Fakeparametercollisions1ababselfabPostPathParametersMap11000Builder implements SetterForFakeparametercollisions1ababselfabPost1<Fakeparametercollisions1ababselfabPostPathParametersMap01000Builder>, SetterForFakeparametercollisions1ababselfabPostAB<Fakeparametercollisions1ababselfabPostPathParametersMap10000Builder> {
+    public static class Fakeparametercollisions1ababselfabPostPathParameters38 implements SetterForFakeparametercollisions1ababselfabPostPathParameters2<Fakeparametercollisions1ababselfabPostPathParameters22>, SetterForFakeparametercollisions1ababselfabPostPathParameters5<Fakeparametercollisions1ababselfabPostPathParameters30> {
         private final Map<String, @Nullable Object> instance;
-        public Fakeparametercollisions1ababselfabPostPathParametersMap11000Builder(Map<String, @Nullable Object> instance) {
+        public Fakeparametercollisions1ababselfabPostPathParameters38(Map<String, @Nullable Object> instance) {
             this.instance = instance;
         }
         public Map<String, @Nullable Object> getInstance() {
             return instance;
         }
-        public Fakeparametercollisions1ababselfabPostPathParametersMap01000Builder getBuilderAfterFakeparametercollisions1ababselfabPost1(Map<String, @Nullable Object> instance) {
-            return new Fakeparametercollisions1ababselfabPostPathParametersMap01000Builder(instance);
+        public Fakeparametercollisions1ababselfabPostPathParameters22 getBuilderAfterFakeparametercollisions1ababselfabPostPathParameters2(Map<String, @Nullable Object> instance) {
+            return new Fakeparametercollisions1ababselfabPostPathParameters22(instance);
         }
-        public Fakeparametercollisions1ababselfabPostPathParametersMap10000Builder getBuilderAfterFakeparametercollisions1ababselfabPostAB(Map<String, @Nullable Object> instance) {
-            return new Fakeparametercollisions1ababselfabPostPathParametersMap10000Builder(instance);
+        public Fakeparametercollisions1ababselfabPostPathParameters30 getBuilderAfterFakeparametercollisions1ababselfabPostPathParameters5(Map<String, @Nullable Object> instance) {
+            return new Fakeparametercollisions1ababselfabPostPathParameters30(instance);
         }
     }
     
-    public static class Fakeparametercollisions1ababselfabPostPathParametersMap11001Builder implements SetterForFakeparametercollisions1ababselfabPost1<Fakeparametercollisions1ababselfabPostPathParametersMap01001Builder>, SetterForFakeparametercollisions1ababselfabPostAB<Fakeparametercollisions1ababselfabPostPathParametersMap10001Builder>, SetterForFakeparametercollisions1ababselfabPostself<Fakeparametercollisions1ababselfabPostPathParametersMap11000Builder> {
+    public static class Fakeparametercollisions1ababselfabPostPathParameters39 implements SetterForFakeparametercollisions1ababselfabPostPathParameters2<Fakeparametercollisions1ababselfabPostPathParameters23>, SetterForFakeparametercollisions1ababselfabPostPathParameters5<Fakeparametercollisions1ababselfabPostPathParameters31>, SetterForFakeparametercollisions1ababselfabPostPathParameters6<Fakeparametercollisions1ababselfabPostPathParameters38> {
         private final Map<String, @Nullable Object> instance;
-        public Fakeparametercollisions1ababselfabPostPathParametersMap11001Builder(Map<String, @Nullable Object> instance) {
+        public Fakeparametercollisions1ababselfabPostPathParameters39(Map<String, @Nullable Object> instance) {
             this.instance = instance;
         }
         public Map<String, @Nullable Object> getInstance() {
             return instance;
         }
-        public Fakeparametercollisions1ababselfabPostPathParametersMap01001Builder getBuilderAfterFakeparametercollisions1ababselfabPost1(Map<String, @Nullable Object> instance) {
-            return new Fakeparametercollisions1ababselfabPostPathParametersMap01001Builder(instance);
+        public Fakeparametercollisions1ababselfabPostPathParameters23 getBuilderAfterFakeparametercollisions1ababselfabPostPathParameters2(Map<String, @Nullable Object> instance) {
+            return new Fakeparametercollisions1ababselfabPostPathParameters23(instance);
         }
-        public Fakeparametercollisions1ababselfabPostPathParametersMap10001Builder getBuilderAfterFakeparametercollisions1ababselfabPostAB(Map<String, @Nullable Object> instance) {
-            return new Fakeparametercollisions1ababselfabPostPathParametersMap10001Builder(instance);
+        public Fakeparametercollisions1ababselfabPostPathParameters31 getBuilderAfterFakeparametercollisions1ababselfabPostPathParameters5(Map<String, @Nullable Object> instance) {
+            return new Fakeparametercollisions1ababselfabPostPathParameters31(instance);
         }
-        public Fakeparametercollisions1ababselfabPostPathParametersMap11000Builder getBuilderAfterFakeparametercollisions1ababselfabPostself(Map<String, @Nullable Object> instance) {
-            return new Fakeparametercollisions1ababselfabPostPathParametersMap11000Builder(instance);
+        public Fakeparametercollisions1ababselfabPostPathParameters38 getBuilderAfterFakeparametercollisions1ababselfabPostPathParameters6(Map<String, @Nullable Object> instance) {
+            return new Fakeparametercollisions1ababselfabPostPathParameters38(instance);
         }
     }
     
-    public static class Fakeparametercollisions1ababselfabPostPathParametersMap11010Builder implements SetterForFakeparametercollisions1ababselfabPost1<Fakeparametercollisions1ababselfabPostPathParametersMap01010Builder>, SetterForFakeparametercollisions1ababselfabPostAB<Fakeparametercollisions1ababselfabPostPathParametersMap10010Builder>, SetterForFakeparametercollisions1ababselfabPostaB<Fakeparametercollisions1ababselfabPostPathParametersMap11000Builder> {
+    public static class Fakeparametercollisions1ababselfabPostPathParameters40 implements SetterForFakeparametercollisions1ababselfabPostPathParameters2<Fakeparametercollisions1ababselfabPostPathParameters24>, SetterForFakeparametercollisions1ababselfabPostPathParameters5<Fakeparametercollisions1ababselfabPostPathParameters32>, SetterForFakeparametercollisions1ababselfabPostPathParameters3<Fakeparametercollisions1ababselfabPostPathParameters38> {
         private final Map<String, @Nullable Object> instance;
-        public Fakeparametercollisions1ababselfabPostPathParametersMap11010Builder(Map<String, @Nullable Object> instance) {
+        public Fakeparametercollisions1ababselfabPostPathParameters40(Map<String, @Nullable Object> instance) {
             this.instance = instance;
         }
         public Map<String, @Nullable Object> getInstance() {
             return instance;
         }
-        public Fakeparametercollisions1ababselfabPostPathParametersMap01010Builder getBuilderAfterFakeparametercollisions1ababselfabPost1(Map<String, @Nullable Object> instance) {
-            return new Fakeparametercollisions1ababselfabPostPathParametersMap01010Builder(instance);
+        public Fakeparametercollisions1ababselfabPostPathParameters24 getBuilderAfterFakeparametercollisions1ababselfabPostPathParameters2(Map<String, @Nullable Object> instance) {
+            return new Fakeparametercollisions1ababselfabPostPathParameters24(instance);
         }
-        public Fakeparametercollisions1ababselfabPostPathParametersMap10010Builder getBuilderAfterFakeparametercollisions1ababselfabPostAB(Map<String, @Nullable Object> instance) {
-            return new Fakeparametercollisions1ababselfabPostPathParametersMap10010Builder(instance);
+        public Fakeparametercollisions1ababselfabPostPathParameters32 getBuilderAfterFakeparametercollisions1ababselfabPostPathParameters5(Map<String, @Nullable Object> instance) {
+            return new Fakeparametercollisions1ababselfabPostPathParameters32(instance);
         }
-        public Fakeparametercollisions1ababselfabPostPathParametersMap11000Builder getBuilderAfterFakeparametercollisions1ababselfabPostaB(Map<String, @Nullable Object> instance) {
-            return new Fakeparametercollisions1ababselfabPostPathParametersMap11000Builder(instance);
+        public Fakeparametercollisions1ababselfabPostPathParameters38 getBuilderAfterFakeparametercollisions1ababselfabPostPathParameters3(Map<String, @Nullable Object> instance) {
+            return new Fakeparametercollisions1ababselfabPostPathParameters38(instance);
         }
     }
     
-    public static class Fakeparametercollisions1ababselfabPostPathParametersMap11011Builder implements SetterForFakeparametercollisions1ababselfabPost1<Fakeparametercollisions1ababselfabPostPathParametersMap01011Builder>, SetterForFakeparametercollisions1ababselfabPostAB<Fakeparametercollisions1ababselfabPostPathParametersMap10011Builder>, SetterForFakeparametercollisions1ababselfabPostaB<Fakeparametercollisions1ababselfabPostPathParametersMap11001Builder>, SetterForFakeparametercollisions1ababselfabPostself<Fakeparametercollisions1ababselfabPostPathParametersMap11010Builder> {
+    public static class Fakeparametercollisions1ababselfabPostPathParameters41 implements SetterForFakeparametercollisions1ababselfabPostPathParameters2<Fakeparametercollisions1ababselfabPostPathParameters25>, SetterForFakeparametercollisions1ababselfabPostPathParameters5<Fakeparametercollisions1ababselfabPostPathParameters33>, SetterForFakeparametercollisions1ababselfabPostPathParameters3<Fakeparametercollisions1ababselfabPostPathParameters39>, SetterForFakeparametercollisions1ababselfabPostPathParameters6<Fakeparametercollisions1ababselfabPostPathParameters40> {
         private final Map<String, @Nullable Object> instance;
-        public Fakeparametercollisions1ababselfabPostPathParametersMap11011Builder(Map<String, @Nullable Object> instance) {
+        public Fakeparametercollisions1ababselfabPostPathParameters41(Map<String, @Nullable Object> instance) {
             this.instance = instance;
         }
         public Map<String, @Nullable Object> getInstance() {
             return instance;
         }
-        public Fakeparametercollisions1ababselfabPostPathParametersMap01011Builder getBuilderAfterFakeparametercollisions1ababselfabPost1(Map<String, @Nullable Object> instance) {
-            return new Fakeparametercollisions1ababselfabPostPathParametersMap01011Builder(instance);
+        public Fakeparametercollisions1ababselfabPostPathParameters25 getBuilderAfterFakeparametercollisions1ababselfabPostPathParameters2(Map<String, @Nullable Object> instance) {
+            return new Fakeparametercollisions1ababselfabPostPathParameters25(instance);
         }
-        public Fakeparametercollisions1ababselfabPostPathParametersMap10011Builder getBuilderAfterFakeparametercollisions1ababselfabPostAB(Map<String, @Nullable Object> instance) {
-            return new Fakeparametercollisions1ababselfabPostPathParametersMap10011Builder(instance);
+        public Fakeparametercollisions1ababselfabPostPathParameters33 getBuilderAfterFakeparametercollisions1ababselfabPostPathParameters5(Map<String, @Nullable Object> instance) {
+            return new Fakeparametercollisions1ababselfabPostPathParameters33(instance);
         }
-        public Fakeparametercollisions1ababselfabPostPathParametersMap11001Builder getBuilderAfterFakeparametercollisions1ababselfabPostaB(Map<String, @Nullable Object> instance) {
-            return new Fakeparametercollisions1ababselfabPostPathParametersMap11001Builder(instance);
+        public Fakeparametercollisions1ababselfabPostPathParameters39 getBuilderAfterFakeparametercollisions1ababselfabPostPathParameters3(Map<String, @Nullable Object> instance) {
+            return new Fakeparametercollisions1ababselfabPostPathParameters39(instance);
         }
-        public Fakeparametercollisions1ababselfabPostPathParametersMap11010Builder getBuilderAfterFakeparametercollisions1ababselfabPostself(Map<String, @Nullable Object> instance) {
-            return new Fakeparametercollisions1ababselfabPostPathParametersMap11010Builder(instance);
+        public Fakeparametercollisions1ababselfabPostPathParameters40 getBuilderAfterFakeparametercollisions1ababselfabPostPathParameters6(Map<String, @Nullable Object> instance) {
+            return new Fakeparametercollisions1ababselfabPostPathParameters40(instance);
         }
     }
     
-    public static class Fakeparametercollisions1ababselfabPostPathParametersMap11100Builder implements SetterForFakeparametercollisions1ababselfabPost1<Fakeparametercollisions1ababselfabPostPathParametersMap01100Builder>, SetterForFakeparametercollisions1ababselfabPostAB<Fakeparametercollisions1ababselfabPostPathParametersMap10100Builder>, SetterForFakeparametercollisions1ababselfabPostAb<Fakeparametercollisions1ababselfabPostPathParametersMap11000Builder> {
+    public static class Fakeparametercollisions1ababselfabPostPathParameters42 implements SetterForFakeparametercollisions1ababselfabPostPathParameters2<Fakeparametercollisions1ababselfabPostPathParameters26>, SetterForFakeparametercollisions1ababselfabPostPathParameters5<Fakeparametercollisions1ababselfabPostPathParameters34>, SetterForFakeparametercollisions1ababselfabPostPathParameters4<Fakeparametercollisions1ababselfabPostPathParameters38> {
         private final Map<String, @Nullable Object> instance;
-        public Fakeparametercollisions1ababselfabPostPathParametersMap11100Builder(Map<String, @Nullable Object> instance) {
+        public Fakeparametercollisions1ababselfabPostPathParameters42(Map<String, @Nullable Object> instance) {
             this.instance = instance;
         }
         public Map<String, @Nullable Object> getInstance() {
             return instance;
         }
-        public Fakeparametercollisions1ababselfabPostPathParametersMap01100Builder getBuilderAfterFakeparametercollisions1ababselfabPost1(Map<String, @Nullable Object> instance) {
-            return new Fakeparametercollisions1ababselfabPostPathParametersMap01100Builder(instance);
+        public Fakeparametercollisions1ababselfabPostPathParameters26 getBuilderAfterFakeparametercollisions1ababselfabPostPathParameters2(Map<String, @Nullable Object> instance) {
+            return new Fakeparametercollisions1ababselfabPostPathParameters26(instance);
         }
-        public Fakeparametercollisions1ababselfabPostPathParametersMap10100Builder getBuilderAfterFakeparametercollisions1ababselfabPostAB(Map<String, @Nullable Object> instance) {
-            return new Fakeparametercollisions1ababselfabPostPathParametersMap10100Builder(instance);
+        public Fakeparametercollisions1ababselfabPostPathParameters34 getBuilderAfterFakeparametercollisions1ababselfabPostPathParameters5(Map<String, @Nullable Object> instance) {
+            return new Fakeparametercollisions1ababselfabPostPathParameters34(instance);
         }
-        public Fakeparametercollisions1ababselfabPostPathParametersMap11000Builder getBuilderAfterFakeparametercollisions1ababselfabPostAb(Map<String, @Nullable Object> instance) {
-            return new Fakeparametercollisions1ababselfabPostPathParametersMap11000Builder(instance);
+        public Fakeparametercollisions1ababselfabPostPathParameters38 getBuilderAfterFakeparametercollisions1ababselfabPostPathParameters4(Map<String, @Nullable Object> instance) {
+            return new Fakeparametercollisions1ababselfabPostPathParameters38(instance);
         }
     }
     
-    public static class Fakeparametercollisions1ababselfabPostPathParametersMap11101Builder implements SetterForFakeparametercollisions1ababselfabPost1<Fakeparametercollisions1ababselfabPostPathParametersMap01101Builder>, SetterForFakeparametercollisions1ababselfabPostAB<Fakeparametercollisions1ababselfabPostPathParametersMap10101Builder>, SetterForFakeparametercollisions1ababselfabPostAb<Fakeparametercollisions1ababselfabPostPathParametersMap11001Builder>, SetterForFakeparametercollisions1ababselfabPostself<Fakeparametercollisions1ababselfabPostPathParametersMap11100Builder> {
+    public static class Fakeparametercollisions1ababselfabPostPathParameters43 implements SetterForFakeparametercollisions1ababselfabPostPathParameters2<Fakeparametercollisions1ababselfabPostPathParameters27>, SetterForFakeparametercollisions1ababselfabPostPathParameters5<Fakeparametercollisions1ababselfabPostPathParameters35>, SetterForFakeparametercollisions1ababselfabPostPathParameters4<Fakeparametercollisions1ababselfabPostPathParameters39>, SetterForFakeparametercollisions1ababselfabPostPathParameters6<Fakeparametercollisions1ababselfabPostPathParameters42> {
         private final Map<String, @Nullable Object> instance;
-        public Fakeparametercollisions1ababselfabPostPathParametersMap11101Builder(Map<String, @Nullable Object> instance) {
+        public Fakeparametercollisions1ababselfabPostPathParameters43(Map<String, @Nullable Object> instance) {
             this.instance = instance;
         }
         public Map<String, @Nullable Object> getInstance() {
             return instance;
         }
-        public Fakeparametercollisions1ababselfabPostPathParametersMap01101Builder getBuilderAfterFakeparametercollisions1ababselfabPost1(Map<String, @Nullable Object> instance) {
-            return new Fakeparametercollisions1ababselfabPostPathParametersMap01101Builder(instance);
+        public Fakeparametercollisions1ababselfabPostPathParameters27 getBuilderAfterFakeparametercollisions1ababselfabPostPathParameters2(Map<String, @Nullable Object> instance) {
+            return new Fakeparametercollisions1ababselfabPostPathParameters27(instance);
         }
-        public Fakeparametercollisions1ababselfabPostPathParametersMap10101Builder getBuilderAfterFakeparametercollisions1ababselfabPostAB(Map<String, @Nullable Object> instance) {
-            return new Fakeparametercollisions1ababselfabPostPathParametersMap10101Builder(instance);
+        public Fakeparametercollisions1ababselfabPostPathParameters35 getBuilderAfterFakeparametercollisions1ababselfabPostPathParameters5(Map<String, @Nullable Object> instance) {
+            return new Fakeparametercollisions1ababselfabPostPathParameters35(instance);
         }
-        public Fakeparametercollisions1ababselfabPostPathParametersMap11001Builder getBuilderAfterFakeparametercollisions1ababselfabPostAb(Map<String, @Nullable Object> instance) {
-            return new Fakeparametercollisions1ababselfabPostPathParametersMap11001Builder(instance);
+        public Fakeparametercollisions1ababselfabPostPathParameters39 getBuilderAfterFakeparametercollisions1ababselfabPostPathParameters4(Map<String, @Nullable Object> instance) {
+            return new Fakeparametercollisions1ababselfabPostPathParameters39(instance);
         }
-        public Fakeparametercollisions1ababselfabPostPathParametersMap11100Builder getBuilderAfterFakeparametercollisions1ababselfabPostself(Map<String, @Nullable Object> instance) {
-            return new Fakeparametercollisions1ababselfabPostPathParametersMap11100Builder(instance);
+        public Fakeparametercollisions1ababselfabPostPathParameters42 getBuilderAfterFakeparametercollisions1ababselfabPostPathParameters6(Map<String, @Nullable Object> instance) {
+            return new Fakeparametercollisions1ababselfabPostPathParameters42(instance);
         }
     }
     
-    public static class Fakeparametercollisions1ababselfabPostPathParametersMap11110Builder implements SetterForFakeparametercollisions1ababselfabPost1<Fakeparametercollisions1ababselfabPostPathParametersMap01110Builder>, SetterForFakeparametercollisions1ababselfabPostAB<Fakeparametercollisions1ababselfabPostPathParametersMap10110Builder>, SetterForFakeparametercollisions1ababselfabPostAb<Fakeparametercollisions1ababselfabPostPathParametersMap11010Builder>, SetterForFakeparametercollisions1ababselfabPostaB<Fakeparametercollisions1ababselfabPostPathParametersMap11100Builder> {
+    public static class Fakeparametercollisions1ababselfabPostPathParameters44 implements SetterForFakeparametercollisions1ababselfabPostPathParameters2<Fakeparametercollisions1ababselfabPostPathParameters28>, SetterForFakeparametercollisions1ababselfabPostPathParameters5<Fakeparametercollisions1ababselfabPostPathParameters36>, SetterForFakeparametercollisions1ababselfabPostPathParameters4<Fakeparametercollisions1ababselfabPostPathParameters40>, SetterForFakeparametercollisions1ababselfabPostPathParameters3<Fakeparametercollisions1ababselfabPostPathParameters42> {
         private final Map<String, @Nullable Object> instance;
-        public Fakeparametercollisions1ababselfabPostPathParametersMap11110Builder(Map<String, @Nullable Object> instance) {
+        public Fakeparametercollisions1ababselfabPostPathParameters44(Map<String, @Nullable Object> instance) {
             this.instance = instance;
         }
         public Map<String, @Nullable Object> getInstance() {
             return instance;
         }
-        public Fakeparametercollisions1ababselfabPostPathParametersMap01110Builder getBuilderAfterFakeparametercollisions1ababselfabPost1(Map<String, @Nullable Object> instance) {
-            return new Fakeparametercollisions1ababselfabPostPathParametersMap01110Builder(instance);
+        public Fakeparametercollisions1ababselfabPostPathParameters28 getBuilderAfterFakeparametercollisions1ababselfabPostPathParameters2(Map<String, @Nullable Object> instance) {
+            return new Fakeparametercollisions1ababselfabPostPathParameters28(instance);
         }
-        public Fakeparametercollisions1ababselfabPostPathParametersMap10110Builder getBuilderAfterFakeparametercollisions1ababselfabPostAB(Map<String, @Nullable Object> instance) {
-            return new Fakeparametercollisions1ababselfabPostPathParametersMap10110Builder(instance);
+        public Fakeparametercollisions1ababselfabPostPathParameters36 getBuilderAfterFakeparametercollisions1ababselfabPostPathParameters5(Map<String, @Nullable Object> instance) {
+            return new Fakeparametercollisions1ababselfabPostPathParameters36(instance);
         }
-        public Fakeparametercollisions1ababselfabPostPathParametersMap11010Builder getBuilderAfterFakeparametercollisions1ababselfabPostAb(Map<String, @Nullable Object> instance) {
-            return new Fakeparametercollisions1ababselfabPostPathParametersMap11010Builder(instance);
+        public Fakeparametercollisions1ababselfabPostPathParameters40 getBuilderAfterFakeparametercollisions1ababselfabPostPathParameters4(Map<String, @Nullable Object> instance) {
+            return new Fakeparametercollisions1ababselfabPostPathParameters40(instance);
         }
-        public Fakeparametercollisions1ababselfabPostPathParametersMap11100Builder getBuilderAfterFakeparametercollisions1ababselfabPostaB(Map<String, @Nullable Object> instance) {
-            return new Fakeparametercollisions1ababselfabPostPathParametersMap11100Builder(instance);
+        public Fakeparametercollisions1ababselfabPostPathParameters42 getBuilderAfterFakeparametercollisions1ababselfabPostPathParameters3(Map<String, @Nullable Object> instance) {
+            return new Fakeparametercollisions1ababselfabPostPathParameters42(instance);
         }
     }
     
-    public static class Fakeparametercollisions1ababselfabPostPathParametersMapBuilder implements SetterForFakeparametercollisions1ababselfabPost1<Fakeparametercollisions1ababselfabPostPathParametersMap01111Builder>, SetterForFakeparametercollisions1ababselfabPostAB<Fakeparametercollisions1ababselfabPostPathParametersMap10111Builder>, SetterForFakeparametercollisions1ababselfabPostAb<Fakeparametercollisions1ababselfabPostPathParametersMap11011Builder>, SetterForFakeparametercollisions1ababselfabPostaB<Fakeparametercollisions1ababselfabPostPathParametersMap11101Builder>, SetterForFakeparametercollisions1ababselfabPostself<Fakeparametercollisions1ababselfabPostPathParametersMap11110Builder> {
+    public static class Fakeparametercollisions1ababselfabPostPathParameters12 implements SetterForFakeparametercollisions1ababselfabPostPathParameters2<Fakeparametercollisions1ababselfabPostPathParameters29>, SetterForFakeparametercollisions1ababselfabPostPathParameters5<Fakeparametercollisions1ababselfabPostPathParameters37>, SetterForFakeparametercollisions1ababselfabPostPathParameters4<Fakeparametercollisions1ababselfabPostPathParameters41>, SetterForFakeparametercollisions1ababselfabPostPathParameters3<Fakeparametercollisions1ababselfabPostPathParameters43>, SetterForFakeparametercollisions1ababselfabPostPathParameters6<Fakeparametercollisions1ababselfabPostPathParameters44> {
         private final Map<String, @Nullable Object> instance;
-        public Fakeparametercollisions1ababselfabPostPathParametersMapBuilder() {
+        public Fakeparametercollisions1ababselfabPostPathParameters12() {
             this.instance = new LinkedHashMap<>();
         }
         public Map<String, @Nullable Object> getInstance() {
             return instance;
         }
-        public Fakeparametercollisions1ababselfabPostPathParametersMap01111Builder getBuilderAfterFakeparametercollisions1ababselfabPost1(Map<String, @Nullable Object> instance) {
-            return new Fakeparametercollisions1ababselfabPostPathParametersMap01111Builder(instance);
+        public Fakeparametercollisions1ababselfabPostPathParameters29 getBuilderAfterFakeparametercollisions1ababselfabPostPathParameters2(Map<String, @Nullable Object> instance) {
+            return new Fakeparametercollisions1ababselfabPostPathParameters29(instance);
         }
-        public Fakeparametercollisions1ababselfabPostPathParametersMap10111Builder getBuilderAfterFakeparametercollisions1ababselfabPostAB(Map<String, @Nullable Object> instance) {
-            return new Fakeparametercollisions1ababselfabPostPathParametersMap10111Builder(instance);
+        public Fakeparametercollisions1ababselfabPostPathParameters37 getBuilderAfterFakeparametercollisions1ababselfabPostPathParameters5(Map<String, @Nullable Object> instance) {
+            return new Fakeparametercollisions1ababselfabPostPathParameters37(instance);
         }
-        public Fakeparametercollisions1ababselfabPostPathParametersMap11011Builder getBuilderAfterFakeparametercollisions1ababselfabPostAb(Map<String, @Nullable Object> instance) {
-            return new Fakeparametercollisions1ababselfabPostPathParametersMap11011Builder(instance);
+        public Fakeparametercollisions1ababselfabPostPathParameters41 getBuilderAfterFakeparametercollisions1ababselfabPostPathParameters4(Map<String, @Nullable Object> instance) {
+            return new Fakeparametercollisions1ababselfabPostPathParameters41(instance);
         }
-        public Fakeparametercollisions1ababselfabPostPathParametersMap11101Builder getBuilderAfterFakeparametercollisions1ababselfabPostaB(Map<String, @Nullable Object> instance) {
-            return new Fakeparametercollisions1ababselfabPostPathParametersMap11101Builder(instance);
+        public Fakeparametercollisions1ababselfabPostPathParameters43 getBuilderAfterFakeparametercollisions1ababselfabPostPathParameters3(Map<String, @Nullable Object> instance) {
+            return new Fakeparametercollisions1ababselfabPostPathParameters43(instance);
         }
-        public Fakeparametercollisions1ababselfabPostPathParametersMap11110Builder getBuilderAfterFakeparametercollisions1ababselfabPostself(Map<String, @Nullable Object> instance) {
-            return new Fakeparametercollisions1ababselfabPostPathParametersMap11110Builder(instance);
+        public Fakeparametercollisions1ababselfabPostPathParameters44 getBuilderAfterFakeparametercollisions1ababselfabPostPathParameters6(Map<String, @Nullable Object> instance) {
+            return new Fakeparametercollisions1ababselfabPostPathParameters44(instance);
         }
     }
     
@@ -716,7 +716,7 @@ public class Fakeparametercollisions1ababselfabPostPathParameters {
         @Nullable Object getData();
     }
     
-    public record Fakeparametercollisions1ababselfabPostPathParameters1BoxedMap(Fakeparametercollisions1ababselfabPostPathParametersMap data) implements Fakeparametercollisions1ababselfabPostPathParameters1Boxed {
+    public record Fakeparametercollisions1ababselfabPostPathParameters1BoxedMap(Fakeparametercollisions1ababselfabPostPathParameters13 data) implements Fakeparametercollisions1ababselfabPostPathParameters1Boxed {
         @Override
         public @Nullable Object getData() {
             return data;
@@ -724,7 +724,7 @@ public class Fakeparametercollisions1ababselfabPostPathParameters {
     }
     
     
-    public static class Fakeparametercollisions1ababselfabPostPathParameters1 extends JsonSchema<Fakeparametercollisions1ababselfabPostPathParameters1Boxed> implements MapSchemaValidator<Fakeparametercollisions1ababselfabPostPathParametersMap, Fakeparametercollisions1ababselfabPostPathParameters1BoxedMap> {
+    public static class Fakeparametercollisions1ababselfabPostPathParameters1 extends JsonSchema<Fakeparametercollisions1ababselfabPostPathParameters1Boxed> implements MapSchemaValidator<Fakeparametercollisions1ababselfabPostPathParameters13, Fakeparametercollisions1ababselfabPostPathParameters1BoxedMap> {
         private static @Nullable Fakeparametercollisions1ababselfabPostPathParameters1 instance = null;
     
         protected Fakeparametercollisions1ababselfabPostPathParameters1() {
@@ -744,7 +744,7 @@ public class Fakeparametercollisions1ababselfabPostPathParameters {
                     "aB",
                     "self"
                 ))
-                .additionalProperties(Fakeparametercollisions1ababselfabPostadditionalProperties.class)
+                .additionalProperties(Fakeparametercollisions1ababselfabPostPathParameters8.class)
             );
         }
     
@@ -755,7 +755,7 @@ public class Fakeparametercollisions1ababselfabPostPathParameters {
             return instance;
         }
         
-        public Fakeparametercollisions1ababselfabPostPathParametersMap getNewInstance(Map<?, ?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+        public Fakeparametercollisions1ababselfabPostPathParameters13 getNewInstance(Map<?, ?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
             LinkedHashMap<String, @Nullable Object> properties = new LinkedHashMap<>();
             for(Map.Entry<?, ?> entry: arg.entrySet()) {
                 @Nullable Object entryKey = entry.getKey();
@@ -775,10 +775,10 @@ public class Fakeparametercollisions1ababselfabPostPathParameters {
                 properties.put(propertyName, propertyInstance);
             }
             FrozenMap<@Nullable Object> castProperties = new FrozenMap<>(properties);
-            return new Fakeparametercollisions1ababselfabPostPathParametersMap(castProperties);
+            return new Fakeparametercollisions1ababselfabPostPathParameters13(castProperties);
         }
         
-        public Fakeparametercollisions1ababselfabPostPathParametersMap validate(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException {
+        public Fakeparametercollisions1ababselfabPostPathParameters13 validate(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException {
             Set<List<Object>> pathSet = new HashSet<>();
             List<Object> pathToItem = List.of("args[0");
             Map<?, ?> castArg = castToAllowedTypes(arg, pathToItem, pathSet);

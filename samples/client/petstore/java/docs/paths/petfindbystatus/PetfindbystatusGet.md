@@ -88,9 +88,9 @@ PetfindbystatusGet.Get apiClient = new PetfindbystatusGet.Get(apiConfiguration, 
 
 
 // Map validation
-PetfindbystatusGetQueryParameters.PetfindbystatusGetQueryParametersMap queryParameters =
+PetfindbystatusGetQueryParameters.PetfindbystatusGetQueryParameters9 queryParameters =
     PetfindbystatusGetQueryParameters.PetfindbystatusGetQueryParameters1.validate(
-    new PetfindbystatusGetQueryParameters.PetfindbystatusGetQueryParametersMapBuilder()
+    new PetfindbystatusGetQueryParameters.PetfindbystatusGetQueryParameters8()
         .status(
             Arrays.asList(
                 "available"
@@ -155,7 +155,7 @@ a class that stores the final request inputs
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | --------------------- |
-| [PetfindbystatusGetQueryParameters.PetfindbystatusGetQueryParametersMap](../../paths/petfindbystatus/get/PetfindbystatusGetQueryParameters.md#petfindbystatusgetqueryparametersmap) | queryParameters |
+| [PetfindbystatusGetQueryParameters.PetfindbystatusGetQueryParameters9](../../paths/petfindbystatus/get/PetfindbystatusGetQueryParameters.md#petfindbystatusgetqueryparameters9) | queryParameters |
 | [PetfindbystatusServerInfo.@Nullable ServerIndex](../../paths/petfindbystatus/PetfindbystatusServerInfo.md#serverindex) | serverIndex<br>optional. Note: this will override the value in apiConfiguration |
 | [PetfindbystatusGetSecurityInfo.@Nullable SecurityIndex](../../paths/petfindbystatus/get/PetfindbystatusGetSecurityInfo.md#securityindex) | securityIndex<br>optional. Note: this will override the value in apiConfiguration |
 | @Nullable Duration | timeout<br>optional. Note: this will override the value in apiConfiguration |
@@ -168,7 +168,7 @@ a class that stores the initial request inputs
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | --------------------- |
-| [PetfindbystatusGetQueryParameters.@Nullable PetfindbystatusGetQueryParametersMap](../../paths/petfindbystatus/get/PetfindbystatusGetQueryParameters.md#petfindbystatusgetqueryparametersmap) | queryParameters |
+| [PetfindbystatusGetQueryParameters.@Nullable PetfindbystatusGetQueryParameters9](../../paths/petfindbystatus/get/PetfindbystatusGetQueryParameters.md#petfindbystatusgetqueryparameters9) | queryParameters |
 | [PetfindbystatusServerInfo.@Nullable ServerIndex](../../paths/petfindbystatus/PetfindbystatusServerInfo.md#serverindex) | serverIndex |
 | [PetfindbystatusGetSecurityInfo.@Nullable SecurityIndex](../../paths/petfindbystatus/get/PetfindbystatusGetSecurityInfo.md#securityindex) | securityIndex |
 | @Nullable Duration | timeout |
@@ -204,6 +204,6 @@ a builder for request inputs
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [Get0RequestBuilder](#get0requestbuilder) | queryParameters([PetfindbystatusGetQueryParametersPetfindbystatusGetQueryParametersMap](../../paths/petfindbystatus/get/PetfindbystatusGetQueryParameters.md#petfindbystatusgetqueryparametersmap) queryParameters)<br>sets the property |
+| [Get0RequestBuilder](#get0requestbuilder) | queryParameters([PetfindbystatusGetQueryParametersPetfindbystatusGetQueryParameters9](../../paths/petfindbystatus/get/PetfindbystatusGetQueryParameters.md#petfindbystatusgetqueryparameters9) queryParameters)<br>sets the property |
 
 [[Back to top]](#top) [[Back to README]](../../../README.md)

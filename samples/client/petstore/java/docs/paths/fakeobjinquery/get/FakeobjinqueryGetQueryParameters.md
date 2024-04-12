@@ -14,16 +14,16 @@ A class that contains necessary nested
 | sealed interface | [FakeobjinqueryGetQueryParameters.FakeobjinqueryGetQueryParameters1Boxed](#fakeobjinquerygetqueryparameters1boxed)<br> sealed interface for validated payloads |
 | record | [FakeobjinqueryGetQueryParameters.FakeobjinqueryGetQueryParameters1BoxedMap](#fakeobjinquerygetqueryparameters1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [FakeobjinqueryGetQueryParameters.FakeobjinqueryGetQueryParameters1](#fakeobjinquerygetqueryparameters1)<br> schema class |
-| static class | [FakeobjinqueryGetQueryParameters.FakeobjinqueryGetQueryParametersMapBuilder](#fakeobjinquerygetqueryparametersmapbuilder)<br> builder for Map payloads |
-| static class | [FakeobjinqueryGetQueryParameters.FakeobjinqueryGetQueryParametersMap](#fakeobjinquerygetqueryparametersmap)<br> output class for Map payloads |
-| sealed interface | [FakeobjinqueryGetQueryParameters.FakeobjinqueryGetadditionalPropertiesBoxed](#fakeobjinquerygetadditionalpropertiesboxed)<br> sealed interface for validated payloads |
-| record | [FakeobjinqueryGetQueryParameters.FakeobjinqueryGetadditionalPropertiesBoxedVoid](#fakeobjinquerygetadditionalpropertiesboxedvoid)<br> boxed class to store validated null payloads |
-| record | [FakeobjinqueryGetQueryParameters.FakeobjinqueryGetadditionalPropertiesBoxedBoolean](#fakeobjinquerygetadditionalpropertiesboxedboolean)<br> boxed class to store validated boolean payloads |
-| record | [FakeobjinqueryGetQueryParameters.FakeobjinqueryGetadditionalPropertiesBoxedNumber](#fakeobjinquerygetadditionalpropertiesboxednumber)<br> boxed class to store validated Number payloads |
-| record | [FakeobjinqueryGetQueryParameters.FakeobjinqueryGetadditionalPropertiesBoxedString](#fakeobjinquerygetadditionalpropertiesboxedstring)<br> boxed class to store validated String payloads |
-| record | [FakeobjinqueryGetQueryParameters.FakeobjinqueryGetadditionalPropertiesBoxedList](#fakeobjinquerygetadditionalpropertiesboxedlist)<br> boxed class to store validated List payloads |
-| record | [FakeobjinqueryGetQueryParameters.FakeobjinqueryGetadditionalPropertiesBoxedMap](#fakeobjinquerygetadditionalpropertiesboxedmap)<br> boxed class to store validated Map payloads |
-| static class | [FakeobjinqueryGetQueryParameters.FakeobjinqueryGetadditionalProperties](#fakeobjinquerygetadditionalproperties)<br> schema class |
+| static class | [FakeobjinqueryGetQueryParameters.FakeobjinqueryGetQueryParameters8](#fakeobjinquerygetqueryparameters8)<br> builder for Map payloads |
+| static class | [FakeobjinqueryGetQueryParameters.FakeobjinqueryGetQueryParameters9](#fakeobjinquerygetqueryparameters9)<br> output class for Map payloads |
+| sealed interface | [FakeobjinqueryGetQueryParameters.FakeobjinqueryGetQueryParameters4Boxed](#fakeobjinquerygetqueryparameters4boxed)<br> sealed interface for validated payloads |
+| record | [FakeobjinqueryGetQueryParameters.FakeobjinqueryGetQueryParameters4BoxedVoid](#fakeobjinquerygetqueryparameters4boxedvoid)<br> boxed class to store validated null payloads |
+| record | [FakeobjinqueryGetQueryParameters.FakeobjinqueryGetQueryParameters4BoxedBoolean](#fakeobjinquerygetqueryparameters4boxedboolean)<br> boxed class to store validated boolean payloads |
+| record | [FakeobjinqueryGetQueryParameters.FakeobjinqueryGetQueryParameters4BoxedNumber](#fakeobjinquerygetqueryparameters4boxednumber)<br> boxed class to store validated Number payloads |
+| record | [FakeobjinqueryGetQueryParameters.FakeobjinqueryGetQueryParameters4BoxedString](#fakeobjinquerygetqueryparameters4boxedstring)<br> boxed class to store validated String payloads |
+| record | [FakeobjinqueryGetQueryParameters.FakeobjinqueryGetQueryParameters4BoxedList](#fakeobjinquerygetqueryparameters4boxedlist)<br> boxed class to store validated List payloads |
+| record | [FakeobjinqueryGetQueryParameters.FakeobjinqueryGetQueryParameters4BoxedMap](#fakeobjinquerygetqueryparameters4boxedmap)<br> boxed class to store validated Map payloads |
+| static class | [FakeobjinqueryGetQueryParameters.FakeobjinqueryGetQueryParameters4](#fakeobjinquerygetqueryparameters4)<br> schema class |
 
 ## FakeobjinqueryGetQueryParameters1Boxed
 public sealed interface FakeobjinqueryGetQueryParameters1Boxed<br>
@@ -41,12 +41,12 @@ record that stores validated Map payloads, sealed permits implementation
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| FakeobjinqueryGetQueryParameters1BoxedMap([FakeobjinqueryGetQueryParametersMap](#fakeobjinquerygetqueryparametersmap) data)<br>Creates an instance, private visibility |
+| FakeobjinqueryGetQueryParameters1BoxedMap([FakeobjinqueryGetQueryParameters9](#fakeobjinquerygetqueryparameters9) data)<br>Creates an instance, private visibility |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [FakeobjinqueryGetQueryParametersMap](#fakeobjinquerygetqueryparametersmap) | data()<br>validated payload |
+| [FakeobjinqueryGetQueryParameters9](#fakeobjinquerygetqueryparameters9) | data()<br>validated payload |
 | @Nullable Object | getData()<br>validated payload |
 
 ## FakeobjinqueryGetQueryParameters1
@@ -72,9 +72,9 @@ import java.util.AbstractMap;
 static final SchemaConfiguration configuration = new SchemaConfiguration(new JsonSchemaKeywordFlags.Builder().build());
 
 // Map validation
-FakeobjinqueryGetQueryParameters.FakeobjinqueryGetQueryParametersMap validatedPayload =
+FakeobjinqueryGetQueryParameters.FakeobjinqueryGetQueryParameters9 validatedPayload =
     FakeobjinqueryGetQueryParameters.FakeobjinqueryGetQueryParameters1.validate(
-    new FakeobjinqueryGetQueryParameters.FakeobjinqueryGetQueryParametersMapBuilder()
+    new FakeobjinqueryGetQueryParameters.FakeobjinqueryGetQueryParameters8()
         .mapBean(
             MapUtils.makeMap(
                 new AbstractMap.SimpleEntry<String, String>(
@@ -93,18 +93,18 @@ FakeobjinqueryGetQueryParameters.FakeobjinqueryGetQueryParametersMap validatedPa
 | ----------------- | ---------------------- |
 | Set<Class<?>> | type = Set.of(Map.class) |
 | Map<String, Class<? extends JsonSchema>> | properties = Map.ofEntries(<br>&nbsp;&nbsp;&nbsp;&nbsp;new PropertyEntry("mapBean", [Schema0.Schema01.class](../../../paths/fakeobjinquery/get/parameters/parameter0/Schema0.md#schema01))<br>)<br> |
-| Class<? extends JsonSchema> | additionalProperties = [FakeobjinqueryGetadditionalProperties.class](#fakeobjinquerygetadditionalproperties) |
+| Class<? extends JsonSchema> | additionalProperties = [FakeobjinqueryGetQueryParameters4.class](#fakeobjinquerygetqueryparameters4) |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [FakeobjinqueryGetQueryParametersMap](#fakeobjinquerygetqueryparametersmap) | validate([Map&lt;?, ?&gt;](#fakeobjinquerygetqueryparametersmapbuilder) arg, SchemaConfiguration configuration) |
-| [FakeobjinqueryGetQueryParameters1BoxedMap](#fakeobjinquerygetqueryparameters1boxedmap) | validateAndBox([Map&lt;?, ?&gt;](#fakeobjinquerygetqueryparametersmapbuilder) arg, SchemaConfiguration configuration) |
+| [FakeobjinqueryGetQueryParameters9](#fakeobjinquerygetqueryparameters9) | validate([Map&lt;?, ?&gt;](#fakeobjinquerygetqueryparameters8) arg, SchemaConfiguration configuration) |
+| [FakeobjinqueryGetQueryParameters1BoxedMap](#fakeobjinquerygetqueryparameters1boxedmap) | validateAndBox([Map&lt;?, ?&gt;](#fakeobjinquerygetqueryparameters8) arg, SchemaConfiguration configuration) |
 | [FakeobjinqueryGetQueryParameters1Boxed](#fakeobjinquerygetqueryparameters1boxed) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 
-## FakeobjinqueryGetQueryParametersMapBuilder
-public class FakeobjinqueryGetQueryParametersMapBuilder<br>
+## FakeobjinqueryGetQueryParameters8
+public class FakeobjinqueryGetQueryParameters8<br>
 builder for `Map<String, Map<String, @Nullable Object>>`
 
 A class that builds the Map input type
@@ -112,16 +112,16 @@ A class that builds the Map input type
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| FakeobjinqueryGetQueryParametersMapBuilder()<br>Creates a builder that contains an empty map |
+| FakeobjinqueryGetQueryParameters8()<br>Creates a builder that contains an empty map |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | Map<String, Map<String, @Nullable Object>> | build()<br>Returns map input that should be used with Schema.validate |
-| [FakeobjinqueryGetQueryParametersMapBuilder](#fakeobjinquerygetqueryparametersmapbuilder) | mapBean(Map<String, @Nullable Object> value) |
+| [FakeobjinqueryGetQueryParameters8](#fakeobjinquerygetqueryparameters8) | mapBean(Map<String, @Nullable Object> value) |
 
-## FakeobjinqueryGetQueryParametersMap
-public static class FakeobjinqueryGetQueryParametersMap<br>
+## FakeobjinqueryGetQueryParameters9
+public static class FakeobjinqueryGetQueryParameters9<br>
 extends FrozenMap<String, Schema0.SchemaMap0>
 
 A class to store validated Map payloads
@@ -129,31 +129,31 @@ A class to store validated Map payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [FakeobjinqueryGetQueryParametersMap](#fakeobjinquerygetqueryparametersmap) | of([Map<String, Map<String, ? extends @Nullable Object>>](#fakeobjinquerygetqueryparametersmapbuilder) arg, SchemaConfiguration configuration) |
+| static [FakeobjinqueryGetQueryParameters9](#fakeobjinquerygetqueryparameters9) | of([Map<String, Map<String, ? extends @Nullable Object>>](#fakeobjinquerygetqueryparameters8) arg, SchemaConfiguration configuration) |
 | [Schema0.SchemaMap0](../../../paths/fakeobjinquery/get/parameters/parameter0/Schema0.md#schemamap0) | mapBean()<br>[optional] |
 
-## FakeobjinqueryGetadditionalPropertiesBoxed
-public sealed interface FakeobjinqueryGetadditionalPropertiesBoxed<br>
+## FakeobjinqueryGetQueryParameters4Boxed
+public sealed interface FakeobjinqueryGetQueryParameters4Boxed<br>
 permits<br>
-[FakeobjinqueryGetadditionalPropertiesBoxedVoid](#fakeobjinquerygetadditionalpropertiesboxedvoid),
-[FakeobjinqueryGetadditionalPropertiesBoxedBoolean](#fakeobjinquerygetadditionalpropertiesboxedboolean),
-[FakeobjinqueryGetadditionalPropertiesBoxedNumber](#fakeobjinquerygetadditionalpropertiesboxednumber),
-[FakeobjinqueryGetadditionalPropertiesBoxedString](#fakeobjinquerygetadditionalpropertiesboxedstring),
-[FakeobjinqueryGetadditionalPropertiesBoxedList](#fakeobjinquerygetadditionalpropertiesboxedlist),
-[FakeobjinqueryGetadditionalPropertiesBoxedMap](#fakeobjinquerygetadditionalpropertiesboxedmap)
+[FakeobjinqueryGetQueryParameters4BoxedVoid](#fakeobjinquerygetqueryparameters4boxedvoid),
+[FakeobjinqueryGetQueryParameters4BoxedBoolean](#fakeobjinquerygetqueryparameters4boxedboolean),
+[FakeobjinqueryGetQueryParameters4BoxedNumber](#fakeobjinquerygetqueryparameters4boxednumber),
+[FakeobjinqueryGetQueryParameters4BoxedString](#fakeobjinquerygetqueryparameters4boxedstring),
+[FakeobjinqueryGetQueryParameters4BoxedList](#fakeobjinquerygetqueryparameters4boxedlist),
+[FakeobjinqueryGetQueryParameters4BoxedMap](#fakeobjinquerygetqueryparameters4boxedmap)
 
 sealed interface that stores validated payloads using boxed classes
 
-## FakeobjinqueryGetadditionalPropertiesBoxedVoid
-public record FakeobjinqueryGetadditionalPropertiesBoxedVoid<br>
-implements [FakeobjinqueryGetadditionalPropertiesBoxed](#fakeobjinquerygetadditionalpropertiesboxed)
+## FakeobjinqueryGetQueryParameters4BoxedVoid
+public record FakeobjinqueryGetQueryParameters4BoxedVoid<br>
+implements [FakeobjinqueryGetQueryParameters4Boxed](#fakeobjinquerygetqueryparameters4boxed)
 
 record that stores validated null payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| FakeobjinqueryGetadditionalPropertiesBoxedVoid(Void data)<br>Creates an instance, private visibility |
+| FakeobjinqueryGetQueryParameters4BoxedVoid(Void data)<br>Creates an instance, private visibility |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
@@ -161,16 +161,16 @@ record that stores validated null payloads, sealed permits implementation
 | Void | data()<br>validated payload |
 | @Nullable Object | getData()<br>validated payload |
 
-## FakeobjinqueryGetadditionalPropertiesBoxedBoolean
-public record FakeobjinqueryGetadditionalPropertiesBoxedBoolean<br>
-implements [FakeobjinqueryGetadditionalPropertiesBoxed](#fakeobjinquerygetadditionalpropertiesboxed)
+## FakeobjinqueryGetQueryParameters4BoxedBoolean
+public record FakeobjinqueryGetQueryParameters4BoxedBoolean<br>
+implements [FakeobjinqueryGetQueryParameters4Boxed](#fakeobjinquerygetqueryparameters4boxed)
 
 record that stores validated boolean payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| FakeobjinqueryGetadditionalPropertiesBoxedBoolean(boolean data)<br>Creates an instance, private visibility |
+| FakeobjinqueryGetQueryParameters4BoxedBoolean(boolean data)<br>Creates an instance, private visibility |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
@@ -178,16 +178,16 @@ record that stores validated boolean payloads, sealed permits implementation
 | boolean | data()<br>validated payload |
 | @Nullable Object | getData()<br>validated payload |
 
-## FakeobjinqueryGetadditionalPropertiesBoxedNumber
-public record FakeobjinqueryGetadditionalPropertiesBoxedNumber<br>
-implements [FakeobjinqueryGetadditionalPropertiesBoxed](#fakeobjinquerygetadditionalpropertiesboxed)
+## FakeobjinqueryGetQueryParameters4BoxedNumber
+public record FakeobjinqueryGetQueryParameters4BoxedNumber<br>
+implements [FakeobjinqueryGetQueryParameters4Boxed](#fakeobjinquerygetqueryparameters4boxed)
 
 record that stores validated Number payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| FakeobjinqueryGetadditionalPropertiesBoxedNumber(Number data)<br>Creates an instance, private visibility |
+| FakeobjinqueryGetQueryParameters4BoxedNumber(Number data)<br>Creates an instance, private visibility |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
@@ -195,16 +195,16 @@ record that stores validated Number payloads, sealed permits implementation
 | Number | data()<br>validated payload |
 | @Nullable Object | getData()<br>validated payload |
 
-## FakeobjinqueryGetadditionalPropertiesBoxedString
-public record FakeobjinqueryGetadditionalPropertiesBoxedString<br>
-implements [FakeobjinqueryGetadditionalPropertiesBoxed](#fakeobjinquerygetadditionalpropertiesboxed)
+## FakeobjinqueryGetQueryParameters4BoxedString
+public record FakeobjinqueryGetQueryParameters4BoxedString<br>
+implements [FakeobjinqueryGetQueryParameters4Boxed](#fakeobjinquerygetqueryparameters4boxed)
 
 record that stores validated String payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| FakeobjinqueryGetadditionalPropertiesBoxedString(String data)<br>Creates an instance, private visibility |
+| FakeobjinqueryGetQueryParameters4BoxedString(String data)<br>Creates an instance, private visibility |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
@@ -212,16 +212,16 @@ record that stores validated String payloads, sealed permits implementation
 | String | data()<br>validated payload |
 | @Nullable Object | getData()<br>validated payload |
 
-## FakeobjinqueryGetadditionalPropertiesBoxedList
-public record FakeobjinqueryGetadditionalPropertiesBoxedList<br>
-implements [FakeobjinqueryGetadditionalPropertiesBoxed](#fakeobjinquerygetadditionalpropertiesboxed)
+## FakeobjinqueryGetQueryParameters4BoxedList
+public record FakeobjinqueryGetQueryParameters4BoxedList<br>
+implements [FakeobjinqueryGetQueryParameters4Boxed](#fakeobjinquerygetqueryparameters4boxed)
 
 record that stores validated List payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| FakeobjinqueryGetadditionalPropertiesBoxedList(FrozenList<@Nullable Object> data)<br>Creates an instance, private visibility |
+| FakeobjinqueryGetQueryParameters4BoxedList(FrozenList<@Nullable Object> data)<br>Creates an instance, private visibility |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
@@ -229,16 +229,16 @@ record that stores validated List payloads, sealed permits implementation
 | FrozenList<@Nullable Object> | data()<br>validated payload |
 | @Nullable Object | getData()<br>validated payload |
 
-## FakeobjinqueryGetadditionalPropertiesBoxedMap
-public record FakeobjinqueryGetadditionalPropertiesBoxedMap<br>
-implements [FakeobjinqueryGetadditionalPropertiesBoxed](#fakeobjinquerygetadditionalpropertiesboxed)
+## FakeobjinqueryGetQueryParameters4BoxedMap
+public record FakeobjinqueryGetQueryParameters4BoxedMap<br>
+implements [FakeobjinqueryGetQueryParameters4Boxed](#fakeobjinquerygetqueryparameters4boxed)
 
 record that stores validated Map payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| FakeobjinqueryGetadditionalPropertiesBoxedMap(FrozenMap<@Nullable Object> data)<br>Creates an instance, private visibility |
+| FakeobjinqueryGetQueryParameters4BoxedMap(FrozenMap<@Nullable Object> data)<br>Creates an instance, private visibility |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
@@ -246,8 +246,8 @@ record that stores validated Map payloads, sealed permits implementation
 | FrozenMap<@Nullable Object> | data()<br>validated payload |
 | @Nullable Object | getData()<br>validated payload |
 
-## FakeobjinqueryGetadditionalProperties
-public static class FakeobjinqueryGetadditionalProperties<br>
+## FakeobjinqueryGetQueryParameters4
+public static class FakeobjinqueryGetQueryParameters4<br>
 extends NotAnyTypeJsonSchema.NotAnyTypeJsonSchema1
 
 A schema class that validates payloads

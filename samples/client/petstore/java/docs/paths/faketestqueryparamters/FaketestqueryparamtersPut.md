@@ -74,9 +74,9 @@ FaketestqueryparamtersPut.Put apiClient = new FaketestqueryparamtersPut.Put(apiC
 
 
 // Map validation
-FaketestqueryparamtersPutQueryParameters.FaketestqueryparamtersPutQueryParametersMap queryParameters =
+FaketestqueryparamtersPutQueryParameters.FaketestqueryparamtersPutQueryParameters14 queryParameters =
     FaketestqueryparamtersPutQueryParameters.FaketestqueryparamtersPutQueryParameters1.validate(
-    new FaketestqueryparamtersPutQueryParameters.FaketestqueryparamtersPutQueryParametersMapBuilder()
+    new FaketestqueryparamtersPutQueryParameters.FaketestqueryparamtersPutQueryParameters13()
         .context(
             Arrays.asList(
                 "a"
@@ -159,7 +159,7 @@ a class that stores the final request inputs
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | --------------------- |
-| [FaketestqueryparamtersPutQueryParameters.FaketestqueryparamtersPutQueryParametersMap](../../paths/faketestqueryparamters/put/FaketestqueryparamtersPutQueryParameters.md#faketestqueryparamtersputqueryparametersmap) | queryParameters |
+| [FaketestqueryparamtersPutQueryParameters.FaketestqueryparamtersPutQueryParameters14](../../paths/faketestqueryparamters/put/FaketestqueryparamtersPutQueryParameters.md#faketestqueryparamtersputqueryparameters14) | queryParameters |
 | [ServerInfo.@Nullable ServerIndex](../../ServerInfo.md#serverindex) | serverIndex<br>optional. Note: this will override the value in apiConfiguration |
 | @Nullable Duration | timeout<br>optional. Note: this will override the value in apiConfiguration |
 
@@ -171,7 +171,7 @@ a class that stores the initial request inputs
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | --------------------- |
-| [FaketestqueryparamtersPutQueryParameters.@Nullable FaketestqueryparamtersPutQueryParametersMap](../../paths/faketestqueryparamters/put/FaketestqueryparamtersPutQueryParameters.md#faketestqueryparamtersputqueryparametersmap) | queryParameters |
+| [FaketestqueryparamtersPutQueryParameters.@Nullable FaketestqueryparamtersPutQueryParameters14](../../paths/faketestqueryparamters/put/FaketestqueryparamtersPutQueryParameters.md#faketestqueryparamtersputqueryparameters14) | queryParameters |
 | [ServerInfo.@Nullable ServerIndex](../../ServerInfo.md#serverindex) | serverIndex |
 | @Nullable Duration | timeout |
 
@@ -205,6 +205,6 @@ a builder for request inputs
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [Put0RequestBuilder](#put0requestbuilder) | queryParameters([FaketestqueryparamtersPutQueryParametersFaketestqueryparamtersPutQueryParametersMap](../../paths/faketestqueryparamters/put/FaketestqueryparamtersPutQueryParameters.md#faketestqueryparamtersputqueryparametersmap) queryParameters)<br>sets the property |
+| [Put0RequestBuilder](#put0requestbuilder) | queryParameters([FaketestqueryparamtersPutQueryParametersFaketestqueryparamtersPutQueryParameters14](../../paths/faketestqueryparamters/put/FaketestqueryparamtersPutQueryParameters.md#faketestqueryparamtersputqueryparameters14) queryParameters)<br>sets the property |
 
 [[Back to top]](#top) [[Back to README]](../../../README.md)

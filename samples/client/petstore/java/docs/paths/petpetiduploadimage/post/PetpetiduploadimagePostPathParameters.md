@@ -14,16 +14,16 @@ A class that contains necessary nested
 | sealed interface | [PetpetiduploadimagePostPathParameters.PetpetiduploadimagePostPathParameters1Boxed](#petpetiduploadimagepostpathparameters1boxed)<br> sealed interface for validated payloads |
 | record | [PetpetiduploadimagePostPathParameters.PetpetiduploadimagePostPathParameters1BoxedMap](#petpetiduploadimagepostpathparameters1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [PetpetiduploadimagePostPathParameters.PetpetiduploadimagePostPathParameters1](#petpetiduploadimagepostpathparameters1)<br> schema class |
-| static class | [PetpetiduploadimagePostPathParameters.PetpetiduploadimagePostPathParametersMapBuilder](#petpetiduploadimagepostpathparametersmapbuilder)<br> builder for Map payloads |
-| static class | [PetpetiduploadimagePostPathParameters.PetpetiduploadimagePostPathParametersMap](#petpetiduploadimagepostpathparametersmap)<br> output class for Map payloads |
-| sealed interface | [PetpetiduploadimagePostPathParameters.PetpetiduploadimagePostadditionalPropertiesBoxed](#petpetiduploadimagepostadditionalpropertiesboxed)<br> sealed interface for validated payloads |
-| record | [PetpetiduploadimagePostPathParameters.PetpetiduploadimagePostadditionalPropertiesBoxedVoid](#petpetiduploadimagepostadditionalpropertiesboxedvoid)<br> boxed class to store validated null payloads |
-| record | [PetpetiduploadimagePostPathParameters.PetpetiduploadimagePostadditionalPropertiesBoxedBoolean](#petpetiduploadimagepostadditionalpropertiesboxedboolean)<br> boxed class to store validated boolean payloads |
-| record | [PetpetiduploadimagePostPathParameters.PetpetiduploadimagePostadditionalPropertiesBoxedNumber](#petpetiduploadimagepostadditionalpropertiesboxednumber)<br> boxed class to store validated Number payloads |
-| record | [PetpetiduploadimagePostPathParameters.PetpetiduploadimagePostadditionalPropertiesBoxedString](#petpetiduploadimagepostadditionalpropertiesboxedstring)<br> boxed class to store validated String payloads |
-| record | [PetpetiduploadimagePostPathParameters.PetpetiduploadimagePostadditionalPropertiesBoxedList](#petpetiduploadimagepostadditionalpropertiesboxedlist)<br> boxed class to store validated List payloads |
-| record | [PetpetiduploadimagePostPathParameters.PetpetiduploadimagePostadditionalPropertiesBoxedMap](#petpetiduploadimagepostadditionalpropertiesboxedmap)<br> boxed class to store validated Map payloads |
-| static class | [PetpetiduploadimagePostPathParameters.PetpetiduploadimagePostadditionalProperties](#petpetiduploadimagepostadditionalproperties)<br> schema class |
+| static class | [PetpetiduploadimagePostPathParameters.PetpetiduploadimagePostPathParameters8](#petpetiduploadimagepostpathparameters8)<br> builder for Map payloads |
+| static class | [PetpetiduploadimagePostPathParameters.PetpetiduploadimagePostPathParameters9](#petpetiduploadimagepostpathparameters9)<br> output class for Map payloads |
+| sealed interface | [PetpetiduploadimagePostPathParameters.PetpetiduploadimagePostPathParameters4Boxed](#petpetiduploadimagepostpathparameters4boxed)<br> sealed interface for validated payloads |
+| record | [PetpetiduploadimagePostPathParameters.PetpetiduploadimagePostPathParameters4BoxedVoid](#petpetiduploadimagepostpathparameters4boxedvoid)<br> boxed class to store validated null payloads |
+| record | [PetpetiduploadimagePostPathParameters.PetpetiduploadimagePostPathParameters4BoxedBoolean](#petpetiduploadimagepostpathparameters4boxedboolean)<br> boxed class to store validated boolean payloads |
+| record | [PetpetiduploadimagePostPathParameters.PetpetiduploadimagePostPathParameters4BoxedNumber](#petpetiduploadimagepostpathparameters4boxednumber)<br> boxed class to store validated Number payloads |
+| record | [PetpetiduploadimagePostPathParameters.PetpetiduploadimagePostPathParameters4BoxedString](#petpetiduploadimagepostpathparameters4boxedstring)<br> boxed class to store validated String payloads |
+| record | [PetpetiduploadimagePostPathParameters.PetpetiduploadimagePostPathParameters4BoxedList](#petpetiduploadimagepostpathparameters4boxedlist)<br> boxed class to store validated List payloads |
+| record | [PetpetiduploadimagePostPathParameters.PetpetiduploadimagePostPathParameters4BoxedMap](#petpetiduploadimagepostpathparameters4boxedmap)<br> boxed class to store validated Map payloads |
+| static class | [PetpetiduploadimagePostPathParameters.PetpetiduploadimagePostPathParameters4](#petpetiduploadimagepostpathparameters4)<br> schema class |
 
 ## PetpetiduploadimagePostPathParameters1Boxed
 public sealed interface PetpetiduploadimagePostPathParameters1Boxed<br>
@@ -41,12 +41,12 @@ record that stores validated Map payloads, sealed permits implementation
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| PetpetiduploadimagePostPathParameters1BoxedMap([PetpetiduploadimagePostPathParametersMap](#petpetiduploadimagepostpathparametersmap) data)<br>Creates an instance, private visibility |
+| PetpetiduploadimagePostPathParameters1BoxedMap([PetpetiduploadimagePostPathParameters9](#petpetiduploadimagepostpathparameters9) data)<br>Creates an instance, private visibility |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [PetpetiduploadimagePostPathParametersMap](#petpetiduploadimagepostpathparametersmap) | data()<br>validated payload |
+| [PetpetiduploadimagePostPathParameters9](#petpetiduploadimagepostpathparameters9) | data()<br>validated payload |
 | @Nullable Object | getData()<br>validated payload |
 
 ## PetpetiduploadimagePostPathParameters1
@@ -72,9 +72,9 @@ import java.util.AbstractMap;
 static final SchemaConfiguration configuration = new SchemaConfiguration(new JsonSchemaKeywordFlags.Builder().build());
 
 // Map validation
-PetpetiduploadimagePostPathParameters.PetpetiduploadimagePostPathParametersMap validatedPayload =
+PetpetiduploadimagePostPathParameters.PetpetiduploadimagePostPathParameters9 validatedPayload =
     PetpetiduploadimagePostPathParameters.PetpetiduploadimagePostPathParameters1.validate(
-    new PetpetiduploadimagePostPathParameters.PetpetiduploadimagePostPathParametersMapBuilder()
+    new PetpetiduploadimagePostPathParameters.PetpetiduploadimagePostPathParameters8()
         .petId(1L)
 
     .build(),
@@ -88,18 +88,18 @@ PetpetiduploadimagePostPathParameters.PetpetiduploadimagePostPathParametersMap v
 | Set<Class<?>> | type = Set.of(Map.class) |
 | Map<String, Class<? extends JsonSchema>> | properties = Map.ofEntries(<br>&nbsp;&nbsp;&nbsp;&nbsp;new PropertyEntry("petId", [Schema0.Schema01.class](../../../paths/petpetiduploadimage/post/parameters/parameter0/Schema0.md#schema01))<br>)<br> |
 | Set<String> | required = Set.of(<br>&nbsp;&nbsp;&nbsp;&nbsp;"petId"<br>)<br> |
-| Class<? extends JsonSchema> | additionalProperties = [PetpetiduploadimagePostadditionalProperties.class](#petpetiduploadimagepostadditionalproperties) |
+| Class<? extends JsonSchema> | additionalProperties = [PetpetiduploadimagePostPathParameters4.class](#petpetiduploadimagepostpathparameters4) |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [PetpetiduploadimagePostPathParametersMap](#petpetiduploadimagepostpathparametersmap) | validate([Map&lt;?, ?&gt;](#petpetiduploadimagepostpathparametersmapbuilder) arg, SchemaConfiguration configuration) |
-| [PetpetiduploadimagePostPathParameters1BoxedMap](#petpetiduploadimagepostpathparameters1boxedmap) | validateAndBox([Map&lt;?, ?&gt;](#petpetiduploadimagepostpathparametersmapbuilder) arg, SchemaConfiguration configuration) |
+| [PetpetiduploadimagePostPathParameters9](#petpetiduploadimagepostpathparameters9) | validate([Map&lt;?, ?&gt;](#petpetiduploadimagepostpathparameters8) arg, SchemaConfiguration configuration) |
+| [PetpetiduploadimagePostPathParameters1BoxedMap](#petpetiduploadimagepostpathparameters1boxedmap) | validateAndBox([Map&lt;?, ?&gt;](#petpetiduploadimagepostpathparameters8) arg, SchemaConfiguration configuration) |
 | [PetpetiduploadimagePostPathParameters1Boxed](#petpetiduploadimagepostpathparameters1boxed) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 
-## PetpetiduploadimagePostPathParametersMap0Builder
-public class PetpetiduploadimagePostPathParametersMap0Builder<br>
+## PetpetiduploadimagePostPathParameters10
+public class PetpetiduploadimagePostPathParameters10<br>
 builder for `Map<String, Number>`
 
 A class that builds the Map input type
@@ -107,15 +107,15 @@ A class that builds the Map input type
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| PetpetiduploadimagePostPathParametersMap0Builder(Map<String, Number> instance)<br>Creates a builder that contains the passed instance |
+| PetpetiduploadimagePostPathParameters10(Map<String, Number> instance)<br>Creates a builder that contains the passed instance |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | Map<String, Number> | build()<br>Returns map input that should be used with Schema.validate |
 
-## PetpetiduploadimagePostPathParametersMapBuilder
-public class PetpetiduploadimagePostPathParametersMapBuilder<br>
+## PetpetiduploadimagePostPathParameters8
+public class PetpetiduploadimagePostPathParameters8<br>
 builder for `Map<String, Number>`
 
 A class that builds the Map input type
@@ -123,18 +123,18 @@ A class that builds the Map input type
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| PetpetiduploadimagePostPathParametersMapBuilder()<br>Creates a builder that contains an empty map |
+| PetpetiduploadimagePostPathParameters8()<br>Creates a builder that contains an empty map |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [PetpetiduploadimagePostPathParametersMap0Builder](#petpetiduploadimagepostpathparametersmap0builder) | petId(int value) |
-| [PetpetiduploadimagePostPathParametersMap0Builder](#petpetiduploadimagepostpathparametersmap0builder) | petId(float value) |
-| [PetpetiduploadimagePostPathParametersMap0Builder](#petpetiduploadimagepostpathparametersmap0builder) | petId(long value) |
-| [PetpetiduploadimagePostPathParametersMap0Builder](#petpetiduploadimagepostpathparametersmap0builder) | petId(double value) |
+| [PetpetiduploadimagePostPathParameters10](#petpetiduploadimagepostpathparameters10) | petId(int value) |
+| [PetpetiduploadimagePostPathParameters10](#petpetiduploadimagepostpathparameters10) | petId(float value) |
+| [PetpetiduploadimagePostPathParameters10](#petpetiduploadimagepostpathparameters10) | petId(long value) |
+| [PetpetiduploadimagePostPathParameters10](#petpetiduploadimagepostpathparameters10) | petId(double value) |
 
-## PetpetiduploadimagePostPathParametersMap
-public static class PetpetiduploadimagePostPathParametersMap<br>
+## PetpetiduploadimagePostPathParameters9
+public static class PetpetiduploadimagePostPathParameters9<br>
 extends FrozenMap<String, Number>
 
 A class to store validated Map payloads
@@ -142,31 +142,31 @@ A class to store validated Map payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [PetpetiduploadimagePostPathParametersMap](#petpetiduploadimagepostpathparametersmap) | of([Map<String, Number>](#petpetiduploadimagepostpathparametersmapbuilder) arg, SchemaConfiguration configuration) |
+| static [PetpetiduploadimagePostPathParameters9](#petpetiduploadimagepostpathparameters9) | of([Map<String, Number>](#petpetiduploadimagepostpathparameters8) arg, SchemaConfiguration configuration) |
 | Number | petId()<br> |
 
-## PetpetiduploadimagePostadditionalPropertiesBoxed
-public sealed interface PetpetiduploadimagePostadditionalPropertiesBoxed<br>
+## PetpetiduploadimagePostPathParameters4Boxed
+public sealed interface PetpetiduploadimagePostPathParameters4Boxed<br>
 permits<br>
-[PetpetiduploadimagePostadditionalPropertiesBoxedVoid](#petpetiduploadimagepostadditionalpropertiesboxedvoid),
-[PetpetiduploadimagePostadditionalPropertiesBoxedBoolean](#petpetiduploadimagepostadditionalpropertiesboxedboolean),
-[PetpetiduploadimagePostadditionalPropertiesBoxedNumber](#petpetiduploadimagepostadditionalpropertiesboxednumber),
-[PetpetiduploadimagePostadditionalPropertiesBoxedString](#petpetiduploadimagepostadditionalpropertiesboxedstring),
-[PetpetiduploadimagePostadditionalPropertiesBoxedList](#petpetiduploadimagepostadditionalpropertiesboxedlist),
-[PetpetiduploadimagePostadditionalPropertiesBoxedMap](#petpetiduploadimagepostadditionalpropertiesboxedmap)
+[PetpetiduploadimagePostPathParameters4BoxedVoid](#petpetiduploadimagepostpathparameters4boxedvoid),
+[PetpetiduploadimagePostPathParameters4BoxedBoolean](#petpetiduploadimagepostpathparameters4boxedboolean),
+[PetpetiduploadimagePostPathParameters4BoxedNumber](#petpetiduploadimagepostpathparameters4boxednumber),
+[PetpetiduploadimagePostPathParameters4BoxedString](#petpetiduploadimagepostpathparameters4boxedstring),
+[PetpetiduploadimagePostPathParameters4BoxedList](#petpetiduploadimagepostpathparameters4boxedlist),
+[PetpetiduploadimagePostPathParameters4BoxedMap](#petpetiduploadimagepostpathparameters4boxedmap)
 
 sealed interface that stores validated payloads using boxed classes
 
-## PetpetiduploadimagePostadditionalPropertiesBoxedVoid
-public record PetpetiduploadimagePostadditionalPropertiesBoxedVoid<br>
-implements [PetpetiduploadimagePostadditionalPropertiesBoxed](#petpetiduploadimagepostadditionalpropertiesboxed)
+## PetpetiduploadimagePostPathParameters4BoxedVoid
+public record PetpetiduploadimagePostPathParameters4BoxedVoid<br>
+implements [PetpetiduploadimagePostPathParameters4Boxed](#petpetiduploadimagepostpathparameters4boxed)
 
 record that stores validated null payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| PetpetiduploadimagePostadditionalPropertiesBoxedVoid(Void data)<br>Creates an instance, private visibility |
+| PetpetiduploadimagePostPathParameters4BoxedVoid(Void data)<br>Creates an instance, private visibility |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
@@ -174,16 +174,16 @@ record that stores validated null payloads, sealed permits implementation
 | Void | data()<br>validated payload |
 | @Nullable Object | getData()<br>validated payload |
 
-## PetpetiduploadimagePostadditionalPropertiesBoxedBoolean
-public record PetpetiduploadimagePostadditionalPropertiesBoxedBoolean<br>
-implements [PetpetiduploadimagePostadditionalPropertiesBoxed](#petpetiduploadimagepostadditionalpropertiesboxed)
+## PetpetiduploadimagePostPathParameters4BoxedBoolean
+public record PetpetiduploadimagePostPathParameters4BoxedBoolean<br>
+implements [PetpetiduploadimagePostPathParameters4Boxed](#petpetiduploadimagepostpathparameters4boxed)
 
 record that stores validated boolean payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| PetpetiduploadimagePostadditionalPropertiesBoxedBoolean(boolean data)<br>Creates an instance, private visibility |
+| PetpetiduploadimagePostPathParameters4BoxedBoolean(boolean data)<br>Creates an instance, private visibility |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
@@ -191,16 +191,16 @@ record that stores validated boolean payloads, sealed permits implementation
 | boolean | data()<br>validated payload |
 | @Nullable Object | getData()<br>validated payload |
 
-## PetpetiduploadimagePostadditionalPropertiesBoxedNumber
-public record PetpetiduploadimagePostadditionalPropertiesBoxedNumber<br>
-implements [PetpetiduploadimagePostadditionalPropertiesBoxed](#petpetiduploadimagepostadditionalpropertiesboxed)
+## PetpetiduploadimagePostPathParameters4BoxedNumber
+public record PetpetiduploadimagePostPathParameters4BoxedNumber<br>
+implements [PetpetiduploadimagePostPathParameters4Boxed](#petpetiduploadimagepostpathparameters4boxed)
 
 record that stores validated Number payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| PetpetiduploadimagePostadditionalPropertiesBoxedNumber(Number data)<br>Creates an instance, private visibility |
+| PetpetiduploadimagePostPathParameters4BoxedNumber(Number data)<br>Creates an instance, private visibility |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
@@ -208,16 +208,16 @@ record that stores validated Number payloads, sealed permits implementation
 | Number | data()<br>validated payload |
 | @Nullable Object | getData()<br>validated payload |
 
-## PetpetiduploadimagePostadditionalPropertiesBoxedString
-public record PetpetiduploadimagePostadditionalPropertiesBoxedString<br>
-implements [PetpetiduploadimagePostadditionalPropertiesBoxed](#petpetiduploadimagepostadditionalpropertiesboxed)
+## PetpetiduploadimagePostPathParameters4BoxedString
+public record PetpetiduploadimagePostPathParameters4BoxedString<br>
+implements [PetpetiduploadimagePostPathParameters4Boxed](#petpetiduploadimagepostpathparameters4boxed)
 
 record that stores validated String payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| PetpetiduploadimagePostadditionalPropertiesBoxedString(String data)<br>Creates an instance, private visibility |
+| PetpetiduploadimagePostPathParameters4BoxedString(String data)<br>Creates an instance, private visibility |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
@@ -225,16 +225,16 @@ record that stores validated String payloads, sealed permits implementation
 | String | data()<br>validated payload |
 | @Nullable Object | getData()<br>validated payload |
 
-## PetpetiduploadimagePostadditionalPropertiesBoxedList
-public record PetpetiduploadimagePostadditionalPropertiesBoxedList<br>
-implements [PetpetiduploadimagePostadditionalPropertiesBoxed](#petpetiduploadimagepostadditionalpropertiesboxed)
+## PetpetiduploadimagePostPathParameters4BoxedList
+public record PetpetiduploadimagePostPathParameters4BoxedList<br>
+implements [PetpetiduploadimagePostPathParameters4Boxed](#petpetiduploadimagepostpathparameters4boxed)
 
 record that stores validated List payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| PetpetiduploadimagePostadditionalPropertiesBoxedList(FrozenList<@Nullable Object> data)<br>Creates an instance, private visibility |
+| PetpetiduploadimagePostPathParameters4BoxedList(FrozenList<@Nullable Object> data)<br>Creates an instance, private visibility |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
@@ -242,16 +242,16 @@ record that stores validated List payloads, sealed permits implementation
 | FrozenList<@Nullable Object> | data()<br>validated payload |
 | @Nullable Object | getData()<br>validated payload |
 
-## PetpetiduploadimagePostadditionalPropertiesBoxedMap
-public record PetpetiduploadimagePostadditionalPropertiesBoxedMap<br>
-implements [PetpetiduploadimagePostadditionalPropertiesBoxed](#petpetiduploadimagepostadditionalpropertiesboxed)
+## PetpetiduploadimagePostPathParameters4BoxedMap
+public record PetpetiduploadimagePostPathParameters4BoxedMap<br>
+implements [PetpetiduploadimagePostPathParameters4Boxed](#petpetiduploadimagepostpathparameters4boxed)
 
 record that stores validated Map payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| PetpetiduploadimagePostadditionalPropertiesBoxedMap(FrozenMap<@Nullable Object> data)<br>Creates an instance, private visibility |
+| PetpetiduploadimagePostPathParameters4BoxedMap(FrozenMap<@Nullable Object> data)<br>Creates an instance, private visibility |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
@@ -259,8 +259,8 @@ record that stores validated Map payloads, sealed permits implementation
 | FrozenMap<@Nullable Object> | data()<br>validated payload |
 | @Nullable Object | getData()<br>validated payload |
 
-## PetpetiduploadimagePostadditionalProperties
-public static class PetpetiduploadimagePostadditionalProperties<br>
+## PetpetiduploadimagePostPathParameters4
+public static class PetpetiduploadimagePostPathParameters4<br>
 extends NotAnyTypeJsonSchema.NotAnyTypeJsonSchema1
 
 A schema class that validates payloads

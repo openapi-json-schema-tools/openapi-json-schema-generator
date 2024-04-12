@@ -100,9 +100,9 @@ Fake apiClient = new Fake(apiConfiguration, schemaConfiguration);
 
 
 // Map validation
-FakeDeleteHeaderParameters.FakeDeleteHeaderParametersMap headerParameters =
+FakeDeleteHeaderParameters.FakeDeleteHeaderParameters12 headerParameters =
     FakeDeleteHeaderParameters.FakeDeleteHeaderParameters1.validate(
-    new FakeDeleteHeaderParameters.FakeDeleteHeaderParametersMapBuilder()
+    new FakeDeleteHeaderParameters.FakeDeleteHeaderParameters11()
         .required_boolean_group("true")
 
         .boolean_group("true")
@@ -112,9 +112,9 @@ FakeDeleteHeaderParameters.FakeDeleteHeaderParametersMap headerParameters =
 );
 
 // Map validation
-FakeDeleteQueryParameters.FakeDeleteQueryParametersMap queryParameters =
+FakeDeleteQueryParameters.FakeDeleteQueryParameters14 queryParameters =
     FakeDeleteQueryParameters.FakeDeleteQueryParameters1.validate(
-    new FakeDeleteQueryParameters.FakeDeleteQueryParametersMapBuilder()
+    new FakeDeleteQueryParameters.FakeDeleteQueryParameters13()
         .required_int64_group(1L)
 
         .required_string_group("a")

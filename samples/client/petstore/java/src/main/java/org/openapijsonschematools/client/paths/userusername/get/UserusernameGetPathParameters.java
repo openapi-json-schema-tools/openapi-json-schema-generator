@@ -29,27 +29,27 @@ public class UserusernameGetPathParameters {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static class UserusernameGetadditionalProperties extends NotAnyTypeJsonSchema.NotAnyTypeJsonSchema1 {
+    public static class UserusernameGetPathParameters4 extends NotAnyTypeJsonSchema.NotAnyTypeJsonSchema1 {
         // NotAnyTypeSchema
-        private static @Nullable UserusernameGetadditionalProperties instance = null;
-        public static UserusernameGetadditionalProperties getInstance() {
+        private static @Nullable UserusernameGetPathParameters4 instance = null;
+        public static UserusernameGetPathParameters4 getInstance() {
             if (instance == null) {
-                instance = new UserusernameGetadditionalProperties();
+                instance = new UserusernameGetPathParameters4();
             }
             return instance;
         }
     }
     
     
-    public static class UserusernameGetPathParametersMap extends FrozenMap<String> {
-        protected UserusernameGetPathParametersMap(FrozenMap<String> m) {
+    public static class UserusernameGetPathParameters9 extends FrozenMap<String> {
+        protected UserusernameGetPathParameters9(FrozenMap<String> m) {
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of(
             "username"
         );
         public static final Set<String> optionalKeys = Set.of();
-        public static UserusernameGetPathParametersMap of(Map<String, String> arg, SchemaConfiguration configuration) throws ValidationException {
+        public static UserusernameGetPathParameters9 of(Map<String, String> arg, SchemaConfiguration configuration) throws ValidationException {
             return UserusernameGetPathParameters1.getInstance().validate(arg, configuration);
         }
         
@@ -62,18 +62,18 @@ public class UserusernameGetPathParameters {
         }
     }
     
-    public interface SetterForUserusernameGetusername <T> {
+    public interface SetterForUserusernameGetPathParameters2 <T> {
         Map<String, String> getInstance();
-        T getBuilderAfterUserusernameGetusername(Map<String, String> instance);
+        T getBuilderAfterUserusernameGetPathParameters2(Map<String, String> instance);
         
         default T username(String value) {
             var instance = getInstance();
             instance.put("username", value);
-            return getBuilderAfterUserusernameGetusername(instance);
+            return getBuilderAfterUserusernameGetPathParameters2(instance);
         }
     }
     
-    public static class UserusernameGetPathParametersMap0Builder implements GenericBuilder<Map<String, String>> {
+    public static class UserusernameGetPathParameters10 implements GenericBuilder<Map<String, String>> {
         private final Map<String, String> instance;
         private static final Set<String> knownKeys = Set.of(
             "username"
@@ -81,7 +81,7 @@ public class UserusernameGetPathParameters {
         public Set<String> getKnownKeys() {
             return knownKeys;
         }
-        public UserusernameGetPathParametersMap0Builder(Map<String, String> instance) {
+        public UserusernameGetPathParameters10(Map<String, String> instance) {
             this.instance = instance;
         }
         public Map<String, String> build() {
@@ -89,16 +89,16 @@ public class UserusernameGetPathParameters {
         }
     }
     
-    public static class UserusernameGetPathParametersMapBuilder implements SetterForUserusernameGetusername<UserusernameGetPathParametersMap0Builder> {
+    public static class UserusernameGetPathParameters8 implements SetterForUserusernameGetPathParameters2<UserusernameGetPathParameters10> {
         private final Map<String, String> instance;
-        public UserusernameGetPathParametersMapBuilder() {
+        public UserusernameGetPathParameters8() {
             this.instance = new LinkedHashMap<>();
         }
         public Map<String, String> getInstance() {
             return instance;
         }
-        public UserusernameGetPathParametersMap0Builder getBuilderAfterUserusernameGetusername(Map<String, String> instance) {
-            return new UserusernameGetPathParametersMap0Builder(instance);
+        public UserusernameGetPathParameters10 getBuilderAfterUserusernameGetPathParameters2(Map<String, String> instance) {
+            return new UserusernameGetPathParameters10(instance);
         }
     }
     
@@ -107,7 +107,7 @@ public class UserusernameGetPathParameters {
         @Nullable Object getData();
     }
     
-    public record UserusernameGetPathParameters1BoxedMap(UserusernameGetPathParametersMap data) implements UserusernameGetPathParameters1Boxed {
+    public record UserusernameGetPathParameters1BoxedMap(UserusernameGetPathParameters9 data) implements UserusernameGetPathParameters1Boxed {
         @Override
         public @Nullable Object getData() {
             return data;
@@ -115,7 +115,7 @@ public class UserusernameGetPathParameters {
     }
     
     
-    public static class UserusernameGetPathParameters1 extends JsonSchema<UserusernameGetPathParameters1Boxed> implements MapSchemaValidator<UserusernameGetPathParametersMap, UserusernameGetPathParameters1BoxedMap> {
+    public static class UserusernameGetPathParameters1 extends JsonSchema<UserusernameGetPathParameters1Boxed> implements MapSchemaValidator<UserusernameGetPathParameters9, UserusernameGetPathParameters1BoxedMap> {
         private static @Nullable UserusernameGetPathParameters1 instance = null;
     
         protected UserusernameGetPathParameters1() {
@@ -127,7 +127,7 @@ public class UserusernameGetPathParameters {
                 .required(Set.of(
                     "username"
                 ))
-                .additionalProperties(UserusernameGetadditionalProperties.class)
+                .additionalProperties(UserusernameGetPathParameters4.class)
             );
         }
     
@@ -138,7 +138,7 @@ public class UserusernameGetPathParameters {
             return instance;
         }
         
-        public UserusernameGetPathParametersMap getNewInstance(Map<?, ?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+        public UserusernameGetPathParameters9 getNewInstance(Map<?, ?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
             LinkedHashMap<String, String> properties = new LinkedHashMap<>();
             for(Map.Entry<?, ?> entry: arg.entrySet()) {
                 @Nullable Object entryKey = entry.getKey();
@@ -161,10 +161,10 @@ public class UserusernameGetPathParameters {
                 properties.put(propertyName, (String) propertyInstance);
             }
             FrozenMap<String> castProperties = new FrozenMap<>(properties);
-            return new UserusernameGetPathParametersMap(castProperties);
+            return new UserusernameGetPathParameters9(castProperties);
         }
         
-        public UserusernameGetPathParametersMap validate(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException {
+        public UserusernameGetPathParameters9 validate(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException {
             Set<List<Object>> pathSet = new HashSet<>();
             List<Object> pathToItem = List.of("args[0");
             Map<?, ?> castArg = castToAllowedTypes(arg, pathToItem, pathSet);

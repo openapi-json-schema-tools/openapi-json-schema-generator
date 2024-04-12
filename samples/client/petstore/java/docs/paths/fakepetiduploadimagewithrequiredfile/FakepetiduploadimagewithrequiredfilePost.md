@@ -84,9 +84,9 @@ FakepetiduploadimagewithrequiredfilePost.Post apiClient = new Fakepetiduploadima
 
 
 // Map validation
-FakepetiduploadimagewithrequiredfilePostPathParameters.FakepetiduploadimagewithrequiredfilePostPathParametersMap pathParameters =
+FakepetiduploadimagewithrequiredfilePostPathParameters.FakepetiduploadimagewithrequiredfilePostPathParameters9 pathParameters =
     FakepetiduploadimagewithrequiredfilePostPathParameters.FakepetiduploadimagewithrequiredfilePostPathParameters1.validate(
-    new FakepetiduploadimagewithrequiredfilePostPathParameters.FakepetiduploadimagewithrequiredfilePostPathParametersMapBuilder()
+    new FakepetiduploadimagewithrequiredfilePostPathParameters.FakepetiduploadimagewithrequiredfilePostPathParameters8()
         .petId(1L)
 
     .build(),
@@ -146,7 +146,7 @@ a class that stores the final request inputs
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | --------------------- |
-| [FakepetiduploadimagewithrequiredfilePostPathParameters.FakepetiduploadimagewithrequiredfilePostPathParametersMap](../../paths/fakepetiduploadimagewithrequiredfile/post/FakepetiduploadimagewithrequiredfilePostPathParameters.md#fakepetiduploadimagewithrequiredfilepostpathparametersmap) | pathParameters |
+| [FakepetiduploadimagewithrequiredfilePostPathParameters.FakepetiduploadimagewithrequiredfilePostPathParameters9](../../paths/fakepetiduploadimagewithrequiredfile/post/FakepetiduploadimagewithrequiredfilePostPathParameters.md#fakepetiduploadimagewithrequiredfilepostpathparameters9) | pathParameters |
 | [FakepetiduploadimagewithrequiredfilePostRequestBody.@Nullable SealedRequestBody](../../paths/fakepetiduploadimagewithrequiredfile/post/FakepetiduploadimagewithrequiredfilePostRequestBody.md#sealedrequestbody) | requestBody<br>optional |
 | [ServerInfo.@Nullable ServerIndex](../../ServerInfo.md#serverindex) | serverIndex<br>optional. Note: this will override the value in apiConfiguration |
 | [FakepetiduploadimagewithrequiredfilePostSecurityInfo.@Nullable SecurityIndex](../../paths/fakepetiduploadimagewithrequiredfile/post/FakepetiduploadimagewithrequiredfilePostSecurityInfo.md#securityindex) | securityIndex<br>optional. Note: this will override the value in apiConfiguration |
@@ -160,7 +160,7 @@ a class that stores the initial request inputs
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | --------------------- |
-| [FakepetiduploadimagewithrequiredfilePostPathParameters.@Nullable FakepetiduploadimagewithrequiredfilePostPathParametersMap](../../paths/fakepetiduploadimagewithrequiredfile/post/FakepetiduploadimagewithrequiredfilePostPathParameters.md#fakepetiduploadimagewithrequiredfilepostpathparametersmap) | pathParameters |
+| [FakepetiduploadimagewithrequiredfilePostPathParameters.@Nullable FakepetiduploadimagewithrequiredfilePostPathParameters9](../../paths/fakepetiduploadimagewithrequiredfile/post/FakepetiduploadimagewithrequiredfilePostPathParameters.md#fakepetiduploadimagewithrequiredfilepostpathparameters9) | pathParameters |
 | [FakepetiduploadimagewithrequiredfilePostRequestBody.@Nullable SealedRequestBody](../../paths/fakepetiduploadimagewithrequiredfile/post/FakepetiduploadimagewithrequiredfilePostRequestBody.md#sealedrequestbody) | requestBody |
 | [ServerInfo.@Nullable ServerIndex](../../ServerInfo.md#serverindex) | serverIndex |
 | [FakepetiduploadimagewithrequiredfilePostSecurityInfo.@Nullable SecurityIndex](../../paths/fakepetiduploadimagewithrequiredfile/post/FakepetiduploadimagewithrequiredfilePostSecurityInfo.md#securityindex) | securityIndex |
@@ -198,6 +198,6 @@ a builder for request inputs
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [Post0RequestBuilder](#post0requestbuilder) | pathParameters([FakepetiduploadimagewithrequiredfilePostPathParametersFakepetiduploadimagewithrequiredfilePostPathParametersMap](../../paths/fakepetiduploadimagewithrequiredfile/post/FakepetiduploadimagewithrequiredfilePostPathParameters.md#fakepetiduploadimagewithrequiredfilepostpathparametersmap) pathParameters)<br>sets the property |
+| [Post0RequestBuilder](#post0requestbuilder) | pathParameters([FakepetiduploadimagewithrequiredfilePostPathParametersFakepetiduploadimagewithrequiredfilePostPathParameters9](../../paths/fakepetiduploadimagewithrequiredfile/post/FakepetiduploadimagewithrequiredfilePostPathParameters.md#fakepetiduploadimagewithrequiredfilepostpathparameters9) pathParameters)<br>sets the property |
 
 [[Back to top]](#top) [[Back to README]](../../../README.md)
