@@ -23,14 +23,14 @@ A class that stores servers and allows one to be returned with a ServerIndex ins
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| RootServerInfo1(@Nullable [Server0](servers/Server0.md) server0,@Nullable [Server1](servers/Server1.md) server1,@Nullable [Server2](servers/Server2.md) server2)<br>Creates an instance using passed in servers |
+| RootServerInfo1(@Nullable [RootServer0](servers/RootServer0.md) server0,@Nullable [RootServer1](servers/RootServer1.md) server1,@Nullable [RootServer2](servers/RootServer2.md) server2)<br>Creates an instance using passed in servers |
 
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | --------------------- |
-| [Server0](servers/Server0.md) | server0 |
-| [Server1](servers/Server1.md) | server1 |
-| [Server2](servers/Server2.md) | server2 |
+| [RootServer0](servers/RootServer0.md) | server0 |
+| [RootServer1](servers/RootServer1.md) | server1 |
+| [RootServer2](servers/RootServer2.md) | server2 |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
@@ -49,9 +49,9 @@ a builder for [RootServerInfo1](#rootserverinfo1)
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [RootServerInfoBuilder](#rootserverinfobuilder) | server0([Server0](servers/Server0.md) server0)<br>sets the server |
-| [RootServerInfoBuilder](#rootserverinfobuilder) | server1([Server1](servers/Server1.md) server1)<br>sets the server |
-| [RootServerInfoBuilder](#rootserverinfobuilder) | server2([Server2](servers/Server2.md) server2)<br>sets the server |
+| [RootServerInfoBuilder](#rootserverinfobuilder) | rootServer0([RootServer0](servers/RootServer0.md) server0)<br>sets the server |
+| [RootServerInfoBuilder](#rootserverinfobuilder) | rootServer1([RootServer1](servers/RootServer1.md) server1)<br>sets the server |
+| [RootServerInfoBuilder](#rootserverinfobuilder) | rootServer2([RootServer2](servers/RootServer2.md) server2)<br>sets the server |
 | [RootServerInfo1](#rootserverinfo1) | build() |
 
 ## ServerIndex

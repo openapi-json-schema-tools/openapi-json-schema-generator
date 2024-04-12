@@ -37,9 +37,9 @@ import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.RootServerInfo;
 import org.openapijsonschematools.client.paths.petpetid.get.PetpetidGetSecurityInfo;
 import org.openapijsonschematools.client.paths.petpetid.get.PetpetidGetPathParameters;
-import org.openapijsonschematools.client.servers.Server0;
-import org.openapijsonschematools.client.servers.Server1;
-import org.openapijsonschematools.client.servers.Server2;
+import org.openapijsonschematools.client.servers.RootServer0;
+import org.openapijsonschematools.client.servers.RootServer1;
+import org.openapijsonschematools.client.servers.RootServer2;
 import org.openapijsonschematools.client.securityschemes.SecurityScheme;
 import org.openapijsonschematools.client.components.securityschemes.ApiKey;
 import org.openapijsonschematools.client.paths.petpetid.get.responses.PetpetidGetCode200Response;
@@ -52,13 +52,14 @@ import org.openapijsonschematools.client.paths.petpetid.get.PetpetidGetResponses
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
 import java.util.AbstractMap;
 
 // if you want to use a server that is not SERVER_0 pass it in here and change the ServerIndex input below
 ApiConfiguration.ServerInfo serverInfo = new ApiConfiguration.ServerInfoBuilder()
     .rootServerInfo(
         new RootServerInfo.RootServerInfoBuilder()
-            .server0(new Server0())
+            .rootServer0(new RootServer0())
             .build()
     )
     .build();
@@ -73,21 +74,23 @@ ApiConfiguration.SecurityIndexInfo securityIndexInfo = new ApiConfiguration.Secu
     .petpetidGetSecurityRequirementObject0SecurityIndex(PetpetidGetSecurityRequirementObject0.SecurityIndex.SECURITY_0)
     .build();
 Duration timeout = Duration.ofSeconds(1L);
+Map<String, List<String>> defaultHeaders = Map.of("User-Agent", List.of("OpenAPI-JSON-Schema-Generator/1.0.0/java"));
 ApiConfiguration apiConfiguration = new ApiConfiguration(
     serverInfo
     serverIndexInfo,
     securitySchemes,
     securityIndexInfo,
-    timeout
+    timeout,
+    defaultHeaders
 );
 SchemaConfiguration schemaConfiguration = new SchemaConfiguration(new JsonSchemaKeywordFlags.Builder().build());
 PetpetidGet.Get apiClient = new PetpetidGet.Get(apiConfiguration, schemaConfiguration);
 
 
 // Map validation
-PetpetidGetPathParameters.PetpetidGetPathParametersMap pathParameters =
+PetpetidGetPathParameters.PathParametersMap pathParameters =
     PetpetidGetPathParameters.PetpetidGetPathParameters1.validate(
-    new PetpetidGetPathParameters.PetpetidGetPathParametersMapBuilder()
+    new PetpetidGetPathParameters.PathParametersMapBuilder()
         .petId(1L)
 
     .build(),
@@ -154,7 +157,7 @@ a class that stores the final request inputs
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | --------------------- |
-| [PetpetidGetPathParameters.PetpetidGetPathParametersMap](../../paths/petpetid/get/PetpetidGetPathParameters.md#petpetidgetpathparametersmap) | pathParameters |
+| [PetpetidGetPathParameters.PathParametersMap](../../paths/petpetid/get/PetpetidGetPathParameters.md#pathparametersmap) | pathParameters |
 | [RootServerInfo.@Nullable ServerIndex](../../RootServerInfo.md#serverindex) | serverIndex<br>optional. Note: this will override the value in apiConfiguration |
 | [PetpetidGetSecurityInfo.@Nullable SecurityIndex](../../paths/petpetid/get/PetpetidGetSecurityInfo.md#securityindex) | securityIndex<br>optional. Note: this will override the value in apiConfiguration |
 | @Nullable Duration | timeout<br>optional. Note: this will override the value in apiConfiguration |
@@ -167,7 +170,7 @@ a class that stores the initial request inputs
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | --------------------- |
-| [PetpetidGetPathParameters.@Nullable PetpetidGetPathParametersMap](../../paths/petpetid/get/PetpetidGetPathParameters.md#petpetidgetpathparametersmap) | pathParameters |
+| [PetpetidGetPathParameters.@Nullable PathParametersMap](../../paths/petpetid/get/PetpetidGetPathParameters.md#pathparametersmap) | pathParameters |
 | [RootServerInfo.@Nullable ServerIndex](../../RootServerInfo.md#serverindex) | serverIndex |
 | [PetpetidGetSecurityInfo.@Nullable SecurityIndex](../../paths/petpetid/get/PetpetidGetSecurityInfo.md#securityindex) | securityIndex |
 | @Nullable Duration | timeout |
@@ -203,6 +206,6 @@ a builder for request inputs
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [Get0RequestBuilder](#get0requestbuilder) | pathParameters([PetpetidGetPathParametersPetpetidGetPathParametersMap](../../paths/petpetid/get/PetpetidGetPathParameters.md#petpetidgetpathparametersmap) pathParameters)<br>sets the property |
+| [Get0RequestBuilder](#get0requestbuilder) | pathParameters([PetpetidGetPathParametersPathParametersMap](../../paths/petpetid/get/PetpetidGetPathParameters.md#pathparametersmap) pathParameters)<br>sets the property |
 
 [[Back to top]](#top) [[Back to README]](../../../README.md)

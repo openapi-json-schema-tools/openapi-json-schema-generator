@@ -40,9 +40,9 @@ import org.openapijsonschematools.client.RootServerInfo;
 import org.openapijsonschematools.client.paths.fake.delete.FakeDeleteSecurityInfo;
 import org.openapijsonschematools.client.paths.fake.delete.FakeDeleteHeaderParameters;
 import org.openapijsonschematools.client.paths.fake.delete.FakeDeleteQueryParameters;
-import org.openapijsonschematools.client.servers.Server0;
-import org.openapijsonschematools.client.servers.Server1;
-import org.openapijsonschematools.client.servers.Server2;
+import org.openapijsonschematools.client.servers.RootServer0;
+import org.openapijsonschematools.client.servers.RootServer1;
+import org.openapijsonschematools.client.servers.RootServer2;
 import org.openapijsonschematools.client.securityschemes.SecurityScheme;
 import org.openapijsonschematools.client.components.securityschemes.BearerTest;
 import org.openapijsonschematools.client.paths.fake.delete.responses.FakeDeleteCode200Response;
@@ -53,13 +53,14 @@ import org.openapijsonschematools.client.paths.fake.delete.FakeDeleteResponses;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
 import java.util.AbstractMap;
 
 // if you want to use a server that is not SERVER_0 pass it in here and change the ServerIndex input below
 ApiConfiguration.ServerInfo serverInfo = new ApiConfiguration.ServerInfoBuilder()
     .rootServerInfo(
         new RootServerInfo.RootServerInfoBuilder()
-            .server0(new Server0())
+            .rootServer0(new RootServer0())
             .build()
     )
     .build();
@@ -74,21 +75,23 @@ ApiConfiguration.SecurityIndexInfo securityIndexInfo = new ApiConfiguration.Secu
     .fakeDeleteSecurityRequirementObject0SecurityIndex(FakeDeleteSecurityRequirementObject0.SecurityIndex.SECURITY_0)
     .build();
 Duration timeout = Duration.ofSeconds(1L);
+Map<String, List<String>> defaultHeaders = Map.of("User-Agent", List.of("OpenAPI-JSON-Schema-Generator/1.0.0/java"));
 ApiConfiguration apiConfiguration = new ApiConfiguration(
     serverInfo
     serverIndexInfo,
     securitySchemes,
     securityIndexInfo,
-    timeout
+    timeout,
+    defaultHeaders
 );
 SchemaConfiguration schemaConfiguration = new SchemaConfiguration(new JsonSchemaKeywordFlags.Builder().build());
 FakeDelete.Delete apiClient = new FakeDelete.Delete(apiConfiguration, schemaConfiguration);
 
 
 // Map validation
-FakeDeleteHeaderParameters.FakeDeleteHeaderParametersMap headerParameters =
+FakeDeleteHeaderParameters.HeaderParametersMap headerParameters =
     FakeDeleteHeaderParameters.FakeDeleteHeaderParameters1.validate(
-    new FakeDeleteHeaderParameters.FakeDeleteHeaderParametersMapBuilder()
+    new FakeDeleteHeaderParameters.HeaderParametersMapBuilder()
         .required_boolean_group("true")
 
         .boolean_group("true")
@@ -98,9 +101,9 @@ FakeDeleteHeaderParameters.FakeDeleteHeaderParametersMap headerParameters =
 );
 
 // Map validation
-FakeDeleteQueryParameters.FakeDeleteQueryParametersMap queryParameters =
+FakeDeleteQueryParameters.QueryParametersMap queryParameters =
     FakeDeleteQueryParameters.FakeDeleteQueryParameters1.validate(
-    new FakeDeleteQueryParameters.FakeDeleteQueryParametersMapBuilder()
+    new FakeDeleteQueryParameters.QueryParametersMapBuilder()
         .required_int64_group(1L)
 
         .required_string_group("a")
@@ -165,8 +168,8 @@ a class that stores the final request inputs
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | --------------------- |
-| [FakeDeleteHeaderParameters.FakeDeleteHeaderParametersMap](../../paths/fake/delete/FakeDeleteHeaderParameters.md#fakedeleteheaderparametersmap) | headerParameters |
-| [FakeDeleteQueryParameters.FakeDeleteQueryParametersMap](../../paths/fake/delete/FakeDeleteQueryParameters.md#fakedeletequeryparametersmap) | queryParameters |
+| [FakeDeleteHeaderParameters.HeaderParametersMap](../../paths/fake/delete/FakeDeleteHeaderParameters.md#headerparametersmap) | headerParameters |
+| [FakeDeleteQueryParameters.QueryParametersMap](../../paths/fake/delete/FakeDeleteQueryParameters.md#queryparametersmap) | queryParameters |
 | [RootServerInfo.@Nullable ServerIndex](../../RootServerInfo.md#serverindex) | serverIndex<br>optional. Note: this will override the value in apiConfiguration |
 | [FakeDeleteSecurityInfo.@Nullable SecurityIndex](../../paths/fake/delete/FakeDeleteSecurityInfo.md#securityindex) | securityIndex<br>optional. Note: this will override the value in apiConfiguration |
 | @Nullable Duration | timeout<br>optional. Note: this will override the value in apiConfiguration |
@@ -179,8 +182,8 @@ a class that stores the initial request inputs
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | --------------------- |
-| [FakeDeleteHeaderParameters.@Nullable FakeDeleteHeaderParametersMap](../../paths/fake/delete/FakeDeleteHeaderParameters.md#fakedeleteheaderparametersmap) | headerParameters |
-| [FakeDeleteQueryParameters.@Nullable FakeDeleteQueryParametersMap](../../paths/fake/delete/FakeDeleteQueryParameters.md#fakedeletequeryparametersmap) | queryParameters |
+| [FakeDeleteHeaderParameters.@Nullable HeaderParametersMap](../../paths/fake/delete/FakeDeleteHeaderParameters.md#headerparametersmap) | headerParameters |
+| [FakeDeleteQueryParameters.@Nullable QueryParametersMap](../../paths/fake/delete/FakeDeleteQueryParameters.md#queryparametersmap) | queryParameters |
 | [RootServerInfo.@Nullable ServerIndex](../../RootServerInfo.md#serverindex) | serverIndex |
 | [FakeDeleteSecurityInfo.@Nullable SecurityIndex](../../paths/fake/delete/FakeDeleteSecurityInfo.md#securityindex) | securityIndex |
 | @Nullable Duration | timeout |
@@ -216,7 +219,7 @@ a builder for request inputs
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [Delete00RequestBuilder](#delete00requestbuilder) | queryParameters([FakeDeleteQueryParametersFakeDeleteQueryParametersMap](../../paths/fake/delete/FakeDeleteQueryParameters.md#fakedeletequeryparametersmap) queryParameters)<br>sets the property |
+| [Delete00RequestBuilder](#delete00requestbuilder) | queryParameters([FakeDeleteQueryParametersQueryParametersMap](../../paths/fake/delete/FakeDeleteQueryParameters.md#queryparametersmap) queryParameters)<br>sets the property |
 
 ## Delete10RequestBuilder
 public static class Delete10RequestBuilder<br>
@@ -231,7 +234,7 @@ a builder for request inputs
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [Delete00RequestBuilder](#delete00requestbuilder) | headerParameters([FakeDeleteHeaderParametersFakeDeleteHeaderParametersMap](../../paths/fake/delete/FakeDeleteHeaderParameters.md#fakedeleteheaderparametersmap) headerParameters)<br>sets the property |
+| [Delete00RequestBuilder](#delete00requestbuilder) | headerParameters([FakeDeleteHeaderParametersHeaderParametersMap](../../paths/fake/delete/FakeDeleteHeaderParameters.md#headerparametersmap) headerParameters)<br>sets the property |
 
 ## DeleteRequestBuilder
 public static class DeleteRequestBuilder<br>
@@ -246,7 +249,7 @@ a builder for request inputs
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [Delete01RequestBuilder](#delete01requestbuilder) | headerParameters([FakeDeleteHeaderParametersFakeDeleteHeaderParametersMap](../../paths/fake/delete/FakeDeleteHeaderParameters.md#fakedeleteheaderparametersmap) headerParameters)<br>sets the property |
-| [Delete10RequestBuilder](#delete10requestbuilder) | queryParameters([FakeDeleteQueryParametersFakeDeleteQueryParametersMap](../../paths/fake/delete/FakeDeleteQueryParameters.md#fakedeletequeryparametersmap) queryParameters)<br>sets the property |
+| [Delete01RequestBuilder](#delete01requestbuilder) | headerParameters([FakeDeleteHeaderParametersHeaderParametersMap](../../paths/fake/delete/FakeDeleteHeaderParameters.md#headerparametersmap) headerParameters)<br>sets the property |
+| [Delete10RequestBuilder](#delete10requestbuilder) | queryParameters([FakeDeleteQueryParametersQueryParametersMap](../../paths/fake/delete/FakeDeleteQueryParameters.md#queryparametersmap) queryParameters)<br>sets the property |
 
 [[Back to top]](#top) [[Back to README]](../../../README.md)

@@ -14,16 +14,16 @@ A class that contains necessary nested
 | sealed interface | [UserusernamePutPathParameters.UserusernamePutPathParameters1Boxed](#userusernameputpathparameters1boxed)<br> sealed interface for validated payloads |
 | record | [UserusernamePutPathParameters.UserusernamePutPathParameters1BoxedMap](#userusernameputpathparameters1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [UserusernamePutPathParameters.UserusernamePutPathParameters1](#userusernameputpathparameters1)<br> schema class |
-| static class | [UserusernamePutPathParameters.UserusernamePutPathParametersMapBuilder](#userusernameputpathparametersmapbuilder)<br> builder for Map payloads |
-| static class | [UserusernamePutPathParameters.UserusernamePutPathParametersMap](#userusernameputpathparametersmap)<br> output class for Map payloads |
-| sealed interface | [UserusernamePutPathParameters.UserusernamePutadditionalPropertiesBoxed](#userusernameputadditionalpropertiesboxed)<br> sealed interface for validated payloads |
-| record | [UserusernamePutPathParameters.UserusernamePutadditionalPropertiesBoxedVoid](#userusernameputadditionalpropertiesboxedvoid)<br> boxed class to store validated null payloads |
-| record | [UserusernamePutPathParameters.UserusernamePutadditionalPropertiesBoxedBoolean](#userusernameputadditionalpropertiesboxedboolean)<br> boxed class to store validated boolean payloads |
-| record | [UserusernamePutPathParameters.UserusernamePutadditionalPropertiesBoxedNumber](#userusernameputadditionalpropertiesboxednumber)<br> boxed class to store validated Number payloads |
-| record | [UserusernamePutPathParameters.UserusernamePutadditionalPropertiesBoxedString](#userusernameputadditionalpropertiesboxedstring)<br> boxed class to store validated String payloads |
-| record | [UserusernamePutPathParameters.UserusernamePutadditionalPropertiesBoxedList](#userusernameputadditionalpropertiesboxedlist)<br> boxed class to store validated List payloads |
-| record | [UserusernamePutPathParameters.UserusernamePutadditionalPropertiesBoxedMap](#userusernameputadditionalpropertiesboxedmap)<br> boxed class to store validated Map payloads |
-| static class | [UserusernamePutPathParameters.UserusernamePutadditionalProperties](#userusernameputadditionalproperties)<br> schema class |
+| static class | [UserusernamePutPathParameters.PathParametersMapBuilder](#pathparametersmapbuilder)<br> builder for Map payloads |
+| static class | [UserusernamePutPathParameters.PathParametersMap](#pathparametersmap)<br> output class for Map payloads |
+| sealed interface | [UserusernamePutPathParameters.AdditionalPropertiesBoxed](#additionalpropertiesboxed)<br> sealed interface for validated payloads |
+| record | [UserusernamePutPathParameters.AdditionalPropertiesBoxedVoid](#additionalpropertiesboxedvoid)<br> boxed class to store validated null payloads |
+| record | [UserusernamePutPathParameters.AdditionalPropertiesBoxedBoolean](#additionalpropertiesboxedboolean)<br> boxed class to store validated boolean payloads |
+| record | [UserusernamePutPathParameters.AdditionalPropertiesBoxedNumber](#additionalpropertiesboxednumber)<br> boxed class to store validated Number payloads |
+| record | [UserusernamePutPathParameters.AdditionalPropertiesBoxedString](#additionalpropertiesboxedstring)<br> boxed class to store validated String payloads |
+| record | [UserusernamePutPathParameters.AdditionalPropertiesBoxedList](#additionalpropertiesboxedlist)<br> boxed class to store validated List payloads |
+| record | [UserusernamePutPathParameters.AdditionalPropertiesBoxedMap](#additionalpropertiesboxedmap)<br> boxed class to store validated Map payloads |
+| static class | [UserusernamePutPathParameters.AdditionalProperties](#additionalproperties)<br> schema class |
 
 ## UserusernamePutPathParameters1Boxed
 public sealed interface UserusernamePutPathParameters1Boxed<br>
@@ -41,12 +41,12 @@ record that stores validated Map payloads, sealed permits implementation
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| UserusernamePutPathParameters1BoxedMap([UserusernamePutPathParametersMap](#userusernameputpathparametersmap) data)<br>Creates an instance, private visibility |
+| UserusernamePutPathParameters1BoxedMap([PathParametersMap](#pathparametersmap) data)<br>Creates an instance, private visibility |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [UserusernamePutPathParametersMap](#userusernameputpathparametersmap) | data()<br>validated payload |
+| [PathParametersMap](#pathparametersmap) | data()<br>validated payload |
 | @Nullable Object | getData()<br>validated payload |
 
 ## UserusernamePutPathParameters1
@@ -72,9 +72,9 @@ import java.util.AbstractMap;
 static final SchemaConfiguration configuration = new SchemaConfiguration(new JsonSchemaKeywordFlags.Builder().build());
 
 // Map validation
-UserusernamePutPathParameters.UserusernamePutPathParametersMap validatedPayload =
+UserusernamePutPathParameters.PathParametersMap validatedPayload =
     UserusernamePutPathParameters.UserusernamePutPathParameters1.validate(
-    new UserusernamePutPathParameters.UserusernamePutPathParametersMapBuilder()
+    new UserusernamePutPathParameters.PathParametersMapBuilder()
         .username("a")
 
     .build(),
@@ -88,18 +88,18 @@ UserusernamePutPathParameters.UserusernamePutPathParametersMap validatedPayload 
 | Set<Class<?>> | type = Set.of(Map.class) |
 | Map<String, Class<? extends JsonSchema>> | properties = Map.ofEntries(<br>&nbsp;&nbsp;&nbsp;&nbsp;new PropertyEntry("username", [Schema.Schema1.class](../../../components/parameters/pathusername/Schema.md#schema1))<br>)<br> |
 | Set<String> | required = Set.of(<br>&nbsp;&nbsp;&nbsp;&nbsp;"username"<br>)<br> |
-| Class<? extends JsonSchema> | additionalProperties = [UserusernamePutadditionalProperties.class](#userusernameputadditionalproperties) |
+| Class<? extends JsonSchema> | additionalProperties = [AdditionalProperties.class](#additionalproperties) |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [UserusernamePutPathParametersMap](#userusernameputpathparametersmap) | validate([Map&lt;?, ?&gt;](#userusernameputpathparametersmapbuilder) arg, SchemaConfiguration configuration) |
-| [UserusernamePutPathParameters1BoxedMap](#userusernameputpathparameters1boxedmap) | validateAndBox([Map&lt;?, ?&gt;](#userusernameputpathparametersmapbuilder) arg, SchemaConfiguration configuration) |
+| [PathParametersMap](#pathparametersmap) | validate([Map&lt;?, ?&gt;](#pathparametersmapbuilder) arg, SchemaConfiguration configuration) |
+| [UserusernamePutPathParameters1BoxedMap](#userusernameputpathparameters1boxedmap) | validateAndBox([Map&lt;?, ?&gt;](#pathparametersmapbuilder) arg, SchemaConfiguration configuration) |
 | [UserusernamePutPathParameters1Boxed](#userusernameputpathparameters1boxed) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 
-## UserusernamePutPathParametersMap0Builder
-public class UserusernamePutPathParametersMap0Builder<br>
+## PathParametersMap0Builder
+public class PathParametersMap0Builder<br>
 builder for `Map<String, String>`
 
 A class that builds the Map input type
@@ -107,15 +107,15 @@ A class that builds the Map input type
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| UserusernamePutPathParametersMap0Builder(Map<String, String> instance)<br>Creates a builder that contains the passed instance |
+| PathParametersMap0Builder(Map<String, String> instance)<br>Creates a builder that contains the passed instance |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | Map<String, String> | build()<br>Returns map input that should be used with Schema.validate |
 
-## UserusernamePutPathParametersMapBuilder
-public class UserusernamePutPathParametersMapBuilder<br>
+## PathParametersMapBuilder
+public class PathParametersMapBuilder<br>
 builder for `Map<String, String>`
 
 A class that builds the Map input type
@@ -123,15 +123,15 @@ A class that builds the Map input type
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| UserusernamePutPathParametersMapBuilder()<br>Creates a builder that contains an empty map |
+| PathParametersMapBuilder()<br>Creates a builder that contains an empty map |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [UserusernamePutPathParametersMap0Builder](#userusernameputpathparametersmap0builder) | username(String value) |
+| [PathParametersMap0Builder](#pathparametersmap0builder) | username(String value) |
 
-## UserusernamePutPathParametersMap
-public static class UserusernamePutPathParametersMap<br>
+## PathParametersMap
+public static class PathParametersMap<br>
 extends FrozenMap<String, String>
 
 A class to store validated Map payloads
@@ -139,31 +139,31 @@ A class to store validated Map payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [UserusernamePutPathParametersMap](#userusernameputpathparametersmap) | of([Map<String, String>](#userusernameputpathparametersmapbuilder) arg, SchemaConfiguration configuration) |
+| static [PathParametersMap](#pathparametersmap) | of([Map<String, String>](#pathparametersmapbuilder) arg, SchemaConfiguration configuration) |
 | String | username()<br> |
 
-## UserusernamePutadditionalPropertiesBoxed
-public sealed interface UserusernamePutadditionalPropertiesBoxed<br>
+## AdditionalPropertiesBoxed
+public sealed interface AdditionalPropertiesBoxed<br>
 permits<br>
-[UserusernamePutadditionalPropertiesBoxedVoid](#userusernameputadditionalpropertiesboxedvoid),
-[UserusernamePutadditionalPropertiesBoxedBoolean](#userusernameputadditionalpropertiesboxedboolean),
-[UserusernamePutadditionalPropertiesBoxedNumber](#userusernameputadditionalpropertiesboxednumber),
-[UserusernamePutadditionalPropertiesBoxedString](#userusernameputadditionalpropertiesboxedstring),
-[UserusernamePutadditionalPropertiesBoxedList](#userusernameputadditionalpropertiesboxedlist),
-[UserusernamePutadditionalPropertiesBoxedMap](#userusernameputadditionalpropertiesboxedmap)
+[AdditionalPropertiesBoxedVoid](#additionalpropertiesboxedvoid),
+[AdditionalPropertiesBoxedBoolean](#additionalpropertiesboxedboolean),
+[AdditionalPropertiesBoxedNumber](#additionalpropertiesboxednumber),
+[AdditionalPropertiesBoxedString](#additionalpropertiesboxedstring),
+[AdditionalPropertiesBoxedList](#additionalpropertiesboxedlist),
+[AdditionalPropertiesBoxedMap](#additionalpropertiesboxedmap)
 
 sealed interface that stores validated payloads using boxed classes
 
-## UserusernamePutadditionalPropertiesBoxedVoid
-public record UserusernamePutadditionalPropertiesBoxedVoid<br>
-implements [UserusernamePutadditionalPropertiesBoxed](#userusernameputadditionalpropertiesboxed)
+## AdditionalPropertiesBoxedVoid
+public record AdditionalPropertiesBoxedVoid<br>
+implements [AdditionalPropertiesBoxed](#additionalpropertiesboxed)
 
 record that stores validated null payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| UserusernamePutadditionalPropertiesBoxedVoid(Void data)<br>Creates an instance, private visibility |
+| AdditionalPropertiesBoxedVoid(Void data)<br>Creates an instance, private visibility |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
@@ -171,16 +171,16 @@ record that stores validated null payloads, sealed permits implementation
 | Void | data()<br>validated payload |
 | @Nullable Object | getData()<br>validated payload |
 
-## UserusernamePutadditionalPropertiesBoxedBoolean
-public record UserusernamePutadditionalPropertiesBoxedBoolean<br>
-implements [UserusernamePutadditionalPropertiesBoxed](#userusernameputadditionalpropertiesboxed)
+## AdditionalPropertiesBoxedBoolean
+public record AdditionalPropertiesBoxedBoolean<br>
+implements [AdditionalPropertiesBoxed](#additionalpropertiesboxed)
 
 record that stores validated boolean payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| UserusernamePutadditionalPropertiesBoxedBoolean(boolean data)<br>Creates an instance, private visibility |
+| AdditionalPropertiesBoxedBoolean(boolean data)<br>Creates an instance, private visibility |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
@@ -188,16 +188,16 @@ record that stores validated boolean payloads, sealed permits implementation
 | boolean | data()<br>validated payload |
 | @Nullable Object | getData()<br>validated payload |
 
-## UserusernamePutadditionalPropertiesBoxedNumber
-public record UserusernamePutadditionalPropertiesBoxedNumber<br>
-implements [UserusernamePutadditionalPropertiesBoxed](#userusernameputadditionalpropertiesboxed)
+## AdditionalPropertiesBoxedNumber
+public record AdditionalPropertiesBoxedNumber<br>
+implements [AdditionalPropertiesBoxed](#additionalpropertiesboxed)
 
 record that stores validated Number payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| UserusernamePutadditionalPropertiesBoxedNumber(Number data)<br>Creates an instance, private visibility |
+| AdditionalPropertiesBoxedNumber(Number data)<br>Creates an instance, private visibility |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
@@ -205,16 +205,16 @@ record that stores validated Number payloads, sealed permits implementation
 | Number | data()<br>validated payload |
 | @Nullable Object | getData()<br>validated payload |
 
-## UserusernamePutadditionalPropertiesBoxedString
-public record UserusernamePutadditionalPropertiesBoxedString<br>
-implements [UserusernamePutadditionalPropertiesBoxed](#userusernameputadditionalpropertiesboxed)
+## AdditionalPropertiesBoxedString
+public record AdditionalPropertiesBoxedString<br>
+implements [AdditionalPropertiesBoxed](#additionalpropertiesboxed)
 
 record that stores validated String payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| UserusernamePutadditionalPropertiesBoxedString(String data)<br>Creates an instance, private visibility |
+| AdditionalPropertiesBoxedString(String data)<br>Creates an instance, private visibility |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
@@ -222,16 +222,16 @@ record that stores validated String payloads, sealed permits implementation
 | String | data()<br>validated payload |
 | @Nullable Object | getData()<br>validated payload |
 
-## UserusernamePutadditionalPropertiesBoxedList
-public record UserusernamePutadditionalPropertiesBoxedList<br>
-implements [UserusernamePutadditionalPropertiesBoxed](#userusernameputadditionalpropertiesboxed)
+## AdditionalPropertiesBoxedList
+public record AdditionalPropertiesBoxedList<br>
+implements [AdditionalPropertiesBoxed](#additionalpropertiesboxed)
 
 record that stores validated List payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| UserusernamePutadditionalPropertiesBoxedList(FrozenList<@Nullable Object> data)<br>Creates an instance, private visibility |
+| AdditionalPropertiesBoxedList(FrozenList<@Nullable Object> data)<br>Creates an instance, private visibility |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
@@ -239,16 +239,16 @@ record that stores validated List payloads, sealed permits implementation
 | FrozenList<@Nullable Object> | data()<br>validated payload |
 | @Nullable Object | getData()<br>validated payload |
 
-## UserusernamePutadditionalPropertiesBoxedMap
-public record UserusernamePutadditionalPropertiesBoxedMap<br>
-implements [UserusernamePutadditionalPropertiesBoxed](#userusernameputadditionalpropertiesboxed)
+## AdditionalPropertiesBoxedMap
+public record AdditionalPropertiesBoxedMap<br>
+implements [AdditionalPropertiesBoxed](#additionalpropertiesboxed)
 
 record that stores validated Map payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| UserusernamePutadditionalPropertiesBoxedMap(FrozenMap<@Nullable Object> data)<br>Creates an instance, private visibility |
+| AdditionalPropertiesBoxedMap(FrozenMap<@Nullable Object> data)<br>Creates an instance, private visibility |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
@@ -256,8 +256,8 @@ record that stores validated Map payloads, sealed permits implementation
 | FrozenMap<@Nullable Object> | data()<br>validated payload |
 | @Nullable Object | getData()<br>validated payload |
 
-## UserusernamePutadditionalProperties
-public static class UserusernamePutadditionalProperties<br>
+## AdditionalProperties
+public static class AdditionalProperties<br>
 extends NotAnyTypeJsonSchema.NotAnyTypeJsonSchema1
 
 A schema class that validates payloads

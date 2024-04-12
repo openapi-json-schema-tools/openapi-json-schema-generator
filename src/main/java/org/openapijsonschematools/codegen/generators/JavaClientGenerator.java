@@ -133,17 +133,19 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
     }
 
     protected void updateServersFilepath(String[] pathPieces) {
+        String[] copiedPathPieces = pathPieces.clone();
+        copiedPathPieces[0] = "#";
+        String jsonPath = String.join("/", copiedPathPieces);
         if (pathPieces.length == 2) {
             // #/servers
             pathPieces[1] = "RootServerInfo";
         } else if (pathPieces.length == 3) {
             // #/servers/0
-            String jsonPath = "#/servers/" + pathPieces[2];
             pathPieces[2] = toServerFilename(pathPieces[2], jsonPath);
         } else {
             // #/servers/0/variables
-            pathPieces[2] = toServerFilename(pathPieces[2], null).toLowerCase(Locale.ROOT);
-            pathPieces[3] = "Variables";
+            pathPieces[2] = toServerFilename(pathPieces[2], jsonPath).toLowerCase(Locale.ROOT);
+            pathPieces[3] = getSchemaFilename(jsonPath);
         }
     }
 
@@ -155,7 +157,7 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
 
     @Override
     public String toServerFilename(String basename, String jsonPath) {
-        return getPascalCaseServer(basename, jsonPath);
+        return getPascalCase(CodegenKeyType.SERVER, basename, jsonPath);
     }
 
     @Override
@@ -1263,6 +1265,11 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
         - so all header schemas must be named by their header name to prevent collisions
          */
         String[] pathPieces = sourceJsonPath.split("/");
+
+
+        String lastFragment = pathPieces[pathPieces.length-1];
+        boolean operationParametersSchema = (sourceJsonPath.startsWith("#/paths/") && xParameters.contains(lastFragment) && xParameters.contains(name));
+        boolean serverVariables = (lastFragment.equals("variables") && Set.of(4,6,7).contains(pathPieces.length) && name.equals("variables"));
         if (sourceJsonPath.endsWith("/schema")) {
             if (sourceJsonPath.startsWith("#/paths") && sourceJsonPath.contains("/parameters/")) {
                 if (pathPieces[3].equals("parameters")) {
@@ -1284,7 +1291,7 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
                 } else if (sourceJsonPath.startsWith("#/components/responses/") && sourceJsonPath.contains("/headers/")) {
                     // #/components/responses/SomeResponse/headers/someHeader/schema
                     String headerFragment = pathPieces[5];
-                    usedKey =  camelize(headerFragment)+ camelize(usedKey);
+                    usedKey =  camelize(headerFragment) + camelize(usedKey);
                 } else {
                     // #/paths/path/verb/responses/SomeResponse/headers/someHeader/schema
                     String headerFragment = pathPieces[7];
@@ -1305,8 +1312,23 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
             String responseFragment = pathPieces[pathPieces.length-2];
             String pascalCaseResponse = getPascalCaseResponse(responseFragment, responseJsonPath);
             usedKey =  pascalCaseResponse + camelize(usedKey);
+        } else if (operationParametersSchema) {
+            String prefix = getPathClassNamePrefix(sourceJsonPath);
+            usedKey = prefix + lastFragment;
+        } else if (serverVariables) {
+            if (pathPieces.length == 4) {
+                // #/servers/0/variables -> 4
+                usedKey = "RootServer" + pathPieces[2] + "Variables";
+            } else if (pathPieces.length == 6) {
+                // #/paths/somePath/servers/0/variables -> 6
+                CodegenKey pathKey = getKey(ModelUtils.decodeSlashes(pathPieces[2]), "paths", sourceJsonPath);
+                usedKey = pathKey.pascalCase + "Server" + pathPieces[4] + "Variables";
+            } else {
+                // #/paths/somePath/get/servers/0/variables -> 7
+                String prefix = getPathClassNamePrefix(sourceJsonPath);
+                usedKey = prefix + "Server" + pathPieces[5] + "Variables";
+            }
         }
-
         HashMap<String, Integer> keyToQty = sourceJsonPathToKeyToQty.getOrDefault(sourceJsonPath, new HashMap<>());
         if (useCache) {
             if (!sourceJsonPathToKeyToQty.containsKey(sourceJsonPath)) {
@@ -1353,16 +1375,11 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
     @Override
     public String getSchemaFilename(String jsonPath) {
         String modelName = schemaJsonPathToModelName.get(jsonPath);
-        if (modelName == null) {
-            String[] pathPieces = jsonPath.split("/");
-            String lastFragment = pathPieces[pathPieces.length-1];
-            if (jsonPath.startsWith("#/paths/") && xParameters.contains(lastFragment)) {
-                String prefix = getPathClassNamePrefix(jsonPath);
-                lastFragment = prefix + lastFragment;
-            }
-            return getSchemaPascalCaseName(lastFragment, jsonPath, false);
+        if (modelName != null) {
+            return modelName;
         }
-        return modelName;
+        String[] pathPieces = jsonPath.split("/");
+        return getSchemaPascalCaseName(pathPieces[pathPieces.length-1], jsonPath, false);
     }
 
     protected CodegenKey getContainerJsonPathPiece(String expectedComponentType, String currentJsonPath, String sourceJsonPath) {
@@ -2621,14 +2638,6 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
     public String getPascalCase(CodegenKeyType type, String lastJsonPathFragment, String jsonPath) {
         switch (type) {
             case SCHEMA:
-                if (jsonPath != null) {
-                    String[] pathPieces = jsonPath.split("/");
-                    String lastFragment = pathPieces[pathPieces.length-1];
-                    if (jsonPath.startsWith("#/paths/") && xParameters.contains(lastFragment)) {
-                        String prefix = getPathClassNamePrefix(jsonPath);
-                        lastJsonPathFragment = prefix + lastJsonPathFragment;
-                    }
-                }
                 return getSchemaPascalCaseName(lastJsonPathFragment, jsonPath, true);
             case PATH:
                 return camelize(toPathFilename(lastJsonPathFragment, jsonPath));
@@ -2659,37 +2668,31 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
                     return prefix + "Code" + lastJsonPathFragment + "Response";
                 }
             case SERVER:
-                if (jsonPath != null) {
-                    String[] pathPieces = jsonPath.split("/");
-                    if (jsonPath.startsWith("#/servers")) {
-                        if (pathPieces.length == 2) {
-                            // #/servers
-                            return "RootServerInfo";
-                        } else {
-                            // #/servers/0
-                            return "Server"+pathPieces[2];
-                        }
-                    } else if (jsonPath.startsWith("#/paths") && pathPieces.length >= 4 && pathPieces[3].equals("servers")) {
-                        CodegenKey pathKey = getKey(ModelUtils.decodeSlashes(pathPieces[2]), "paths", jsonPath);
-                        if (pathPieces.length == 4) {
-                            // #/paths/somePath/servers
-                            return pathKey.pascalCase + "ServerInfo";
-                        } else {
-                            // #/paths/somePath/servers/0
-                            return pathKey.pascalCase + "Server"+ pathPieces[4];
-                        }
-                    } else if (jsonPath.startsWith("#/paths") && pathPieces.length >= 5 && pathPieces[4].equals("servers")) {
-                        String prefix = getPathClassNamePrefix(jsonPath);
-                        if (pathPieces.length == 5) {
-                            // #/paths/somePath/get/servers
-                            return prefix + "ServerInfo";
-                        } else {
-                            // #/paths/somePath/get/servers/0
-                            return prefix + "Server" + pathPieces[5];
-                        }
+                String[] pathPieces = jsonPath.split("/");
+                if (jsonPath.startsWith("#/servers")) {
+                    if (pathPieces.length == 2) {
+                        // #/servers
+                        return "RootServerInfo";
                     }
+                    // #/servers/0
+                    return "RootServer"+pathPieces[2];
+                } else if (jsonPath.startsWith("#/paths") && pathPieces.length >= 4 && pathPieces[3].equals("servers")) {
+                    CodegenKey pathKey = getKey(ModelUtils.decodeSlashes(pathPieces[2]), "paths", jsonPath);
+                    if (pathPieces.length == 4) {
+                        // #/paths/somePath/servers
+                        return pathKey.pascalCase + "ServerInfo";
+                    }
+                    // #/paths/somePath/servers/0
+                    return pathKey.pascalCase + "Server"+ pathPieces[4];
                 }
-                return "Server" + lastJsonPathFragment;
+                // jsonPath.startsWith("#/paths") && pathPieces.length >= 5 && pathPieces[4].equals("servers")
+                String prefix = getPathClassNamePrefix(jsonPath);
+                if (pathPieces.length == 5) {
+                    // #/paths/somePath/get/servers
+                    return prefix + "ServerInfo";
+                }
+                // #/paths/somePath/get/servers/0
+                return prefix + "Server" + pathPieces[5];
             case SECURITY:
                 return toSecurityFilename(lastJsonPathFragment, jsonPath);
             default:
@@ -3263,8 +3266,7 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
                 this.setArtifactVersion(ARTIFACT_VERSION_DEFAULT_VALUE);
             }
         }
-        additionalProperties.put(CodegenConstants.ARTIFACT_VERSION, artifactVersion);
-
+        // must be sequential after initial setting above
         if (additionalProperties.containsKey(CodegenConstants.SNAPSHOT_VERSION)) {
             if (convertPropertyToBooleanAndWriteBack(CodegenConstants.SNAPSHOT_VERSION)) {
                 this.setArtifactVersion(this.buildSnapshotVersion(this.getArtifactVersion()));

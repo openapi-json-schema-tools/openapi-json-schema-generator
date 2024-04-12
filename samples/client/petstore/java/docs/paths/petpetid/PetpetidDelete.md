@@ -38,9 +38,9 @@ import org.openapijsonschematools.client.paths.petpetid.delete.PetpetidDeleteHea
 import org.openapijsonschematools.client.RootServerInfo;
 import org.openapijsonschematools.client.paths.petpetid.delete.PetpetidDeleteSecurityInfo;
 import org.openapijsonschematools.client.paths.petpetid.delete.PetpetidDeletePathParameters;
-import org.openapijsonschematools.client.servers.Server0;
-import org.openapijsonschematools.client.servers.Server1;
-import org.openapijsonschematools.client.servers.Server2;
+import org.openapijsonschematools.client.servers.RootServer0;
+import org.openapijsonschematools.client.servers.RootServer1;
+import org.openapijsonschematools.client.servers.RootServer2;
 import org.openapijsonschematools.client.securityschemes.SecurityScheme;
 import org.openapijsonschematools.client.components.securityschemes.ApiKey;
 import org.openapijsonschematools.client.components.securityschemes.PetstoreAuth;
@@ -52,13 +52,14 @@ import org.openapijsonschematools.client.paths.petpetid.delete.PetpetidDeleteRes
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
 import java.util.AbstractMap;
 
 // if you want to use a server that is not SERVER_0 pass it in here and change the ServerIndex input below
 ApiConfiguration.ServerInfo serverInfo = new ApiConfiguration.ServerInfoBuilder()
     .rootServerInfo(
         new RootServerInfo.RootServerInfoBuilder()
-            .server0(new Server0())
+            .rootServer0(new RootServer0())
             .build()
     )
     .build();
@@ -73,21 +74,23 @@ ApiConfiguration.SecurityIndexInfo securityIndexInfo = new ApiConfiguration.Secu
     .petpetidDeleteSecurityRequirementObject0SecurityIndex(PetpetidDeleteSecurityRequirementObject0.SecurityIndex.SECURITY_0)
     .build();
 Duration timeout = Duration.ofSeconds(1L);
+Map<String, List<String>> defaultHeaders = Map.of("User-Agent", List.of("OpenAPI-JSON-Schema-Generator/1.0.0/java"));
 ApiConfiguration apiConfiguration = new ApiConfiguration(
     serverInfo
     serverIndexInfo,
     securitySchemes,
     securityIndexInfo,
-    timeout
+    timeout,
+    defaultHeaders
 );
 SchemaConfiguration schemaConfiguration = new SchemaConfiguration(new JsonSchemaKeywordFlags.Builder().build());
 PetpetidDelete.Delete apiClient = new PetpetidDelete.Delete(apiConfiguration, schemaConfiguration);
 
 
 // Map validation
-PetpetidDeletePathParameters.PetpetidDeletePathParametersMap pathParameters =
+PetpetidDeletePathParameters.PathParametersMap pathParameters =
     PetpetidDeletePathParameters.PetpetidDeletePathParameters1.validate(
-    new PetpetidDeletePathParameters.PetpetidDeletePathParametersMapBuilder()
+    new PetpetidDeletePathParameters.PathParametersMapBuilder()
         .petId(1L)
 
     .build(),
@@ -147,8 +150,8 @@ a class that stores the final request inputs
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | --------------------- |
-| [PetpetidDeletePathParameters.PetpetidDeletePathParametersMap](../../paths/petpetid/delete/PetpetidDeletePathParameters.md#petpetiddeletepathparametersmap) | pathParameters |
-| [PetpetidDeleteHeaderParameters.@Nullable PetpetidDeleteHeaderParametersMap](../../paths/petpetid/delete/PetpetidDeleteHeaderParameters.md#petpetiddeleteheaderparametersmap) | headerParameters<br>optional |
+| [PetpetidDeletePathParameters.PathParametersMap](../../paths/petpetid/delete/PetpetidDeletePathParameters.md#pathparametersmap) | pathParameters |
+| [PetpetidDeleteHeaderParameters.@Nullable HeaderParametersMap](../../paths/petpetid/delete/PetpetidDeleteHeaderParameters.md#headerparametersmap) | headerParameters<br>optional |
 | [RootServerInfo.@Nullable ServerIndex](../../RootServerInfo.md#serverindex) | serverIndex<br>optional. Note: this will override the value in apiConfiguration |
 | [PetpetidDeleteSecurityInfo.@Nullable SecurityIndex](../../paths/petpetid/delete/PetpetidDeleteSecurityInfo.md#securityindex) | securityIndex<br>optional. Note: this will override the value in apiConfiguration |
 | @Nullable Duration | timeout<br>optional. Note: this will override the value in apiConfiguration |
@@ -161,8 +164,8 @@ a class that stores the initial request inputs
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | --------------------- |
-| [PetpetidDeletePathParameters.@Nullable PetpetidDeletePathParametersMap](../../paths/petpetid/delete/PetpetidDeletePathParameters.md#petpetiddeletepathparametersmap) | pathParameters |
-| [PetpetidDeleteHeaderParameters.@Nullable PetpetidDeleteHeaderParametersMap](../../paths/petpetid/delete/PetpetidDeleteHeaderParameters.md#petpetiddeleteheaderparametersmap) | headerParameters |
+| [PetpetidDeletePathParameters.@Nullable PathParametersMap](../../paths/petpetid/delete/PetpetidDeletePathParameters.md#pathparametersmap) | pathParameters |
+| [PetpetidDeleteHeaderParameters.@Nullable HeaderParametersMap](../../paths/petpetid/delete/PetpetidDeleteHeaderParameters.md#headerparametersmap) | headerParameters |
 | [RootServerInfo.@Nullable ServerIndex](../../RootServerInfo.md#serverindex) | serverIndex |
 | [PetpetidDeleteSecurityInfo.@Nullable SecurityIndex](../../paths/petpetid/delete/PetpetidDeleteSecurityInfo.md#securityindex) | securityIndex |
 | @Nullable Duration | timeout |
@@ -181,7 +184,7 @@ a builder for request inputs
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [DeleteRequest](#deleterequest) | build()<br>Returns the request input used to call an endpoint method |
-| [Delete0RequestBuilder](#delete0requestbuilder) | headerParameters([PetpetidDeleteHeaderParametersPetpetidDeleteHeaderParametersMap](../../paths/petpetid/delete/PetpetidDeleteHeaderParameters.md#petpetiddeleteheaderparametersmap) headerParameters)<br>sets the optional property |
+| [Delete0RequestBuilder](#delete0requestbuilder) | headerParameters([PetpetidDeleteHeaderParametersHeaderParametersMap](../../paths/petpetid/delete/PetpetidDeleteHeaderParameters.md#headerparametersmap) headerParameters)<br>sets the optional property |
 | [Delete0RequestBuilder](#delete0requestbuilder) | serverIndex([RootServerInfo.ServerIndex](../../RootServerInfo.md#serverindex) serverIndex)<br>sets the optional property. Note: this will override the value in apiConfiguration |
 | [Delete0RequestBuilder](#delete0requestbuilder) | securityIndex([PetpetidDeleteSecurityInfo.SecurityIndex](../../paths/petpetid/delete/PetpetidDeleteSecurityInfo.md#securityindex) securityIndex)<br>sets the optional property. Note: this will override the value in apiConfiguration |
 | [Delete0RequestBuilder](#delete0requestbuilder) | timeout(Duration timeout)<br>sets the optional property. Note: this will override the value in apiConfiguration |
@@ -199,6 +202,6 @@ a builder for request inputs
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [Delete0RequestBuilder](#delete0requestbuilder) | pathParameters([PetpetidDeletePathParametersPetpetidDeletePathParametersMap](../../paths/petpetid/delete/PetpetidDeletePathParameters.md#petpetiddeletepathparametersmap) pathParameters)<br>sets the property |
+| [Delete0RequestBuilder](#delete0requestbuilder) | pathParameters([PetpetidDeletePathParametersPathParametersMap](../../paths/petpetid/delete/PetpetidDeletePathParameters.md#pathparametersmap) pathParameters)<br>sets the property |
 
 [[Back to top]](#top) [[Back to README]](../../../README.md)

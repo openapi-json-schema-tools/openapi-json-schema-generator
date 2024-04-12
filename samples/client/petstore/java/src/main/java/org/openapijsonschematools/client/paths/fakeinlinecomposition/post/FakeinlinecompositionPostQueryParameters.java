@@ -30,20 +30,20 @@ public class FakeinlinecompositionPostQueryParameters {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static class FakeinlinecompositionPostadditionalProperties extends NotAnyTypeJsonSchema.NotAnyTypeJsonSchema1 {
+    public static class AdditionalProperties extends NotAnyTypeJsonSchema.NotAnyTypeJsonSchema1 {
         // NotAnyTypeSchema
-        private static @Nullable FakeinlinecompositionPostadditionalProperties instance = null;
-        public static FakeinlinecompositionPostadditionalProperties getInstance() {
+        private static @Nullable AdditionalProperties instance = null;
+        public static AdditionalProperties getInstance() {
             if (instance == null) {
-                instance = new FakeinlinecompositionPostadditionalProperties();
+                instance = new AdditionalProperties();
             }
             return instance;
         }
     }
     
     
-    public static class FakeinlinecompositionPostQueryParametersMap extends FrozenMap<@Nullable Object> {
-        protected FakeinlinecompositionPostQueryParametersMap(FrozenMap<@Nullable Object> m) {
+    public static class QueryParametersMap extends FrozenMap<@Nullable Object> {
+        protected QueryParametersMap(FrozenMap<@Nullable Object> m) {
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of();
@@ -51,7 +51,7 @@ public class FakeinlinecompositionPostQueryParameters {
             "compositionAtRoot",
             "compositionInProperty"
         );
-        public static FakeinlinecompositionPostQueryParametersMap of(Map<String, ? extends @Nullable Object> arg, SchemaConfiguration configuration) throws ValidationException {
+        public static QueryParametersMap of(Map<String, ? extends @Nullable Object> arg, SchemaConfiguration configuration) throws ValidationException {
             return FakeinlinecompositionPostQueryParameters1.getInstance().validate(arg, configuration);
         }
         
@@ -76,77 +76,77 @@ public class FakeinlinecompositionPostQueryParameters {
         }
     }
     
-    public interface SetterForFakeinlinecompositionPostcompositionAtRoot <T> {
+    public interface SetterForCompositionAtRoot <T> {
         Map<String, @Nullable Object> getInstance();
-        T getBuilderAfterFakeinlinecompositionPostcompositionAtRoot(Map<String, @Nullable Object> instance);
+        T getBuilderAfterCompositionAtRoot(Map<String, @Nullable Object> instance);
         
         default T compositionAtRoot(Void value) {
             var instance = getInstance();
             instance.put("compositionAtRoot", null);
-            return getBuilderAfterFakeinlinecompositionPostcompositionAtRoot(instance);
+            return getBuilderAfterCompositionAtRoot(instance);
         }
         
         default T compositionAtRoot(boolean value) {
             var instance = getInstance();
             instance.put("compositionAtRoot", value);
-            return getBuilderAfterFakeinlinecompositionPostcompositionAtRoot(instance);
+            return getBuilderAfterCompositionAtRoot(instance);
         }
         
         default T compositionAtRoot(String value) {
             var instance = getInstance();
             instance.put("compositionAtRoot", value);
-            return getBuilderAfterFakeinlinecompositionPostcompositionAtRoot(instance);
+            return getBuilderAfterCompositionAtRoot(instance);
         }
         
         default T compositionAtRoot(int value) {
             var instance = getInstance();
             instance.put("compositionAtRoot", value);
-            return getBuilderAfterFakeinlinecompositionPostcompositionAtRoot(instance);
+            return getBuilderAfterCompositionAtRoot(instance);
         }
         
         default T compositionAtRoot(float value) {
             var instance = getInstance();
             instance.put("compositionAtRoot", value);
-            return getBuilderAfterFakeinlinecompositionPostcompositionAtRoot(instance);
+            return getBuilderAfterCompositionAtRoot(instance);
         }
         
         default T compositionAtRoot(long value) {
             var instance = getInstance();
             instance.put("compositionAtRoot", value);
-            return getBuilderAfterFakeinlinecompositionPostcompositionAtRoot(instance);
+            return getBuilderAfterCompositionAtRoot(instance);
         }
         
         default T compositionAtRoot(double value) {
             var instance = getInstance();
             instance.put("compositionAtRoot", value);
-            return getBuilderAfterFakeinlinecompositionPostcompositionAtRoot(instance);
+            return getBuilderAfterCompositionAtRoot(instance);
         }
         
         default T compositionAtRoot(List<?> value) {
             var instance = getInstance();
             instance.put("compositionAtRoot", value);
-            return getBuilderAfterFakeinlinecompositionPostcompositionAtRoot(instance);
+            return getBuilderAfterCompositionAtRoot(instance);
         }
         
         default T compositionAtRoot(Map<String, ?> value) {
             var instance = getInstance();
             instance.put("compositionAtRoot", value);
-            return getBuilderAfterFakeinlinecompositionPostcompositionAtRoot(instance);
+            return getBuilderAfterCompositionAtRoot(instance);
         }
     }
     
-    public interface SetterForFakeinlinecompositionPostcompositionInProperty <T> {
+    public interface SetterForCompositionInProperty <T> {
         Map<String, @Nullable Object> getInstance();
-        T getBuilderAfterFakeinlinecompositionPostcompositionInProperty(Map<String, @Nullable Object> instance);
+        T getBuilderAfterCompositionInProperty(Map<String, @Nullable Object> instance);
         
         default T compositionInProperty(Map<String, @Nullable Object> value) {
             var instance = getInstance();
             instance.put("compositionInProperty", value);
-            return getBuilderAfterFakeinlinecompositionPostcompositionInProperty(instance);
+            return getBuilderAfterCompositionInProperty(instance);
         }
     }
     
-    public static class FakeinlinecompositionPostQueryParametersMapBuilder implements GenericBuilder<Map<String, @Nullable Object>>, SetterForFakeinlinecompositionPostcompositionAtRoot<FakeinlinecompositionPostQueryParametersMapBuilder>, SetterForFakeinlinecompositionPostcompositionInProperty<FakeinlinecompositionPostQueryParametersMapBuilder> {
+    public static class QueryParametersMapBuilder implements GenericBuilder<Map<String, @Nullable Object>>, SetterForCompositionAtRoot<QueryParametersMapBuilder>, SetterForCompositionInProperty<QueryParametersMapBuilder> {
         private final Map<String, @Nullable Object> instance;
         private static final Set<String> knownKeys = Set.of(
             "compositionAtRoot",
@@ -155,7 +155,7 @@ public class FakeinlinecompositionPostQueryParameters {
         public Set<String> getKnownKeys() {
             return knownKeys;
         }
-        public FakeinlinecompositionPostQueryParametersMapBuilder() {
+        public QueryParametersMapBuilder() {
             this.instance = new LinkedHashMap<>();
         }
         public Map<String, @Nullable Object> build() {
@@ -164,10 +164,10 @@ public class FakeinlinecompositionPostQueryParameters {
         public Map<String, @Nullable Object> getInstance() {
             return instance;
         }
-        public FakeinlinecompositionPostQueryParametersMapBuilder getBuilderAfterFakeinlinecompositionPostcompositionAtRoot(Map<String, @Nullable Object> instance) {
+        public QueryParametersMapBuilder getBuilderAfterCompositionAtRoot(Map<String, @Nullable Object> instance) {
             return this;
         }
-        public FakeinlinecompositionPostQueryParametersMapBuilder getBuilderAfterFakeinlinecompositionPostcompositionInProperty(Map<String, @Nullable Object> instance) {
+        public QueryParametersMapBuilder getBuilderAfterCompositionInProperty(Map<String, @Nullable Object> instance) {
             return this;
         }
     }
@@ -177,7 +177,7 @@ public class FakeinlinecompositionPostQueryParameters {
         @Nullable Object getData();
     }
     
-    public record FakeinlinecompositionPostQueryParameters1BoxedMap(FakeinlinecompositionPostQueryParametersMap data) implements FakeinlinecompositionPostQueryParameters1Boxed {
+    public record FakeinlinecompositionPostQueryParameters1BoxedMap(QueryParametersMap data) implements FakeinlinecompositionPostQueryParameters1Boxed {
         @Override
         public @Nullable Object getData() {
             return data;
@@ -185,7 +185,7 @@ public class FakeinlinecompositionPostQueryParameters {
     }
     
     
-    public static class FakeinlinecompositionPostQueryParameters1 extends JsonSchema<FakeinlinecompositionPostQueryParameters1Boxed> implements MapSchemaValidator<FakeinlinecompositionPostQueryParametersMap, FakeinlinecompositionPostQueryParameters1BoxedMap> {
+    public static class FakeinlinecompositionPostQueryParameters1 extends JsonSchema<FakeinlinecompositionPostQueryParameters1Boxed> implements MapSchemaValidator<QueryParametersMap, FakeinlinecompositionPostQueryParameters1BoxedMap> {
         private static @Nullable FakeinlinecompositionPostQueryParameters1 instance = null;
     
         protected FakeinlinecompositionPostQueryParameters1() {
@@ -195,7 +195,7 @@ public class FakeinlinecompositionPostQueryParameters {
                     new PropertyEntry("compositionAtRoot", Schema0.Schema01.class),
                     new PropertyEntry("compositionInProperty", Schema1.Schema11.class)
                 ))
-                .additionalProperties(FakeinlinecompositionPostadditionalProperties.class)
+                .additionalProperties(AdditionalProperties.class)
             );
         }
     
@@ -206,7 +206,7 @@ public class FakeinlinecompositionPostQueryParameters {
             return instance;
         }
         
-        public FakeinlinecompositionPostQueryParametersMap getNewInstance(Map<?, ?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+        public QueryParametersMap getNewInstance(Map<?, ?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
             LinkedHashMap<String, @Nullable Object> properties = new LinkedHashMap<>();
             for(Map.Entry<?, ?> entry: arg.entrySet()) {
                 @Nullable Object entryKey = entry.getKey();
@@ -226,10 +226,10 @@ public class FakeinlinecompositionPostQueryParameters {
                 properties.put(propertyName, propertyInstance);
             }
             FrozenMap<@Nullable Object> castProperties = new FrozenMap<>(properties);
-            return new FakeinlinecompositionPostQueryParametersMap(castProperties);
+            return new QueryParametersMap(castProperties);
         }
         
-        public FakeinlinecompositionPostQueryParametersMap validate(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException {
+        public QueryParametersMap validate(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException {
             Set<List<Object>> pathSet = new HashSet<>();
             List<Object> pathToItem = List.of("args[0");
             Map<?, ?> castArg = castToAllowedTypes(arg, pathToItem, pathSet);

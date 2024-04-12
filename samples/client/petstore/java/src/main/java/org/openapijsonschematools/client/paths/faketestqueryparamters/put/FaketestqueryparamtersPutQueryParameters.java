@@ -34,20 +34,20 @@ public class FaketestqueryparamtersPutQueryParameters {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static class FaketestqueryparamtersPutadditionalProperties extends NotAnyTypeJsonSchema.NotAnyTypeJsonSchema1 {
+    public static class AdditionalProperties extends NotAnyTypeJsonSchema.NotAnyTypeJsonSchema1 {
         // NotAnyTypeSchema
-        private static @Nullable FaketestqueryparamtersPutadditionalProperties instance = null;
-        public static FaketestqueryparamtersPutadditionalProperties getInstance() {
+        private static @Nullable AdditionalProperties instance = null;
+        public static AdditionalProperties getInstance() {
             if (instance == null) {
-                instance = new FaketestqueryparamtersPutadditionalProperties();
+                instance = new AdditionalProperties();
             }
             return instance;
         }
     }
     
     
-    public static class FaketestqueryparamtersPutQueryParametersMap extends FrozenMap<@Nullable Object> {
-        protected FaketestqueryparamtersPutQueryParametersMap(FrozenMap<@Nullable Object> m) {
+    public static class QueryParametersMap extends FrozenMap<@Nullable Object> {
+        protected QueryParametersMap(FrozenMap<@Nullable Object> m) {
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of(
@@ -59,7 +59,7 @@ public class FaketestqueryparamtersPutQueryParameters {
             "url"
         );
         public static final Set<String> optionalKeys = Set.of();
-        public static FaketestqueryparamtersPutQueryParametersMap of(Map<String, ? extends @Nullable Object> arg, SchemaConfiguration configuration) throws ValidationException {
+        public static QueryParametersMap of(Map<String, ? extends @Nullable Object> arg, SchemaConfiguration configuration) throws ValidationException {
             return FaketestqueryparamtersPutQueryParameters1.getInstance().validate(arg, configuration);
         }
         
@@ -112,73 +112,73 @@ public class FaketestqueryparamtersPutQueryParameters {
         }
     }
     
-    public interface SetterForFaketestqueryparamtersPutcontext <T> {
+    public interface SetterForContext <T> {
         Map<String, @Nullable Object> getInstance();
-        T getBuilderAfterFaketestqueryparamtersPutcontext(Map<String, @Nullable Object> instance);
+        T getBuilderAfterContext(Map<String, @Nullable Object> instance);
         
         default T context(List<String> value) {
             var instance = getInstance();
             instance.put("context", value);
-            return getBuilderAfterFaketestqueryparamtersPutcontext(instance);
+            return getBuilderAfterContext(instance);
         }
     }
     
-    public interface SetterForFaketestqueryparamtersPuthttp <T> {
+    public interface SetterForHttp <T> {
         Map<String, @Nullable Object> getInstance();
-        T getBuilderAfterFaketestqueryparamtersPuthttp(Map<String, @Nullable Object> instance);
+        T getBuilderAfterHttp(Map<String, @Nullable Object> instance);
         
         default T http(List<String> value) {
             var instance = getInstance();
             instance.put("http", value);
-            return getBuilderAfterFaketestqueryparamtersPuthttp(instance);
+            return getBuilderAfterHttp(instance);
         }
     }
     
-    public interface SetterForFaketestqueryparamtersPutioutil <T> {
+    public interface SetterForIoutil <T> {
         Map<String, @Nullable Object> getInstance();
-        T getBuilderAfterFaketestqueryparamtersPutioutil(Map<String, @Nullable Object> instance);
+        T getBuilderAfterIoutil(Map<String, @Nullable Object> instance);
         
         default T ioutil(List<String> value) {
             var instance = getInstance();
             instance.put("ioutil", value);
-            return getBuilderAfterFaketestqueryparamtersPutioutil(instance);
+            return getBuilderAfterIoutil(instance);
         }
     }
     
-    public interface SetterForFaketestqueryparamtersPutpipe <T> {
+    public interface SetterForPipe <T> {
         Map<String, @Nullable Object> getInstance();
-        T getBuilderAfterFaketestqueryparamtersPutpipe(Map<String, @Nullable Object> instance);
+        T getBuilderAfterPipe(Map<String, @Nullable Object> instance);
         
         default T pipe(List<String> value) {
             var instance = getInstance();
             instance.put("pipe", value);
-            return getBuilderAfterFaketestqueryparamtersPutpipe(instance);
+            return getBuilderAfterPipe(instance);
         }
     }
     
-    public interface SetterForFaketestqueryparamtersPutrefParam <T> {
+    public interface SetterForRefParam <T> {
         Map<String, @Nullable Object> getInstance();
-        T getBuilderAfterFaketestqueryparamtersPutrefParam(Map<String, @Nullable Object> instance);
+        T getBuilderAfterRefParam(Map<String, @Nullable Object> instance);
         
         default T refParam(String value) {
             var instance = getInstance();
             instance.put("refParam", value);
-            return getBuilderAfterFaketestqueryparamtersPutrefParam(instance);
+            return getBuilderAfterRefParam(instance);
         }
     }
     
-    public interface SetterForFaketestqueryparamtersPuturl <T> {
+    public interface SetterForUrl <T> {
         Map<String, @Nullable Object> getInstance();
-        T getBuilderAfterFaketestqueryparamtersPuturl(Map<String, @Nullable Object> instance);
+        T getBuilderAfterUrl(Map<String, @Nullable Object> instance);
         
         default T url(List<String> value) {
             var instance = getInstance();
             instance.put("url", value);
-            return getBuilderAfterFaketestqueryparamtersPuturl(instance);
+            return getBuilderAfterUrl(instance);
         }
     }
     
-    public static class FaketestqueryparamtersPutQueryParametersMap000000Builder implements GenericBuilder<Map<String, @Nullable Object>> {
+    public static class QueryParametersMap000000Builder implements GenericBuilder<Map<String, @Nullable Object>> {
         private final Map<String, @Nullable Object> instance;
         private static final Set<String> knownKeys = Set.of(
             "context",
@@ -191,7 +191,7 @@ public class FaketestqueryparamtersPutQueryParameters {
         public Set<String> getKnownKeys() {
             return knownKeys;
         }
-        public FaketestqueryparamtersPutQueryParametersMap000000Builder(Map<String, @Nullable Object> instance) {
+        public QueryParametersMap000000Builder(Map<String, @Nullable Object> instance) {
             this.instance = instance;
         }
         public Map<String, @Nullable Object> build() {
@@ -199,1209 +199,1209 @@ public class FaketestqueryparamtersPutQueryParameters {
         }
     }
     
-    public static class FaketestqueryparamtersPutQueryParametersMap000001Builder implements SetterForFaketestqueryparamtersPuturl<FaketestqueryparamtersPutQueryParametersMap000000Builder> {
+    public static class QueryParametersMap000001Builder implements SetterForUrl<QueryParametersMap000000Builder> {
         private final Map<String, @Nullable Object> instance;
-        public FaketestqueryparamtersPutQueryParametersMap000001Builder(Map<String, @Nullable Object> instance) {
+        public QueryParametersMap000001Builder(Map<String, @Nullable Object> instance) {
             this.instance = instance;
         }
         public Map<String, @Nullable Object> getInstance() {
             return instance;
         }
-        public FaketestqueryparamtersPutQueryParametersMap000000Builder getBuilderAfterFaketestqueryparamtersPuturl(Map<String, @Nullable Object> instance) {
-            return new FaketestqueryparamtersPutQueryParametersMap000000Builder(instance);
+        public QueryParametersMap000000Builder getBuilderAfterUrl(Map<String, @Nullable Object> instance) {
+            return new QueryParametersMap000000Builder(instance);
         }
     }
     
-    public static class FaketestqueryparamtersPutQueryParametersMap000010Builder implements SetterForFaketestqueryparamtersPutrefParam<FaketestqueryparamtersPutQueryParametersMap000000Builder> {
+    public static class QueryParametersMap000010Builder implements SetterForRefParam<QueryParametersMap000000Builder> {
         private final Map<String, @Nullable Object> instance;
-        public FaketestqueryparamtersPutQueryParametersMap000010Builder(Map<String, @Nullable Object> instance) {
+        public QueryParametersMap000010Builder(Map<String, @Nullable Object> instance) {
             this.instance = instance;
         }
         public Map<String, @Nullable Object> getInstance() {
             return instance;
         }
-        public FaketestqueryparamtersPutQueryParametersMap000000Builder getBuilderAfterFaketestqueryparamtersPutrefParam(Map<String, @Nullable Object> instance) {
-            return new FaketestqueryparamtersPutQueryParametersMap000000Builder(instance);
+        public QueryParametersMap000000Builder getBuilderAfterRefParam(Map<String, @Nullable Object> instance) {
+            return new QueryParametersMap000000Builder(instance);
         }
     }
     
-    public static class FaketestqueryparamtersPutQueryParametersMap000011Builder implements SetterForFaketestqueryparamtersPutrefParam<FaketestqueryparamtersPutQueryParametersMap000001Builder>, SetterForFaketestqueryparamtersPuturl<FaketestqueryparamtersPutQueryParametersMap000010Builder> {
+    public static class QueryParametersMap000011Builder implements SetterForRefParam<QueryParametersMap000001Builder>, SetterForUrl<QueryParametersMap000010Builder> {
         private final Map<String, @Nullable Object> instance;
-        public FaketestqueryparamtersPutQueryParametersMap000011Builder(Map<String, @Nullable Object> instance) {
+        public QueryParametersMap000011Builder(Map<String, @Nullable Object> instance) {
             this.instance = instance;
         }
         public Map<String, @Nullable Object> getInstance() {
             return instance;
         }
-        public FaketestqueryparamtersPutQueryParametersMap000001Builder getBuilderAfterFaketestqueryparamtersPutrefParam(Map<String, @Nullable Object> instance) {
-            return new FaketestqueryparamtersPutQueryParametersMap000001Builder(instance);
+        public QueryParametersMap000001Builder getBuilderAfterRefParam(Map<String, @Nullable Object> instance) {
+            return new QueryParametersMap000001Builder(instance);
         }
-        public FaketestqueryparamtersPutQueryParametersMap000010Builder getBuilderAfterFaketestqueryparamtersPuturl(Map<String, @Nullable Object> instance) {
-            return new FaketestqueryparamtersPutQueryParametersMap000010Builder(instance);
+        public QueryParametersMap000010Builder getBuilderAfterUrl(Map<String, @Nullable Object> instance) {
+            return new QueryParametersMap000010Builder(instance);
         }
     }
     
-    public static class FaketestqueryparamtersPutQueryParametersMap000100Builder implements SetterForFaketestqueryparamtersPutpipe<FaketestqueryparamtersPutQueryParametersMap000000Builder> {
+    public static class QueryParametersMap000100Builder implements SetterForPipe<QueryParametersMap000000Builder> {
         private final Map<String, @Nullable Object> instance;
-        public FaketestqueryparamtersPutQueryParametersMap000100Builder(Map<String, @Nullable Object> instance) {
+        public QueryParametersMap000100Builder(Map<String, @Nullable Object> instance) {
             this.instance = instance;
         }
         public Map<String, @Nullable Object> getInstance() {
             return instance;
         }
-        public FaketestqueryparamtersPutQueryParametersMap000000Builder getBuilderAfterFaketestqueryparamtersPutpipe(Map<String, @Nullable Object> instance) {
-            return new FaketestqueryparamtersPutQueryParametersMap000000Builder(instance);
+        public QueryParametersMap000000Builder getBuilderAfterPipe(Map<String, @Nullable Object> instance) {
+            return new QueryParametersMap000000Builder(instance);
         }
     }
     
-    public static class FaketestqueryparamtersPutQueryParametersMap000101Builder implements SetterForFaketestqueryparamtersPutpipe<FaketestqueryparamtersPutQueryParametersMap000001Builder>, SetterForFaketestqueryparamtersPuturl<FaketestqueryparamtersPutQueryParametersMap000100Builder> {
+    public static class QueryParametersMap000101Builder implements SetterForPipe<QueryParametersMap000001Builder>, SetterForUrl<QueryParametersMap000100Builder> {
         private final Map<String, @Nullable Object> instance;
-        public FaketestqueryparamtersPutQueryParametersMap000101Builder(Map<String, @Nullable Object> instance) {
+        public QueryParametersMap000101Builder(Map<String, @Nullable Object> instance) {
             this.instance = instance;
         }
         public Map<String, @Nullable Object> getInstance() {
             return instance;
         }
-        public FaketestqueryparamtersPutQueryParametersMap000001Builder getBuilderAfterFaketestqueryparamtersPutpipe(Map<String, @Nullable Object> instance) {
-            return new FaketestqueryparamtersPutQueryParametersMap000001Builder(instance);
+        public QueryParametersMap000001Builder getBuilderAfterPipe(Map<String, @Nullable Object> instance) {
+            return new QueryParametersMap000001Builder(instance);
         }
-        public FaketestqueryparamtersPutQueryParametersMap000100Builder getBuilderAfterFaketestqueryparamtersPuturl(Map<String, @Nullable Object> instance) {
-            return new FaketestqueryparamtersPutQueryParametersMap000100Builder(instance);
+        public QueryParametersMap000100Builder getBuilderAfterUrl(Map<String, @Nullable Object> instance) {
+            return new QueryParametersMap000100Builder(instance);
         }
     }
     
-    public static class FaketestqueryparamtersPutQueryParametersMap000110Builder implements SetterForFaketestqueryparamtersPutpipe<FaketestqueryparamtersPutQueryParametersMap000010Builder>, SetterForFaketestqueryparamtersPutrefParam<FaketestqueryparamtersPutQueryParametersMap000100Builder> {
+    public static class QueryParametersMap000110Builder implements SetterForPipe<QueryParametersMap000010Builder>, SetterForRefParam<QueryParametersMap000100Builder> {
         private final Map<String, @Nullable Object> instance;
-        public FaketestqueryparamtersPutQueryParametersMap000110Builder(Map<String, @Nullable Object> instance) {
+        public QueryParametersMap000110Builder(Map<String, @Nullable Object> instance) {
             this.instance = instance;
         }
         public Map<String, @Nullable Object> getInstance() {
             return instance;
         }
-        public FaketestqueryparamtersPutQueryParametersMap000010Builder getBuilderAfterFaketestqueryparamtersPutpipe(Map<String, @Nullable Object> instance) {
-            return new FaketestqueryparamtersPutQueryParametersMap000010Builder(instance);
+        public QueryParametersMap000010Builder getBuilderAfterPipe(Map<String, @Nullable Object> instance) {
+            return new QueryParametersMap000010Builder(instance);
         }
-        public FaketestqueryparamtersPutQueryParametersMap000100Builder getBuilderAfterFaketestqueryparamtersPutrefParam(Map<String, @Nullable Object> instance) {
-            return new FaketestqueryparamtersPutQueryParametersMap000100Builder(instance);
+        public QueryParametersMap000100Builder getBuilderAfterRefParam(Map<String, @Nullable Object> instance) {
+            return new QueryParametersMap000100Builder(instance);
         }
     }
     
-    public static class FaketestqueryparamtersPutQueryParametersMap000111Builder implements SetterForFaketestqueryparamtersPutpipe<FaketestqueryparamtersPutQueryParametersMap000011Builder>, SetterForFaketestqueryparamtersPutrefParam<FaketestqueryparamtersPutQueryParametersMap000101Builder>, SetterForFaketestqueryparamtersPuturl<FaketestqueryparamtersPutQueryParametersMap000110Builder> {
+    public static class QueryParametersMap000111Builder implements SetterForPipe<QueryParametersMap000011Builder>, SetterForRefParam<QueryParametersMap000101Builder>, SetterForUrl<QueryParametersMap000110Builder> {
         private final Map<String, @Nullable Object> instance;
-        public FaketestqueryparamtersPutQueryParametersMap000111Builder(Map<String, @Nullable Object> instance) {
+        public QueryParametersMap000111Builder(Map<String, @Nullable Object> instance) {
             this.instance = instance;
         }
         public Map<String, @Nullable Object> getInstance() {
             return instance;
         }
-        public FaketestqueryparamtersPutQueryParametersMap000011Builder getBuilderAfterFaketestqueryparamtersPutpipe(Map<String, @Nullable Object> instance) {
-            return new FaketestqueryparamtersPutQueryParametersMap000011Builder(instance);
+        public QueryParametersMap000011Builder getBuilderAfterPipe(Map<String, @Nullable Object> instance) {
+            return new QueryParametersMap000011Builder(instance);
         }
-        public FaketestqueryparamtersPutQueryParametersMap000101Builder getBuilderAfterFaketestqueryparamtersPutrefParam(Map<String, @Nullable Object> instance) {
-            return new FaketestqueryparamtersPutQueryParametersMap000101Builder(instance);
+        public QueryParametersMap000101Builder getBuilderAfterRefParam(Map<String, @Nullable Object> instance) {
+            return new QueryParametersMap000101Builder(instance);
         }
-        public FaketestqueryparamtersPutQueryParametersMap000110Builder getBuilderAfterFaketestqueryparamtersPuturl(Map<String, @Nullable Object> instance) {
-            return new FaketestqueryparamtersPutQueryParametersMap000110Builder(instance);
+        public QueryParametersMap000110Builder getBuilderAfterUrl(Map<String, @Nullable Object> instance) {
+            return new QueryParametersMap000110Builder(instance);
         }
     }
     
-    public static class FaketestqueryparamtersPutQueryParametersMap001000Builder implements SetterForFaketestqueryparamtersPutioutil<FaketestqueryparamtersPutQueryParametersMap000000Builder> {
+    public static class QueryParametersMap001000Builder implements SetterForIoutil<QueryParametersMap000000Builder> {
         private final Map<String, @Nullable Object> instance;
-        public FaketestqueryparamtersPutQueryParametersMap001000Builder(Map<String, @Nullable Object> instance) {
+        public QueryParametersMap001000Builder(Map<String, @Nullable Object> instance) {
             this.instance = instance;
         }
         public Map<String, @Nullable Object> getInstance() {
             return instance;
         }
-        public FaketestqueryparamtersPutQueryParametersMap000000Builder getBuilderAfterFaketestqueryparamtersPutioutil(Map<String, @Nullable Object> instance) {
-            return new FaketestqueryparamtersPutQueryParametersMap000000Builder(instance);
+        public QueryParametersMap000000Builder getBuilderAfterIoutil(Map<String, @Nullable Object> instance) {
+            return new QueryParametersMap000000Builder(instance);
         }
     }
     
-    public static class FaketestqueryparamtersPutQueryParametersMap001001Builder implements SetterForFaketestqueryparamtersPutioutil<FaketestqueryparamtersPutQueryParametersMap000001Builder>, SetterForFaketestqueryparamtersPuturl<FaketestqueryparamtersPutQueryParametersMap001000Builder> {
+    public static class QueryParametersMap001001Builder implements SetterForIoutil<QueryParametersMap000001Builder>, SetterForUrl<QueryParametersMap001000Builder> {
         private final Map<String, @Nullable Object> instance;
-        public FaketestqueryparamtersPutQueryParametersMap001001Builder(Map<String, @Nullable Object> instance) {
+        public QueryParametersMap001001Builder(Map<String, @Nullable Object> instance) {
             this.instance = instance;
         }
         public Map<String, @Nullable Object> getInstance() {
             return instance;
         }
-        public FaketestqueryparamtersPutQueryParametersMap000001Builder getBuilderAfterFaketestqueryparamtersPutioutil(Map<String, @Nullable Object> instance) {
-            return new FaketestqueryparamtersPutQueryParametersMap000001Builder(instance);
+        public QueryParametersMap000001Builder getBuilderAfterIoutil(Map<String, @Nullable Object> instance) {
+            return new QueryParametersMap000001Builder(instance);
         }
-        public FaketestqueryparamtersPutQueryParametersMap001000Builder getBuilderAfterFaketestqueryparamtersPuturl(Map<String, @Nullable Object> instance) {
-            return new FaketestqueryparamtersPutQueryParametersMap001000Builder(instance);
+        public QueryParametersMap001000Builder getBuilderAfterUrl(Map<String, @Nullable Object> instance) {
+            return new QueryParametersMap001000Builder(instance);
         }
     }
     
-    public static class FaketestqueryparamtersPutQueryParametersMap001010Builder implements SetterForFaketestqueryparamtersPutioutil<FaketestqueryparamtersPutQueryParametersMap000010Builder>, SetterForFaketestqueryparamtersPutrefParam<FaketestqueryparamtersPutQueryParametersMap001000Builder> {
+    public static class QueryParametersMap001010Builder implements SetterForIoutil<QueryParametersMap000010Builder>, SetterForRefParam<QueryParametersMap001000Builder> {
         private final Map<String, @Nullable Object> instance;
-        public FaketestqueryparamtersPutQueryParametersMap001010Builder(Map<String, @Nullable Object> instance) {
+        public QueryParametersMap001010Builder(Map<String, @Nullable Object> instance) {
             this.instance = instance;
         }
         public Map<String, @Nullable Object> getInstance() {
             return instance;
         }
-        public FaketestqueryparamtersPutQueryParametersMap000010Builder getBuilderAfterFaketestqueryparamtersPutioutil(Map<String, @Nullable Object> instance) {
-            return new FaketestqueryparamtersPutQueryParametersMap000010Builder(instance);
+        public QueryParametersMap000010Builder getBuilderAfterIoutil(Map<String, @Nullable Object> instance) {
+            return new QueryParametersMap000010Builder(instance);
         }
-        public FaketestqueryparamtersPutQueryParametersMap001000Builder getBuilderAfterFaketestqueryparamtersPutrefParam(Map<String, @Nullable Object> instance) {
-            return new FaketestqueryparamtersPutQueryParametersMap001000Builder(instance);
+        public QueryParametersMap001000Builder getBuilderAfterRefParam(Map<String, @Nullable Object> instance) {
+            return new QueryParametersMap001000Builder(instance);
         }
     }
     
-    public static class FaketestqueryparamtersPutQueryParametersMap001011Builder implements SetterForFaketestqueryparamtersPutioutil<FaketestqueryparamtersPutQueryParametersMap000011Builder>, SetterForFaketestqueryparamtersPutrefParam<FaketestqueryparamtersPutQueryParametersMap001001Builder>, SetterForFaketestqueryparamtersPuturl<FaketestqueryparamtersPutQueryParametersMap001010Builder> {
+    public static class QueryParametersMap001011Builder implements SetterForIoutil<QueryParametersMap000011Builder>, SetterForRefParam<QueryParametersMap001001Builder>, SetterForUrl<QueryParametersMap001010Builder> {
         private final Map<String, @Nullable Object> instance;
-        public FaketestqueryparamtersPutQueryParametersMap001011Builder(Map<String, @Nullable Object> instance) {
+        public QueryParametersMap001011Builder(Map<String, @Nullable Object> instance) {
             this.instance = instance;
         }
         public Map<String, @Nullable Object> getInstance() {
             return instance;
         }
-        public FaketestqueryparamtersPutQueryParametersMap000011Builder getBuilderAfterFaketestqueryparamtersPutioutil(Map<String, @Nullable Object> instance) {
-            return new FaketestqueryparamtersPutQueryParametersMap000011Builder(instance);
+        public QueryParametersMap000011Builder getBuilderAfterIoutil(Map<String, @Nullable Object> instance) {
+            return new QueryParametersMap000011Builder(instance);
         }
-        public FaketestqueryparamtersPutQueryParametersMap001001Builder getBuilderAfterFaketestqueryparamtersPutrefParam(Map<String, @Nullable Object> instance) {
-            return new FaketestqueryparamtersPutQueryParametersMap001001Builder(instance);
+        public QueryParametersMap001001Builder getBuilderAfterRefParam(Map<String, @Nullable Object> instance) {
+            return new QueryParametersMap001001Builder(instance);
         }
-        public FaketestqueryparamtersPutQueryParametersMap001010Builder getBuilderAfterFaketestqueryparamtersPuturl(Map<String, @Nullable Object> instance) {
-            return new FaketestqueryparamtersPutQueryParametersMap001010Builder(instance);
+        public QueryParametersMap001010Builder getBuilderAfterUrl(Map<String, @Nullable Object> instance) {
+            return new QueryParametersMap001010Builder(instance);
         }
     }
     
-    public static class FaketestqueryparamtersPutQueryParametersMap001100Builder implements SetterForFaketestqueryparamtersPutioutil<FaketestqueryparamtersPutQueryParametersMap000100Builder>, SetterForFaketestqueryparamtersPutpipe<FaketestqueryparamtersPutQueryParametersMap001000Builder> {
+    public static class QueryParametersMap001100Builder implements SetterForIoutil<QueryParametersMap000100Builder>, SetterForPipe<QueryParametersMap001000Builder> {
         private final Map<String, @Nullable Object> instance;
-        public FaketestqueryparamtersPutQueryParametersMap001100Builder(Map<String, @Nullable Object> instance) {
+        public QueryParametersMap001100Builder(Map<String, @Nullable Object> instance) {
             this.instance = instance;
         }
         public Map<String, @Nullable Object> getInstance() {
             return instance;
         }
-        public FaketestqueryparamtersPutQueryParametersMap000100Builder getBuilderAfterFaketestqueryparamtersPutioutil(Map<String, @Nullable Object> instance) {
-            return new FaketestqueryparamtersPutQueryParametersMap000100Builder(instance);
+        public QueryParametersMap000100Builder getBuilderAfterIoutil(Map<String, @Nullable Object> instance) {
+            return new QueryParametersMap000100Builder(instance);
         }
-        public FaketestqueryparamtersPutQueryParametersMap001000Builder getBuilderAfterFaketestqueryparamtersPutpipe(Map<String, @Nullable Object> instance) {
-            return new FaketestqueryparamtersPutQueryParametersMap001000Builder(instance);
+        public QueryParametersMap001000Builder getBuilderAfterPipe(Map<String, @Nullable Object> instance) {
+            return new QueryParametersMap001000Builder(instance);
         }
     }
     
-    public static class FaketestqueryparamtersPutQueryParametersMap001101Builder implements SetterForFaketestqueryparamtersPutioutil<FaketestqueryparamtersPutQueryParametersMap000101Builder>, SetterForFaketestqueryparamtersPutpipe<FaketestqueryparamtersPutQueryParametersMap001001Builder>, SetterForFaketestqueryparamtersPuturl<FaketestqueryparamtersPutQueryParametersMap001100Builder> {
+    public static class QueryParametersMap001101Builder implements SetterForIoutil<QueryParametersMap000101Builder>, SetterForPipe<QueryParametersMap001001Builder>, SetterForUrl<QueryParametersMap001100Builder> {
         private final Map<String, @Nullable Object> instance;
-        public FaketestqueryparamtersPutQueryParametersMap001101Builder(Map<String, @Nullable Object> instance) {
+        public QueryParametersMap001101Builder(Map<String, @Nullable Object> instance) {
             this.instance = instance;
         }
         public Map<String, @Nullable Object> getInstance() {
             return instance;
         }
-        public FaketestqueryparamtersPutQueryParametersMap000101Builder getBuilderAfterFaketestqueryparamtersPutioutil(Map<String, @Nullable Object> instance) {
-            return new FaketestqueryparamtersPutQueryParametersMap000101Builder(instance);
+        public QueryParametersMap000101Builder getBuilderAfterIoutil(Map<String, @Nullable Object> instance) {
+            return new QueryParametersMap000101Builder(instance);
         }
-        public FaketestqueryparamtersPutQueryParametersMap001001Builder getBuilderAfterFaketestqueryparamtersPutpipe(Map<String, @Nullable Object> instance) {
-            return new FaketestqueryparamtersPutQueryParametersMap001001Builder(instance);
+        public QueryParametersMap001001Builder getBuilderAfterPipe(Map<String, @Nullable Object> instance) {
+            return new QueryParametersMap001001Builder(instance);
         }
-        public FaketestqueryparamtersPutQueryParametersMap001100Builder getBuilderAfterFaketestqueryparamtersPuturl(Map<String, @Nullable Object> instance) {
-            return new FaketestqueryparamtersPutQueryParametersMap001100Builder(instance);
+        public QueryParametersMap001100Builder getBuilderAfterUrl(Map<String, @Nullable Object> instance) {
+            return new QueryParametersMap001100Builder(instance);
         }
     }
     
-    public static class FaketestqueryparamtersPutQueryParametersMap001110Builder implements SetterForFaketestqueryparamtersPutioutil<FaketestqueryparamtersPutQueryParametersMap000110Builder>, SetterForFaketestqueryparamtersPutpipe<FaketestqueryparamtersPutQueryParametersMap001010Builder>, SetterForFaketestqueryparamtersPutrefParam<FaketestqueryparamtersPutQueryParametersMap001100Builder> {
+    public static class QueryParametersMap001110Builder implements SetterForIoutil<QueryParametersMap000110Builder>, SetterForPipe<QueryParametersMap001010Builder>, SetterForRefParam<QueryParametersMap001100Builder> {
         private final Map<String, @Nullable Object> instance;
-        public FaketestqueryparamtersPutQueryParametersMap001110Builder(Map<String, @Nullable Object> instance) {
+        public QueryParametersMap001110Builder(Map<String, @Nullable Object> instance) {
             this.instance = instance;
         }
         public Map<String, @Nullable Object> getInstance() {
             return instance;
         }
-        public FaketestqueryparamtersPutQueryParametersMap000110Builder getBuilderAfterFaketestqueryparamtersPutioutil(Map<String, @Nullable Object> instance) {
-            return new FaketestqueryparamtersPutQueryParametersMap000110Builder(instance);
+        public QueryParametersMap000110Builder getBuilderAfterIoutil(Map<String, @Nullable Object> instance) {
+            return new QueryParametersMap000110Builder(instance);
         }
-        public FaketestqueryparamtersPutQueryParametersMap001010Builder getBuilderAfterFaketestqueryparamtersPutpipe(Map<String, @Nullable Object> instance) {
-            return new FaketestqueryparamtersPutQueryParametersMap001010Builder(instance);
+        public QueryParametersMap001010Builder getBuilderAfterPipe(Map<String, @Nullable Object> instance) {
+            return new QueryParametersMap001010Builder(instance);
         }
-        public FaketestqueryparamtersPutQueryParametersMap001100Builder getBuilderAfterFaketestqueryparamtersPutrefParam(Map<String, @Nullable Object> instance) {
-            return new FaketestqueryparamtersPutQueryParametersMap001100Builder(instance);
+        public QueryParametersMap001100Builder getBuilderAfterRefParam(Map<String, @Nullable Object> instance) {
+            return new QueryParametersMap001100Builder(instance);
         }
     }
     
-    public static class FaketestqueryparamtersPutQueryParametersMap001111Builder implements SetterForFaketestqueryparamtersPutioutil<FaketestqueryparamtersPutQueryParametersMap000111Builder>, SetterForFaketestqueryparamtersPutpipe<FaketestqueryparamtersPutQueryParametersMap001011Builder>, SetterForFaketestqueryparamtersPutrefParam<FaketestqueryparamtersPutQueryParametersMap001101Builder>, SetterForFaketestqueryparamtersPuturl<FaketestqueryparamtersPutQueryParametersMap001110Builder> {
+    public static class QueryParametersMap001111Builder implements SetterForIoutil<QueryParametersMap000111Builder>, SetterForPipe<QueryParametersMap001011Builder>, SetterForRefParam<QueryParametersMap001101Builder>, SetterForUrl<QueryParametersMap001110Builder> {
         private final Map<String, @Nullable Object> instance;
-        public FaketestqueryparamtersPutQueryParametersMap001111Builder(Map<String, @Nullable Object> instance) {
+        public QueryParametersMap001111Builder(Map<String, @Nullable Object> instance) {
             this.instance = instance;
         }
         public Map<String, @Nullable Object> getInstance() {
             return instance;
         }
-        public FaketestqueryparamtersPutQueryParametersMap000111Builder getBuilderAfterFaketestqueryparamtersPutioutil(Map<String, @Nullable Object> instance) {
-            return new FaketestqueryparamtersPutQueryParametersMap000111Builder(instance);
+        public QueryParametersMap000111Builder getBuilderAfterIoutil(Map<String, @Nullable Object> instance) {
+            return new QueryParametersMap000111Builder(instance);
         }
-        public FaketestqueryparamtersPutQueryParametersMap001011Builder getBuilderAfterFaketestqueryparamtersPutpipe(Map<String, @Nullable Object> instance) {
-            return new FaketestqueryparamtersPutQueryParametersMap001011Builder(instance);
+        public QueryParametersMap001011Builder getBuilderAfterPipe(Map<String, @Nullable Object> instance) {
+            return new QueryParametersMap001011Builder(instance);
         }
-        public FaketestqueryparamtersPutQueryParametersMap001101Builder getBuilderAfterFaketestqueryparamtersPutrefParam(Map<String, @Nullable Object> instance) {
-            return new FaketestqueryparamtersPutQueryParametersMap001101Builder(instance);
+        public QueryParametersMap001101Builder getBuilderAfterRefParam(Map<String, @Nullable Object> instance) {
+            return new QueryParametersMap001101Builder(instance);
         }
-        public FaketestqueryparamtersPutQueryParametersMap001110Builder getBuilderAfterFaketestqueryparamtersPuturl(Map<String, @Nullable Object> instance) {
-            return new FaketestqueryparamtersPutQueryParametersMap001110Builder(instance);
+        public QueryParametersMap001110Builder getBuilderAfterUrl(Map<String, @Nullable Object> instance) {
+            return new QueryParametersMap001110Builder(instance);
         }
     }
     
-    public static class FaketestqueryparamtersPutQueryParametersMap010000Builder implements SetterForFaketestqueryparamtersPuthttp<FaketestqueryparamtersPutQueryParametersMap000000Builder> {
+    public static class QueryParametersMap010000Builder implements SetterForHttp<QueryParametersMap000000Builder> {
         private final Map<String, @Nullable Object> instance;
-        public FaketestqueryparamtersPutQueryParametersMap010000Builder(Map<String, @Nullable Object> instance) {
+        public QueryParametersMap010000Builder(Map<String, @Nullable Object> instance) {
             this.instance = instance;
         }
         public Map<String, @Nullable Object> getInstance() {
             return instance;
         }
-        public FaketestqueryparamtersPutQueryParametersMap000000Builder getBuilderAfterFaketestqueryparamtersPuthttp(Map<String, @Nullable Object> instance) {
-            return new FaketestqueryparamtersPutQueryParametersMap000000Builder(instance);
+        public QueryParametersMap000000Builder getBuilderAfterHttp(Map<String, @Nullable Object> instance) {
+            return new QueryParametersMap000000Builder(instance);
         }
     }
     
-    public static class FaketestqueryparamtersPutQueryParametersMap010001Builder implements SetterForFaketestqueryparamtersPuthttp<FaketestqueryparamtersPutQueryParametersMap000001Builder>, SetterForFaketestqueryparamtersPuturl<FaketestqueryparamtersPutQueryParametersMap010000Builder> {
+    public static class QueryParametersMap010001Builder implements SetterForHttp<QueryParametersMap000001Builder>, SetterForUrl<QueryParametersMap010000Builder> {
         private final Map<String, @Nullable Object> instance;
-        public FaketestqueryparamtersPutQueryParametersMap010001Builder(Map<String, @Nullable Object> instance) {
+        public QueryParametersMap010001Builder(Map<String, @Nullable Object> instance) {
             this.instance = instance;
         }
         public Map<String, @Nullable Object> getInstance() {
             return instance;
         }
-        public FaketestqueryparamtersPutQueryParametersMap000001Builder getBuilderAfterFaketestqueryparamtersPuthttp(Map<String, @Nullable Object> instance) {
-            return new FaketestqueryparamtersPutQueryParametersMap000001Builder(instance);
+        public QueryParametersMap000001Builder getBuilderAfterHttp(Map<String, @Nullable Object> instance) {
+            return new QueryParametersMap000001Builder(instance);
         }
-        public FaketestqueryparamtersPutQueryParametersMap010000Builder getBuilderAfterFaketestqueryparamtersPuturl(Map<String, @Nullable Object> instance) {
-            return new FaketestqueryparamtersPutQueryParametersMap010000Builder(instance);
+        public QueryParametersMap010000Builder getBuilderAfterUrl(Map<String, @Nullable Object> instance) {
+            return new QueryParametersMap010000Builder(instance);
         }
     }
     
-    public static class FaketestqueryparamtersPutQueryParametersMap010010Builder implements SetterForFaketestqueryparamtersPuthttp<FaketestqueryparamtersPutQueryParametersMap000010Builder>, SetterForFaketestqueryparamtersPutrefParam<FaketestqueryparamtersPutQueryParametersMap010000Builder> {
+    public static class QueryParametersMap010010Builder implements SetterForHttp<QueryParametersMap000010Builder>, SetterForRefParam<QueryParametersMap010000Builder> {
         private final Map<String, @Nullable Object> instance;
-        public FaketestqueryparamtersPutQueryParametersMap010010Builder(Map<String, @Nullable Object> instance) {
+        public QueryParametersMap010010Builder(Map<String, @Nullable Object> instance) {
             this.instance = instance;
         }
         public Map<String, @Nullable Object> getInstance() {
             return instance;
         }
-        public FaketestqueryparamtersPutQueryParametersMap000010Builder getBuilderAfterFaketestqueryparamtersPuthttp(Map<String, @Nullable Object> instance) {
-            return new FaketestqueryparamtersPutQueryParametersMap000010Builder(instance);
+        public QueryParametersMap000010Builder getBuilderAfterHttp(Map<String, @Nullable Object> instance) {
+            return new QueryParametersMap000010Builder(instance);
         }
-        public FaketestqueryparamtersPutQueryParametersMap010000Builder getBuilderAfterFaketestqueryparamtersPutrefParam(Map<String, @Nullable Object> instance) {
-            return new FaketestqueryparamtersPutQueryParametersMap010000Builder(instance);
+        public QueryParametersMap010000Builder getBuilderAfterRefParam(Map<String, @Nullable Object> instance) {
+            return new QueryParametersMap010000Builder(instance);
         }
     }
     
-    public static class FaketestqueryparamtersPutQueryParametersMap010011Builder implements SetterForFaketestqueryparamtersPuthttp<FaketestqueryparamtersPutQueryParametersMap000011Builder>, SetterForFaketestqueryparamtersPutrefParam<FaketestqueryparamtersPutQueryParametersMap010001Builder>, SetterForFaketestqueryparamtersPuturl<FaketestqueryparamtersPutQueryParametersMap010010Builder> {
+    public static class QueryParametersMap010011Builder implements SetterForHttp<QueryParametersMap000011Builder>, SetterForRefParam<QueryParametersMap010001Builder>, SetterForUrl<QueryParametersMap010010Builder> {
         private final Map<String, @Nullable Object> instance;
-        public FaketestqueryparamtersPutQueryParametersMap010011Builder(Map<String, @Nullable Object> instance) {
+        public QueryParametersMap010011Builder(Map<String, @Nullable Object> instance) {
             this.instance = instance;
         }
         public Map<String, @Nullable Object> getInstance() {
             return instance;
         }
-        public FaketestqueryparamtersPutQueryParametersMap000011Builder getBuilderAfterFaketestqueryparamtersPuthttp(Map<String, @Nullable Object> instance) {
-            return new FaketestqueryparamtersPutQueryParametersMap000011Builder(instance);
+        public QueryParametersMap000011Builder getBuilderAfterHttp(Map<String, @Nullable Object> instance) {
+            return new QueryParametersMap000011Builder(instance);
         }
-        public FaketestqueryparamtersPutQueryParametersMap010001Builder getBuilderAfterFaketestqueryparamtersPutrefParam(Map<String, @Nullable Object> instance) {
-            return new FaketestqueryparamtersPutQueryParametersMap010001Builder(instance);
+        public QueryParametersMap010001Builder getBuilderAfterRefParam(Map<String, @Nullable Object> instance) {
+            return new QueryParametersMap010001Builder(instance);
         }
-        public FaketestqueryparamtersPutQueryParametersMap010010Builder getBuilderAfterFaketestqueryparamtersPuturl(Map<String, @Nullable Object> instance) {
-            return new FaketestqueryparamtersPutQueryParametersMap010010Builder(instance);
+        public QueryParametersMap010010Builder getBuilderAfterUrl(Map<String, @Nullable Object> instance) {
+            return new QueryParametersMap010010Builder(instance);
         }
     }
     
-    public static class FaketestqueryparamtersPutQueryParametersMap010100Builder implements SetterForFaketestqueryparamtersPuthttp<FaketestqueryparamtersPutQueryParametersMap000100Builder>, SetterForFaketestqueryparamtersPutpipe<FaketestqueryparamtersPutQueryParametersMap010000Builder> {
+    public static class QueryParametersMap010100Builder implements SetterForHttp<QueryParametersMap000100Builder>, SetterForPipe<QueryParametersMap010000Builder> {
         private final Map<String, @Nullable Object> instance;
-        public FaketestqueryparamtersPutQueryParametersMap010100Builder(Map<String, @Nullable Object> instance) {
+        public QueryParametersMap010100Builder(Map<String, @Nullable Object> instance) {
             this.instance = instance;
         }
         public Map<String, @Nullable Object> getInstance() {
             return instance;
         }
-        public FaketestqueryparamtersPutQueryParametersMap000100Builder getBuilderAfterFaketestqueryparamtersPuthttp(Map<String, @Nullable Object> instance) {
-            return new FaketestqueryparamtersPutQueryParametersMap000100Builder(instance);
+        public QueryParametersMap000100Builder getBuilderAfterHttp(Map<String, @Nullable Object> instance) {
+            return new QueryParametersMap000100Builder(instance);
         }
-        public FaketestqueryparamtersPutQueryParametersMap010000Builder getBuilderAfterFaketestqueryparamtersPutpipe(Map<String, @Nullable Object> instance) {
-            return new FaketestqueryparamtersPutQueryParametersMap010000Builder(instance);
+        public QueryParametersMap010000Builder getBuilderAfterPipe(Map<String, @Nullable Object> instance) {
+            return new QueryParametersMap010000Builder(instance);
         }
     }
     
-    public static class FaketestqueryparamtersPutQueryParametersMap010101Builder implements SetterForFaketestqueryparamtersPuthttp<FaketestqueryparamtersPutQueryParametersMap000101Builder>, SetterForFaketestqueryparamtersPutpipe<FaketestqueryparamtersPutQueryParametersMap010001Builder>, SetterForFaketestqueryparamtersPuturl<FaketestqueryparamtersPutQueryParametersMap010100Builder> {
+    public static class QueryParametersMap010101Builder implements SetterForHttp<QueryParametersMap000101Builder>, SetterForPipe<QueryParametersMap010001Builder>, SetterForUrl<QueryParametersMap010100Builder> {
         private final Map<String, @Nullable Object> instance;
-        public FaketestqueryparamtersPutQueryParametersMap010101Builder(Map<String, @Nullable Object> instance) {
+        public QueryParametersMap010101Builder(Map<String, @Nullable Object> instance) {
             this.instance = instance;
         }
         public Map<String, @Nullable Object> getInstance() {
             return instance;
         }
-        public FaketestqueryparamtersPutQueryParametersMap000101Builder getBuilderAfterFaketestqueryparamtersPuthttp(Map<String, @Nullable Object> instance) {
-            return new FaketestqueryparamtersPutQueryParametersMap000101Builder(instance);
+        public QueryParametersMap000101Builder getBuilderAfterHttp(Map<String, @Nullable Object> instance) {
+            return new QueryParametersMap000101Builder(instance);
         }
-        public FaketestqueryparamtersPutQueryParametersMap010001Builder getBuilderAfterFaketestqueryparamtersPutpipe(Map<String, @Nullable Object> instance) {
-            return new FaketestqueryparamtersPutQueryParametersMap010001Builder(instance);
+        public QueryParametersMap010001Builder getBuilderAfterPipe(Map<String, @Nullable Object> instance) {
+            return new QueryParametersMap010001Builder(instance);
         }
-        public FaketestqueryparamtersPutQueryParametersMap010100Builder getBuilderAfterFaketestqueryparamtersPuturl(Map<String, @Nullable Object> instance) {
-            return new FaketestqueryparamtersPutQueryParametersMap010100Builder(instance);
+        public QueryParametersMap010100Builder getBuilderAfterUrl(Map<String, @Nullable Object> instance) {
+            return new QueryParametersMap010100Builder(instance);
         }
     }
     
-    public static class FaketestqueryparamtersPutQueryParametersMap010110Builder implements SetterForFaketestqueryparamtersPuthttp<FaketestqueryparamtersPutQueryParametersMap000110Builder>, SetterForFaketestqueryparamtersPutpipe<FaketestqueryparamtersPutQueryParametersMap010010Builder>, SetterForFaketestqueryparamtersPutrefParam<FaketestqueryparamtersPutQueryParametersMap010100Builder> {
+    public static class QueryParametersMap010110Builder implements SetterForHttp<QueryParametersMap000110Builder>, SetterForPipe<QueryParametersMap010010Builder>, SetterForRefParam<QueryParametersMap010100Builder> {
         private final Map<String, @Nullable Object> instance;
-        public FaketestqueryparamtersPutQueryParametersMap010110Builder(Map<String, @Nullable Object> instance) {
+        public QueryParametersMap010110Builder(Map<String, @Nullable Object> instance) {
             this.instance = instance;
         }
         public Map<String, @Nullable Object> getInstance() {
             return instance;
         }
-        public FaketestqueryparamtersPutQueryParametersMap000110Builder getBuilderAfterFaketestqueryparamtersPuthttp(Map<String, @Nullable Object> instance) {
-            return new FaketestqueryparamtersPutQueryParametersMap000110Builder(instance);
+        public QueryParametersMap000110Builder getBuilderAfterHttp(Map<String, @Nullable Object> instance) {
+            return new QueryParametersMap000110Builder(instance);
         }
-        public FaketestqueryparamtersPutQueryParametersMap010010Builder getBuilderAfterFaketestqueryparamtersPutpipe(Map<String, @Nullable Object> instance) {
-            return new FaketestqueryparamtersPutQueryParametersMap010010Builder(instance);
+        public QueryParametersMap010010Builder getBuilderAfterPipe(Map<String, @Nullable Object> instance) {
+            return new QueryParametersMap010010Builder(instance);
         }
-        public FaketestqueryparamtersPutQueryParametersMap010100Builder getBuilderAfterFaketestqueryparamtersPutrefParam(Map<String, @Nullable Object> instance) {
-            return new FaketestqueryparamtersPutQueryParametersMap010100Builder(instance);
+        public QueryParametersMap010100Builder getBuilderAfterRefParam(Map<String, @Nullable Object> instance) {
+            return new QueryParametersMap010100Builder(instance);
         }
     }
     
-    public static class FaketestqueryparamtersPutQueryParametersMap010111Builder implements SetterForFaketestqueryparamtersPuthttp<FaketestqueryparamtersPutQueryParametersMap000111Builder>, SetterForFaketestqueryparamtersPutpipe<FaketestqueryparamtersPutQueryParametersMap010011Builder>, SetterForFaketestqueryparamtersPutrefParam<FaketestqueryparamtersPutQueryParametersMap010101Builder>, SetterForFaketestqueryparamtersPuturl<FaketestqueryparamtersPutQueryParametersMap010110Builder> {
+    public static class QueryParametersMap010111Builder implements SetterForHttp<QueryParametersMap000111Builder>, SetterForPipe<QueryParametersMap010011Builder>, SetterForRefParam<QueryParametersMap010101Builder>, SetterForUrl<QueryParametersMap010110Builder> {
         private final Map<String, @Nullable Object> instance;
-        public FaketestqueryparamtersPutQueryParametersMap010111Builder(Map<String, @Nullable Object> instance) {
+        public QueryParametersMap010111Builder(Map<String, @Nullable Object> instance) {
             this.instance = instance;
         }
         public Map<String, @Nullable Object> getInstance() {
             return instance;
         }
-        public FaketestqueryparamtersPutQueryParametersMap000111Builder getBuilderAfterFaketestqueryparamtersPuthttp(Map<String, @Nullable Object> instance) {
-            return new FaketestqueryparamtersPutQueryParametersMap000111Builder(instance);
+        public QueryParametersMap000111Builder getBuilderAfterHttp(Map<String, @Nullable Object> instance) {
+            return new QueryParametersMap000111Builder(instance);
         }
-        public FaketestqueryparamtersPutQueryParametersMap010011Builder getBuilderAfterFaketestqueryparamtersPutpipe(Map<String, @Nullable Object> instance) {
-            return new FaketestqueryparamtersPutQueryParametersMap010011Builder(instance);
+        public QueryParametersMap010011Builder getBuilderAfterPipe(Map<String, @Nullable Object> instance) {
+            return new QueryParametersMap010011Builder(instance);
         }
-        public FaketestqueryparamtersPutQueryParametersMap010101Builder getBuilderAfterFaketestqueryparamtersPutrefParam(Map<String, @Nullable Object> instance) {
-            return new FaketestqueryparamtersPutQueryParametersMap010101Builder(instance);
+        public QueryParametersMap010101Builder getBuilderAfterRefParam(Map<String, @Nullable Object> instance) {
+            return new QueryParametersMap010101Builder(instance);
         }
-        public FaketestqueryparamtersPutQueryParametersMap010110Builder getBuilderAfterFaketestqueryparamtersPuturl(Map<String, @Nullable Object> instance) {
-            return new FaketestqueryparamtersPutQueryParametersMap010110Builder(instance);
+        public QueryParametersMap010110Builder getBuilderAfterUrl(Map<String, @Nullable Object> instance) {
+            return new QueryParametersMap010110Builder(instance);
         }
     }
     
-    public static class FaketestqueryparamtersPutQueryParametersMap011000Builder implements SetterForFaketestqueryparamtersPuthttp<FaketestqueryparamtersPutQueryParametersMap001000Builder>, SetterForFaketestqueryparamtersPutioutil<FaketestqueryparamtersPutQueryParametersMap010000Builder> {
+    public static class QueryParametersMap011000Builder implements SetterForHttp<QueryParametersMap001000Builder>, SetterForIoutil<QueryParametersMap010000Builder> {
         private final Map<String, @Nullable Object> instance;
-        public FaketestqueryparamtersPutQueryParametersMap011000Builder(Map<String, @Nullable Object> instance) {
+        public QueryParametersMap011000Builder(Map<String, @Nullable Object> instance) {
             this.instance = instance;
         }
         public Map<String, @Nullable Object> getInstance() {
             return instance;
         }
-        public FaketestqueryparamtersPutQueryParametersMap001000Builder getBuilderAfterFaketestqueryparamtersPuthttp(Map<String, @Nullable Object> instance) {
-            return new FaketestqueryparamtersPutQueryParametersMap001000Builder(instance);
+        public QueryParametersMap001000Builder getBuilderAfterHttp(Map<String, @Nullable Object> instance) {
+            return new QueryParametersMap001000Builder(instance);
         }
-        public FaketestqueryparamtersPutQueryParametersMap010000Builder getBuilderAfterFaketestqueryparamtersPutioutil(Map<String, @Nullable Object> instance) {
-            return new FaketestqueryparamtersPutQueryParametersMap010000Builder(instance);
+        public QueryParametersMap010000Builder getBuilderAfterIoutil(Map<String, @Nullable Object> instance) {
+            return new QueryParametersMap010000Builder(instance);
         }
     }
     
-    public static class FaketestqueryparamtersPutQueryParametersMap011001Builder implements SetterForFaketestqueryparamtersPuthttp<FaketestqueryparamtersPutQueryParametersMap001001Builder>, SetterForFaketestqueryparamtersPutioutil<FaketestqueryparamtersPutQueryParametersMap010001Builder>, SetterForFaketestqueryparamtersPuturl<FaketestqueryparamtersPutQueryParametersMap011000Builder> {
+    public static class QueryParametersMap011001Builder implements SetterForHttp<QueryParametersMap001001Builder>, SetterForIoutil<QueryParametersMap010001Builder>, SetterForUrl<QueryParametersMap011000Builder> {
         private final Map<String, @Nullable Object> instance;
-        public FaketestqueryparamtersPutQueryParametersMap011001Builder(Map<String, @Nullable Object> instance) {
+        public QueryParametersMap011001Builder(Map<String, @Nullable Object> instance) {
             this.instance = instance;
         }
         public Map<String, @Nullable Object> getInstance() {
             return instance;
         }
-        public FaketestqueryparamtersPutQueryParametersMap001001Builder getBuilderAfterFaketestqueryparamtersPuthttp(Map<String, @Nullable Object> instance) {
-            return new FaketestqueryparamtersPutQueryParametersMap001001Builder(instance);
+        public QueryParametersMap001001Builder getBuilderAfterHttp(Map<String, @Nullable Object> instance) {
+            return new QueryParametersMap001001Builder(instance);
         }
-        public FaketestqueryparamtersPutQueryParametersMap010001Builder getBuilderAfterFaketestqueryparamtersPutioutil(Map<String, @Nullable Object> instance) {
-            return new FaketestqueryparamtersPutQueryParametersMap010001Builder(instance);
+        public QueryParametersMap010001Builder getBuilderAfterIoutil(Map<String, @Nullable Object> instance) {
+            return new QueryParametersMap010001Builder(instance);
         }
-        public FaketestqueryparamtersPutQueryParametersMap011000Builder getBuilderAfterFaketestqueryparamtersPuturl(Map<String, @Nullable Object> instance) {
-            return new FaketestqueryparamtersPutQueryParametersMap011000Builder(instance);
+        public QueryParametersMap011000Builder getBuilderAfterUrl(Map<String, @Nullable Object> instance) {
+            return new QueryParametersMap011000Builder(instance);
         }
     }
     
-    public static class FaketestqueryparamtersPutQueryParametersMap011010Builder implements SetterForFaketestqueryparamtersPuthttp<FaketestqueryparamtersPutQueryParametersMap001010Builder>, SetterForFaketestqueryparamtersPutioutil<FaketestqueryparamtersPutQueryParametersMap010010Builder>, SetterForFaketestqueryparamtersPutrefParam<FaketestqueryparamtersPutQueryParametersMap011000Builder> {
+    public static class QueryParametersMap011010Builder implements SetterForHttp<QueryParametersMap001010Builder>, SetterForIoutil<QueryParametersMap010010Builder>, SetterForRefParam<QueryParametersMap011000Builder> {
         private final Map<String, @Nullable Object> instance;
-        public FaketestqueryparamtersPutQueryParametersMap011010Builder(Map<String, @Nullable Object> instance) {
+        public QueryParametersMap011010Builder(Map<String, @Nullable Object> instance) {
             this.instance = instance;
         }
         public Map<String, @Nullable Object> getInstance() {
             return instance;
         }
-        public FaketestqueryparamtersPutQueryParametersMap001010Builder getBuilderAfterFaketestqueryparamtersPuthttp(Map<String, @Nullable Object> instance) {
-            return new FaketestqueryparamtersPutQueryParametersMap001010Builder(instance);
+        public QueryParametersMap001010Builder getBuilderAfterHttp(Map<String, @Nullable Object> instance) {
+            return new QueryParametersMap001010Builder(instance);
         }
-        public FaketestqueryparamtersPutQueryParametersMap010010Builder getBuilderAfterFaketestqueryparamtersPutioutil(Map<String, @Nullable Object> instance) {
-            return new FaketestqueryparamtersPutQueryParametersMap010010Builder(instance);
+        public QueryParametersMap010010Builder getBuilderAfterIoutil(Map<String, @Nullable Object> instance) {
+            return new QueryParametersMap010010Builder(instance);
         }
-        public FaketestqueryparamtersPutQueryParametersMap011000Builder getBuilderAfterFaketestqueryparamtersPutrefParam(Map<String, @Nullable Object> instance) {
-            return new FaketestqueryparamtersPutQueryParametersMap011000Builder(instance);
+        public QueryParametersMap011000Builder getBuilderAfterRefParam(Map<String, @Nullable Object> instance) {
+            return new QueryParametersMap011000Builder(instance);
         }
     }
     
-    public static class FaketestqueryparamtersPutQueryParametersMap011011Builder implements SetterForFaketestqueryparamtersPuthttp<FaketestqueryparamtersPutQueryParametersMap001011Builder>, SetterForFaketestqueryparamtersPutioutil<FaketestqueryparamtersPutQueryParametersMap010011Builder>, SetterForFaketestqueryparamtersPutrefParam<FaketestqueryparamtersPutQueryParametersMap011001Builder>, SetterForFaketestqueryparamtersPuturl<FaketestqueryparamtersPutQueryParametersMap011010Builder> {
+    public static class QueryParametersMap011011Builder implements SetterForHttp<QueryParametersMap001011Builder>, SetterForIoutil<QueryParametersMap010011Builder>, SetterForRefParam<QueryParametersMap011001Builder>, SetterForUrl<QueryParametersMap011010Builder> {
         private final Map<String, @Nullable Object> instance;
-        public FaketestqueryparamtersPutQueryParametersMap011011Builder(Map<String, @Nullable Object> instance) {
+        public QueryParametersMap011011Builder(Map<String, @Nullable Object> instance) {
             this.instance = instance;
         }
         public Map<String, @Nullable Object> getInstance() {
             return instance;
         }
-        public FaketestqueryparamtersPutQueryParametersMap001011Builder getBuilderAfterFaketestqueryparamtersPuthttp(Map<String, @Nullable Object> instance) {
-            return new FaketestqueryparamtersPutQueryParametersMap001011Builder(instance);
+        public QueryParametersMap001011Builder getBuilderAfterHttp(Map<String, @Nullable Object> instance) {
+            return new QueryParametersMap001011Builder(instance);
         }
-        public FaketestqueryparamtersPutQueryParametersMap010011Builder getBuilderAfterFaketestqueryparamtersPutioutil(Map<String, @Nullable Object> instance) {
-            return new FaketestqueryparamtersPutQueryParametersMap010011Builder(instance);
+        public QueryParametersMap010011Builder getBuilderAfterIoutil(Map<String, @Nullable Object> instance) {
+            return new QueryParametersMap010011Builder(instance);
         }
-        public FaketestqueryparamtersPutQueryParametersMap011001Builder getBuilderAfterFaketestqueryparamtersPutrefParam(Map<String, @Nullable Object> instance) {
-            return new FaketestqueryparamtersPutQueryParametersMap011001Builder(instance);
+        public QueryParametersMap011001Builder getBuilderAfterRefParam(Map<String, @Nullable Object> instance) {
+            return new QueryParametersMap011001Builder(instance);
         }
-        public FaketestqueryparamtersPutQueryParametersMap011010Builder getBuilderAfterFaketestqueryparamtersPuturl(Map<String, @Nullable Object> instance) {
-            return new FaketestqueryparamtersPutQueryParametersMap011010Builder(instance);
+        public QueryParametersMap011010Builder getBuilderAfterUrl(Map<String, @Nullable Object> instance) {
+            return new QueryParametersMap011010Builder(instance);
         }
     }
     
-    public static class FaketestqueryparamtersPutQueryParametersMap011100Builder implements SetterForFaketestqueryparamtersPuthttp<FaketestqueryparamtersPutQueryParametersMap001100Builder>, SetterForFaketestqueryparamtersPutioutil<FaketestqueryparamtersPutQueryParametersMap010100Builder>, SetterForFaketestqueryparamtersPutpipe<FaketestqueryparamtersPutQueryParametersMap011000Builder> {
+    public static class QueryParametersMap011100Builder implements SetterForHttp<QueryParametersMap001100Builder>, SetterForIoutil<QueryParametersMap010100Builder>, SetterForPipe<QueryParametersMap011000Builder> {
         private final Map<String, @Nullable Object> instance;
-        public FaketestqueryparamtersPutQueryParametersMap011100Builder(Map<String, @Nullable Object> instance) {
+        public QueryParametersMap011100Builder(Map<String, @Nullable Object> instance) {
             this.instance = instance;
         }
         public Map<String, @Nullable Object> getInstance() {
             return instance;
         }
-        public FaketestqueryparamtersPutQueryParametersMap001100Builder getBuilderAfterFaketestqueryparamtersPuthttp(Map<String, @Nullable Object> instance) {
-            return new FaketestqueryparamtersPutQueryParametersMap001100Builder(instance);
+        public QueryParametersMap001100Builder getBuilderAfterHttp(Map<String, @Nullable Object> instance) {
+            return new QueryParametersMap001100Builder(instance);
         }
-        public FaketestqueryparamtersPutQueryParametersMap010100Builder getBuilderAfterFaketestqueryparamtersPutioutil(Map<String, @Nullable Object> instance) {
-            return new FaketestqueryparamtersPutQueryParametersMap010100Builder(instance);
+        public QueryParametersMap010100Builder getBuilderAfterIoutil(Map<String, @Nullable Object> instance) {
+            return new QueryParametersMap010100Builder(instance);
         }
-        public FaketestqueryparamtersPutQueryParametersMap011000Builder getBuilderAfterFaketestqueryparamtersPutpipe(Map<String, @Nullable Object> instance) {
-            return new FaketestqueryparamtersPutQueryParametersMap011000Builder(instance);
+        public QueryParametersMap011000Builder getBuilderAfterPipe(Map<String, @Nullable Object> instance) {
+            return new QueryParametersMap011000Builder(instance);
         }
     }
     
-    public static class FaketestqueryparamtersPutQueryParametersMap011101Builder implements SetterForFaketestqueryparamtersPuthttp<FaketestqueryparamtersPutQueryParametersMap001101Builder>, SetterForFaketestqueryparamtersPutioutil<FaketestqueryparamtersPutQueryParametersMap010101Builder>, SetterForFaketestqueryparamtersPutpipe<FaketestqueryparamtersPutQueryParametersMap011001Builder>, SetterForFaketestqueryparamtersPuturl<FaketestqueryparamtersPutQueryParametersMap011100Builder> {
+    public static class QueryParametersMap011101Builder implements SetterForHttp<QueryParametersMap001101Builder>, SetterForIoutil<QueryParametersMap010101Builder>, SetterForPipe<QueryParametersMap011001Builder>, SetterForUrl<QueryParametersMap011100Builder> {
         private final Map<String, @Nullable Object> instance;
-        public FaketestqueryparamtersPutQueryParametersMap011101Builder(Map<String, @Nullable Object> instance) {
+        public QueryParametersMap011101Builder(Map<String, @Nullable Object> instance) {
             this.instance = instance;
         }
         public Map<String, @Nullable Object> getInstance() {
             return instance;
         }
-        public FaketestqueryparamtersPutQueryParametersMap001101Builder getBuilderAfterFaketestqueryparamtersPuthttp(Map<String, @Nullable Object> instance) {
-            return new FaketestqueryparamtersPutQueryParametersMap001101Builder(instance);
+        public QueryParametersMap001101Builder getBuilderAfterHttp(Map<String, @Nullable Object> instance) {
+            return new QueryParametersMap001101Builder(instance);
         }
-        public FaketestqueryparamtersPutQueryParametersMap010101Builder getBuilderAfterFaketestqueryparamtersPutioutil(Map<String, @Nullable Object> instance) {
-            return new FaketestqueryparamtersPutQueryParametersMap010101Builder(instance);
+        public QueryParametersMap010101Builder getBuilderAfterIoutil(Map<String, @Nullable Object> instance) {
+            return new QueryParametersMap010101Builder(instance);
         }
-        public FaketestqueryparamtersPutQueryParametersMap011001Builder getBuilderAfterFaketestqueryparamtersPutpipe(Map<String, @Nullable Object> instance) {
-            return new FaketestqueryparamtersPutQueryParametersMap011001Builder(instance);
+        public QueryParametersMap011001Builder getBuilderAfterPipe(Map<String, @Nullable Object> instance) {
+            return new QueryParametersMap011001Builder(instance);
         }
-        public FaketestqueryparamtersPutQueryParametersMap011100Builder getBuilderAfterFaketestqueryparamtersPuturl(Map<String, @Nullable Object> instance) {
-            return new FaketestqueryparamtersPutQueryParametersMap011100Builder(instance);
+        public QueryParametersMap011100Builder getBuilderAfterUrl(Map<String, @Nullable Object> instance) {
+            return new QueryParametersMap011100Builder(instance);
         }
     }
     
-    public static class FaketestqueryparamtersPutQueryParametersMap011110Builder implements SetterForFaketestqueryparamtersPuthttp<FaketestqueryparamtersPutQueryParametersMap001110Builder>, SetterForFaketestqueryparamtersPutioutil<FaketestqueryparamtersPutQueryParametersMap010110Builder>, SetterForFaketestqueryparamtersPutpipe<FaketestqueryparamtersPutQueryParametersMap011010Builder>, SetterForFaketestqueryparamtersPutrefParam<FaketestqueryparamtersPutQueryParametersMap011100Builder> {
+    public static class QueryParametersMap011110Builder implements SetterForHttp<QueryParametersMap001110Builder>, SetterForIoutil<QueryParametersMap010110Builder>, SetterForPipe<QueryParametersMap011010Builder>, SetterForRefParam<QueryParametersMap011100Builder> {
         private final Map<String, @Nullable Object> instance;
-        public FaketestqueryparamtersPutQueryParametersMap011110Builder(Map<String, @Nullable Object> instance) {
+        public QueryParametersMap011110Builder(Map<String, @Nullable Object> instance) {
             this.instance = instance;
         }
         public Map<String, @Nullable Object> getInstance() {
             return instance;
         }
-        public FaketestqueryparamtersPutQueryParametersMap001110Builder getBuilderAfterFaketestqueryparamtersPuthttp(Map<String, @Nullable Object> instance) {
-            return new FaketestqueryparamtersPutQueryParametersMap001110Builder(instance);
+        public QueryParametersMap001110Builder getBuilderAfterHttp(Map<String, @Nullable Object> instance) {
+            return new QueryParametersMap001110Builder(instance);
         }
-        public FaketestqueryparamtersPutQueryParametersMap010110Builder getBuilderAfterFaketestqueryparamtersPutioutil(Map<String, @Nullable Object> instance) {
-            return new FaketestqueryparamtersPutQueryParametersMap010110Builder(instance);
+        public QueryParametersMap010110Builder getBuilderAfterIoutil(Map<String, @Nullable Object> instance) {
+            return new QueryParametersMap010110Builder(instance);
         }
-        public FaketestqueryparamtersPutQueryParametersMap011010Builder getBuilderAfterFaketestqueryparamtersPutpipe(Map<String, @Nullable Object> instance) {
-            return new FaketestqueryparamtersPutQueryParametersMap011010Builder(instance);
+        public QueryParametersMap011010Builder getBuilderAfterPipe(Map<String, @Nullable Object> instance) {
+            return new QueryParametersMap011010Builder(instance);
         }
-        public FaketestqueryparamtersPutQueryParametersMap011100Builder getBuilderAfterFaketestqueryparamtersPutrefParam(Map<String, @Nullable Object> instance) {
-            return new FaketestqueryparamtersPutQueryParametersMap011100Builder(instance);
+        public QueryParametersMap011100Builder getBuilderAfterRefParam(Map<String, @Nullable Object> instance) {
+            return new QueryParametersMap011100Builder(instance);
         }
     }
     
-    public static class FaketestqueryparamtersPutQueryParametersMap011111Builder implements SetterForFaketestqueryparamtersPuthttp<FaketestqueryparamtersPutQueryParametersMap001111Builder>, SetterForFaketestqueryparamtersPutioutil<FaketestqueryparamtersPutQueryParametersMap010111Builder>, SetterForFaketestqueryparamtersPutpipe<FaketestqueryparamtersPutQueryParametersMap011011Builder>, SetterForFaketestqueryparamtersPutrefParam<FaketestqueryparamtersPutQueryParametersMap011101Builder>, SetterForFaketestqueryparamtersPuturl<FaketestqueryparamtersPutQueryParametersMap011110Builder> {
+    public static class QueryParametersMap011111Builder implements SetterForHttp<QueryParametersMap001111Builder>, SetterForIoutil<QueryParametersMap010111Builder>, SetterForPipe<QueryParametersMap011011Builder>, SetterForRefParam<QueryParametersMap011101Builder>, SetterForUrl<QueryParametersMap011110Builder> {
         private final Map<String, @Nullable Object> instance;
-        public FaketestqueryparamtersPutQueryParametersMap011111Builder(Map<String, @Nullable Object> instance) {
+        public QueryParametersMap011111Builder(Map<String, @Nullable Object> instance) {
             this.instance = instance;
         }
         public Map<String, @Nullable Object> getInstance() {
             return instance;
         }
-        public FaketestqueryparamtersPutQueryParametersMap001111Builder getBuilderAfterFaketestqueryparamtersPuthttp(Map<String, @Nullable Object> instance) {
-            return new FaketestqueryparamtersPutQueryParametersMap001111Builder(instance);
+        public QueryParametersMap001111Builder getBuilderAfterHttp(Map<String, @Nullable Object> instance) {
+            return new QueryParametersMap001111Builder(instance);
         }
-        public FaketestqueryparamtersPutQueryParametersMap010111Builder getBuilderAfterFaketestqueryparamtersPutioutil(Map<String, @Nullable Object> instance) {
-            return new FaketestqueryparamtersPutQueryParametersMap010111Builder(instance);
+        public QueryParametersMap010111Builder getBuilderAfterIoutil(Map<String, @Nullable Object> instance) {
+            return new QueryParametersMap010111Builder(instance);
         }
-        public FaketestqueryparamtersPutQueryParametersMap011011Builder getBuilderAfterFaketestqueryparamtersPutpipe(Map<String, @Nullable Object> instance) {
-            return new FaketestqueryparamtersPutQueryParametersMap011011Builder(instance);
+        public QueryParametersMap011011Builder getBuilderAfterPipe(Map<String, @Nullable Object> instance) {
+            return new QueryParametersMap011011Builder(instance);
         }
-        public FaketestqueryparamtersPutQueryParametersMap011101Builder getBuilderAfterFaketestqueryparamtersPutrefParam(Map<String, @Nullable Object> instance) {
-            return new FaketestqueryparamtersPutQueryParametersMap011101Builder(instance);
+        public QueryParametersMap011101Builder getBuilderAfterRefParam(Map<String, @Nullable Object> instance) {
+            return new QueryParametersMap011101Builder(instance);
         }
-        public FaketestqueryparamtersPutQueryParametersMap011110Builder getBuilderAfterFaketestqueryparamtersPuturl(Map<String, @Nullable Object> instance) {
-            return new FaketestqueryparamtersPutQueryParametersMap011110Builder(instance);
+        public QueryParametersMap011110Builder getBuilderAfterUrl(Map<String, @Nullable Object> instance) {
+            return new QueryParametersMap011110Builder(instance);
         }
     }
     
-    public static class FaketestqueryparamtersPutQueryParametersMap100000Builder implements SetterForFaketestqueryparamtersPutcontext<FaketestqueryparamtersPutQueryParametersMap000000Builder> {
+    public static class QueryParametersMap100000Builder implements SetterForContext<QueryParametersMap000000Builder> {
         private final Map<String, @Nullable Object> instance;
-        public FaketestqueryparamtersPutQueryParametersMap100000Builder(Map<String, @Nullable Object> instance) {
+        public QueryParametersMap100000Builder(Map<String, @Nullable Object> instance) {
             this.instance = instance;
         }
         public Map<String, @Nullable Object> getInstance() {
             return instance;
         }
-        public FaketestqueryparamtersPutQueryParametersMap000000Builder getBuilderAfterFaketestqueryparamtersPutcontext(Map<String, @Nullable Object> instance) {
-            return new FaketestqueryparamtersPutQueryParametersMap000000Builder(instance);
+        public QueryParametersMap000000Builder getBuilderAfterContext(Map<String, @Nullable Object> instance) {
+            return new QueryParametersMap000000Builder(instance);
         }
     }
     
-    public static class FaketestqueryparamtersPutQueryParametersMap100001Builder implements SetterForFaketestqueryparamtersPutcontext<FaketestqueryparamtersPutQueryParametersMap000001Builder>, SetterForFaketestqueryparamtersPuturl<FaketestqueryparamtersPutQueryParametersMap100000Builder> {
+    public static class QueryParametersMap100001Builder implements SetterForContext<QueryParametersMap000001Builder>, SetterForUrl<QueryParametersMap100000Builder> {
         private final Map<String, @Nullable Object> instance;
-        public FaketestqueryparamtersPutQueryParametersMap100001Builder(Map<String, @Nullable Object> instance) {
+        public QueryParametersMap100001Builder(Map<String, @Nullable Object> instance) {
             this.instance = instance;
         }
         public Map<String, @Nullable Object> getInstance() {
             return instance;
         }
-        public FaketestqueryparamtersPutQueryParametersMap000001Builder getBuilderAfterFaketestqueryparamtersPutcontext(Map<String, @Nullable Object> instance) {
-            return new FaketestqueryparamtersPutQueryParametersMap000001Builder(instance);
+        public QueryParametersMap000001Builder getBuilderAfterContext(Map<String, @Nullable Object> instance) {
+            return new QueryParametersMap000001Builder(instance);
         }
-        public FaketestqueryparamtersPutQueryParametersMap100000Builder getBuilderAfterFaketestqueryparamtersPuturl(Map<String, @Nullable Object> instance) {
-            return new FaketestqueryparamtersPutQueryParametersMap100000Builder(instance);
+        public QueryParametersMap100000Builder getBuilderAfterUrl(Map<String, @Nullable Object> instance) {
+            return new QueryParametersMap100000Builder(instance);
         }
     }
     
-    public static class FaketestqueryparamtersPutQueryParametersMap100010Builder implements SetterForFaketestqueryparamtersPutcontext<FaketestqueryparamtersPutQueryParametersMap000010Builder>, SetterForFaketestqueryparamtersPutrefParam<FaketestqueryparamtersPutQueryParametersMap100000Builder> {
+    public static class QueryParametersMap100010Builder implements SetterForContext<QueryParametersMap000010Builder>, SetterForRefParam<QueryParametersMap100000Builder> {
         private final Map<String, @Nullable Object> instance;
-        public FaketestqueryparamtersPutQueryParametersMap100010Builder(Map<String, @Nullable Object> instance) {
+        public QueryParametersMap100010Builder(Map<String, @Nullable Object> instance) {
             this.instance = instance;
         }
         public Map<String, @Nullable Object> getInstance() {
             return instance;
         }
-        public FaketestqueryparamtersPutQueryParametersMap000010Builder getBuilderAfterFaketestqueryparamtersPutcontext(Map<String, @Nullable Object> instance) {
-            return new FaketestqueryparamtersPutQueryParametersMap000010Builder(instance);
+        public QueryParametersMap000010Builder getBuilderAfterContext(Map<String, @Nullable Object> instance) {
+            return new QueryParametersMap000010Builder(instance);
         }
-        public FaketestqueryparamtersPutQueryParametersMap100000Builder getBuilderAfterFaketestqueryparamtersPutrefParam(Map<String, @Nullable Object> instance) {
-            return new FaketestqueryparamtersPutQueryParametersMap100000Builder(instance);
+        public QueryParametersMap100000Builder getBuilderAfterRefParam(Map<String, @Nullable Object> instance) {
+            return new QueryParametersMap100000Builder(instance);
         }
     }
     
-    public static class FaketestqueryparamtersPutQueryParametersMap100011Builder implements SetterForFaketestqueryparamtersPutcontext<FaketestqueryparamtersPutQueryParametersMap000011Builder>, SetterForFaketestqueryparamtersPutrefParam<FaketestqueryparamtersPutQueryParametersMap100001Builder>, SetterForFaketestqueryparamtersPuturl<FaketestqueryparamtersPutQueryParametersMap100010Builder> {
+    public static class QueryParametersMap100011Builder implements SetterForContext<QueryParametersMap000011Builder>, SetterForRefParam<QueryParametersMap100001Builder>, SetterForUrl<QueryParametersMap100010Builder> {
         private final Map<String, @Nullable Object> instance;
-        public FaketestqueryparamtersPutQueryParametersMap100011Builder(Map<String, @Nullable Object> instance) {
+        public QueryParametersMap100011Builder(Map<String, @Nullable Object> instance) {
             this.instance = instance;
         }
         public Map<String, @Nullable Object> getInstance() {
             return instance;
         }
-        public FaketestqueryparamtersPutQueryParametersMap000011Builder getBuilderAfterFaketestqueryparamtersPutcontext(Map<String, @Nullable Object> instance) {
-            return new FaketestqueryparamtersPutQueryParametersMap000011Builder(instance);
+        public QueryParametersMap000011Builder getBuilderAfterContext(Map<String, @Nullable Object> instance) {
+            return new QueryParametersMap000011Builder(instance);
         }
-        public FaketestqueryparamtersPutQueryParametersMap100001Builder getBuilderAfterFaketestqueryparamtersPutrefParam(Map<String, @Nullable Object> instance) {
-            return new FaketestqueryparamtersPutQueryParametersMap100001Builder(instance);
+        public QueryParametersMap100001Builder getBuilderAfterRefParam(Map<String, @Nullable Object> instance) {
+            return new QueryParametersMap100001Builder(instance);
         }
-        public FaketestqueryparamtersPutQueryParametersMap100010Builder getBuilderAfterFaketestqueryparamtersPuturl(Map<String, @Nullable Object> instance) {
-            return new FaketestqueryparamtersPutQueryParametersMap100010Builder(instance);
+        public QueryParametersMap100010Builder getBuilderAfterUrl(Map<String, @Nullable Object> instance) {
+            return new QueryParametersMap100010Builder(instance);
         }
     }
     
-    public static class FaketestqueryparamtersPutQueryParametersMap100100Builder implements SetterForFaketestqueryparamtersPutcontext<FaketestqueryparamtersPutQueryParametersMap000100Builder>, SetterForFaketestqueryparamtersPutpipe<FaketestqueryparamtersPutQueryParametersMap100000Builder> {
+    public static class QueryParametersMap100100Builder implements SetterForContext<QueryParametersMap000100Builder>, SetterForPipe<QueryParametersMap100000Builder> {
         private final Map<String, @Nullable Object> instance;
-        public FaketestqueryparamtersPutQueryParametersMap100100Builder(Map<String, @Nullable Object> instance) {
+        public QueryParametersMap100100Builder(Map<String, @Nullable Object> instance) {
             this.instance = instance;
         }
         public Map<String, @Nullable Object> getInstance() {
             return instance;
         }
-        public FaketestqueryparamtersPutQueryParametersMap000100Builder getBuilderAfterFaketestqueryparamtersPutcontext(Map<String, @Nullable Object> instance) {
-            return new FaketestqueryparamtersPutQueryParametersMap000100Builder(instance);
+        public QueryParametersMap000100Builder getBuilderAfterContext(Map<String, @Nullable Object> instance) {
+            return new QueryParametersMap000100Builder(instance);
         }
-        public FaketestqueryparamtersPutQueryParametersMap100000Builder getBuilderAfterFaketestqueryparamtersPutpipe(Map<String, @Nullable Object> instance) {
-            return new FaketestqueryparamtersPutQueryParametersMap100000Builder(instance);
+        public QueryParametersMap100000Builder getBuilderAfterPipe(Map<String, @Nullable Object> instance) {
+            return new QueryParametersMap100000Builder(instance);
         }
     }
     
-    public static class FaketestqueryparamtersPutQueryParametersMap100101Builder implements SetterForFaketestqueryparamtersPutcontext<FaketestqueryparamtersPutQueryParametersMap000101Builder>, SetterForFaketestqueryparamtersPutpipe<FaketestqueryparamtersPutQueryParametersMap100001Builder>, SetterForFaketestqueryparamtersPuturl<FaketestqueryparamtersPutQueryParametersMap100100Builder> {
+    public static class QueryParametersMap100101Builder implements SetterForContext<QueryParametersMap000101Builder>, SetterForPipe<QueryParametersMap100001Builder>, SetterForUrl<QueryParametersMap100100Builder> {
         private final Map<String, @Nullable Object> instance;
-        public FaketestqueryparamtersPutQueryParametersMap100101Builder(Map<String, @Nullable Object> instance) {
+        public QueryParametersMap100101Builder(Map<String, @Nullable Object> instance) {
             this.instance = instance;
         }
         public Map<String, @Nullable Object> getInstance() {
             return instance;
         }
-        public FaketestqueryparamtersPutQueryParametersMap000101Builder getBuilderAfterFaketestqueryparamtersPutcontext(Map<String, @Nullable Object> instance) {
-            return new FaketestqueryparamtersPutQueryParametersMap000101Builder(instance);
+        public QueryParametersMap000101Builder getBuilderAfterContext(Map<String, @Nullable Object> instance) {
+            return new QueryParametersMap000101Builder(instance);
         }
-        public FaketestqueryparamtersPutQueryParametersMap100001Builder getBuilderAfterFaketestqueryparamtersPutpipe(Map<String, @Nullable Object> instance) {
-            return new FaketestqueryparamtersPutQueryParametersMap100001Builder(instance);
+        public QueryParametersMap100001Builder getBuilderAfterPipe(Map<String, @Nullable Object> instance) {
+            return new QueryParametersMap100001Builder(instance);
         }
-        public FaketestqueryparamtersPutQueryParametersMap100100Builder getBuilderAfterFaketestqueryparamtersPuturl(Map<String, @Nullable Object> instance) {
-            return new FaketestqueryparamtersPutQueryParametersMap100100Builder(instance);
+        public QueryParametersMap100100Builder getBuilderAfterUrl(Map<String, @Nullable Object> instance) {
+            return new QueryParametersMap100100Builder(instance);
         }
     }
     
-    public static class FaketestqueryparamtersPutQueryParametersMap100110Builder implements SetterForFaketestqueryparamtersPutcontext<FaketestqueryparamtersPutQueryParametersMap000110Builder>, SetterForFaketestqueryparamtersPutpipe<FaketestqueryparamtersPutQueryParametersMap100010Builder>, SetterForFaketestqueryparamtersPutrefParam<FaketestqueryparamtersPutQueryParametersMap100100Builder> {
+    public static class QueryParametersMap100110Builder implements SetterForContext<QueryParametersMap000110Builder>, SetterForPipe<QueryParametersMap100010Builder>, SetterForRefParam<QueryParametersMap100100Builder> {
         private final Map<String, @Nullable Object> instance;
-        public FaketestqueryparamtersPutQueryParametersMap100110Builder(Map<String, @Nullable Object> instance) {
+        public QueryParametersMap100110Builder(Map<String, @Nullable Object> instance) {
             this.instance = instance;
         }
         public Map<String, @Nullable Object> getInstance() {
             return instance;
         }
-        public FaketestqueryparamtersPutQueryParametersMap000110Builder getBuilderAfterFaketestqueryparamtersPutcontext(Map<String, @Nullable Object> instance) {
-            return new FaketestqueryparamtersPutQueryParametersMap000110Builder(instance);
+        public QueryParametersMap000110Builder getBuilderAfterContext(Map<String, @Nullable Object> instance) {
+            return new QueryParametersMap000110Builder(instance);
         }
-        public FaketestqueryparamtersPutQueryParametersMap100010Builder getBuilderAfterFaketestqueryparamtersPutpipe(Map<String, @Nullable Object> instance) {
-            return new FaketestqueryparamtersPutQueryParametersMap100010Builder(instance);
+        public QueryParametersMap100010Builder getBuilderAfterPipe(Map<String, @Nullable Object> instance) {
+            return new QueryParametersMap100010Builder(instance);
         }
-        public FaketestqueryparamtersPutQueryParametersMap100100Builder getBuilderAfterFaketestqueryparamtersPutrefParam(Map<String, @Nullable Object> instance) {
-            return new FaketestqueryparamtersPutQueryParametersMap100100Builder(instance);
+        public QueryParametersMap100100Builder getBuilderAfterRefParam(Map<String, @Nullable Object> instance) {
+            return new QueryParametersMap100100Builder(instance);
         }
     }
     
-    public static class FaketestqueryparamtersPutQueryParametersMap100111Builder implements SetterForFaketestqueryparamtersPutcontext<FaketestqueryparamtersPutQueryParametersMap000111Builder>, SetterForFaketestqueryparamtersPutpipe<FaketestqueryparamtersPutQueryParametersMap100011Builder>, SetterForFaketestqueryparamtersPutrefParam<FaketestqueryparamtersPutQueryParametersMap100101Builder>, SetterForFaketestqueryparamtersPuturl<FaketestqueryparamtersPutQueryParametersMap100110Builder> {
+    public static class QueryParametersMap100111Builder implements SetterForContext<QueryParametersMap000111Builder>, SetterForPipe<QueryParametersMap100011Builder>, SetterForRefParam<QueryParametersMap100101Builder>, SetterForUrl<QueryParametersMap100110Builder> {
         private final Map<String, @Nullable Object> instance;
-        public FaketestqueryparamtersPutQueryParametersMap100111Builder(Map<String, @Nullable Object> instance) {
+        public QueryParametersMap100111Builder(Map<String, @Nullable Object> instance) {
             this.instance = instance;
         }
         public Map<String, @Nullable Object> getInstance() {
             return instance;
         }
-        public FaketestqueryparamtersPutQueryParametersMap000111Builder getBuilderAfterFaketestqueryparamtersPutcontext(Map<String, @Nullable Object> instance) {
-            return new FaketestqueryparamtersPutQueryParametersMap000111Builder(instance);
+        public QueryParametersMap000111Builder getBuilderAfterContext(Map<String, @Nullable Object> instance) {
+            return new QueryParametersMap000111Builder(instance);
         }
-        public FaketestqueryparamtersPutQueryParametersMap100011Builder getBuilderAfterFaketestqueryparamtersPutpipe(Map<String, @Nullable Object> instance) {
-            return new FaketestqueryparamtersPutQueryParametersMap100011Builder(instance);
+        public QueryParametersMap100011Builder getBuilderAfterPipe(Map<String, @Nullable Object> instance) {
+            return new QueryParametersMap100011Builder(instance);
         }
-        public FaketestqueryparamtersPutQueryParametersMap100101Builder getBuilderAfterFaketestqueryparamtersPutrefParam(Map<String, @Nullable Object> instance) {
-            return new FaketestqueryparamtersPutQueryParametersMap100101Builder(instance);
+        public QueryParametersMap100101Builder getBuilderAfterRefParam(Map<String, @Nullable Object> instance) {
+            return new QueryParametersMap100101Builder(instance);
         }
-        public FaketestqueryparamtersPutQueryParametersMap100110Builder getBuilderAfterFaketestqueryparamtersPuturl(Map<String, @Nullable Object> instance) {
-            return new FaketestqueryparamtersPutQueryParametersMap100110Builder(instance);
+        public QueryParametersMap100110Builder getBuilderAfterUrl(Map<String, @Nullable Object> instance) {
+            return new QueryParametersMap100110Builder(instance);
         }
     }
     
-    public static class FaketestqueryparamtersPutQueryParametersMap101000Builder implements SetterForFaketestqueryparamtersPutcontext<FaketestqueryparamtersPutQueryParametersMap001000Builder>, SetterForFaketestqueryparamtersPutioutil<FaketestqueryparamtersPutQueryParametersMap100000Builder> {
+    public static class QueryParametersMap101000Builder implements SetterForContext<QueryParametersMap001000Builder>, SetterForIoutil<QueryParametersMap100000Builder> {
         private final Map<String, @Nullable Object> instance;
-        public FaketestqueryparamtersPutQueryParametersMap101000Builder(Map<String, @Nullable Object> instance) {
+        public QueryParametersMap101000Builder(Map<String, @Nullable Object> instance) {
             this.instance = instance;
         }
         public Map<String, @Nullable Object> getInstance() {
             return instance;
         }
-        public FaketestqueryparamtersPutQueryParametersMap001000Builder getBuilderAfterFaketestqueryparamtersPutcontext(Map<String, @Nullable Object> instance) {
-            return new FaketestqueryparamtersPutQueryParametersMap001000Builder(instance);
+        public QueryParametersMap001000Builder getBuilderAfterContext(Map<String, @Nullable Object> instance) {
+            return new QueryParametersMap001000Builder(instance);
         }
-        public FaketestqueryparamtersPutQueryParametersMap100000Builder getBuilderAfterFaketestqueryparamtersPutioutil(Map<String, @Nullable Object> instance) {
-            return new FaketestqueryparamtersPutQueryParametersMap100000Builder(instance);
+        public QueryParametersMap100000Builder getBuilderAfterIoutil(Map<String, @Nullable Object> instance) {
+            return new QueryParametersMap100000Builder(instance);
         }
     }
     
-    public static class FaketestqueryparamtersPutQueryParametersMap101001Builder implements SetterForFaketestqueryparamtersPutcontext<FaketestqueryparamtersPutQueryParametersMap001001Builder>, SetterForFaketestqueryparamtersPutioutil<FaketestqueryparamtersPutQueryParametersMap100001Builder>, SetterForFaketestqueryparamtersPuturl<FaketestqueryparamtersPutQueryParametersMap101000Builder> {
+    public static class QueryParametersMap101001Builder implements SetterForContext<QueryParametersMap001001Builder>, SetterForIoutil<QueryParametersMap100001Builder>, SetterForUrl<QueryParametersMap101000Builder> {
         private final Map<String, @Nullable Object> instance;
-        public FaketestqueryparamtersPutQueryParametersMap101001Builder(Map<String, @Nullable Object> instance) {
+        public QueryParametersMap101001Builder(Map<String, @Nullable Object> instance) {
             this.instance = instance;
         }
         public Map<String, @Nullable Object> getInstance() {
             return instance;
         }
-        public FaketestqueryparamtersPutQueryParametersMap001001Builder getBuilderAfterFaketestqueryparamtersPutcontext(Map<String, @Nullable Object> instance) {
-            return new FaketestqueryparamtersPutQueryParametersMap001001Builder(instance);
+        public QueryParametersMap001001Builder getBuilderAfterContext(Map<String, @Nullable Object> instance) {
+            return new QueryParametersMap001001Builder(instance);
         }
-        public FaketestqueryparamtersPutQueryParametersMap100001Builder getBuilderAfterFaketestqueryparamtersPutioutil(Map<String, @Nullable Object> instance) {
-            return new FaketestqueryparamtersPutQueryParametersMap100001Builder(instance);
+        public QueryParametersMap100001Builder getBuilderAfterIoutil(Map<String, @Nullable Object> instance) {
+            return new QueryParametersMap100001Builder(instance);
         }
-        public FaketestqueryparamtersPutQueryParametersMap101000Builder getBuilderAfterFaketestqueryparamtersPuturl(Map<String, @Nullable Object> instance) {
-            return new FaketestqueryparamtersPutQueryParametersMap101000Builder(instance);
+        public QueryParametersMap101000Builder getBuilderAfterUrl(Map<String, @Nullable Object> instance) {
+            return new QueryParametersMap101000Builder(instance);
         }
     }
     
-    public static class FaketestqueryparamtersPutQueryParametersMap101010Builder implements SetterForFaketestqueryparamtersPutcontext<FaketestqueryparamtersPutQueryParametersMap001010Builder>, SetterForFaketestqueryparamtersPutioutil<FaketestqueryparamtersPutQueryParametersMap100010Builder>, SetterForFaketestqueryparamtersPutrefParam<FaketestqueryparamtersPutQueryParametersMap101000Builder> {
+    public static class QueryParametersMap101010Builder implements SetterForContext<QueryParametersMap001010Builder>, SetterForIoutil<QueryParametersMap100010Builder>, SetterForRefParam<QueryParametersMap101000Builder> {
         private final Map<String, @Nullable Object> instance;
-        public FaketestqueryparamtersPutQueryParametersMap101010Builder(Map<String, @Nullable Object> instance) {
+        public QueryParametersMap101010Builder(Map<String, @Nullable Object> instance) {
             this.instance = instance;
         }
         public Map<String, @Nullable Object> getInstance() {
             return instance;
         }
-        public FaketestqueryparamtersPutQueryParametersMap001010Builder getBuilderAfterFaketestqueryparamtersPutcontext(Map<String, @Nullable Object> instance) {
-            return new FaketestqueryparamtersPutQueryParametersMap001010Builder(instance);
+        public QueryParametersMap001010Builder getBuilderAfterContext(Map<String, @Nullable Object> instance) {
+            return new QueryParametersMap001010Builder(instance);
         }
-        public FaketestqueryparamtersPutQueryParametersMap100010Builder getBuilderAfterFaketestqueryparamtersPutioutil(Map<String, @Nullable Object> instance) {
-            return new FaketestqueryparamtersPutQueryParametersMap100010Builder(instance);
+        public QueryParametersMap100010Builder getBuilderAfterIoutil(Map<String, @Nullable Object> instance) {
+            return new QueryParametersMap100010Builder(instance);
         }
-        public FaketestqueryparamtersPutQueryParametersMap101000Builder getBuilderAfterFaketestqueryparamtersPutrefParam(Map<String, @Nullable Object> instance) {
-            return new FaketestqueryparamtersPutQueryParametersMap101000Builder(instance);
+        public QueryParametersMap101000Builder getBuilderAfterRefParam(Map<String, @Nullable Object> instance) {
+            return new QueryParametersMap101000Builder(instance);
         }
     }
     
-    public static class FaketestqueryparamtersPutQueryParametersMap101011Builder implements SetterForFaketestqueryparamtersPutcontext<FaketestqueryparamtersPutQueryParametersMap001011Builder>, SetterForFaketestqueryparamtersPutioutil<FaketestqueryparamtersPutQueryParametersMap100011Builder>, SetterForFaketestqueryparamtersPutrefParam<FaketestqueryparamtersPutQueryParametersMap101001Builder>, SetterForFaketestqueryparamtersPuturl<FaketestqueryparamtersPutQueryParametersMap101010Builder> {
+    public static class QueryParametersMap101011Builder implements SetterForContext<QueryParametersMap001011Builder>, SetterForIoutil<QueryParametersMap100011Builder>, SetterForRefParam<QueryParametersMap101001Builder>, SetterForUrl<QueryParametersMap101010Builder> {
         private final Map<String, @Nullable Object> instance;
-        public FaketestqueryparamtersPutQueryParametersMap101011Builder(Map<String, @Nullable Object> instance) {
+        public QueryParametersMap101011Builder(Map<String, @Nullable Object> instance) {
             this.instance = instance;
         }
         public Map<String, @Nullable Object> getInstance() {
             return instance;
         }
-        public FaketestqueryparamtersPutQueryParametersMap001011Builder getBuilderAfterFaketestqueryparamtersPutcontext(Map<String, @Nullable Object> instance) {
-            return new FaketestqueryparamtersPutQueryParametersMap001011Builder(instance);
+        public QueryParametersMap001011Builder getBuilderAfterContext(Map<String, @Nullable Object> instance) {
+            return new QueryParametersMap001011Builder(instance);
         }
-        public FaketestqueryparamtersPutQueryParametersMap100011Builder getBuilderAfterFaketestqueryparamtersPutioutil(Map<String, @Nullable Object> instance) {
-            return new FaketestqueryparamtersPutQueryParametersMap100011Builder(instance);
+        public QueryParametersMap100011Builder getBuilderAfterIoutil(Map<String, @Nullable Object> instance) {
+            return new QueryParametersMap100011Builder(instance);
         }
-        public FaketestqueryparamtersPutQueryParametersMap101001Builder getBuilderAfterFaketestqueryparamtersPutrefParam(Map<String, @Nullable Object> instance) {
-            return new FaketestqueryparamtersPutQueryParametersMap101001Builder(instance);
+        public QueryParametersMap101001Builder getBuilderAfterRefParam(Map<String, @Nullable Object> instance) {
+            return new QueryParametersMap101001Builder(instance);
         }
-        public FaketestqueryparamtersPutQueryParametersMap101010Builder getBuilderAfterFaketestqueryparamtersPuturl(Map<String, @Nullable Object> instance) {
-            return new FaketestqueryparamtersPutQueryParametersMap101010Builder(instance);
+        public QueryParametersMap101010Builder getBuilderAfterUrl(Map<String, @Nullable Object> instance) {
+            return new QueryParametersMap101010Builder(instance);
         }
     }
     
-    public static class FaketestqueryparamtersPutQueryParametersMap101100Builder implements SetterForFaketestqueryparamtersPutcontext<FaketestqueryparamtersPutQueryParametersMap001100Builder>, SetterForFaketestqueryparamtersPutioutil<FaketestqueryparamtersPutQueryParametersMap100100Builder>, SetterForFaketestqueryparamtersPutpipe<FaketestqueryparamtersPutQueryParametersMap101000Builder> {
+    public static class QueryParametersMap101100Builder implements SetterForContext<QueryParametersMap001100Builder>, SetterForIoutil<QueryParametersMap100100Builder>, SetterForPipe<QueryParametersMap101000Builder> {
         private final Map<String, @Nullable Object> instance;
-        public FaketestqueryparamtersPutQueryParametersMap101100Builder(Map<String, @Nullable Object> instance) {
+        public QueryParametersMap101100Builder(Map<String, @Nullable Object> instance) {
             this.instance = instance;
         }
         public Map<String, @Nullable Object> getInstance() {
             return instance;
         }
-        public FaketestqueryparamtersPutQueryParametersMap001100Builder getBuilderAfterFaketestqueryparamtersPutcontext(Map<String, @Nullable Object> instance) {
-            return new FaketestqueryparamtersPutQueryParametersMap001100Builder(instance);
+        public QueryParametersMap001100Builder getBuilderAfterContext(Map<String, @Nullable Object> instance) {
+            return new QueryParametersMap001100Builder(instance);
         }
-        public FaketestqueryparamtersPutQueryParametersMap100100Builder getBuilderAfterFaketestqueryparamtersPutioutil(Map<String, @Nullable Object> instance) {
-            return new FaketestqueryparamtersPutQueryParametersMap100100Builder(instance);
+        public QueryParametersMap100100Builder getBuilderAfterIoutil(Map<String, @Nullable Object> instance) {
+            return new QueryParametersMap100100Builder(instance);
         }
-        public FaketestqueryparamtersPutQueryParametersMap101000Builder getBuilderAfterFaketestqueryparamtersPutpipe(Map<String, @Nullable Object> instance) {
-            return new FaketestqueryparamtersPutQueryParametersMap101000Builder(instance);
+        public QueryParametersMap101000Builder getBuilderAfterPipe(Map<String, @Nullable Object> instance) {
+            return new QueryParametersMap101000Builder(instance);
         }
     }
     
-    public static class FaketestqueryparamtersPutQueryParametersMap101101Builder implements SetterForFaketestqueryparamtersPutcontext<FaketestqueryparamtersPutQueryParametersMap001101Builder>, SetterForFaketestqueryparamtersPutioutil<FaketestqueryparamtersPutQueryParametersMap100101Builder>, SetterForFaketestqueryparamtersPutpipe<FaketestqueryparamtersPutQueryParametersMap101001Builder>, SetterForFaketestqueryparamtersPuturl<FaketestqueryparamtersPutQueryParametersMap101100Builder> {
+    public static class QueryParametersMap101101Builder implements SetterForContext<QueryParametersMap001101Builder>, SetterForIoutil<QueryParametersMap100101Builder>, SetterForPipe<QueryParametersMap101001Builder>, SetterForUrl<QueryParametersMap101100Builder> {
         private final Map<String, @Nullable Object> instance;
-        public FaketestqueryparamtersPutQueryParametersMap101101Builder(Map<String, @Nullable Object> instance) {
+        public QueryParametersMap101101Builder(Map<String, @Nullable Object> instance) {
             this.instance = instance;
         }
         public Map<String, @Nullable Object> getInstance() {
             return instance;
         }
-        public FaketestqueryparamtersPutQueryParametersMap001101Builder getBuilderAfterFaketestqueryparamtersPutcontext(Map<String, @Nullable Object> instance) {
-            return new FaketestqueryparamtersPutQueryParametersMap001101Builder(instance);
+        public QueryParametersMap001101Builder getBuilderAfterContext(Map<String, @Nullable Object> instance) {
+            return new QueryParametersMap001101Builder(instance);
         }
-        public FaketestqueryparamtersPutQueryParametersMap100101Builder getBuilderAfterFaketestqueryparamtersPutioutil(Map<String, @Nullable Object> instance) {
-            return new FaketestqueryparamtersPutQueryParametersMap100101Builder(instance);
+        public QueryParametersMap100101Builder getBuilderAfterIoutil(Map<String, @Nullable Object> instance) {
+            return new QueryParametersMap100101Builder(instance);
         }
-        public FaketestqueryparamtersPutQueryParametersMap101001Builder getBuilderAfterFaketestqueryparamtersPutpipe(Map<String, @Nullable Object> instance) {
-            return new FaketestqueryparamtersPutQueryParametersMap101001Builder(instance);
+        public QueryParametersMap101001Builder getBuilderAfterPipe(Map<String, @Nullable Object> instance) {
+            return new QueryParametersMap101001Builder(instance);
         }
-        public FaketestqueryparamtersPutQueryParametersMap101100Builder getBuilderAfterFaketestqueryparamtersPuturl(Map<String, @Nullable Object> instance) {
-            return new FaketestqueryparamtersPutQueryParametersMap101100Builder(instance);
+        public QueryParametersMap101100Builder getBuilderAfterUrl(Map<String, @Nullable Object> instance) {
+            return new QueryParametersMap101100Builder(instance);
         }
     }
     
-    public static class FaketestqueryparamtersPutQueryParametersMap101110Builder implements SetterForFaketestqueryparamtersPutcontext<FaketestqueryparamtersPutQueryParametersMap001110Builder>, SetterForFaketestqueryparamtersPutioutil<FaketestqueryparamtersPutQueryParametersMap100110Builder>, SetterForFaketestqueryparamtersPutpipe<FaketestqueryparamtersPutQueryParametersMap101010Builder>, SetterForFaketestqueryparamtersPutrefParam<FaketestqueryparamtersPutQueryParametersMap101100Builder> {
+    public static class QueryParametersMap101110Builder implements SetterForContext<QueryParametersMap001110Builder>, SetterForIoutil<QueryParametersMap100110Builder>, SetterForPipe<QueryParametersMap101010Builder>, SetterForRefParam<QueryParametersMap101100Builder> {
         private final Map<String, @Nullable Object> instance;
-        public FaketestqueryparamtersPutQueryParametersMap101110Builder(Map<String, @Nullable Object> instance) {
+        public QueryParametersMap101110Builder(Map<String, @Nullable Object> instance) {
             this.instance = instance;
         }
         public Map<String, @Nullable Object> getInstance() {
             return instance;
         }
-        public FaketestqueryparamtersPutQueryParametersMap001110Builder getBuilderAfterFaketestqueryparamtersPutcontext(Map<String, @Nullable Object> instance) {
-            return new FaketestqueryparamtersPutQueryParametersMap001110Builder(instance);
+        public QueryParametersMap001110Builder getBuilderAfterContext(Map<String, @Nullable Object> instance) {
+            return new QueryParametersMap001110Builder(instance);
         }
-        public FaketestqueryparamtersPutQueryParametersMap100110Builder getBuilderAfterFaketestqueryparamtersPutioutil(Map<String, @Nullable Object> instance) {
-            return new FaketestqueryparamtersPutQueryParametersMap100110Builder(instance);
+        public QueryParametersMap100110Builder getBuilderAfterIoutil(Map<String, @Nullable Object> instance) {
+            return new QueryParametersMap100110Builder(instance);
         }
-        public FaketestqueryparamtersPutQueryParametersMap101010Builder getBuilderAfterFaketestqueryparamtersPutpipe(Map<String, @Nullable Object> instance) {
-            return new FaketestqueryparamtersPutQueryParametersMap101010Builder(instance);
+        public QueryParametersMap101010Builder getBuilderAfterPipe(Map<String, @Nullable Object> instance) {
+            return new QueryParametersMap101010Builder(instance);
         }
-        public FaketestqueryparamtersPutQueryParametersMap101100Builder getBuilderAfterFaketestqueryparamtersPutrefParam(Map<String, @Nullable Object> instance) {
-            return new FaketestqueryparamtersPutQueryParametersMap101100Builder(instance);
+        public QueryParametersMap101100Builder getBuilderAfterRefParam(Map<String, @Nullable Object> instance) {
+            return new QueryParametersMap101100Builder(instance);
         }
     }
     
-    public static class FaketestqueryparamtersPutQueryParametersMap101111Builder implements SetterForFaketestqueryparamtersPutcontext<FaketestqueryparamtersPutQueryParametersMap001111Builder>, SetterForFaketestqueryparamtersPutioutil<FaketestqueryparamtersPutQueryParametersMap100111Builder>, SetterForFaketestqueryparamtersPutpipe<FaketestqueryparamtersPutQueryParametersMap101011Builder>, SetterForFaketestqueryparamtersPutrefParam<FaketestqueryparamtersPutQueryParametersMap101101Builder>, SetterForFaketestqueryparamtersPuturl<FaketestqueryparamtersPutQueryParametersMap101110Builder> {
+    public static class QueryParametersMap101111Builder implements SetterForContext<QueryParametersMap001111Builder>, SetterForIoutil<QueryParametersMap100111Builder>, SetterForPipe<QueryParametersMap101011Builder>, SetterForRefParam<QueryParametersMap101101Builder>, SetterForUrl<QueryParametersMap101110Builder> {
         private final Map<String, @Nullable Object> instance;
-        public FaketestqueryparamtersPutQueryParametersMap101111Builder(Map<String, @Nullable Object> instance) {
+        public QueryParametersMap101111Builder(Map<String, @Nullable Object> instance) {
             this.instance = instance;
         }
         public Map<String, @Nullable Object> getInstance() {
             return instance;
         }
-        public FaketestqueryparamtersPutQueryParametersMap001111Builder getBuilderAfterFaketestqueryparamtersPutcontext(Map<String, @Nullable Object> instance) {
-            return new FaketestqueryparamtersPutQueryParametersMap001111Builder(instance);
+        public QueryParametersMap001111Builder getBuilderAfterContext(Map<String, @Nullable Object> instance) {
+            return new QueryParametersMap001111Builder(instance);
         }
-        public FaketestqueryparamtersPutQueryParametersMap100111Builder getBuilderAfterFaketestqueryparamtersPutioutil(Map<String, @Nullable Object> instance) {
-            return new FaketestqueryparamtersPutQueryParametersMap100111Builder(instance);
+        public QueryParametersMap100111Builder getBuilderAfterIoutil(Map<String, @Nullable Object> instance) {
+            return new QueryParametersMap100111Builder(instance);
         }
-        public FaketestqueryparamtersPutQueryParametersMap101011Builder getBuilderAfterFaketestqueryparamtersPutpipe(Map<String, @Nullable Object> instance) {
-            return new FaketestqueryparamtersPutQueryParametersMap101011Builder(instance);
+        public QueryParametersMap101011Builder getBuilderAfterPipe(Map<String, @Nullable Object> instance) {
+            return new QueryParametersMap101011Builder(instance);
         }
-        public FaketestqueryparamtersPutQueryParametersMap101101Builder getBuilderAfterFaketestqueryparamtersPutrefParam(Map<String, @Nullable Object> instance) {
-            return new FaketestqueryparamtersPutQueryParametersMap101101Builder(instance);
+        public QueryParametersMap101101Builder getBuilderAfterRefParam(Map<String, @Nullable Object> instance) {
+            return new QueryParametersMap101101Builder(instance);
         }
-        public FaketestqueryparamtersPutQueryParametersMap101110Builder getBuilderAfterFaketestqueryparamtersPuturl(Map<String, @Nullable Object> instance) {
-            return new FaketestqueryparamtersPutQueryParametersMap101110Builder(instance);
+        public QueryParametersMap101110Builder getBuilderAfterUrl(Map<String, @Nullable Object> instance) {
+            return new QueryParametersMap101110Builder(instance);
         }
     }
     
-    public static class FaketestqueryparamtersPutQueryParametersMap110000Builder implements SetterForFaketestqueryparamtersPutcontext<FaketestqueryparamtersPutQueryParametersMap010000Builder>, SetterForFaketestqueryparamtersPuthttp<FaketestqueryparamtersPutQueryParametersMap100000Builder> {
+    public static class QueryParametersMap110000Builder implements SetterForContext<QueryParametersMap010000Builder>, SetterForHttp<QueryParametersMap100000Builder> {
         private final Map<String, @Nullable Object> instance;
-        public FaketestqueryparamtersPutQueryParametersMap110000Builder(Map<String, @Nullable Object> instance) {
+        public QueryParametersMap110000Builder(Map<String, @Nullable Object> instance) {
             this.instance = instance;
         }
         public Map<String, @Nullable Object> getInstance() {
             return instance;
         }
-        public FaketestqueryparamtersPutQueryParametersMap010000Builder getBuilderAfterFaketestqueryparamtersPutcontext(Map<String, @Nullable Object> instance) {
-            return new FaketestqueryparamtersPutQueryParametersMap010000Builder(instance);
+        public QueryParametersMap010000Builder getBuilderAfterContext(Map<String, @Nullable Object> instance) {
+            return new QueryParametersMap010000Builder(instance);
         }
-        public FaketestqueryparamtersPutQueryParametersMap100000Builder getBuilderAfterFaketestqueryparamtersPuthttp(Map<String, @Nullable Object> instance) {
-            return new FaketestqueryparamtersPutQueryParametersMap100000Builder(instance);
+        public QueryParametersMap100000Builder getBuilderAfterHttp(Map<String, @Nullable Object> instance) {
+            return new QueryParametersMap100000Builder(instance);
         }
     }
     
-    public static class FaketestqueryparamtersPutQueryParametersMap110001Builder implements SetterForFaketestqueryparamtersPutcontext<FaketestqueryparamtersPutQueryParametersMap010001Builder>, SetterForFaketestqueryparamtersPuthttp<FaketestqueryparamtersPutQueryParametersMap100001Builder>, SetterForFaketestqueryparamtersPuturl<FaketestqueryparamtersPutQueryParametersMap110000Builder> {
+    public static class QueryParametersMap110001Builder implements SetterForContext<QueryParametersMap010001Builder>, SetterForHttp<QueryParametersMap100001Builder>, SetterForUrl<QueryParametersMap110000Builder> {
         private final Map<String, @Nullable Object> instance;
-        public FaketestqueryparamtersPutQueryParametersMap110001Builder(Map<String, @Nullable Object> instance) {
+        public QueryParametersMap110001Builder(Map<String, @Nullable Object> instance) {
             this.instance = instance;
         }
         public Map<String, @Nullable Object> getInstance() {
             return instance;
         }
-        public FaketestqueryparamtersPutQueryParametersMap010001Builder getBuilderAfterFaketestqueryparamtersPutcontext(Map<String, @Nullable Object> instance) {
-            return new FaketestqueryparamtersPutQueryParametersMap010001Builder(instance);
+        public QueryParametersMap010001Builder getBuilderAfterContext(Map<String, @Nullable Object> instance) {
+            return new QueryParametersMap010001Builder(instance);
         }
-        public FaketestqueryparamtersPutQueryParametersMap100001Builder getBuilderAfterFaketestqueryparamtersPuthttp(Map<String, @Nullable Object> instance) {
-            return new FaketestqueryparamtersPutQueryParametersMap100001Builder(instance);
+        public QueryParametersMap100001Builder getBuilderAfterHttp(Map<String, @Nullable Object> instance) {
+            return new QueryParametersMap100001Builder(instance);
         }
-        public FaketestqueryparamtersPutQueryParametersMap110000Builder getBuilderAfterFaketestqueryparamtersPuturl(Map<String, @Nullable Object> instance) {
-            return new FaketestqueryparamtersPutQueryParametersMap110000Builder(instance);
+        public QueryParametersMap110000Builder getBuilderAfterUrl(Map<String, @Nullable Object> instance) {
+            return new QueryParametersMap110000Builder(instance);
         }
     }
     
-    public static class FaketestqueryparamtersPutQueryParametersMap110010Builder implements SetterForFaketestqueryparamtersPutcontext<FaketestqueryparamtersPutQueryParametersMap010010Builder>, SetterForFaketestqueryparamtersPuthttp<FaketestqueryparamtersPutQueryParametersMap100010Builder>, SetterForFaketestqueryparamtersPutrefParam<FaketestqueryparamtersPutQueryParametersMap110000Builder> {
+    public static class QueryParametersMap110010Builder implements SetterForContext<QueryParametersMap010010Builder>, SetterForHttp<QueryParametersMap100010Builder>, SetterForRefParam<QueryParametersMap110000Builder> {
         private final Map<String, @Nullable Object> instance;
-        public FaketestqueryparamtersPutQueryParametersMap110010Builder(Map<String, @Nullable Object> instance) {
+        public QueryParametersMap110010Builder(Map<String, @Nullable Object> instance) {
             this.instance = instance;
         }
         public Map<String, @Nullable Object> getInstance() {
             return instance;
         }
-        public FaketestqueryparamtersPutQueryParametersMap010010Builder getBuilderAfterFaketestqueryparamtersPutcontext(Map<String, @Nullable Object> instance) {
-            return new FaketestqueryparamtersPutQueryParametersMap010010Builder(instance);
+        public QueryParametersMap010010Builder getBuilderAfterContext(Map<String, @Nullable Object> instance) {
+            return new QueryParametersMap010010Builder(instance);
         }
-        public FaketestqueryparamtersPutQueryParametersMap100010Builder getBuilderAfterFaketestqueryparamtersPuthttp(Map<String, @Nullable Object> instance) {
-            return new FaketestqueryparamtersPutQueryParametersMap100010Builder(instance);
+        public QueryParametersMap100010Builder getBuilderAfterHttp(Map<String, @Nullable Object> instance) {
+            return new QueryParametersMap100010Builder(instance);
         }
-        public FaketestqueryparamtersPutQueryParametersMap110000Builder getBuilderAfterFaketestqueryparamtersPutrefParam(Map<String, @Nullable Object> instance) {
-            return new FaketestqueryparamtersPutQueryParametersMap110000Builder(instance);
+        public QueryParametersMap110000Builder getBuilderAfterRefParam(Map<String, @Nullable Object> instance) {
+            return new QueryParametersMap110000Builder(instance);
         }
     }
     
-    public static class FaketestqueryparamtersPutQueryParametersMap110011Builder implements SetterForFaketestqueryparamtersPutcontext<FaketestqueryparamtersPutQueryParametersMap010011Builder>, SetterForFaketestqueryparamtersPuthttp<FaketestqueryparamtersPutQueryParametersMap100011Builder>, SetterForFaketestqueryparamtersPutrefParam<FaketestqueryparamtersPutQueryParametersMap110001Builder>, SetterForFaketestqueryparamtersPuturl<FaketestqueryparamtersPutQueryParametersMap110010Builder> {
+    public static class QueryParametersMap110011Builder implements SetterForContext<QueryParametersMap010011Builder>, SetterForHttp<QueryParametersMap100011Builder>, SetterForRefParam<QueryParametersMap110001Builder>, SetterForUrl<QueryParametersMap110010Builder> {
         private final Map<String, @Nullable Object> instance;
-        public FaketestqueryparamtersPutQueryParametersMap110011Builder(Map<String, @Nullable Object> instance) {
+        public QueryParametersMap110011Builder(Map<String, @Nullable Object> instance) {
             this.instance = instance;
         }
         public Map<String, @Nullable Object> getInstance() {
             return instance;
         }
-        public FaketestqueryparamtersPutQueryParametersMap010011Builder getBuilderAfterFaketestqueryparamtersPutcontext(Map<String, @Nullable Object> instance) {
-            return new FaketestqueryparamtersPutQueryParametersMap010011Builder(instance);
+        public QueryParametersMap010011Builder getBuilderAfterContext(Map<String, @Nullable Object> instance) {
+            return new QueryParametersMap010011Builder(instance);
         }
-        public FaketestqueryparamtersPutQueryParametersMap100011Builder getBuilderAfterFaketestqueryparamtersPuthttp(Map<String, @Nullable Object> instance) {
-            return new FaketestqueryparamtersPutQueryParametersMap100011Builder(instance);
+        public QueryParametersMap100011Builder getBuilderAfterHttp(Map<String, @Nullable Object> instance) {
+            return new QueryParametersMap100011Builder(instance);
         }
-        public FaketestqueryparamtersPutQueryParametersMap110001Builder getBuilderAfterFaketestqueryparamtersPutrefParam(Map<String, @Nullable Object> instance) {
-            return new FaketestqueryparamtersPutQueryParametersMap110001Builder(instance);
+        public QueryParametersMap110001Builder getBuilderAfterRefParam(Map<String, @Nullable Object> instance) {
+            return new QueryParametersMap110001Builder(instance);
         }
-        public FaketestqueryparamtersPutQueryParametersMap110010Builder getBuilderAfterFaketestqueryparamtersPuturl(Map<String, @Nullable Object> instance) {
-            return new FaketestqueryparamtersPutQueryParametersMap110010Builder(instance);
+        public QueryParametersMap110010Builder getBuilderAfterUrl(Map<String, @Nullable Object> instance) {
+            return new QueryParametersMap110010Builder(instance);
         }
     }
     
-    public static class FaketestqueryparamtersPutQueryParametersMap110100Builder implements SetterForFaketestqueryparamtersPutcontext<FaketestqueryparamtersPutQueryParametersMap010100Builder>, SetterForFaketestqueryparamtersPuthttp<FaketestqueryparamtersPutQueryParametersMap100100Builder>, SetterForFaketestqueryparamtersPutpipe<FaketestqueryparamtersPutQueryParametersMap110000Builder> {
+    public static class QueryParametersMap110100Builder implements SetterForContext<QueryParametersMap010100Builder>, SetterForHttp<QueryParametersMap100100Builder>, SetterForPipe<QueryParametersMap110000Builder> {
         private final Map<String, @Nullable Object> instance;
-        public FaketestqueryparamtersPutQueryParametersMap110100Builder(Map<String, @Nullable Object> instance) {
+        public QueryParametersMap110100Builder(Map<String, @Nullable Object> instance) {
             this.instance = instance;
         }
         public Map<String, @Nullable Object> getInstance() {
             return instance;
         }
-        public FaketestqueryparamtersPutQueryParametersMap010100Builder getBuilderAfterFaketestqueryparamtersPutcontext(Map<String, @Nullable Object> instance) {
-            return new FaketestqueryparamtersPutQueryParametersMap010100Builder(instance);
+        public QueryParametersMap010100Builder getBuilderAfterContext(Map<String, @Nullable Object> instance) {
+            return new QueryParametersMap010100Builder(instance);
         }
-        public FaketestqueryparamtersPutQueryParametersMap100100Builder getBuilderAfterFaketestqueryparamtersPuthttp(Map<String, @Nullable Object> instance) {
-            return new FaketestqueryparamtersPutQueryParametersMap100100Builder(instance);
+        public QueryParametersMap100100Builder getBuilderAfterHttp(Map<String, @Nullable Object> instance) {
+            return new QueryParametersMap100100Builder(instance);
         }
-        public FaketestqueryparamtersPutQueryParametersMap110000Builder getBuilderAfterFaketestqueryparamtersPutpipe(Map<String, @Nullable Object> instance) {
-            return new FaketestqueryparamtersPutQueryParametersMap110000Builder(instance);
+        public QueryParametersMap110000Builder getBuilderAfterPipe(Map<String, @Nullable Object> instance) {
+            return new QueryParametersMap110000Builder(instance);
         }
     }
     
-    public static class FaketestqueryparamtersPutQueryParametersMap110101Builder implements SetterForFaketestqueryparamtersPutcontext<FaketestqueryparamtersPutQueryParametersMap010101Builder>, SetterForFaketestqueryparamtersPuthttp<FaketestqueryparamtersPutQueryParametersMap100101Builder>, SetterForFaketestqueryparamtersPutpipe<FaketestqueryparamtersPutQueryParametersMap110001Builder>, SetterForFaketestqueryparamtersPuturl<FaketestqueryparamtersPutQueryParametersMap110100Builder> {
+    public static class QueryParametersMap110101Builder implements SetterForContext<QueryParametersMap010101Builder>, SetterForHttp<QueryParametersMap100101Builder>, SetterForPipe<QueryParametersMap110001Builder>, SetterForUrl<QueryParametersMap110100Builder> {
         private final Map<String, @Nullable Object> instance;
-        public FaketestqueryparamtersPutQueryParametersMap110101Builder(Map<String, @Nullable Object> instance) {
+        public QueryParametersMap110101Builder(Map<String, @Nullable Object> instance) {
             this.instance = instance;
         }
         public Map<String, @Nullable Object> getInstance() {
             return instance;
         }
-        public FaketestqueryparamtersPutQueryParametersMap010101Builder getBuilderAfterFaketestqueryparamtersPutcontext(Map<String, @Nullable Object> instance) {
-            return new FaketestqueryparamtersPutQueryParametersMap010101Builder(instance);
+        public QueryParametersMap010101Builder getBuilderAfterContext(Map<String, @Nullable Object> instance) {
+            return new QueryParametersMap010101Builder(instance);
         }
-        public FaketestqueryparamtersPutQueryParametersMap100101Builder getBuilderAfterFaketestqueryparamtersPuthttp(Map<String, @Nullable Object> instance) {
-            return new FaketestqueryparamtersPutQueryParametersMap100101Builder(instance);
+        public QueryParametersMap100101Builder getBuilderAfterHttp(Map<String, @Nullable Object> instance) {
+            return new QueryParametersMap100101Builder(instance);
         }
-        public FaketestqueryparamtersPutQueryParametersMap110001Builder getBuilderAfterFaketestqueryparamtersPutpipe(Map<String, @Nullable Object> instance) {
-            return new FaketestqueryparamtersPutQueryParametersMap110001Builder(instance);
+        public QueryParametersMap110001Builder getBuilderAfterPipe(Map<String, @Nullable Object> instance) {
+            return new QueryParametersMap110001Builder(instance);
         }
-        public FaketestqueryparamtersPutQueryParametersMap110100Builder getBuilderAfterFaketestqueryparamtersPuturl(Map<String, @Nullable Object> instance) {
-            return new FaketestqueryparamtersPutQueryParametersMap110100Builder(instance);
+        public QueryParametersMap110100Builder getBuilderAfterUrl(Map<String, @Nullable Object> instance) {
+            return new QueryParametersMap110100Builder(instance);
         }
     }
     
-    public static class FaketestqueryparamtersPutQueryParametersMap110110Builder implements SetterForFaketestqueryparamtersPutcontext<FaketestqueryparamtersPutQueryParametersMap010110Builder>, SetterForFaketestqueryparamtersPuthttp<FaketestqueryparamtersPutQueryParametersMap100110Builder>, SetterForFaketestqueryparamtersPutpipe<FaketestqueryparamtersPutQueryParametersMap110010Builder>, SetterForFaketestqueryparamtersPutrefParam<FaketestqueryparamtersPutQueryParametersMap110100Builder> {
+    public static class QueryParametersMap110110Builder implements SetterForContext<QueryParametersMap010110Builder>, SetterForHttp<QueryParametersMap100110Builder>, SetterForPipe<QueryParametersMap110010Builder>, SetterForRefParam<QueryParametersMap110100Builder> {
         private final Map<String, @Nullable Object> instance;
-        public FaketestqueryparamtersPutQueryParametersMap110110Builder(Map<String, @Nullable Object> instance) {
+        public QueryParametersMap110110Builder(Map<String, @Nullable Object> instance) {
             this.instance = instance;
         }
         public Map<String, @Nullable Object> getInstance() {
             return instance;
         }
-        public FaketestqueryparamtersPutQueryParametersMap010110Builder getBuilderAfterFaketestqueryparamtersPutcontext(Map<String, @Nullable Object> instance) {
-            return new FaketestqueryparamtersPutQueryParametersMap010110Builder(instance);
+        public QueryParametersMap010110Builder getBuilderAfterContext(Map<String, @Nullable Object> instance) {
+            return new QueryParametersMap010110Builder(instance);
         }
-        public FaketestqueryparamtersPutQueryParametersMap100110Builder getBuilderAfterFaketestqueryparamtersPuthttp(Map<String, @Nullable Object> instance) {
-            return new FaketestqueryparamtersPutQueryParametersMap100110Builder(instance);
+        public QueryParametersMap100110Builder getBuilderAfterHttp(Map<String, @Nullable Object> instance) {
+            return new QueryParametersMap100110Builder(instance);
         }
-        public FaketestqueryparamtersPutQueryParametersMap110010Builder getBuilderAfterFaketestqueryparamtersPutpipe(Map<String, @Nullable Object> instance) {
-            return new FaketestqueryparamtersPutQueryParametersMap110010Builder(instance);
+        public QueryParametersMap110010Builder getBuilderAfterPipe(Map<String, @Nullable Object> instance) {
+            return new QueryParametersMap110010Builder(instance);
         }
-        public FaketestqueryparamtersPutQueryParametersMap110100Builder getBuilderAfterFaketestqueryparamtersPutrefParam(Map<String, @Nullable Object> instance) {
-            return new FaketestqueryparamtersPutQueryParametersMap110100Builder(instance);
+        public QueryParametersMap110100Builder getBuilderAfterRefParam(Map<String, @Nullable Object> instance) {
+            return new QueryParametersMap110100Builder(instance);
         }
     }
     
-    public static class FaketestqueryparamtersPutQueryParametersMap110111Builder implements SetterForFaketestqueryparamtersPutcontext<FaketestqueryparamtersPutQueryParametersMap010111Builder>, SetterForFaketestqueryparamtersPuthttp<FaketestqueryparamtersPutQueryParametersMap100111Builder>, SetterForFaketestqueryparamtersPutpipe<FaketestqueryparamtersPutQueryParametersMap110011Builder>, SetterForFaketestqueryparamtersPutrefParam<FaketestqueryparamtersPutQueryParametersMap110101Builder>, SetterForFaketestqueryparamtersPuturl<FaketestqueryparamtersPutQueryParametersMap110110Builder> {
+    public static class QueryParametersMap110111Builder implements SetterForContext<QueryParametersMap010111Builder>, SetterForHttp<QueryParametersMap100111Builder>, SetterForPipe<QueryParametersMap110011Builder>, SetterForRefParam<QueryParametersMap110101Builder>, SetterForUrl<QueryParametersMap110110Builder> {
         private final Map<String, @Nullable Object> instance;
-        public FaketestqueryparamtersPutQueryParametersMap110111Builder(Map<String, @Nullable Object> instance) {
+        public QueryParametersMap110111Builder(Map<String, @Nullable Object> instance) {
             this.instance = instance;
         }
         public Map<String, @Nullable Object> getInstance() {
             return instance;
         }
-        public FaketestqueryparamtersPutQueryParametersMap010111Builder getBuilderAfterFaketestqueryparamtersPutcontext(Map<String, @Nullable Object> instance) {
-            return new FaketestqueryparamtersPutQueryParametersMap010111Builder(instance);
+        public QueryParametersMap010111Builder getBuilderAfterContext(Map<String, @Nullable Object> instance) {
+            return new QueryParametersMap010111Builder(instance);
         }
-        public FaketestqueryparamtersPutQueryParametersMap100111Builder getBuilderAfterFaketestqueryparamtersPuthttp(Map<String, @Nullable Object> instance) {
-            return new FaketestqueryparamtersPutQueryParametersMap100111Builder(instance);
+        public QueryParametersMap100111Builder getBuilderAfterHttp(Map<String, @Nullable Object> instance) {
+            return new QueryParametersMap100111Builder(instance);
         }
-        public FaketestqueryparamtersPutQueryParametersMap110011Builder getBuilderAfterFaketestqueryparamtersPutpipe(Map<String, @Nullable Object> instance) {
-            return new FaketestqueryparamtersPutQueryParametersMap110011Builder(instance);
+        public QueryParametersMap110011Builder getBuilderAfterPipe(Map<String, @Nullable Object> instance) {
+            return new QueryParametersMap110011Builder(instance);
         }
-        public FaketestqueryparamtersPutQueryParametersMap110101Builder getBuilderAfterFaketestqueryparamtersPutrefParam(Map<String, @Nullable Object> instance) {
-            return new FaketestqueryparamtersPutQueryParametersMap110101Builder(instance);
+        public QueryParametersMap110101Builder getBuilderAfterRefParam(Map<String, @Nullable Object> instance) {
+            return new QueryParametersMap110101Builder(instance);
         }
-        public FaketestqueryparamtersPutQueryParametersMap110110Builder getBuilderAfterFaketestqueryparamtersPuturl(Map<String, @Nullable Object> instance) {
-            return new FaketestqueryparamtersPutQueryParametersMap110110Builder(instance);
+        public QueryParametersMap110110Builder getBuilderAfterUrl(Map<String, @Nullable Object> instance) {
+            return new QueryParametersMap110110Builder(instance);
         }
     }
     
-    public static class FaketestqueryparamtersPutQueryParametersMap111000Builder implements SetterForFaketestqueryparamtersPutcontext<FaketestqueryparamtersPutQueryParametersMap011000Builder>, SetterForFaketestqueryparamtersPuthttp<FaketestqueryparamtersPutQueryParametersMap101000Builder>, SetterForFaketestqueryparamtersPutioutil<FaketestqueryparamtersPutQueryParametersMap110000Builder> {
+    public static class QueryParametersMap111000Builder implements SetterForContext<QueryParametersMap011000Builder>, SetterForHttp<QueryParametersMap101000Builder>, SetterForIoutil<QueryParametersMap110000Builder> {
         private final Map<String, @Nullable Object> instance;
-        public FaketestqueryparamtersPutQueryParametersMap111000Builder(Map<String, @Nullable Object> instance) {
+        public QueryParametersMap111000Builder(Map<String, @Nullable Object> instance) {
             this.instance = instance;
         }
         public Map<String, @Nullable Object> getInstance() {
             return instance;
         }
-        public FaketestqueryparamtersPutQueryParametersMap011000Builder getBuilderAfterFaketestqueryparamtersPutcontext(Map<String, @Nullable Object> instance) {
-            return new FaketestqueryparamtersPutQueryParametersMap011000Builder(instance);
+        public QueryParametersMap011000Builder getBuilderAfterContext(Map<String, @Nullable Object> instance) {
+            return new QueryParametersMap011000Builder(instance);
         }
-        public FaketestqueryparamtersPutQueryParametersMap101000Builder getBuilderAfterFaketestqueryparamtersPuthttp(Map<String, @Nullable Object> instance) {
-            return new FaketestqueryparamtersPutQueryParametersMap101000Builder(instance);
+        public QueryParametersMap101000Builder getBuilderAfterHttp(Map<String, @Nullable Object> instance) {
+            return new QueryParametersMap101000Builder(instance);
         }
-        public FaketestqueryparamtersPutQueryParametersMap110000Builder getBuilderAfterFaketestqueryparamtersPutioutil(Map<String, @Nullable Object> instance) {
-            return new FaketestqueryparamtersPutQueryParametersMap110000Builder(instance);
+        public QueryParametersMap110000Builder getBuilderAfterIoutil(Map<String, @Nullable Object> instance) {
+            return new QueryParametersMap110000Builder(instance);
         }
     }
     
-    public static class FaketestqueryparamtersPutQueryParametersMap111001Builder implements SetterForFaketestqueryparamtersPutcontext<FaketestqueryparamtersPutQueryParametersMap011001Builder>, SetterForFaketestqueryparamtersPuthttp<FaketestqueryparamtersPutQueryParametersMap101001Builder>, SetterForFaketestqueryparamtersPutioutil<FaketestqueryparamtersPutQueryParametersMap110001Builder>, SetterForFaketestqueryparamtersPuturl<FaketestqueryparamtersPutQueryParametersMap111000Builder> {
+    public static class QueryParametersMap111001Builder implements SetterForContext<QueryParametersMap011001Builder>, SetterForHttp<QueryParametersMap101001Builder>, SetterForIoutil<QueryParametersMap110001Builder>, SetterForUrl<QueryParametersMap111000Builder> {
         private final Map<String, @Nullable Object> instance;
-        public FaketestqueryparamtersPutQueryParametersMap111001Builder(Map<String, @Nullable Object> instance) {
+        public QueryParametersMap111001Builder(Map<String, @Nullable Object> instance) {
             this.instance = instance;
         }
         public Map<String, @Nullable Object> getInstance() {
             return instance;
         }
-        public FaketestqueryparamtersPutQueryParametersMap011001Builder getBuilderAfterFaketestqueryparamtersPutcontext(Map<String, @Nullable Object> instance) {
-            return new FaketestqueryparamtersPutQueryParametersMap011001Builder(instance);
+        public QueryParametersMap011001Builder getBuilderAfterContext(Map<String, @Nullable Object> instance) {
+            return new QueryParametersMap011001Builder(instance);
         }
-        public FaketestqueryparamtersPutQueryParametersMap101001Builder getBuilderAfterFaketestqueryparamtersPuthttp(Map<String, @Nullable Object> instance) {
-            return new FaketestqueryparamtersPutQueryParametersMap101001Builder(instance);
+        public QueryParametersMap101001Builder getBuilderAfterHttp(Map<String, @Nullable Object> instance) {
+            return new QueryParametersMap101001Builder(instance);
         }
-        public FaketestqueryparamtersPutQueryParametersMap110001Builder getBuilderAfterFaketestqueryparamtersPutioutil(Map<String, @Nullable Object> instance) {
-            return new FaketestqueryparamtersPutQueryParametersMap110001Builder(instance);
+        public QueryParametersMap110001Builder getBuilderAfterIoutil(Map<String, @Nullable Object> instance) {
+            return new QueryParametersMap110001Builder(instance);
         }
-        public FaketestqueryparamtersPutQueryParametersMap111000Builder getBuilderAfterFaketestqueryparamtersPuturl(Map<String, @Nullable Object> instance) {
-            return new FaketestqueryparamtersPutQueryParametersMap111000Builder(instance);
+        public QueryParametersMap111000Builder getBuilderAfterUrl(Map<String, @Nullable Object> instance) {
+            return new QueryParametersMap111000Builder(instance);
         }
     }
     
-    public static class FaketestqueryparamtersPutQueryParametersMap111010Builder implements SetterForFaketestqueryparamtersPutcontext<FaketestqueryparamtersPutQueryParametersMap011010Builder>, SetterForFaketestqueryparamtersPuthttp<FaketestqueryparamtersPutQueryParametersMap101010Builder>, SetterForFaketestqueryparamtersPutioutil<FaketestqueryparamtersPutQueryParametersMap110010Builder>, SetterForFaketestqueryparamtersPutrefParam<FaketestqueryparamtersPutQueryParametersMap111000Builder> {
+    public static class QueryParametersMap111010Builder implements SetterForContext<QueryParametersMap011010Builder>, SetterForHttp<QueryParametersMap101010Builder>, SetterForIoutil<QueryParametersMap110010Builder>, SetterForRefParam<QueryParametersMap111000Builder> {
         private final Map<String, @Nullable Object> instance;
-        public FaketestqueryparamtersPutQueryParametersMap111010Builder(Map<String, @Nullable Object> instance) {
+        public QueryParametersMap111010Builder(Map<String, @Nullable Object> instance) {
             this.instance = instance;
         }
         public Map<String, @Nullable Object> getInstance() {
             return instance;
         }
-        public FaketestqueryparamtersPutQueryParametersMap011010Builder getBuilderAfterFaketestqueryparamtersPutcontext(Map<String, @Nullable Object> instance) {
-            return new FaketestqueryparamtersPutQueryParametersMap011010Builder(instance);
+        public QueryParametersMap011010Builder getBuilderAfterContext(Map<String, @Nullable Object> instance) {
+            return new QueryParametersMap011010Builder(instance);
         }
-        public FaketestqueryparamtersPutQueryParametersMap101010Builder getBuilderAfterFaketestqueryparamtersPuthttp(Map<String, @Nullable Object> instance) {
-            return new FaketestqueryparamtersPutQueryParametersMap101010Builder(instance);
+        public QueryParametersMap101010Builder getBuilderAfterHttp(Map<String, @Nullable Object> instance) {
+            return new QueryParametersMap101010Builder(instance);
         }
-        public FaketestqueryparamtersPutQueryParametersMap110010Builder getBuilderAfterFaketestqueryparamtersPutioutil(Map<String, @Nullable Object> instance) {
-            return new FaketestqueryparamtersPutQueryParametersMap110010Builder(instance);
+        public QueryParametersMap110010Builder getBuilderAfterIoutil(Map<String, @Nullable Object> instance) {
+            return new QueryParametersMap110010Builder(instance);
         }
-        public FaketestqueryparamtersPutQueryParametersMap111000Builder getBuilderAfterFaketestqueryparamtersPutrefParam(Map<String, @Nullable Object> instance) {
-            return new FaketestqueryparamtersPutQueryParametersMap111000Builder(instance);
+        public QueryParametersMap111000Builder getBuilderAfterRefParam(Map<String, @Nullable Object> instance) {
+            return new QueryParametersMap111000Builder(instance);
         }
     }
     
-    public static class FaketestqueryparamtersPutQueryParametersMap111011Builder implements SetterForFaketestqueryparamtersPutcontext<FaketestqueryparamtersPutQueryParametersMap011011Builder>, SetterForFaketestqueryparamtersPuthttp<FaketestqueryparamtersPutQueryParametersMap101011Builder>, SetterForFaketestqueryparamtersPutioutil<FaketestqueryparamtersPutQueryParametersMap110011Builder>, SetterForFaketestqueryparamtersPutrefParam<FaketestqueryparamtersPutQueryParametersMap111001Builder>, SetterForFaketestqueryparamtersPuturl<FaketestqueryparamtersPutQueryParametersMap111010Builder> {
+    public static class QueryParametersMap111011Builder implements SetterForContext<QueryParametersMap011011Builder>, SetterForHttp<QueryParametersMap101011Builder>, SetterForIoutil<QueryParametersMap110011Builder>, SetterForRefParam<QueryParametersMap111001Builder>, SetterForUrl<QueryParametersMap111010Builder> {
         private final Map<String, @Nullable Object> instance;
-        public FaketestqueryparamtersPutQueryParametersMap111011Builder(Map<String, @Nullable Object> instance) {
+        public QueryParametersMap111011Builder(Map<String, @Nullable Object> instance) {
             this.instance = instance;
         }
         public Map<String, @Nullable Object> getInstance() {
             return instance;
         }
-        public FaketestqueryparamtersPutQueryParametersMap011011Builder getBuilderAfterFaketestqueryparamtersPutcontext(Map<String, @Nullable Object> instance) {
-            return new FaketestqueryparamtersPutQueryParametersMap011011Builder(instance);
+        public QueryParametersMap011011Builder getBuilderAfterContext(Map<String, @Nullable Object> instance) {
+            return new QueryParametersMap011011Builder(instance);
         }
-        public FaketestqueryparamtersPutQueryParametersMap101011Builder getBuilderAfterFaketestqueryparamtersPuthttp(Map<String, @Nullable Object> instance) {
-            return new FaketestqueryparamtersPutQueryParametersMap101011Builder(instance);
+        public QueryParametersMap101011Builder getBuilderAfterHttp(Map<String, @Nullable Object> instance) {
+            return new QueryParametersMap101011Builder(instance);
         }
-        public FaketestqueryparamtersPutQueryParametersMap110011Builder getBuilderAfterFaketestqueryparamtersPutioutil(Map<String, @Nullable Object> instance) {
-            return new FaketestqueryparamtersPutQueryParametersMap110011Builder(instance);
+        public QueryParametersMap110011Builder getBuilderAfterIoutil(Map<String, @Nullable Object> instance) {
+            return new QueryParametersMap110011Builder(instance);
         }
-        public FaketestqueryparamtersPutQueryParametersMap111001Builder getBuilderAfterFaketestqueryparamtersPutrefParam(Map<String, @Nullable Object> instance) {
-            return new FaketestqueryparamtersPutQueryParametersMap111001Builder(instance);
+        public QueryParametersMap111001Builder getBuilderAfterRefParam(Map<String, @Nullable Object> instance) {
+            return new QueryParametersMap111001Builder(instance);
         }
-        public FaketestqueryparamtersPutQueryParametersMap111010Builder getBuilderAfterFaketestqueryparamtersPuturl(Map<String, @Nullable Object> instance) {
-            return new FaketestqueryparamtersPutQueryParametersMap111010Builder(instance);
+        public QueryParametersMap111010Builder getBuilderAfterUrl(Map<String, @Nullable Object> instance) {
+            return new QueryParametersMap111010Builder(instance);
         }
     }
     
-    public static class FaketestqueryparamtersPutQueryParametersMap111100Builder implements SetterForFaketestqueryparamtersPutcontext<FaketestqueryparamtersPutQueryParametersMap011100Builder>, SetterForFaketestqueryparamtersPuthttp<FaketestqueryparamtersPutQueryParametersMap101100Builder>, SetterForFaketestqueryparamtersPutioutil<FaketestqueryparamtersPutQueryParametersMap110100Builder>, SetterForFaketestqueryparamtersPutpipe<FaketestqueryparamtersPutQueryParametersMap111000Builder> {
+    public static class QueryParametersMap111100Builder implements SetterForContext<QueryParametersMap011100Builder>, SetterForHttp<QueryParametersMap101100Builder>, SetterForIoutil<QueryParametersMap110100Builder>, SetterForPipe<QueryParametersMap111000Builder> {
         private final Map<String, @Nullable Object> instance;
-        public FaketestqueryparamtersPutQueryParametersMap111100Builder(Map<String, @Nullable Object> instance) {
+        public QueryParametersMap111100Builder(Map<String, @Nullable Object> instance) {
             this.instance = instance;
         }
         public Map<String, @Nullable Object> getInstance() {
             return instance;
         }
-        public FaketestqueryparamtersPutQueryParametersMap011100Builder getBuilderAfterFaketestqueryparamtersPutcontext(Map<String, @Nullable Object> instance) {
-            return new FaketestqueryparamtersPutQueryParametersMap011100Builder(instance);
+        public QueryParametersMap011100Builder getBuilderAfterContext(Map<String, @Nullable Object> instance) {
+            return new QueryParametersMap011100Builder(instance);
         }
-        public FaketestqueryparamtersPutQueryParametersMap101100Builder getBuilderAfterFaketestqueryparamtersPuthttp(Map<String, @Nullable Object> instance) {
-            return new FaketestqueryparamtersPutQueryParametersMap101100Builder(instance);
+        public QueryParametersMap101100Builder getBuilderAfterHttp(Map<String, @Nullable Object> instance) {
+            return new QueryParametersMap101100Builder(instance);
         }
-        public FaketestqueryparamtersPutQueryParametersMap110100Builder getBuilderAfterFaketestqueryparamtersPutioutil(Map<String, @Nullable Object> instance) {
-            return new FaketestqueryparamtersPutQueryParametersMap110100Builder(instance);
+        public QueryParametersMap110100Builder getBuilderAfterIoutil(Map<String, @Nullable Object> instance) {
+            return new QueryParametersMap110100Builder(instance);
         }
-        public FaketestqueryparamtersPutQueryParametersMap111000Builder getBuilderAfterFaketestqueryparamtersPutpipe(Map<String, @Nullable Object> instance) {
-            return new FaketestqueryparamtersPutQueryParametersMap111000Builder(instance);
+        public QueryParametersMap111000Builder getBuilderAfterPipe(Map<String, @Nullable Object> instance) {
+            return new QueryParametersMap111000Builder(instance);
         }
     }
     
-    public static class FaketestqueryparamtersPutQueryParametersMap111101Builder implements SetterForFaketestqueryparamtersPutcontext<FaketestqueryparamtersPutQueryParametersMap011101Builder>, SetterForFaketestqueryparamtersPuthttp<FaketestqueryparamtersPutQueryParametersMap101101Builder>, SetterForFaketestqueryparamtersPutioutil<FaketestqueryparamtersPutQueryParametersMap110101Builder>, SetterForFaketestqueryparamtersPutpipe<FaketestqueryparamtersPutQueryParametersMap111001Builder>, SetterForFaketestqueryparamtersPuturl<FaketestqueryparamtersPutQueryParametersMap111100Builder> {
+    public static class QueryParametersMap111101Builder implements SetterForContext<QueryParametersMap011101Builder>, SetterForHttp<QueryParametersMap101101Builder>, SetterForIoutil<QueryParametersMap110101Builder>, SetterForPipe<QueryParametersMap111001Builder>, SetterForUrl<QueryParametersMap111100Builder> {
         private final Map<String, @Nullable Object> instance;
-        public FaketestqueryparamtersPutQueryParametersMap111101Builder(Map<String, @Nullable Object> instance) {
+        public QueryParametersMap111101Builder(Map<String, @Nullable Object> instance) {
             this.instance = instance;
         }
         public Map<String, @Nullable Object> getInstance() {
             return instance;
         }
-        public FaketestqueryparamtersPutQueryParametersMap011101Builder getBuilderAfterFaketestqueryparamtersPutcontext(Map<String, @Nullable Object> instance) {
-            return new FaketestqueryparamtersPutQueryParametersMap011101Builder(instance);
+        public QueryParametersMap011101Builder getBuilderAfterContext(Map<String, @Nullable Object> instance) {
+            return new QueryParametersMap011101Builder(instance);
         }
-        public FaketestqueryparamtersPutQueryParametersMap101101Builder getBuilderAfterFaketestqueryparamtersPuthttp(Map<String, @Nullable Object> instance) {
-            return new FaketestqueryparamtersPutQueryParametersMap101101Builder(instance);
+        public QueryParametersMap101101Builder getBuilderAfterHttp(Map<String, @Nullable Object> instance) {
+            return new QueryParametersMap101101Builder(instance);
         }
-        public FaketestqueryparamtersPutQueryParametersMap110101Builder getBuilderAfterFaketestqueryparamtersPutioutil(Map<String, @Nullable Object> instance) {
-            return new FaketestqueryparamtersPutQueryParametersMap110101Builder(instance);
+        public QueryParametersMap110101Builder getBuilderAfterIoutil(Map<String, @Nullable Object> instance) {
+            return new QueryParametersMap110101Builder(instance);
         }
-        public FaketestqueryparamtersPutQueryParametersMap111001Builder getBuilderAfterFaketestqueryparamtersPutpipe(Map<String, @Nullable Object> instance) {
-            return new FaketestqueryparamtersPutQueryParametersMap111001Builder(instance);
+        public QueryParametersMap111001Builder getBuilderAfterPipe(Map<String, @Nullable Object> instance) {
+            return new QueryParametersMap111001Builder(instance);
         }
-        public FaketestqueryparamtersPutQueryParametersMap111100Builder getBuilderAfterFaketestqueryparamtersPuturl(Map<String, @Nullable Object> instance) {
-            return new FaketestqueryparamtersPutQueryParametersMap111100Builder(instance);
+        public QueryParametersMap111100Builder getBuilderAfterUrl(Map<String, @Nullable Object> instance) {
+            return new QueryParametersMap111100Builder(instance);
         }
     }
     
-    public static class FaketestqueryparamtersPutQueryParametersMap111110Builder implements SetterForFaketestqueryparamtersPutcontext<FaketestqueryparamtersPutQueryParametersMap011110Builder>, SetterForFaketestqueryparamtersPuthttp<FaketestqueryparamtersPutQueryParametersMap101110Builder>, SetterForFaketestqueryparamtersPutioutil<FaketestqueryparamtersPutQueryParametersMap110110Builder>, SetterForFaketestqueryparamtersPutpipe<FaketestqueryparamtersPutQueryParametersMap111010Builder>, SetterForFaketestqueryparamtersPutrefParam<FaketestqueryparamtersPutQueryParametersMap111100Builder> {
+    public static class QueryParametersMap111110Builder implements SetterForContext<QueryParametersMap011110Builder>, SetterForHttp<QueryParametersMap101110Builder>, SetterForIoutil<QueryParametersMap110110Builder>, SetterForPipe<QueryParametersMap111010Builder>, SetterForRefParam<QueryParametersMap111100Builder> {
         private final Map<String, @Nullable Object> instance;
-        public FaketestqueryparamtersPutQueryParametersMap111110Builder(Map<String, @Nullable Object> instance) {
+        public QueryParametersMap111110Builder(Map<String, @Nullable Object> instance) {
             this.instance = instance;
         }
         public Map<String, @Nullable Object> getInstance() {
             return instance;
         }
-        public FaketestqueryparamtersPutQueryParametersMap011110Builder getBuilderAfterFaketestqueryparamtersPutcontext(Map<String, @Nullable Object> instance) {
-            return new FaketestqueryparamtersPutQueryParametersMap011110Builder(instance);
+        public QueryParametersMap011110Builder getBuilderAfterContext(Map<String, @Nullable Object> instance) {
+            return new QueryParametersMap011110Builder(instance);
         }
-        public FaketestqueryparamtersPutQueryParametersMap101110Builder getBuilderAfterFaketestqueryparamtersPuthttp(Map<String, @Nullable Object> instance) {
-            return new FaketestqueryparamtersPutQueryParametersMap101110Builder(instance);
+        public QueryParametersMap101110Builder getBuilderAfterHttp(Map<String, @Nullable Object> instance) {
+            return new QueryParametersMap101110Builder(instance);
         }
-        public FaketestqueryparamtersPutQueryParametersMap110110Builder getBuilderAfterFaketestqueryparamtersPutioutil(Map<String, @Nullable Object> instance) {
-            return new FaketestqueryparamtersPutQueryParametersMap110110Builder(instance);
+        public QueryParametersMap110110Builder getBuilderAfterIoutil(Map<String, @Nullable Object> instance) {
+            return new QueryParametersMap110110Builder(instance);
         }
-        public FaketestqueryparamtersPutQueryParametersMap111010Builder getBuilderAfterFaketestqueryparamtersPutpipe(Map<String, @Nullable Object> instance) {
-            return new FaketestqueryparamtersPutQueryParametersMap111010Builder(instance);
+        public QueryParametersMap111010Builder getBuilderAfterPipe(Map<String, @Nullable Object> instance) {
+            return new QueryParametersMap111010Builder(instance);
         }
-        public FaketestqueryparamtersPutQueryParametersMap111100Builder getBuilderAfterFaketestqueryparamtersPutrefParam(Map<String, @Nullable Object> instance) {
-            return new FaketestqueryparamtersPutQueryParametersMap111100Builder(instance);
+        public QueryParametersMap111100Builder getBuilderAfterRefParam(Map<String, @Nullable Object> instance) {
+            return new QueryParametersMap111100Builder(instance);
         }
     }
     
-    public static class FaketestqueryparamtersPutQueryParametersMapBuilder implements SetterForFaketestqueryparamtersPutcontext<FaketestqueryparamtersPutQueryParametersMap011111Builder>, SetterForFaketestqueryparamtersPuthttp<FaketestqueryparamtersPutQueryParametersMap101111Builder>, SetterForFaketestqueryparamtersPutioutil<FaketestqueryparamtersPutQueryParametersMap110111Builder>, SetterForFaketestqueryparamtersPutpipe<FaketestqueryparamtersPutQueryParametersMap111011Builder>, SetterForFaketestqueryparamtersPutrefParam<FaketestqueryparamtersPutQueryParametersMap111101Builder>, SetterForFaketestqueryparamtersPuturl<FaketestqueryparamtersPutQueryParametersMap111110Builder> {
+    public static class QueryParametersMapBuilder implements SetterForContext<QueryParametersMap011111Builder>, SetterForHttp<QueryParametersMap101111Builder>, SetterForIoutil<QueryParametersMap110111Builder>, SetterForPipe<QueryParametersMap111011Builder>, SetterForRefParam<QueryParametersMap111101Builder>, SetterForUrl<QueryParametersMap111110Builder> {
         private final Map<String, @Nullable Object> instance;
-        public FaketestqueryparamtersPutQueryParametersMapBuilder() {
+        public QueryParametersMapBuilder() {
             this.instance = new LinkedHashMap<>();
         }
         public Map<String, @Nullable Object> getInstance() {
             return instance;
         }
-        public FaketestqueryparamtersPutQueryParametersMap011111Builder getBuilderAfterFaketestqueryparamtersPutcontext(Map<String, @Nullable Object> instance) {
-            return new FaketestqueryparamtersPutQueryParametersMap011111Builder(instance);
+        public QueryParametersMap011111Builder getBuilderAfterContext(Map<String, @Nullable Object> instance) {
+            return new QueryParametersMap011111Builder(instance);
         }
-        public FaketestqueryparamtersPutQueryParametersMap101111Builder getBuilderAfterFaketestqueryparamtersPuthttp(Map<String, @Nullable Object> instance) {
-            return new FaketestqueryparamtersPutQueryParametersMap101111Builder(instance);
+        public QueryParametersMap101111Builder getBuilderAfterHttp(Map<String, @Nullable Object> instance) {
+            return new QueryParametersMap101111Builder(instance);
         }
-        public FaketestqueryparamtersPutQueryParametersMap110111Builder getBuilderAfterFaketestqueryparamtersPutioutil(Map<String, @Nullable Object> instance) {
-            return new FaketestqueryparamtersPutQueryParametersMap110111Builder(instance);
+        public QueryParametersMap110111Builder getBuilderAfterIoutil(Map<String, @Nullable Object> instance) {
+            return new QueryParametersMap110111Builder(instance);
         }
-        public FaketestqueryparamtersPutQueryParametersMap111011Builder getBuilderAfterFaketestqueryparamtersPutpipe(Map<String, @Nullable Object> instance) {
-            return new FaketestqueryparamtersPutQueryParametersMap111011Builder(instance);
+        public QueryParametersMap111011Builder getBuilderAfterPipe(Map<String, @Nullable Object> instance) {
+            return new QueryParametersMap111011Builder(instance);
         }
-        public FaketestqueryparamtersPutQueryParametersMap111101Builder getBuilderAfterFaketestqueryparamtersPutrefParam(Map<String, @Nullable Object> instance) {
-            return new FaketestqueryparamtersPutQueryParametersMap111101Builder(instance);
+        public QueryParametersMap111101Builder getBuilderAfterRefParam(Map<String, @Nullable Object> instance) {
+            return new QueryParametersMap111101Builder(instance);
         }
-        public FaketestqueryparamtersPutQueryParametersMap111110Builder getBuilderAfterFaketestqueryparamtersPuturl(Map<String, @Nullable Object> instance) {
-            return new FaketestqueryparamtersPutQueryParametersMap111110Builder(instance);
+        public QueryParametersMap111110Builder getBuilderAfterUrl(Map<String, @Nullable Object> instance) {
+            return new QueryParametersMap111110Builder(instance);
         }
     }
     
@@ -1410,7 +1410,7 @@ public class FaketestqueryparamtersPutQueryParameters {
         @Nullable Object getData();
     }
     
-    public record FaketestqueryparamtersPutQueryParameters1BoxedMap(FaketestqueryparamtersPutQueryParametersMap data) implements FaketestqueryparamtersPutQueryParameters1Boxed {
+    public record FaketestqueryparamtersPutQueryParameters1BoxedMap(QueryParametersMap data) implements FaketestqueryparamtersPutQueryParameters1Boxed {
         @Override
         public @Nullable Object getData() {
             return data;
@@ -1418,7 +1418,7 @@ public class FaketestqueryparamtersPutQueryParameters {
     }
     
     
-    public static class FaketestqueryparamtersPutQueryParameters1 extends JsonSchema<FaketestqueryparamtersPutQueryParameters1Boxed> implements MapSchemaValidator<FaketestqueryparamtersPutQueryParametersMap, FaketestqueryparamtersPutQueryParameters1BoxedMap> {
+    public static class FaketestqueryparamtersPutQueryParameters1 extends JsonSchema<FaketestqueryparamtersPutQueryParameters1Boxed> implements MapSchemaValidator<QueryParametersMap, FaketestqueryparamtersPutQueryParameters1BoxedMap> {
         private static @Nullable FaketestqueryparamtersPutQueryParameters1 instance = null;
     
         protected FaketestqueryparamtersPutQueryParameters1() {
@@ -1440,7 +1440,7 @@ public class FaketestqueryparamtersPutQueryParameters {
                     "refParam",
                     "url"
                 ))
-                .additionalProperties(FaketestqueryparamtersPutadditionalProperties.class)
+                .additionalProperties(AdditionalProperties.class)
             );
         }
     
@@ -1451,7 +1451,7 @@ public class FaketestqueryparamtersPutQueryParameters {
             return instance;
         }
         
-        public FaketestqueryparamtersPutQueryParametersMap getNewInstance(Map<?, ?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+        public QueryParametersMap getNewInstance(Map<?, ?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
             LinkedHashMap<String, @Nullable Object> properties = new LinkedHashMap<>();
             for(Map.Entry<?, ?> entry: arg.entrySet()) {
                 @Nullable Object entryKey = entry.getKey();
@@ -1471,10 +1471,10 @@ public class FaketestqueryparamtersPutQueryParameters {
                 properties.put(propertyName, propertyInstance);
             }
             FrozenMap<@Nullable Object> castProperties = new FrozenMap<>(properties);
-            return new FaketestqueryparamtersPutQueryParametersMap(castProperties);
+            return new QueryParametersMap(castProperties);
         }
         
-        public FaketestqueryparamtersPutQueryParametersMap validate(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException {
+        public QueryParametersMap validate(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException {
             Set<List<Object>> pathSet = new HashSet<>();
             List<Object> pathToItem = List.of("args[0");
             Map<?, ?> castArg = castToAllowedTypes(arg, pathToItem, pathSet);

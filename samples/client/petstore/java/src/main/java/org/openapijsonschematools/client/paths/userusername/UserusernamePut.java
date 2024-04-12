@@ -88,13 +88,13 @@ public class UserusernamePut {
 
     public static class PutRequest {
         public UserusernamePutRequestBody.SealedRequestBody requestBody;
-        public UserusernamePutPathParameters.UserusernamePutPathParametersMap pathParameters;
+        public UserusernamePutPathParameters.PathParametersMap pathParameters;
         public RootServerInfo.@Nullable ServerIndex serverIndex;
         public @Nullable Duration timeout;
 
         public PutRequest(
             UserusernamePutRequestBody.SealedRequestBody requestBody,
-            UserusernamePutPathParameters.UserusernamePutPathParametersMap pathParameters,
+            UserusernamePutPathParameters.PathParametersMap pathParameters,
             RootServerInfo.@Nullable ServerIndex serverIndex,
             @Nullable Duration timeout
         ) {
@@ -107,7 +107,7 @@ public class UserusernamePut {
 
     public static class PutNullableRequest {
         public UserusernamePutRequestBody.@Nullable SealedRequestBody requestBody;
-        public UserusernamePutPathParameters.@Nullable UserusernamePutPathParametersMap pathParameters;
+        public UserusernamePutPathParameters.@Nullable PathParametersMap pathParameters;
         public RootServerInfo.@Nullable ServerIndex serverIndex;
         public @Nullable Duration timeout;
     }
@@ -145,7 +145,7 @@ public class UserusernamePut {
     public interface SetterForPathParameters <T> {
         PutNullableRequest getInstance();
         T getBuilderAfterPathParameters(PutNullableRequest instance);
-        default T pathParameters(UserusernamePutPathParameters.UserusernamePutPathParametersMap pathParameters) {
+        default T pathParameters(UserusernamePutPathParameters.PathParametersMap pathParameters) {
             var instance = getInstance();
             instance.pathParameters = pathParameters;
             return getBuilderAfterPathParameters(instance);

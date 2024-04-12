@@ -29,27 +29,27 @@ public class FakepetiduploadimagewithrequiredfilePostPathParameters {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static class FakepetiduploadimagewithrequiredfilePostadditionalProperties extends NotAnyTypeJsonSchema.NotAnyTypeJsonSchema1 {
+    public static class AdditionalProperties extends NotAnyTypeJsonSchema.NotAnyTypeJsonSchema1 {
         // NotAnyTypeSchema
-        private static @Nullable FakepetiduploadimagewithrequiredfilePostadditionalProperties instance = null;
-        public static FakepetiduploadimagewithrequiredfilePostadditionalProperties getInstance() {
+        private static @Nullable AdditionalProperties instance = null;
+        public static AdditionalProperties getInstance() {
             if (instance == null) {
-                instance = new FakepetiduploadimagewithrequiredfilePostadditionalProperties();
+                instance = new AdditionalProperties();
             }
             return instance;
         }
     }
     
     
-    public static class FakepetiduploadimagewithrequiredfilePostPathParametersMap extends FrozenMap<Number> {
-        protected FakepetiduploadimagewithrequiredfilePostPathParametersMap(FrozenMap<Number> m) {
+    public static class PathParametersMap extends FrozenMap<Number> {
+        protected PathParametersMap(FrozenMap<Number> m) {
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of(
             "petId"
         );
         public static final Set<String> optionalKeys = Set.of();
-        public static FakepetiduploadimagewithrequiredfilePostPathParametersMap of(Map<String, Number> arg, SchemaConfiguration configuration) throws ValidationException {
+        public static PathParametersMap of(Map<String, Number> arg, SchemaConfiguration configuration) throws ValidationException {
             return FakepetiduploadimagewithrequiredfilePostPathParameters1.getInstance().validate(arg, configuration);
         }
         
@@ -62,36 +62,36 @@ public class FakepetiduploadimagewithrequiredfilePostPathParameters {
         }
     }
     
-    public interface SetterForFakepetiduploadimagewithrequiredfilePostpetId <T> {
+    public interface SetterForPetId <T> {
         Map<String, Number> getInstance();
-        T getBuilderAfterFakepetiduploadimagewithrequiredfilePostpetId(Map<String, Number> instance);
+        T getBuilderAfterPetId(Map<String, Number> instance);
         
         default T petId(int value) {
             var instance = getInstance();
             instance.put("petId", value);
-            return getBuilderAfterFakepetiduploadimagewithrequiredfilePostpetId(instance);
+            return getBuilderAfterPetId(instance);
         }
         
         default T petId(float value) {
             var instance = getInstance();
             instance.put("petId", value);
-            return getBuilderAfterFakepetiduploadimagewithrequiredfilePostpetId(instance);
+            return getBuilderAfterPetId(instance);
         }
         
         default T petId(long value) {
             var instance = getInstance();
             instance.put("petId", value);
-            return getBuilderAfterFakepetiduploadimagewithrequiredfilePostpetId(instance);
+            return getBuilderAfterPetId(instance);
         }
         
         default T petId(double value) {
             var instance = getInstance();
             instance.put("petId", value);
-            return getBuilderAfterFakepetiduploadimagewithrequiredfilePostpetId(instance);
+            return getBuilderAfterPetId(instance);
         }
     }
     
-    public static class FakepetiduploadimagewithrequiredfilePostPathParametersMap0Builder implements GenericBuilder<Map<String, Number>> {
+    public static class PathParametersMap0Builder implements GenericBuilder<Map<String, Number>> {
         private final Map<String, Number> instance;
         private static final Set<String> knownKeys = Set.of(
             "petId"
@@ -99,7 +99,7 @@ public class FakepetiduploadimagewithrequiredfilePostPathParameters {
         public Set<String> getKnownKeys() {
             return knownKeys;
         }
-        public FakepetiduploadimagewithrequiredfilePostPathParametersMap0Builder(Map<String, Number> instance) {
+        public PathParametersMap0Builder(Map<String, Number> instance) {
             this.instance = instance;
         }
         public Map<String, Number> build() {
@@ -107,16 +107,16 @@ public class FakepetiduploadimagewithrequiredfilePostPathParameters {
         }
     }
     
-    public static class FakepetiduploadimagewithrequiredfilePostPathParametersMapBuilder implements SetterForFakepetiduploadimagewithrequiredfilePostpetId<FakepetiduploadimagewithrequiredfilePostPathParametersMap0Builder> {
+    public static class PathParametersMapBuilder implements SetterForPetId<PathParametersMap0Builder> {
         private final Map<String, Number> instance;
-        public FakepetiduploadimagewithrequiredfilePostPathParametersMapBuilder() {
+        public PathParametersMapBuilder() {
             this.instance = new LinkedHashMap<>();
         }
         public Map<String, Number> getInstance() {
             return instance;
         }
-        public FakepetiduploadimagewithrequiredfilePostPathParametersMap0Builder getBuilderAfterFakepetiduploadimagewithrequiredfilePostpetId(Map<String, Number> instance) {
-            return new FakepetiduploadimagewithrequiredfilePostPathParametersMap0Builder(instance);
+        public PathParametersMap0Builder getBuilderAfterPetId(Map<String, Number> instance) {
+            return new PathParametersMap0Builder(instance);
         }
     }
     
@@ -125,7 +125,7 @@ public class FakepetiduploadimagewithrequiredfilePostPathParameters {
         @Nullable Object getData();
     }
     
-    public record FakepetiduploadimagewithrequiredfilePostPathParameters1BoxedMap(FakepetiduploadimagewithrequiredfilePostPathParametersMap data) implements FakepetiduploadimagewithrequiredfilePostPathParameters1Boxed {
+    public record FakepetiduploadimagewithrequiredfilePostPathParameters1BoxedMap(PathParametersMap data) implements FakepetiduploadimagewithrequiredfilePostPathParameters1Boxed {
         @Override
         public @Nullable Object getData() {
             return data;
@@ -133,7 +133,7 @@ public class FakepetiduploadimagewithrequiredfilePostPathParameters {
     }
     
     
-    public static class FakepetiduploadimagewithrequiredfilePostPathParameters1 extends JsonSchema<FakepetiduploadimagewithrequiredfilePostPathParameters1Boxed> implements MapSchemaValidator<FakepetiduploadimagewithrequiredfilePostPathParametersMap, FakepetiduploadimagewithrequiredfilePostPathParameters1BoxedMap> {
+    public static class FakepetiduploadimagewithrequiredfilePostPathParameters1 extends JsonSchema<FakepetiduploadimagewithrequiredfilePostPathParameters1Boxed> implements MapSchemaValidator<PathParametersMap, FakepetiduploadimagewithrequiredfilePostPathParameters1BoxedMap> {
         private static @Nullable FakepetiduploadimagewithrequiredfilePostPathParameters1 instance = null;
     
         protected FakepetiduploadimagewithrequiredfilePostPathParameters1() {
@@ -145,7 +145,7 @@ public class FakepetiduploadimagewithrequiredfilePostPathParameters {
                 .required(Set.of(
                     "petId"
                 ))
-                .additionalProperties(FakepetiduploadimagewithrequiredfilePostadditionalProperties.class)
+                .additionalProperties(AdditionalProperties.class)
             );
         }
     
@@ -156,7 +156,7 @@ public class FakepetiduploadimagewithrequiredfilePostPathParameters {
             return instance;
         }
         
-        public FakepetiduploadimagewithrequiredfilePostPathParametersMap getNewInstance(Map<?, ?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+        public PathParametersMap getNewInstance(Map<?, ?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
             LinkedHashMap<String, Number> properties = new LinkedHashMap<>();
             for(Map.Entry<?, ?> entry: arg.entrySet()) {
                 @Nullable Object entryKey = entry.getKey();
@@ -179,10 +179,10 @@ public class FakepetiduploadimagewithrequiredfilePostPathParameters {
                 properties.put(propertyName, (Number) propertyInstance);
             }
             FrozenMap<Number> castProperties = new FrozenMap<>(properties);
-            return new FakepetiduploadimagewithrequiredfilePostPathParametersMap(castProperties);
+            return new PathParametersMap(castProperties);
         }
         
-        public FakepetiduploadimagewithrequiredfilePostPathParametersMap validate(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException {
+        public PathParametersMap validate(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException {
             Set<List<Object>> pathSet = new HashSet<>();
             List<Object> pathToItem = List.of("args[0");
             Map<?, ?> castArg = castToAllowedTypes(arg, pathToItem, pathSet);

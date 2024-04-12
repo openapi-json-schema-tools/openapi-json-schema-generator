@@ -38,9 +38,9 @@ import org.openapijsonschematools.client.paths.fakepetiduploadimagewithrequiredf
 import org.openapijsonschematools.client.RootServerInfo;
 import org.openapijsonschematools.client.paths.fakepetiduploadimagewithrequiredfile.post.FakepetiduploadimagewithrequiredfilePostSecurityInfo;
 import org.openapijsonschematools.client.paths.fakepetiduploadimagewithrequiredfile.post.FakepetiduploadimagewithrequiredfilePostPathParameters;
-import org.openapijsonschematools.client.servers.Server0;
-import org.openapijsonschematools.client.servers.Server1;
-import org.openapijsonschematools.client.servers.Server2;
+import org.openapijsonschematools.client.servers.RootServer0;
+import org.openapijsonschematools.client.servers.RootServer1;
+import org.openapijsonschematools.client.servers.RootServer2;
 import org.openapijsonschematools.client.securityschemes.SecurityScheme;
 import org.openapijsonschematools.client.components.securityschemes.PetstoreAuth;
 import org.openapijsonschematools.client.paths.fakepetiduploadimagewithrequiredfile.post.responses.FakepetiduploadimagewithrequiredfilePostCode200Response;
@@ -51,13 +51,14 @@ import org.openapijsonschematools.client.paths.fakepetiduploadimagewithrequiredf
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
 import java.util.AbstractMap;
 
 // if you want to use a server that is not SERVER_0 pass it in here and change the ServerIndex input below
 ApiConfiguration.ServerInfo serverInfo = new ApiConfiguration.ServerInfoBuilder()
     .rootServerInfo(
         new RootServerInfo.RootServerInfoBuilder()
-            .server0(new Server0())
+            .rootServer0(new RootServer0())
             .build()
     )
     .build();
@@ -69,21 +70,23 @@ ApiConfiguration.SecurityIndexInfo securityIndexInfo = new ApiConfiguration.Secu
     .fakepetiduploadimagewithrequiredfilePostSecurityRequirementObject0SecurityIndex(FakepetiduploadimagewithrequiredfilePostSecurityRequirementObject0.SecurityIndex.SECURITY_0)
     .build();
 Duration timeout = Duration.ofSeconds(1L);
+Map<String, List<String>> defaultHeaders = Map.of("User-Agent", List.of("OpenAPI-JSON-Schema-Generator/1.0.0/java"));
 ApiConfiguration apiConfiguration = new ApiConfiguration(
     serverInfo
     serverIndexInfo,
     securitySchemes,
     securityIndexInfo,
-    timeout
+    timeout,
+    defaultHeaders
 );
 SchemaConfiguration schemaConfiguration = new SchemaConfiguration(new JsonSchemaKeywordFlags.Builder().build());
 FakepetiduploadimagewithrequiredfilePost.Post apiClient = new FakepetiduploadimagewithrequiredfilePost.Post(apiConfiguration, schemaConfiguration);
 
 
 // Map validation
-FakepetiduploadimagewithrequiredfilePostPathParameters.FakepetiduploadimagewithrequiredfilePostPathParametersMap pathParameters =
+FakepetiduploadimagewithrequiredfilePostPathParameters.PathParametersMap pathParameters =
     FakepetiduploadimagewithrequiredfilePostPathParameters.FakepetiduploadimagewithrequiredfilePostPathParameters1.validate(
-    new FakepetiduploadimagewithrequiredfilePostPathParameters.FakepetiduploadimagewithrequiredfilePostPathParametersMapBuilder()
+    new FakepetiduploadimagewithrequiredfilePostPathParameters.PathParametersMapBuilder()
         .petId(1L)
 
     .build(),
@@ -143,7 +146,7 @@ a class that stores the final request inputs
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | --------------------- |
-| [FakepetiduploadimagewithrequiredfilePostPathParameters.FakepetiduploadimagewithrequiredfilePostPathParametersMap](../../paths/fakepetiduploadimagewithrequiredfile/post/FakepetiduploadimagewithrequiredfilePostPathParameters.md#fakepetiduploadimagewithrequiredfilepostpathparametersmap) | pathParameters |
+| [FakepetiduploadimagewithrequiredfilePostPathParameters.PathParametersMap](../../paths/fakepetiduploadimagewithrequiredfile/post/FakepetiduploadimagewithrequiredfilePostPathParameters.md#pathparametersmap) | pathParameters |
 | [FakepetiduploadimagewithrequiredfilePostRequestBody.@Nullable SealedRequestBody](../../paths/fakepetiduploadimagewithrequiredfile/post/FakepetiduploadimagewithrequiredfilePostRequestBody.md#sealedrequestbody) | requestBody<br>optional |
 | [RootServerInfo.@Nullable ServerIndex](../../RootServerInfo.md#serverindex) | serverIndex<br>optional. Note: this will override the value in apiConfiguration |
 | [FakepetiduploadimagewithrequiredfilePostSecurityInfo.@Nullable SecurityIndex](../../paths/fakepetiduploadimagewithrequiredfile/post/FakepetiduploadimagewithrequiredfilePostSecurityInfo.md#securityindex) | securityIndex<br>optional. Note: this will override the value in apiConfiguration |
@@ -157,7 +160,7 @@ a class that stores the initial request inputs
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | --------------------- |
-| [FakepetiduploadimagewithrequiredfilePostPathParameters.@Nullable FakepetiduploadimagewithrequiredfilePostPathParametersMap](../../paths/fakepetiduploadimagewithrequiredfile/post/FakepetiduploadimagewithrequiredfilePostPathParameters.md#fakepetiduploadimagewithrequiredfilepostpathparametersmap) | pathParameters |
+| [FakepetiduploadimagewithrequiredfilePostPathParameters.@Nullable PathParametersMap](../../paths/fakepetiduploadimagewithrequiredfile/post/FakepetiduploadimagewithrequiredfilePostPathParameters.md#pathparametersmap) | pathParameters |
 | [FakepetiduploadimagewithrequiredfilePostRequestBody.@Nullable SealedRequestBody](../../paths/fakepetiduploadimagewithrequiredfile/post/FakepetiduploadimagewithrequiredfilePostRequestBody.md#sealedrequestbody) | requestBody |
 | [RootServerInfo.@Nullable ServerIndex](../../RootServerInfo.md#serverindex) | serverIndex |
 | [FakepetiduploadimagewithrequiredfilePostSecurityInfo.@Nullable SecurityIndex](../../paths/fakepetiduploadimagewithrequiredfile/post/FakepetiduploadimagewithrequiredfilePostSecurityInfo.md#securityindex) | securityIndex |
@@ -195,6 +198,6 @@ a builder for request inputs
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [Post0RequestBuilder](#post0requestbuilder) | pathParameters([FakepetiduploadimagewithrequiredfilePostPathParametersFakepetiduploadimagewithrequiredfilePostPathParametersMap](../../paths/fakepetiduploadimagewithrequiredfile/post/FakepetiduploadimagewithrequiredfilePostPathParameters.md#fakepetiduploadimagewithrequiredfilepostpathparametersmap) pathParameters)<br>sets the property |
+| [Post0RequestBuilder](#post0requestbuilder) | pathParameters([FakepetiduploadimagewithrequiredfilePostPathParametersPathParametersMap](../../paths/fakepetiduploadimagewithrequiredfile/post/FakepetiduploadimagewithrequiredfilePostPathParameters.md#pathparametersmap) pathParameters)<br>sets the property |
 
 [[Back to top]](#top) [[Back to README]](../../../README.md)

@@ -34,9 +34,9 @@ import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.paths.fakerefobjinquery.get.FakerefobjinqueryGetQueryParameters;
 import org.openapijsonschematools.client.RootServerInfo;
-import org.openapijsonschematools.client.servers.Server0;
-import org.openapijsonschematools.client.servers.Server1;
-import org.openapijsonschematools.client.servers.Server2;
+import org.openapijsonschematools.client.servers.RootServer0;
+import org.openapijsonschematools.client.servers.RootServer1;
+import org.openapijsonschematools.client.servers.RootServer2;
 import org.openapijsonschematools.client.paths.fakerefobjinquery.get.responses.FakerefobjinqueryGetCode200Response;
 import org.openapijsonschematools.client.servers.RootServerInfo;
 import org.openapijsonschematools.client.paths.fakerefobjinquery.FakerefobjinqueryGet;
@@ -45,13 +45,14 @@ import org.openapijsonschematools.client.paths.fakerefobjinquery.get.Fakerefobji
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
 import java.util.AbstractMap;
 
 // if you want to use a server that is not SERVER_0 pass it in here and change the ServerIndex input below
 ApiConfiguration.ServerInfo serverInfo = new ApiConfiguration.ServerInfoBuilder()
     .rootServerInfo(
         new RootServerInfo.RootServerInfoBuilder()
-            .server0(new Server0())
+            .rootServer0(new RootServer0())
             .build()
     )
     .build();
@@ -59,10 +60,12 @@ ApiConfiguration.ServerIndexInfo serverIndexInfo = new ApiConfiguration.ServerIn
     .rootServerInfoServerIndex(RootServerInfo.ServerIndex.SERVER_0)
     .build();
 Duration timeout = Duration.ofSeconds(1L);
+Map<String, List<String>> defaultHeaders = Map.of("User-Agent", List.of("OpenAPI-JSON-Schema-Generator/1.0.0/java"));
 ApiConfiguration apiConfiguration = new ApiConfiguration(
     serverInfo
     serverIndexInfo,
-    timeout
+    timeout,
+    defaultHeaders
 );
 SchemaConfiguration schemaConfiguration = new SchemaConfiguration(new JsonSchemaKeywordFlags.Builder().build());
 FakerefobjinqueryGet.Get apiClient = new FakerefobjinqueryGet.Get(apiConfiguration, schemaConfiguration);
@@ -117,7 +120,7 @@ a class that stores the final request inputs
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | --------------------- |
-| [FakerefobjinqueryGetQueryParameters.@Nullable FakerefobjinqueryGetQueryParametersMap](../../paths/fakerefobjinquery/get/FakerefobjinqueryGetQueryParameters.md#fakerefobjinquerygetqueryparametersmap) | queryParameters<br>optional |
+| [FakerefobjinqueryGetQueryParameters.@Nullable QueryParametersMap](../../paths/fakerefobjinquery/get/FakerefobjinqueryGetQueryParameters.md#queryparametersmap) | queryParameters<br>optional |
 | [RootServerInfo.@Nullable ServerIndex](../../RootServerInfo.md#serverindex) | serverIndex<br>optional. Note: this will override the value in apiConfiguration |
 | @Nullable Duration | timeout<br>optional. Note: this will override the value in apiConfiguration |
 
@@ -135,7 +138,7 @@ a builder for request inputs
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [GetRequest](#getrequest) | build()<br>Returns the request input used to call an endpoint method |
-| [GetRequestBuilder](#getrequestbuilder) | queryParameters([FakerefobjinqueryGetQueryParametersFakerefobjinqueryGetQueryParametersMap](../../paths/fakerefobjinquery/get/FakerefobjinqueryGetQueryParameters.md#fakerefobjinquerygetqueryparametersmap) queryParameters)<br>sets the optional property |
+| [GetRequestBuilder](#getrequestbuilder) | queryParameters([FakerefobjinqueryGetQueryParametersQueryParametersMap](../../paths/fakerefobjinquery/get/FakerefobjinqueryGetQueryParameters.md#queryparametersmap) queryParameters)<br>sets the optional property |
 | [GetRequestBuilder](#getrequestbuilder) | serverIndex([RootServerInfo.ServerIndex](../../RootServerInfo.md#serverindex) serverIndex)<br>sets the optional property. Note: this will override the value in apiConfiguration |
 | [GetRequestBuilder](#getrequestbuilder) | timeout(Duration timeout)<br>sets the optional property. Note: this will override the value in apiConfiguration |
 

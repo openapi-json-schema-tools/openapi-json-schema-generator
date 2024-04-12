@@ -37,9 +37,9 @@ import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.paths.commonparamsubdir.post.CommonparamsubdirPostHeaderParameters;
 import org.openapijsonschematools.client.RootServerInfo;
 import org.openapijsonschematools.client.paths.commonparamsubdir.post.CommonparamsubdirPostPathParameters;
-import org.openapijsonschematools.client.servers.Server0;
-import org.openapijsonschematools.client.servers.Server1;
-import org.openapijsonschematools.client.servers.Server2;
+import org.openapijsonschematools.client.servers.RootServer0;
+import org.openapijsonschematools.client.servers.RootServer1;
+import org.openapijsonschematools.client.servers.RootServer2;
 import org.openapijsonschematools.client.paths.commonparamsubdir.post.responses.CommonparamsubdirPostCode200Response;
 import org.openapijsonschematools.client.servers.RootServerInfo;
 import org.openapijsonschematools.client.paths.commonparamsubdir.CommonparamsubdirPost;
@@ -48,13 +48,14 @@ import org.openapijsonschematools.client.paths.commonparamsubdir.post.Commonpara
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
 import java.util.AbstractMap;
 
 // if you want to use a server that is not SERVER_0 pass it in here and change the ServerIndex input below
 ApiConfiguration.ServerInfo serverInfo = new ApiConfiguration.ServerInfoBuilder()
     .rootServerInfo(
         new RootServerInfo.RootServerInfoBuilder()
-            .server0(new Server0())
+            .rootServer0(new RootServer0())
             .build()
     )
     .build();
@@ -62,19 +63,21 @@ ApiConfiguration.ServerIndexInfo serverIndexInfo = new ApiConfiguration.ServerIn
     .rootServerInfoServerIndex(RootServerInfo.ServerIndex.SERVER_0)
     .build();
 Duration timeout = Duration.ofSeconds(1L);
+Map<String, List<String>> defaultHeaders = Map.of("User-Agent", List.of("OpenAPI-JSON-Schema-Generator/1.0.0/java"));
 ApiConfiguration apiConfiguration = new ApiConfiguration(
     serverInfo
     serverIndexInfo,
-    timeout
+    timeout,
+    defaultHeaders
 );
 SchemaConfiguration schemaConfiguration = new SchemaConfiguration(new JsonSchemaKeywordFlags.Builder().build());
 CommonparamsubdirPost.Post apiClient = new CommonparamsubdirPost.Post(apiConfiguration, schemaConfiguration);
 
 
 // Map validation
-CommonparamsubdirPostPathParameters.CommonparamsubdirPostPathParametersMap pathParameters =
+CommonparamsubdirPostPathParameters.PathParametersMap pathParameters =
     CommonparamsubdirPostPathParameters.CommonparamsubdirPostPathParameters1.validate(
-    new CommonparamsubdirPostPathParameters.CommonparamsubdirPostPathParametersMapBuilder()
+    new CommonparamsubdirPostPathParameters.PathParametersMapBuilder()
         .subDir("a")
 
     .build(),
@@ -132,8 +135,8 @@ a class that stores the final request inputs
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | --------------------- |
-| [CommonparamsubdirPostPathParameters.CommonparamsubdirPostPathParametersMap](../../paths/commonparamsubdir/post/CommonparamsubdirPostPathParameters.md#commonparamsubdirpostpathparametersmap) | pathParameters |
-| [CommonparamsubdirPostHeaderParameters.@Nullable CommonparamsubdirPostHeaderParametersMap](../../paths/commonparamsubdir/post/CommonparamsubdirPostHeaderParameters.md#commonparamsubdirpostheaderparametersmap) | headerParameters<br>optional |
+| [CommonparamsubdirPostPathParameters.PathParametersMap](../../paths/commonparamsubdir/post/CommonparamsubdirPostPathParameters.md#pathparametersmap) | pathParameters |
+| [CommonparamsubdirPostHeaderParameters.@Nullable HeaderParametersMap](../../paths/commonparamsubdir/post/CommonparamsubdirPostHeaderParameters.md#headerparametersmap) | headerParameters<br>optional |
 | [RootServerInfo.@Nullable ServerIndex](../../RootServerInfo.md#serverindex) | serverIndex<br>optional. Note: this will override the value in apiConfiguration |
 | @Nullable Duration | timeout<br>optional. Note: this will override the value in apiConfiguration |
 
@@ -145,8 +148,8 @@ a class that stores the initial request inputs
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | --------------------- |
-| [CommonparamsubdirPostPathParameters.@Nullable CommonparamsubdirPostPathParametersMap](../../paths/commonparamsubdir/post/CommonparamsubdirPostPathParameters.md#commonparamsubdirpostpathparametersmap) | pathParameters |
-| [CommonparamsubdirPostHeaderParameters.@Nullable CommonparamsubdirPostHeaderParametersMap](../../paths/commonparamsubdir/post/CommonparamsubdirPostHeaderParameters.md#commonparamsubdirpostheaderparametersmap) | headerParameters |
+| [CommonparamsubdirPostPathParameters.@Nullable PathParametersMap](../../paths/commonparamsubdir/post/CommonparamsubdirPostPathParameters.md#pathparametersmap) | pathParameters |
+| [CommonparamsubdirPostHeaderParameters.@Nullable HeaderParametersMap](../../paths/commonparamsubdir/post/CommonparamsubdirPostHeaderParameters.md#headerparametersmap) | headerParameters |
 | [RootServerInfo.@Nullable ServerIndex](../../RootServerInfo.md#serverindex) | serverIndex |
 | @Nullable Duration | timeout |
 
@@ -164,7 +167,7 @@ a builder for request inputs
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [PostRequest](#postrequest) | build()<br>Returns the request input used to call an endpoint method |
-| [Post0RequestBuilder](#post0requestbuilder) | headerParameters([CommonparamsubdirPostHeaderParametersCommonparamsubdirPostHeaderParametersMap](../../paths/commonparamsubdir/post/CommonparamsubdirPostHeaderParameters.md#commonparamsubdirpostheaderparametersmap) headerParameters)<br>sets the optional property |
+| [Post0RequestBuilder](#post0requestbuilder) | headerParameters([CommonparamsubdirPostHeaderParametersHeaderParametersMap](../../paths/commonparamsubdir/post/CommonparamsubdirPostHeaderParameters.md#headerparametersmap) headerParameters)<br>sets the optional property |
 | [Post0RequestBuilder](#post0requestbuilder) | serverIndex([RootServerInfo.ServerIndex](../../RootServerInfo.md#serverindex) serverIndex)<br>sets the optional property. Note: this will override the value in apiConfiguration |
 | [Post0RequestBuilder](#post0requestbuilder) | timeout(Duration timeout)<br>sets the optional property. Note: this will override the value in apiConfiguration |
 
@@ -181,6 +184,6 @@ a builder for request inputs
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [Post0RequestBuilder](#post0requestbuilder) | pathParameters([CommonparamsubdirPostPathParametersCommonparamsubdirPostPathParametersMap](../../paths/commonparamsubdir/post/CommonparamsubdirPostPathParameters.md#commonparamsubdirpostpathparametersmap) pathParameters)<br>sets the property |
+| [Post0RequestBuilder](#post0requestbuilder) | pathParameters([CommonparamsubdirPostPathParametersPathParametersMap](../../paths/commonparamsubdir/post/CommonparamsubdirPostPathParameters.md#pathparametersmap) pathParameters)<br>sets the property |
 
 [[Back to top]](#top) [[Back to README]](../../../README.md)

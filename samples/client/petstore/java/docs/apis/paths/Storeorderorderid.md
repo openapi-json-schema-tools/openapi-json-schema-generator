@@ -4,7 +4,7 @@ public class Storeorderorderid extends extends ApiClient implements
 [StoreorderorderidDelete.DeleteOperation](../../paths/storeorderorderid/StoreorderorderidDelete.md#deleteoperation),
 [StoreorderorderidGet.GetOperation](../../paths/storeorderorderid/StoreorderorderidGet.md#getoperation)
 
-an api client class which contains all the routes for path=""
+an api client class which contains all the routes for path="/store/order/{order_id}"
 
 ## Method Summary
 | Modifier and Type | Method and Description |
@@ -45,9 +45,9 @@ import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.RootServerInfo;
 import org.openapijsonschematools.client.paths.storeorderorderid.delete.StoreorderorderidDeletePathParameters;
-import org.openapijsonschematools.client.servers.Server0;
-import org.openapijsonschematools.client.servers.Server1;
-import org.openapijsonschematools.client.servers.Server2;
+import org.openapijsonschematools.client.servers.RootServer0;
+import org.openapijsonschematools.client.servers.RootServer1;
+import org.openapijsonschematools.client.servers.RootServer2;
 import org.openapijsonschematools.client.paths.storeorderorderid.delete.responses.StoreorderorderidDeleteCode400Response;
 import org.openapijsonschematools.client.paths.storeorderorderid.delete.responses.StoreorderorderidDeleteCode404Response;
 import org.openapijsonschematools.client.servers.RootServerInfo;
@@ -57,13 +57,14 @@ import org.openapijsonschematools.client.paths.storeorderorderid.delete.Storeord
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
 import java.util.AbstractMap;
 
 // if you want to use a server that is not SERVER_0 pass it in here and change the ServerIndex input below
 ApiConfiguration.ServerInfo serverInfo = new ApiConfiguration.ServerInfoBuilder()
     .rootServerInfo(
         new RootServerInfo.RootServerInfoBuilder()
-            .server0(new Server0())
+            .rootServer0(new RootServer0())
             .build()
     )
     .build();
@@ -71,19 +72,21 @@ ApiConfiguration.ServerIndexInfo serverIndexInfo = new ApiConfiguration.ServerIn
     .rootServerInfoServerIndex(RootServerInfo.ServerIndex.SERVER_0)
     .build();
 Duration timeout = Duration.ofSeconds(1L);
+Map<String, List<String>> defaultHeaders = Map.of("User-Agent", List.of("OpenAPI-JSON-Schema-Generator/1.0.0/java"));
 ApiConfiguration apiConfiguration = new ApiConfiguration(
     serverInfo
     serverIndexInfo,
-    timeout
+    timeout,
+    defaultHeaders
 );
 SchemaConfiguration schemaConfiguration = new SchemaConfiguration(new JsonSchemaKeywordFlags.Builder().build());
 Storeorderorderid apiClient = new Storeorderorderid(apiConfiguration, schemaConfiguration);
 
 
 // Map validation
-StoreorderorderidDeletePathParameters.StoreorderorderidDeletePathParametersMap pathParameters =
+StoreorderorderidDeletePathParameters.PathParametersMap pathParameters =
     StoreorderorderidDeletePathParameters.StoreorderorderidDeletePathParameters1.validate(
-    new StoreorderorderidDeletePathParameters.StoreorderorderidDeletePathParametersMapBuilder()
+    new StoreorderorderidDeletePathParameters.PathParametersMapBuilder()
         .order_id("a")
 
     .build(),
@@ -146,9 +149,9 @@ import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.RootServerInfo;
 import org.openapijsonschematools.client.paths.storeorderorderid.get.StoreorderorderidGetPathParameters;
-import org.openapijsonschematools.client.servers.Server0;
-import org.openapijsonschematools.client.servers.Server1;
-import org.openapijsonschematools.client.servers.Server2;
+import org.openapijsonschematools.client.servers.RootServer0;
+import org.openapijsonschematools.client.servers.RootServer1;
+import org.openapijsonschematools.client.servers.RootServer2;
 import org.openapijsonschematools.client.paths.storeorderorderid.get.responses.StoreorderorderidGetCode200Response;
 import org.openapijsonschematools.client.paths.storeorderorderid.get.responses.StoreorderorderidGetCode400Response;
 import org.openapijsonschematools.client.paths.storeorderorderid.get.responses.StoreorderorderidGetCode404Response;
@@ -159,13 +162,14 @@ import org.openapijsonschematools.client.paths.storeorderorderid.get.Storeordero
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
 import java.util.AbstractMap;
 
 // if you want to use a server that is not SERVER_0 pass it in here and change the ServerIndex input below
 ApiConfiguration.ServerInfo serverInfo = new ApiConfiguration.ServerInfoBuilder()
     .rootServerInfo(
         new RootServerInfo.RootServerInfoBuilder()
-            .server0(new Server0())
+            .rootServer0(new RootServer0())
             .build()
     )
     .build();
@@ -173,19 +177,21 @@ ApiConfiguration.ServerIndexInfo serverIndexInfo = new ApiConfiguration.ServerIn
     .rootServerInfoServerIndex(RootServerInfo.ServerIndex.SERVER_0)
     .build();
 Duration timeout = Duration.ofSeconds(1L);
+Map<String, List<String>> defaultHeaders = Map.of("User-Agent", List.of("OpenAPI-JSON-Schema-Generator/1.0.0/java"));
 ApiConfiguration apiConfiguration = new ApiConfiguration(
     serverInfo
     serverIndexInfo,
-    timeout
+    timeout,
+    defaultHeaders
 );
 SchemaConfiguration schemaConfiguration = new SchemaConfiguration(new JsonSchemaKeywordFlags.Builder().build());
 Storeorderorderid apiClient = new Storeorderorderid(apiConfiguration, schemaConfiguration);
 
 
 // Map validation
-StoreorderorderidGetPathParameters.StoreorderorderidGetPathParametersMap pathParameters =
+StoreorderorderidGetPathParameters.PathParametersMap pathParameters =
     StoreorderorderidGetPathParameters.StoreorderorderidGetPathParameters1.validate(
-    new StoreorderorderidGetPathParameters.StoreorderorderidGetPathParametersMapBuilder()
+    new StoreorderorderidGetPathParameters.PathParametersMapBuilder()
         .order_id(1L)
 
     .build(),

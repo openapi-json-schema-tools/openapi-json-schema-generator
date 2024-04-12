@@ -1,13 +1,13 @@
-org.openapijsonschematools.client.servers.Server0
-# Server Server0
-public class Server0
+org.openapijsonschematools.client.servers.RootServer0
+# Server RootServer0
+public class RootServer0
 
 A class that stores a server url
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| Server0()<br>Creates a server |
+| RootServer0()<br>Creates a server |
 
 ### Field Summary
 | Modifier and Type | Field and Description |

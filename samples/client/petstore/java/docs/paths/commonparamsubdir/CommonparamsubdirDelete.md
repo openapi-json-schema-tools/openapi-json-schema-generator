@@ -37,9 +37,9 @@ import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.paths.commonparamsubdir.delete.CommonparamsubdirDeleteHeaderParameters;
 import org.openapijsonschematools.client.RootServerInfo;
 import org.openapijsonschematools.client.paths.commonparamsubdir.delete.CommonparamsubdirDeletePathParameters;
-import org.openapijsonschematools.client.servers.Server0;
-import org.openapijsonschematools.client.servers.Server1;
-import org.openapijsonschematools.client.servers.Server2;
+import org.openapijsonschematools.client.servers.RootServer0;
+import org.openapijsonschematools.client.servers.RootServer1;
+import org.openapijsonschematools.client.servers.RootServer2;
 import org.openapijsonschematools.client.paths.commonparamsubdir.delete.responses.CommonparamsubdirDeleteCode200Response;
 import org.openapijsonschematools.client.servers.RootServerInfo;
 import org.openapijsonschematools.client.paths.commonparamsubdir.CommonparamsubdirDelete;
@@ -48,13 +48,14 @@ import org.openapijsonschematools.client.paths.commonparamsubdir.delete.Commonpa
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
 import java.util.AbstractMap;
 
 // if you want to use a server that is not SERVER_0 pass it in here and change the ServerIndex input below
 ApiConfiguration.ServerInfo serverInfo = new ApiConfiguration.ServerInfoBuilder()
     .rootServerInfo(
         new RootServerInfo.RootServerInfoBuilder()
-            .server0(new Server0())
+            .rootServer0(new RootServer0())
             .build()
     )
     .build();
@@ -62,19 +63,21 @@ ApiConfiguration.ServerIndexInfo serverIndexInfo = new ApiConfiguration.ServerIn
     .rootServerInfoServerIndex(RootServerInfo.ServerIndex.SERVER_0)
     .build();
 Duration timeout = Duration.ofSeconds(1L);
+Map<String, List<String>> defaultHeaders = Map.of("User-Agent", List.of("OpenAPI-JSON-Schema-Generator/1.0.0/java"));
 ApiConfiguration apiConfiguration = new ApiConfiguration(
     serverInfo
     serverIndexInfo,
-    timeout
+    timeout,
+    defaultHeaders
 );
 SchemaConfiguration schemaConfiguration = new SchemaConfiguration(new JsonSchemaKeywordFlags.Builder().build());
 CommonparamsubdirDelete.Delete apiClient = new CommonparamsubdirDelete.Delete(apiConfiguration, schemaConfiguration);
 
 
 // Map validation
-CommonparamsubdirDeletePathParameters.CommonparamsubdirDeletePathParametersMap pathParameters =
+CommonparamsubdirDeletePathParameters.PathParametersMap pathParameters =
     CommonparamsubdirDeletePathParameters.CommonparamsubdirDeletePathParameters1.validate(
-    new CommonparamsubdirDeletePathParameters.CommonparamsubdirDeletePathParametersMapBuilder()
+    new CommonparamsubdirDeletePathParameters.PathParametersMapBuilder()
         .subDir("c")
 
     .build(),
@@ -132,8 +135,8 @@ a class that stores the final request inputs
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | --------------------- |
-| [CommonparamsubdirDeletePathParameters.CommonparamsubdirDeletePathParametersMap](../../paths/commonparamsubdir/delete/CommonparamsubdirDeletePathParameters.md#commonparamsubdirdeletepathparametersmap) | pathParameters |
-| [CommonparamsubdirDeleteHeaderParameters.@Nullable CommonparamsubdirDeleteHeaderParametersMap](../../paths/commonparamsubdir/delete/CommonparamsubdirDeleteHeaderParameters.md#commonparamsubdirdeleteheaderparametersmap) | headerParameters<br>optional |
+| [CommonparamsubdirDeletePathParameters.PathParametersMap](../../paths/commonparamsubdir/delete/CommonparamsubdirDeletePathParameters.md#pathparametersmap) | pathParameters |
+| [CommonparamsubdirDeleteHeaderParameters.@Nullable HeaderParametersMap](../../paths/commonparamsubdir/delete/CommonparamsubdirDeleteHeaderParameters.md#headerparametersmap) | headerParameters<br>optional |
 | [RootServerInfo.@Nullable ServerIndex](../../RootServerInfo.md#serverindex) | serverIndex<br>optional. Note: this will override the value in apiConfiguration |
 | @Nullable Duration | timeout<br>optional. Note: this will override the value in apiConfiguration |
 
@@ -145,8 +148,8 @@ a class that stores the initial request inputs
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | --------------------- |
-| [CommonparamsubdirDeletePathParameters.@Nullable CommonparamsubdirDeletePathParametersMap](../../paths/commonparamsubdir/delete/CommonparamsubdirDeletePathParameters.md#commonparamsubdirdeletepathparametersmap) | pathParameters |
-| [CommonparamsubdirDeleteHeaderParameters.@Nullable CommonparamsubdirDeleteHeaderParametersMap](../../paths/commonparamsubdir/delete/CommonparamsubdirDeleteHeaderParameters.md#commonparamsubdirdeleteheaderparametersmap) | headerParameters |
+| [CommonparamsubdirDeletePathParameters.@Nullable PathParametersMap](../../paths/commonparamsubdir/delete/CommonparamsubdirDeletePathParameters.md#pathparametersmap) | pathParameters |
+| [CommonparamsubdirDeleteHeaderParameters.@Nullable HeaderParametersMap](../../paths/commonparamsubdir/delete/CommonparamsubdirDeleteHeaderParameters.md#headerparametersmap) | headerParameters |
 | [RootServerInfo.@Nullable ServerIndex](../../RootServerInfo.md#serverindex) | serverIndex |
 | @Nullable Duration | timeout |
 
@@ -164,7 +167,7 @@ a builder for request inputs
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [DeleteRequest](#deleterequest) | build()<br>Returns the request input used to call an endpoint method |
-| [Delete0RequestBuilder](#delete0requestbuilder) | headerParameters([CommonparamsubdirDeleteHeaderParametersCommonparamsubdirDeleteHeaderParametersMap](../../paths/commonparamsubdir/delete/CommonparamsubdirDeleteHeaderParameters.md#commonparamsubdirdeleteheaderparametersmap) headerParameters)<br>sets the optional property |
+| [Delete0RequestBuilder](#delete0requestbuilder) | headerParameters([CommonparamsubdirDeleteHeaderParametersHeaderParametersMap](../../paths/commonparamsubdir/delete/CommonparamsubdirDeleteHeaderParameters.md#headerparametersmap) headerParameters)<br>sets the optional property |
 | [Delete0RequestBuilder](#delete0requestbuilder) | serverIndex([RootServerInfo.ServerIndex](../../RootServerInfo.md#serverindex) serverIndex)<br>sets the optional property. Note: this will override the value in apiConfiguration |
 | [Delete0RequestBuilder](#delete0requestbuilder) | timeout(Duration timeout)<br>sets the optional property. Note: this will override the value in apiConfiguration |
 
@@ -181,6 +184,6 @@ a builder for request inputs
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [Delete0RequestBuilder](#delete0requestbuilder) | pathParameters([CommonparamsubdirDeletePathParametersCommonparamsubdirDeletePathParametersMap](../../paths/commonparamsubdir/delete/CommonparamsubdirDeletePathParameters.md#commonparamsubdirdeletepathparametersmap) pathParameters)<br>sets the property |
+| [Delete0RequestBuilder](#delete0requestbuilder) | pathParameters([CommonparamsubdirDeletePathParametersPathParametersMap](../../paths/commonparamsubdir/delete/CommonparamsubdirDeletePathParameters.md#pathparametersmap) pathParameters)<br>sets the property |
 
 [[Back to top]](#top) [[Back to README]](../../../README.md)

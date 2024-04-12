@@ -14,16 +14,16 @@ A class that contains necessary nested
 | sealed interface | [CommonparamsubdirDeletePathParameters.CommonparamsubdirDeletePathParameters1Boxed](#commonparamsubdirdeletepathparameters1boxed)<br> sealed interface for validated payloads |
 | record | [CommonparamsubdirDeletePathParameters.CommonparamsubdirDeletePathParameters1BoxedMap](#commonparamsubdirdeletepathparameters1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [CommonparamsubdirDeletePathParameters.CommonparamsubdirDeletePathParameters1](#commonparamsubdirdeletepathparameters1)<br> schema class |
-| static class | [CommonparamsubdirDeletePathParameters.CommonparamsubdirDeletePathParametersMapBuilder](#commonparamsubdirdeletepathparametersmapbuilder)<br> builder for Map payloads |
-| static class | [CommonparamsubdirDeletePathParameters.CommonparamsubdirDeletePathParametersMap](#commonparamsubdirdeletepathparametersmap)<br> output class for Map payloads |
-| sealed interface | [CommonparamsubdirDeletePathParameters.CommonparamsubdirDeleteadditionalPropertiesBoxed](#commonparamsubdirdeleteadditionalpropertiesboxed)<br> sealed interface for validated payloads |
-| record | [CommonparamsubdirDeletePathParameters.CommonparamsubdirDeleteadditionalPropertiesBoxedVoid](#commonparamsubdirdeleteadditionalpropertiesboxedvoid)<br> boxed class to store validated null payloads |
-| record | [CommonparamsubdirDeletePathParameters.CommonparamsubdirDeleteadditionalPropertiesBoxedBoolean](#commonparamsubdirdeleteadditionalpropertiesboxedboolean)<br> boxed class to store validated boolean payloads |
-| record | [CommonparamsubdirDeletePathParameters.CommonparamsubdirDeleteadditionalPropertiesBoxedNumber](#commonparamsubdirdeleteadditionalpropertiesboxednumber)<br> boxed class to store validated Number payloads |
-| record | [CommonparamsubdirDeletePathParameters.CommonparamsubdirDeleteadditionalPropertiesBoxedString](#commonparamsubdirdeleteadditionalpropertiesboxedstring)<br> boxed class to store validated String payloads |
-| record | [CommonparamsubdirDeletePathParameters.CommonparamsubdirDeleteadditionalPropertiesBoxedList](#commonparamsubdirdeleteadditionalpropertiesboxedlist)<br> boxed class to store validated List payloads |
-| record | [CommonparamsubdirDeletePathParameters.CommonparamsubdirDeleteadditionalPropertiesBoxedMap](#commonparamsubdirdeleteadditionalpropertiesboxedmap)<br> boxed class to store validated Map payloads |
-| static class | [CommonparamsubdirDeletePathParameters.CommonparamsubdirDeleteadditionalProperties](#commonparamsubdirdeleteadditionalproperties)<br> schema class |
+| static class | [CommonparamsubdirDeletePathParameters.PathParametersMapBuilder](#pathparametersmapbuilder)<br> builder for Map payloads |
+| static class | [CommonparamsubdirDeletePathParameters.PathParametersMap](#pathparametersmap)<br> output class for Map payloads |
+| sealed interface | [CommonparamsubdirDeletePathParameters.AdditionalPropertiesBoxed](#additionalpropertiesboxed)<br> sealed interface for validated payloads |
+| record | [CommonparamsubdirDeletePathParameters.AdditionalPropertiesBoxedVoid](#additionalpropertiesboxedvoid)<br> boxed class to store validated null payloads |
+| record | [CommonparamsubdirDeletePathParameters.AdditionalPropertiesBoxedBoolean](#additionalpropertiesboxedboolean)<br> boxed class to store validated boolean payloads |
+| record | [CommonparamsubdirDeletePathParameters.AdditionalPropertiesBoxedNumber](#additionalpropertiesboxednumber)<br> boxed class to store validated Number payloads |
+| record | [CommonparamsubdirDeletePathParameters.AdditionalPropertiesBoxedString](#additionalpropertiesboxedstring)<br> boxed class to store validated String payloads |
+| record | [CommonparamsubdirDeletePathParameters.AdditionalPropertiesBoxedList](#additionalpropertiesboxedlist)<br> boxed class to store validated List payloads |
+| record | [CommonparamsubdirDeletePathParameters.AdditionalPropertiesBoxedMap](#additionalpropertiesboxedmap)<br> boxed class to store validated Map payloads |
+| static class | [CommonparamsubdirDeletePathParameters.AdditionalProperties](#additionalproperties)<br> schema class |
 
 ## CommonparamsubdirDeletePathParameters1Boxed
 public sealed interface CommonparamsubdirDeletePathParameters1Boxed<br>
@@ -41,12 +41,12 @@ record that stores validated Map payloads, sealed permits implementation
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| CommonparamsubdirDeletePathParameters1BoxedMap([CommonparamsubdirDeletePathParametersMap](#commonparamsubdirdeletepathparametersmap) data)<br>Creates an instance, private visibility |
+| CommonparamsubdirDeletePathParameters1BoxedMap([PathParametersMap](#pathparametersmap) data)<br>Creates an instance, private visibility |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [CommonparamsubdirDeletePathParametersMap](#commonparamsubdirdeletepathparametersmap) | data()<br>validated payload |
+| [PathParametersMap](#pathparametersmap) | data()<br>validated payload |
 | @Nullable Object | getData()<br>validated payload |
 
 ## CommonparamsubdirDeletePathParameters1
@@ -72,9 +72,9 @@ import java.util.AbstractMap;
 static final SchemaConfiguration configuration = new SchemaConfiguration(new JsonSchemaKeywordFlags.Builder().build());
 
 // Map validation
-CommonparamsubdirDeletePathParameters.CommonparamsubdirDeletePathParametersMap validatedPayload =
+CommonparamsubdirDeletePathParameters.PathParametersMap validatedPayload =
     CommonparamsubdirDeletePathParameters.CommonparamsubdirDeletePathParameters1.validate(
-    new CommonparamsubdirDeletePathParameters.CommonparamsubdirDeletePathParametersMapBuilder()
+    new CommonparamsubdirDeletePathParameters.PathParametersMapBuilder()
         .subDir("c")
 
     .build(),
@@ -88,18 +88,18 @@ CommonparamsubdirDeletePathParameters.CommonparamsubdirDeletePathParametersMap v
 | Set<Class<?>> | type = Set.of(Map.class) |
 | Map<String, Class<? extends JsonSchema>> | properties = Map.ofEntries(<br>&nbsp;&nbsp;&nbsp;&nbsp;new PropertyEntry("subDir", [Schema1.Schema11.class](../../../paths/commonparamsubdir/delete/parameters/parameter1/Schema1.md#schema11))<br>)<br> |
 | Set<String> | required = Set.of(<br>&nbsp;&nbsp;&nbsp;&nbsp;"subDir"<br>)<br> |
-| Class<? extends JsonSchema> | additionalProperties = [CommonparamsubdirDeleteadditionalProperties.class](#commonparamsubdirdeleteadditionalproperties) |
+| Class<? extends JsonSchema> | additionalProperties = [AdditionalProperties.class](#additionalproperties) |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [CommonparamsubdirDeletePathParametersMap](#commonparamsubdirdeletepathparametersmap) | validate([Map&lt;?, ?&gt;](#commonparamsubdirdeletepathparametersmapbuilder) arg, SchemaConfiguration configuration) |
-| [CommonparamsubdirDeletePathParameters1BoxedMap](#commonparamsubdirdeletepathparameters1boxedmap) | validateAndBox([Map&lt;?, ?&gt;](#commonparamsubdirdeletepathparametersmapbuilder) arg, SchemaConfiguration configuration) |
+| [PathParametersMap](#pathparametersmap) | validate([Map&lt;?, ?&gt;](#pathparametersmapbuilder) arg, SchemaConfiguration configuration) |
+| [CommonparamsubdirDeletePathParameters1BoxedMap](#commonparamsubdirdeletepathparameters1boxedmap) | validateAndBox([Map&lt;?, ?&gt;](#pathparametersmapbuilder) arg, SchemaConfiguration configuration) |
 | [CommonparamsubdirDeletePathParameters1Boxed](#commonparamsubdirdeletepathparameters1boxed) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 
-## CommonparamsubdirDeletePathParametersMap0Builder
-public class CommonparamsubdirDeletePathParametersMap0Builder<br>
+## PathParametersMap0Builder
+public class PathParametersMap0Builder<br>
 builder for `Map<String, String>`
 
 A class that builds the Map input type
@@ -107,15 +107,15 @@ A class that builds the Map input type
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| CommonparamsubdirDeletePathParametersMap0Builder(Map<String, String> instance)<br>Creates a builder that contains the passed instance |
+| PathParametersMap0Builder(Map<String, String> instance)<br>Creates a builder that contains the passed instance |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | Map<String, String> | build()<br>Returns map input that should be used with Schema.validate |
 
-## CommonparamsubdirDeletePathParametersMapBuilder
-public class CommonparamsubdirDeletePathParametersMapBuilder<br>
+## PathParametersMapBuilder
+public class PathParametersMapBuilder<br>
 builder for `Map<String, String>`
 
 A class that builds the Map input type
@@ -123,16 +123,16 @@ A class that builds the Map input type
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| CommonparamsubdirDeletePathParametersMapBuilder()<br>Creates a builder that contains an empty map |
+| PathParametersMapBuilder()<br>Creates a builder that contains an empty map |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [CommonparamsubdirDeletePathParametersMap0Builder](#commonparamsubdirdeletepathparametersmap0builder) | subDir(String value) |
-| [CommonparamsubdirDeletePathParametersMap0Builder](#commonparamsubdirdeletepathparametersmap0builder) | subDir([Schema1.StringSchemaEnums1](../../../paths/commonparamsubdir/delete/parameters/parameter1/Schema1.md#stringschemaenums1) value) |
+| [PathParametersMap0Builder](#pathparametersmap0builder) | subDir(String value) |
+| [PathParametersMap0Builder](#pathparametersmap0builder) | subDir([Schema1.StringSchemaEnums1](../../../paths/commonparamsubdir/delete/parameters/parameter1/Schema1.md#stringschemaenums1) value) |
 
-## CommonparamsubdirDeletePathParametersMap
-public static class CommonparamsubdirDeletePathParametersMap<br>
+## PathParametersMap
+public static class PathParametersMap<br>
 extends FrozenMap<String, String>
 
 A class to store validated Map payloads
@@ -140,31 +140,31 @@ A class to store validated Map payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [CommonparamsubdirDeletePathParametersMap](#commonparamsubdirdeletepathparametersmap) | of([Map<String, String>](#commonparamsubdirdeletepathparametersmapbuilder) arg, SchemaConfiguration configuration) |
+| static [PathParametersMap](#pathparametersmap) | of([Map<String, String>](#pathparametersmapbuilder) arg, SchemaConfiguration configuration) |
 | String | subDir()<br> |
 
-## CommonparamsubdirDeleteadditionalPropertiesBoxed
-public sealed interface CommonparamsubdirDeleteadditionalPropertiesBoxed<br>
+## AdditionalPropertiesBoxed
+public sealed interface AdditionalPropertiesBoxed<br>
 permits<br>
-[CommonparamsubdirDeleteadditionalPropertiesBoxedVoid](#commonparamsubdirdeleteadditionalpropertiesboxedvoid),
-[CommonparamsubdirDeleteadditionalPropertiesBoxedBoolean](#commonparamsubdirdeleteadditionalpropertiesboxedboolean),
-[CommonparamsubdirDeleteadditionalPropertiesBoxedNumber](#commonparamsubdirdeleteadditionalpropertiesboxednumber),
-[CommonparamsubdirDeleteadditionalPropertiesBoxedString](#commonparamsubdirdeleteadditionalpropertiesboxedstring),
-[CommonparamsubdirDeleteadditionalPropertiesBoxedList](#commonparamsubdirdeleteadditionalpropertiesboxedlist),
-[CommonparamsubdirDeleteadditionalPropertiesBoxedMap](#commonparamsubdirdeleteadditionalpropertiesboxedmap)
+[AdditionalPropertiesBoxedVoid](#additionalpropertiesboxedvoid),
+[AdditionalPropertiesBoxedBoolean](#additionalpropertiesboxedboolean),
+[AdditionalPropertiesBoxedNumber](#additionalpropertiesboxednumber),
+[AdditionalPropertiesBoxedString](#additionalpropertiesboxedstring),
+[AdditionalPropertiesBoxedList](#additionalpropertiesboxedlist),
+[AdditionalPropertiesBoxedMap](#additionalpropertiesboxedmap)
 
 sealed interface that stores validated payloads using boxed classes
 
-## CommonparamsubdirDeleteadditionalPropertiesBoxedVoid
-public record CommonparamsubdirDeleteadditionalPropertiesBoxedVoid<br>
-implements [CommonparamsubdirDeleteadditionalPropertiesBoxed](#commonparamsubdirdeleteadditionalpropertiesboxed)
+## AdditionalPropertiesBoxedVoid
+public record AdditionalPropertiesBoxedVoid<br>
+implements [AdditionalPropertiesBoxed](#additionalpropertiesboxed)
 
 record that stores validated null payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| CommonparamsubdirDeleteadditionalPropertiesBoxedVoid(Void data)<br>Creates an instance, private visibility |
+| AdditionalPropertiesBoxedVoid(Void data)<br>Creates an instance, private visibility |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
@@ -172,16 +172,16 @@ record that stores validated null payloads, sealed permits implementation
 | Void | data()<br>validated payload |
 | @Nullable Object | getData()<br>validated payload |
 
-## CommonparamsubdirDeleteadditionalPropertiesBoxedBoolean
-public record CommonparamsubdirDeleteadditionalPropertiesBoxedBoolean<br>
-implements [CommonparamsubdirDeleteadditionalPropertiesBoxed](#commonparamsubdirdeleteadditionalpropertiesboxed)
+## AdditionalPropertiesBoxedBoolean
+public record AdditionalPropertiesBoxedBoolean<br>
+implements [AdditionalPropertiesBoxed](#additionalpropertiesboxed)
 
 record that stores validated boolean payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| CommonparamsubdirDeleteadditionalPropertiesBoxedBoolean(boolean data)<br>Creates an instance, private visibility |
+| AdditionalPropertiesBoxedBoolean(boolean data)<br>Creates an instance, private visibility |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
@@ -189,16 +189,16 @@ record that stores validated boolean payloads, sealed permits implementation
 | boolean | data()<br>validated payload |
 | @Nullable Object | getData()<br>validated payload |
 
-## CommonparamsubdirDeleteadditionalPropertiesBoxedNumber
-public record CommonparamsubdirDeleteadditionalPropertiesBoxedNumber<br>
-implements [CommonparamsubdirDeleteadditionalPropertiesBoxed](#commonparamsubdirdeleteadditionalpropertiesboxed)
+## AdditionalPropertiesBoxedNumber
+public record AdditionalPropertiesBoxedNumber<br>
+implements [AdditionalPropertiesBoxed](#additionalpropertiesboxed)
 
 record that stores validated Number payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| CommonparamsubdirDeleteadditionalPropertiesBoxedNumber(Number data)<br>Creates an instance, private visibility |
+| AdditionalPropertiesBoxedNumber(Number data)<br>Creates an instance, private visibility |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
@@ -206,16 +206,16 @@ record that stores validated Number payloads, sealed permits implementation
 | Number | data()<br>validated payload |
 | @Nullable Object | getData()<br>validated payload |
 
-## CommonparamsubdirDeleteadditionalPropertiesBoxedString
-public record CommonparamsubdirDeleteadditionalPropertiesBoxedString<br>
-implements [CommonparamsubdirDeleteadditionalPropertiesBoxed](#commonparamsubdirdeleteadditionalpropertiesboxed)
+## AdditionalPropertiesBoxedString
+public record AdditionalPropertiesBoxedString<br>
+implements [AdditionalPropertiesBoxed](#additionalpropertiesboxed)
 
 record that stores validated String payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| CommonparamsubdirDeleteadditionalPropertiesBoxedString(String data)<br>Creates an instance, private visibility |
+| AdditionalPropertiesBoxedString(String data)<br>Creates an instance, private visibility |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
@@ -223,16 +223,16 @@ record that stores validated String payloads, sealed permits implementation
 | String | data()<br>validated payload |
 | @Nullable Object | getData()<br>validated payload |
 
-## CommonparamsubdirDeleteadditionalPropertiesBoxedList
-public record CommonparamsubdirDeleteadditionalPropertiesBoxedList<br>
-implements [CommonparamsubdirDeleteadditionalPropertiesBoxed](#commonparamsubdirdeleteadditionalpropertiesboxed)
+## AdditionalPropertiesBoxedList
+public record AdditionalPropertiesBoxedList<br>
+implements [AdditionalPropertiesBoxed](#additionalpropertiesboxed)
 
 record that stores validated List payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| CommonparamsubdirDeleteadditionalPropertiesBoxedList(FrozenList<@Nullable Object> data)<br>Creates an instance, private visibility |
+| AdditionalPropertiesBoxedList(FrozenList<@Nullable Object> data)<br>Creates an instance, private visibility |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
@@ -240,16 +240,16 @@ record that stores validated List payloads, sealed permits implementation
 | FrozenList<@Nullable Object> | data()<br>validated payload |
 | @Nullable Object | getData()<br>validated payload |
 
-## CommonparamsubdirDeleteadditionalPropertiesBoxedMap
-public record CommonparamsubdirDeleteadditionalPropertiesBoxedMap<br>
-implements [CommonparamsubdirDeleteadditionalPropertiesBoxed](#commonparamsubdirdeleteadditionalpropertiesboxed)
+## AdditionalPropertiesBoxedMap
+public record AdditionalPropertiesBoxedMap<br>
+implements [AdditionalPropertiesBoxed](#additionalpropertiesboxed)
 
 record that stores validated Map payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| CommonparamsubdirDeleteadditionalPropertiesBoxedMap(FrozenMap<@Nullable Object> data)<br>Creates an instance, private visibility |
+| AdditionalPropertiesBoxedMap(FrozenMap<@Nullable Object> data)<br>Creates an instance, private visibility |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
@@ -257,8 +257,8 @@ record that stores validated Map payloads, sealed permits implementation
 | FrozenMap<@Nullable Object> | data()<br>validated payload |
 | @Nullable Object | getData()<br>validated payload |
 
-## CommonparamsubdirDeleteadditionalProperties
-public static class CommonparamsubdirDeleteadditionalProperties<br>
+## AdditionalProperties
+public static class AdditionalProperties<br>
 extends NotAnyTypeJsonSchema.NotAnyTypeJsonSchema1
 
 A schema class that validates payloads

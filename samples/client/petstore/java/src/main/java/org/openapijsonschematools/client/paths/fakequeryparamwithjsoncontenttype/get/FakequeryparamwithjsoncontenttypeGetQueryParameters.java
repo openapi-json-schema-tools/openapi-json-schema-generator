@@ -29,27 +29,27 @@ public class FakequeryparamwithjsoncontenttypeGetQueryParameters {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static class FakequeryparamwithjsoncontenttypeGetadditionalProperties extends NotAnyTypeJsonSchema.NotAnyTypeJsonSchema1 {
+    public static class AdditionalProperties extends NotAnyTypeJsonSchema.NotAnyTypeJsonSchema1 {
         // NotAnyTypeSchema
-        private static @Nullable FakequeryparamwithjsoncontenttypeGetadditionalProperties instance = null;
-        public static FakequeryparamwithjsoncontenttypeGetadditionalProperties getInstance() {
+        private static @Nullable AdditionalProperties instance = null;
+        public static AdditionalProperties getInstance() {
             if (instance == null) {
-                instance = new FakequeryparamwithjsoncontenttypeGetadditionalProperties();
+                instance = new AdditionalProperties();
             }
             return instance;
         }
     }
     
     
-    public static class FakequeryparamwithjsoncontenttypeGetQueryParametersMap extends FrozenMap<@Nullable Object> {
-        protected FakequeryparamwithjsoncontenttypeGetQueryParametersMap(FrozenMap<@Nullable Object> m) {
+    public static class QueryParametersMap extends FrozenMap<@Nullable Object> {
+        protected QueryParametersMap(FrozenMap<@Nullable Object> m) {
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of(
             "someParam"
         );
         public static final Set<String> optionalKeys = Set.of();
-        public static FakequeryparamwithjsoncontenttypeGetQueryParametersMap of(Map<String, ? extends @Nullable Object> arg, SchemaConfiguration configuration) throws ValidationException {
+        public static QueryParametersMap of(Map<String, ? extends @Nullable Object> arg, SchemaConfiguration configuration) throws ValidationException {
             return FakequeryparamwithjsoncontenttypeGetQueryParameters1.getInstance().validate(arg, configuration);
         }
         
@@ -62,66 +62,66 @@ public class FakequeryparamwithjsoncontenttypeGetQueryParameters {
         }
     }
     
-    public interface SetterForFakequeryparamwithjsoncontenttypeGetsomeParam <T> {
+    public interface SetterForSomeParam <T> {
         Map<String, @Nullable Object> getInstance();
-        T getBuilderAfterFakequeryparamwithjsoncontenttypeGetsomeParam(Map<String, @Nullable Object> instance);
+        T getBuilderAfterSomeParam(Map<String, @Nullable Object> instance);
         
         default T someParam(Void value) {
             var instance = getInstance();
             instance.put("someParam", null);
-            return getBuilderAfterFakequeryparamwithjsoncontenttypeGetsomeParam(instance);
+            return getBuilderAfterSomeParam(instance);
         }
         
         default T someParam(boolean value) {
             var instance = getInstance();
             instance.put("someParam", value);
-            return getBuilderAfterFakequeryparamwithjsoncontenttypeGetsomeParam(instance);
+            return getBuilderAfterSomeParam(instance);
         }
         
         default T someParam(String value) {
             var instance = getInstance();
             instance.put("someParam", value);
-            return getBuilderAfterFakequeryparamwithjsoncontenttypeGetsomeParam(instance);
+            return getBuilderAfterSomeParam(instance);
         }
         
         default T someParam(int value) {
             var instance = getInstance();
             instance.put("someParam", value);
-            return getBuilderAfterFakequeryparamwithjsoncontenttypeGetsomeParam(instance);
+            return getBuilderAfterSomeParam(instance);
         }
         
         default T someParam(float value) {
             var instance = getInstance();
             instance.put("someParam", value);
-            return getBuilderAfterFakequeryparamwithjsoncontenttypeGetsomeParam(instance);
+            return getBuilderAfterSomeParam(instance);
         }
         
         default T someParam(long value) {
             var instance = getInstance();
             instance.put("someParam", value);
-            return getBuilderAfterFakequeryparamwithjsoncontenttypeGetsomeParam(instance);
+            return getBuilderAfterSomeParam(instance);
         }
         
         default T someParam(double value) {
             var instance = getInstance();
             instance.put("someParam", value);
-            return getBuilderAfterFakequeryparamwithjsoncontenttypeGetsomeParam(instance);
+            return getBuilderAfterSomeParam(instance);
         }
         
         default T someParam(List<?> value) {
             var instance = getInstance();
             instance.put("someParam", value);
-            return getBuilderAfterFakequeryparamwithjsoncontenttypeGetsomeParam(instance);
+            return getBuilderAfterSomeParam(instance);
         }
         
         default T someParam(Map<String, ?> value) {
             var instance = getInstance();
             instance.put("someParam", value);
-            return getBuilderAfterFakequeryparamwithjsoncontenttypeGetsomeParam(instance);
+            return getBuilderAfterSomeParam(instance);
         }
     }
     
-    public static class FakequeryparamwithjsoncontenttypeGetQueryParametersMap0Builder implements GenericBuilder<Map<String, @Nullable Object>> {
+    public static class QueryParametersMap0Builder implements GenericBuilder<Map<String, @Nullable Object>> {
         private final Map<String, @Nullable Object> instance;
         private static final Set<String> knownKeys = Set.of(
             "someParam"
@@ -129,7 +129,7 @@ public class FakequeryparamwithjsoncontenttypeGetQueryParameters {
         public Set<String> getKnownKeys() {
             return knownKeys;
         }
-        public FakequeryparamwithjsoncontenttypeGetQueryParametersMap0Builder(Map<String, @Nullable Object> instance) {
+        public QueryParametersMap0Builder(Map<String, @Nullable Object> instance) {
             this.instance = instance;
         }
         public Map<String, @Nullable Object> build() {
@@ -137,16 +137,16 @@ public class FakequeryparamwithjsoncontenttypeGetQueryParameters {
         }
     }
     
-    public static class FakequeryparamwithjsoncontenttypeGetQueryParametersMapBuilder implements SetterForFakequeryparamwithjsoncontenttypeGetsomeParam<FakequeryparamwithjsoncontenttypeGetQueryParametersMap0Builder> {
+    public static class QueryParametersMapBuilder implements SetterForSomeParam<QueryParametersMap0Builder> {
         private final Map<String, @Nullable Object> instance;
-        public FakequeryparamwithjsoncontenttypeGetQueryParametersMapBuilder() {
+        public QueryParametersMapBuilder() {
             this.instance = new LinkedHashMap<>();
         }
         public Map<String, @Nullable Object> getInstance() {
             return instance;
         }
-        public FakequeryparamwithjsoncontenttypeGetQueryParametersMap0Builder getBuilderAfterFakequeryparamwithjsoncontenttypeGetsomeParam(Map<String, @Nullable Object> instance) {
-            return new FakequeryparamwithjsoncontenttypeGetQueryParametersMap0Builder(instance);
+        public QueryParametersMap0Builder getBuilderAfterSomeParam(Map<String, @Nullable Object> instance) {
+            return new QueryParametersMap0Builder(instance);
         }
     }
     
@@ -155,7 +155,7 @@ public class FakequeryparamwithjsoncontenttypeGetQueryParameters {
         @Nullable Object getData();
     }
     
-    public record FakequeryparamwithjsoncontenttypeGetQueryParameters1BoxedMap(FakequeryparamwithjsoncontenttypeGetQueryParametersMap data) implements FakequeryparamwithjsoncontenttypeGetQueryParameters1Boxed {
+    public record FakequeryparamwithjsoncontenttypeGetQueryParameters1BoxedMap(QueryParametersMap data) implements FakequeryparamwithjsoncontenttypeGetQueryParameters1Boxed {
         @Override
         public @Nullable Object getData() {
             return data;
@@ -163,7 +163,7 @@ public class FakequeryparamwithjsoncontenttypeGetQueryParameters {
     }
     
     
-    public static class FakequeryparamwithjsoncontenttypeGetQueryParameters1 extends JsonSchema<FakequeryparamwithjsoncontenttypeGetQueryParameters1Boxed> implements MapSchemaValidator<FakequeryparamwithjsoncontenttypeGetQueryParametersMap, FakequeryparamwithjsoncontenttypeGetQueryParameters1BoxedMap> {
+    public static class FakequeryparamwithjsoncontenttypeGetQueryParameters1 extends JsonSchema<FakequeryparamwithjsoncontenttypeGetQueryParameters1Boxed> implements MapSchemaValidator<QueryParametersMap, FakequeryparamwithjsoncontenttypeGetQueryParameters1BoxedMap> {
         private static @Nullable FakequeryparamwithjsoncontenttypeGetQueryParameters1 instance = null;
     
         protected FakequeryparamwithjsoncontenttypeGetQueryParameters1() {
@@ -175,7 +175,7 @@ public class FakequeryparamwithjsoncontenttypeGetQueryParameters {
                 .required(Set.of(
                     "someParam"
                 ))
-                .additionalProperties(FakequeryparamwithjsoncontenttypeGetadditionalProperties.class)
+                .additionalProperties(AdditionalProperties.class)
             );
         }
     
@@ -186,7 +186,7 @@ public class FakequeryparamwithjsoncontenttypeGetQueryParameters {
             return instance;
         }
         
-        public FakequeryparamwithjsoncontenttypeGetQueryParametersMap getNewInstance(Map<?, ?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+        public QueryParametersMap getNewInstance(Map<?, ?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
             LinkedHashMap<String, @Nullable Object> properties = new LinkedHashMap<>();
             for(Map.Entry<?, ?> entry: arg.entrySet()) {
                 @Nullable Object entryKey = entry.getKey();
@@ -209,10 +209,10 @@ public class FakequeryparamwithjsoncontenttypeGetQueryParameters {
                 properties.put(propertyName, (@Nullable Object) propertyInstance);
             }
             FrozenMap<@Nullable Object> castProperties = new FrozenMap<>(properties);
-            return new FakequeryparamwithjsoncontenttypeGetQueryParametersMap(castProperties);
+            return new QueryParametersMap(castProperties);
         }
         
-        public FakequeryparamwithjsoncontenttypeGetQueryParametersMap validate(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException {
+        public QueryParametersMap validate(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException {
             Set<List<Object>> pathSet = new HashSet<>();
             List<Object> pathToItem = List.of("args[0");
             Map<?, ?> castArg = castToAllowedTypes(arg, pathToItem, pathSet);

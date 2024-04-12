@@ -1,5 +1,5 @@
-# Variables
-public class Variables<br>
+# FooGetServer1Variables
+public class FooGetServer1Variables<br>
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
@@ -12,41 +12,41 @@ A class that contains necessary nested
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| sealed interface | [Variables.Variables1Boxed](#variables1boxed)<br> sealed interface for validated payloads |
-| record | [Variables.Variables1BoxedMap](#variables1boxedmap)<br> boxed class to store validated Map payloads |
-| static class | [Variables.Variables1](#variables1)<br> schema class |
-| static class | [Variables.VariablesMapBuilder](#variablesmapbuilder)<br> builder for Map payloads |
-| static class | [Variables.VariablesMap](#variablesmap)<br> output class for Map payloads |
-| sealed interface | [Variables.VersionBoxed](#versionboxed)<br> sealed interface for validated payloads |
-| record | [Variables.VersionBoxedString](#versionboxedstring)<br> boxed class to store validated String payloads |
-| static class | [Variables.Version](#version)<br> schema class |
-| enum | [Variables.StringVersionEnums](#stringversionenums)<br>String enum |
-| sealed interface | [Variables.AdditionalPropertiesBoxed](#additionalpropertiesboxed)<br> sealed interface for validated payloads |
-| record | [Variables.AdditionalPropertiesBoxedVoid](#additionalpropertiesboxedvoid)<br> boxed class to store validated null payloads |
-| record | [Variables.AdditionalPropertiesBoxedBoolean](#additionalpropertiesboxedboolean)<br> boxed class to store validated boolean payloads |
-| record | [Variables.AdditionalPropertiesBoxedNumber](#additionalpropertiesboxednumber)<br> boxed class to store validated Number payloads |
-| record | [Variables.AdditionalPropertiesBoxedString](#additionalpropertiesboxedstring)<br> boxed class to store validated String payloads |
-| record | [Variables.AdditionalPropertiesBoxedList](#additionalpropertiesboxedlist)<br> boxed class to store validated List payloads |
-| record | [Variables.AdditionalPropertiesBoxedMap](#additionalpropertiesboxedmap)<br> boxed class to store validated Map payloads |
-| static class | [Variables.AdditionalProperties](#additionalproperties)<br> schema class |
+| sealed interface | [FooGetServer1Variables.FooGetServer1Variables1Boxed](#foogetserver1variables1boxed)<br> sealed interface for validated payloads |
+| record | [FooGetServer1Variables.FooGetServer1Variables1BoxedMap](#foogetserver1variables1boxedmap)<br> boxed class to store validated Map payloads |
+| static class | [FooGetServer1Variables.FooGetServer1Variables1](#foogetserver1variables1)<br> schema class |
+| static class | [FooGetServer1Variables.VariablesMapBuilder](#variablesmapbuilder)<br> builder for Map payloads |
+| static class | [FooGetServer1Variables.VariablesMap](#variablesmap)<br> output class for Map payloads |
+| sealed interface | [FooGetServer1Variables.VersionBoxed](#versionboxed)<br> sealed interface for validated payloads |
+| record | [FooGetServer1Variables.VersionBoxedString](#versionboxedstring)<br> boxed class to store validated String payloads |
+| static class | [FooGetServer1Variables.Version](#version)<br> schema class |
+| enum | [FooGetServer1Variables.StringVersionEnums](#stringversionenums)<br>String enum |
+| sealed interface | [FooGetServer1Variables.AdditionalPropertiesBoxed](#additionalpropertiesboxed)<br> sealed interface for validated payloads |
+| record | [FooGetServer1Variables.AdditionalPropertiesBoxedVoid](#additionalpropertiesboxedvoid)<br> boxed class to store validated null payloads |
+| record | [FooGetServer1Variables.AdditionalPropertiesBoxedBoolean](#additionalpropertiesboxedboolean)<br> boxed class to store validated boolean payloads |
+| record | [FooGetServer1Variables.AdditionalPropertiesBoxedNumber](#additionalpropertiesboxednumber)<br> boxed class to store validated Number payloads |
+| record | [FooGetServer1Variables.AdditionalPropertiesBoxedString](#additionalpropertiesboxedstring)<br> boxed class to store validated String payloads |
+| record | [FooGetServer1Variables.AdditionalPropertiesBoxedList](#additionalpropertiesboxedlist)<br> boxed class to store validated List payloads |
+| record | [FooGetServer1Variables.AdditionalPropertiesBoxedMap](#additionalpropertiesboxedmap)<br> boxed class to store validated Map payloads |
+| static class | [FooGetServer1Variables.AdditionalProperties](#additionalproperties)<br> schema class |
 
-## Variables1Boxed
-public sealed interface Variables1Boxed<br>
+## FooGetServer1Variables1Boxed
+public sealed interface FooGetServer1Variables1Boxed<br>
 permits<br>
-[Variables1BoxedMap](#variables1boxedmap)
+[FooGetServer1Variables1BoxedMap](#foogetserver1variables1boxedmap)
 
 sealed interface that stores validated payloads using boxed classes
 
-## Variables1BoxedMap
-public record Variables1BoxedMap<br>
-implements [Variables1Boxed](#variables1boxed)
+## FooGetServer1Variables1BoxedMap
+public record FooGetServer1Variables1BoxedMap<br>
+implements [FooGetServer1Variables1Boxed](#foogetserver1variables1boxed)
 
 record that stores validated Map payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| Variables1BoxedMap([VariablesMap](#variablesmap) data)<br>Creates an instance, private visibility |
+| FooGetServer1Variables1BoxedMap([VariablesMap](#variablesmap) data)<br>Creates an instance, private visibility |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
@@ -54,8 +54,8 @@ record that stores validated Map payloads, sealed permits implementation
 | [VariablesMap](#variablesmap) | data()<br>validated payload |
 | @Nullable Object | getData()<br>validated payload |
 
-## Variables1
-public static class Variables1<br>
+## FooGetServer1Variables1
+public static class FooGetServer1Variables1<br>
 extends JsonSchema
 
 A schema class that validates payloads
@@ -68,7 +68,7 @@ import org.openapijsonschematools.client.exceptions.ValidationException;
 import org.openapijsonschematools.client.schemas.validation.MapUtils;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
-import org.openapijsonschematools.client.paths.petfindbystatus.servers.server1.Variables;
+import org.openapijsonschematools.client.paths.foo.get.servers.server1.FooGetServer1Variables;
 
 import java.util.Arrays;
 import java.util.List;
@@ -77,9 +77,9 @@ import java.util.AbstractMap;
 static final SchemaConfiguration configuration = new SchemaConfiguration(new JsonSchemaKeywordFlags.Builder().build());
 
 // Map validation
-Variables.VariablesMap validatedPayload =
-    Variables.Variables1.validate(
-    new Variables.VariablesMapBuilder()
+FooGetServer1Variables.VariablesMap validatedPayload =
+    FooGetServer1Variables.FooGetServer1Variables1.validate(
+    new FooGetServer1Variables.VariablesMapBuilder()
         .version("v1")
 
     .build(),
@@ -99,8 +99,8 @@ Variables.VariablesMap validatedPayload =
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [VariablesMap](#variablesmap) | validate([Map&lt;?, ?&gt;](#variablesmapbuilder) arg, SchemaConfiguration configuration) |
-| [Variables1BoxedMap](#variables1boxedmap) | validateAndBox([Map&lt;?, ?&gt;](#variablesmapbuilder) arg, SchemaConfiguration configuration) |
-| [Variables1Boxed](#variables1boxed) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
+| [FooGetServer1Variables1BoxedMap](#foogetserver1variables1boxedmap) | validateAndBox([Map&lt;?, ?&gt;](#variablesmapbuilder) arg, SchemaConfiguration configuration) |
+| [FooGetServer1Variables1Boxed](#foogetserver1variables1boxed) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 
 ## VariablesMap0Builder
@@ -186,7 +186,7 @@ import org.openapijsonschematools.client.exceptions.ValidationException;
 import org.openapijsonschematools.client.schemas.validation.MapUtils;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
-import org.openapijsonschematools.client.paths.petfindbystatus.servers.server1.Variables;
+import org.openapijsonschematools.client.paths.foo.get.servers.server1.FooGetServer1Variables;
 
 import java.util.Arrays;
 import java.util.List;
@@ -195,7 +195,7 @@ import java.util.AbstractMap;
 static final SchemaConfiguration configuration = new SchemaConfiguration(new JsonSchemaKeywordFlags.Builder().build());
 
 // String validation
-String validatedPayload = Variables.Version.validate(
+String validatedPayload = FooGetServer1Variables.Version.validate(
     "v1",
     configuration
 );

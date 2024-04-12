@@ -35,6 +35,7 @@ public class ApiConfiguration {
     private final SecurityIndexInfo securityIndexInfo;
     private final @Nullable Duration timeout;
     private final Map<Class<? extends SecurityScheme>, SecurityScheme> securitySchemeInfo;
+    private final Map<String, List< String>> defaultHeaders;
 
     public ApiConfiguration() {
         serverInfo = new ServerInfoBuilder().build();
@@ -43,9 +44,10 @@ public class ApiConfiguration {
         securityIndexInfo = new SecurityIndexInfoBuilder().build();
         securitySchemeInfo = new HashMap<>();
         timeout = null;
+        defaultHeaders = new HashMap<>();
     }
 
-    public ApiConfiguration(ServerInfo serverInfo, ServerIndexInfo serverIndexInfo, List<SecurityScheme> securitySchemes, SecurityIndexInfo securityIndexInfo, Duration timeout) {
+    public ApiConfiguration(ServerInfo serverInfo, ServerIndexInfo serverIndexInfo, List<SecurityScheme> securitySchemes, SecurityIndexInfo securityIndexInfo, Duration timeout, Map<String, List< String>> defaultHeaders) {
         this.serverInfo = serverInfo;
         this.serverIndexInfo = serverIndexInfo;
         this.securityInfo = new SecurityInfo();
@@ -55,6 +57,7 @@ public class ApiConfiguration {
             securitySchemeInfo.put(securityScheme.getClass(), securityScheme);
         }
         this.timeout = timeout;
+        this.defaultHeaders = defaultHeaders;
     }
 
     public static class ServerInfo {
@@ -488,7 +491,7 @@ public class ApiConfiguration {
     }
 
     public Map<String, List< String>> getDefaultHeaders() {
-        return new HashMap<>();
+        return defaultHeaders;
     }
 
     public @Nullable Duration getTimeout() {

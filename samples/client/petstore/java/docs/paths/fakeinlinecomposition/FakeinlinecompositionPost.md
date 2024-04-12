@@ -36,9 +36,9 @@ import org.openapijsonschematools.client.paths.fakeinlinecomposition.post.Fakein
 import org.openapijsonschematools.client.paths.fakeinlinecomposition.post.requestbody.content.applicationjson.ApplicationjsonSchema;
 import org.openapijsonschematools.client.paths.fakeinlinecomposition.post.FakeinlinecompositionPostQueryParameters;
 import org.openapijsonschematools.client.RootServerInfo;
-import org.openapijsonschematools.client.servers.Server0;
-import org.openapijsonschematools.client.servers.Server1;
-import org.openapijsonschematools.client.servers.Server2;
+import org.openapijsonschematools.client.servers.RootServer0;
+import org.openapijsonschematools.client.servers.RootServer1;
+import org.openapijsonschematools.client.servers.RootServer2;
 import org.openapijsonschematools.client.paths.fakeinlinecomposition.post.responses.FakeinlinecompositionPostCode200Response;
 import org.openapijsonschematools.client.servers.RootServerInfo;
 import org.openapijsonschematools.client.paths.fakeinlinecomposition.FakeinlinecompositionPost;
@@ -47,13 +47,14 @@ import org.openapijsonschematools.client.paths.fakeinlinecomposition.post.Fakein
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
 import java.util.AbstractMap;
 
 // if you want to use a server that is not SERVER_0 pass it in here and change the ServerIndex input below
 ApiConfiguration.ServerInfo serverInfo = new ApiConfiguration.ServerInfoBuilder()
     .rootServerInfo(
         new RootServerInfo.RootServerInfoBuilder()
-            .server0(new Server0())
+            .rootServer0(new RootServer0())
             .build()
     )
     .build();
@@ -61,10 +62,12 @@ ApiConfiguration.ServerIndexInfo serverIndexInfo = new ApiConfiguration.ServerIn
     .rootServerInfoServerIndex(RootServerInfo.ServerIndex.SERVER_0)
     .build();
 Duration timeout = Duration.ofSeconds(1L);
+Map<String, List<String>> defaultHeaders = Map.of("User-Agent", List.of("OpenAPI-JSON-Schema-Generator/1.0.0/java"));
 ApiConfiguration apiConfiguration = new ApiConfiguration(
     serverInfo
     serverIndexInfo,
-    timeout
+    timeout,
+    defaultHeaders
 );
 SchemaConfiguration schemaConfiguration = new SchemaConfiguration(new JsonSchemaKeywordFlags.Builder().build());
 FakeinlinecompositionPost.Post apiClient = new FakeinlinecompositionPost.Post(apiConfiguration, schemaConfiguration);
@@ -126,7 +129,7 @@ a class that stores the final request inputs
 | Modifier and Type | Field and Description |
 | ----------------- | --------------------- |
 | [FakeinlinecompositionPostRequestBody.@Nullable SealedRequestBody](../../paths/fakeinlinecomposition/post/FakeinlinecompositionPostRequestBody.md#sealedrequestbody) | requestBody<br>optional |
-| [FakeinlinecompositionPostQueryParameters.@Nullable FakeinlinecompositionPostQueryParametersMap](../../paths/fakeinlinecomposition/post/FakeinlinecompositionPostQueryParameters.md#fakeinlinecompositionpostqueryparametersmap) | queryParameters<br>optional |
+| [FakeinlinecompositionPostQueryParameters.@Nullable QueryParametersMap](../../paths/fakeinlinecomposition/post/FakeinlinecompositionPostQueryParameters.md#queryparametersmap) | queryParameters<br>optional |
 | [RootServerInfo.@Nullable ServerIndex](../../RootServerInfo.md#serverindex) | serverIndex<br>optional. Note: this will override the value in apiConfiguration |
 | @Nullable Duration | timeout<br>optional. Note: this will override the value in apiConfiguration |
 
@@ -145,7 +148,7 @@ a builder for request inputs
 | ----------------- | ---------------------- |
 | [PostRequest](#postrequest) | build()<br>Returns the request input used to call an endpoint method |
 | [PostRequestBuilder](#postrequestbuilder) | requestBody([FakeinlinecompositionPostRequestBody.SealedRequestBody](../../paths/fakeinlinecomposition/post/FakeinlinecompositionPostRequestBody.md#sealedrequestbody) requestBody)<br>sets the optional property |
-| [PostRequestBuilder](#postrequestbuilder) | queryParameters([FakeinlinecompositionPostQueryParametersFakeinlinecompositionPostQueryParametersMap](../../paths/fakeinlinecomposition/post/FakeinlinecompositionPostQueryParameters.md#fakeinlinecompositionpostqueryparametersmap) queryParameters)<br>sets the optional property |
+| [PostRequestBuilder](#postrequestbuilder) | queryParameters([FakeinlinecompositionPostQueryParametersQueryParametersMap](../../paths/fakeinlinecomposition/post/FakeinlinecompositionPostQueryParameters.md#queryparametersmap) queryParameters)<br>sets the optional property |
 | [PostRequestBuilder](#postrequestbuilder) | serverIndex([RootServerInfo.ServerIndex](../../RootServerInfo.md#serverindex) serverIndex)<br>sets the optional property. Note: this will override the value in apiConfiguration |
 | [PostRequestBuilder](#postrequestbuilder) | timeout(Duration timeout)<br>sets the optional property. Note: this will override the value in apiConfiguration |
 

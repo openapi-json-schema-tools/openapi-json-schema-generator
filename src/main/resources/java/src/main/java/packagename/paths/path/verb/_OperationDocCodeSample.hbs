@@ -89,6 +89,7 @@ import {{packageName}}.{{subpackage}}.{{jsonPathPiece.pascalCase}};
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
 import java.util.AbstractMap;
 
 // if you want to use a server that is not SERVER_0 pass it in here and change the ServerIndex input below
@@ -144,6 +145,7 @@ ApiConfiguration.SecurityIndexInfo securityIndexInfo = new ApiConfiguration.Secu
         {{/if}}
     {{/each}}
 Duration timeout = Duration.ofSeconds(1L);
+Map<String, List<String>> defaultHeaders = Map.of("User-Agent", List.of("{{#if httpUserAgent}}{{{httpUserAgent}}}{{else}}OpenAPI-JSON-Schema-Generator/{{{artifactVersion}}}/java{{/if}}"));
 ApiConfiguration apiConfiguration = new ApiConfiguration(
     serverInfo
     serverIndexInfo,
@@ -157,7 +159,8 @@ ApiConfiguration apiConfiguration = new ApiConfiguration(
             {{/each}}
         {{/if}}
     {{/each}}
-    timeout
+    timeout,
+    defaultHeaders
 );
 SchemaConfiguration schemaConfiguration = new SchemaConfiguration(new JsonSchemaKeywordFlags.Builder().build());
 {{apiFullyQualifiedClass}} apiClient = new {{apiFullyQualifiedClass}}(apiConfiguration, schemaConfiguration);

@@ -37,9 +37,9 @@ import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.RootServerInfo;
 import org.openapijsonschematools.client.paths.petfindbytags.get.PetfindbytagsGetSecurityInfo;
 import org.openapijsonschematools.client.paths.petfindbytags.get.PetfindbytagsGetQueryParameters;
-import org.openapijsonschematools.client.servers.Server0;
-import org.openapijsonschematools.client.servers.Server1;
-import org.openapijsonschematools.client.servers.Server2;
+import org.openapijsonschematools.client.servers.RootServer0;
+import org.openapijsonschematools.client.servers.RootServer1;
+import org.openapijsonschematools.client.servers.RootServer2;
 import org.openapijsonschematools.client.securityschemes.SecurityScheme;
 import org.openapijsonschematools.client.components.securityschemes.HttpSignatureTest;
 import org.openapijsonschematools.client.components.securityschemes.PetstoreAuth;
@@ -52,13 +52,14 @@ import org.openapijsonschematools.client.paths.petfindbytags.get.PetfindbytagsGe
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
 import java.util.AbstractMap;
 
 // if you want to use a server that is not SERVER_0 pass it in here and change the ServerIndex input below
 ApiConfiguration.ServerInfo serverInfo = new ApiConfiguration.ServerInfoBuilder()
     .rootServerInfo(
         new RootServerInfo.RootServerInfoBuilder()
-            .server0(new Server0())
+            .rootServer0(new RootServer0())
             .build()
     )
     .build();
@@ -70,21 +71,23 @@ ApiConfiguration.SecurityIndexInfo securityIndexInfo = new ApiConfiguration.Secu
     .petfindbytagsGetSecurityRequirementObject0SecurityIndex(PetfindbytagsGetSecurityRequirementObject0.SecurityIndex.SECURITY_0)
     .build();
 Duration timeout = Duration.ofSeconds(1L);
+Map<String, List<String>> defaultHeaders = Map.of("User-Agent", List.of("OpenAPI-JSON-Schema-Generator/1.0.0/java"));
 ApiConfiguration apiConfiguration = new ApiConfiguration(
     serverInfo
     serverIndexInfo,
     securitySchemes,
     securityIndexInfo,
-    timeout
+    timeout,
+    defaultHeaders
 );
 SchemaConfiguration schemaConfiguration = new SchemaConfiguration(new JsonSchemaKeywordFlags.Builder().build());
 PetfindbytagsGet.Get apiClient = new PetfindbytagsGet.Get(apiConfiguration, schemaConfiguration);
 
 
 // Map validation
-PetfindbytagsGetQueryParameters.PetfindbytagsGetQueryParametersMap queryParameters =
+PetfindbytagsGetQueryParameters.QueryParametersMap queryParameters =
     PetfindbytagsGetQueryParameters.PetfindbytagsGetQueryParameters1.validate(
-    new PetfindbytagsGetQueryParameters.PetfindbytagsGetQueryParametersMapBuilder()
+    new PetfindbytagsGetQueryParameters.QueryParametersMapBuilder()
         .tags(
             Arrays.asList(
                 "a"
@@ -149,7 +152,7 @@ a class that stores the final request inputs
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | --------------------- |
-| [PetfindbytagsGetQueryParameters.PetfindbytagsGetQueryParametersMap](../../paths/petfindbytags/get/PetfindbytagsGetQueryParameters.md#petfindbytagsgetqueryparametersmap) | queryParameters |
+| [PetfindbytagsGetQueryParameters.QueryParametersMap](../../paths/petfindbytags/get/PetfindbytagsGetQueryParameters.md#queryparametersmap) | queryParameters |
 | [RootServerInfo.@Nullable ServerIndex](../../RootServerInfo.md#serverindex) | serverIndex<br>optional. Note: this will override the value in apiConfiguration |
 | [PetfindbytagsGetSecurityInfo.@Nullable SecurityIndex](../../paths/petfindbytags/get/PetfindbytagsGetSecurityInfo.md#securityindex) | securityIndex<br>optional. Note: this will override the value in apiConfiguration |
 | @Nullable Duration | timeout<br>optional. Note: this will override the value in apiConfiguration |
@@ -162,7 +165,7 @@ a class that stores the initial request inputs
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | --------------------- |
-| [PetfindbytagsGetQueryParameters.@Nullable PetfindbytagsGetQueryParametersMap](../../paths/petfindbytags/get/PetfindbytagsGetQueryParameters.md#petfindbytagsgetqueryparametersmap) | queryParameters |
+| [PetfindbytagsGetQueryParameters.@Nullable QueryParametersMap](../../paths/petfindbytags/get/PetfindbytagsGetQueryParameters.md#queryparametersmap) | queryParameters |
 | [RootServerInfo.@Nullable ServerIndex](../../RootServerInfo.md#serverindex) | serverIndex |
 | [PetfindbytagsGetSecurityInfo.@Nullable SecurityIndex](../../paths/petfindbytags/get/PetfindbytagsGetSecurityInfo.md#securityindex) | securityIndex |
 | @Nullable Duration | timeout |
@@ -198,6 +201,6 @@ a builder for request inputs
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [Get0RequestBuilder](#get0requestbuilder) | queryParameters([PetfindbytagsGetQueryParametersPetfindbytagsGetQueryParametersMap](../../paths/petfindbytags/get/PetfindbytagsGetQueryParameters.md#petfindbytagsgetqueryparametersmap) queryParameters)<br>sets the property |
+| [Get0RequestBuilder](#get0requestbuilder) | queryParameters([PetfindbytagsGetQueryParametersQueryParametersMap](../../paths/petfindbytags/get/PetfindbytagsGetQueryParameters.md#queryparametersmap) queryParameters)<br>sets the property |
 
 [[Back to top]](#top) [[Back to README]](../../../README.md)

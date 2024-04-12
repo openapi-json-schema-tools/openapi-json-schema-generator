@@ -86,14 +86,14 @@ public class CommonparamsubdirDelete {
     }
 
     public static class DeleteRequest {
-        public CommonparamsubdirDeletePathParameters.CommonparamsubdirDeletePathParametersMap pathParameters;
-        public CommonparamsubdirDeleteHeaderParameters.@Nullable CommonparamsubdirDeleteHeaderParametersMap headerParameters;
+        public CommonparamsubdirDeletePathParameters.PathParametersMap pathParameters;
+        public CommonparamsubdirDeleteHeaderParameters.@Nullable HeaderParametersMap headerParameters;
         public RootServerInfo.@Nullable ServerIndex serverIndex;
         public @Nullable Duration timeout;
 
         public DeleteRequest(
-            CommonparamsubdirDeletePathParameters.CommonparamsubdirDeletePathParametersMap pathParameters,
-            CommonparamsubdirDeleteHeaderParameters.@Nullable CommonparamsubdirDeleteHeaderParametersMap headerParameters,
+            CommonparamsubdirDeletePathParameters.PathParametersMap pathParameters,
+            CommonparamsubdirDeleteHeaderParameters.@Nullable HeaderParametersMap headerParameters,
             RootServerInfo.@Nullable ServerIndex serverIndex,
             @Nullable Duration timeout
         ) {
@@ -105,8 +105,8 @@ public class CommonparamsubdirDelete {
     }
 
     public static class DeleteNullableRequest {
-        public CommonparamsubdirDeletePathParameters.@Nullable CommonparamsubdirDeletePathParametersMap pathParameters;
-        public CommonparamsubdirDeleteHeaderParameters.@Nullable CommonparamsubdirDeleteHeaderParametersMap headerParameters;
+        public CommonparamsubdirDeletePathParameters.@Nullable PathParametersMap pathParameters;
+        public CommonparamsubdirDeleteHeaderParameters.@Nullable HeaderParametersMap headerParameters;
         public RootServerInfo.@Nullable ServerIndex serverIndex;
         public @Nullable Duration timeout;
     }
@@ -114,7 +114,7 @@ public class CommonparamsubdirDelete {
     public interface SetterForHeaderParameters <T> {
         DeleteNullableRequest getInstance();
         T getBuilderAfterHeaderParameters(DeleteNullableRequest instance);
-        default T headerParameters(CommonparamsubdirDeleteHeaderParameters.CommonparamsubdirDeleteHeaderParametersMap headerParameters) {
+        default T headerParameters(CommonparamsubdirDeleteHeaderParameters.HeaderParametersMap headerParameters) {
             var instance = getInstance();
             instance.headerParameters = headerParameters;
             return getBuilderAfterHeaderParameters(instance);
@@ -144,7 +144,7 @@ public class CommonparamsubdirDelete {
     public interface SetterForPathParameters <T> {
         DeleteNullableRequest getInstance();
         T getBuilderAfterPathParameters(DeleteNullableRequest instance);
-        default T pathParameters(CommonparamsubdirDeletePathParameters.CommonparamsubdirDeletePathParametersMap pathParameters) {
+        default T pathParameters(CommonparamsubdirDeletePathParameters.PathParametersMap pathParameters) {
             var instance = getInstance();
             instance.pathParameters = pathParameters;
             return getBuilderAfterPathParameters(instance);

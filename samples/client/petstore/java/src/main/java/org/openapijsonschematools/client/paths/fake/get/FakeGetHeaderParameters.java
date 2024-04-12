@@ -30,20 +30,20 @@ public class FakeGetHeaderParameters {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static class FakeGetadditionalProperties extends NotAnyTypeJsonSchema.NotAnyTypeJsonSchema1 {
+    public static class AdditionalProperties extends NotAnyTypeJsonSchema.NotAnyTypeJsonSchema1 {
         // NotAnyTypeSchema
-        private static @Nullable FakeGetadditionalProperties instance = null;
-        public static FakeGetadditionalProperties getInstance() {
+        private static @Nullable AdditionalProperties instance = null;
+        public static AdditionalProperties getInstance() {
             if (instance == null) {
-                instance = new FakeGetadditionalProperties();
+                instance = new AdditionalProperties();
             }
             return instance;
         }
     }
     
     
-    public static class FakeGetHeaderParametersMap extends FrozenMap<@Nullable Object> {
-        protected FakeGetHeaderParametersMap(FrozenMap<@Nullable Object> m) {
+    public static class HeaderParametersMap extends FrozenMap<@Nullable Object> {
+        protected HeaderParametersMap(FrozenMap<@Nullable Object> m) {
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of();
@@ -51,7 +51,7 @@ public class FakeGetHeaderParameters {
             "enum_header_string",
             "enum_header_string_array"
         );
-        public static FakeGetHeaderParametersMap of(Map<String, ? extends @Nullable Object> arg, SchemaConfiguration configuration) throws ValidationException {
+        public static HeaderParametersMap of(Map<String, ? extends @Nullable Object> arg, SchemaConfiguration configuration) throws ValidationException {
             return FakeGetHeaderParameters1.getInstance().validate(arg, configuration);
         }
         
@@ -76,35 +76,35 @@ public class FakeGetHeaderParameters {
         }
     }
     
-    public interface SetterForFakeGetenumHeaderString <T> {
+    public interface SetterForEnumHeaderString <T> {
         Map<String, @Nullable Object> getInstance();
-        T getBuilderAfterFakeGetenumHeaderString(Map<String, @Nullable Object> instance);
+        T getBuilderAfterEnumHeaderString(Map<String, @Nullable Object> instance);
         
         default T enum_header_string(String value) {
             var instance = getInstance();
             instance.put("enum_header_string", value);
-            return getBuilderAfterFakeGetenumHeaderString(instance);
+            return getBuilderAfterEnumHeaderString(instance);
         }
         
         default T enum_header_string(Schema1.StringSchemaEnums1 value) {
             var instance = getInstance();
             instance.put("enum_header_string", value.value());
-            return getBuilderAfterFakeGetenumHeaderString(instance);
+            return getBuilderAfterEnumHeaderString(instance);
         }
     }
     
-    public interface SetterForFakeGetenumHeaderStringArray <T> {
+    public interface SetterForEnumHeaderStringArray <T> {
         Map<String, @Nullable Object> getInstance();
-        T getBuilderAfterFakeGetenumHeaderStringArray(Map<String, @Nullable Object> instance);
+        T getBuilderAfterEnumHeaderStringArray(Map<String, @Nullable Object> instance);
         
         default T enum_header_string_array(List<String> value) {
             var instance = getInstance();
             instance.put("enum_header_string_array", value);
-            return getBuilderAfterFakeGetenumHeaderStringArray(instance);
+            return getBuilderAfterEnumHeaderStringArray(instance);
         }
     }
     
-    public static class FakeGetHeaderParametersMapBuilder implements GenericBuilder<Map<String, @Nullable Object>>, SetterForFakeGetenumHeaderString<FakeGetHeaderParametersMapBuilder>, SetterForFakeGetenumHeaderStringArray<FakeGetHeaderParametersMapBuilder> {
+    public static class HeaderParametersMapBuilder implements GenericBuilder<Map<String, @Nullable Object>>, SetterForEnumHeaderString<HeaderParametersMapBuilder>, SetterForEnumHeaderStringArray<HeaderParametersMapBuilder> {
         private final Map<String, @Nullable Object> instance;
         private static final Set<String> knownKeys = Set.of(
             "enum_header_string",
@@ -113,7 +113,7 @@ public class FakeGetHeaderParameters {
         public Set<String> getKnownKeys() {
             return knownKeys;
         }
-        public FakeGetHeaderParametersMapBuilder() {
+        public HeaderParametersMapBuilder() {
             this.instance = new LinkedHashMap<>();
         }
         public Map<String, @Nullable Object> build() {
@@ -122,10 +122,10 @@ public class FakeGetHeaderParameters {
         public Map<String, @Nullable Object> getInstance() {
             return instance;
         }
-        public FakeGetHeaderParametersMapBuilder getBuilderAfterFakeGetenumHeaderString(Map<String, @Nullable Object> instance) {
+        public HeaderParametersMapBuilder getBuilderAfterEnumHeaderString(Map<String, @Nullable Object> instance) {
             return this;
         }
-        public FakeGetHeaderParametersMapBuilder getBuilderAfterFakeGetenumHeaderStringArray(Map<String, @Nullable Object> instance) {
+        public HeaderParametersMapBuilder getBuilderAfterEnumHeaderStringArray(Map<String, @Nullable Object> instance) {
             return this;
         }
     }
@@ -135,7 +135,7 @@ public class FakeGetHeaderParameters {
         @Nullable Object getData();
     }
     
-    public record FakeGetHeaderParameters1BoxedMap(FakeGetHeaderParametersMap data) implements FakeGetHeaderParameters1Boxed {
+    public record FakeGetHeaderParameters1BoxedMap(HeaderParametersMap data) implements FakeGetHeaderParameters1Boxed {
         @Override
         public @Nullable Object getData() {
             return data;
@@ -143,7 +143,7 @@ public class FakeGetHeaderParameters {
     }
     
     
-    public static class FakeGetHeaderParameters1 extends JsonSchema<FakeGetHeaderParameters1Boxed> implements MapSchemaValidator<FakeGetHeaderParametersMap, FakeGetHeaderParameters1BoxedMap> {
+    public static class FakeGetHeaderParameters1 extends JsonSchema<FakeGetHeaderParameters1Boxed> implements MapSchemaValidator<HeaderParametersMap, FakeGetHeaderParameters1BoxedMap> {
         private static @Nullable FakeGetHeaderParameters1 instance = null;
     
         protected FakeGetHeaderParameters1() {
@@ -153,7 +153,7 @@ public class FakeGetHeaderParameters {
                     new PropertyEntry("enum_header_string", Schema1.Schema11.class),
                     new PropertyEntry("enum_header_string_array", Schema0.Schema01.class)
                 ))
-                .additionalProperties(FakeGetadditionalProperties.class)
+                .additionalProperties(AdditionalProperties.class)
             );
         }
     
@@ -164,7 +164,7 @@ public class FakeGetHeaderParameters {
             return instance;
         }
         
-        public FakeGetHeaderParametersMap getNewInstance(Map<?, ?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+        public HeaderParametersMap getNewInstance(Map<?, ?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
             LinkedHashMap<String, @Nullable Object> properties = new LinkedHashMap<>();
             for(Map.Entry<?, ?> entry: arg.entrySet()) {
                 @Nullable Object entryKey = entry.getKey();
@@ -184,10 +184,10 @@ public class FakeGetHeaderParameters {
                 properties.put(propertyName, propertyInstance);
             }
             FrozenMap<@Nullable Object> castProperties = new FrozenMap<>(properties);
-            return new FakeGetHeaderParametersMap(castProperties);
+            return new HeaderParametersMap(castProperties);
         }
         
-        public FakeGetHeaderParametersMap validate(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException {
+        public HeaderParametersMap validate(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException {
             Set<List<Object>> pathSet = new HashSet<>();
             List<Object> pathToItem = List.of("args[0");
             Map<?, ?> castArg = castToAllowedTypes(arg, pathToItem, pathSet);

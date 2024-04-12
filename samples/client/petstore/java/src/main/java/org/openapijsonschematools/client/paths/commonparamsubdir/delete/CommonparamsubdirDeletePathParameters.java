@@ -29,27 +29,27 @@ public class CommonparamsubdirDeletePathParameters {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static class CommonparamsubdirDeleteadditionalProperties extends NotAnyTypeJsonSchema.NotAnyTypeJsonSchema1 {
+    public static class AdditionalProperties extends NotAnyTypeJsonSchema.NotAnyTypeJsonSchema1 {
         // NotAnyTypeSchema
-        private static @Nullable CommonparamsubdirDeleteadditionalProperties instance = null;
-        public static CommonparamsubdirDeleteadditionalProperties getInstance() {
+        private static @Nullable AdditionalProperties instance = null;
+        public static AdditionalProperties getInstance() {
             if (instance == null) {
-                instance = new CommonparamsubdirDeleteadditionalProperties();
+                instance = new AdditionalProperties();
             }
             return instance;
         }
     }
     
     
-    public static class CommonparamsubdirDeletePathParametersMap extends FrozenMap<String> {
-        protected CommonparamsubdirDeletePathParametersMap(FrozenMap<String> m) {
+    public static class PathParametersMap extends FrozenMap<String> {
+        protected PathParametersMap(FrozenMap<String> m) {
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of(
             "subDir"
         );
         public static final Set<String> optionalKeys = Set.of();
-        public static CommonparamsubdirDeletePathParametersMap of(Map<String, String> arg, SchemaConfiguration configuration) throws ValidationException {
+        public static PathParametersMap of(Map<String, String> arg, SchemaConfiguration configuration) throws ValidationException {
             return CommonparamsubdirDeletePathParameters1.getInstance().validate(arg, configuration);
         }
         
@@ -62,24 +62,24 @@ public class CommonparamsubdirDeletePathParameters {
         }
     }
     
-    public interface SetterForCommonparamsubdirDeletesubDir <T> {
+    public interface SetterForSubDir <T> {
         Map<String, String> getInstance();
-        T getBuilderAfterCommonparamsubdirDeletesubDir(Map<String, String> instance);
+        T getBuilderAfterSubDir(Map<String, String> instance);
         
         default T subDir(String value) {
             var instance = getInstance();
             instance.put("subDir", value);
-            return getBuilderAfterCommonparamsubdirDeletesubDir(instance);
+            return getBuilderAfterSubDir(instance);
         }
         
         default T subDir(Schema1.StringSchemaEnums1 value) {
             var instance = getInstance();
             instance.put("subDir", value.value());
-            return getBuilderAfterCommonparamsubdirDeletesubDir(instance);
+            return getBuilderAfterSubDir(instance);
         }
     }
     
-    public static class CommonparamsubdirDeletePathParametersMap0Builder implements GenericBuilder<Map<String, String>> {
+    public static class PathParametersMap0Builder implements GenericBuilder<Map<String, String>> {
         private final Map<String, String> instance;
         private static final Set<String> knownKeys = Set.of(
             "subDir"
@@ -87,7 +87,7 @@ public class CommonparamsubdirDeletePathParameters {
         public Set<String> getKnownKeys() {
             return knownKeys;
         }
-        public CommonparamsubdirDeletePathParametersMap0Builder(Map<String, String> instance) {
+        public PathParametersMap0Builder(Map<String, String> instance) {
             this.instance = instance;
         }
         public Map<String, String> build() {
@@ -95,16 +95,16 @@ public class CommonparamsubdirDeletePathParameters {
         }
     }
     
-    public static class CommonparamsubdirDeletePathParametersMapBuilder implements SetterForCommonparamsubdirDeletesubDir<CommonparamsubdirDeletePathParametersMap0Builder> {
+    public static class PathParametersMapBuilder implements SetterForSubDir<PathParametersMap0Builder> {
         private final Map<String, String> instance;
-        public CommonparamsubdirDeletePathParametersMapBuilder() {
+        public PathParametersMapBuilder() {
             this.instance = new LinkedHashMap<>();
         }
         public Map<String, String> getInstance() {
             return instance;
         }
-        public CommonparamsubdirDeletePathParametersMap0Builder getBuilderAfterCommonparamsubdirDeletesubDir(Map<String, String> instance) {
-            return new CommonparamsubdirDeletePathParametersMap0Builder(instance);
+        public PathParametersMap0Builder getBuilderAfterSubDir(Map<String, String> instance) {
+            return new PathParametersMap0Builder(instance);
         }
     }
     
@@ -113,7 +113,7 @@ public class CommonparamsubdirDeletePathParameters {
         @Nullable Object getData();
     }
     
-    public record CommonparamsubdirDeletePathParameters1BoxedMap(CommonparamsubdirDeletePathParametersMap data) implements CommonparamsubdirDeletePathParameters1Boxed {
+    public record CommonparamsubdirDeletePathParameters1BoxedMap(PathParametersMap data) implements CommonparamsubdirDeletePathParameters1Boxed {
         @Override
         public @Nullable Object getData() {
             return data;
@@ -121,7 +121,7 @@ public class CommonparamsubdirDeletePathParameters {
     }
     
     
-    public static class CommonparamsubdirDeletePathParameters1 extends JsonSchema<CommonparamsubdirDeletePathParameters1Boxed> implements MapSchemaValidator<CommonparamsubdirDeletePathParametersMap, CommonparamsubdirDeletePathParameters1BoxedMap> {
+    public static class CommonparamsubdirDeletePathParameters1 extends JsonSchema<CommonparamsubdirDeletePathParameters1Boxed> implements MapSchemaValidator<PathParametersMap, CommonparamsubdirDeletePathParameters1BoxedMap> {
         private static @Nullable CommonparamsubdirDeletePathParameters1 instance = null;
     
         protected CommonparamsubdirDeletePathParameters1() {
@@ -133,7 +133,7 @@ public class CommonparamsubdirDeletePathParameters {
                 .required(Set.of(
                     "subDir"
                 ))
-                .additionalProperties(CommonparamsubdirDeleteadditionalProperties.class)
+                .additionalProperties(AdditionalProperties.class)
             );
         }
     
@@ -144,7 +144,7 @@ public class CommonparamsubdirDeletePathParameters {
             return instance;
         }
         
-        public CommonparamsubdirDeletePathParametersMap getNewInstance(Map<?, ?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+        public PathParametersMap getNewInstance(Map<?, ?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
             LinkedHashMap<String, String> properties = new LinkedHashMap<>();
             for(Map.Entry<?, ?> entry: arg.entrySet()) {
                 @Nullable Object entryKey = entry.getKey();
@@ -167,10 +167,10 @@ public class CommonparamsubdirDeletePathParameters {
                 properties.put(propertyName, (String) propertyInstance);
             }
             FrozenMap<String> castProperties = new FrozenMap<>(properties);
-            return new CommonparamsubdirDeletePathParametersMap(castProperties);
+            return new PathParametersMap(castProperties);
         }
         
-        public CommonparamsubdirDeletePathParametersMap validate(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException {
+        public PathParametersMap validate(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException {
             Set<List<Object>> pathSet = new HashSet<>();
             List<Object> pathToItem = List.of("args[0");
             Map<?, ?> castArg = castToAllowedTypes(arg, pathToItem, pathSet);

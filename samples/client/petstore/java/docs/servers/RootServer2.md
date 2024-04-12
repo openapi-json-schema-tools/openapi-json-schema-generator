@@ -1,6 +1,6 @@
-org.openapijsonschematools.client.servers.Server2
-# Server Server2
-public class Server2
+org.openapijsonschematools.client.servers.RootServer2
+# Server RootServer2
+public class RootServer2
 
 A class that stores a server url
 
@@ -10,7 +10,7 @@ staging server with no variables
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| Server2()<br>Creates a server |
+| RootServer2()<br>Creates a server |
 
 ### Field Summary
 | Modifier and Type | Field and Description |

@@ -14,16 +14,16 @@ A class that contains necessary nested
 | sealed interface | [StoreorderorderidGetPathParameters.StoreorderorderidGetPathParameters1Boxed](#storeorderorderidgetpathparameters1boxed)<br> sealed interface for validated payloads |
 | record | [StoreorderorderidGetPathParameters.StoreorderorderidGetPathParameters1BoxedMap](#storeorderorderidgetpathparameters1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [StoreorderorderidGetPathParameters.StoreorderorderidGetPathParameters1](#storeorderorderidgetpathparameters1)<br> schema class |
-| static class | [StoreorderorderidGetPathParameters.StoreorderorderidGetPathParametersMapBuilder](#storeorderorderidgetpathparametersmapbuilder)<br> builder for Map payloads |
-| static class | [StoreorderorderidGetPathParameters.StoreorderorderidGetPathParametersMap](#storeorderorderidgetpathparametersmap)<br> output class for Map payloads |
-| sealed interface | [StoreorderorderidGetPathParameters.StoreorderorderidGetadditionalPropertiesBoxed](#storeorderorderidgetadditionalpropertiesboxed)<br> sealed interface for validated payloads |
-| record | [StoreorderorderidGetPathParameters.StoreorderorderidGetadditionalPropertiesBoxedVoid](#storeorderorderidgetadditionalpropertiesboxedvoid)<br> boxed class to store validated null payloads |
-| record | [StoreorderorderidGetPathParameters.StoreorderorderidGetadditionalPropertiesBoxedBoolean](#storeorderorderidgetadditionalpropertiesboxedboolean)<br> boxed class to store validated boolean payloads |
-| record | [StoreorderorderidGetPathParameters.StoreorderorderidGetadditionalPropertiesBoxedNumber](#storeorderorderidgetadditionalpropertiesboxednumber)<br> boxed class to store validated Number payloads |
-| record | [StoreorderorderidGetPathParameters.StoreorderorderidGetadditionalPropertiesBoxedString](#storeorderorderidgetadditionalpropertiesboxedstring)<br> boxed class to store validated String payloads |
-| record | [StoreorderorderidGetPathParameters.StoreorderorderidGetadditionalPropertiesBoxedList](#storeorderorderidgetadditionalpropertiesboxedlist)<br> boxed class to store validated List payloads |
-| record | [StoreorderorderidGetPathParameters.StoreorderorderidGetadditionalPropertiesBoxedMap](#storeorderorderidgetadditionalpropertiesboxedmap)<br> boxed class to store validated Map payloads |
-| static class | [StoreorderorderidGetPathParameters.StoreorderorderidGetadditionalProperties](#storeorderorderidgetadditionalproperties)<br> schema class |
+| static class | [StoreorderorderidGetPathParameters.PathParametersMapBuilder](#pathparametersmapbuilder)<br> builder for Map payloads |
+| static class | [StoreorderorderidGetPathParameters.PathParametersMap](#pathparametersmap)<br> output class for Map payloads |
+| sealed interface | [StoreorderorderidGetPathParameters.AdditionalPropertiesBoxed](#additionalpropertiesboxed)<br> sealed interface for validated payloads |
+| record | [StoreorderorderidGetPathParameters.AdditionalPropertiesBoxedVoid](#additionalpropertiesboxedvoid)<br> boxed class to store validated null payloads |
+| record | [StoreorderorderidGetPathParameters.AdditionalPropertiesBoxedBoolean](#additionalpropertiesboxedboolean)<br> boxed class to store validated boolean payloads |
+| record | [StoreorderorderidGetPathParameters.AdditionalPropertiesBoxedNumber](#additionalpropertiesboxednumber)<br> boxed class to store validated Number payloads |
+| record | [StoreorderorderidGetPathParameters.AdditionalPropertiesBoxedString](#additionalpropertiesboxedstring)<br> boxed class to store validated String payloads |
+| record | [StoreorderorderidGetPathParameters.AdditionalPropertiesBoxedList](#additionalpropertiesboxedlist)<br> boxed class to store validated List payloads |
+| record | [StoreorderorderidGetPathParameters.AdditionalPropertiesBoxedMap](#additionalpropertiesboxedmap)<br> boxed class to store validated Map payloads |
+| static class | [StoreorderorderidGetPathParameters.AdditionalProperties](#additionalproperties)<br> schema class |
 
 ## StoreorderorderidGetPathParameters1Boxed
 public sealed interface StoreorderorderidGetPathParameters1Boxed<br>
@@ -41,12 +41,12 @@ record that stores validated Map payloads, sealed permits implementation
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| StoreorderorderidGetPathParameters1BoxedMap([StoreorderorderidGetPathParametersMap](#storeorderorderidgetpathparametersmap) data)<br>Creates an instance, private visibility |
+| StoreorderorderidGetPathParameters1BoxedMap([PathParametersMap](#pathparametersmap) data)<br>Creates an instance, private visibility |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [StoreorderorderidGetPathParametersMap](#storeorderorderidgetpathparametersmap) | data()<br>validated payload |
+| [PathParametersMap](#pathparametersmap) | data()<br>validated payload |
 | @Nullable Object | getData()<br>validated payload |
 
 ## StoreorderorderidGetPathParameters1
@@ -72,9 +72,9 @@ import java.util.AbstractMap;
 static final SchemaConfiguration configuration = new SchemaConfiguration(new JsonSchemaKeywordFlags.Builder().build());
 
 // Map validation
-StoreorderorderidGetPathParameters.StoreorderorderidGetPathParametersMap validatedPayload =
+StoreorderorderidGetPathParameters.PathParametersMap validatedPayload =
     StoreorderorderidGetPathParameters.StoreorderorderidGetPathParameters1.validate(
-    new StoreorderorderidGetPathParameters.StoreorderorderidGetPathParametersMapBuilder()
+    new StoreorderorderidGetPathParameters.PathParametersMapBuilder()
         .order_id(1L)
 
     .build(),
@@ -88,18 +88,18 @@ StoreorderorderidGetPathParameters.StoreorderorderidGetPathParametersMap validat
 | Set<Class<?>> | type = Set.of(Map.class) |
 | Map<String, Class<? extends JsonSchema>> | properties = Map.ofEntries(<br>&nbsp;&nbsp;&nbsp;&nbsp;new PropertyEntry("order_id", [Schema0.Schema01.class](../../../paths/storeorderorderid/get/parameters/parameter0/Schema0.md#schema01))<br>)<br> |
 | Set<String> | required = Set.of(<br>&nbsp;&nbsp;&nbsp;&nbsp;"order_id"<br>)<br> |
-| Class<? extends JsonSchema> | additionalProperties = [StoreorderorderidGetadditionalProperties.class](#storeorderorderidgetadditionalproperties) |
+| Class<? extends JsonSchema> | additionalProperties = [AdditionalProperties.class](#additionalproperties) |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [StoreorderorderidGetPathParametersMap](#storeorderorderidgetpathparametersmap) | validate([Map&lt;?, ?&gt;](#storeorderorderidgetpathparametersmapbuilder) arg, SchemaConfiguration configuration) |
-| [StoreorderorderidGetPathParameters1BoxedMap](#storeorderorderidgetpathparameters1boxedmap) | validateAndBox([Map&lt;?, ?&gt;](#storeorderorderidgetpathparametersmapbuilder) arg, SchemaConfiguration configuration) |
+| [PathParametersMap](#pathparametersmap) | validate([Map&lt;?, ?&gt;](#pathparametersmapbuilder) arg, SchemaConfiguration configuration) |
+| [StoreorderorderidGetPathParameters1BoxedMap](#storeorderorderidgetpathparameters1boxedmap) | validateAndBox([Map&lt;?, ?&gt;](#pathparametersmapbuilder) arg, SchemaConfiguration configuration) |
 | [StoreorderorderidGetPathParameters1Boxed](#storeorderorderidgetpathparameters1boxed) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 
-## StoreorderorderidGetPathParametersMap0Builder
-public class StoreorderorderidGetPathParametersMap0Builder<br>
+## PathParametersMap0Builder
+public class PathParametersMap0Builder<br>
 builder for `Map<String, Number>`
 
 A class that builds the Map input type
@@ -107,15 +107,15 @@ A class that builds the Map input type
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| StoreorderorderidGetPathParametersMap0Builder(Map<String, Number> instance)<br>Creates a builder that contains the passed instance |
+| PathParametersMap0Builder(Map<String, Number> instance)<br>Creates a builder that contains the passed instance |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | Map<String, Number> | build()<br>Returns map input that should be used with Schema.validate |
 
-## StoreorderorderidGetPathParametersMapBuilder
-public class StoreorderorderidGetPathParametersMapBuilder<br>
+## PathParametersMapBuilder
+public class PathParametersMapBuilder<br>
 builder for `Map<String, Number>`
 
 A class that builds the Map input type
@@ -123,18 +123,18 @@ A class that builds the Map input type
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| StoreorderorderidGetPathParametersMapBuilder()<br>Creates a builder that contains an empty map |
+| PathParametersMapBuilder()<br>Creates a builder that contains an empty map |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [StoreorderorderidGetPathParametersMap0Builder](#storeorderorderidgetpathparametersmap0builder) | order_id(int value) |
-| [StoreorderorderidGetPathParametersMap0Builder](#storeorderorderidgetpathparametersmap0builder) | order_id(float value) |
-| [StoreorderorderidGetPathParametersMap0Builder](#storeorderorderidgetpathparametersmap0builder) | order_id(long value) |
-| [StoreorderorderidGetPathParametersMap0Builder](#storeorderorderidgetpathparametersmap0builder) | order_id(double value) |
+| [PathParametersMap0Builder](#pathparametersmap0builder) | order_id(int value) |
+| [PathParametersMap0Builder](#pathparametersmap0builder) | order_id(float value) |
+| [PathParametersMap0Builder](#pathparametersmap0builder) | order_id(long value) |
+| [PathParametersMap0Builder](#pathparametersmap0builder) | order_id(double value) |
 
-## StoreorderorderidGetPathParametersMap
-public static class StoreorderorderidGetPathParametersMap<br>
+## PathParametersMap
+public static class PathParametersMap<br>
 extends FrozenMap<String, Number>
 
 A class to store validated Map payloads
@@ -142,31 +142,31 @@ A class to store validated Map payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [StoreorderorderidGetPathParametersMap](#storeorderorderidgetpathparametersmap) | of([Map<String, Number>](#storeorderorderidgetpathparametersmapbuilder) arg, SchemaConfiguration configuration) |
+| static [PathParametersMap](#pathparametersmap) | of([Map<String, Number>](#pathparametersmapbuilder) arg, SchemaConfiguration configuration) |
 | Number | order_id()<br> |
 
-## StoreorderorderidGetadditionalPropertiesBoxed
-public sealed interface StoreorderorderidGetadditionalPropertiesBoxed<br>
+## AdditionalPropertiesBoxed
+public sealed interface AdditionalPropertiesBoxed<br>
 permits<br>
-[StoreorderorderidGetadditionalPropertiesBoxedVoid](#storeorderorderidgetadditionalpropertiesboxedvoid),
-[StoreorderorderidGetadditionalPropertiesBoxedBoolean](#storeorderorderidgetadditionalpropertiesboxedboolean),
-[StoreorderorderidGetadditionalPropertiesBoxedNumber](#storeorderorderidgetadditionalpropertiesboxednumber),
-[StoreorderorderidGetadditionalPropertiesBoxedString](#storeorderorderidgetadditionalpropertiesboxedstring),
-[StoreorderorderidGetadditionalPropertiesBoxedList](#storeorderorderidgetadditionalpropertiesboxedlist),
-[StoreorderorderidGetadditionalPropertiesBoxedMap](#storeorderorderidgetadditionalpropertiesboxedmap)
+[AdditionalPropertiesBoxedVoid](#additionalpropertiesboxedvoid),
+[AdditionalPropertiesBoxedBoolean](#additionalpropertiesboxedboolean),
+[AdditionalPropertiesBoxedNumber](#additionalpropertiesboxednumber),
+[AdditionalPropertiesBoxedString](#additionalpropertiesboxedstring),
+[AdditionalPropertiesBoxedList](#additionalpropertiesboxedlist),
+[AdditionalPropertiesBoxedMap](#additionalpropertiesboxedmap)
 
 sealed interface that stores validated payloads using boxed classes
 
-## StoreorderorderidGetadditionalPropertiesBoxedVoid
-public record StoreorderorderidGetadditionalPropertiesBoxedVoid<br>
-implements [StoreorderorderidGetadditionalPropertiesBoxed](#storeorderorderidgetadditionalpropertiesboxed)
+## AdditionalPropertiesBoxedVoid
+public record AdditionalPropertiesBoxedVoid<br>
+implements [AdditionalPropertiesBoxed](#additionalpropertiesboxed)
 
 record that stores validated null payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| StoreorderorderidGetadditionalPropertiesBoxedVoid(Void data)<br>Creates an instance, private visibility |
+| AdditionalPropertiesBoxedVoid(Void data)<br>Creates an instance, private visibility |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
@@ -174,16 +174,16 @@ record that stores validated null payloads, sealed permits implementation
 | Void | data()<br>validated payload |
 | @Nullable Object | getData()<br>validated payload |
 
-## StoreorderorderidGetadditionalPropertiesBoxedBoolean
-public record StoreorderorderidGetadditionalPropertiesBoxedBoolean<br>
-implements [StoreorderorderidGetadditionalPropertiesBoxed](#storeorderorderidgetadditionalpropertiesboxed)
+## AdditionalPropertiesBoxedBoolean
+public record AdditionalPropertiesBoxedBoolean<br>
+implements [AdditionalPropertiesBoxed](#additionalpropertiesboxed)
 
 record that stores validated boolean payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| StoreorderorderidGetadditionalPropertiesBoxedBoolean(boolean data)<br>Creates an instance, private visibility |
+| AdditionalPropertiesBoxedBoolean(boolean data)<br>Creates an instance, private visibility |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
@@ -191,16 +191,16 @@ record that stores validated boolean payloads, sealed permits implementation
 | boolean | data()<br>validated payload |
 | @Nullable Object | getData()<br>validated payload |
 
-## StoreorderorderidGetadditionalPropertiesBoxedNumber
-public record StoreorderorderidGetadditionalPropertiesBoxedNumber<br>
-implements [StoreorderorderidGetadditionalPropertiesBoxed](#storeorderorderidgetadditionalpropertiesboxed)
+## AdditionalPropertiesBoxedNumber
+public record AdditionalPropertiesBoxedNumber<br>
+implements [AdditionalPropertiesBoxed](#additionalpropertiesboxed)
 
 record that stores validated Number payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| StoreorderorderidGetadditionalPropertiesBoxedNumber(Number data)<br>Creates an instance, private visibility |
+| AdditionalPropertiesBoxedNumber(Number data)<br>Creates an instance, private visibility |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
@@ -208,16 +208,16 @@ record that stores validated Number payloads, sealed permits implementation
 | Number | data()<br>validated payload |
 | @Nullable Object | getData()<br>validated payload |
 
-## StoreorderorderidGetadditionalPropertiesBoxedString
-public record StoreorderorderidGetadditionalPropertiesBoxedString<br>
-implements [StoreorderorderidGetadditionalPropertiesBoxed](#storeorderorderidgetadditionalpropertiesboxed)
+## AdditionalPropertiesBoxedString
+public record AdditionalPropertiesBoxedString<br>
+implements [AdditionalPropertiesBoxed](#additionalpropertiesboxed)
 
 record that stores validated String payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| StoreorderorderidGetadditionalPropertiesBoxedString(String data)<br>Creates an instance, private visibility |
+| AdditionalPropertiesBoxedString(String data)<br>Creates an instance, private visibility |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
@@ -225,16 +225,16 @@ record that stores validated String payloads, sealed permits implementation
 | String | data()<br>validated payload |
 | @Nullable Object | getData()<br>validated payload |
 
-## StoreorderorderidGetadditionalPropertiesBoxedList
-public record StoreorderorderidGetadditionalPropertiesBoxedList<br>
-implements [StoreorderorderidGetadditionalPropertiesBoxed](#storeorderorderidgetadditionalpropertiesboxed)
+## AdditionalPropertiesBoxedList
+public record AdditionalPropertiesBoxedList<br>
+implements [AdditionalPropertiesBoxed](#additionalpropertiesboxed)
 
 record that stores validated List payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| StoreorderorderidGetadditionalPropertiesBoxedList(FrozenList<@Nullable Object> data)<br>Creates an instance, private visibility |
+| AdditionalPropertiesBoxedList(FrozenList<@Nullable Object> data)<br>Creates an instance, private visibility |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
@@ -242,16 +242,16 @@ record that stores validated List payloads, sealed permits implementation
 | FrozenList<@Nullable Object> | data()<br>validated payload |
 | @Nullable Object | getData()<br>validated payload |
 
-## StoreorderorderidGetadditionalPropertiesBoxedMap
-public record StoreorderorderidGetadditionalPropertiesBoxedMap<br>
-implements [StoreorderorderidGetadditionalPropertiesBoxed](#storeorderorderidgetadditionalpropertiesboxed)
+## AdditionalPropertiesBoxedMap
+public record AdditionalPropertiesBoxedMap<br>
+implements [AdditionalPropertiesBoxed](#additionalpropertiesboxed)
 
 record that stores validated Map payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| StoreorderorderidGetadditionalPropertiesBoxedMap(FrozenMap<@Nullable Object> data)<br>Creates an instance, private visibility |
+| AdditionalPropertiesBoxedMap(FrozenMap<@Nullable Object> data)<br>Creates an instance, private visibility |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
@@ -259,8 +259,8 @@ record that stores validated Map payloads, sealed permits implementation
 | FrozenMap<@Nullable Object> | data()<br>validated payload |
 | @Nullable Object | getData()<br>validated payload |
 
-## StoreorderorderidGetadditionalProperties
-public static class StoreorderorderidGetadditionalProperties<br>
+## AdditionalProperties
+public static class AdditionalProperties<br>
 extends NotAnyTypeJsonSchema.NotAnyTypeJsonSchema1
 
 A schema class that validates payloads

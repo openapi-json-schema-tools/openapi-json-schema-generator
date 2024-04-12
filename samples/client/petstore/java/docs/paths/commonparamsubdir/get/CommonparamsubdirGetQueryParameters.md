@@ -14,16 +14,16 @@ A class that contains necessary nested
 | sealed interface | [CommonparamsubdirGetQueryParameters.CommonparamsubdirGetQueryParameters1Boxed](#commonparamsubdirgetqueryparameters1boxed)<br> sealed interface for validated payloads |
 | record | [CommonparamsubdirGetQueryParameters.CommonparamsubdirGetQueryParameters1BoxedMap](#commonparamsubdirgetqueryparameters1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [CommonparamsubdirGetQueryParameters.CommonparamsubdirGetQueryParameters1](#commonparamsubdirgetqueryparameters1)<br> schema class |
-| static class | [CommonparamsubdirGetQueryParameters.CommonparamsubdirGetQueryParametersMapBuilder](#commonparamsubdirgetqueryparametersmapbuilder)<br> builder for Map payloads |
-| static class | [CommonparamsubdirGetQueryParameters.CommonparamsubdirGetQueryParametersMap](#commonparamsubdirgetqueryparametersmap)<br> output class for Map payloads |
-| sealed interface | [CommonparamsubdirGetQueryParameters.CommonparamsubdirGetadditionalPropertiesBoxed](#commonparamsubdirgetadditionalpropertiesboxed)<br> sealed interface for validated payloads |
-| record | [CommonparamsubdirGetQueryParameters.CommonparamsubdirGetadditionalPropertiesBoxedVoid](#commonparamsubdirgetadditionalpropertiesboxedvoid)<br> boxed class to store validated null payloads |
-| record | [CommonparamsubdirGetQueryParameters.CommonparamsubdirGetadditionalPropertiesBoxedBoolean](#commonparamsubdirgetadditionalpropertiesboxedboolean)<br> boxed class to store validated boolean payloads |
-| record | [CommonparamsubdirGetQueryParameters.CommonparamsubdirGetadditionalPropertiesBoxedNumber](#commonparamsubdirgetadditionalpropertiesboxednumber)<br> boxed class to store validated Number payloads |
-| record | [CommonparamsubdirGetQueryParameters.CommonparamsubdirGetadditionalPropertiesBoxedString](#commonparamsubdirgetadditionalpropertiesboxedstring)<br> boxed class to store validated String payloads |
-| record | [CommonparamsubdirGetQueryParameters.CommonparamsubdirGetadditionalPropertiesBoxedList](#commonparamsubdirgetadditionalpropertiesboxedlist)<br> boxed class to store validated List payloads |
-| record | [CommonparamsubdirGetQueryParameters.CommonparamsubdirGetadditionalPropertiesBoxedMap](#commonparamsubdirgetadditionalpropertiesboxedmap)<br> boxed class to store validated Map payloads |
-| static class | [CommonparamsubdirGetQueryParameters.CommonparamsubdirGetadditionalProperties](#commonparamsubdirgetadditionalproperties)<br> schema class |
+| static class | [CommonparamsubdirGetQueryParameters.QueryParametersMapBuilder](#queryparametersmapbuilder)<br> builder for Map payloads |
+| static class | [CommonparamsubdirGetQueryParameters.QueryParametersMap](#queryparametersmap)<br> output class for Map payloads |
+| sealed interface | [CommonparamsubdirGetQueryParameters.AdditionalPropertiesBoxed](#additionalpropertiesboxed)<br> sealed interface for validated payloads |
+| record | [CommonparamsubdirGetQueryParameters.AdditionalPropertiesBoxedVoid](#additionalpropertiesboxedvoid)<br> boxed class to store validated null payloads |
+| record | [CommonparamsubdirGetQueryParameters.AdditionalPropertiesBoxedBoolean](#additionalpropertiesboxedboolean)<br> boxed class to store validated boolean payloads |
+| record | [CommonparamsubdirGetQueryParameters.AdditionalPropertiesBoxedNumber](#additionalpropertiesboxednumber)<br> boxed class to store validated Number payloads |
+| record | [CommonparamsubdirGetQueryParameters.AdditionalPropertiesBoxedString](#additionalpropertiesboxedstring)<br> boxed class to store validated String payloads |
+| record | [CommonparamsubdirGetQueryParameters.AdditionalPropertiesBoxedList](#additionalpropertiesboxedlist)<br> boxed class to store validated List payloads |
+| record | [CommonparamsubdirGetQueryParameters.AdditionalPropertiesBoxedMap](#additionalpropertiesboxedmap)<br> boxed class to store validated Map payloads |
+| static class | [CommonparamsubdirGetQueryParameters.AdditionalProperties](#additionalproperties)<br> schema class |
 
 ## CommonparamsubdirGetQueryParameters1Boxed
 public sealed interface CommonparamsubdirGetQueryParameters1Boxed<br>
@@ -41,12 +41,12 @@ record that stores validated Map payloads, sealed permits implementation
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| CommonparamsubdirGetQueryParameters1BoxedMap([CommonparamsubdirGetQueryParametersMap](#commonparamsubdirgetqueryparametersmap) data)<br>Creates an instance, private visibility |
+| CommonparamsubdirGetQueryParameters1BoxedMap([QueryParametersMap](#queryparametersmap) data)<br>Creates an instance, private visibility |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [CommonparamsubdirGetQueryParametersMap](#commonparamsubdirgetqueryparametersmap) | data()<br>validated payload |
+| [QueryParametersMap](#queryparametersmap) | data()<br>validated payload |
 | @Nullable Object | getData()<br>validated payload |
 
 ## CommonparamsubdirGetQueryParameters1
@@ -72,9 +72,9 @@ import java.util.AbstractMap;
 static final SchemaConfiguration configuration = new SchemaConfiguration(new JsonSchemaKeywordFlags.Builder().build());
 
 // Map validation
-CommonparamsubdirGetQueryParameters.CommonparamsubdirGetQueryParametersMap validatedPayload =
+CommonparamsubdirGetQueryParameters.QueryParametersMap validatedPayload =
     CommonparamsubdirGetQueryParameters.CommonparamsubdirGetQueryParameters1.validate(
-    new CommonparamsubdirGetQueryParameters.CommonparamsubdirGetQueryParametersMapBuilder()
+    new CommonparamsubdirGetQueryParameters.QueryParametersMapBuilder()
         .searchStr("a")
 
     .build(),
@@ -87,18 +87,18 @@ CommonparamsubdirGetQueryParameters.CommonparamsubdirGetQueryParametersMap valid
 | ----------------- | ---------------------- |
 | Set<Class<?>> | type = Set.of(Map.class) |
 | Map<String, Class<? extends JsonSchema>> | properties = Map.ofEntries(<br>&nbsp;&nbsp;&nbsp;&nbsp;new PropertyEntry("searchStr", [Schema0.Schema01.class](../../../paths/commonparamsubdir/get/parameters/parameter0/Schema0.md#schema01))<br>)<br> |
-| Class<? extends JsonSchema> | additionalProperties = [CommonparamsubdirGetadditionalProperties.class](#commonparamsubdirgetadditionalproperties) |
+| Class<? extends JsonSchema> | additionalProperties = [AdditionalProperties.class](#additionalproperties) |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [CommonparamsubdirGetQueryParametersMap](#commonparamsubdirgetqueryparametersmap) | validate([Map&lt;?, ?&gt;](#commonparamsubdirgetqueryparametersmapbuilder) arg, SchemaConfiguration configuration) |
-| [CommonparamsubdirGetQueryParameters1BoxedMap](#commonparamsubdirgetqueryparameters1boxedmap) | validateAndBox([Map&lt;?, ?&gt;](#commonparamsubdirgetqueryparametersmapbuilder) arg, SchemaConfiguration configuration) |
+| [QueryParametersMap](#queryparametersmap) | validate([Map&lt;?, ?&gt;](#queryparametersmapbuilder) arg, SchemaConfiguration configuration) |
+| [CommonparamsubdirGetQueryParameters1BoxedMap](#commonparamsubdirgetqueryparameters1boxedmap) | validateAndBox([Map&lt;?, ?&gt;](#queryparametersmapbuilder) arg, SchemaConfiguration configuration) |
 | [CommonparamsubdirGetQueryParameters1Boxed](#commonparamsubdirgetqueryparameters1boxed) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 
-## CommonparamsubdirGetQueryParametersMapBuilder
-public class CommonparamsubdirGetQueryParametersMapBuilder<br>
+## QueryParametersMapBuilder
+public class QueryParametersMapBuilder<br>
 builder for `Map<String, String>`
 
 A class that builds the Map input type
@@ -106,16 +106,16 @@ A class that builds the Map input type
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| CommonparamsubdirGetQueryParametersMapBuilder()<br>Creates a builder that contains an empty map |
+| QueryParametersMapBuilder()<br>Creates a builder that contains an empty map |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | Map<String, String> | build()<br>Returns map input that should be used with Schema.validate |
-| [CommonparamsubdirGetQueryParametersMapBuilder](#commonparamsubdirgetqueryparametersmapbuilder) | searchStr(String value) |
+| [QueryParametersMapBuilder](#queryparametersmapbuilder) | searchStr(String value) |
 
-## CommonparamsubdirGetQueryParametersMap
-public static class CommonparamsubdirGetQueryParametersMap<br>
+## QueryParametersMap
+public static class QueryParametersMap<br>
 extends FrozenMap<String, String>
 
 A class to store validated Map payloads
@@ -123,31 +123,31 @@ A class to store validated Map payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [CommonparamsubdirGetQueryParametersMap](#commonparamsubdirgetqueryparametersmap) | of([Map<String, String>](#commonparamsubdirgetqueryparametersmapbuilder) arg, SchemaConfiguration configuration) |
+| static [QueryParametersMap](#queryparametersmap) | of([Map<String, String>](#queryparametersmapbuilder) arg, SchemaConfiguration configuration) |
 | String | searchStr()<br>[optional] |
 
-## CommonparamsubdirGetadditionalPropertiesBoxed
-public sealed interface CommonparamsubdirGetadditionalPropertiesBoxed<br>
+## AdditionalPropertiesBoxed
+public sealed interface AdditionalPropertiesBoxed<br>
 permits<br>
-[CommonparamsubdirGetadditionalPropertiesBoxedVoid](#commonparamsubdirgetadditionalpropertiesboxedvoid),
-[CommonparamsubdirGetadditionalPropertiesBoxedBoolean](#commonparamsubdirgetadditionalpropertiesboxedboolean),
-[CommonparamsubdirGetadditionalPropertiesBoxedNumber](#commonparamsubdirgetadditionalpropertiesboxednumber),
-[CommonparamsubdirGetadditionalPropertiesBoxedString](#commonparamsubdirgetadditionalpropertiesboxedstring),
-[CommonparamsubdirGetadditionalPropertiesBoxedList](#commonparamsubdirgetadditionalpropertiesboxedlist),
-[CommonparamsubdirGetadditionalPropertiesBoxedMap](#commonparamsubdirgetadditionalpropertiesboxedmap)
+[AdditionalPropertiesBoxedVoid](#additionalpropertiesboxedvoid),
+[AdditionalPropertiesBoxedBoolean](#additionalpropertiesboxedboolean),
+[AdditionalPropertiesBoxedNumber](#additionalpropertiesboxednumber),
+[AdditionalPropertiesBoxedString](#additionalpropertiesboxedstring),
+[AdditionalPropertiesBoxedList](#additionalpropertiesboxedlist),
+[AdditionalPropertiesBoxedMap](#additionalpropertiesboxedmap)
 
 sealed interface that stores validated payloads using boxed classes
 
-## CommonparamsubdirGetadditionalPropertiesBoxedVoid
-public record CommonparamsubdirGetadditionalPropertiesBoxedVoid<br>
-implements [CommonparamsubdirGetadditionalPropertiesBoxed](#commonparamsubdirgetadditionalpropertiesboxed)
+## AdditionalPropertiesBoxedVoid
+public record AdditionalPropertiesBoxedVoid<br>
+implements [AdditionalPropertiesBoxed](#additionalpropertiesboxed)
 
 record that stores validated null payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| CommonparamsubdirGetadditionalPropertiesBoxedVoid(Void data)<br>Creates an instance, private visibility |
+| AdditionalPropertiesBoxedVoid(Void data)<br>Creates an instance, private visibility |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
@@ -155,16 +155,16 @@ record that stores validated null payloads, sealed permits implementation
 | Void | data()<br>validated payload |
 | @Nullable Object | getData()<br>validated payload |
 
-## CommonparamsubdirGetadditionalPropertiesBoxedBoolean
-public record CommonparamsubdirGetadditionalPropertiesBoxedBoolean<br>
-implements [CommonparamsubdirGetadditionalPropertiesBoxed](#commonparamsubdirgetadditionalpropertiesboxed)
+## AdditionalPropertiesBoxedBoolean
+public record AdditionalPropertiesBoxedBoolean<br>
+implements [AdditionalPropertiesBoxed](#additionalpropertiesboxed)
 
 record that stores validated boolean payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| CommonparamsubdirGetadditionalPropertiesBoxedBoolean(boolean data)<br>Creates an instance, private visibility |
+| AdditionalPropertiesBoxedBoolean(boolean data)<br>Creates an instance, private visibility |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
@@ -172,16 +172,16 @@ record that stores validated boolean payloads, sealed permits implementation
 | boolean | data()<br>validated payload |
 | @Nullable Object | getData()<br>validated payload |
 
-## CommonparamsubdirGetadditionalPropertiesBoxedNumber
-public record CommonparamsubdirGetadditionalPropertiesBoxedNumber<br>
-implements [CommonparamsubdirGetadditionalPropertiesBoxed](#commonparamsubdirgetadditionalpropertiesboxed)
+## AdditionalPropertiesBoxedNumber
+public record AdditionalPropertiesBoxedNumber<br>
+implements [AdditionalPropertiesBoxed](#additionalpropertiesboxed)
 
 record that stores validated Number payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| CommonparamsubdirGetadditionalPropertiesBoxedNumber(Number data)<br>Creates an instance, private visibility |
+| AdditionalPropertiesBoxedNumber(Number data)<br>Creates an instance, private visibility |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
@@ -189,16 +189,16 @@ record that stores validated Number payloads, sealed permits implementation
 | Number | data()<br>validated payload |
 | @Nullable Object | getData()<br>validated payload |
 
-## CommonparamsubdirGetadditionalPropertiesBoxedString
-public record CommonparamsubdirGetadditionalPropertiesBoxedString<br>
-implements [CommonparamsubdirGetadditionalPropertiesBoxed](#commonparamsubdirgetadditionalpropertiesboxed)
+## AdditionalPropertiesBoxedString
+public record AdditionalPropertiesBoxedString<br>
+implements [AdditionalPropertiesBoxed](#additionalpropertiesboxed)
 
 record that stores validated String payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| CommonparamsubdirGetadditionalPropertiesBoxedString(String data)<br>Creates an instance, private visibility |
+| AdditionalPropertiesBoxedString(String data)<br>Creates an instance, private visibility |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
@@ -206,16 +206,16 @@ record that stores validated String payloads, sealed permits implementation
 | String | data()<br>validated payload |
 | @Nullable Object | getData()<br>validated payload |
 
-## CommonparamsubdirGetadditionalPropertiesBoxedList
-public record CommonparamsubdirGetadditionalPropertiesBoxedList<br>
-implements [CommonparamsubdirGetadditionalPropertiesBoxed](#commonparamsubdirgetadditionalpropertiesboxed)
+## AdditionalPropertiesBoxedList
+public record AdditionalPropertiesBoxedList<br>
+implements [AdditionalPropertiesBoxed](#additionalpropertiesboxed)
 
 record that stores validated List payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| CommonparamsubdirGetadditionalPropertiesBoxedList(FrozenList<@Nullable Object> data)<br>Creates an instance, private visibility |
+| AdditionalPropertiesBoxedList(FrozenList<@Nullable Object> data)<br>Creates an instance, private visibility |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
@@ -223,16 +223,16 @@ record that stores validated List payloads, sealed permits implementation
 | FrozenList<@Nullable Object> | data()<br>validated payload |
 | @Nullable Object | getData()<br>validated payload |
 
-## CommonparamsubdirGetadditionalPropertiesBoxedMap
-public record CommonparamsubdirGetadditionalPropertiesBoxedMap<br>
-implements [CommonparamsubdirGetadditionalPropertiesBoxed](#commonparamsubdirgetadditionalpropertiesboxed)
+## AdditionalPropertiesBoxedMap
+public record AdditionalPropertiesBoxedMap<br>
+implements [AdditionalPropertiesBoxed](#additionalpropertiesboxed)
 
 record that stores validated Map payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| CommonparamsubdirGetadditionalPropertiesBoxedMap(FrozenMap<@Nullable Object> data)<br>Creates an instance, private visibility |
+| AdditionalPropertiesBoxedMap(FrozenMap<@Nullable Object> data)<br>Creates an instance, private visibility |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
@@ -240,8 +240,8 @@ record that stores validated Map payloads, sealed permits implementation
 | FrozenMap<@Nullable Object> | data()<br>validated payload |
 | @Nullable Object | getData()<br>validated payload |
 
-## CommonparamsubdirGetadditionalProperties
-public static class CommonparamsubdirGetadditionalProperties<br>
+## AdditionalProperties
+public static class AdditionalProperties<br>
 extends NotAnyTypeJsonSchema.NotAnyTypeJsonSchema1
 
 A schema class that validates payloads

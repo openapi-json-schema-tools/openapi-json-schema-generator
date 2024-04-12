@@ -32,20 +32,20 @@ public class FakeGetQueryParameters {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static class FakeGetadditionalProperties extends NotAnyTypeJsonSchema.NotAnyTypeJsonSchema1 {
+    public static class AdditionalProperties extends NotAnyTypeJsonSchema.NotAnyTypeJsonSchema1 {
         // NotAnyTypeSchema
-        private static @Nullable FakeGetadditionalProperties instance = null;
-        public static FakeGetadditionalProperties getInstance() {
+        private static @Nullable AdditionalProperties instance = null;
+        public static AdditionalProperties getInstance() {
             if (instance == null) {
-                instance = new FakeGetadditionalProperties();
+                instance = new AdditionalProperties();
             }
             return instance;
         }
     }
     
     
-    public static class FakeGetQueryParametersMap extends FrozenMap<@Nullable Object> {
-        protected FakeGetQueryParametersMap(FrozenMap<@Nullable Object> m) {
+    public static class QueryParametersMap extends FrozenMap<@Nullable Object> {
+        protected QueryParametersMap(FrozenMap<@Nullable Object> m) {
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of();
@@ -55,7 +55,7 @@ public class FakeGetQueryParameters {
             "enum_query_integer",
             "enum_query_string_array"
         );
-        public static FakeGetQueryParametersMap of(Map<String, ? extends @Nullable Object> arg, SchemaConfiguration configuration) throws ValidationException {
+        public static QueryParametersMap of(Map<String, ? extends @Nullable Object> arg, SchemaConfiguration configuration) throws ValidationException {
             return FakeGetQueryParameters1.getInstance().validate(arg, configuration);
         }
         
@@ -100,117 +100,117 @@ public class FakeGetQueryParameters {
         }
     }
     
-    public interface SetterForFakeGetenumQueryDouble <T> {
+    public interface SetterForEnumQueryDouble <T> {
         Map<String, @Nullable Object> getInstance();
-        T getBuilderAfterFakeGetenumQueryDouble(Map<String, @Nullable Object> instance);
+        T getBuilderAfterEnumQueryDouble(Map<String, @Nullable Object> instance);
         
         default T enum_query_double(int value) {
             var instance = getInstance();
             instance.put("enum_query_double", value);
-            return getBuilderAfterFakeGetenumQueryDouble(instance);
+            return getBuilderAfterEnumQueryDouble(instance);
         }
         
         default T enum_query_double(float value) {
             var instance = getInstance();
             instance.put("enum_query_double", value);
-            return getBuilderAfterFakeGetenumQueryDouble(instance);
+            return getBuilderAfterEnumQueryDouble(instance);
         }
         
         default T enum_query_double(long value) {
             var instance = getInstance();
             instance.put("enum_query_double", value);
-            return getBuilderAfterFakeGetenumQueryDouble(instance);
+            return getBuilderAfterEnumQueryDouble(instance);
         }
         
         default T enum_query_double(double value) {
             var instance = getInstance();
             instance.put("enum_query_double", value);
-            return getBuilderAfterFakeGetenumQueryDouble(instance);
+            return getBuilderAfterEnumQueryDouble(instance);
         }
         
         default T enum_query_double(Schema5.DoubleSchemaEnums5 value) {
             var instance = getInstance();
             instance.put("enum_query_double", value.value());
-            return getBuilderAfterFakeGetenumQueryDouble(instance);
+            return getBuilderAfterEnumQueryDouble(instance);
         }
         
         default T enum_query_double(Schema5.FloatSchemaEnums5 value) {
             var instance = getInstance();
             instance.put("enum_query_double", value.value());
-            return getBuilderAfterFakeGetenumQueryDouble(instance);
+            return getBuilderAfterEnumQueryDouble(instance);
         }
     }
     
-    public interface SetterForFakeGetenumQueryString <T> {
+    public interface SetterForEnumQueryString <T> {
         Map<String, @Nullable Object> getInstance();
-        T getBuilderAfterFakeGetenumQueryString(Map<String, @Nullable Object> instance);
+        T getBuilderAfterEnumQueryString(Map<String, @Nullable Object> instance);
         
         default T enum_query_string(String value) {
             var instance = getInstance();
             instance.put("enum_query_string", value);
-            return getBuilderAfterFakeGetenumQueryString(instance);
+            return getBuilderAfterEnumQueryString(instance);
         }
         
         default T enum_query_string(Schema3.StringSchemaEnums3 value) {
             var instance = getInstance();
             instance.put("enum_query_string", value.value());
-            return getBuilderAfterFakeGetenumQueryString(instance);
+            return getBuilderAfterEnumQueryString(instance);
         }
     }
     
-    public interface SetterForFakeGetenumQueryInteger <T> {
+    public interface SetterForEnumQueryInteger <T> {
         Map<String, @Nullable Object> getInstance();
-        T getBuilderAfterFakeGetenumQueryInteger(Map<String, @Nullable Object> instance);
+        T getBuilderAfterEnumQueryInteger(Map<String, @Nullable Object> instance);
         
         default T enum_query_integer(int value) {
             var instance = getInstance();
             instance.put("enum_query_integer", value);
-            return getBuilderAfterFakeGetenumQueryInteger(instance);
+            return getBuilderAfterEnumQueryInteger(instance);
         }
         
         default T enum_query_integer(float value) {
             var instance = getInstance();
             instance.put("enum_query_integer", value);
-            return getBuilderAfterFakeGetenumQueryInteger(instance);
+            return getBuilderAfterEnumQueryInteger(instance);
         }
         
         default T enum_query_integer(Schema4.IntegerSchemaEnums4 value) {
             var instance = getInstance();
             instance.put("enum_query_integer", value.value());
-            return getBuilderAfterFakeGetenumQueryInteger(instance);
+            return getBuilderAfterEnumQueryInteger(instance);
         }
         
         default T enum_query_integer(Schema4.LongSchemaEnums4 value) {
             var instance = getInstance();
             instance.put("enum_query_integer", value.value());
-            return getBuilderAfterFakeGetenumQueryInteger(instance);
+            return getBuilderAfterEnumQueryInteger(instance);
         }
         
         default T enum_query_integer(Schema4.FloatSchemaEnums4 value) {
             var instance = getInstance();
             instance.put("enum_query_integer", value.value());
-            return getBuilderAfterFakeGetenumQueryInteger(instance);
+            return getBuilderAfterEnumQueryInteger(instance);
         }
         
         default T enum_query_integer(Schema4.DoubleSchemaEnums4 value) {
             var instance = getInstance();
             instance.put("enum_query_integer", value.value());
-            return getBuilderAfterFakeGetenumQueryInteger(instance);
+            return getBuilderAfterEnumQueryInteger(instance);
         }
     }
     
-    public interface SetterForFakeGetenumQueryStringArray <T> {
+    public interface SetterForEnumQueryStringArray <T> {
         Map<String, @Nullable Object> getInstance();
-        T getBuilderAfterFakeGetenumQueryStringArray(Map<String, @Nullable Object> instance);
+        T getBuilderAfterEnumQueryStringArray(Map<String, @Nullable Object> instance);
         
         default T enum_query_string_array(List<String> value) {
             var instance = getInstance();
             instance.put("enum_query_string_array", value);
-            return getBuilderAfterFakeGetenumQueryStringArray(instance);
+            return getBuilderAfterEnumQueryStringArray(instance);
         }
     }
     
-    public static class FakeGetQueryParametersMapBuilder implements GenericBuilder<Map<String, @Nullable Object>>, SetterForFakeGetenumQueryDouble<FakeGetQueryParametersMapBuilder>, SetterForFakeGetenumQueryString<FakeGetQueryParametersMapBuilder>, SetterForFakeGetenumQueryInteger<FakeGetQueryParametersMapBuilder>, SetterForFakeGetenumQueryStringArray<FakeGetQueryParametersMapBuilder> {
+    public static class QueryParametersMapBuilder implements GenericBuilder<Map<String, @Nullable Object>>, SetterForEnumQueryDouble<QueryParametersMapBuilder>, SetterForEnumQueryString<QueryParametersMapBuilder>, SetterForEnumQueryInteger<QueryParametersMapBuilder>, SetterForEnumQueryStringArray<QueryParametersMapBuilder> {
         private final Map<String, @Nullable Object> instance;
         private static final Set<String> knownKeys = Set.of(
             "enum_query_double",
@@ -221,7 +221,7 @@ public class FakeGetQueryParameters {
         public Set<String> getKnownKeys() {
             return knownKeys;
         }
-        public FakeGetQueryParametersMapBuilder() {
+        public QueryParametersMapBuilder() {
             this.instance = new LinkedHashMap<>();
         }
         public Map<String, @Nullable Object> build() {
@@ -230,16 +230,16 @@ public class FakeGetQueryParameters {
         public Map<String, @Nullable Object> getInstance() {
             return instance;
         }
-        public FakeGetQueryParametersMapBuilder getBuilderAfterFakeGetenumQueryDouble(Map<String, @Nullable Object> instance) {
+        public QueryParametersMapBuilder getBuilderAfterEnumQueryDouble(Map<String, @Nullable Object> instance) {
             return this;
         }
-        public FakeGetQueryParametersMapBuilder getBuilderAfterFakeGetenumQueryString(Map<String, @Nullable Object> instance) {
+        public QueryParametersMapBuilder getBuilderAfterEnumQueryString(Map<String, @Nullable Object> instance) {
             return this;
         }
-        public FakeGetQueryParametersMapBuilder getBuilderAfterFakeGetenumQueryInteger(Map<String, @Nullable Object> instance) {
+        public QueryParametersMapBuilder getBuilderAfterEnumQueryInteger(Map<String, @Nullable Object> instance) {
             return this;
         }
-        public FakeGetQueryParametersMapBuilder getBuilderAfterFakeGetenumQueryStringArray(Map<String, @Nullable Object> instance) {
+        public QueryParametersMapBuilder getBuilderAfterEnumQueryStringArray(Map<String, @Nullable Object> instance) {
             return this;
         }
     }
@@ -249,7 +249,7 @@ public class FakeGetQueryParameters {
         @Nullable Object getData();
     }
     
-    public record FakeGetQueryParameters1BoxedMap(FakeGetQueryParametersMap data) implements FakeGetQueryParameters1Boxed {
+    public record FakeGetQueryParameters1BoxedMap(QueryParametersMap data) implements FakeGetQueryParameters1Boxed {
         @Override
         public @Nullable Object getData() {
             return data;
@@ -257,7 +257,7 @@ public class FakeGetQueryParameters {
     }
     
     
-    public static class FakeGetQueryParameters1 extends JsonSchema<FakeGetQueryParameters1Boxed> implements MapSchemaValidator<FakeGetQueryParametersMap, FakeGetQueryParameters1BoxedMap> {
+    public static class FakeGetQueryParameters1 extends JsonSchema<FakeGetQueryParameters1Boxed> implements MapSchemaValidator<QueryParametersMap, FakeGetQueryParameters1BoxedMap> {
         private static @Nullable FakeGetQueryParameters1 instance = null;
     
         protected FakeGetQueryParameters1() {
@@ -269,7 +269,7 @@ public class FakeGetQueryParameters {
                     new PropertyEntry("enum_query_integer", Schema4.Schema41.class),
                     new PropertyEntry("enum_query_string_array", Schema2.Schema21.class)
                 ))
-                .additionalProperties(FakeGetadditionalProperties.class)
+                .additionalProperties(AdditionalProperties.class)
             );
         }
     
@@ -280,7 +280,7 @@ public class FakeGetQueryParameters {
             return instance;
         }
         
-        public FakeGetQueryParametersMap getNewInstance(Map<?, ?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+        public QueryParametersMap getNewInstance(Map<?, ?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
             LinkedHashMap<String, @Nullable Object> properties = new LinkedHashMap<>();
             for(Map.Entry<?, ?> entry: arg.entrySet()) {
                 @Nullable Object entryKey = entry.getKey();
@@ -300,10 +300,10 @@ public class FakeGetQueryParameters {
                 properties.put(propertyName, propertyInstance);
             }
             FrozenMap<@Nullable Object> castProperties = new FrozenMap<>(properties);
-            return new FakeGetQueryParametersMap(castProperties);
+            return new QueryParametersMap(castProperties);
         }
         
-        public FakeGetQueryParametersMap validate(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException {
+        public QueryParametersMap validate(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException {
             Set<List<Object>> pathSet = new HashSet<>();
             List<Object> pathToItem = List.of("args[0");
             Map<?, ?> castArg = castToAllowedTypes(arg, pathToItem, pathSet);

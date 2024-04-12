@@ -1,4 +1,4 @@
-package org.openapijsonschematools.client.servers.server1;
+package org.openapijsonschematools.client.paths.petfindbystatus.servers.server1;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.LinkedHashMap;
@@ -29,7 +29,7 @@ import org.openapijsonschematools.client.schemas.validation.StringSchemaValidato
 import org.openapijsonschematools.client.schemas.validation.StringValueMethod;
 import org.openapijsonschematools.client.schemas.validation.ValidationMetadata;
 
-public class Variables {
+public class PetfindbystatusServer1Variables {
     // nest classes so all schemas and input/output classes can be public
     
     
@@ -83,7 +83,7 @@ public class Variables {
                     "v1",
                     "v2"
                 ))
-                .defaultValue("v2")
+                .defaultValue("v1")
             );
         }
     
@@ -152,7 +152,7 @@ public class Variables {
         );
         public static final Set<String> optionalKeys = Set.of();
         public static VariablesMap of(Map<String, String> arg, SchemaConfiguration configuration) throws ValidationException {
-            return Variables1.getInstance().validate(arg, configuration);
+            return PetfindbystatusServer1Variables1.getInstance().validate(arg, configuration);
         }
         
         public String version() {
@@ -211,11 +211,11 @@ public class Variables {
     }
     
     
-    public sealed interface Variables1Boxed permits Variables1BoxedMap {
+    public sealed interface PetfindbystatusServer1Variables1Boxed permits PetfindbystatusServer1Variables1BoxedMap {
         @Nullable Object getData();
     }
     
-    public record Variables1BoxedMap(VariablesMap data) implements Variables1Boxed {
+    public record PetfindbystatusServer1Variables1BoxedMap(VariablesMap data) implements PetfindbystatusServer1Variables1Boxed {
         @Override
         public @Nullable Object getData() {
             return data;
@@ -223,10 +223,10 @@ public class Variables {
     }
     
     
-    public static class Variables1 extends JsonSchema<Variables1Boxed> implements MapSchemaValidator<VariablesMap, Variables1BoxedMap> {
-        private static @Nullable Variables1 instance = null;
+    public static class PetfindbystatusServer1Variables1 extends JsonSchema<PetfindbystatusServer1Variables1Boxed> implements MapSchemaValidator<VariablesMap, PetfindbystatusServer1Variables1BoxedMap> {
+        private static @Nullable PetfindbystatusServer1Variables1 instance = null;
     
-        protected Variables1() {
+        protected PetfindbystatusServer1Variables1() {
             super(new JsonSchemaInfo()
                 .type(Set.of(Map.class))
                 .properties(Map.ofEntries(
@@ -239,9 +239,9 @@ public class Variables {
             );
         }
     
-        public static Variables1 getInstance() {
+        public static PetfindbystatusServer1Variables1 getInstance() {
             if (instance == null) {
-                instance = new Variables1();
+                instance = new PetfindbystatusServer1Variables1();
             }
             return instance;
         }
@@ -298,11 +298,11 @@ public class Variables {
             throw new RuntimeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
         @Override
-        public Variables1BoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException {
-            return new Variables1BoxedMap(validate(arg, configuration));
+        public PetfindbystatusServer1Variables1BoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException {
+            return new PetfindbystatusServer1Variables1BoxedMap(validate(arg, configuration));
         }
         @Override
-        public Variables1Boxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException {
+        public PetfindbystatusServer1Variables1Boxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException {
             if (arg instanceof Map<?, ?> castArg) {
                 return validateAndBox(castArg, configuration);
             }

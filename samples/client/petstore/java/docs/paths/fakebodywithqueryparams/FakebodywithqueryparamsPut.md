@@ -40,9 +40,9 @@ import org.openapijsonschematools.client.RootServerInfo;
 import org.openapijsonschematools.client.paths.fakebodywithqueryparams.put.FakebodywithqueryparamsPutRequestBody;
 import org.openapijsonschematools.client.components.schemas.User;
 import org.openapijsonschematools.client.paths.fakebodywithqueryparams.put.FakebodywithqueryparamsPutQueryParameters;
-import org.openapijsonschematools.client.servers.Server0;
-import org.openapijsonschematools.client.servers.Server1;
-import org.openapijsonschematools.client.servers.Server2;
+import org.openapijsonschematools.client.servers.RootServer0;
+import org.openapijsonschematools.client.servers.RootServer1;
+import org.openapijsonschematools.client.servers.RootServer2;
 import org.openapijsonschematools.client.paths.fakebodywithqueryparams.put.responses.FakebodywithqueryparamsPutCode200Response;
 import org.openapijsonschematools.client.servers.RootServerInfo;
 import org.openapijsonschematools.client.paths.fakebodywithqueryparams.FakebodywithqueryparamsPut;
@@ -51,13 +51,14 @@ import org.openapijsonschematools.client.paths.fakebodywithqueryparams.put.Fakeb
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
 import java.util.AbstractMap;
 
 // if you want to use a server that is not SERVER_0 pass it in here and change the ServerIndex input below
 ApiConfiguration.ServerInfo serverInfo = new ApiConfiguration.ServerInfoBuilder()
     .rootServerInfo(
         new RootServerInfo.RootServerInfoBuilder()
-            .server0(new Server0())
+            .rootServer0(new RootServer0())
             .build()
     )
     .build();
@@ -65,10 +66,12 @@ ApiConfiguration.ServerIndexInfo serverIndexInfo = new ApiConfiguration.ServerIn
     .rootServerInfoServerIndex(RootServerInfo.ServerIndex.SERVER_0)
     .build();
 Duration timeout = Duration.ofSeconds(1L);
+Map<String, List<String>> defaultHeaders = Map.of("User-Agent", List.of("OpenAPI-JSON-Schema-Generator/1.0.0/java"));
 ApiConfiguration apiConfiguration = new ApiConfiguration(
     serverInfo
     serverIndexInfo,
-    timeout
+    timeout,
+    defaultHeaders
 );
 SchemaConfiguration schemaConfiguration = new SchemaConfiguration(new JsonSchemaKeywordFlags.Builder().build());
 FakebodywithqueryparamsPut.Put apiClient = new FakebodywithqueryparamsPut.Put(apiConfiguration, schemaConfiguration);
@@ -101,9 +104,9 @@ User1BoxedMap requestBodyPayload =
 FakebodywithqueryparamsPut.SealedRequestBody requestBody = new FakebodywithqueryparamsPut.ApplicationjsonRequestBody(requestBodyPayload);
 
 // Map validation
-FakebodywithqueryparamsPutQueryParameters.FakebodywithqueryparamsPutQueryParametersMap queryParameters =
+FakebodywithqueryparamsPutQueryParameters.QueryParametersMap queryParameters =
     FakebodywithqueryparamsPutQueryParameters.FakebodywithqueryparamsPutQueryParameters1.validate(
-    new FakebodywithqueryparamsPutQueryParameters.FakebodywithqueryparamsPutQueryParametersMapBuilder()
+    new FakebodywithqueryparamsPutQueryParameters.QueryParametersMapBuilder()
         .query("a")
 
     .build(),
@@ -163,7 +166,7 @@ a class that stores the final request inputs
 | Modifier and Type | Field and Description |
 | ----------------- | --------------------- |
 | [FakebodywithqueryparamsPutRequestBody.SealedRequestBody](../../paths/fakebodywithqueryparams/put/FakebodywithqueryparamsPutRequestBody.md#sealedrequestbody) | requestBody |
-| [FakebodywithqueryparamsPutQueryParameters.FakebodywithqueryparamsPutQueryParametersMap](../../paths/fakebodywithqueryparams/put/FakebodywithqueryparamsPutQueryParameters.md#fakebodywithqueryparamsputqueryparametersmap) | queryParameters |
+| [FakebodywithqueryparamsPutQueryParameters.QueryParametersMap](../../paths/fakebodywithqueryparams/put/FakebodywithqueryparamsPutQueryParameters.md#queryparametersmap) | queryParameters |
 | [RootServerInfo.@Nullable ServerIndex](../../RootServerInfo.md#serverindex) | serverIndex<br>optional. Note: this will override the value in apiConfiguration |
 | @Nullable Duration | timeout<br>optional. Note: this will override the value in apiConfiguration |
 
@@ -176,7 +179,7 @@ a class that stores the initial request inputs
 | Modifier and Type | Field and Description |
 | ----------------- | --------------------- |
 | [FakebodywithqueryparamsPutRequestBody.@Nullable SealedRequestBody](../../paths/fakebodywithqueryparams/put/FakebodywithqueryparamsPutRequestBody.md#sealedrequestbody) | requestBody |
-| [FakebodywithqueryparamsPutQueryParameters.@Nullable FakebodywithqueryparamsPutQueryParametersMap](../../paths/fakebodywithqueryparams/put/FakebodywithqueryparamsPutQueryParameters.md#fakebodywithqueryparamsputqueryparametersmap) | queryParameters |
+| [FakebodywithqueryparamsPutQueryParameters.@Nullable QueryParametersMap](../../paths/fakebodywithqueryparams/put/FakebodywithqueryparamsPutQueryParameters.md#queryparametersmap) | queryParameters |
 | [RootServerInfo.@Nullable ServerIndex](../../RootServerInfo.md#serverindex) | serverIndex |
 | @Nullable Duration | timeout |
 
@@ -210,7 +213,7 @@ a builder for request inputs
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [Put00RequestBuilder](#put00requestbuilder) | queryParameters([FakebodywithqueryparamsPutQueryParametersFakebodywithqueryparamsPutQueryParametersMap](../../paths/fakebodywithqueryparams/put/FakebodywithqueryparamsPutQueryParameters.md#fakebodywithqueryparamsputqueryparametersmap) queryParameters)<br>sets the property |
+| [Put00RequestBuilder](#put00requestbuilder) | queryParameters([FakebodywithqueryparamsPutQueryParametersQueryParametersMap](../../paths/fakebodywithqueryparams/put/FakebodywithqueryparamsPutQueryParameters.md#queryparametersmap) queryParameters)<br>sets the property |
 
 ## Put10RequestBuilder
 public static class Put10RequestBuilder<br>
@@ -241,6 +244,6 @@ a builder for request inputs
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [Put01RequestBuilder](#put01requestbuilder) | requestBody([FakebodywithqueryparamsPutRequestBody.SealedRequestBody](../../paths/fakebodywithqueryparams/put/FakebodywithqueryparamsPutRequestBody.md#sealedrequestbody) requestBody)<br>sets the property |
-| [Put10RequestBuilder](#put10requestbuilder) | queryParameters([FakebodywithqueryparamsPutQueryParametersFakebodywithqueryparamsPutQueryParametersMap](../../paths/fakebodywithqueryparams/put/FakebodywithqueryparamsPutQueryParameters.md#fakebodywithqueryparamsputqueryparametersmap) queryParameters)<br>sets the property |
+| [Put10RequestBuilder](#put10requestbuilder) | queryParameters([FakebodywithqueryparamsPutQueryParametersQueryParametersMap](../../paths/fakebodywithqueryparams/put/FakebodywithqueryparamsPutQueryParameters.md#queryparametersmap) queryParameters)<br>sets the property |
 
 [[Back to top]](#top) [[Back to README]](../../../README.md)

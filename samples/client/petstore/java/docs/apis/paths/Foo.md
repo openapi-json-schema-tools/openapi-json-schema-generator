@@ -3,7 +3,7 @@
 public class Foo extends extends ApiClient implements
 [FooGet.GetOperation](../../paths/foo/FooGet.md#getoperation)
 
-an api client class which contains all the routes for path=""
+an api client class which contains all the routes for path="/foo"
 
 ## Method Summary
 | Modifier and Type | Method and Description |
@@ -50,6 +50,7 @@ import org.openapijsonschematools.client.paths.foo.get.FooGetResponses;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
 import java.util.AbstractMap;
 
 // if you want to use a server that is not SERVER_0 pass it in here and change the ServerIndex input below
@@ -64,10 +65,12 @@ ApiConfiguration.ServerIndexInfo serverIndexInfo = new ApiConfiguration.ServerIn
     .fooGetServerInfoServerIndex(FooGetServerInfo.ServerIndex.SERVER_0)
     .build();
 Duration timeout = Duration.ofSeconds(1L);
+Map<String, List<String>> defaultHeaders = Map.of("User-Agent", List.of("OpenAPI-JSON-Schema-Generator/1.0.0/java"));
 ApiConfiguration apiConfiguration = new ApiConfiguration(
     serverInfo
     serverIndexInfo,
-    timeout
+    timeout,
+    defaultHeaders
 );
 SchemaConfiguration schemaConfiguration = new SchemaConfiguration(new JsonSchemaKeywordFlags.Builder().build());
 Foo apiClient = new Foo(apiConfiguration, schemaConfiguration);

@@ -36,9 +36,9 @@ import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.RootServerInfo;
 import org.openapijsonschematools.client.paths.userusername.delete.UserusernameDeletePathParameters;
-import org.openapijsonschematools.client.servers.Server0;
-import org.openapijsonschematools.client.servers.Server1;
-import org.openapijsonschematools.client.servers.Server2;
+import org.openapijsonschematools.client.servers.RootServer0;
+import org.openapijsonschematools.client.servers.RootServer1;
+import org.openapijsonschematools.client.servers.RootServer2;
 import org.openapijsonschematools.client.paths.userusername.delete.responses.UserusernameDeleteCode200Response;
 import org.openapijsonschematools.client.paths.userusername.delete.responses.UserusernameDeleteCode404Response;
 import org.openapijsonschematools.client.servers.RootServerInfo;
@@ -48,13 +48,14 @@ import org.openapijsonschematools.client.paths.userusername.delete.UserusernameD
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
 import java.util.AbstractMap;
 
 // if you want to use a server that is not SERVER_0 pass it in here and change the ServerIndex input below
 ApiConfiguration.ServerInfo serverInfo = new ApiConfiguration.ServerInfoBuilder()
     .rootServerInfo(
         new RootServerInfo.RootServerInfoBuilder()
-            .server0(new Server0())
+            .rootServer0(new RootServer0())
             .build()
     )
     .build();
@@ -62,19 +63,21 @@ ApiConfiguration.ServerIndexInfo serverIndexInfo = new ApiConfiguration.ServerIn
     .rootServerInfoServerIndex(RootServerInfo.ServerIndex.SERVER_0)
     .build();
 Duration timeout = Duration.ofSeconds(1L);
+Map<String, List<String>> defaultHeaders = Map.of("User-Agent", List.of("OpenAPI-JSON-Schema-Generator/1.0.0/java"));
 ApiConfiguration apiConfiguration = new ApiConfiguration(
     serverInfo
     serverIndexInfo,
-    timeout
+    timeout,
+    defaultHeaders
 );
 SchemaConfiguration schemaConfiguration = new SchemaConfiguration(new JsonSchemaKeywordFlags.Builder().build());
 UserusernameDelete.Delete apiClient = new UserusernameDelete.Delete(apiConfiguration, schemaConfiguration);
 
 
 // Map validation
-UserusernameDeletePathParameters.UserusernameDeletePathParametersMap pathParameters =
+UserusernameDeletePathParameters.PathParametersMap pathParameters =
     UserusernameDeletePathParameters.UserusernameDeletePathParameters1.validate(
-    new UserusernameDeletePathParameters.UserusernameDeletePathParametersMapBuilder()
+    new UserusernameDeletePathParameters.PathParametersMapBuilder()
         .username("a")
 
     .build(),
@@ -135,7 +138,7 @@ a class that stores the final request inputs
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | --------------------- |
-| [UserusernameDeletePathParameters.UserusernameDeletePathParametersMap](../../paths/userusername/delete/UserusernameDeletePathParameters.md#userusernamedeletepathparametersmap) | pathParameters |
+| [UserusernameDeletePathParameters.PathParametersMap](../../paths/userusername/delete/UserusernameDeletePathParameters.md#pathparametersmap) | pathParameters |
 | [RootServerInfo.@Nullable ServerIndex](../../RootServerInfo.md#serverindex) | serverIndex<br>optional. Note: this will override the value in apiConfiguration |
 | @Nullable Duration | timeout<br>optional. Note: this will override the value in apiConfiguration |
 
@@ -147,7 +150,7 @@ a class that stores the initial request inputs
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | --------------------- |
-| [UserusernameDeletePathParameters.@Nullable UserusernameDeletePathParametersMap](../../paths/userusername/delete/UserusernameDeletePathParameters.md#userusernamedeletepathparametersmap) | pathParameters |
+| [UserusernameDeletePathParameters.@Nullable PathParametersMap](../../paths/userusername/delete/UserusernameDeletePathParameters.md#pathparametersmap) | pathParameters |
 | [RootServerInfo.@Nullable ServerIndex](../../RootServerInfo.md#serverindex) | serverIndex |
 | @Nullable Duration | timeout |
 
@@ -181,6 +184,6 @@ a builder for request inputs
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [Delete0RequestBuilder](#delete0requestbuilder) | pathParameters([UserusernameDeletePathParametersUserusernameDeletePathParametersMap](../../paths/userusername/delete/UserusernameDeletePathParameters.md#userusernamedeletepathparametersmap) pathParameters)<br>sets the property |
+| [Delete0RequestBuilder](#delete0requestbuilder) | pathParameters([UserusernameDeletePathParametersPathParametersMap](../../paths/userusername/delete/UserusernameDeletePathParameters.md#pathparametersmap) pathParameters)<br>sets the property |
 
 [[Back to top]](#top) [[Back to README]](../../../README.md)

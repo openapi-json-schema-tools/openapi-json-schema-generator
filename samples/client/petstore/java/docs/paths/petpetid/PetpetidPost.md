@@ -38,9 +38,9 @@ import org.openapijsonschematools.client.paths.petpetid.post.PetpetidPostRequest
 import org.openapijsonschematools.client.RootServerInfo;
 import org.openapijsonschematools.client.paths.petpetid.post.PetpetidPostSecurityInfo;
 import org.openapijsonschematools.client.paths.petpetid.post.PetpetidPostPathParameters;
-import org.openapijsonschematools.client.servers.Server0;
-import org.openapijsonschematools.client.servers.Server1;
-import org.openapijsonschematools.client.servers.Server2;
+import org.openapijsonschematools.client.servers.RootServer0;
+import org.openapijsonschematools.client.servers.RootServer1;
+import org.openapijsonschematools.client.servers.RootServer2;
 import org.openapijsonschematools.client.securityschemes.SecurityScheme;
 import org.openapijsonschematools.client.components.securityschemes.ApiKey;
 import org.openapijsonschematools.client.components.securityschemes.PetstoreAuth;
@@ -52,13 +52,14 @@ import org.openapijsonschematools.client.paths.petpetid.post.PetpetidPostRespons
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
 import java.util.AbstractMap;
 
 // if you want to use a server that is not SERVER_0 pass it in here and change the ServerIndex input below
 ApiConfiguration.ServerInfo serverInfo = new ApiConfiguration.ServerInfoBuilder()
     .rootServerInfo(
         new RootServerInfo.RootServerInfoBuilder()
-            .server0(new Server0())
+            .rootServer0(new RootServer0())
             .build()
     )
     .build();
@@ -73,21 +74,23 @@ ApiConfiguration.SecurityIndexInfo securityIndexInfo = new ApiConfiguration.Secu
     .petpetidPostSecurityRequirementObject0SecurityIndex(PetpetidPostSecurityRequirementObject0.SecurityIndex.SECURITY_0)
     .build();
 Duration timeout = Duration.ofSeconds(1L);
+Map<String, List<String>> defaultHeaders = Map.of("User-Agent", List.of("OpenAPI-JSON-Schema-Generator/1.0.0/java"));
 ApiConfiguration apiConfiguration = new ApiConfiguration(
     serverInfo
     serverIndexInfo,
     securitySchemes,
     securityIndexInfo,
-    timeout
+    timeout,
+    defaultHeaders
 );
 SchemaConfiguration schemaConfiguration = new SchemaConfiguration(new JsonSchemaKeywordFlags.Builder().build());
 PetpetidPost.Post apiClient = new PetpetidPost.Post(apiConfiguration, schemaConfiguration);
 
 
 // Map validation
-PetpetidPostPathParameters.PetpetidPostPathParametersMap pathParameters =
+PetpetidPostPathParameters.PathParametersMap pathParameters =
     PetpetidPostPathParameters.PetpetidPostPathParameters1.validate(
-    new PetpetidPostPathParameters.PetpetidPostPathParametersMapBuilder()
+    new PetpetidPostPathParameters.PathParametersMapBuilder()
         .petId(1L)
 
     .build(),
@@ -147,7 +150,7 @@ a class that stores the final request inputs
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | --------------------- |
-| [PetpetidPostPathParameters.PetpetidPostPathParametersMap](../../paths/petpetid/post/PetpetidPostPathParameters.md#petpetidpostpathparametersmap) | pathParameters |
+| [PetpetidPostPathParameters.PathParametersMap](../../paths/petpetid/post/PetpetidPostPathParameters.md#pathparametersmap) | pathParameters |
 | [PetpetidPostRequestBody.@Nullable SealedRequestBody](../../paths/petpetid/post/PetpetidPostRequestBody.md#sealedrequestbody) | requestBody<br>optional |
 | [RootServerInfo.@Nullable ServerIndex](../../RootServerInfo.md#serverindex) | serverIndex<br>optional. Note: this will override the value in apiConfiguration |
 | [PetpetidPostSecurityInfo.@Nullable SecurityIndex](../../paths/petpetid/post/PetpetidPostSecurityInfo.md#securityindex) | securityIndex<br>optional. Note: this will override the value in apiConfiguration |
@@ -161,7 +164,7 @@ a class that stores the initial request inputs
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | --------------------- |
-| [PetpetidPostPathParameters.@Nullable PetpetidPostPathParametersMap](../../paths/petpetid/post/PetpetidPostPathParameters.md#petpetidpostpathparametersmap) | pathParameters |
+| [PetpetidPostPathParameters.@Nullable PathParametersMap](../../paths/petpetid/post/PetpetidPostPathParameters.md#pathparametersmap) | pathParameters |
 | [PetpetidPostRequestBody.@Nullable SealedRequestBody](../../paths/petpetid/post/PetpetidPostRequestBody.md#sealedrequestbody) | requestBody |
 | [RootServerInfo.@Nullable ServerIndex](../../RootServerInfo.md#serverindex) | serverIndex |
 | [PetpetidPostSecurityInfo.@Nullable SecurityIndex](../../paths/petpetid/post/PetpetidPostSecurityInfo.md#securityindex) | securityIndex |
@@ -199,6 +202,6 @@ a builder for request inputs
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [Post0RequestBuilder](#post0requestbuilder) | pathParameters([PetpetidPostPathParametersPetpetidPostPathParametersMap](../../paths/petpetid/post/PetpetidPostPathParameters.md#petpetidpostpathparametersmap) pathParameters)<br>sets the property |
+| [Post0RequestBuilder](#post0requestbuilder) | pathParameters([PetpetidPostPathParametersPathParametersMap](../../paths/petpetid/post/PetpetidPostPathParameters.md#pathparametersmap) pathParameters)<br>sets the property |
 
 [[Back to top]](#top) [[Back to README]](../../../README.md)

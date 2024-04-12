@@ -29,27 +29,27 @@ public class FakeobjinqueryGetQueryParameters {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static class FakeobjinqueryGetadditionalProperties extends NotAnyTypeJsonSchema.NotAnyTypeJsonSchema1 {
+    public static class AdditionalProperties extends NotAnyTypeJsonSchema.NotAnyTypeJsonSchema1 {
         // NotAnyTypeSchema
-        private static @Nullable FakeobjinqueryGetadditionalProperties instance = null;
-        public static FakeobjinqueryGetadditionalProperties getInstance() {
+        private static @Nullable AdditionalProperties instance = null;
+        public static AdditionalProperties getInstance() {
             if (instance == null) {
-                instance = new FakeobjinqueryGetadditionalProperties();
+                instance = new AdditionalProperties();
             }
             return instance;
         }
     }
     
     
-    public static class FakeobjinqueryGetQueryParametersMap extends FrozenMap<Schema0.SchemaMap0> {
-        protected FakeobjinqueryGetQueryParametersMap(FrozenMap<Schema0.SchemaMap0> m) {
+    public static class QueryParametersMap extends FrozenMap<Schema0.SchemaMap0> {
+        protected QueryParametersMap(FrozenMap<Schema0.SchemaMap0> m) {
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of();
         public static final Set<String> optionalKeys = Set.of(
             "mapBean"
         );
-        public static FakeobjinqueryGetQueryParametersMap of(Map<String, Map<String, ? extends @Nullable Object>> arg, SchemaConfiguration configuration) throws ValidationException {
+        public static QueryParametersMap of(Map<String, Map<String, ? extends @Nullable Object>> arg, SchemaConfiguration configuration) throws ValidationException {
             return FakeobjinqueryGetQueryParameters1.getInstance().validate(arg, configuration);
         }
         
@@ -58,18 +58,18 @@ public class FakeobjinqueryGetQueryParameters {
         }
     }
     
-    public interface SetterForFakeobjinqueryGetmapBean <T> {
+    public interface SetterForMapBean <T> {
         Map<String, Map<String, @Nullable Object>> getInstance();
-        T getBuilderAfterFakeobjinqueryGetmapBean(Map<String, Map<String, @Nullable Object>> instance);
+        T getBuilderAfterMapBean(Map<String, Map<String, @Nullable Object>> instance);
         
         default T mapBean(Map<String, @Nullable Object> value) {
             var instance = getInstance();
             instance.put("mapBean", value);
-            return getBuilderAfterFakeobjinqueryGetmapBean(instance);
+            return getBuilderAfterMapBean(instance);
         }
     }
     
-    public static class FakeobjinqueryGetQueryParametersMapBuilder implements GenericBuilder<Map<String, Map<String, @Nullable Object>>>, SetterForFakeobjinqueryGetmapBean<FakeobjinqueryGetQueryParametersMapBuilder> {
+    public static class QueryParametersMapBuilder implements GenericBuilder<Map<String, Map<String, @Nullable Object>>>, SetterForMapBean<QueryParametersMapBuilder> {
         private final Map<String, Map<String, @Nullable Object>> instance;
         private static final Set<String> knownKeys = Set.of(
             "mapBean"
@@ -77,7 +77,7 @@ public class FakeobjinqueryGetQueryParameters {
         public Set<String> getKnownKeys() {
             return knownKeys;
         }
-        public FakeobjinqueryGetQueryParametersMapBuilder() {
+        public QueryParametersMapBuilder() {
             this.instance = new LinkedHashMap<>();
         }
         public Map<String, Map<String, @Nullable Object>> build() {
@@ -86,7 +86,7 @@ public class FakeobjinqueryGetQueryParameters {
         public Map<String, Map<String, @Nullable Object>> getInstance() {
             return instance;
         }
-        public FakeobjinqueryGetQueryParametersMapBuilder getBuilderAfterFakeobjinqueryGetmapBean(Map<String, Map<String, @Nullable Object>> instance) {
+        public QueryParametersMapBuilder getBuilderAfterMapBean(Map<String, Map<String, @Nullable Object>> instance) {
             return this;
         }
     }
@@ -96,7 +96,7 @@ public class FakeobjinqueryGetQueryParameters {
         @Nullable Object getData();
     }
     
-    public record FakeobjinqueryGetQueryParameters1BoxedMap(FakeobjinqueryGetQueryParametersMap data) implements FakeobjinqueryGetQueryParameters1Boxed {
+    public record FakeobjinqueryGetQueryParameters1BoxedMap(QueryParametersMap data) implements FakeobjinqueryGetQueryParameters1Boxed {
         @Override
         public @Nullable Object getData() {
             return data;
@@ -104,7 +104,7 @@ public class FakeobjinqueryGetQueryParameters {
     }
     
     
-    public static class FakeobjinqueryGetQueryParameters1 extends JsonSchema<FakeobjinqueryGetQueryParameters1Boxed> implements MapSchemaValidator<FakeobjinqueryGetQueryParametersMap, FakeobjinqueryGetQueryParameters1BoxedMap> {
+    public static class FakeobjinqueryGetQueryParameters1 extends JsonSchema<FakeobjinqueryGetQueryParameters1Boxed> implements MapSchemaValidator<QueryParametersMap, FakeobjinqueryGetQueryParameters1BoxedMap> {
         private static @Nullable FakeobjinqueryGetQueryParameters1 instance = null;
     
         protected FakeobjinqueryGetQueryParameters1() {
@@ -113,7 +113,7 @@ public class FakeobjinqueryGetQueryParameters {
                 .properties(Map.ofEntries(
                     new PropertyEntry("mapBean", Schema0.Schema01.class)
                 ))
-                .additionalProperties(FakeobjinqueryGetadditionalProperties.class)
+                .additionalProperties(AdditionalProperties.class)
             );
         }
     
@@ -124,7 +124,7 @@ public class FakeobjinqueryGetQueryParameters {
             return instance;
         }
         
-        public FakeobjinqueryGetQueryParametersMap getNewInstance(Map<?, ?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+        public QueryParametersMap getNewInstance(Map<?, ?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
             LinkedHashMap<String, Schema0.SchemaMap0> properties = new LinkedHashMap<>();
             for(Map.Entry<?, ?> entry: arg.entrySet()) {
                 @Nullable Object entryKey = entry.getKey();
@@ -147,10 +147,10 @@ public class FakeobjinqueryGetQueryParameters {
                 properties.put(propertyName, (Schema0.SchemaMap0) propertyInstance);
             }
             FrozenMap<Schema0.SchemaMap0> castProperties = new FrozenMap<>(properties);
-            return new FakeobjinqueryGetQueryParametersMap(castProperties);
+            return new QueryParametersMap(castProperties);
         }
         
-        public FakeobjinqueryGetQueryParametersMap validate(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException {
+        public QueryParametersMap validate(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException {
             Set<List<Object>> pathSet = new HashSet<>();
             List<Object> pathToItem = List.of("args[0");
             Map<?, ?> castArg = castToAllowedTypes(arg, pathToItem, pathSet);

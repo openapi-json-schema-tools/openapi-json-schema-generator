@@ -90,13 +90,13 @@ public class FakebodywithqueryparamsPut {
 
     public static class PutRequest {
         public FakebodywithqueryparamsPutRequestBody.SealedRequestBody requestBody;
-        public FakebodywithqueryparamsPutQueryParameters.FakebodywithqueryparamsPutQueryParametersMap queryParameters;
+        public FakebodywithqueryparamsPutQueryParameters.QueryParametersMap queryParameters;
         public RootServerInfo.@Nullable ServerIndex serverIndex;
         public @Nullable Duration timeout;
 
         public PutRequest(
             FakebodywithqueryparamsPutRequestBody.SealedRequestBody requestBody,
-            FakebodywithqueryparamsPutQueryParameters.FakebodywithqueryparamsPutQueryParametersMap queryParameters,
+            FakebodywithqueryparamsPutQueryParameters.QueryParametersMap queryParameters,
             RootServerInfo.@Nullable ServerIndex serverIndex,
             @Nullable Duration timeout
         ) {
@@ -109,7 +109,7 @@ public class FakebodywithqueryparamsPut {
 
     public static class PutNullableRequest {
         public FakebodywithqueryparamsPutRequestBody.@Nullable SealedRequestBody requestBody;
-        public FakebodywithqueryparamsPutQueryParameters.@Nullable FakebodywithqueryparamsPutQueryParametersMap queryParameters;
+        public FakebodywithqueryparamsPutQueryParameters.@Nullable QueryParametersMap queryParameters;
         public RootServerInfo.@Nullable ServerIndex serverIndex;
         public @Nullable Duration timeout;
     }
@@ -147,7 +147,7 @@ public class FakebodywithqueryparamsPut {
     public interface SetterForQueryParameters <T> {
         PutNullableRequest getInstance();
         T getBuilderAfterQueryParameters(PutNullableRequest instance);
-        default T queryParameters(FakebodywithqueryparamsPutQueryParameters.FakebodywithqueryparamsPutQueryParametersMap queryParameters) {
+        default T queryParameters(FakebodywithqueryparamsPutQueryParameters.QueryParametersMap queryParameters) {
             var instance = getInstance();
             instance.queryParameters = queryParameters;
             return getBuilderAfterQueryParameters(instance);

@@ -14,16 +14,16 @@ A class that contains necessary nested
 | sealed interface | [UserusernameDeletePathParameters.UserusernameDeletePathParameters1Boxed](#userusernamedeletepathparameters1boxed)<br> sealed interface for validated payloads |
 | record | [UserusernameDeletePathParameters.UserusernameDeletePathParameters1BoxedMap](#userusernamedeletepathparameters1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [UserusernameDeletePathParameters.UserusernameDeletePathParameters1](#userusernamedeletepathparameters1)<br> schema class |
-| static class | [UserusernameDeletePathParameters.UserusernameDeletePathParametersMapBuilder](#userusernamedeletepathparametersmapbuilder)<br> builder for Map payloads |
-| static class | [UserusernameDeletePathParameters.UserusernameDeletePathParametersMap](#userusernamedeletepathparametersmap)<br> output class for Map payloads |
-| sealed interface | [UserusernameDeletePathParameters.UserusernameDeleteadditionalPropertiesBoxed](#userusernamedeleteadditionalpropertiesboxed)<br> sealed interface for validated payloads |
-| record | [UserusernameDeletePathParameters.UserusernameDeleteadditionalPropertiesBoxedVoid](#userusernamedeleteadditionalpropertiesboxedvoid)<br> boxed class to store validated null payloads |
-| record | [UserusernameDeletePathParameters.UserusernameDeleteadditionalPropertiesBoxedBoolean](#userusernamedeleteadditionalpropertiesboxedboolean)<br> boxed class to store validated boolean payloads |
-| record | [UserusernameDeletePathParameters.UserusernameDeleteadditionalPropertiesBoxedNumber](#userusernamedeleteadditionalpropertiesboxednumber)<br> boxed class to store validated Number payloads |
-| record | [UserusernameDeletePathParameters.UserusernameDeleteadditionalPropertiesBoxedString](#userusernamedeleteadditionalpropertiesboxedstring)<br> boxed class to store validated String payloads |
-| record | [UserusernameDeletePathParameters.UserusernameDeleteadditionalPropertiesBoxedList](#userusernamedeleteadditionalpropertiesboxedlist)<br> boxed class to store validated List payloads |
-| record | [UserusernameDeletePathParameters.UserusernameDeleteadditionalPropertiesBoxedMap](#userusernamedeleteadditionalpropertiesboxedmap)<br> boxed class to store validated Map payloads |
-| static class | [UserusernameDeletePathParameters.UserusernameDeleteadditionalProperties](#userusernamedeleteadditionalproperties)<br> schema class |
+| static class | [UserusernameDeletePathParameters.PathParametersMapBuilder](#pathparametersmapbuilder)<br> builder for Map payloads |
+| static class | [UserusernameDeletePathParameters.PathParametersMap](#pathparametersmap)<br> output class for Map payloads |
+| sealed interface | [UserusernameDeletePathParameters.AdditionalPropertiesBoxed](#additionalpropertiesboxed)<br> sealed interface for validated payloads |
+| record | [UserusernameDeletePathParameters.AdditionalPropertiesBoxedVoid](#additionalpropertiesboxedvoid)<br> boxed class to store validated null payloads |
+| record | [UserusernameDeletePathParameters.AdditionalPropertiesBoxedBoolean](#additionalpropertiesboxedboolean)<br> boxed class to store validated boolean payloads |
+| record | [UserusernameDeletePathParameters.AdditionalPropertiesBoxedNumber](#additionalpropertiesboxednumber)<br> boxed class to store validated Number payloads |
+| record | [UserusernameDeletePathParameters.AdditionalPropertiesBoxedString](#additionalpropertiesboxedstring)<br> boxed class to store validated String payloads |
+| record | [UserusernameDeletePathParameters.AdditionalPropertiesBoxedList](#additionalpropertiesboxedlist)<br> boxed class to store validated List payloads |
+| record | [UserusernameDeletePathParameters.AdditionalPropertiesBoxedMap](#additionalpropertiesboxedmap)<br> boxed class to store validated Map payloads |
+| static class | [UserusernameDeletePathParameters.AdditionalProperties](#additionalproperties)<br> schema class |
 
 ## UserusernameDeletePathParameters1Boxed
 public sealed interface UserusernameDeletePathParameters1Boxed<br>
@@ -41,12 +41,12 @@ record that stores validated Map payloads, sealed permits implementation
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| UserusernameDeletePathParameters1BoxedMap([UserusernameDeletePathParametersMap](#userusernamedeletepathparametersmap) data)<br>Creates an instance, private visibility |
+| UserusernameDeletePathParameters1BoxedMap([PathParametersMap](#pathparametersmap) data)<br>Creates an instance, private visibility |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [UserusernameDeletePathParametersMap](#userusernamedeletepathparametersmap) | data()<br>validated payload |
+| [PathParametersMap](#pathparametersmap) | data()<br>validated payload |
 | @Nullable Object | getData()<br>validated payload |
 
 ## UserusernameDeletePathParameters1
@@ -72,9 +72,9 @@ import java.util.AbstractMap;
 static final SchemaConfiguration configuration = new SchemaConfiguration(new JsonSchemaKeywordFlags.Builder().build());
 
 // Map validation
-UserusernameDeletePathParameters.UserusernameDeletePathParametersMap validatedPayload =
+UserusernameDeletePathParameters.PathParametersMap validatedPayload =
     UserusernameDeletePathParameters.UserusernameDeletePathParameters1.validate(
-    new UserusernameDeletePathParameters.UserusernameDeletePathParametersMapBuilder()
+    new UserusernameDeletePathParameters.PathParametersMapBuilder()
         .username("a")
 
     .build(),
@@ -88,18 +88,18 @@ UserusernameDeletePathParameters.UserusernameDeletePathParametersMap validatedPa
 | Set<Class<?>> | type = Set.of(Map.class) |
 | Map<String, Class<? extends JsonSchema>> | properties = Map.ofEntries(<br>&nbsp;&nbsp;&nbsp;&nbsp;new PropertyEntry("username", [Schema.Schema1.class](../../../components/parameters/pathusername/Schema.md#schema1))<br>)<br> |
 | Set<String> | required = Set.of(<br>&nbsp;&nbsp;&nbsp;&nbsp;"username"<br>)<br> |
-| Class<? extends JsonSchema> | additionalProperties = [UserusernameDeleteadditionalProperties.class](#userusernamedeleteadditionalproperties) |
+| Class<? extends JsonSchema> | additionalProperties = [AdditionalProperties.class](#additionalproperties) |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [UserusernameDeletePathParametersMap](#userusernamedeletepathparametersmap) | validate([Map&lt;?, ?&gt;](#userusernamedeletepathparametersmapbuilder) arg, SchemaConfiguration configuration) |
-| [UserusernameDeletePathParameters1BoxedMap](#userusernamedeletepathparameters1boxedmap) | validateAndBox([Map&lt;?, ?&gt;](#userusernamedeletepathparametersmapbuilder) arg, SchemaConfiguration configuration) |
+| [PathParametersMap](#pathparametersmap) | validate([Map&lt;?, ?&gt;](#pathparametersmapbuilder) arg, SchemaConfiguration configuration) |
+| [UserusernameDeletePathParameters1BoxedMap](#userusernamedeletepathparameters1boxedmap) | validateAndBox([Map&lt;?, ?&gt;](#pathparametersmapbuilder) arg, SchemaConfiguration configuration) |
 | [UserusernameDeletePathParameters1Boxed](#userusernamedeletepathparameters1boxed) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 
-## UserusernameDeletePathParametersMap0Builder
-public class UserusernameDeletePathParametersMap0Builder<br>
+## PathParametersMap0Builder
+public class PathParametersMap0Builder<br>
 builder for `Map<String, String>`
 
 A class that builds the Map input type
@@ -107,15 +107,15 @@ A class that builds the Map input type
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| UserusernameDeletePathParametersMap0Builder(Map<String, String> instance)<br>Creates a builder that contains the passed instance |
+| PathParametersMap0Builder(Map<String, String> instance)<br>Creates a builder that contains the passed instance |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | Map<String, String> | build()<br>Returns map input that should be used with Schema.validate |
 
-## UserusernameDeletePathParametersMapBuilder
-public class UserusernameDeletePathParametersMapBuilder<br>
+## PathParametersMapBuilder
+public class PathParametersMapBuilder<br>
 builder for `Map<String, String>`
 
 A class that builds the Map input type
@@ -123,15 +123,15 @@ A class that builds the Map input type
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| UserusernameDeletePathParametersMapBuilder()<br>Creates a builder that contains an empty map |
+| PathParametersMapBuilder()<br>Creates a builder that contains an empty map |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [UserusernameDeletePathParametersMap0Builder](#userusernamedeletepathparametersmap0builder) | username(String value) |
+| [PathParametersMap0Builder](#pathparametersmap0builder) | username(String value) |
 
-## UserusernameDeletePathParametersMap
-public static class UserusernameDeletePathParametersMap<br>
+## PathParametersMap
+public static class PathParametersMap<br>
 extends FrozenMap<String, String>
 
 A class to store validated Map payloads
@@ -139,31 +139,31 @@ A class to store validated Map payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [UserusernameDeletePathParametersMap](#userusernamedeletepathparametersmap) | of([Map<String, String>](#userusernamedeletepathparametersmapbuilder) arg, SchemaConfiguration configuration) |
+| static [PathParametersMap](#pathparametersmap) | of([Map<String, String>](#pathparametersmapbuilder) arg, SchemaConfiguration configuration) |
 | String | username()<br> |
 
-## UserusernameDeleteadditionalPropertiesBoxed
-public sealed interface UserusernameDeleteadditionalPropertiesBoxed<br>
+## AdditionalPropertiesBoxed
+public sealed interface AdditionalPropertiesBoxed<br>
 permits<br>
-[UserusernameDeleteadditionalPropertiesBoxedVoid](#userusernamedeleteadditionalpropertiesboxedvoid),
-[UserusernameDeleteadditionalPropertiesBoxedBoolean](#userusernamedeleteadditionalpropertiesboxedboolean),
-[UserusernameDeleteadditionalPropertiesBoxedNumber](#userusernamedeleteadditionalpropertiesboxednumber),
-[UserusernameDeleteadditionalPropertiesBoxedString](#userusernamedeleteadditionalpropertiesboxedstring),
-[UserusernameDeleteadditionalPropertiesBoxedList](#userusernamedeleteadditionalpropertiesboxedlist),
-[UserusernameDeleteadditionalPropertiesBoxedMap](#userusernamedeleteadditionalpropertiesboxedmap)
+[AdditionalPropertiesBoxedVoid](#additionalpropertiesboxedvoid),
+[AdditionalPropertiesBoxedBoolean](#additionalpropertiesboxedboolean),
+[AdditionalPropertiesBoxedNumber](#additionalpropertiesboxednumber),
+[AdditionalPropertiesBoxedString](#additionalpropertiesboxedstring),
+[AdditionalPropertiesBoxedList](#additionalpropertiesboxedlist),
+[AdditionalPropertiesBoxedMap](#additionalpropertiesboxedmap)
 
 sealed interface that stores validated payloads using boxed classes
 
-## UserusernameDeleteadditionalPropertiesBoxedVoid
-public record UserusernameDeleteadditionalPropertiesBoxedVoid<br>
-implements [UserusernameDeleteadditionalPropertiesBoxed](#userusernamedeleteadditionalpropertiesboxed)
+## AdditionalPropertiesBoxedVoid
+public record AdditionalPropertiesBoxedVoid<br>
+implements [AdditionalPropertiesBoxed](#additionalpropertiesboxed)
 
 record that stores validated null payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| UserusernameDeleteadditionalPropertiesBoxedVoid(Void data)<br>Creates an instance, private visibility |
+| AdditionalPropertiesBoxedVoid(Void data)<br>Creates an instance, private visibility |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
@@ -171,16 +171,16 @@ record that stores validated null payloads, sealed permits implementation
 | Void | data()<br>validated payload |
 | @Nullable Object | getData()<br>validated payload |
 
-## UserusernameDeleteadditionalPropertiesBoxedBoolean
-public record UserusernameDeleteadditionalPropertiesBoxedBoolean<br>
-implements [UserusernameDeleteadditionalPropertiesBoxed](#userusernamedeleteadditionalpropertiesboxed)
+## AdditionalPropertiesBoxedBoolean
+public record AdditionalPropertiesBoxedBoolean<br>
+implements [AdditionalPropertiesBoxed](#additionalpropertiesboxed)
 
 record that stores validated boolean payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| UserusernameDeleteadditionalPropertiesBoxedBoolean(boolean data)<br>Creates an instance, private visibility |
+| AdditionalPropertiesBoxedBoolean(boolean data)<br>Creates an instance, private visibility |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
@@ -188,16 +188,16 @@ record that stores validated boolean payloads, sealed permits implementation
 | boolean | data()<br>validated payload |
 | @Nullable Object | getData()<br>validated payload |
 
-## UserusernameDeleteadditionalPropertiesBoxedNumber
-public record UserusernameDeleteadditionalPropertiesBoxedNumber<br>
-implements [UserusernameDeleteadditionalPropertiesBoxed](#userusernamedeleteadditionalpropertiesboxed)
+## AdditionalPropertiesBoxedNumber
+public record AdditionalPropertiesBoxedNumber<br>
+implements [AdditionalPropertiesBoxed](#additionalpropertiesboxed)
 
 record that stores validated Number payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| UserusernameDeleteadditionalPropertiesBoxedNumber(Number data)<br>Creates an instance, private visibility |
+| AdditionalPropertiesBoxedNumber(Number data)<br>Creates an instance, private visibility |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
@@ -205,16 +205,16 @@ record that stores validated Number payloads, sealed permits implementation
 | Number | data()<br>validated payload |
 | @Nullable Object | getData()<br>validated payload |
 
-## UserusernameDeleteadditionalPropertiesBoxedString
-public record UserusernameDeleteadditionalPropertiesBoxedString<br>
-implements [UserusernameDeleteadditionalPropertiesBoxed](#userusernamedeleteadditionalpropertiesboxed)
+## AdditionalPropertiesBoxedString
+public record AdditionalPropertiesBoxedString<br>
+implements [AdditionalPropertiesBoxed](#additionalpropertiesboxed)
 
 record that stores validated String payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| UserusernameDeleteadditionalPropertiesBoxedString(String data)<br>Creates an instance, private visibility |
+| AdditionalPropertiesBoxedString(String data)<br>Creates an instance, private visibility |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
@@ -222,16 +222,16 @@ record that stores validated String payloads, sealed permits implementation
 | String | data()<br>validated payload |
 | @Nullable Object | getData()<br>validated payload |
 
-## UserusernameDeleteadditionalPropertiesBoxedList
-public record UserusernameDeleteadditionalPropertiesBoxedList<br>
-implements [UserusernameDeleteadditionalPropertiesBoxed](#userusernamedeleteadditionalpropertiesboxed)
+## AdditionalPropertiesBoxedList
+public record AdditionalPropertiesBoxedList<br>
+implements [AdditionalPropertiesBoxed](#additionalpropertiesboxed)
 
 record that stores validated List payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| UserusernameDeleteadditionalPropertiesBoxedList(FrozenList<@Nullable Object> data)<br>Creates an instance, private visibility |
+| AdditionalPropertiesBoxedList(FrozenList<@Nullable Object> data)<br>Creates an instance, private visibility |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
@@ -239,16 +239,16 @@ record that stores validated List payloads, sealed permits implementation
 | FrozenList<@Nullable Object> | data()<br>validated payload |
 | @Nullable Object | getData()<br>validated payload |
 
-## UserusernameDeleteadditionalPropertiesBoxedMap
-public record UserusernameDeleteadditionalPropertiesBoxedMap<br>
-implements [UserusernameDeleteadditionalPropertiesBoxed](#userusernamedeleteadditionalpropertiesboxed)
+## AdditionalPropertiesBoxedMap
+public record AdditionalPropertiesBoxedMap<br>
+implements [AdditionalPropertiesBoxed](#additionalpropertiesboxed)
 
 record that stores validated Map payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| UserusernameDeleteadditionalPropertiesBoxedMap(FrozenMap<@Nullable Object> data)<br>Creates an instance, private visibility |
+| AdditionalPropertiesBoxedMap(FrozenMap<@Nullable Object> data)<br>Creates an instance, private visibility |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
@@ -256,8 +256,8 @@ record that stores validated Map payloads, sealed permits implementation
 | FrozenMap<@Nullable Object> | data()<br>validated payload |
 | @Nullable Object | getData()<br>validated payload |
 
-## UserusernameDeleteadditionalProperties
-public static class UserusernameDeleteadditionalProperties<br>
+## AdditionalProperties
+public static class AdditionalProperties<br>
 extends NotAnyTypeJsonSchema.NotAnyTypeJsonSchema1
 
 A schema class that validates payloads

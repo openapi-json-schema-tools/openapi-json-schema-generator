@@ -83,7 +83,7 @@ public class FakerefobjinqueryGet {
     }
 
     public static class GetRequest {
-        public FakerefobjinqueryGetQueryParameters.@Nullable FakerefobjinqueryGetQueryParametersMap queryParameters;
+        public FakerefobjinqueryGetQueryParameters.@Nullable QueryParametersMap queryParameters;
         public RootServerInfo.@Nullable ServerIndex serverIndex;
         public @Nullable Duration timeout;
     }
@@ -91,7 +91,7 @@ public class FakerefobjinqueryGet {
     public interface SetterForQueryParameters <T> {
         GetRequest getInstance();
         T getBuilderAfterQueryParameters(GetRequest instance);
-        default T queryParameters(FakerefobjinqueryGetQueryParameters.FakerefobjinqueryGetQueryParametersMap queryParameters) {
+        default T queryParameters(FakerefobjinqueryGetQueryParameters.QueryParametersMap queryParameters) {
             var instance = getInstance();
             instance.queryParameters = queryParameters;
             return getBuilderAfterQueryParameters(instance);

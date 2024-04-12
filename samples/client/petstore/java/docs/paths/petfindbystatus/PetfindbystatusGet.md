@@ -52,6 +52,7 @@ import org.openapijsonschematools.client.paths.petfindbystatus.get.Petfindbystat
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
 import java.util.AbstractMap;
 
 // if you want to use a server that is not SERVER_0 pass it in here and change the ServerIndex input below
@@ -73,21 +74,23 @@ ApiConfiguration.SecurityIndexInfo securityIndexInfo = new ApiConfiguration.Secu
     .petfindbystatusGetSecurityRequirementObject0SecurityIndex(PetfindbystatusGetSecurityRequirementObject0.SecurityIndex.SECURITY_0)
     .build();
 Duration timeout = Duration.ofSeconds(1L);
+Map<String, List<String>> defaultHeaders = Map.of("User-Agent", List.of("OpenAPI-JSON-Schema-Generator/1.0.0/java"));
 ApiConfiguration apiConfiguration = new ApiConfiguration(
     serverInfo
     serverIndexInfo,
     securitySchemes,
     securityIndexInfo,
-    timeout
+    timeout,
+    defaultHeaders
 );
 SchemaConfiguration schemaConfiguration = new SchemaConfiguration(new JsonSchemaKeywordFlags.Builder().build());
 PetfindbystatusGet.Get apiClient = new PetfindbystatusGet.Get(apiConfiguration, schemaConfiguration);
 
 
 // Map validation
-PetfindbystatusGetQueryParameters.PetfindbystatusGetQueryParametersMap queryParameters =
+PetfindbystatusGetQueryParameters.QueryParametersMap queryParameters =
     PetfindbystatusGetQueryParameters.PetfindbystatusGetQueryParameters1.validate(
-    new PetfindbystatusGetQueryParameters.PetfindbystatusGetQueryParametersMapBuilder()
+    new PetfindbystatusGetQueryParameters.QueryParametersMapBuilder()
         .status(
             Arrays.asList(
                 "available"
@@ -152,7 +155,7 @@ a class that stores the final request inputs
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | --------------------- |
-| [PetfindbystatusGetQueryParameters.PetfindbystatusGetQueryParametersMap](../../paths/petfindbystatus/get/PetfindbystatusGetQueryParameters.md#petfindbystatusgetqueryparametersmap) | queryParameters |
+| [PetfindbystatusGetQueryParameters.QueryParametersMap](../../paths/petfindbystatus/get/PetfindbystatusGetQueryParameters.md#queryparametersmap) | queryParameters |
 | [PetfindbystatusServerInfo.@Nullable ServerIndex](../../paths/petfindbystatus/PetfindbystatusServerInfo.md#serverindex) | serverIndex<br>optional. Note: this will override the value in apiConfiguration |
 | [PetfindbystatusGetSecurityInfo.@Nullable SecurityIndex](../../paths/petfindbystatus/get/PetfindbystatusGetSecurityInfo.md#securityindex) | securityIndex<br>optional. Note: this will override the value in apiConfiguration |
 | @Nullable Duration | timeout<br>optional. Note: this will override the value in apiConfiguration |
@@ -165,7 +168,7 @@ a class that stores the initial request inputs
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | --------------------- |
-| [PetfindbystatusGetQueryParameters.@Nullable PetfindbystatusGetQueryParametersMap](../../paths/petfindbystatus/get/PetfindbystatusGetQueryParameters.md#petfindbystatusgetqueryparametersmap) | queryParameters |
+| [PetfindbystatusGetQueryParameters.@Nullable QueryParametersMap](../../paths/petfindbystatus/get/PetfindbystatusGetQueryParameters.md#queryparametersmap) | queryParameters |
 | [PetfindbystatusServerInfo.@Nullable ServerIndex](../../paths/petfindbystatus/PetfindbystatusServerInfo.md#serverindex) | serverIndex |
 | [PetfindbystatusGetSecurityInfo.@Nullable SecurityIndex](../../paths/petfindbystatus/get/PetfindbystatusGetSecurityInfo.md#securityindex) | securityIndex |
 | @Nullable Duration | timeout |
@@ -201,6 +204,6 @@ a builder for request inputs
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [Get0RequestBuilder](#get0requestbuilder) | queryParameters([PetfindbystatusGetQueryParametersPetfindbystatusGetQueryParametersMap](../../paths/petfindbystatus/get/PetfindbystatusGetQueryParameters.md#petfindbystatusgetqueryparametersmap) queryParameters)<br>sets the property |
+| [Get0RequestBuilder](#get0requestbuilder) | queryParameters([PetfindbystatusGetQueryParametersQueryParametersMap](../../paths/petfindbystatus/get/PetfindbystatusGetQueryParameters.md#queryparametersmap) queryParameters)<br>sets the property |
 
 [[Back to top]](#top) [[Back to README]](../../../README.md)

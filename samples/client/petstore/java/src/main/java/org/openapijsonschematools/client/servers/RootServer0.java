@@ -4,20 +4,20 @@ import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.ValidationException;
 import org.openapijsonschematools.client.schemas.validation.MapUtils;
-import org.openapijsonschematools.client.servers.server0.Variables;
+import org.openapijsonschematools.client.servers.rootserver0.RootServer0Variables;
 
 import java.util.AbstractMap;
 
-public class Server0 extends ServerWithVariables<Variables.VariablesMap> {
+public class RootServer0 extends ServerWithVariables<RootServer0Variables.VariablesMap> {
     /*
     petstore server
     */
-    private static Variables.VariablesMap getVariables() {
+    private static RootServer0Variables.VariablesMap getVariables() {
         try {
-            return Variables.Variables1.getInstance().validate(
+            return RootServer0Variables.RootServer0Variables1.getInstance().validate(
                 MapUtils.makeMap(
-                    new AbstractMap.SimpleEntry<>("port", Variables.Port.getInstance().defaultValue()),
-                    new AbstractMap.SimpleEntry<>("server", Variables.Server.getInstance().defaultValue())
+                    new AbstractMap.SimpleEntry<>("port", RootServer0Variables.Port.getInstance().defaultValue()),
+                    new AbstractMap.SimpleEntry<>("server", RootServer0Variables.Server.getInstance().defaultValue())
                 ),
                 new SchemaConfiguration(new JsonSchemaKeywordFlags.Builder().build())
             );
@@ -26,13 +26,13 @@ public class Server0 extends ServerWithVariables<Variables.VariablesMap> {
         }
     }
 
-    public Server0() {
+    public RootServer0() {
         super(
             "http://{server}.swagger.io:{port}/v2",
             getVariables()
         );
     }
-    public Server0(Variables.VariablesMap variables) {
+    public RootServer0(RootServer0Variables.VariablesMap variables) {
         super("http://{server}.swagger.io:{port}/v2", variables);
     }
 }

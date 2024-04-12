@@ -14,17 +14,20 @@ public class ApiConfiguration {
     private final ServerInfo serverInfo;
     private final ServerIndexInfo serverIndexInfo;
     private final @Nullable Duration timeout;
+    private final Map<String, List< String>> defaultHeaders;
 
     public ApiConfiguration() {
         serverInfo = new ServerInfoBuilder().build();
         serverIndexInfo = new ServerIndexInfoBuilder().build();
         timeout = null;
+        defaultHeaders = new HashMap<>();
     }
 
-    public ApiConfiguration(ServerInfo serverInfo, ServerIndexInfo serverIndexInfo, Duration timeout) {
+    public ApiConfiguration(ServerInfo serverInfo, ServerIndexInfo serverIndexInfo, Duration timeout, Map<String, List< String>> defaultHeaders) {
         this.serverInfo = serverInfo;
         this.serverIndexInfo = serverIndexInfo;
         this.timeout = timeout;
+        this.defaultHeaders = defaultHeaders;
     }
 
     public static class ServerInfo {
@@ -89,7 +92,7 @@ public class ApiConfiguration {
     }
 
     public Map<String, List< String>> getDefaultHeaders() {
-        return new HashMap<>();
+        return defaultHeaders;
     }
 
     public @Nullable Duration getTimeout() {

@@ -87,14 +87,14 @@ public class CommonparamsubdirGet {
     }
 
     public static class GetRequest {
-        public CommonparamsubdirGetPathParameters.CommonparamsubdirGetPathParametersMap pathParameters;
-        public CommonparamsubdirGetQueryParameters.@Nullable CommonparamsubdirGetQueryParametersMap queryParameters;
+        public CommonparamsubdirGetPathParameters.PathParametersMap pathParameters;
+        public CommonparamsubdirGetQueryParameters.@Nullable QueryParametersMap queryParameters;
         public RootServerInfo.@Nullable ServerIndex serverIndex;
         public @Nullable Duration timeout;
 
         public GetRequest(
-            CommonparamsubdirGetPathParameters.CommonparamsubdirGetPathParametersMap pathParameters,
-            CommonparamsubdirGetQueryParameters.@Nullable CommonparamsubdirGetQueryParametersMap queryParameters,
+            CommonparamsubdirGetPathParameters.PathParametersMap pathParameters,
+            CommonparamsubdirGetQueryParameters.@Nullable QueryParametersMap queryParameters,
             RootServerInfo.@Nullable ServerIndex serverIndex,
             @Nullable Duration timeout
         ) {
@@ -106,8 +106,8 @@ public class CommonparamsubdirGet {
     }
 
     public static class GetNullableRequest {
-        public CommonparamsubdirGetPathParameters.@Nullable CommonparamsubdirGetPathParametersMap pathParameters;
-        public CommonparamsubdirGetQueryParameters.@Nullable CommonparamsubdirGetQueryParametersMap queryParameters;
+        public CommonparamsubdirGetPathParameters.@Nullable PathParametersMap pathParameters;
+        public CommonparamsubdirGetQueryParameters.@Nullable QueryParametersMap queryParameters;
         public RootServerInfo.@Nullable ServerIndex serverIndex;
         public @Nullable Duration timeout;
     }
@@ -115,7 +115,7 @@ public class CommonparamsubdirGet {
     public interface SetterForQueryParameters <T> {
         GetNullableRequest getInstance();
         T getBuilderAfterQueryParameters(GetNullableRequest instance);
-        default T queryParameters(CommonparamsubdirGetQueryParameters.CommonparamsubdirGetQueryParametersMap queryParameters) {
+        default T queryParameters(CommonparamsubdirGetQueryParameters.QueryParametersMap queryParameters) {
             var instance = getInstance();
             instance.queryParameters = queryParameters;
             return getBuilderAfterQueryParameters(instance);
@@ -145,7 +145,7 @@ public class CommonparamsubdirGet {
     public interface SetterForPathParameters <T> {
         GetNullableRequest getInstance();
         T getBuilderAfterPathParameters(GetNullableRequest instance);
-        default T pathParameters(CommonparamsubdirGetPathParameters.CommonparamsubdirGetPathParametersMap pathParameters) {
+        default T pathParameters(CommonparamsubdirGetPathParameters.PathParametersMap pathParameters) {
             var instance = getInstance();
             instance.pathParameters = pathParameters;
             return getBuilderAfterPathParameters(instance);

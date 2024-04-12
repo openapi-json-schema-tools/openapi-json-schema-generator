@@ -36,9 +36,9 @@ import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.RootServerInfo;
 import org.openapijsonschematools.client.paths.storeorderorderid.delete.StoreorderorderidDeletePathParameters;
-import org.openapijsonschematools.client.servers.Server0;
-import org.openapijsonschematools.client.servers.Server1;
-import org.openapijsonschematools.client.servers.Server2;
+import org.openapijsonschematools.client.servers.RootServer0;
+import org.openapijsonschematools.client.servers.RootServer1;
+import org.openapijsonschematools.client.servers.RootServer2;
 import org.openapijsonschematools.client.paths.storeorderorderid.delete.responses.StoreorderorderidDeleteCode400Response;
 import org.openapijsonschematools.client.paths.storeorderorderid.delete.responses.StoreorderorderidDeleteCode404Response;
 import org.openapijsonschematools.client.servers.RootServerInfo;
@@ -48,13 +48,14 @@ import org.openapijsonschematools.client.paths.storeorderorderid.delete.Storeord
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
 import java.util.AbstractMap;
 
 // if you want to use a server that is not SERVER_0 pass it in here and change the ServerIndex input below
 ApiConfiguration.ServerInfo serverInfo = new ApiConfiguration.ServerInfoBuilder()
     .rootServerInfo(
         new RootServerInfo.RootServerInfoBuilder()
-            .server0(new Server0())
+            .rootServer0(new RootServer0())
             .build()
     )
     .build();
@@ -62,19 +63,21 @@ ApiConfiguration.ServerIndexInfo serverIndexInfo = new ApiConfiguration.ServerIn
     .rootServerInfoServerIndex(RootServerInfo.ServerIndex.SERVER_0)
     .build();
 Duration timeout = Duration.ofSeconds(1L);
+Map<String, List<String>> defaultHeaders = Map.of("User-Agent", List.of("OpenAPI-JSON-Schema-Generator/1.0.0/java"));
 ApiConfiguration apiConfiguration = new ApiConfiguration(
     serverInfo
     serverIndexInfo,
-    timeout
+    timeout,
+    defaultHeaders
 );
 SchemaConfiguration schemaConfiguration = new SchemaConfiguration(new JsonSchemaKeywordFlags.Builder().build());
 StoreorderorderidDelete.Delete apiClient = new StoreorderorderidDelete.Delete(apiConfiguration, schemaConfiguration);
 
 
 // Map validation
-StoreorderorderidDeletePathParameters.StoreorderorderidDeletePathParametersMap pathParameters =
+StoreorderorderidDeletePathParameters.PathParametersMap pathParameters =
     StoreorderorderidDeletePathParameters.StoreorderorderidDeletePathParameters1.validate(
-    new StoreorderorderidDeletePathParameters.StoreorderorderidDeletePathParametersMapBuilder()
+    new StoreorderorderidDeletePathParameters.PathParametersMapBuilder()
         .order_id("a")
 
     .build(),
@@ -134,7 +137,7 @@ a class that stores the final request inputs
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | --------------------- |
-| [StoreorderorderidDeletePathParameters.StoreorderorderidDeletePathParametersMap](../../paths/storeorderorderid/delete/StoreorderorderidDeletePathParameters.md#storeorderorderiddeletepathparametersmap) | pathParameters |
+| [StoreorderorderidDeletePathParameters.PathParametersMap](../../paths/storeorderorderid/delete/StoreorderorderidDeletePathParameters.md#pathparametersmap) | pathParameters |
 | [RootServerInfo.@Nullable ServerIndex](../../RootServerInfo.md#serverindex) | serverIndex<br>optional. Note: this will override the value in apiConfiguration |
 | @Nullable Duration | timeout<br>optional. Note: this will override the value in apiConfiguration |
 
@@ -146,7 +149,7 @@ a class that stores the initial request inputs
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | --------------------- |
-| [StoreorderorderidDeletePathParameters.@Nullable StoreorderorderidDeletePathParametersMap](../../paths/storeorderorderid/delete/StoreorderorderidDeletePathParameters.md#storeorderorderiddeletepathparametersmap) | pathParameters |
+| [StoreorderorderidDeletePathParameters.@Nullable PathParametersMap](../../paths/storeorderorderid/delete/StoreorderorderidDeletePathParameters.md#pathparametersmap) | pathParameters |
 | [RootServerInfo.@Nullable ServerIndex](../../RootServerInfo.md#serverindex) | serverIndex |
 | @Nullable Duration | timeout |
 
@@ -180,6 +183,6 @@ a builder for request inputs
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [Delete0RequestBuilder](#delete0requestbuilder) | pathParameters([StoreorderorderidDeletePathParametersStoreorderorderidDeletePathParametersMap](../../paths/storeorderorderid/delete/StoreorderorderidDeletePathParameters.md#storeorderorderiddeletepathparametersmap) pathParameters)<br>sets the property |
+| [Delete0RequestBuilder](#delete0requestbuilder) | pathParameters([StoreorderorderidDeletePathParametersPathParametersMap](../../paths/storeorderorderid/delete/StoreorderorderidDeletePathParameters.md#pathparametersmap) pathParameters)<br>sets the property |
 
 [[Back to top]](#top) [[Back to README]](../../../README.md)

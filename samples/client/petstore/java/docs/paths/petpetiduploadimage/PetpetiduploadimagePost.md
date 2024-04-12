@@ -38,9 +38,9 @@ import org.openapijsonschematools.client.paths.petpetiduploadimage.post.Petpetid
 import org.openapijsonschematools.client.RootServerInfo;
 import org.openapijsonschematools.client.paths.petpetiduploadimage.post.PetpetiduploadimagePostSecurityInfo;
 import org.openapijsonschematools.client.paths.petpetiduploadimage.post.PetpetiduploadimagePostPathParameters;
-import org.openapijsonschematools.client.servers.Server0;
-import org.openapijsonschematools.client.servers.Server1;
-import org.openapijsonschematools.client.servers.Server2;
+import org.openapijsonschematools.client.servers.RootServer0;
+import org.openapijsonschematools.client.servers.RootServer1;
+import org.openapijsonschematools.client.servers.RootServer2;
 import org.openapijsonschematools.client.securityschemes.SecurityScheme;
 import org.openapijsonschematools.client.components.securityschemes.PetstoreAuth;
 import org.openapijsonschematools.client.paths.petpetiduploadimage.post.responses.PetpetiduploadimagePostCode200Response;
@@ -52,13 +52,14 @@ import org.openapijsonschematools.client.paths.petpetiduploadimage.post.Petpetid
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
 import java.util.AbstractMap;
 
 // if you want to use a server that is not SERVER_0 pass it in here and change the ServerIndex input below
 ApiConfiguration.ServerInfo serverInfo = new ApiConfiguration.ServerInfoBuilder()
     .rootServerInfo(
         new RootServerInfo.RootServerInfoBuilder()
-            .server0(new Server0())
+            .rootServer0(new RootServer0())
             .build()
     )
     .build();
@@ -70,21 +71,23 @@ ApiConfiguration.SecurityIndexInfo securityIndexInfo = new ApiConfiguration.Secu
     .petpetiduploadimagePostSecurityRequirementObject0SecurityIndex(PetpetiduploadimagePostSecurityRequirementObject0.SecurityIndex.SECURITY_0)
     .build();
 Duration timeout = Duration.ofSeconds(1L);
+Map<String, List<String>> defaultHeaders = Map.of("User-Agent", List.of("OpenAPI-JSON-Schema-Generator/1.0.0/java"));
 ApiConfiguration apiConfiguration = new ApiConfiguration(
     serverInfo
     serverIndexInfo,
     securitySchemes,
     securityIndexInfo,
-    timeout
+    timeout,
+    defaultHeaders
 );
 SchemaConfiguration schemaConfiguration = new SchemaConfiguration(new JsonSchemaKeywordFlags.Builder().build());
 PetpetiduploadimagePost.Post apiClient = new PetpetiduploadimagePost.Post(apiConfiguration, schemaConfiguration);
 
 
 // Map validation
-PetpetiduploadimagePostPathParameters.PetpetiduploadimagePostPathParametersMap pathParameters =
+PetpetiduploadimagePostPathParameters.PathParametersMap pathParameters =
     PetpetiduploadimagePostPathParameters.PetpetiduploadimagePostPathParameters1.validate(
-    new PetpetiduploadimagePostPathParameters.PetpetiduploadimagePostPathParametersMapBuilder()
+    new PetpetiduploadimagePostPathParameters.PathParametersMapBuilder()
         .petId(1L)
 
     .build(),
@@ -143,7 +146,7 @@ a class that stores the final request inputs
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | --------------------- |
-| [PetpetiduploadimagePostPathParameters.PetpetiduploadimagePostPathParametersMap](../../paths/petpetiduploadimage/post/PetpetiduploadimagePostPathParameters.md#petpetiduploadimagepostpathparametersmap) | pathParameters |
+| [PetpetiduploadimagePostPathParameters.PathParametersMap](../../paths/petpetiduploadimage/post/PetpetiduploadimagePostPathParameters.md#pathparametersmap) | pathParameters |
 | [PetpetiduploadimagePostRequestBody.@Nullable SealedRequestBody](../../paths/petpetiduploadimage/post/PetpetiduploadimagePostRequestBody.md#sealedrequestbody) | requestBody<br>optional |
 | [RootServerInfo.@Nullable ServerIndex](../../RootServerInfo.md#serverindex) | serverIndex<br>optional. Note: this will override the value in apiConfiguration |
 | [PetpetiduploadimagePostSecurityInfo.@Nullable SecurityIndex](../../paths/petpetiduploadimage/post/PetpetiduploadimagePostSecurityInfo.md#securityindex) | securityIndex<br>optional. Note: this will override the value in apiConfiguration |
@@ -157,7 +160,7 @@ a class that stores the initial request inputs
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | --------------------- |
-| [PetpetiduploadimagePostPathParameters.@Nullable PetpetiduploadimagePostPathParametersMap](../../paths/petpetiduploadimage/post/PetpetiduploadimagePostPathParameters.md#petpetiduploadimagepostpathparametersmap) | pathParameters |
+| [PetpetiduploadimagePostPathParameters.@Nullable PathParametersMap](../../paths/petpetiduploadimage/post/PetpetiduploadimagePostPathParameters.md#pathparametersmap) | pathParameters |
 | [PetpetiduploadimagePostRequestBody.@Nullable SealedRequestBody](../../paths/petpetiduploadimage/post/PetpetiduploadimagePostRequestBody.md#sealedrequestbody) | requestBody |
 | [RootServerInfo.@Nullable ServerIndex](../../RootServerInfo.md#serverindex) | serverIndex |
 | [PetpetiduploadimagePostSecurityInfo.@Nullable SecurityIndex](../../paths/petpetiduploadimage/post/PetpetiduploadimagePostSecurityInfo.md#securityindex) | securityIndex |
@@ -195,6 +198,6 @@ a builder for request inputs
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [Post0RequestBuilder](#post0requestbuilder) | pathParameters([PetpetiduploadimagePostPathParametersPetpetiduploadimagePostPathParametersMap](../../paths/petpetiduploadimage/post/PetpetiduploadimagePostPathParameters.md#petpetiduploadimagepostpathparametersmap) pathParameters)<br>sets the property |
+| [Post0RequestBuilder](#post0requestbuilder) | pathParameters([PetpetiduploadimagePostPathParametersPathParametersMap](../../paths/petpetiduploadimage/post/PetpetiduploadimagePostPathParameters.md#pathparametersmap) pathParameters)<br>sets the property |
 
 [[Back to top]](#top) [[Back to README]](../../../README.md)

@@ -36,9 +36,9 @@ import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.RootServerInfo;
 import org.openapijsonschematools.client.paths.userlogin.get.UserloginGetQueryParameters;
-import org.openapijsonschematools.client.servers.Server0;
-import org.openapijsonschematools.client.servers.Server1;
-import org.openapijsonschematools.client.servers.Server2;
+import org.openapijsonschematools.client.servers.RootServer0;
+import org.openapijsonschematools.client.servers.RootServer1;
+import org.openapijsonschematools.client.servers.RootServer2;
 import org.openapijsonschematools.client.paths.userlogin.get.responses.UserloginGetCode200Response;
 import org.openapijsonschematools.client.paths.userlogin.get.responses.code200response.UserloginGetCode200ResponseHeadersSchema;
 import org.openapijsonschematools.client.paths.userlogin.get.responses.UserloginGetCode400Response;
@@ -49,13 +49,14 @@ import org.openapijsonschematools.client.paths.userlogin.get.UserloginGetRespons
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
 import java.util.AbstractMap;
 
 // if you want to use a server that is not SERVER_0 pass it in here and change the ServerIndex input below
 ApiConfiguration.ServerInfo serverInfo = new ApiConfiguration.ServerInfoBuilder()
     .rootServerInfo(
         new RootServerInfo.RootServerInfoBuilder()
-            .server0(new Server0())
+            .rootServer0(new RootServer0())
             .build()
     )
     .build();
@@ -63,19 +64,21 @@ ApiConfiguration.ServerIndexInfo serverIndexInfo = new ApiConfiguration.ServerIn
     .rootServerInfoServerIndex(RootServerInfo.ServerIndex.SERVER_0)
     .build();
 Duration timeout = Duration.ofSeconds(1L);
+Map<String, List<String>> defaultHeaders = Map.of("User-Agent", List.of("OpenAPI-JSON-Schema-Generator/1.0.0/java"));
 ApiConfiguration apiConfiguration = new ApiConfiguration(
     serverInfo
     serverIndexInfo,
-    timeout
+    timeout,
+    defaultHeaders
 );
 SchemaConfiguration schemaConfiguration = new SchemaConfiguration(new JsonSchemaKeywordFlags.Builder().build());
 UserloginGet.Get apiClient = new UserloginGet.Get(apiConfiguration, schemaConfiguration);
 
 
 // Map validation
-UserloginGetQueryParameters.UserloginGetQueryParametersMap queryParameters =
+UserloginGetQueryParameters.QueryParametersMap queryParameters =
     UserloginGetQueryParameters.UserloginGetQueryParameters1.validate(
-    new UserloginGetQueryParameters.UserloginGetQueryParametersMapBuilder()
+    new UserloginGetQueryParameters.QueryParametersMapBuilder()
         .password("a")
 
         .username("a")
@@ -144,7 +147,7 @@ a class that stores the final request inputs
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | --------------------- |
-| [UserloginGetQueryParameters.UserloginGetQueryParametersMap](../../paths/userlogin/get/UserloginGetQueryParameters.md#userlogingetqueryparametersmap) | queryParameters |
+| [UserloginGetQueryParameters.QueryParametersMap](../../paths/userlogin/get/UserloginGetQueryParameters.md#queryparametersmap) | queryParameters |
 | [RootServerInfo.@Nullable ServerIndex](../../RootServerInfo.md#serverindex) | serverIndex<br>optional. Note: this will override the value in apiConfiguration |
 | @Nullable Duration | timeout<br>optional. Note: this will override the value in apiConfiguration |
 
@@ -156,7 +159,7 @@ a class that stores the initial request inputs
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | --------------------- |
-| [UserloginGetQueryParameters.@Nullable UserloginGetQueryParametersMap](../../paths/userlogin/get/UserloginGetQueryParameters.md#userlogingetqueryparametersmap) | queryParameters |
+| [UserloginGetQueryParameters.@Nullable QueryParametersMap](../../paths/userlogin/get/UserloginGetQueryParameters.md#queryparametersmap) | queryParameters |
 | [RootServerInfo.@Nullable ServerIndex](../../RootServerInfo.md#serverindex) | serverIndex |
 | @Nullable Duration | timeout |
 
@@ -190,6 +193,6 @@ a builder for request inputs
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [Get0RequestBuilder](#get0requestbuilder) | queryParameters([UserloginGetQueryParametersUserloginGetQueryParametersMap](../../paths/userlogin/get/UserloginGetQueryParameters.md#userlogingetqueryparametersmap) queryParameters)<br>sets the property |
+| [Get0RequestBuilder](#get0requestbuilder) | queryParameters([UserloginGetQueryParametersQueryParametersMap](../../paths/userlogin/get/UserloginGetQueryParameters.md#queryparametersmap) queryParameters)<br>sets the property |
 
 [[Back to top]](#top) [[Back to README]](../../../README.md)

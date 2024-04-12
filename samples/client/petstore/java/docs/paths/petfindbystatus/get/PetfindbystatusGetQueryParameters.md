@@ -14,16 +14,16 @@ A class that contains necessary nested
 | sealed interface | [PetfindbystatusGetQueryParameters.PetfindbystatusGetQueryParameters1Boxed](#petfindbystatusgetqueryparameters1boxed)<br> sealed interface for validated payloads |
 | record | [PetfindbystatusGetQueryParameters.PetfindbystatusGetQueryParameters1BoxedMap](#petfindbystatusgetqueryparameters1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [PetfindbystatusGetQueryParameters.PetfindbystatusGetQueryParameters1](#petfindbystatusgetqueryparameters1)<br> schema class |
-| static class | [PetfindbystatusGetQueryParameters.PetfindbystatusGetQueryParametersMapBuilder](#petfindbystatusgetqueryparametersmapbuilder)<br> builder for Map payloads |
-| static class | [PetfindbystatusGetQueryParameters.PetfindbystatusGetQueryParametersMap](#petfindbystatusgetqueryparametersmap)<br> output class for Map payloads |
-| sealed interface | [PetfindbystatusGetQueryParameters.PetfindbystatusGetadditionalPropertiesBoxed](#petfindbystatusgetadditionalpropertiesboxed)<br> sealed interface for validated payloads |
-| record | [PetfindbystatusGetQueryParameters.PetfindbystatusGetadditionalPropertiesBoxedVoid](#petfindbystatusgetadditionalpropertiesboxedvoid)<br> boxed class to store validated null payloads |
-| record | [PetfindbystatusGetQueryParameters.PetfindbystatusGetadditionalPropertiesBoxedBoolean](#petfindbystatusgetadditionalpropertiesboxedboolean)<br> boxed class to store validated boolean payloads |
-| record | [PetfindbystatusGetQueryParameters.PetfindbystatusGetadditionalPropertiesBoxedNumber](#petfindbystatusgetadditionalpropertiesboxednumber)<br> boxed class to store validated Number payloads |
-| record | [PetfindbystatusGetQueryParameters.PetfindbystatusGetadditionalPropertiesBoxedString](#petfindbystatusgetadditionalpropertiesboxedstring)<br> boxed class to store validated String payloads |
-| record | [PetfindbystatusGetQueryParameters.PetfindbystatusGetadditionalPropertiesBoxedList](#petfindbystatusgetadditionalpropertiesboxedlist)<br> boxed class to store validated List payloads |
-| record | [PetfindbystatusGetQueryParameters.PetfindbystatusGetadditionalPropertiesBoxedMap](#petfindbystatusgetadditionalpropertiesboxedmap)<br> boxed class to store validated Map payloads |
-| static class | [PetfindbystatusGetQueryParameters.PetfindbystatusGetadditionalProperties](#petfindbystatusgetadditionalproperties)<br> schema class |
+| static class | [PetfindbystatusGetQueryParameters.QueryParametersMapBuilder](#queryparametersmapbuilder)<br> builder for Map payloads |
+| static class | [PetfindbystatusGetQueryParameters.QueryParametersMap](#queryparametersmap)<br> output class for Map payloads |
+| sealed interface | [PetfindbystatusGetQueryParameters.AdditionalPropertiesBoxed](#additionalpropertiesboxed)<br> sealed interface for validated payloads |
+| record | [PetfindbystatusGetQueryParameters.AdditionalPropertiesBoxedVoid](#additionalpropertiesboxedvoid)<br> boxed class to store validated null payloads |
+| record | [PetfindbystatusGetQueryParameters.AdditionalPropertiesBoxedBoolean](#additionalpropertiesboxedboolean)<br> boxed class to store validated boolean payloads |
+| record | [PetfindbystatusGetQueryParameters.AdditionalPropertiesBoxedNumber](#additionalpropertiesboxednumber)<br> boxed class to store validated Number payloads |
+| record | [PetfindbystatusGetQueryParameters.AdditionalPropertiesBoxedString](#additionalpropertiesboxedstring)<br> boxed class to store validated String payloads |
+| record | [PetfindbystatusGetQueryParameters.AdditionalPropertiesBoxedList](#additionalpropertiesboxedlist)<br> boxed class to store validated List payloads |
+| record | [PetfindbystatusGetQueryParameters.AdditionalPropertiesBoxedMap](#additionalpropertiesboxedmap)<br> boxed class to store validated Map payloads |
+| static class | [PetfindbystatusGetQueryParameters.AdditionalProperties](#additionalproperties)<br> schema class |
 
 ## PetfindbystatusGetQueryParameters1Boxed
 public sealed interface PetfindbystatusGetQueryParameters1Boxed<br>
@@ -41,12 +41,12 @@ record that stores validated Map payloads, sealed permits implementation
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| PetfindbystatusGetQueryParameters1BoxedMap([PetfindbystatusGetQueryParametersMap](#petfindbystatusgetqueryparametersmap) data)<br>Creates an instance, private visibility |
+| PetfindbystatusGetQueryParameters1BoxedMap([QueryParametersMap](#queryparametersmap) data)<br>Creates an instance, private visibility |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [PetfindbystatusGetQueryParametersMap](#petfindbystatusgetqueryparametersmap) | data()<br>validated payload |
+| [QueryParametersMap](#queryparametersmap) | data()<br>validated payload |
 | @Nullable Object | getData()<br>validated payload |
 
 ## PetfindbystatusGetQueryParameters1
@@ -72,9 +72,9 @@ import java.util.AbstractMap;
 static final SchemaConfiguration configuration = new SchemaConfiguration(new JsonSchemaKeywordFlags.Builder().build());
 
 // Map validation
-PetfindbystatusGetQueryParameters.PetfindbystatusGetQueryParametersMap validatedPayload =
+PetfindbystatusGetQueryParameters.QueryParametersMap validatedPayload =
     PetfindbystatusGetQueryParameters.PetfindbystatusGetQueryParameters1.validate(
-    new PetfindbystatusGetQueryParameters.PetfindbystatusGetQueryParametersMapBuilder()
+    new PetfindbystatusGetQueryParameters.QueryParametersMapBuilder()
         .status(
             Arrays.asList(
                 "available"
@@ -91,18 +91,18 @@ PetfindbystatusGetQueryParameters.PetfindbystatusGetQueryParametersMap validated
 | Set<Class<?>> | type = Set.of(Map.class) |
 | Map<String, Class<? extends JsonSchema>> | properties = Map.ofEntries(<br>&nbsp;&nbsp;&nbsp;&nbsp;new PropertyEntry("status", [Schema0.Schema01.class](../../../paths/petfindbystatus/get/parameters/parameter0/Schema0.md#schema01))<br>)<br> |
 | Set<String> | required = Set.of(<br>&nbsp;&nbsp;&nbsp;&nbsp;"status"<br>)<br> |
-| Class<? extends JsonSchema> | additionalProperties = [PetfindbystatusGetadditionalProperties.class](#petfindbystatusgetadditionalproperties) |
+| Class<? extends JsonSchema> | additionalProperties = [AdditionalProperties.class](#additionalproperties) |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [PetfindbystatusGetQueryParametersMap](#petfindbystatusgetqueryparametersmap) | validate([Map&lt;?, ?&gt;](#petfindbystatusgetqueryparametersmapbuilder) arg, SchemaConfiguration configuration) |
-| [PetfindbystatusGetQueryParameters1BoxedMap](#petfindbystatusgetqueryparameters1boxedmap) | validateAndBox([Map&lt;?, ?&gt;](#petfindbystatusgetqueryparametersmapbuilder) arg, SchemaConfiguration configuration) |
+| [QueryParametersMap](#queryparametersmap) | validate([Map&lt;?, ?&gt;](#queryparametersmapbuilder) arg, SchemaConfiguration configuration) |
+| [PetfindbystatusGetQueryParameters1BoxedMap](#petfindbystatusgetqueryparameters1boxedmap) | validateAndBox([Map&lt;?, ?&gt;](#queryparametersmapbuilder) arg, SchemaConfiguration configuration) |
 | [PetfindbystatusGetQueryParameters1Boxed](#petfindbystatusgetqueryparameters1boxed) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 
-## PetfindbystatusGetQueryParametersMap0Builder
-public class PetfindbystatusGetQueryParametersMap0Builder<br>
+## QueryParametersMap0Builder
+public class QueryParametersMap0Builder<br>
 builder for `Map<String, List<String>>`
 
 A class that builds the Map input type
@@ -110,15 +110,15 @@ A class that builds the Map input type
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| PetfindbystatusGetQueryParametersMap0Builder(Map<String, List<String>> instance)<br>Creates a builder that contains the passed instance |
+| QueryParametersMap0Builder(Map<String, List<String>> instance)<br>Creates a builder that contains the passed instance |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | Map<String, List<String>> | build()<br>Returns map input that should be used with Schema.validate |
 
-## PetfindbystatusGetQueryParametersMapBuilder
-public class PetfindbystatusGetQueryParametersMapBuilder<br>
+## QueryParametersMapBuilder
+public class QueryParametersMapBuilder<br>
 builder for `Map<String, List<String>>`
 
 A class that builds the Map input type
@@ -126,15 +126,15 @@ A class that builds the Map input type
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| PetfindbystatusGetQueryParametersMapBuilder()<br>Creates a builder that contains an empty map |
+| QueryParametersMapBuilder()<br>Creates a builder that contains an empty map |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [PetfindbystatusGetQueryParametersMap0Builder](#petfindbystatusgetqueryparametersmap0builder) | status(List<String> value) |
+| [QueryParametersMap0Builder](#queryparametersmap0builder) | status(List<String> value) |
 
-## PetfindbystatusGetQueryParametersMap
-public static class PetfindbystatusGetQueryParametersMap<br>
+## QueryParametersMap
+public static class QueryParametersMap<br>
 extends FrozenMap<String, Schema0.SchemaList0>
 
 A class to store validated Map payloads
@@ -142,31 +142,31 @@ A class to store validated Map payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [PetfindbystatusGetQueryParametersMap](#petfindbystatusgetqueryparametersmap) | of([Map<String, List<String>>](#petfindbystatusgetqueryparametersmapbuilder) arg, SchemaConfiguration configuration) |
+| static [QueryParametersMap](#queryparametersmap) | of([Map<String, List<String>>](#queryparametersmapbuilder) arg, SchemaConfiguration configuration) |
 | [Schema0.SchemaList0](../../../paths/petfindbystatus/get/parameters/parameter0/Schema0.md#schemalist0) | status()<br> |
 
-## PetfindbystatusGetadditionalPropertiesBoxed
-public sealed interface PetfindbystatusGetadditionalPropertiesBoxed<br>
+## AdditionalPropertiesBoxed
+public sealed interface AdditionalPropertiesBoxed<br>
 permits<br>
-[PetfindbystatusGetadditionalPropertiesBoxedVoid](#petfindbystatusgetadditionalpropertiesboxedvoid),
-[PetfindbystatusGetadditionalPropertiesBoxedBoolean](#petfindbystatusgetadditionalpropertiesboxedboolean),
-[PetfindbystatusGetadditionalPropertiesBoxedNumber](#petfindbystatusgetadditionalpropertiesboxednumber),
-[PetfindbystatusGetadditionalPropertiesBoxedString](#petfindbystatusgetadditionalpropertiesboxedstring),
-[PetfindbystatusGetadditionalPropertiesBoxedList](#petfindbystatusgetadditionalpropertiesboxedlist),
-[PetfindbystatusGetadditionalPropertiesBoxedMap](#petfindbystatusgetadditionalpropertiesboxedmap)
+[AdditionalPropertiesBoxedVoid](#additionalpropertiesboxedvoid),
+[AdditionalPropertiesBoxedBoolean](#additionalpropertiesboxedboolean),
+[AdditionalPropertiesBoxedNumber](#additionalpropertiesboxednumber),
+[AdditionalPropertiesBoxedString](#additionalpropertiesboxedstring),
+[AdditionalPropertiesBoxedList](#additionalpropertiesboxedlist),
+[AdditionalPropertiesBoxedMap](#additionalpropertiesboxedmap)
 
 sealed interface that stores validated payloads using boxed classes
 
-## PetfindbystatusGetadditionalPropertiesBoxedVoid
-public record PetfindbystatusGetadditionalPropertiesBoxedVoid<br>
-implements [PetfindbystatusGetadditionalPropertiesBoxed](#petfindbystatusgetadditionalpropertiesboxed)
+## AdditionalPropertiesBoxedVoid
+public record AdditionalPropertiesBoxedVoid<br>
+implements [AdditionalPropertiesBoxed](#additionalpropertiesboxed)
 
 record that stores validated null payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| PetfindbystatusGetadditionalPropertiesBoxedVoid(Void data)<br>Creates an instance, private visibility |
+| AdditionalPropertiesBoxedVoid(Void data)<br>Creates an instance, private visibility |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
@@ -174,16 +174,16 @@ record that stores validated null payloads, sealed permits implementation
 | Void | data()<br>validated payload |
 | @Nullable Object | getData()<br>validated payload |
 
-## PetfindbystatusGetadditionalPropertiesBoxedBoolean
-public record PetfindbystatusGetadditionalPropertiesBoxedBoolean<br>
-implements [PetfindbystatusGetadditionalPropertiesBoxed](#petfindbystatusgetadditionalpropertiesboxed)
+## AdditionalPropertiesBoxedBoolean
+public record AdditionalPropertiesBoxedBoolean<br>
+implements [AdditionalPropertiesBoxed](#additionalpropertiesboxed)
 
 record that stores validated boolean payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| PetfindbystatusGetadditionalPropertiesBoxedBoolean(boolean data)<br>Creates an instance, private visibility |
+| AdditionalPropertiesBoxedBoolean(boolean data)<br>Creates an instance, private visibility |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
@@ -191,16 +191,16 @@ record that stores validated boolean payloads, sealed permits implementation
 | boolean | data()<br>validated payload |
 | @Nullable Object | getData()<br>validated payload |
 
-## PetfindbystatusGetadditionalPropertiesBoxedNumber
-public record PetfindbystatusGetadditionalPropertiesBoxedNumber<br>
-implements [PetfindbystatusGetadditionalPropertiesBoxed](#petfindbystatusgetadditionalpropertiesboxed)
+## AdditionalPropertiesBoxedNumber
+public record AdditionalPropertiesBoxedNumber<br>
+implements [AdditionalPropertiesBoxed](#additionalpropertiesboxed)
 
 record that stores validated Number payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| PetfindbystatusGetadditionalPropertiesBoxedNumber(Number data)<br>Creates an instance, private visibility |
+| AdditionalPropertiesBoxedNumber(Number data)<br>Creates an instance, private visibility |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
@@ -208,16 +208,16 @@ record that stores validated Number payloads, sealed permits implementation
 | Number | data()<br>validated payload |
 | @Nullable Object | getData()<br>validated payload |
 
-## PetfindbystatusGetadditionalPropertiesBoxedString
-public record PetfindbystatusGetadditionalPropertiesBoxedString<br>
-implements [PetfindbystatusGetadditionalPropertiesBoxed](#petfindbystatusgetadditionalpropertiesboxed)
+## AdditionalPropertiesBoxedString
+public record AdditionalPropertiesBoxedString<br>
+implements [AdditionalPropertiesBoxed](#additionalpropertiesboxed)
 
 record that stores validated String payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| PetfindbystatusGetadditionalPropertiesBoxedString(String data)<br>Creates an instance, private visibility |
+| AdditionalPropertiesBoxedString(String data)<br>Creates an instance, private visibility |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
@@ -225,16 +225,16 @@ record that stores validated String payloads, sealed permits implementation
 | String | data()<br>validated payload |
 | @Nullable Object | getData()<br>validated payload |
 
-## PetfindbystatusGetadditionalPropertiesBoxedList
-public record PetfindbystatusGetadditionalPropertiesBoxedList<br>
-implements [PetfindbystatusGetadditionalPropertiesBoxed](#petfindbystatusgetadditionalpropertiesboxed)
+## AdditionalPropertiesBoxedList
+public record AdditionalPropertiesBoxedList<br>
+implements [AdditionalPropertiesBoxed](#additionalpropertiesboxed)
 
 record that stores validated List payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| PetfindbystatusGetadditionalPropertiesBoxedList(FrozenList<@Nullable Object> data)<br>Creates an instance, private visibility |
+| AdditionalPropertiesBoxedList(FrozenList<@Nullable Object> data)<br>Creates an instance, private visibility |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
@@ -242,16 +242,16 @@ record that stores validated List payloads, sealed permits implementation
 | FrozenList<@Nullable Object> | data()<br>validated payload |
 | @Nullable Object | getData()<br>validated payload |
 
-## PetfindbystatusGetadditionalPropertiesBoxedMap
-public record PetfindbystatusGetadditionalPropertiesBoxedMap<br>
-implements [PetfindbystatusGetadditionalPropertiesBoxed](#petfindbystatusgetadditionalpropertiesboxed)
+## AdditionalPropertiesBoxedMap
+public record AdditionalPropertiesBoxedMap<br>
+implements [AdditionalPropertiesBoxed](#additionalpropertiesboxed)
 
 record that stores validated Map payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| PetfindbystatusGetadditionalPropertiesBoxedMap(FrozenMap<@Nullable Object> data)<br>Creates an instance, private visibility |
+| AdditionalPropertiesBoxedMap(FrozenMap<@Nullable Object> data)<br>Creates an instance, private visibility |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
@@ -259,8 +259,8 @@ record that stores validated Map payloads, sealed permits implementation
 | FrozenMap<@Nullable Object> | data()<br>validated payload |
 | @Nullable Object | getData()<br>validated payload |
 
-## PetfindbystatusGetadditionalProperties
-public static class PetfindbystatusGetadditionalProperties<br>
+## AdditionalProperties
+public static class AdditionalProperties<br>
 extends NotAnyTypeJsonSchema.NotAnyTypeJsonSchema1
 
 A schema class that validates payloads

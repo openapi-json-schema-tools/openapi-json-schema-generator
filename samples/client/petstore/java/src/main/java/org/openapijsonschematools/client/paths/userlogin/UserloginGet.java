@@ -80,12 +80,12 @@ public class UserloginGet {
     }
 
     public static class GetRequest {
-        public UserloginGetQueryParameters.UserloginGetQueryParametersMap queryParameters;
+        public UserloginGetQueryParameters.QueryParametersMap queryParameters;
         public RootServerInfo.@Nullable ServerIndex serverIndex;
         public @Nullable Duration timeout;
 
         public GetRequest(
-            UserloginGetQueryParameters.UserloginGetQueryParametersMap queryParameters,
+            UserloginGetQueryParameters.QueryParametersMap queryParameters,
             RootServerInfo.@Nullable ServerIndex serverIndex,
             @Nullable Duration timeout
         ) {
@@ -96,7 +96,7 @@ public class UserloginGet {
     }
 
     public static class GetNullableRequest {
-        public UserloginGetQueryParameters.@Nullable UserloginGetQueryParametersMap queryParameters;
+        public UserloginGetQueryParameters.@Nullable QueryParametersMap queryParameters;
         public RootServerInfo.@Nullable ServerIndex serverIndex;
         public @Nullable Duration timeout;
     }
@@ -124,7 +124,7 @@ public class UserloginGet {
     public interface SetterForQueryParameters <T> {
         GetNullableRequest getInstance();
         T getBuilderAfterQueryParameters(GetNullableRequest instance);
-        default T queryParameters(UserloginGetQueryParameters.UserloginGetQueryParametersMap queryParameters) {
+        default T queryParameters(UserloginGetQueryParameters.QueryParametersMap queryParameters) {
             var instance = getInstance();
             instance.queryParameters = queryParameters;
             return getBuilderAfterQueryParameters(instance);
