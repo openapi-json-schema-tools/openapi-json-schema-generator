@@ -98,18 +98,18 @@ try {
     throw e;
 }
 if (response instanceof FakewildcardresponsesGetResponses.EndpointFakewildcardresponsesGetCode1XXResponse castResponse) {
-FakewildcardresponsesGetCode1XXResponse.ApplicationjsonResponseBody deserializedBody = (FakewildcardresponsesGetCode1XXResponse.ApplicationjsonResponseBody) castResponse.body;
-// handle deserialized body here
+    FakewildcardresponsesGetCode1XXResponse.ApplicationjsonResponseBody deserializedBody = (FakewildcardresponsesGetCode1XXResponse.ApplicationjsonResponseBody) castResponse.body;
+    // handle deserialized body here
 } else if (response instanceof FakewildcardresponsesGetResponses.EndpointFakewildcardresponsesGetCode2XXResponse castResponse) {
-FakewildcardresponsesGetCode2XXResponse.ApplicationjsonResponseBody deserializedBody = (FakewildcardresponsesGetCode2XXResponse.ApplicationjsonResponseBody) castResponse.body;
-// handle deserialized body here
+    FakewildcardresponsesGetCode2XXResponse.ApplicationjsonResponseBody deserializedBody = (FakewildcardresponsesGetCode2XXResponse.ApplicationjsonResponseBody) castResponse.body;
+    // handle deserialized body here
 } else if (response instanceof FakewildcardresponsesGetResponses.EndpointFakewildcardresponsesGetCode200Response castResponse) {
-FakewildcardresponsesGetCode200Response.ApplicationjsonResponseBody deserializedBody = (FakewildcardresponsesGetCode200Response.ApplicationjsonResponseBody) castResponse.body;
-// handle deserialized body here
+    FakewildcardresponsesGetCode200Response.ApplicationjsonResponseBody deserializedBody = (FakewildcardresponsesGetCode200Response.ApplicationjsonResponseBody) castResponse.body;
+    // handle deserialized body here
 } else {
     FakewildcardresponsesGetResponses.EndpointFakewildcardresponsesGetCode3XXResponse castResponse = (FakewildcardresponsesGetResponses.EndpointFakewildcardresponsesGetCode3XXResponse) response;
-FakewildcardresponsesGetCode3XXResponse.ApplicationjsonResponseBody deserializedBody = (FakewildcardresponsesGetCode3XXResponse.ApplicationjsonResponseBody) castResponse.body;
-// handle deserialized body here
+    FakewildcardresponsesGetCode3XXResponse.ApplicationjsonResponseBody deserializedBody = (FakewildcardresponsesGetCode3XXResponse.ApplicationjsonResponseBody) castResponse.body;
+    // handle deserialized body here
 }
 ```
 ### Constructor Summary

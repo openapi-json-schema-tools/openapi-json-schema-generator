@@ -259,10 +259,12 @@ if (response instanceof {{responses.jsonPathPiece.pascalCase}}.Endpoint{{jsonPat
                 {{/if}}
             {{/if}}
             {{#if hasContentSchema}}
-{{> src/main/java/packagename/paths/path/verb/_OperationDocResBodyCodeSample }}
+    {{> src/main/java/packagename/paths/path/verb/_OperationDocResBodyCodeSample }}
+            {{/if}}
+            {{#if @last}}
+}
             {{/if}}
         {{/each}}
-}
     {{/eq}}
 {{/if}}
 ```
