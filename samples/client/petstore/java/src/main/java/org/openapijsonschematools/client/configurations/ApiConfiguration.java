@@ -4,7 +4,7 @@ import org.openapijsonschematools.client.securityrequirementobjects.SecurityRequ
 import org.openapijsonschematools.client.servers.Server;
 import org.openapijsonschematools.client.paths.foo.get.FooGetServerInfo;
 import org.openapijsonschematools.client.paths.petfindbystatus.PetfindbystatusServerInfo;
-import org.openapijsonschematools.client.ServerInfo;
+import org.openapijsonschematools.client.RootServerInfo;
 import org.openapijsonschematools.client.paths.fake.delete.FakeDeleteSecurityInfo;
 import org.openapijsonschematools.client.paths.fake.post.FakePostSecurityInfo;
 import org.openapijsonschematools.client.paths.fakeclassnametest.patch.FakeclassnametestPatchSecurityInfo;
@@ -63,23 +63,23 @@ public class ApiConfiguration {
     public static class ServerInfo {
         final FooGetServerInfo.FooGetServerInfo1 fooGetServerInfo;
         final PetfindbystatusServerInfo.PetfindbystatusServerInfo1 petfindbystatusServerInfo;
-        final ServerInfo.ServerInfo1 serverInfo;
+        final RootServerInfo.RootServerInfo1 rootServerInfo;
 
         ServerInfo(
             FooGetServerInfo. @Nullable FooGetServerInfo1 fooGetServerInfo,
             PetfindbystatusServerInfo. @Nullable PetfindbystatusServerInfo1 petfindbystatusServerInfo,
-            ServerInfo. @Nullable ServerInfo1 serverInfo
+            RootServerInfo. @Nullable RootServerInfo1 rootServerInfo
         ) {
             this.fooGetServerInfo = Objects.requireNonNullElse(fooGetServerInfo, new FooGetServerInfo.FooGetServerInfoBuilder().build());
             this.petfindbystatusServerInfo = Objects.requireNonNullElse(petfindbystatusServerInfo, new PetfindbystatusServerInfo.PetfindbystatusServerInfoBuilder().build());
-            this.serverInfo = Objects.requireNonNullElse(serverInfo, new ServerInfo.ServerInfoBuilder().build());
+            this.rootServerInfo = Objects.requireNonNullElse(rootServerInfo, new RootServerInfo.RootServerInfoBuilder().build());
         }
     }
 
     public static class ServerInfoBuilder {
         private FooGetServerInfo. @Nullable FooGetServerInfo1 fooGetServerInfo;
         private PetfindbystatusServerInfo. @Nullable PetfindbystatusServerInfo1 petfindbystatusServerInfo;
-        private ServerInfo. @Nullable ServerInfo1 serverInfo;
+        private RootServerInfo. @Nullable RootServerInfo1 rootServerInfo;
         public ServerInfoBuilder() {}
 
         public ServerInfoBuilder fooGetServerInfo(FooGetServerInfo.FooGetServerInfo1 fooGetServerInfo) {
@@ -92,8 +92,8 @@ public class ApiConfiguration {
             return this;
         }
 
-        public ServerInfoBuilder serverInfo(ServerInfo.ServerInfo1 serverInfo) {
-            this.serverInfo = serverInfo;
+        public ServerInfoBuilder rootServerInfo(RootServerInfo.RootServerInfo1 rootServerInfo) {
+            this.rootServerInfo = rootServerInfo;
             return this;
         }
 
@@ -101,7 +101,7 @@ public class ApiConfiguration {
             return new ServerInfo(
                 fooGetServerInfo,
                 petfindbystatusServerInfo,
-                serverInfo
+                rootServerInfo
             );
         }
     }
@@ -109,23 +109,23 @@ public class ApiConfiguration {
     public static class ServerIndexInfo {
         final FooGetServerInfo.ServerIndex fooGetServerInfoServerIndex;
         final PetfindbystatusServerInfo.ServerIndex petfindbystatusServerInfoServerIndex;
-        final ServerInfo.ServerIndex serverInfoServerIndex;
+        final RootServerInfo.ServerIndex rootServerInfoServerIndex;
 
         ServerIndexInfo(
             FooGetServerInfo. @Nullable ServerIndex fooGetServerInfoServerIndex,
             PetfindbystatusServerInfo. @Nullable ServerIndex petfindbystatusServerInfoServerIndex,
-            ServerInfo. @Nullable ServerIndex serverInfoServerIndex
+            RootServerInfo. @Nullable ServerIndex rootServerInfoServerIndex
         ) {
             this.fooGetServerInfoServerIndex = Objects.requireNonNullElse(fooGetServerInfoServerIndex, FooGetServerInfo.ServerIndex.SERVER_0);
             this.petfindbystatusServerInfoServerIndex = Objects.requireNonNullElse(petfindbystatusServerInfoServerIndex, PetfindbystatusServerInfo.ServerIndex.SERVER_0);
-            this.serverInfoServerIndex = Objects.requireNonNullElse(serverInfoServerIndex, ServerInfo.ServerIndex.SERVER_0);
+            this.rootServerInfoServerIndex = Objects.requireNonNullElse(rootServerInfoServerIndex, RootServerInfo.ServerIndex.SERVER_0);
         }
     }
 
     public static class ServerIndexInfoBuilder {
         private FooGetServerInfo. @Nullable ServerIndex fooGetServerInfoServerIndex;
         private PetfindbystatusServerInfo. @Nullable ServerIndex petfindbystatusServerInfoServerIndex;
-        private ServerInfo. @Nullable ServerIndex serverInfoServerIndex;
+        private RootServerInfo. @Nullable ServerIndex rootServerInfoServerIndex;
         public ServerIndexInfoBuilder() {}
 
         public ServerIndexInfoBuilder fooGetServerInfoServerIndex(FooGetServerInfo.ServerIndex serverIndex) {
@@ -138,8 +138,8 @@ public class ApiConfiguration {
             return this;
         }
 
-        public ServerIndexInfoBuilder serverInfoServerIndex(ServerInfo.ServerIndex serverIndex) {
-            this.serverInfoServerIndex = serverIndex;
+        public ServerIndexInfoBuilder rootServerInfoServerIndex(RootServerInfo.ServerIndex serverIndex) {
+            this.rootServerInfoServerIndex = serverIndex;
             return this;
         }
 
@@ -147,7 +147,7 @@ public class ApiConfiguration {
             return new ServerIndexInfo(
                 fooGetServerInfoServerIndex,
                 petfindbystatusServerInfoServerIndex,
-                serverInfoServerIndex
+                rootServerInfoServerIndex
             );
         }
     }
@@ -170,10 +170,10 @@ public class ApiConfiguration {
         return serverProvider.getServer(serverIndex);
     }
 
-    public Server getServer(ServerInfo. @Nullable ServerIndex serverIndex) {
-        var serverProvider = serverInfo.serverInfo;
+    public Server getServer(RootServerInfo. @Nullable ServerIndex serverIndex) {
+        var serverProvider = serverInfo.rootServerInfo;
         if (serverIndex == null) {
-            ServerInfo.ServerIndex configServerIndex = serverIndexInfo.serverInfoServerIndex;
+            RootServerInfo.ServerIndex configServerIndex = serverIndexInfo.rootServerInfoServerIndex;
             return serverProvider.getServer(configServerIndex);
         }
         return serverProvider.getServer(serverIndex);
@@ -491,7 +491,7 @@ public class ApiConfiguration {
     }
 
     public Map<String, List< String>> getDefaultHeaders() {
-        return new HashMap<>();
+        return defaultHeaders;
     }
 
     public @Nullable Duration getTimeout() {

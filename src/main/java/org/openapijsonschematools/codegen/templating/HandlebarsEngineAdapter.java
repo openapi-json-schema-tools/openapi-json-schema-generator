@@ -78,7 +78,7 @@ public class HandlebarsEngineAdapter extends AbstractTemplatingEngineAdapter {
 
         Handlebars handlebars = new Handlebars(loader);
         handlebars.registerHelperMissing((obj, options) -> {
-            LOGGER.warn(String.format(Locale.ROOT, "Unregistered helper name '%s', processing template:%n%s", options.helperName, options.fn.text()));
+            LOGGER.warn(String.format(Locale.ROOT, "Unregistered helper name '%s', processing template:%n%s", options.helperName, options.fn.toString()));
             return "";
         });
         handlebars.registerHelper("json", Jackson2Helper.INSTANCE);

@@ -234,7 +234,7 @@ public class ApiConfiguration {
     {{/if}}
 
     public Map<String, List< String>> getDefaultHeaders() {
-        return new HashMap<>();
+        return defaultHeaders;
     }
 
     public @Nullable Duration getTimeout() {

@@ -157,12 +157,12 @@ import org.openapijsonschematools.client.exceptions.ApiException;
 import org.openapijsonschematools.client.schemas.validation.MapUtils;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
-import org.openapijsonschematools.client.ServerInfo;
-import org.openapijsonschematools.client.servers.Server0;
-import org.openapijsonschematools.client.servers.Server1;
-import org.openapijsonschematools.client.servers.Server2;
+import org.openapijsonschematools.client.RootServerInfo;
+import org.openapijsonschematools.client.servers.RootServer0;
+import org.openapijsonschematools.client.servers.RootServer1;
+import org.openapijsonschematools.client.servers.RootServer2;
 import org.openapijsonschematools.client.paths.solidus.get.responses.SolidusGetCode200Response;
-import org.openapijsonschematools.client.servers.ServerInfo;
+import org.openapijsonschematools.client.servers.RootServerInfo;
 import org.openapijsonschematools.client.apis.tags.Fake;
 import org.openapijsonschematools.client.paths.solidus.get.SolidusGetResponses;
 
@@ -174,14 +174,14 @@ import java.util.AbstractMap;
 
 // if you want to use a server that is not SERVER_0 pass it in here and change the ServerIndex input below
 ApiConfiguration.ServerInfo serverInfo = new ApiConfiguration.ServerInfoBuilder()
-    .serverInfo(
-        new ServerInfo.ServerInfoBuilder()
-            .server0(new Server0())
+    .rootServerInfo(
+        new RootServerInfo.RootServerInfoBuilder()
+            .rootServer0(new RootServer0())
             .build()
     )
     .build();
 ApiConfiguration.ServerIndexInfo serverIndexInfo = new ApiConfiguration.ServerIndexInfoBuilder()
-    .serverInfoServerIndex(ServerInfo.ServerIndex.SERVER_0)
+    .rootServerInfoServerIndex(RootServerInfo.ServerIndex.SERVER_0)
     .build();
 Duration timeout = Duration.ofSeconds(1L);
 Map<String, List<String>> defaultHeaders = Map.of("User-Agent", List.of("OpenAPI-JSON-Schema-Generator/1.0.0/java"));
@@ -219,9 +219,9 @@ SolidusGetResponses.EndpointSolidusGetCode200Response castResponse = (SolidusGet
 ## Servers
 | server_index | Class | Description |
 | ------------ | ----- | ----------- |
-| 0 | [Server0](docs/servers/Server0.md) | petstore server |
-| 1 | [Server1](docs/servers/Server1.md) | The local server |
-| 2 | [Server2](docs/servers/Server2.md) | staging server with no variables |
+| 0 | [RootServer0](docs/servers/RootServer0.md) | petstore server |
+| 1 | [RootServer1](docs/servers/RootServer1.md) | The local server |
+| 2 | [RootServer2](docs/servers/RootServer2.md) | staging server with no variables |
 
 ## Component SecuritySchemes
 | Class | Description |

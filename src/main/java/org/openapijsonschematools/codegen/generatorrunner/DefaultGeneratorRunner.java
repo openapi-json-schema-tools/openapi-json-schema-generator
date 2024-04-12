@@ -384,6 +384,7 @@ public class DefaultGeneratorRunner implements GeneratorRunner {
     }
 
     private void generateFile(Map<String, Object> templateData, String templateName, String outputFilename, List<File> files, boolean shouldGenerate, String skippedByOption) {
+        templateData.putAll(generator.additionalProperties());
         try {
             File written = processTemplateToFile(templateData, templateName, outputFilename, shouldGenerate, skippedByOption);
             if (written != null) {

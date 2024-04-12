@@ -138,7 +138,7 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
         String jsonPath = String.join("/", copiedPathPieces);
         if (pathPieces.length == 2) {
             // #/servers
-            pathPieces[1] = "ServerInfo";
+            pathPieces[1] = "RootServerInfo";
         } else if (pathPieces.length == 3) {
             // #/servers/0
             pathPieces[2] = toServerFilename(pathPieces[2], jsonPath);
@@ -1318,7 +1318,7 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
         } else if (serverVariables) {
             if (pathPieces.length == 4) {
                 // #/servers/0/variables -> 4
-                usedKey = "Server" + pathPieces[2] + "Variables";
+                usedKey = "RootServer" + pathPieces[2] + "Variables";
             } else if (pathPieces.length == 6) {
                 // #/paths/somePath/servers/0/variables -> 6
                 CodegenKey pathKey = getKey(ModelUtils.decodeSlashes(pathPieces[2]), "paths", sourceJsonPath);
@@ -2672,10 +2672,10 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
                 if (jsonPath.startsWith("#/servers")) {
                     if (pathPieces.length == 2) {
                         // #/servers
-                        return "ServerInfo";
+                        return "RootServerInfo";
                     }
                     // #/servers/0
-                    return "Server"+pathPieces[2];
+                    return "RootServer"+pathPieces[2];
                 } else if (jsonPath.startsWith("#/paths") && pathPieces.length >= 4 && pathPieces[3].equals("servers")) {
                     CodegenKey pathKey = getKey(ModelUtils.decodeSlashes(pathPieces[2]), "paths", jsonPath);
                     if (pathPieces.length == 4) {

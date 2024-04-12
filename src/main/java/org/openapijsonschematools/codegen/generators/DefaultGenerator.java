@@ -3961,14 +3961,14 @@ public class DefaultGenerator implements Generator {
         if (pathPieces[3].equals("servers")) {
             if (pathPieces.length == 4) {
                 // #/paths/somePath/servers
-                pathPieces[3] = toServerFilename("s", jsonPath);
+                pathPieces[3] = toServerFilename("servers", jsonPath);
             } else if (pathPieces.length == 5) {
                 // #/paths/somePath/servers/0
                 pathPieces[4] = toServerFilename(pathPieces[4], jsonPath);
             } else {
                 // #/paths/somePath/servers/0/variables
                 pathPieces[4] = "server" + pathPieces[4];
-                pathPieces[5] = "Variables";
+                pathPieces[5] = getSchemaFilename(jsonPath);
             }
             return;
         } else if (pathPieces[3].equals("parameters")) {
@@ -4010,7 +4010,7 @@ public class DefaultGenerator implements Generator {
             } else {
                 // #/paths/somePath/get/servers/0/variables
                 pathPieces[5] = "server" + pathPieces[5];
-                pathPieces[6] = "Variables";
+                pathPieces[6] = getSchemaFilename(jsonPath);
             }
         } else if (pathPieces[4].equals("security")) {
             // #/paths/somePath/get/security
