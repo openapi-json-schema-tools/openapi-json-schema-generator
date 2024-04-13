@@ -87,7 +87,6 @@ import org.openapijsonschematools.codegen.generators.openapimodels.SchemaTestCas
 import org.openapijsonschematools.codegen.templating.SupportingFile;
 import org.openapijsonschematools.codegen.common.SerializerUtils;
 import org.openapijsonschematools.codegen.templating.TemplatingEngineLoader;
-import org.openapijsonschematools.codegen.templating.mustache.CamelCaseLambda;
 import org.openapijsonschematools.codegen.templating.mustache.IndentedLambda;
 import org.openapijsonschematools.codegen.templating.mustache.LowercaseLambda;
 import org.openapijsonschematools.codegen.templating.mustache.SnakecaseLambda;
@@ -412,8 +411,6 @@ public class DefaultGenerator implements Generator {
                 .put("uppercase", new UppercaseLambda())
                 .put("snakecase", new SnakecaseLambda())
                 .put("titlecase", new TitlecaseLambda())
-                .put("camelcase", new CamelCaseLambda(true).generator(this))
-                .put("pascalcase", new CamelCaseLambda(false).generator(this))
                 .put("indented", new IndentedLambda())
                 .put("indented_8", new IndentedLambda(8, " "))
                 .put("indented_12", new IndentedLambda(12, " "))
@@ -953,6 +950,7 @@ public class DefaultGenerator implements Generator {
         return name;
     }
 
+    @Deprecated
     /**
      * Return the parameter name by removing invalid characters and proper escaping if
      * it's a reserved word.
@@ -962,7 +960,13 @@ public class DefaultGenerator implements Generator {
      */
     @Override
     public String toParamName(String name) {
-        name = removeNonNameElementToCamelCase(name); // FIXME: a parameter should not be assigned. Also declare the methods parameters as 'final'.
+        String result = Arrays.stream(name.split("[-_:;#" + removeOperationIdPrefixDelimiter + "]"))
+                .map(StringUtils::capitalize)
+                .collect(Collectors.joining(""));
+        if (!result.isEmpty()) {
+            result = result.substring(0, 1).toLowerCase(Locale.ROOT) + result.substring(1);
+        }
+        name = result; // FIXME: a parameter should not be assigned. Also declare the methods parameters as 'final'.
         if (reservedWords.contains(name)) {
             return escapeReservedWord(name);
         } else if (name.chars().anyMatch(character -> specialCharReplacements.containsKey(String.valueOf((char) character)))) {
@@ -1001,10 +1005,6 @@ public class DefaultGenerator implements Generator {
         }
     }
 
-    protected Stability getStability() {
-        return Stability.STABLE;
-    }
-
     /**
      * Default constructor.
      * This method will map between OAS type and language-specified type, as well as mapping
@@ -1014,14 +1014,15 @@ public class DefaultGenerator implements Generator {
      */
     public DefaultGenerator() {
         GeneratorType generatorType = GeneratorType.CLIENT;
+        String name = "DefaultGenerator";
         generatorMetadata = GeneratorMetadata.newBuilder()
-            .name("DefaultGenerator")
+            .name(name)
             .language(GeneratorLanguage.JAVA)
             .languageVersion("17")
             .type(generatorType)
-            .stability(getStability())
+            .stability(Stability.EXPERIMENTAL)
             .featureSet(DefaultFeatureSet)
-            .generationMessage(String.format(Locale.ROOT, "OpenAPI JSON Schema Generator: %s (%s)", getName(), generatorType.toValue()))
+            .generationMessage(String.format(Locale.ROOT, "OpenAPI JSON Schema Generator: %s (%s)", name, generatorType.toValue()))
             .helpTxt("todo replace help text")
             .build();
 
@@ -3773,34 +3774,6 @@ public class DefaultGenerator implements Generator {
         return optionalProperties;
     }
 
-    /**
-     * Remove characters not suitable for variable or method name from the input and camel case it
-     *
-     * @param name string to be camel case
-     * @return camel case string
-     */
-    @SuppressWarnings("static-method")
-    public String removeNonNameElementToCamelCase(String name) {
-        return removeNonNameElementToCamelCase(name, "[-_:;#" + removeOperationIdPrefixDelimiter + "]");
-    }
-
-    /**
-     * Remove characters that is not good to be included in method name from the input and camel case it
-     *
-     * @param name                  string to be camel case
-     * @param nonNameElementPattern a regex pattern of the characters that is not good to be included in name
-     * @return camel case string
-     */
-    protected String removeNonNameElementToCamelCase(final String name, final String nonNameElementPattern) {
-        String result = Arrays.stream(name.split(nonNameElementPattern))
-                .map(StringUtils::capitalize)
-                .collect(Collectors.joining(""));
-        if (!result.isEmpty()) {
-            result = result.substring(0, 1).toLowerCase(Locale.ROOT) + result.substring(1);
-        }
-        return result;
-    }
-
     @Override
     public String modelPackagePathFragment() {
         return modelPackage.replace('.', File.separatorChar);
@@ -5363,11 +5336,6 @@ public class DefaultGenerator implements Generator {
         this.strictSpecBehavior = strictSpecBehavior;
     }
 
-    @Override
-    public FeatureSet getFeatureSet() {
-        return this.generatorMetadata.getFeatureSet();
-    }
-
     /**
      * Get the boolean value indicating whether to remove enum value prefixes
      */
@@ -5387,7 +5355,7 @@ public class DefaultGenerator implements Generator {
     }
 
     protected void modifyFeatureSet(Consumer<FeatureSet.Builder> processor) {
-        FeatureSet.Builder builder = getFeatureSet().modify();
+        FeatureSet.Builder builder = getGeneratorMetadata().getFeatureSet().modify();
         processor.accept(builder);
         this.generatorMetadata = GeneratorMetadata.newBuilder(generatorMetadata)
                 .featureSet(builder.build()).build();

@@ -73,8 +73,6 @@ public interface Generator extends OpenApiProcessor, Comparable<Generator> {
 
     String toModelName(String name, String jsonPath);
 
-    String toParamName(String name);
-
     String escapeText(String text);
 
     String escapeTextWhileAllowingNewLines(String text);
@@ -195,8 +193,6 @@ public interface Generator extends OpenApiProcessor, Comparable<Generator> {
 
     void setStrictSpecBehavior(boolean strictSpecBehavior);
 
-    FeatureSet getFeatureSet();
-
     CodegenPatternInfo getPatternInfo(String pattern);
 
     boolean isRemoveEnumValuePrefix();
@@ -314,5 +310,13 @@ public interface Generator extends OpenApiProcessor, Comparable<Generator> {
     @Deprecated
     default String getHelp() {
         return getGeneratorMetadata().getHelpTxt();
+    }
+
+    @Deprecated
+    String toParamName(String name);
+
+    @Deprecated
+    default FeatureSet getFeatureSet() {
+        return getGeneratorMetadata().getFeatureSet();
     }
 }

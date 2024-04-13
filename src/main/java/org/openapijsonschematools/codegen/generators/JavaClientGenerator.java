@@ -329,6 +329,7 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
                 SchemaFeature.UniqueItems
             )
         );
+        FeatureSet featureSet = getGeneratorMetadata().getFeatureSet();
         String generatorName = "java";
         GeneratorType generatorType = GeneratorType.CLIENT;
         generatorMetadata = GeneratorMetadata.newBuilder()
@@ -336,8 +337,8 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
             .language(GeneratorLanguage.JAVA)
             .languageVersion("17")
             .type(generatorType)
-            .stability(getStability())
-            .featureSet(getFeatureSet())
+            .stability(Stability.STABLE)
+            .featureSet(featureSet)
             .generationMessage(String.format(Locale.ROOT, "OpenAPI JSON Schema Generator: %s (%s)", generatorName, generatorType))
             .helpTxt(
                 String.join("<br />",
@@ -2828,17 +2829,6 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
             startsWithTwoUppercaseLetters = name.substring(0, 2).equals(name.substring(0, 2).toUpperCase(Locale.ROOT));
         }
         return startsWithTwoUppercaseLetters;
-    }
-
-    @Override
-    public String toParamName(String name) {
-        // to avoid conflicts with 'callback' parameter for async call
-        if ("callback".equals(name)) {
-            return "paramCallback";
-        }
-
-        // should be the same as variable name
-        return toVarName(name);
     }
 
     @Override

@@ -25,6 +25,7 @@ import io.swagger.v3.oas.models.OpenAPI;
 
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.FilenameUtils;
+import org.openapijsonschematools.codegen.generators.generatormetadata.FeatureSet;
 import org.openapijsonschematools.codegen.generators.generatormetadata.GeneratorLanguage;
 import org.openapijsonschematools.codegen.generators.models.CliOption;
 import org.openapijsonschematools.codegen.common.CodegenConstants;
@@ -294,6 +295,7 @@ public class PythonClientGenerator extends DefaultGenerator implements Generator
                         OperationFeature.Servers
                 )
         );
+        FeatureSet featureSet = getGeneratorMetadata().getFeatureSet();
         String generatorName = "python";
         GeneratorType generatorType = GeneratorType.CLIENT;
         generatorMetadata = GeneratorMetadata.newBuilder()
@@ -301,8 +303,8 @@ public class PythonClientGenerator extends DefaultGenerator implements Generator
             .language(GeneratorLanguage.PYTHON)
             .languageVersion(">=3.8")
             .type(generatorType)
-            .stability(getStability())
-            .featureSet(getFeatureSet())
+            .stability(Stability.STABLE)
+            .featureSet(featureSet)
             .generationMessage(String.format(Locale.ROOT, "OpenAPI JSON Schema Generator: %s (%s)", generatorName, generatorType))
             .helpTxt(
                 String.join("<br />",
@@ -1892,11 +1894,6 @@ public class PythonClientGenerator extends DefaultGenerator implements Generator
             default:
                 return null;
         }
-    }
-
-    @Override
-    public String toParamName(String basename) {
-        return getFilename(CodegenKeyType.PARAMETER, basename, null);
     }
 
     private String toSchemaRefClass(String ref, String sourceJsonPath) {
