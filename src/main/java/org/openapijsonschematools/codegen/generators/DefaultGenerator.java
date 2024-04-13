@@ -952,12 +952,6 @@ public class DefaultGenerator implements Generator {
     }
 
     @Deprecated
-    @Override
-    public String getPascalCaseServer(String basename, String jsonPath) {
-        return getPascalCase(CodegenKeyType.SERVER, basename, jsonPath);
-    }
-
-    @Deprecated
     public String getPascalCaseParameter(String basename, String jsonPath) {
         return getPascalCase(CodegenKeyType.PARAMETER, basename, null);
     }
@@ -4949,12 +4943,6 @@ public class DefaultGenerator implements Generator {
     @Override
     public CodegenKey getKey(String key, String keyType) {
         return getKey(key, keyType, null);
-    }
-
-    @Deprecated
-    @Override
-    public String getSchemaPascalCaseName(String name, @NotNull String sourceJsonPath) {
-        return getPascalCase(CodegenKeyType.SCHEMA, name, sourceJsonPath);
     }
 
     protected String getCamelCaseName(String key) {

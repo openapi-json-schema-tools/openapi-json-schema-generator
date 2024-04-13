@@ -109,7 +109,9 @@ public interface Generator {
     String getSchemaFilename(String jsonPath);
 
     @Deprecated
-    String getSchemaPascalCaseName(String name, @NotNull String sourceJsonPath);
+    default String getSchemaPascalCaseName(String name, @NotNull String sourceJsonPath) {
+        return getPascalCase(CodegenKeyType.SCHEMA, name, sourceJsonPath);
+    }
     Set<String> getImports(String sourceJsonPath, CodegenSchema schema, FeatureSet featureSet);
     String toContentTypeFilename(String name);
 
@@ -207,8 +209,9 @@ public interface Generator {
     }
 
     @Deprecated
-    String getPascalCaseServer(String baseName, String jsonPath);
-
+    default String getPascalCaseServer(String basename, String jsonPath) {
+        return getPascalCase(CodegenKeyType.SERVER, basename, jsonPath);
+    }
     String toModelImport(String refClass);
 
     TreeMap<String, CodegenSchema> updateAllModels(TreeMap<String, CodegenSchema> models);

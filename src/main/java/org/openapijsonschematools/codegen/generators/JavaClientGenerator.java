@@ -149,12 +149,6 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
         }
     }
 
-    @Deprecated
-    @Override
-    public String getPascalCaseServer(String basename, String jsonPath) {
-        return getPascalCase(CodegenKeyType.SERVER, basename, jsonPath);
-    }
-
     @Override
     public String toServerFilename(String basename, String jsonPath) {
         return getPascalCase(CodegenKeyType.SERVER, basename, jsonPath);
@@ -1157,11 +1151,6 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
         return toModuleFilename(componentName, jsonPath);
     }
 
-    @Deprecated
-    public String getPascalCaseResponse(String componentName, String jsonPath) {
-        return getPascalCase(CodegenKeyType.RESPONSE, componentName, jsonPath);
-    }
-
     @Override
     public String toResponseModuleName(String componentName, String jsonPath) {
         String[] pathPieces = jsonPath.split("/");
@@ -1197,12 +1186,6 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
             return false;
         }
         return name.matches("^[a-zA-Z]\\w*$");
-    }
-
-    @Deprecated
-    @Override
-    public String getSchemaPascalCaseName(String name, @NotNull String sourceJsonPath) {
-        return getPascalCase(CodegenKeyType.SCHEMA, name, sourceJsonPath);
     }
 
     protected String getCamelCaseName(String key) {
@@ -1312,7 +1295,7 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
             // #/paths/path/verb/responses/200/HeadersSchema
             String responseJsonPath = String.join("/", Arrays.copyOfRange(pathPieces, 0, pathPieces.length-1));
             String responseFragment = pathPieces[pathPieces.length-2];
-            String pascalCaseResponse = getPascalCaseResponse(responseFragment, responseJsonPath);
+            String pascalCaseResponse = getPascalCase(CodegenKeyType.RESPONSE, responseFragment, responseJsonPath);
             usedKey =  pascalCaseResponse + camelize(usedKey);
         } else if (operationParametersSchema) {
             String prefix = getPathClassNamePrefix(sourceJsonPath);
@@ -1410,12 +1393,6 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
             }
         }
         return true;
-    }
-
-    @Deprecated
-    @Override
-    public String getPascalCaseParameter(String basename, String jsonPath) {
-        return getPascalCase(CodegenKeyType.PARAMETER, basename, jsonPath);
     }
 
     public String toPathFilename(String name, String jsonPath) {

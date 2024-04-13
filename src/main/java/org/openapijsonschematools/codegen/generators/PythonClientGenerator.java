@@ -827,11 +827,6 @@ public class PythonClientGenerator extends DefaultGenerator implements Generator
         return underscore(dropDots(toModelName(name, jsonPath)));
     }
 
-    @Deprecated
-    protected String toSecurityPascalCase(String basename, String jsonPath) {
-        return getPascalCase(CodegenKeyType.SECURITY, basename, jsonPath);
-    }
-
     @Override
     public String toContentTypeFilename(String name) {
         return toModuleFilename(name, null);
@@ -1908,17 +1903,6 @@ public class PythonClientGenerator extends DefaultGenerator implements Generator
         }
     }
 
-    @Deprecated
-    @Override
-    public String getPascalCaseParameter(String name, String jsonPath) {
-        return getPascalCase(CodegenKeyType.PARAMETER, name, jsonPath);
-    }
-
-    @Deprecated
-    public String getPascalCaseResponse(String name, String jsonPath) {
-        return getPascalCase(CodegenKeyType.RESPONSE, name, jsonPath);
-    }
-
     @Override
     public String toParamName(String basename) {
         return toParameterFilename(basename, null);
@@ -2124,12 +2108,6 @@ public class PythonClientGenerator extends DefaultGenerator implements Generator
         LOGGER.info("# This generator was written by Justin Black (https://github.com/spacether)    #");
         LOGGER.info("# Please support his work directly via https://github.com/sponsors/spacether \uD83D\uDE4F#");
         LOGGER.info("################################################################################");
-    }
-
-    @Deprecated
-    @Override
-    public String getSchemaPascalCaseName(String name, @NotNull String sourceJsonPath) {
-        return getPascalCase(CodegenKeyType.SCHEMA, name, sourceJsonPath);
     }
 
     @Override
