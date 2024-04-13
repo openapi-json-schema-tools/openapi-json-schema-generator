@@ -32,6 +32,7 @@ public class GeneratorMetadata {
     private Map<String, FeatureSet> libraryFeatures;
     private FeatureSet featureSet;
     private String generationMessage;
+    private String helpTxt;
 
     private GeneratorMetadata(Builder builder) {
         if (builder != null) {
@@ -43,6 +44,7 @@ public class GeneratorMetadata {
             generationMessage = builder.generationMessage;
             libraryFeatures = builder.libraryFeatures;
             featureSet = builder.featureSet;
+            helpTxt = builder.helpTxt;
         }
     }
 
@@ -66,6 +68,7 @@ public class GeneratorMetadata {
             builder.generationMessage = copy.getGenerationMessage();
             builder.libraryFeatures = copy.getLibraryFeatures();
             builder.featureSet = copy.getFeatureSet();
+            builder.helpTxt = copy.getHelpTxt();
         }
         return builder;
     }
@@ -114,6 +117,8 @@ public class GeneratorMetadata {
         return libraryFeatures;
     }
 
+    public String getHelpTxt() { return helpTxt; }
+
     /**
      * {@code GeneratorMetadata} builder static inner class.
      */
@@ -126,6 +131,7 @@ public class GeneratorMetadata {
         private String generationMessage;
         private FeatureSet featureSet = FeatureSet.UNSPECIFIED;
         private Map<String, FeatureSet> libraryFeatures = new HashMap<>();
+        private String helpTxt;
 
         private Builder() {
         }
@@ -195,6 +201,11 @@ public class GeneratorMetadata {
          */
         public Builder generationMessage(String generationMessage) {
             this.generationMessage = generationMessage;
+            return this;
+        }
+
+        public Builder helpTxt(String helpTxt) {
+            this.helpTxt = helpTxt;
             return this;
         }
 

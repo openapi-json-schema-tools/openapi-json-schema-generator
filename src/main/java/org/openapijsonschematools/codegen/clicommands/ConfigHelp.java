@@ -311,7 +311,7 @@ public class ConfigHelp extends AbstractCommand {
             sb.append("| generator language version | "+meta.getLanguageVersion()+" | |").append(newline);
         }
         sb.append("| generator default templating engine | "+config.defaultTemplatingEngine()+" | |").append(newline);
-        sb.append("| helpTxt | "+config.getHelp()+" | |").append(newline);
+        sb.append("| helpTxt | "+meta.getHelpTxt()+" | |").append(newline);
 
         sb.append(newline);
     }

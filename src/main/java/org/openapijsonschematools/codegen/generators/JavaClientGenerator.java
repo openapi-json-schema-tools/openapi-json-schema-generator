@@ -339,6 +339,41 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
             .stability(getStability())
             .featureSet(getFeatureSet())
             .generationMessage(String.format(Locale.ROOT, "OpenAPI JSON Schema Generator: %s (%s)", generatorName, generatorType))
+            .helpTxt(
+                String.join("<br />",
+                    "Generates a Java client library",
+                    "",
+                    "Features in this generator:",
+                    "- v3.0.0 - [v3.1.0](#schema-feature) OpenAPI Specification support",
+                    "- Very thorough documentation generated in the style of javadocs",
+                    "- Input types constrained for a Schema in SomeSchema.validate",
+                    "  - validate method can accept arbitrary List/Map/null/int/long/double/float/String json data",
+                    "- Immutable List output classes generated and returned by validate for List&lt;?&gt; input",
+                    "- Immutable Map output classes generated and returned by validate for Map&lt;?, ?&gt; input",
+                    "- Strictly typed list input can be instantiated in client code using generated ListBuilders",
+                    "- Strictly typed map input can be instantiated in client code using generated MapBuilders",
+                    "  - Sequential map builders are generated ensuring that required properties are set before build is invoked. Looks like:",
+                    "  - `new MapBuilder().requiredA(\"a\").requiredB(\"b\").build()`",
+                    "  - `new MapBuilder().requiredA(\"a\").requiredB(\"b\").optionalProp(\"c\").additionalProperty(\"someAddProp\", \"d\").build()`",
+                    "- Run time type checking and validation when",
+                    "  - validating schema payloads",
+                    "  - instantiating List output class (validation run)",
+                    "  - instantiating Map output class (validation run)",
+                    "  - Note: if needed, validation of json schema keywords can be deactivated via a SchemaConfiguration class",
+                    "- Enums classes are generated and may be input into Schema.validate or the List/MapBuilder add/setter methods",
+                    "- The [Checker-Framework's](https://github.com/typetools/checker-framework) NullnessChecker and @Nullable annotations are used in the java client",
+                    "  - ensuring that null pointer exceptions will not happen",
+                    "- Invalid (in java) property names supported like `class`, `1var`, `hi-there` etc in",
+                    "  - component schema names",
+                    "  - schema property names (a fallback setter is written in the MapBuilder)",
+                    "- Generated interfaces are largely consistent with the python code",
+                    "- Openapi spec inline schemas supported at any depth in any location",
+                    "- Format support for: int32, int64, float, double, date, datetime, uuid",
+                    "- Payload values are not coerced when validated, so a date/date-time value can pass other validations that describe the payload only as type string",
+                    "- enum types are generated for enums of type string/integer/number/boolean/null",
+                    "- String transmission of numbers supported with type: string, format: number"
+                )
+            )
             .build();
 
         outputFolder = "generated-code" + File.separator + "java";
@@ -358,43 +393,6 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
                 new HashMap<>() {{
                     put("src/test/java/packagename/components/schemas/Schema_test.hbs", ".java");
                 }}
-        );
-    }
-
-    @Override
-    public String getHelp() {
-        return String.join("<br />",
-            "Generates a Java client library",
-            "",
-            "Features in this generator:",
-            "- v3.0.0 - [v3.1.0](#schema-feature) OpenAPI Specification support",
-            "- Very thorough documentation generated in the style of javadocs",
-            "- Input types constrained for a Schema in SomeSchema.validate",
-            "  - validate method can accept arbitrary List/Map/null/int/long/double/float/String json data",
-            "- Immutable List output classes generated and returned by validate for List&lt;?&gt; input",
-            "- Immutable Map output classes generated and returned by validate for Map&lt;?, ?&gt; input",
-            "- Strictly typed list input can be instantiated in client code using generated ListBuilders",
-            "- Strictly typed map input can be instantiated in client code using generated MapBuilders",
-            "  - Sequential map builders are generated ensuring that required properties are set before build is invoked. Looks like:",
-            "  - `new MapBuilder().requiredA(\"a\").requiredB(\"b\").build()`",
-            "  - `new MapBuilder().requiredA(\"a\").requiredB(\"b\").optionalProp(\"c\").additionalProperty(\"someAddProp\", \"d\").build()`",
-            "- Run time type checking and validation when",
-            "  - validating schema payloads",
-            "  - instantiating List output class (validation run)",
-            "  - instantiating Map output class (validation run)",
-            "  - Note: if needed, validation of json schema keywords can be deactivated via a SchemaConfiguration class",
-            "- Enums classes are generated and may be input into Schema.validate or the List/MapBuilder add/setter methods",
-            "- The [Checker-Framework's](https://github.com/typetools/checker-framework) NullnessChecker and @Nullable annotations are used in the java client",
-            "  - ensuring that null pointer exceptions will not happen",
-            "- Invalid (in java) property names supported like `class`, `1var`, `hi-there` etc in",
-            "  - component schema names",
-            "  - schema property names (a fallback setter is written in the MapBuilder)",
-            "- Generated interfaces are largely consistent with the python code",
-            "- Openapi spec inline schemas supported at any depth in any location",
-            "- Format support for: int32, int64, float, double, date, datetime, uuid",
-            "- Payload values are not coerced when validated, so a date/date-time value can pass other validations that describe the payload only as type string",
-            "- enum types are generated for enums of type string/integer/number/boolean/null",
-            "- String transmission of numbers supported with type: string, format: number"
         );
     }
 
@@ -1083,29 +1081,6 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
     @Override
     public String toModelFilename(String name, String jsonPath) {
         return toModelName(name, jsonPath);
-    }
-
-    @Override
-    public String toResponseModuleName(String componentName, String jsonPath) {
-        String[] pathPieces = jsonPath.split("/");
-        if (jsonPath.startsWith("#/components/responses/")) {
-            if (pathPieces.length == 4) {
-                // #/components/responses/SomeResponse
-                return toModelName(componentName, null);
-            }
-            return toModuleFilename(componentName, jsonPath);
-        }
-        String prefix = getPathClassNamePrefix(jsonPath);
-        switch (pathPieces.length) {
-            case 5:
-                // #/paths/somePath/verb/responses
-                return prefix + "Responses";
-            case 6:
-                // #/paths/somePath/verb/responses/200
-                return prefix + "Code"+ componentName + "Response";
-            default:
-                return toModuleFilename("code"+componentName+"response", null);
-        }
     }
 
     @Override
@@ -2666,6 +2641,25 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
                 // #/paths/somePath/verb/security/0
                 String prefix = getPathClassNamePrefix(jsonPath);
                 return prefix + "SecurityRequirementObject"+pathPieces[pathPieces.length-1];
+            case RESPONSE:
+                if (jsonPath.startsWith("#/components/responses/")) {
+                    if (pathPieces.length == 4) {
+                        // #/components/responses/SomeResponse
+                        return toModelName(lastJsonPathFragment, null);
+                    }
+                    return toModuleFilename(lastJsonPathFragment, jsonPath);
+                }
+                String clsNamePrefix = getPathClassNamePrefix(jsonPath);
+                switch (pathPieces.length) {
+                    case 5:
+                        // #/paths/somePath/verb/responses
+                        return clsNamePrefix + "Responses";
+                    case 6:
+                        // #/paths/somePath/verb/responses/200
+                        return clsNamePrefix + "Code"+ lastJsonPathFragment + "Response";
+                    default:
+                        return toModuleFilename("code"+lastJsonPathFragment+"response", null);
+                }
             default:
                 return null;
         }

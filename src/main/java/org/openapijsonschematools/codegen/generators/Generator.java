@@ -49,8 +49,6 @@ public interface Generator extends OpenApiProcessor, Comparable<Generator> {
 
     GeneratorMetadata getGeneratorMetadata();
 
-    String getHelp();
-
     Map<String, Object> additionalProperties();
 
     Map<String, Object> vendorExtensions();
@@ -311,5 +309,10 @@ public interface Generator extends OpenApiProcessor, Comparable<Generator> {
     @Deprecated
     default String generatorLanguageVersion() {
         return getGeneratorMetadata().getLanguageVersion();
+    }
+
+    @Deprecated
+    default String getHelp() {
+        return getGeneratorMetadata().getHelpTxt();
     }
 }

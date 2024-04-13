@@ -304,6 +304,28 @@ public class PythonClientGenerator extends DefaultGenerator implements Generator
             .stability(getStability())
             .featureSet(getFeatureSet())
             .generationMessage(String.format(Locale.ROOT, "OpenAPI JSON Schema Generator: %s (%s)", generatorName, generatorType))
+            .helpTxt(
+                String.join("<br />",
+                    "Generates a Python client library",
+                    "",
+                    "Features in this generator:",
+                    "- type hints on endpoints and model creation",
+                    "- model parameter names use the spec defined keys and cases",
+                    "- robust composition (oneOf/anyOf/allOf/not) where payload data is stored in one instance only",
+                    "- endpoint parameter names use the spec defined keys and cases",
+                    "- inline schemas are supported at any location including composition",
+                    "- multiple content types supported in request body and response bodies",
+                    "- run time type checking + json schema validation",
+                    "- json schema keyword validation may be selectively disabled with SchemaConfiguration",
+                    "- enums of type string/integer/boolean typed using typing.Literal",
+                    "- mypy static type checking run on generated sample",
+                    "- Sending/receiving decimals as strings supported with type:string format: number -> DecimalSchema",
+                    "- Sending/receiving uuids as strings supported with type:string format: uuid -> UUIDSchema",
+                    "- quicker load time for python modules (a single endpoint can be imported and used without loading others)",
+                    "- composed schemas with type constraints supported (type:object + oneOf/anyOf/allOf)",
+                    "- schemas are not coerced/cast. For example string + date are both stored as string, and there is a date accessor"
+                )
+            )
             .build();
 
         modelPackage = "components.schema";
@@ -918,29 +940,6 @@ public class PythonClientGenerator extends DefaultGenerator implements Generator
     @Override
     public String getName() {
         return "python";
-    }
-
-    @Override
-    public String getHelp() {
-        return String.join("<br />",
-                "Generates a Python client library",
-                "",
-                "Features in this generator:",
-                "- type hints on endpoints and model creation",
-                "- model parameter names use the spec defined keys and cases",
-                "- robust composition (oneOf/anyOf/allOf/not) where payload data is stored in one instance only",
-                "- endpoint parameter names use the spec defined keys and cases",
-                "- inline schemas are supported at any location including composition",
-                "- multiple content types supported in request body and response bodies",
-                "- run time type checking + json schema validation",
-                "- json schema keyword validation may be selectively disabled with SchemaConfiguration",
-                "- enums of type string/integer/boolean typed using typing.Literal",
-                "- mypy static type checking run on generated sample",
-                "- Sending/receiving decimals as strings supported with type:string format: number -> DecimalSchema",
-                "- Sending/receiving uuids as strings supported with type:string format: uuid -> UUIDSchema",
-                "- quicker load time for python modules (a single endpoint can be imported and used without loading others)",
-                "- composed schemas with type constraints supported (type:object + oneOf/anyOf/allOf)",
-                "- schemas are not coerced/cast. For example string + date are both stored as string, and there is a date accessor");
     }
 
     public String pythonDate(Object dateValue) {
@@ -1763,28 +1762,6 @@ public class PythonClientGenerator extends DefaultGenerator implements Generator
         return modelNameToSchemaCache;
     }
 
-    @Override
-    public String toResponseModuleName(String componentName, String jsonPath) {
-        String[] pathPieces = jsonPath.split("/");
-        if (jsonPath.startsWith("#/components/responses")) {
-            if (pathPieces.length == 3) {
-                return "responses";
-            }// #/components/responses/SomeResponse
-            // #/components/responses/SomeResponse/content/schema
-            String suffix = toModuleFilename(componentName, jsonPath);
-            String spacer = "";
-            if (!suffix.startsWith("_")) {
-                spacer = "_";
-            }
-            return "response" + spacer + suffix;
-        }
-        if (pathPieces.length == 5) {// #/paths/somePath/verb/responses
-            return "responses";
-        }// #/paths/somePath/verb/responses/200
-        // #/paths/somePath/verb/responses/200/content/schema
-        return "response_" + componentName.toLowerCase(Locale.ROOT);
-    }
-
     public void setUseNose(String val) {
         this.useNose = Boolean.parseBoolean(val);
     }
@@ -1841,10 +1818,10 @@ public class PythonClientGenerator extends DefaultGenerator implements Generator
 
     @Override
     public String getFilename(CodegenKeyType type, String lastJsonPathFragment, String jsonPath) {
+        String[] pathPieces = jsonPath.split("/");
         switch(type) {
             case SCHEMA:
-                String[] pieces = jsonPath.split("/");
-                String name = pieces[pieces.length - 1];
+                String name = pathPieces[pathPieces.length - 1];
                 if (name.equals("Headers") && jsonPath.contains("/responses/")) {
                     // synthetic response headers jsonPath
                     return "header_parameters";
@@ -1860,8 +1837,7 @@ public class PythonClientGenerator extends DefaultGenerator implements Generator
             case OPERATION:
                 return lastJsonPathFragment;
             case PARAMETER:
-                String[] paramPathPieces = jsonPath.split("/");
-                if (operationVerbs.contains(paramPathPieces[3]) && paramPathPieces.length == 5) {
+                if (operationVerbs.contains(pathPieces[3]) && pathPieces.length == 5) {
                     // #/paths/somePath/verb/parameters
                     return "parameters";
                 }
@@ -1877,7 +1853,6 @@ public class PythonClientGenerator extends DefaultGenerator implements Generator
             case PATH:
                 return toModuleFilename(lastJsonPathFragment, jsonPath);
             case HEADER:
-                String[] pathPieces = jsonPath.split("/");
                 if ((pathPieces.length == 5 || pathPieces.length == 7) && lastJsonPathFragment.equals("headers")) {
                     // #/components/responses/SomeResponse/headers
                     // #/paths/somePath/verb/responses/200/headers
@@ -1896,6 +1871,24 @@ public class PythonClientGenerator extends DefaultGenerator implements Generator
                     return "security";
                 }
                 return "security_requirement_object_" + lastJsonPathFragment;
+            case RESPONSE:
+                if (jsonPath.startsWith("#/components/responses")) {
+                    if (pathPieces.length == 3) {
+                        return "responses";
+                    }// #/components/responses/SomeResponse
+                    // #/components/responses/SomeResponse/content/schema
+                    String suffix = toModuleFilename(lastJsonPathFragment, jsonPath);
+                    String spacer = "";
+                    if (!suffix.startsWith("_")) {
+                        spacer = "_";
+                    }
+                    return "response" + spacer + suffix;
+                }
+                if (pathPieces.length == 5) {// #/paths/somePath/verb/responses
+                    return "responses";
+                }// #/paths/somePath/verb/responses/200
+                // #/paths/somePath/verb/responses/200/content/schema
+                return "response_" + lastJsonPathFragment.toLowerCase(Locale.ROOT);
             default:
                 return null;
         }

@@ -737,7 +737,8 @@ public class DefaultGenerator implements Generator {
         return jsonPathTestTemplateFiles;
     }
 
-    public String toResponseModuleName(String componentName, String jsonPath) { return toModuleFilename(componentName, jsonPath); }
+    @Deprecated
+    public String toResponseModuleName(String componentName, String jsonPath) { return getFilename(CodegenKeyType.RESPONSE, componentName, jsonPath); }
 
     @Deprecated
     public String getPascalCaseResponse(String componentName, String jsonPath) { return getPascalCase(CodegenKeyType.RESPONSE, componentName, jsonPath); }
@@ -1021,6 +1022,7 @@ public class DefaultGenerator implements Generator {
             .stability(getStability())
             .featureSet(DefaultFeatureSet)
             .generationMessage(String.format(Locale.ROOT, "OpenAPI JSON Schema Generator: %s (%s)", getName(), generatorType.toValue()))
+            .helpTxt("todo replace help text")
             .build();
 
         defaultIncludes = new HashSet<>(
@@ -3398,6 +3400,7 @@ public class DefaultGenerator implements Generator {
             case SECURITY:
             case SECURITY_SCHEME:
             case REQUEST_BODY:
+            case RESPONSE:
                 return toModuleFilename(lastJsonPathFragment, jsonPath);
             default:
                 return null;
@@ -3872,7 +3875,7 @@ public class DefaultGenerator implements Generator {
             }
         } else if (pathPieces[2].equals("responses")) {
             // #/components/responses/SuccessWithJsonApiResponse/headers
-            pathPieces[3] = toResponseModuleName(pathPieces[3], jsonPath);
+            pathPieces[3] = getFilename(CodegenKeyType.RESPONSE, pathPieces[3], jsonPath);
             if (pathPieces.length == 4) {
                 // #/components/responses/SuccessWithJsonApiResponse
                 return;
@@ -4000,11 +4003,11 @@ public class DefaultGenerator implements Generator {
         } else if (pathPieces[4].equals("responses")) {
             if (pathPieces.length == 5) {
                 // #/paths/user_login/get/responses -> length 5
-                pathPieces[4] = toResponseModuleName(pathPieces[4], jsonPath);
+                pathPieces[4] = getFilename(CodegenKeyType.RESPONSE, pathPieces[4], jsonPath);
                 return;
             }
             // #/paths/user_login/get/responses/200 -> 200 -> response_200 -> length 6
-            pathPieces[5] = toResponseModuleName(pathPieces[5], jsonPath);
+            pathPieces[5] = getFilename(CodegenKeyType.RESPONSE, pathPieces[5], jsonPath);
             if (pathPieces.length == 6) {
                 // #/paths/user_login/get/responses/200
                 return;
@@ -4621,11 +4624,6 @@ public class DefaultGenerator implements Generator {
         return produces;
     }
 
-    @Override
-    public String getHelp() {
-        return null;
-    }
-
     protected LinkedHashMap<CodegenKey, CodegenMediaType> getContent(Content content, String sourceJsonPath) {
         if (content == null) {
             return null;
@@ -4711,7 +4709,7 @@ public class DefaultGenerator implements Generator {
             case "requestBodies":
                 return getFilename(CodegenKeyType.REQUEST_BODY, refPieces[3], ref);
             case "responses":
-                return toResponseModuleName(refPieces[3], ref);
+                return getFilename(CodegenKeyType.RESPONSE, refPieces[3], ref);
             case "headers":
                 return getFilename(CodegenKeyType.HEADER, refPieces[3], ref);
             case "parameters":
@@ -4971,7 +4969,7 @@ public class DefaultGenerator implements Generator {
             case "responses":
                 usedKey = escapeUnsafeCharacters(key);
                 isValid = isValid(usedKey);
-                snakeCaseName = toResponseModuleName(usedKey, sourceJsonPath);
+                snakeCaseName = getFilename(CodegenKeyType.RESPONSE, usedKey, sourceJsonPath);
                 pascalCaseName = getPascalCase(CodegenKeyType.RESPONSE, usedKey, sourceJsonPath);
                 break;
             case "securitySchemes":
