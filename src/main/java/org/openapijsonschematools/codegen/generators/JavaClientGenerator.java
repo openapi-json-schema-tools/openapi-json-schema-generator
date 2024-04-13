@@ -1097,24 +1097,6 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
         return toModelName(basename, jsonPath);
     }
 
-    @Override
-    public String toRequestBodyFilename(String componentName, String jsonPath) {
-        String[] pathPieces = jsonPath.split("/");
-        if (pathPieces[2].equals("requestbodies") || pathPieces[2].equals("requestBodies")) {
-            if (pathPieces.length == 4) {
-                // #/components/requestBodies/Pet
-                return toModelName( componentName, null);
-            }
-            return toModuleFilename(componentName, null);
-        }
-        if (pathPieces.length == 5) {
-            // #/paths/somePath/verb/requestBody
-            String pathClassName = getPathClassNamePrefix(jsonPath);
-            return pathClassName + "RequestBody";
-        }
-        return toModuleFilename(componentName, null);
-    }
-
     public String toHeaderFilename(String componentName, String jsonPath) {
         String[] pathPieces = jsonPath.split("/");
         if (jsonPath.startsWith("#/components/headers/")) {
@@ -3205,6 +3187,20 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
     public String getFilename(CodegenKeyType type, String lastJsonPathFragment, String jsonPath) {
         String[] pathPieces = jsonPath.split("/");
         switch(type) {
+            case REQUEST_BODY:
+                if (pathPieces[2].equals("requestbodies") || pathPieces[2].equals("requestBodies")) {
+                    if (pathPieces.length == 4) {
+                        // #/components/requestBodies/Pet
+                        return toModelName(lastJsonPathFragment, null);
+                    }
+                    return toModuleFilename(lastJsonPathFragment, null);
+                }
+                if (pathPieces.length == 5) {
+                    // #/paths/somePath/verb/requestBody
+                    String pathClassName = getPathClassNamePrefix(jsonPath);
+                    return pathClassName + "RequestBody";
+                }
+                return toModuleFilename(lastJsonPathFragment, null);
             case CONTENT_TYPE:
                 return toModuleFilename(lastJsonPathFragment, null);
             case SECURITY:

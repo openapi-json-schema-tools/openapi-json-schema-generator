@@ -1779,14 +1779,6 @@ public class PythonClientGenerator extends DefaultGenerator implements Generator
         return "response_" + componentName.toLowerCase(Locale.ROOT);
     }
 
-    @Override
-    public String toRequestBodyFilename(String componentName, String jsonPath) {
-        if (jsonPath.startsWith("#/components")) {
-            return toModuleFilename("request_body_" + componentName, null);
-        }
-        return toModuleFilename("request_body", null);
-    }
-
     public String toHeaderFilename(String componentName, String jsonPath) {
         String[] pathPieces = jsonPath.split("/");
         if ((pathPieces.length == 5 || pathPieces.length == 7) && componentName.equals("headers")) {
@@ -1888,6 +1880,11 @@ public class PythonClientGenerator extends DefaultGenerator implements Generator
     @Override
     public String getFilename(CodegenKeyType type, String lastJsonPathFragment, String jsonPath) {
         switch(type) {
+            case REQUEST_BODY:
+                if (jsonPath.startsWith("#/components")) {
+                    return toModuleFilename("request_body_" + lastJsonPathFragment, null);
+                }
+                return toModuleFilename("request_body", null);
             case CONTENT_TYPE:
                 return toModuleFilename(lastJsonPathFragment, null);
             case SECURITY:

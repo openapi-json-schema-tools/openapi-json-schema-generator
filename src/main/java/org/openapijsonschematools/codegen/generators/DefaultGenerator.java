@@ -3410,7 +3410,10 @@ public class DefaultGenerator implements Generator {
     @Override
     public String getFilename(CodegenKeyType type, String lastJsonPathFragment, String jsonPath) {
         switch(type) {
+            case CONTENT_TYPE:
+                return toModuleFilename(lastJsonPathFragment, null);
             case SECURITY:
+            case REQUEST_BODY:
                 return toModuleFilename(lastJsonPathFragment, jsonPath);
             default:
                 return null;
@@ -3880,7 +3883,7 @@ public class DefaultGenerator implements Generator {
                 }
             }
         } else if (pathPieces[2].equals(requestBodiesIdentifier)) {
-            pathPieces[3] = toRequestBodyFilename(pathPieces[3], jsonPath);
+            pathPieces[3] = getFilename(CodegenKeyType.REQUEST_BODY, pathPieces[3], jsonPath);
             if (pathPieces.length >= 6 && pathPieces[4].equals("content")) {
                 // #/components/requestBodies/someBody/content/application-json -> length 6
                 String contentType = ModelUtils.decodeSlashes(pathPieces[5]);
@@ -4090,7 +4093,7 @@ public class DefaultGenerator implements Generator {
         } else if (pathPieces[4].equals("requestBody")) {
             if (pathPieces.length == 5) {
                 // #/paths/somePath/get/requestBody
-                pathPieces[4] = toRequestBodyFilename("requestBody", jsonPath);
+                pathPieces[4] = getFilename(CodegenKeyType.REQUEST_BODY, "requestBody", jsonPath);
                 return;
             }
             pathPieces[4] = requestBodyIdentifier;
@@ -4715,10 +4718,6 @@ public class DefaultGenerator implements Generator {
         return cmtContent;
     }
 
-    public String toRequestBodyFilename(String componentName, String jsonPath) {
-        return toModuleFilename(componentName, jsonPath);
-    }
-
     protected String toRefModule(String ref, String sourceJsonPath, String expectedComponentType) {
         if (ref == null) {
             return null;
@@ -4742,7 +4741,7 @@ public class DefaultGenerator implements Generator {
         }
         switch (expectedComponentType) {
             case "requestBodies":
-                return toRequestBodyFilename(refPieces[3], ref);
+                return getFilename(CodegenKeyType.REQUEST_BODY, refPieces[3], ref);
             case "responses":
                 return toResponseModuleName(refPieces[3], ref);
             case "headers":
@@ -4992,7 +4991,7 @@ public class DefaultGenerator implements Generator {
             case "requestBodies":
                 usedKey = escapeUnsafeCharacters(key);
                 isValid = isValid(usedKey);
-                snakeCaseName = toRequestBodyFilename(usedKey, sourceJsonPath);
+                snakeCaseName = getFilename(CodegenKeyType.REQUEST_BODY, usedKey, sourceJsonPath);
                 pascalCaseName = getPascalCase(CodegenKeyType.REQUEST_BODY, usedKey, sourceJsonPath);
                 break;
             case "headers":

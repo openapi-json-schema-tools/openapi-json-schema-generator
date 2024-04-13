@@ -192,7 +192,10 @@ public interface Generator {
 
     String toModuleFilename(String name, String jsonPath);
 
-    String toRequestBodyFilename(String componentName, String jsonPath);
+    @Deprecated
+    default String toRequestBodyFilename(String componentName, String jsonPath) {
+        return getFilename(CodegenKeyType.REQUEST_BODY, componentName, jsonPath);
+    }
 
     String toHeaderFilename(String componentName, String jsonPath);
 
