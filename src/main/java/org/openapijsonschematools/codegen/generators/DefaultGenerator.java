@@ -951,11 +951,6 @@ public class DefaultGenerator implements Generator {
         return toModuleFilename(basename, jsonPath);
     }
 
-    @Override
-    public String toSecurityFilename(String basename, String jsonPath) {
-        return toModuleFilename(basename, jsonPath);
-    }
-
     @Deprecated
     @Override
     public String getPascalCaseServer(String basename, String jsonPath) {
@@ -3416,7 +3411,17 @@ public class DefaultGenerator implements Generator {
             case SERVER:
                 return "Server" + lastJsonPathFragment;
             case SECURITY:
-                return toSecurityFilename(lastJsonPathFragment, jsonPath);
+                return getFilename(CodegenKeyType.SECURITY, lastJsonPathFragment, jsonPath);
+            default:
+                return null;
+        }
+    }
+
+    @Override
+    public String getFilename(CodegenKeyType type, String lastJsonPathFragment, String jsonPath) {
+        switch(type) {
+            case SECURITY:
+                return toModuleFilename(lastJsonPathFragment, jsonPath);
             default:
                 return null;
         }
@@ -4015,10 +4020,10 @@ public class DefaultGenerator implements Generator {
         } else if (pathPieces[4].equals("security")) {
             // #/paths/somePath/get/security
             if (pathPieces.length == 5) {
-                pathPieces[4] = toSecurityFilename("security", jsonPath);
+                pathPieces[4] = getFilename(CodegenKeyType.SECURITY, "security", jsonPath);
             } else {
                 // #/paths/somePath/get/security/0
-                pathPieces[5] = toSecurityFilename(pathPieces[5], jsonPath);
+                pathPieces[5] = getFilename(CodegenKeyType.SECURITY, pathPieces[5], jsonPath);
             }
             return;
         } else if (pathPieces[4].equals("responses")) {
@@ -4131,11 +4136,11 @@ public class DefaultGenerator implements Generator {
         String jsonPath = String.join("/", pathPieces);
         if (pathPieces.length < 3) {
             // #/security
-            pathPieces[1] = toSecurityFilename("security", jsonPath);
+            pathPieces[1] = getFilename(CodegenKeyType.SECURITY, "security", jsonPath);
             return;
         }
         // #/security/0
-        pathPieces[2] = toSecurityFilename(pathPieces[2], jsonPath);
+        pathPieces[2] = getFilename(CodegenKeyType.SECURITY, pathPieces[2], jsonPath);
     }
 
     private void updateApisFilepath(String[] pathPieces) {

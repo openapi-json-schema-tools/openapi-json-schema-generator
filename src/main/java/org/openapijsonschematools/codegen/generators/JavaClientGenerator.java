@@ -2696,7 +2696,7 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
                 // #/paths/somePath/get/servers/0
                 return prefix + "Server" + pathPieces[5];
             case SECURITY:
-                return toSecurityFilename(lastJsonPathFragment, jsonPath);
+                return getFilename(CodegenKeyType.SECURITY, lastJsonPathFragment, jsonPath);
             default:
                 return null;
         }
@@ -3229,24 +3229,28 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
     }
 
     @Override
-    public String toSecurityFilename(String basename, String jsonPath) {
+    public String getFilename(CodegenKeyType type, String lastJsonPathFragment, String jsonPath) {
         String[] pathPieces = jsonPath.split("/");
-        if (pathPieces.length == 2) {
-            // #/security
-            return "SecurityInfo";
-        } else if (pathPieces.length == 3) {
-            // #/security/0
-            return "SecurityRequirementObject"+pathPieces[pathPieces.length-1];
-        } else if (pathPieces.length == 5) {
-            // #/paths/somePath/verb/security
-            String prefix = getPathClassNamePrefix(jsonPath);
-            return prefix + "SecurityInfo";
-        } else if (pathPieces.length == 6) {
-            // #/paths/somePath/verb/security/0
-            String prefix = getPathClassNamePrefix(jsonPath);
-            return prefix + "SecurityRequirementObject"+pathPieces[pathPieces.length-1];
+        switch(type) {
+            case SECURITY:
+                if (pathPieces.length == 2) {
+                    // #/security
+                    return "SecurityInfo";
+                } else if (pathPieces.length == 3) {
+                    // #/security/0
+                    return "SecurityRequirementObject"+pathPieces[pathPieces.length-1];
+                } else if (pathPieces.length == 5) {
+                    // #/paths/somePath/verb/security
+                    String prefix = getPathClassNamePrefix(jsonPath);
+                    return prefix + "SecurityInfo";
+                }
+                // pathPieces.length == 6
+                // #/paths/somePath/verb/security/0
+                String prefix = getPathClassNamePrefix(jsonPath);
+                return prefix + "SecurityRequirementObject"+pathPieces[pathPieces.length-1];
+            default:
+                return null;
         }
-        return null;
     }
 
     @Override

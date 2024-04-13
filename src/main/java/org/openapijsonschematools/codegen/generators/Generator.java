@@ -201,7 +201,10 @@ public interface Generator {
 
     String toServerFilename(String baseName, String jsonPath);
 
-    String toSecurityFilename(String baseName, String jsonPath);
+    @Deprecated
+    default String toSecurityFilename(String baseName, String jsonPath) {
+        return getFilename(CodegenKeyType.SECURITY, baseName, jsonPath);
+    }
 
     @Deprecated
     String getPascalCaseServer(String baseName, String jsonPath);
@@ -310,4 +313,5 @@ public interface Generator {
     boolean shouldGenerateFile(String jsonPath, boolean isDoc);
 
     String getPascalCase(CodegenKeyType type, String lastJsonPathFragment, String jsonPath);
+    String getFilename(CodegenKeyType type, String lastJsonPathFragment, String jsonPath);
 }

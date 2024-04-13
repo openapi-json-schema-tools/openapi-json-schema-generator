@@ -1896,11 +1896,16 @@ public class PythonClientGenerator extends DefaultGenerator implements Generator
     }
 
     @Override
-    public String toSecurityFilename(String basename, String jsonPath) {
-        if (jsonPath.endsWith("/security")) {
-            return "security";
+    public String getFilename(CodegenKeyType type, String lastJsonPathFragment, String jsonPath) {
+        switch(type) {
+            case SECURITY:
+                if (jsonPath.endsWith("/security")) {
+                    return "security";
+                }
+                return "security_requirement_object_" + lastJsonPathFragment;
+            default:
+                return null;
         }
-        return "security_requirement_object_" + basename;
     }
 
     @Deprecated
