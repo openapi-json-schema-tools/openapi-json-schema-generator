@@ -141,17 +141,12 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
             pathPieces[1] = "RootServerInfo";
         } else if (pathPieces.length == 3) {
             // #/servers/0
-            pathPieces[2] = toServerFilename(pathPieces[2], jsonPath);
+            pathPieces[2] = getFilename(CodegenKeyType.SERVER, pathPieces[2], jsonPath);
         } else {
             // #/servers/0/variables
-            pathPieces[2] = toServerFilename(pathPieces[2], jsonPath).toLowerCase(Locale.ROOT);
+            pathPieces[2] = getFilename(CodegenKeyType.SERVER, pathPieces[2], jsonPath).toLowerCase(Locale.ROOT);
             pathPieces[3] = getSchemaFilename(jsonPath);
         }
-    }
-
-    @Override
-    public String toServerFilename(String basename, String jsonPath) {
-        return getPascalCase(CodegenKeyType.SERVER, basename, jsonPath);
     }
 
     @Override
@@ -2574,6 +2569,8 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
     public String getFilename(CodegenKeyType type, String lastJsonPathFragment, String jsonPath) {
         String[] pathPieces = jsonPath.split("/");
         switch(type) {
+            case SERVER:
+                return getPascalCase(CodegenKeyType.SERVER, lastJsonPathFragment, jsonPath);
             case SECURITY_SCHEME:
                 return toModelName(lastJsonPathFragment, jsonPath);
             case OPERATION:

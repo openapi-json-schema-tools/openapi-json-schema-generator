@@ -920,11 +920,6 @@ public class DefaultGenerator implements Generator {
         return org.openapijsonschematools.codegen.common.StringUtils.camelize(name);
     }
 
-    @Override
-    public String toServerFilename(String basename, String jsonPath) {
-        return toModuleFilename(basename, jsonPath);
-    }
-
     @Deprecated
     public String getPascalCaseParameter(String basename, String jsonPath) {
         return getPascalCase(CodegenKeyType.PARAMETER, basename, null);
@@ -3394,6 +3389,7 @@ public class DefaultGenerator implements Generator {
             case CONTENT_TYPE:
                 return toModuleFilename(lastJsonPathFragment, null);
             case PATH:
+            case SERVER:
             case PARAMETER:
             case SECURITY:
             case SECURITY_SCHEME:
@@ -3943,10 +3939,10 @@ public class DefaultGenerator implements Generator {
         if (pathPieces[3].equals("servers")) {
             if (pathPieces.length == 4) {
                 // #/paths/somePath/servers
-                pathPieces[3] = toServerFilename("servers", jsonPath);
+                pathPieces[3] = getFilename(CodegenKeyType.SERVER, "servers", jsonPath);
             } else if (pathPieces.length == 5) {
                 // #/paths/somePath/servers/0
-                pathPieces[4] = toServerFilename(pathPieces[4], jsonPath);
+                pathPieces[4] = getFilename(CodegenKeyType.SERVER, pathPieces[4], jsonPath);
             } else {
                 // #/paths/somePath/servers/0/variables
                 pathPieces[4] = "server" + pathPieces[4];
@@ -3985,10 +3981,10 @@ public class DefaultGenerator implements Generator {
         } else if (pathPieces[4].equals("servers")) {
             if (pathPieces.length == 5) {
                 // #/paths/somePath/get/servers
-                pathPieces[4] = toServerFilename("servers", jsonPath);
+                pathPieces[4] = getFilename(CodegenKeyType.SERVER, "servers", jsonPath);
             } else if (pathPieces.length == 6) {
                 // #/paths/somePath/get/servers/0
-                pathPieces[5] = toServerFilename(pathPieces[5], jsonPath);
+                pathPieces[5] = getFilename(CodegenKeyType.SERVER, pathPieces[5], jsonPath);
             } else {
                 // #/paths/somePath/get/servers/0/variables
                 pathPieces[5] = "server" + pathPieces[5];
@@ -4101,10 +4097,10 @@ public class DefaultGenerator implements Generator {
             // #/servers
         } else if (pathPieces.length == 3) {
             // #/servers/0
-            pathPieces[2] = toServerFilename(pathPieces[2], jsonPath);
+            pathPieces[2] = getFilename(CodegenKeyType.SERVER, pathPieces[2], jsonPath);
         } else {
             // #/servers/0/variables
-            pathPieces[2] = toServerFilename(pathPieces[2], jsonPath).toLowerCase(Locale.ROOT);
+            pathPieces[2] = getFilename(CodegenKeyType.SERVER, pathPieces[2], jsonPath).toLowerCase(Locale.ROOT);
             pathPieces[3] = "Variables";
         }
     }
@@ -4999,7 +4995,7 @@ public class DefaultGenerator implements Generator {
             case "servers":
                 usedKey = escapeUnsafeCharacters(key);
                 isValid = isValid(usedKey);
-                snakeCaseName = toServerFilename(usedKey, sourceJsonPath);
+                snakeCaseName = getFilename(CodegenKeyType.SERVER, usedKey, sourceJsonPath);
                 pascalCaseName = getPascalCase(CodegenKeyType.SERVER, usedKey, sourceJsonPath);
                 camelCaseName = camelize(pascalCaseName, true);
                 break;

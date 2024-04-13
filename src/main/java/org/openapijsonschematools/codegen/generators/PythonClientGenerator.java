@@ -1837,16 +1837,13 @@ public class PythonClientGenerator extends DefaultGenerator implements Generator
     }
 
     @Override
-    public String toServerFilename(String basename, String jsonPath) {
-        if (jsonPath.endsWith("/servers")) {
-            return "servers";
-        }
-        return "server_" + basename;
-    }
-
-    @Override
     public String getFilename(CodegenKeyType type, String lastJsonPathFragment, String jsonPath) {
         switch(type) {
+            case SERVER:
+                if (jsonPath.endsWith("/servers")) {
+                    return "servers";
+                }
+                return "server_" + lastJsonPathFragment;
             case SECURITY_SCHEME:
                 return "security_scheme_" + toModuleFilename(lastJsonPathFragment, null);
             case OPERATION:
