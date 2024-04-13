@@ -145,7 +145,7 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
         } else {
             // #/servers/0/variables
             pathPieces[2] = getFilename(CodegenKeyType.SERVER, pathPieces[2], jsonPath).toLowerCase(Locale.ROOT);
-            pathPieces[3] = getSchemaFilename(jsonPath);
+            pathPieces[3] = getFilename(CodegenKeyType.SCHEMA, pathPieces[pathPieces.length-1], jsonPath);
         }
     }
 
@@ -1293,16 +1293,6 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
         return usedKey;
     }
 
-    @Override
-    public String getSchemaFilename(String jsonPath) {
-        String modelName = schemaJsonPathToModelName.get(jsonPath);
-        if (modelName != null) {
-            return modelName;
-        }
-        String[] pathPieces = jsonPath.split("/");
-        return getSchemaPascalCaseName(pathPieces[pathPieces.length-1], jsonPath, false);
-    }
-
     protected CodegenKey getContainerJsonPathPiece(String expectedComponentType, String currentJsonPath, String sourceJsonPath) {
         return getJsonPathPiece(expectedComponentType, currentJsonPath, sourceJsonPath);
     }
@@ -1337,7 +1327,7 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
         if (ref.equals(sourceJsonPath)) {
             // self reference, no import needed
             if (ref.startsWith("#/components/schemas/") && refPieces.length == 4) {
-                return getSchemaFilename(ref)+schemaSuffix;
+                return getFilename(CodegenKeyType.SCHEMA, refPieces[refPieces.length-1], ref)+schemaSuffix;
             }
             Set<String> httpMethods = new HashSet<>(Arrays.asList("post", "put", "patch", "get", "delete", "trace", "options"));
             boolean requestBodyCase = (
@@ -1364,7 +1354,7 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
                 return null;
             }
         }
-        return getSchemaFilename(ref)+schemaSuffix;
+        return getFilename(CodegenKeyType.SCHEMA, refPieces[refPieces.length-1], ref)+schemaSuffix;
     }
 
     private String toRequestBodyRefClass(String ref) {
@@ -2569,6 +2559,12 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
     public String getFilename(CodegenKeyType type, String lastJsonPathFragment, String jsonPath) {
         String[] pathPieces = jsonPath.split("/");
         switch(type) {
+            case SCHEMA:
+                String modelName = schemaJsonPathToModelName.get(jsonPath);
+                if (modelName != null) {
+                    return modelName;
+                }
+                return getSchemaPascalCaseName(pathPieces[pathPieces.length-1], jsonPath, false);
             case SERVER:
                 return getPascalCase(CodegenKeyType.SERVER, lastJsonPathFragment, jsonPath);
             case SECURITY_SCHEME:

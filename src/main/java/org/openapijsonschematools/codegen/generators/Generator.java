@@ -106,7 +106,11 @@ public interface Generator {
 
     String toModelName(String name, String jsonPath);
 
-    String getSchemaFilename(String jsonPath);
+    @Deprecated
+    default String getSchemaFilename(String jsonPath) {
+        String[] pathPieces = jsonPath.split("/");
+        return getFilename(CodegenKeyType.SCHEMA, pathPieces[pathPieces.length-1], jsonPath);
+    }
 
     @Deprecated
     default String getSchemaPascalCaseName(String name, @NotNull String sourceJsonPath) {

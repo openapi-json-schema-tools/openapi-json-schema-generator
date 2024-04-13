@@ -3384,6 +3384,9 @@ public class DefaultGenerator implements Generator {
     @Override
     public String getFilename(CodegenKeyType type, String lastJsonPathFragment, String jsonPath) {
         switch(type) {
+            case SCHEMA:
+                String[] schemaPieces = jsonPath.split("/");
+                return schemaPieces[schemaPieces.length-1];
             case OPERATION:
                 return lastJsonPathFragment;
             case CONTENT_TYPE:
@@ -3798,13 +3801,7 @@ public class DefaultGenerator implements Generator {
     public String modelPackagePathFragment() {
         return modelPackage.replace('.', File.separatorChar);
     }
-
-    @Override
-    public String getSchemaFilename(String jsonPath) {
-        String[] pieces = jsonPath.split("/");
-        return pieces[pieces.length-1];
-    }
-
+    
     protected void updateComponentsFilepath(String[] pathPieces) {
         if (pathPieces.length < 3) {
             return;
@@ -3823,7 +3820,7 @@ public class DefaultGenerator implements Generator {
                 pathPieces[2] = fragments[1];
                 if (pathPieces.length == 4) {
                     // #/components/schemas/SomeSchema
-                    pathPieces[3] = getSchemaFilename(jsonPath);
+                    pathPieces[3] = getFilename(CodegenKeyType.SCHEMA, pathPieces[pathPieces.length-1], jsonPath);
                 }
                 return;
             case "requestBodies":
@@ -3841,25 +3838,25 @@ public class DefaultGenerator implements Generator {
             pathPieces[3] = getFilename(CodegenKeyType.HEADER, pathPieces[3], jsonPath);
             if (pathPieces.length == 5 && pathPieces[4].equals("schema")) {
                 // #/components/headers/someHeader/schema
-                pathPieces[4] = getSchemaFilename(jsonPath);
+                pathPieces[4] = getFilename(CodegenKeyType.SCHEMA, pathPieces[pathPieces.length-1], jsonPath) ;
             } else if (pathPieces.length >= 6 && pathPieces[4].equals("content")) {
                 // #/components/headers/someHeader/content/application-json -> length 6
                 String contentType = ModelUtils.decodeSlashes(pathPieces[5]);
                 pathPieces[5] = getFilename(CodegenKeyType.CONTENT_TYPE, contentType, null);
                 if (pathPieces.length == 7) {
-                    pathPieces[6] = getSchemaFilename(jsonPath);
+                    pathPieces[6] = getFilename(CodegenKeyType.SCHEMA, pathPieces[pathPieces.length-1], jsonPath) ;
                 }
             }
         } else if (pathPieces[2].equals("parameters")) {
             pathPieces[3] = getFilename(CodegenKeyType.PARAMETER, pathPieces[3], jsonPath);
             if (pathPieces.length == 5 && pathPieces[4].equals("schema")) {
-                pathPieces[4] = getSchemaFilename(jsonPath);
+                pathPieces[4] = getFilename(CodegenKeyType.SCHEMA, pathPieces[pathPieces.length-1], jsonPath) ;
             } else if (pathPieces.length >= 6 && pathPieces[4].equals("content")) {
                 // #/components/parameters/someParam/content/application-json -> length 6
                 String contentType = ModelUtils.decodeSlashes(pathPieces[5]);
                 pathPieces[5] = getFilename(CodegenKeyType.CONTENT_TYPE, contentType, null);
                 if (pathPieces.length == 7) {
-                    pathPieces[6] = getSchemaFilename(jsonPath);
+                    pathPieces[6] = getFilename(CodegenKeyType.SCHEMA, pathPieces[pathPieces.length-1], jsonPath) ;
                 }
             }
         } else if (pathPieces[2].equals(requestBodiesIdentifier)) {
@@ -3869,7 +3866,7 @@ public class DefaultGenerator implements Generator {
                 String contentType = ModelUtils.decodeSlashes(pathPieces[5]);
                 pathPieces[5] = getFilename(CodegenKeyType.CONTENT_TYPE, contentType, null);
                 if (pathPieces.length == 7) {
-                    pathPieces[6] = getSchemaFilename(jsonPath);
+                    pathPieces[6] = getFilename(CodegenKeyType.SCHEMA, pathPieces[pathPieces.length-1], jsonPath) ;
                 }
             }
         } else if (pathPieces[2].equals("responses")) {
@@ -3883,7 +3880,7 @@ public class DefaultGenerator implements Generator {
             if (pathPieces.length == 5 && pathPieces[4].equals(headersSchemaFragment)) {
                 // synthetic json path
                 // #/components/responses/someResponse/Headers
-                pathPieces[4] = getSchemaFilename(jsonPath);
+                pathPieces[4] = getFilename(CodegenKeyType.SCHEMA, pathPieces[pathPieces.length-1], jsonPath) ;
                 return;
             }
 
@@ -3897,14 +3894,14 @@ public class DefaultGenerator implements Generator {
                 pathPieces[5] = getFilename(CodegenKeyType.HEADER, pathPieces[5], jsonPath);
                 if (pathPieces.length == 7 && pathPieces[6].equals("schema")) {
                     // #/components/responses/someResponse/headers/SomeHeader/schema
-                    pathPieces[6] = getSchemaFilename(jsonPath);
+                    pathPieces[6] = getFilename(CodegenKeyType.SCHEMA, pathPieces[pathPieces.length-1], jsonPath) ;
                 } else if (pathPieces.length >= 8 && pathPieces[6].equals("content")) {
                     // #/components/responses/someResponse/headers/SomeHeader/content/application-json -> length 8
                     String contentType = ModelUtils.decodeSlashes(pathPieces[7]);
                     pathPieces[7] = getFilename(CodegenKeyType.CONTENT_TYPE, contentType, null);
                     if (pathPieces.length == 9) {
                         // #/components/responses/someResponse/headers/SomeHeader/content/application-json/schema
-                        pathPieces[8] = getSchemaFilename(jsonPath);
+                        pathPieces[8] = getFilename(CodegenKeyType.SCHEMA, pathPieces[pathPieces.length-1], jsonPath) ;
                     }
                 }
             } else if (pathPieces[4].equals("content")) {
@@ -3916,7 +3913,7 @@ public class DefaultGenerator implements Generator {
                 String contentType = ModelUtils.decodeSlashes(pathPieces[5]);
                 pathPieces[5] = getFilename(CodegenKeyType.CONTENT_TYPE, contentType, null);
                 if (pathPieces.length == 7) {
-                    pathPieces[6] = getSchemaFilename(jsonPath);
+                    pathPieces[6] = getFilename(CodegenKeyType.SCHEMA, pathPieces[pathPieces.length-1], jsonPath) ;
                 }
             }
         } else if (pathPieces[2].equals(securitySchemesIdentifier)) {
@@ -3946,7 +3943,7 @@ public class DefaultGenerator implements Generator {
             } else {
                 // #/paths/somePath/servers/0/variables
                 pathPieces[4] = "server" + pathPieces[4];
-                pathPieces[5] = getSchemaFilename(jsonPath);
+                pathPieces[5] = getFilename(CodegenKeyType.SCHEMA, pathPieces[pathPieces.length-1], jsonPath) ;
             }
             return;
         } else if (pathPieces[3].equals("parameters")) {
@@ -3961,12 +3958,12 @@ public class DefaultGenerator implements Generator {
                 String contentType = ModelUtils.decodeSlashes(pathPieces[6]);
                 pathPieces[6] = getFilename(CodegenKeyType.CONTENT_TYPE, contentType, null);
                 if (pathPieces.length == 8) {
-                    pathPieces[7] = getSchemaFilename(jsonPath);
+                    pathPieces[7] = getFilename(CodegenKeyType.SCHEMA, pathPieces[pathPieces.length-1], jsonPath) ;
                     return;
                 }
             } else if (pathPieces.length == 6 && pathPieces[5].equals("schema")) {
                 // #/paths/somePath/parameters/0/schema -> length 7
-                pathPieces[5] = getSchemaFilename(jsonPath);
+                pathPieces[5] = getFilename(CodegenKeyType.SCHEMA, pathPieces[pathPieces.length-1], jsonPath) ;
                 return;
             }
         } else if (pathPieces.length == 4) {
@@ -3977,7 +3974,7 @@ public class DefaultGenerator implements Generator {
         if (xParameters.contains(pathPieces[4])) {
             // #/paths/somePath/get/PathParameters
             // synthetic jsonPath
-            pathPieces[4] = getSchemaFilename(jsonPath);
+            pathPieces[4] = getFilename(CodegenKeyType.SCHEMA, pathPieces[pathPieces.length-1], jsonPath) ;
         } else if (pathPieces[4].equals("servers")) {
             if (pathPieces.length == 5) {
                 // #/paths/somePath/get/servers
@@ -3988,7 +3985,7 @@ public class DefaultGenerator implements Generator {
             } else {
                 // #/paths/somePath/get/servers/0/variables
                 pathPieces[5] = "server" + pathPieces[5];
-                pathPieces[6] = getSchemaFilename(jsonPath);
+                pathPieces[6] = getFilename(CodegenKeyType.SCHEMA, pathPieces[pathPieces.length-1], jsonPath) ;
             }
         } else if (pathPieces[4].equals("security")) {
             // #/paths/somePath/get/security
@@ -4015,7 +4012,7 @@ public class DefaultGenerator implements Generator {
             if (pathPieces.length == 7 && pathPieces[6].equals(headersSchemaFragment)) {
                 // synthetic json path
                 // #/paths/user_login/get/responses/200/Headers
-                pathPieces[6] = getSchemaFilename(jsonPath);
+                pathPieces[6] = getFilename(CodegenKeyType.SCHEMA, pathPieces[pathPieces.length-1], jsonPath) ;
                 return;
             }
 
@@ -4028,7 +4025,7 @@ public class DefaultGenerator implements Generator {
                 String contentType = ModelUtils.decodeSlashes(pathPieces[7]);
                 pathPieces[7] = getFilename(CodegenKeyType.CONTENT_TYPE, contentType, null);
                 if (pathPieces.length == 9) {
-                    pathPieces[8] = getSchemaFilename(jsonPath);
+                    pathPieces[8] = getFilename(CodegenKeyType.SCHEMA, pathPieces[pathPieces.length-1], jsonPath) ;
                 }
             } else if (pathPieces[6].equals("headers")) {
                 if (pathPieces.length == 7) {
@@ -4044,10 +4041,10 @@ public class DefaultGenerator implements Generator {
                     String contentType = ModelUtils.decodeSlashes(pathPieces[9]);
                     pathPieces[9] = getFilename(CodegenKeyType.CONTENT_TYPE, contentType, null);
                     if (pathPieces.length == 11) {
-                        pathPieces[10] = getSchemaFilename(jsonPath);
+                        pathPieces[10] = getFilename(CodegenKeyType.SCHEMA, pathPieces[pathPieces.length-1], jsonPath) ;
                     }
                 } else if (pathPieces.length == 9 && pathPieces[8].equals("schema")) {
-                    pathPieces[8] = getSchemaFilename(jsonPath);
+                    pathPieces[8] = getFilename(CodegenKeyType.SCHEMA, pathPieces[pathPieces.length-1], jsonPath) ;
                 }
             }
         } else if (pathPieces[4].equals("parameters")) {
@@ -4064,11 +4061,11 @@ public class DefaultGenerator implements Generator {
                 String contentType = ModelUtils.decodeSlashes(pathPieces[7]);
                 pathPieces[7] = getFilename(CodegenKeyType.CONTENT_TYPE, contentType, null);
                 if (pathPieces.length == 9) {
-                    pathPieces[8] = getSchemaFilename(jsonPath);
+                    pathPieces[8] = getFilename(CodegenKeyType.SCHEMA, pathPieces[pathPieces.length-1], jsonPath) ;
                 }
             } else if (pathPieces.length == 7 && pathPieces[6].equals("schema")) {
                 // #/paths/somePath/get/parameters/0/schema -> length 7
-                pathPieces[6] = getSchemaFilename(jsonPath);
+                pathPieces[6] = getFilename(CodegenKeyType.SCHEMA, pathPieces[pathPieces.length-1], jsonPath) ;
             }
         } else if (pathPieces[4].equals("requestBody")) {
             if (pathPieces.length == 5) {
@@ -4083,7 +4080,7 @@ public class DefaultGenerator implements Generator {
                 pathPieces[6] = getFilename(CodegenKeyType.CONTENT_TYPE, contentType, null);
                 if (pathPieces.length == 8) {
                     // #/paths/somePath/get/requestBody/content/application-json/schema
-                    pathPieces[7] = getSchemaFilename(jsonPath);
+                    pathPieces[7] = getFilename(CodegenKeyType.SCHEMA, pathPieces[pathPieces.length-1], jsonPath) ;
                 }
             }
         }
@@ -4736,7 +4733,7 @@ public class DefaultGenerator implements Generator {
                 // Two use cases
                 // 1. #/components/schemas/SomeSchema (component schemas)
                 // 2. #/paths/~1pet~1{petId}/get/parameters/0/schema (other schemas: parameters, response headers etc)
-                return getSchemaFilename(ref);
+                return getFilename(CodegenKeyType.SCHEMA, refPieces[refPieces.length-1], ref);
             case "securitySchemes":
                 return getFilename(CodegenKeyType.SECURITY_SCHEME, refPieces[3], ref);
         }

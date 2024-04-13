@@ -1839,6 +1839,14 @@ public class PythonClientGenerator extends DefaultGenerator implements Generator
     @Override
     public String getFilename(CodegenKeyType type, String lastJsonPathFragment, String jsonPath) {
         switch(type) {
+            case SCHEMA:
+                String[] pieces = jsonPath.split("/");
+                String name = pieces[pieces.length - 1];
+                if (name.equals("Headers") && jsonPath.contains("/responses/")) {
+                    // synthetic response headers jsonPath
+                    return "header_parameters";
+                }
+                return toModelFilename(name, jsonPath);
             case SERVER:
                 if (jsonPath.endsWith("/servers")) {
                     return "servers";
@@ -2145,17 +2153,6 @@ public class PythonClientGenerator extends DefaultGenerator implements Generator
             default:
                 return null;
         }
-    }
-
-    @Override
-    public String getSchemaFilename(String jsonPath) {
-        String[] pieces = jsonPath.split("/");
-        String name = pieces[pieces.length - 1];
-        if (name.equals("Headers") && jsonPath.contains("/responses/")) {
-            // synthetic response headers jsonPath
-            return "header_parameters";
-        }
-        return toModelFilename(name, jsonPath);
     }
 
     @Override
