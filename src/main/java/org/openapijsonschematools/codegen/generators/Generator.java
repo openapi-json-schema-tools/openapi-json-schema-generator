@@ -106,12 +106,21 @@ public interface Generator {
 
     String toModelName(String name, String jsonPath);
 
-    String getSchemaFilename(String jsonPath);
+    @Deprecated
+    default String getSchemaFilename(String jsonPath) {
+        String[] pathPieces = jsonPath.split("/");
+        return getFilename(CodegenKeyType.SCHEMA, pathPieces[pathPieces.length-1], jsonPath);
+    }
 
     @Deprecated
-    String getSchemaPascalCaseName(String name, @NotNull String sourceJsonPath);
+    default String getSchemaPascalCaseName(String name, @NotNull String sourceJsonPath) {
+        return getPascalCase(CodegenKeyType.SCHEMA, name, sourceJsonPath);
+    }
     Set<String> getImports(String sourceJsonPath, CodegenSchema schema, FeatureSet featureSet);
-    String toContentTypeFilename(String name);
+    @Deprecated
+    default String toContentTypeFilename(String name) {
+        return getFilename(CodegenKeyType.CONTENT_TYPE, name, null);
+    }
 
     String toParamName(String name);
 
@@ -187,25 +196,50 @@ public interface Generator {
 
     String toModuleFilename(String name, String jsonPath);
 
-    String toRequestBodyFilename(String componentName, String jsonPath);
-
-    String toHeaderFilename(String componentName, String jsonPath);
-
-    String toPathFilename(String path, String jsonPath);
-
-    String toParameterFilename(String baseName, String jsonPath);
-
-    String toOperationFilename(String name, String jsonPath);
-
-    String toSecuritySchemeFilename(String baseName, String jsonPath);
-
-    String toServerFilename(String baseName, String jsonPath);
-
-    String toSecurityFilename(String baseName, String jsonPath);
+    @Deprecated
+    default String toRequestBodyFilename(String componentName, String jsonPath) {
+        return getFilename(CodegenKeyType.REQUEST_BODY, componentName, jsonPath);
+    }
 
     @Deprecated
-    String getPascalCaseServer(String baseName, String jsonPath);
+    default String toHeaderFilename(String componentName, String jsonPath) {
+        return getFilename(CodegenKeyType.HEADER, componentName, jsonPath);
+    }
 
+    @Deprecated
+    default String toPathFilename(String path, String jsonPath) {
+        return getFilename(CodegenKeyType.PATH, path, jsonPath);
+    }
+
+    @Deprecated
+    default String toParameterFilename(String baseName, String jsonPath) {
+        return getFilename(CodegenKeyType.PARAMETER, baseName, jsonPath);
+    }
+
+    @Deprecated
+    default String toOperationFilename(String name, String jsonPath) {
+        return getFilename(CodegenKeyType.OPERATION, name, jsonPath);
+    }
+
+    @Deprecated
+    default String toSecuritySchemeFilename(String baseName, String jsonPath) {
+        return getFilename(CodegenKeyType.SECURITY_SCHEME, baseName, jsonPath);
+    }
+
+    @Deprecated
+    default String toServerFilename(String baseName, String jsonPath) {
+        return getFilename(CodegenKeyType.SERVER, baseName, jsonPath);
+    }
+
+    @Deprecated
+    default String toSecurityFilename(String baseName, String jsonPath) {
+        return getFilename(CodegenKeyType.SECURITY, baseName, jsonPath);
+    }
+
+    @Deprecated
+    default String getPascalCaseServer(String basename, String jsonPath) {
+        return getPascalCase(CodegenKeyType.SERVER, basename, jsonPath);
+    }
     String toModelImport(String refClass);
 
     TreeMap<String, CodegenSchema> updateAllModels(TreeMap<String, CodegenSchema> models);
@@ -310,4 +344,5 @@ public interface Generator {
     boolean shouldGenerateFile(String jsonPath, boolean isDoc);
 
     String getPascalCase(CodegenKeyType type, String lastJsonPathFragment, String jsonPath);
+    String getFilename(CodegenKeyType type, String lastJsonPathFragment, String jsonPath);
 }

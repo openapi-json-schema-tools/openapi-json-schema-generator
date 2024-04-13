@@ -827,16 +827,6 @@ public class PythonClientGenerator extends DefaultGenerator implements Generator
         return underscore(dropDots(toModelName(name, jsonPath)));
     }
 
-    @Deprecated
-    protected String toSecurityPascalCase(String basename, String jsonPath) {
-        return getPascalCase(CodegenKeyType.SECURITY, basename, jsonPath);
-    }
-
-    @Override
-    public String toContentTypeFilename(String name) {
-        return toModuleFilename(name, null);
-    }
-
     /*
     This method requires jsonPath to be passed in
     It handles responses and schemas
@@ -1789,24 +1779,6 @@ public class PythonClientGenerator extends DefaultGenerator implements Generator
         return "response_" + componentName.toLowerCase(Locale.ROOT);
     }
 
-    @Override
-    public String toRequestBodyFilename(String componentName, String jsonPath) {
-        if (jsonPath.startsWith("#/components")) {
-            return toModuleFilename("request_body_" + componentName, null);
-        }
-        return toModuleFilename("request_body", null);
-    }
-
-    public String toHeaderFilename(String componentName, String jsonPath) {
-        String[] pathPieces = jsonPath.split("/");
-        if ((pathPieces.length == 5 || pathPieces.length == 7) && componentName.equals("headers")) {
-            // #/components/responses/SomeResponse/headers
-            // #/paths/somePath/verb/responses/200/headers
-            return "headers";
-        }
-        return toModuleFilename("header_" + componentName, null);
-    }
-
     public void setUseNose(String val) {
         this.useNose = Boolean.parseBoolean(val);
     }
@@ -1865,58 +1837,70 @@ public class PythonClientGenerator extends DefaultGenerator implements Generator
     }
 
     @Override
-    public String toParameterFilename(String name, String jsonPath) {
-        String[] pathPieces = jsonPath.split("/");
-        if (operationVerbs.contains(pathPieces[3]) && pathPieces.length == 5) {
-            // #/paths/somePath/verb/parameters
-            return "parameters";
+    public String getFilename(CodegenKeyType type, String lastJsonPathFragment, String jsonPath) {
+        switch(type) {
+            case SCHEMA:
+                String[] pieces = jsonPath.split("/");
+                String name = pieces[pieces.length - 1];
+                if (name.equals("Headers") && jsonPath.contains("/responses/")) {
+                    // synthetic response headers jsonPath
+                    return "header_parameters";
+                }
+                return toModelFilename(name, jsonPath);
+            case SERVER:
+                if (jsonPath.endsWith("/servers")) {
+                    return "servers";
+                }
+                return "server_" + lastJsonPathFragment;
+            case SECURITY_SCHEME:
+                return "security_scheme_" + toModuleFilename(lastJsonPathFragment, null);
+            case OPERATION:
+                return lastJsonPathFragment;
+            case PARAMETER:
+                String[] paramPathPieces = jsonPath.split("/");
+                if (operationVerbs.contains(paramPathPieces[3]) && paramPathPieces.length == 5) {
+                    // #/paths/somePath/verb/parameters
+                    return "parameters";
+                }
+                // adds prefix parameter_ onto the result so modules do not start with _
+                try {
+                    Integer.parseInt(lastJsonPathFragment);
+                    // for parameters in path, or an endpoint
+                    return "parameter_" + lastJsonPathFragment;
+                } catch (NumberFormatException nfe) {
+                    // for header parameters in responses
+                    return "parameter_" + toModuleFilename(lastJsonPathFragment, null);
+                }
+            case PATH:
+                return toModuleFilename(lastJsonPathFragment, jsonPath);
+            case HEADER:
+                String[] pathPieces = jsonPath.split("/");
+                if ((pathPieces.length == 5 || pathPieces.length == 7) && lastJsonPathFragment.equals("headers")) {
+                    // #/components/responses/SomeResponse/headers
+                    // #/paths/somePath/verb/responses/200/headers
+                    return "headers";
+                }
+                return toModuleFilename("header_" + lastJsonPathFragment, null);
+            case REQUEST_BODY:
+                if (jsonPath.startsWith("#/components")) {
+                    return toModuleFilename("request_body_" + lastJsonPathFragment, null);
+                }
+                return toModuleFilename("request_body", null);
+            case CONTENT_TYPE:
+                return toModuleFilename(lastJsonPathFragment, null);
+            case SECURITY:
+                if (jsonPath.endsWith("/security")) {
+                    return "security";
+                }
+                return "security_requirement_object_" + lastJsonPathFragment;
+            default:
+                return null;
         }
-        // adds prefix parameter_ onto the result so modules do not start with _
-        try {
-            Integer.parseInt(name);
-            // for parameters in path, or an endpoint
-            return "parameter_" + name;
-        } catch (NumberFormatException nfe) {
-            // for header parameters in responses
-            return "parameter_" + toModuleFilename(name, null);
-        }
-    }
-
-    @Override
-    public String toSecuritySchemeFilename(String basename, String jsonPath) {
-        return "security_scheme_" + toModuleFilename(basename, null);
-    }
-
-    @Override
-    public String toServerFilename(String basename, String jsonPath) {
-        if (jsonPath.endsWith("/servers")) {
-            return "servers";
-        }
-        return "server_" + basename;
-    }
-
-    @Override
-    public String toSecurityFilename(String basename, String jsonPath) {
-        if (jsonPath.endsWith("/security")) {
-            return "security";
-        }
-        return "security_requirement_object_" + basename;
-    }
-
-    @Deprecated
-    @Override
-    public String getPascalCaseParameter(String name, String jsonPath) {
-        return getPascalCase(CodegenKeyType.PARAMETER, name, jsonPath);
-    }
-
-    @Deprecated
-    public String getPascalCaseResponse(String name, String jsonPath) {
-        return getPascalCase(CodegenKeyType.RESPONSE, name, jsonPath);
     }
 
     @Override
     public String toParamName(String basename) {
-        return toParameterFilename(basename, null);
+        return getFilename(CodegenKeyType.PARAMETER, basename, null);
     }
 
     private String toSchemaRefClass(String ref, String sourceJsonPath) {
@@ -2121,12 +2105,6 @@ public class PythonClientGenerator extends DefaultGenerator implements Generator
         LOGGER.info("################################################################################");
     }
 
-    @Deprecated
-    @Override
-    public String getSchemaPascalCaseName(String name, @NotNull String sourceJsonPath) {
-        return getPascalCase(CodegenKeyType.SCHEMA, name, sourceJsonPath);
-    }
-
     @Override
     public String getPascalCase(CodegenKeyType type, String lastJsonPathFragment, String jsonPath) {
         switch (type) {
@@ -2145,11 +2123,12 @@ public class PythonClientGenerator extends DefaultGenerator implements Generator
                 }
                 return toModelName(usedKey + suffix, jsonPath);
             case PATH:
-                return camelize(toPathFilename(lastJsonPathFragment, jsonPath));
+                return camelize(getFilename(CodegenKeyType.PATH, lastJsonPathFragment, jsonPath));
             case MISC:
             case OPERATION:
             case REQUEST_BODY:
             case HEADER:
+            case CONTENT_TYPE:
             case SECURITY_SCHEME:
                 return toModelName(lastJsonPathFragment, jsonPath);
             case PARAMETER:
@@ -2174,17 +2153,6 @@ public class PythonClientGenerator extends DefaultGenerator implements Generator
             default:
                 return null;
         }
-    }
-
-    @Override
-    public String getSchemaFilename(String jsonPath) {
-        String[] pieces = jsonPath.split("/");
-        String name = pieces[pieces.length - 1];
-        if (name.equals("Headers") && jsonPath.contains("/responses/")) {
-            // synthetic response headers jsonPath
-            return "header_parameters";
-        }
-        return toModelFilename(name, jsonPath);
     }
 
     @Override

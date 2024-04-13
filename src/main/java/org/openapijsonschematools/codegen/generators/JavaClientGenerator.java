@@ -141,23 +141,12 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
             pathPieces[1] = "RootServerInfo";
         } else if (pathPieces.length == 3) {
             // #/servers/0
-            pathPieces[2] = toServerFilename(pathPieces[2], jsonPath);
+            pathPieces[2] = getFilename(CodegenKeyType.SERVER, pathPieces[2], jsonPath);
         } else {
             // #/servers/0/variables
-            pathPieces[2] = toServerFilename(pathPieces[2], jsonPath).toLowerCase(Locale.ROOT);
-            pathPieces[3] = getSchemaFilename(jsonPath);
+            pathPieces[2] = getFilename(CodegenKeyType.SERVER, pathPieces[2], jsonPath).toLowerCase(Locale.ROOT);
+            pathPieces[3] = getFilename(CodegenKeyType.SCHEMA, pathPieces[pathPieces.length-1], jsonPath);
         }
-    }
-
-    @Deprecated
-    @Override
-    public String getPascalCaseServer(String basename, String jsonPath) {
-        return getPascalCase(CodegenKeyType.SERVER, basename, jsonPath);
-    }
-
-    @Override
-    public String toServerFilename(String basename, String jsonPath) {
-        return getPascalCase(CodegenKeyType.SERVER, basename, jsonPath);
     }
 
     @Override
@@ -1094,72 +1083,8 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
     }
 
     @Override
-    public String toContentTypeFilename(String name) {
-        return toModuleFilename(name, null);
-    }
-
-    @Override
     public String toModelFilename(String name, String jsonPath) {
         return toModelName(name, jsonPath);
-    }
-
-    @Override
-    public String toSecuritySchemeFilename(String basename, String jsonPath) {
-        return toModelName(basename, jsonPath);
-    }
-
-    @Override
-    public String toRequestBodyFilename(String componentName, String jsonPath) {
-        String[] pathPieces = jsonPath.split("/");
-        if (pathPieces[2].equals("requestbodies") || pathPieces[2].equals("requestBodies")) {
-            if (pathPieces.length == 4) {
-                // #/components/requestBodies/Pet
-                return toModelName( componentName, null);
-            }
-            return toModuleFilename(componentName, null);
-        }
-        if (pathPieces.length == 5) {
-            // #/paths/somePath/verb/requestBody
-            String pathClassName = getPathClassNamePrefix(jsonPath);
-            return pathClassName + "RequestBody";
-        }
-        return toModuleFilename(componentName, null);
-    }
-
-    public String toHeaderFilename(String componentName, String jsonPath) {
-        String[] pathPieces = jsonPath.split("/");
-        if (jsonPath.startsWith("#/components/headers/")) {
-            if (pathPieces.length == 4) {
-                // #/components/headers/SomeHeader
-                return toModelName(componentName, null);
-            }
-            // deeper paths
-            return toModuleFilename(componentName, jsonPath);
-        } else if (jsonPath.startsWith("#/components/responses/")) {
-            if (pathPieces.length == 5) {
-                // #/components/responses/SomeResponse/headers
-                return "Headers";
-            } else if (pathPieces.length == 6) {
-                // #/components/responses/SomeResponse/headers/SomeHeader
-                return toModelName(componentName, null);
-            }
-            // deeper paths
-            return toModuleFilename(componentName, jsonPath);
-        }
-        if (pathPieces.length == 7) {
-            // #/paths/somePath/verb/responses/200/headers
-            return "Headers";
-        } else if (pathPieces.length == 8) {
-            // #/paths/somePath/verb/responses/200/headers/SomeHeader
-            return toModelName(componentName, null);
-        }
-        // deeper paths
-        return toModuleFilename(componentName, jsonPath);
-    }
-
-    @Deprecated
-    public String getPascalCaseResponse(String componentName, String jsonPath) {
-        return getPascalCase(CodegenKeyType.RESPONSE, componentName, jsonPath);
     }
 
     @Override
@@ -1197,12 +1122,6 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
             return false;
         }
         return name.matches("^[a-zA-Z]\\w*$");
-    }
-
-    @Deprecated
-    @Override
-    public String getSchemaPascalCaseName(String name, @NotNull String sourceJsonPath) {
-        return getPascalCase(CodegenKeyType.SCHEMA, name, sourceJsonPath);
     }
 
     protected String getCamelCaseName(String key) {
@@ -1312,7 +1231,7 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
             // #/paths/path/verb/responses/200/HeadersSchema
             String responseJsonPath = String.join("/", Arrays.copyOfRange(pathPieces, 0, pathPieces.length-1));
             String responseFragment = pathPieces[pathPieces.length-2];
-            String pascalCaseResponse = getPascalCaseResponse(responseFragment, responseJsonPath);
+            String pascalCaseResponse = getPascalCase(CodegenKeyType.RESPONSE, responseFragment, responseJsonPath);
             usedKey =  pascalCaseResponse + camelize(usedKey);
         } else if (operationParametersSchema) {
             String prefix = getPathClassNamePrefix(sourceJsonPath);
@@ -1374,16 +1293,6 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
         return usedKey;
     }
 
-    @Override
-    public String getSchemaFilename(String jsonPath) {
-        String modelName = schemaJsonPathToModelName.get(jsonPath);
-        if (modelName != null) {
-            return modelName;
-        }
-        String[] pathPieces = jsonPath.split("/");
-        return getSchemaPascalCaseName(pathPieces[pathPieces.length-1], jsonPath, false);
-    }
-
     protected CodegenKey getContainerJsonPathPiece(String expectedComponentType, String currentJsonPath, String sourceJsonPath) {
         return getJsonPathPiece(expectedComponentType, currentJsonPath, sourceJsonPath);
     }
@@ -1412,61 +1321,13 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
         return true;
     }
 
-    @Deprecated
-    @Override
-    public String getPascalCaseParameter(String basename, String jsonPath) {
-        return getPascalCase(CodegenKeyType.PARAMETER, basename, jsonPath);
-    }
-
-    public String toPathFilename(String name, String jsonPath) {
-        String[] pathPieces = jsonPath.split("/");
-        boolean pathClassCase = (pathPieces.length == 3 || (pathPieces.length == 4 && pathPieces[1].equals("apis")));
-        if (pathClassCase) {
-            // #/paths/somePath -> Somepath
-            // #/apis/paths/somePath -> Somepath
-            String moduleFilename = toModuleFilename(name, jsonPath);
-            return camelize(moduleFilename, false);
-        }
-        // #/paths/somePath/blah -> somepath
-        return toModuleFilename(name, jsonPath);
-    }
-
-    @Override
-    public String toParameterFilename(String name, String jsonPath) {
-        // adds prefix parameter_ onto the result so modules do not start with _
-        String[] pathPieces = jsonPath.split("/");
-        if (jsonPath.startsWith("#/components/parameters/")) {
-            if (pathPieces.length == 4) {
-                // #/components/parameters/SomeParameter
-                return toModelName(name, null);
-            }
-            return toModuleFilename(name, jsonPath);
-        }
-        if (operationVerbs.contains(pathPieces[3])) {
-            if (pathPieces.length == 5) {
-                // #/paths/somePath/verb/parameters
-                return "Parameters";
-            }
-            if (pathPieces[pathPieces.length-2].equals("parameters") && isInteger(name) && pathPieces.length == 6) {
-                // #/paths/somePath/verb/parameters/0
-                return "Parameter" + name;
-            }
-            return "parameter" + name;
-        }
-        if (pathPieces[pathPieces.length-2].equals("parameters") && isInteger(name) && pathPieces.length == 5) {
-            // #/paths/somePath/parameters/0
-            return "RouteParameter" + name;
-        }
-        return "routeparameter" + name;
-    }
-
     private String toSchemaRefClass(String ref, String sourceJsonPath) {
         int schemaSuffix = 1;
         String[] refPieces = ref.split("/");
         if (ref.equals(sourceJsonPath)) {
             // self reference, no import needed
             if (ref.startsWith("#/components/schemas/") && refPieces.length == 4) {
-                return getSchemaFilename(ref)+schemaSuffix;
+                return getFilename(CodegenKeyType.SCHEMA, refPieces[refPieces.length-1], ref)+schemaSuffix;
             }
             Set<String> httpMethods = new HashSet<>(Arrays.asList("post", "put", "patch", "get", "delete", "trace", "options"));
             boolean requestBodyCase = (
@@ -1493,7 +1354,7 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
                 return null;
             }
         }
-        return getSchemaFilename(ref)+schemaSuffix;
+        return getFilename(CodegenKeyType.SCHEMA, refPieces[refPieces.length-1], ref)+schemaSuffix;
     }
 
     private String toRequestBodyRefClass(String ref) {
@@ -2623,17 +2484,8 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
         // #/paths/somePath/get -> SomepathGet
         String[] pathPieces = jsonPath.split("/");
         String pathJsonPath = "#/paths/"+pathPieces[2];
-        String pathClassName = toPathFilename(ModelUtils.decodeSlashes(pathPieces[2]), pathJsonPath);
+        String pathClassName = getFilename(CodegenKeyType.PATH, ModelUtils.decodeSlashes(pathPieces[2]), pathJsonPath);
         return pathClassName + StringUtils.capitalize(pathPieces[3]);
-    }
-
-    @Override
-    public String toOperationFilename(String name, String jsonPath) {
-        String[] pathPieces = jsonPath.split("/");
-        String pathJsonPath = "#/paths/"+pathPieces[2];
-        String pathClassName = toPathFilename(ModelUtils.decodeSlashes(pathPieces[2]), pathJsonPath);
-        String operationFileName = pathClassName + StringUtils.capitalize(name);
-        return operationFileName;
     }
 
     @Override
@@ -2642,7 +2494,7 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
             case SCHEMA:
                 return getSchemaPascalCaseName(lastJsonPathFragment, jsonPath, true);
             case PATH:
-                return camelize(toPathFilename(lastJsonPathFragment, jsonPath));
+                return camelize(getFilename(CodegenKeyType.PATH, lastJsonPathFragment, jsonPath));
             case REQUEST_BODY:
                 if (jsonPath.startsWith("#/paths")) {
                     String prefix = getPathClassNamePrefix(jsonPath);
@@ -2651,12 +2503,13 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
                 return toModelName(lastJsonPathFragment, jsonPath);
             case MISC:
             case HEADER:
+            case CONTENT_TYPE:
             case SECURITY_SCHEME:
                 return toModelName(lastJsonPathFragment, jsonPath);
             case OPERATION:
-                return toOperationFilename(lastJsonPathFragment, jsonPath);
+                return getFilename(CodegenKeyType.OPERATION, lastJsonPathFragment, jsonPath);
             case PARAMETER:
-                return toParameterFilename(lastJsonPathFragment, jsonPath);
+                return getFilename(CodegenKeyType.PARAMETER, lastJsonPathFragment, jsonPath);
             case RESPONSE:
                 if (jsonPath.startsWith("#/components/responses/")) {
                     return toModelName(lastJsonPathFragment, null);
@@ -2696,7 +2549,125 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
                 // #/paths/somePath/get/servers/0
                 return prefix + "Server" + pathPieces[5];
             case SECURITY:
-                return toSecurityFilename(lastJsonPathFragment, jsonPath);
+                return getFilename(CodegenKeyType.SECURITY, lastJsonPathFragment, jsonPath);
+            default:
+                return null;
+        }
+    }
+
+    @Override
+    public String getFilename(CodegenKeyType type, String lastJsonPathFragment, String jsonPath) {
+        String[] pathPieces = jsonPath.split("/");
+        switch(type) {
+            case SCHEMA:
+                String modelName = schemaJsonPathToModelName.get(jsonPath);
+                if (modelName != null) {
+                    return modelName;
+                }
+                return getSchemaPascalCaseName(pathPieces[pathPieces.length-1], jsonPath, false);
+            case SERVER:
+                return getPascalCase(CodegenKeyType.SERVER, lastJsonPathFragment, jsonPath);
+            case SECURITY_SCHEME:
+                return toModelName(lastJsonPathFragment, jsonPath);
+            case OPERATION:
+                String pathJsonPath = "#/paths/"+pathPieces[2];
+                String pthClassName = getFilename(CodegenKeyType.PATH, ModelUtils.decodeSlashes(pathPieces[2]), pathJsonPath);
+                String operationFileName = pthClassName + StringUtils.capitalize(lastJsonPathFragment);
+                return operationFileName;
+            case PARAMETER:
+                if (jsonPath.startsWith("#/components/parameters/")) {
+                    if (pathPieces.length == 4) {
+                        // #/components/parameters/SomeParameter
+                        return toModelName(lastJsonPathFragment, null);
+                    }
+                    return toModuleFilename(lastJsonPathFragment, jsonPath);
+                }
+                if (operationVerbs.contains(pathPieces[3])) {
+                    if (pathPieces.length == 5) {
+                        // #/paths/somePath/verb/parameters
+                        return "Parameters";
+                    }
+                    if (pathPieces[pathPieces.length-2].equals("parameters") && isInteger(lastJsonPathFragment) && pathPieces.length == 6) {
+                        // #/paths/somePath/verb/parameters/0
+                        return "Parameter" + lastJsonPathFragment;
+                    }
+                    return "parameter" + lastJsonPathFragment;
+                }
+                if (pathPieces[pathPieces.length-2].equals("parameters") && isInteger(lastJsonPathFragment) && pathPieces.length == 5) {
+                    // #/paths/somePath/parameters/0
+                    return "RouteParameter" + lastJsonPathFragment;
+                }
+                return "routeparameter" + lastJsonPathFragment;
+            case PATH:
+                boolean pathClassCase = (pathPieces.length == 3 || (pathPieces.length == 4 && pathPieces[1].equals("apis")));
+                if (pathClassCase) {
+                    // #/paths/somePath -> Somepath
+                    // #/apis/paths/somePath -> Somepath
+                    String moduleFilename = toModuleFilename(lastJsonPathFragment, jsonPath);
+                    return camelize(moduleFilename, false);
+                }
+                // #/paths/somePath/blah -> somepath
+                return toModuleFilename(lastJsonPathFragment, jsonPath);
+            case HEADER:
+                if (jsonPath.startsWith("#/components/headers/")) {
+                    if (pathPieces.length == 4) {
+                        // #/components/headers/SomeHeader
+                        return toModelName(lastJsonPathFragment, null);
+                    }
+                    // deeper paths
+                    return toModuleFilename(lastJsonPathFragment, jsonPath);
+                } else if (jsonPath.startsWith("#/components/responses/")) {
+                    if (pathPieces.length == 5) {
+                        // #/components/responses/SomeResponse/headers
+                        return "Headers";
+                    } else if (pathPieces.length == 6) {
+                        // #/components/responses/SomeResponse/headers/SomeHeader
+                        return toModelName(lastJsonPathFragment, null);
+                    }
+                    // deeper paths
+                    return toModuleFilename(lastJsonPathFragment, jsonPath);
+                }
+                if (pathPieces.length == 7) {
+                    // #/paths/somePath/verb/responses/200/headers
+                    return "Headers";
+                } else if (pathPieces.length == 8) {
+                    // #/paths/somePath/verb/responses/200/headers/SomeHeader
+                    return toModelName(lastJsonPathFragment, null);
+                }
+                // deeper paths
+                return toModuleFilename(lastJsonPathFragment, jsonPath);
+            case REQUEST_BODY:
+                if (pathPieces[2].equals("requestbodies") || pathPieces[2].equals("requestBodies")) {
+                    if (pathPieces.length == 4) {
+                        // #/components/requestBodies/Pet
+                        return toModelName(lastJsonPathFragment, null);
+                    }
+                    return toModuleFilename(lastJsonPathFragment, null);
+                }
+                if (pathPieces.length == 5) {
+                    // #/paths/somePath/verb/requestBody
+                    String pathClassName = getPathClassNamePrefix(jsonPath);
+                    return pathClassName + "RequestBody";
+                }
+                return toModuleFilename(lastJsonPathFragment, null);
+            case CONTENT_TYPE:
+                return toModuleFilename(lastJsonPathFragment, null);
+            case SECURITY:
+                if (pathPieces.length == 2) {
+                    // #/security
+                    return "SecurityInfo";
+                } else if (pathPieces.length == 3) {
+                    // #/security/0
+                    return "SecurityRequirementObject"+pathPieces[pathPieces.length-1];
+                } else if (pathPieces.length == 5) {
+                    // #/paths/somePath/verb/security
+                    String prefix = getPathClassNamePrefix(jsonPath);
+                    return prefix + "SecurityInfo";
+                }
+                // pathPieces.length == 6
+                // #/paths/somePath/verb/security/0
+                String prefix = getPathClassNamePrefix(jsonPath);
+                return prefix + "SecurityRequirementObject"+pathPieces[pathPieces.length-1];
             default:
                 return null;
         }
@@ -3226,27 +3197,6 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
                     }}
             );
         }
-    }
-
-    @Override
-    public String toSecurityFilename(String basename, String jsonPath) {
-        String[] pathPieces = jsonPath.split("/");
-        if (pathPieces.length == 2) {
-            // #/security
-            return "SecurityInfo";
-        } else if (pathPieces.length == 3) {
-            // #/security/0
-            return "SecurityRequirementObject"+pathPieces[pathPieces.length-1];
-        } else if (pathPieces.length == 5) {
-            // #/paths/somePath/verb/security
-            String prefix = getPathClassNamePrefix(jsonPath);
-            return prefix + "SecurityInfo";
-        } else if (pathPieces.length == 6) {
-            // #/paths/somePath/verb/security/0
-            String prefix = getPathClassNamePrefix(jsonPath);
-            return prefix + "SecurityRequirementObject"+pathPieces[pathPieces.length-1];
-        }
-        return null;
     }
 
     @Override
