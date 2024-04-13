@@ -1837,24 +1837,6 @@ public class PythonClientGenerator extends DefaultGenerator implements Generator
     }
 
     @Override
-    public String toParameterFilename(String name, String jsonPath) {
-        String[] pathPieces = jsonPath.split("/");
-        if (operationVerbs.contains(pathPieces[3]) && pathPieces.length == 5) {
-            // #/paths/somePath/verb/parameters
-            return "parameters";
-        }
-        // adds prefix parameter_ onto the result so modules do not start with _
-        try {
-            Integer.parseInt(name);
-            // for parameters in path, or an endpoint
-            return "parameter_" + name;
-        } catch (NumberFormatException nfe) {
-            // for header parameters in responses
-            return "parameter_" + toModuleFilename(name, null);
-        }
-    }
-
-    @Override
     public String toSecuritySchemeFilename(String basename, String jsonPath) {
         return "security_scheme_" + toModuleFilename(basename, null);
     }
@@ -1870,6 +1852,21 @@ public class PythonClientGenerator extends DefaultGenerator implements Generator
     @Override
     public String getFilename(CodegenKeyType type, String lastJsonPathFragment, String jsonPath) {
         switch(type) {
+            case PARAMETER:
+                String[] paramPathPieces = jsonPath.split("/");
+                if (operationVerbs.contains(paramPathPieces[3]) && paramPathPieces.length == 5) {
+                    // #/paths/somePath/verb/parameters
+                    return "parameters";
+                }
+                // adds prefix parameter_ onto the result so modules do not start with _
+                try {
+                    Integer.parseInt(lastJsonPathFragment);
+                    // for parameters in path, or an endpoint
+                    return "parameter_" + lastJsonPathFragment;
+                } catch (NumberFormatException nfe) {
+                    // for header parameters in responses
+                    return "parameter_" + toModuleFilename(lastJsonPathFragment, null);
+                }
             case PATH:
                 return toModuleFilename(lastJsonPathFragment, jsonPath);
             case HEADER:
@@ -1899,7 +1896,7 @@ public class PythonClientGenerator extends DefaultGenerator implements Generator
 
     @Override
     public String toParamName(String basename) {
-        return toParameterFilename(basename, null);
+        return getFilename(CodegenKeyType.PARAMETER, basename, null);
     }
 
     private String toSchemaRefClass(String ref, String sourceJsonPath) {

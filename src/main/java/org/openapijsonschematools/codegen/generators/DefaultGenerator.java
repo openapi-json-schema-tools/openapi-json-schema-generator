@@ -919,12 +919,7 @@ public class DefaultGenerator implements Generator {
     public String toModuleFilename(String name, String jsonPath) {
         return org.openapijsonschematools.codegen.common.StringUtils.camelize(name);
     }
-
-    @Override
-    public String toParameterFilename(String basename, String jsonPath) {
-        return toModuleFilename(basename, jsonPath);
-    }
-
+    
     @Override
     public String toOperationFilename(String name, String jsonPath) {
         return name;
@@ -3407,6 +3402,7 @@ public class DefaultGenerator implements Generator {
             case CONTENT_TYPE:
                 return toModuleFilename(lastJsonPathFragment, null);
             case PATH:
+            case PARAMETER:
             case SECURITY:
             case REQUEST_BODY:
                 return toModuleFilename(lastJsonPathFragment, jsonPath);
@@ -3866,7 +3862,7 @@ public class DefaultGenerator implements Generator {
                 }
             }
         } else if (pathPieces[2].equals("parameters")) {
-            pathPieces[3] = toParameterFilename(pathPieces[3], jsonPath);
+            pathPieces[3] = getFilename(CodegenKeyType.PARAMETER, pathPieces[3], jsonPath);
             if (pathPieces.length == 5 && pathPieces[4].equals("schema")) {
                 pathPieces[4] = getSchemaFilename(jsonPath);
             } else if (pathPieces.length >= 6 && pathPieces[4].equals("content")) {
@@ -3970,7 +3966,7 @@ public class DefaultGenerator implements Generator {
                 return;
             }
             // #/paths/somePath/parameters/0
-            pathPieces[4] = toParameterFilename(pathPieces[4], jsonPath);
+            pathPieces[4] = getFilename(CodegenKeyType.PARAMETER, pathPieces[4], jsonPath);
             if (pathPieces.length >= 7 && pathPieces[5].equals("content")) {
                 // #/paths/somePath/parameters/0/content/application-json -> length 7
                 String contentType = ModelUtils.decodeSlashes(pathPieces[6]);
@@ -4068,11 +4064,11 @@ public class DefaultGenerator implements Generator {
         } else if (pathPieces[4].equals("parameters")) {
             if (pathPieces.length == 5) {
                 // #/paths/somePath/get/parameters -> length 5
-                pathPieces[4] = toParameterFilename(pathPieces[4], jsonPath);
+                pathPieces[4] = getFilename(CodegenKeyType.PARAMETER, pathPieces[4], jsonPath);
                 return;
             }
             // #/paths/somePath/get/parameters/0 -> length 6
-            pathPieces[5] = toParameterFilename(pathPieces[5], jsonPath);
+            pathPieces[5] = getFilename(CodegenKeyType.PARAMETER, pathPieces[5], jsonPath);
 
             if (pathPieces.length >= 8 && pathPieces[6].equals("content")) {
                 // #/paths/somePath/get/parameters/1/content/application-json -> length 8
@@ -4742,7 +4738,7 @@ public class DefaultGenerator implements Generator {
             case "headers":
                 return getFilename(CodegenKeyType.HEADER, refPieces[3], ref);
             case "parameters":
-                return toParameterFilename(refPieces[3], ref);
+                return getFilename(CodegenKeyType.PARAMETER, refPieces[3], ref);
             case "schemas":
                 if (ref.equals(sourceJsonPath)) {
                     // property is of type self
@@ -4980,7 +4976,7 @@ public class DefaultGenerator implements Generator {
             case "parameters":
                 usedKey = escapeUnsafeCharacters(key);
                 isValid = isValid(usedKey);
-                snakeCaseName = toParameterFilename(usedKey, sourceJsonPath);
+                snakeCaseName = getFilename(CodegenKeyType.PARAMETER, usedKey, sourceJsonPath);
                 pascalCaseName = getPascalCase(CodegenKeyType.PARAMETER, usedKey, sourceJsonPath);
                 break;
             case "requestBodies":

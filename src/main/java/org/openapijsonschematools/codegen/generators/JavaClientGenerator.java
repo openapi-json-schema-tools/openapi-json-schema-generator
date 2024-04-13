@@ -1341,35 +1341,6 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
         return true;
     }
 
-    @Override
-    public String toParameterFilename(String name, String jsonPath) {
-        // adds prefix parameter_ onto the result so modules do not start with _
-        String[] pathPieces = jsonPath.split("/");
-        if (jsonPath.startsWith("#/components/parameters/")) {
-            if (pathPieces.length == 4) {
-                // #/components/parameters/SomeParameter
-                return toModelName(name, null);
-            }
-            return toModuleFilename(name, jsonPath);
-        }
-        if (operationVerbs.contains(pathPieces[3])) {
-            if (pathPieces.length == 5) {
-                // #/paths/somePath/verb/parameters
-                return "Parameters";
-            }
-            if (pathPieces[pathPieces.length-2].equals("parameters") && isInteger(name) && pathPieces.length == 6) {
-                // #/paths/somePath/verb/parameters/0
-                return "Parameter" + name;
-            }
-            return "parameter" + name;
-        }
-        if (pathPieces[pathPieces.length-2].equals("parameters") && isInteger(name) && pathPieces.length == 5) {
-            // #/paths/somePath/parameters/0
-            return "RouteParameter" + name;
-        }
-        return "routeparameter" + name;
-    }
-
     private String toSchemaRefClass(String ref, String sourceJsonPath) {
         int schemaSuffix = 1;
         String[] refPieces = ref.split("/");
@@ -2567,7 +2538,7 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
             case OPERATION:
                 return toOperationFilename(lastJsonPathFragment, jsonPath);
             case PARAMETER:
-                return toParameterFilename(lastJsonPathFragment, jsonPath);
+                return getFilename(CodegenKeyType.PARAMETER, lastJsonPathFragment, jsonPath);
             case RESPONSE:
                 if (jsonPath.startsWith("#/components/responses/")) {
                     return toModelName(lastJsonPathFragment, null);
@@ -2608,6 +2579,109 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
                 return prefix + "Server" + pathPieces[5];
             case SECURITY:
                 return getFilename(CodegenKeyType.SECURITY, lastJsonPathFragment, jsonPath);
+            default:
+                return null;
+        }
+    }
+
+    @Override
+    public String getFilename(CodegenKeyType type, String lastJsonPathFragment, String jsonPath) {
+        String[] pathPieces = jsonPath.split("/");
+        switch(type) {
+            case PARAMETER:
+                if (jsonPath.startsWith("#/components/parameters/")) {
+                    if (pathPieces.length == 4) {
+                        // #/components/parameters/SomeParameter
+                        return toModelName(lastJsonPathFragment, null);
+                    }
+                    return toModuleFilename(lastJsonPathFragment, jsonPath);
+                }
+                if (operationVerbs.contains(pathPieces[3])) {
+                    if (pathPieces.length == 5) {
+                        // #/paths/somePath/verb/parameters
+                        return "Parameters";
+                    }
+                    if (pathPieces[pathPieces.length-2].equals("parameters") && isInteger(lastJsonPathFragment) && pathPieces.length == 6) {
+                        // #/paths/somePath/verb/parameters/0
+                        return "Parameter" + lastJsonPathFragment;
+                    }
+                    return "parameter" + lastJsonPathFragment;
+                }
+                if (pathPieces[pathPieces.length-2].equals("parameters") && isInteger(lastJsonPathFragment) && pathPieces.length == 5) {
+                    // #/paths/somePath/parameters/0
+                    return "RouteParameter" + lastJsonPathFragment;
+                }
+                return "routeparameter" + lastJsonPathFragment;
+            case PATH:
+                boolean pathClassCase = (pathPieces.length == 3 || (pathPieces.length == 4 && pathPieces[1].equals("apis")));
+                if (pathClassCase) {
+                    // #/paths/somePath -> Somepath
+                    // #/apis/paths/somePath -> Somepath
+                    String moduleFilename = toModuleFilename(lastJsonPathFragment, jsonPath);
+                    return camelize(moduleFilename, false);
+                }
+                // #/paths/somePath/blah -> somepath
+                return toModuleFilename(lastJsonPathFragment, jsonPath);
+            case HEADER:
+                if (jsonPath.startsWith("#/components/headers/")) {
+                    if (pathPieces.length == 4) {
+                        // #/components/headers/SomeHeader
+                        return toModelName(lastJsonPathFragment, null);
+                    }
+                    // deeper paths
+                    return toModuleFilename(lastJsonPathFragment, jsonPath);
+                } else if (jsonPath.startsWith("#/components/responses/")) {
+                    if (pathPieces.length == 5) {
+                        // #/components/responses/SomeResponse/headers
+                        return "Headers";
+                    } else if (pathPieces.length == 6) {
+                        // #/components/responses/SomeResponse/headers/SomeHeader
+                        return toModelName(lastJsonPathFragment, null);
+                    }
+                    // deeper paths
+                    return toModuleFilename(lastJsonPathFragment, jsonPath);
+                }
+                if (pathPieces.length == 7) {
+                    // #/paths/somePath/verb/responses/200/headers
+                    return "Headers";
+                } else if (pathPieces.length == 8) {
+                    // #/paths/somePath/verb/responses/200/headers/SomeHeader
+                    return toModelName(lastJsonPathFragment, null);
+                }
+                // deeper paths
+                return toModuleFilename(lastJsonPathFragment, jsonPath);
+            case REQUEST_BODY:
+                if (pathPieces[2].equals("requestbodies") || pathPieces[2].equals("requestBodies")) {
+                    if (pathPieces.length == 4) {
+                        // #/components/requestBodies/Pet
+                        return toModelName(lastJsonPathFragment, null);
+                    }
+                    return toModuleFilename(lastJsonPathFragment, null);
+                }
+                if (pathPieces.length == 5) {
+                    // #/paths/somePath/verb/requestBody
+                    String pathClassName = getPathClassNamePrefix(jsonPath);
+                    return pathClassName + "RequestBody";
+                }
+                return toModuleFilename(lastJsonPathFragment, null);
+            case CONTENT_TYPE:
+                return toModuleFilename(lastJsonPathFragment, null);
+            case SECURITY:
+                if (pathPieces.length == 2) {
+                    // #/security
+                    return "SecurityInfo";
+                } else if (pathPieces.length == 3) {
+                    // #/security/0
+                    return "SecurityRequirementObject"+pathPieces[pathPieces.length-1];
+                } else if (pathPieces.length == 5) {
+                    // #/paths/somePath/verb/security
+                    String prefix = getPathClassNamePrefix(jsonPath);
+                    return prefix + "SecurityInfo";
+                }
+                // pathPieces.length == 6
+                // #/paths/somePath/verb/security/0
+                String prefix = getPathClassNamePrefix(jsonPath);
+                return prefix + "SecurityRequirementObject"+pathPieces[pathPieces.length-1];
             default:
                 return null;
         }
@@ -3136,85 +3210,6 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
                         put("src/main/java/packagename/servers/ServerDoc.hbs", ".md");
                     }}
             );
-        }
-    }
-
-    @Override
-    public String getFilename(CodegenKeyType type, String lastJsonPathFragment, String jsonPath) {
-        String[] pathPieces = jsonPath.split("/");
-        switch(type) {
-            case PATH:
-                boolean pathClassCase = (pathPieces.length == 3 || (pathPieces.length == 4 && pathPieces[1].equals("apis")));
-                if (pathClassCase) {
-                    // #/paths/somePath -> Somepath
-                    // #/apis/paths/somePath -> Somepath
-                    String moduleFilename = toModuleFilename(lastJsonPathFragment, jsonPath);
-                    return camelize(moduleFilename, false);
-                }
-                // #/paths/somePath/blah -> somepath
-                return toModuleFilename(lastJsonPathFragment, jsonPath);
-            case HEADER:
-                if (jsonPath.startsWith("#/components/headers/")) {
-                    if (pathPieces.length == 4) {
-                        // #/components/headers/SomeHeader
-                        return toModelName(lastJsonPathFragment, null);
-                    }
-                    // deeper paths
-                    return toModuleFilename(lastJsonPathFragment, jsonPath);
-                } else if (jsonPath.startsWith("#/components/responses/")) {
-                    if (pathPieces.length == 5) {
-                        // #/components/responses/SomeResponse/headers
-                        return "Headers";
-                    } else if (pathPieces.length == 6) {
-                        // #/components/responses/SomeResponse/headers/SomeHeader
-                        return toModelName(lastJsonPathFragment, null);
-                    }
-                    // deeper paths
-                    return toModuleFilename(lastJsonPathFragment, jsonPath);
-                }
-                if (pathPieces.length == 7) {
-                    // #/paths/somePath/verb/responses/200/headers
-                    return "Headers";
-                } else if (pathPieces.length == 8) {
-                    // #/paths/somePath/verb/responses/200/headers/SomeHeader
-                    return toModelName(lastJsonPathFragment, null);
-                }
-                // deeper paths
-                return toModuleFilename(lastJsonPathFragment, jsonPath);
-            case REQUEST_BODY:
-                if (pathPieces[2].equals("requestbodies") || pathPieces[2].equals("requestBodies")) {
-                    if (pathPieces.length == 4) {
-                        // #/components/requestBodies/Pet
-                        return toModelName(lastJsonPathFragment, null);
-                    }
-                    return toModuleFilename(lastJsonPathFragment, null);
-                }
-                if (pathPieces.length == 5) {
-                    // #/paths/somePath/verb/requestBody
-                    String pathClassName = getPathClassNamePrefix(jsonPath);
-                    return pathClassName + "RequestBody";
-                }
-                return toModuleFilename(lastJsonPathFragment, null);
-            case CONTENT_TYPE:
-                return toModuleFilename(lastJsonPathFragment, null);
-            case SECURITY:
-                if (pathPieces.length == 2) {
-                    // #/security
-                    return "SecurityInfo";
-                } else if (pathPieces.length == 3) {
-                    // #/security/0
-                    return "SecurityRequirementObject"+pathPieces[pathPieces.length-1];
-                } else if (pathPieces.length == 5) {
-                    // #/paths/somePath/verb/security
-                    String prefix = getPathClassNamePrefix(jsonPath);
-                    return prefix + "SecurityInfo";
-                }
-                // pathPieces.length == 6
-                // #/paths/somePath/verb/security/0
-                String prefix = getPathClassNamePrefix(jsonPath);
-                return prefix + "SecurityRequirementObject"+pathPieces[pathPieces.length-1];
-            default:
-                return null;
         }
     }
 
