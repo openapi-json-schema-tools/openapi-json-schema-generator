@@ -197,7 +197,10 @@ public interface Generator {
         return getFilename(CodegenKeyType.REQUEST_BODY, componentName, jsonPath);
     }
 
-    String toHeaderFilename(String componentName, String jsonPath);
+    @Deprecated
+    default String toHeaderFilename(String componentName, String jsonPath) {
+        return getFilename(CodegenKeyType.HEADER, componentName, jsonPath);
+    }
 
     String toPathFilename(String path, String jsonPath);
 

@@ -742,9 +742,7 @@ public class DefaultGenerator implements Generator {
 
     @Deprecated
     public String getPascalCaseResponse(String componentName, String jsonPath) { return getPascalCase(CodegenKeyType.RESPONSE, componentName, jsonPath); }
-
-    public String toHeaderFilename(String componentName, String jsonPath) { return toModuleFilename(componentName, jsonPath); }
-
+    
     @Override
     public Map<String, Object> additionalProperties() {
         return additionalProperties;
@@ -3858,7 +3856,7 @@ public class DefaultGenerator implements Generator {
         }
         if (pathPieces[2].equals("headers")) {
             // #/components/headers
-            pathPieces[3] = toHeaderFilename(pathPieces[3], jsonPath);
+            pathPieces[3] = getFilename(CodegenKeyType.HEADER, pathPieces[3], jsonPath);
             if (pathPieces.length == 5 && pathPieces[4].equals("schema")) {
                 // #/components/headers/someHeader/schema
                 pathPieces[4] = getSchemaFilename(jsonPath);
@@ -3909,12 +3907,12 @@ public class DefaultGenerator implements Generator {
 
             if (pathPieces[4].equals("headers")) {
                 if (pathPieces.length == 5) {
-                    pathPieces[4] = toHeaderFilename(pathPieces[4], jsonPath);
+                    pathPieces[4] = getFilename(CodegenKeyType.HEADER, pathPieces[4], jsonPath);
                     // #/components/responses/someResponse/headers
                     return;
                 }
                 // #/components/responses/someResponse/headers/SomeHeader-> length 6
-                pathPieces[5] = toHeaderFilename(pathPieces[5], jsonPath);
+                pathPieces[5] = getFilename(CodegenKeyType.HEADER, pathPieces[5], jsonPath);
                 if (pathPieces.length == 7 && pathPieces[6].equals("schema")) {
                     // #/components/responses/someResponse/headers/SomeHeader/schema
                     pathPieces[6] = getSchemaFilename(jsonPath);
@@ -4053,11 +4051,11 @@ public class DefaultGenerator implements Generator {
             } else if (pathPieces[6].equals("headers")) {
                 if (pathPieces.length == 7) {
                     // #/paths/somePath/get/responses/200/headers
-                    pathPieces[6] = toHeaderFilename(pathPieces[6], jsonPath);
+                    pathPieces[6] = getFilename(CodegenKeyType.HEADER, pathPieces[6], jsonPath);
                     return;
                 }
                 // #/paths/somePath/get/responses/200/headers/someHeader -> length 8
-                pathPieces[7] = toHeaderFilename(pathPieces[7], jsonPath);
+                pathPieces[7] = getFilename(CodegenKeyType.HEADER, pathPieces[7], jsonPath);
 
                 if (pathPieces.length >= 10 && pathPieces[8].equals("content")) {
                     // #/paths/somePath/get/responses/200/headers/someHeader/content/application-json -> length 10
@@ -4745,7 +4743,7 @@ public class DefaultGenerator implements Generator {
             case "responses":
                 return toResponseModuleName(refPieces[3], ref);
             case "headers":
-                return toHeaderFilename(refPieces[3], ref);
+                return getFilename(CodegenKeyType.HEADER, refPieces[3], ref);
             case "parameters":
                 return toParameterFilename(refPieces[3], ref);
             case "schemas":
@@ -4997,7 +4995,7 @@ public class DefaultGenerator implements Generator {
             case "headers":
                 usedKey = escapeUnsafeCharacters(key);
                 isValid = isValid(usedKey);
-                snakeCaseName = toHeaderFilename(usedKey, sourceJsonPath);
+                snakeCaseName = getFilename(CodegenKeyType.HEADER, usedKey, sourceJsonPath);
                 pascalCaseName = getPascalCase(CodegenKeyType.HEADER, usedKey, sourceJsonPath);
                 break;
             case "responses":

@@ -1779,16 +1779,6 @@ public class PythonClientGenerator extends DefaultGenerator implements Generator
         return "response_" + componentName.toLowerCase(Locale.ROOT);
     }
 
-    public String toHeaderFilename(String componentName, String jsonPath) {
-        String[] pathPieces = jsonPath.split("/");
-        if ((pathPieces.length == 5 || pathPieces.length == 7) && componentName.equals("headers")) {
-            // #/components/responses/SomeResponse/headers
-            // #/paths/somePath/verb/responses/200/headers
-            return "headers";
-        }
-        return toModuleFilename("header_" + componentName, null);
-    }
-
     public void setUseNose(String val) {
         this.useNose = Boolean.parseBoolean(val);
     }
@@ -1880,6 +1870,14 @@ public class PythonClientGenerator extends DefaultGenerator implements Generator
     @Override
     public String getFilename(CodegenKeyType type, String lastJsonPathFragment, String jsonPath) {
         switch(type) {
+            case HEADER:
+                String[] pathPieces = jsonPath.split("/");
+                if ((pathPieces.length == 5 || pathPieces.length == 7) && lastJsonPathFragment.equals("headers")) {
+                    // #/components/responses/SomeResponse/headers
+                    // #/paths/somePath/verb/responses/200/headers
+                    return "headers";
+                }
+                return toModuleFilename("header_" + lastJsonPathFragment, null);
             case REQUEST_BODY:
                 if (jsonPath.startsWith("#/components")) {
                     return toModuleFilename("request_body_" + lastJsonPathFragment, null);

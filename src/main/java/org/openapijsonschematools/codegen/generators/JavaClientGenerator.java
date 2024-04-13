@@ -1097,37 +1097,6 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
         return toModelName(basename, jsonPath);
     }
 
-    public String toHeaderFilename(String componentName, String jsonPath) {
-        String[] pathPieces = jsonPath.split("/");
-        if (jsonPath.startsWith("#/components/headers/")) {
-            if (pathPieces.length == 4) {
-                // #/components/headers/SomeHeader
-                return toModelName(componentName, null);
-            }
-            // deeper paths
-            return toModuleFilename(componentName, jsonPath);
-        } else if (jsonPath.startsWith("#/components/responses/")) {
-            if (pathPieces.length == 5) {
-                // #/components/responses/SomeResponse/headers
-                return "Headers";
-            } else if (pathPieces.length == 6) {
-                // #/components/responses/SomeResponse/headers/SomeHeader
-                return toModelName(componentName, null);
-            }
-            // deeper paths
-            return toModuleFilename(componentName, jsonPath);
-        }
-        if (pathPieces.length == 7) {
-            // #/paths/somePath/verb/responses/200/headers
-            return "Headers";
-        } else if (pathPieces.length == 8) {
-            // #/paths/somePath/verb/responses/200/headers/SomeHeader
-            return toModelName(componentName, null);
-        }
-        // deeper paths
-        return toModuleFilename(componentName, jsonPath);
-    }
-
     @Override
     public String toResponseModuleName(String componentName, String jsonPath) {
         String[] pathPieces = jsonPath.split("/");
@@ -3187,6 +3156,34 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
     public String getFilename(CodegenKeyType type, String lastJsonPathFragment, String jsonPath) {
         String[] pathPieces = jsonPath.split("/");
         switch(type) {
+            case HEADER:
+                if (jsonPath.startsWith("#/components/headers/")) {
+                    if (pathPieces.length == 4) {
+                        // #/components/headers/SomeHeader
+                        return toModelName(lastJsonPathFragment, null);
+                    }
+                    // deeper paths
+                    return toModuleFilename(lastJsonPathFragment, jsonPath);
+                } else if (jsonPath.startsWith("#/components/responses/")) {
+                    if (pathPieces.length == 5) {
+                        // #/components/responses/SomeResponse/headers
+                        return "Headers";
+                    } else if (pathPieces.length == 6) {
+                        // #/components/responses/SomeResponse/headers/SomeHeader
+                        return toModelName(lastJsonPathFragment, null);
+                    }
+                    // deeper paths
+                    return toModuleFilename(lastJsonPathFragment, jsonPath);
+                }
+                if (pathPieces.length == 7) {
+                    // #/paths/somePath/verb/responses/200/headers
+                    return "Headers";
+                } else if (pathPieces.length == 8) {
+                    // #/paths/somePath/verb/responses/200/headers/SomeHeader
+                    return toModelName(lastJsonPathFragment, null);
+                }
+                // deeper paths
+                return toModuleFilename(lastJsonPathFragment, jsonPath);
             case REQUEST_BODY:
                 if (pathPieces[2].equals("requestbodies") || pathPieces[2].equals("requestBodies")) {
                     if (pathPieces.length == 4) {
