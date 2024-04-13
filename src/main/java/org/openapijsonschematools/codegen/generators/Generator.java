@@ -25,6 +25,7 @@ import org.openapijsonschematools.codegen.generators.generatormetadata.Generator
 import org.openapijsonschematools.codegen.generators.models.VendorExtension;
 import org.openapijsonschematools.codegen.generators.openapimodels.CodegenKeyType;
 import org.openapijsonschematools.codegen.generators.openapimodels.CodegenRefInfo;
+import org.openapijsonschematools.codegen.generators.openapimodels.ReportFileType;
 import org.openapijsonschematools.codegen.templating.SupportingFile;
 import org.openapijsonschematools.codegen.generators.models.CliOption;
 import org.openapijsonschematools.codegen.generators.openapimodels.CodegenKey;
@@ -43,16 +44,10 @@ import java.util.Set;
 import java.util.TreeMap;
 import java.util.function.Function;
 
-public interface Generator extends OpenApiProcessor {
-    String getFilesMetadataFilename();
-
-    String getVersionMetadataFilename();
+public interface Generator extends OpenApiProcessor, Comparable<Generator> {
+    String getReportFilename(ReportFileType type);
 
     GeneratorMetadata getGeneratorMetadata();
-
-    GeneratorType getTag();
-
-    String getName();
 
     String getHelp();
 
@@ -79,22 +74,6 @@ public interface Generator extends OpenApiProcessor {
     String toApiVarName(String name);
 
     String toModelName(String name, String jsonPath);
-
-    @Deprecated
-    default String getSchemaFilename(String jsonPath) {
-        String[] pathPieces = jsonPath.split("/");
-        return getFilename(CodegenKeyType.SCHEMA, pathPieces[pathPieces.length-1], jsonPath);
-    }
-
-    @Deprecated
-    default String getSchemaPascalCaseName(String name, @NotNull String sourceJsonPath) {
-        return getPascalCase(CodegenKeyType.SCHEMA, name, sourceJsonPath);
-    }
-    Set<String> getImports(String sourceJsonPath, CodegenSchema schema, FeatureSet featureSet);
-    @Deprecated
-    default String toContentTypeFilename(String name) {
-        return getFilename(CodegenKeyType.CONTENT_TYPE, name, null);
-    }
 
     String toParamName(String name);
 
@@ -150,50 +129,6 @@ public interface Generator extends OpenApiProcessor {
 
     String toModuleFilename(String name, String jsonPath);
 
-    @Deprecated
-    default String toRequestBodyFilename(String componentName, String jsonPath) {
-        return getFilename(CodegenKeyType.REQUEST_BODY, componentName, jsonPath);
-    }
-
-    @Deprecated
-    default String toHeaderFilename(String componentName, String jsonPath) {
-        return getFilename(CodegenKeyType.HEADER, componentName, jsonPath);
-    }
-
-    @Deprecated
-    default String toPathFilename(String path, String jsonPath) {
-        return getFilename(CodegenKeyType.PATH, path, jsonPath);
-    }
-
-    @Deprecated
-    default String toParameterFilename(String baseName, String jsonPath) {
-        return getFilename(CodegenKeyType.PARAMETER, baseName, jsonPath);
-    }
-
-    @Deprecated
-    default String toOperationFilename(String name, String jsonPath) {
-        return getFilename(CodegenKeyType.OPERATION, name, jsonPath);
-    }
-
-    @Deprecated
-    default String toSecuritySchemeFilename(String baseName, String jsonPath) {
-        return getFilename(CodegenKeyType.SECURITY_SCHEME, baseName, jsonPath);
-    }
-
-    @Deprecated
-    default String toServerFilename(String baseName, String jsonPath) {
-        return getFilename(CodegenKeyType.SERVER, baseName, jsonPath);
-    }
-
-    @Deprecated
-    default String toSecurityFilename(String baseName, String jsonPath) {
-        return getFilename(CodegenKeyType.SECURITY, baseName, jsonPath);
-    }
-
-    @Deprecated
-    default String getPascalCaseServer(String basename, String jsonPath) {
-        return getPascalCase(CodegenKeyType.SERVER, basename, jsonPath);
-    }
     String toModelImport(String refClass);
 
     TreeMap<String, CodegenSchema> updateAllModels(TreeMap<String, CodegenSchema> models);
@@ -272,14 +207,6 @@ public interface Generator extends OpenApiProcessor {
 
     String defaultTemplatingEngine();
 
-    GeneratorLanguage generatorLanguage();
-
-    /*
-    the version of the language that the generator implements
-    For python 3.9.0, generatorLanguageVersion would be "3.9.0"
-    */
-    String generatorLanguageVersion();
-
     List<VendorExtension> getSupportedVendorExtensions();
 
     String toRefClass(String ref, String sourceJsonPath, String expectedComponentType);
@@ -290,4 +217,99 @@ public interface Generator extends OpenApiProcessor {
 
     String getPascalCase(CodegenKeyType type, String lastJsonPathFragment, String jsonPath);
     String getFilename(CodegenKeyType type, String lastJsonPathFragment, String jsonPath);
+    Set<String> getImports(String sourceJsonPath, CodegenSchema schema, FeatureSet featureSet);
+
+    default int compareTo(Generator o) {
+        return getGeneratorMetadata().getName().compareTo(o.getGeneratorMetadata().getName());
+    }
+
+    @Deprecated
+    default String getSchemaFilename(String jsonPath) {
+        String[] pathPieces = jsonPath.split("/");
+        return getFilename(CodegenKeyType.SCHEMA, pathPieces[pathPieces.length-1], jsonPath);
+    }
+
+    @Deprecated
+    default String getSchemaPascalCaseName(String name, @NotNull String sourceJsonPath) {
+        return getPascalCase(CodegenKeyType.SCHEMA, name, sourceJsonPath);
+    }
+    @Deprecated
+    default String toContentTypeFilename(String name) {
+        return getFilename(CodegenKeyType.CONTENT_TYPE, name, null);
+    }
+
+    @Deprecated
+    default String toRequestBodyFilename(String componentName, String jsonPath) {
+        return getFilename(CodegenKeyType.REQUEST_BODY, componentName, jsonPath);
+    }
+
+    @Deprecated
+    default String toHeaderFilename(String componentName, String jsonPath) {
+        return getFilename(CodegenKeyType.HEADER, componentName, jsonPath);
+    }
+
+    @Deprecated
+    default String toPathFilename(String path, String jsonPath) {
+        return getFilename(CodegenKeyType.PATH, path, jsonPath);
+    }
+
+    @Deprecated
+    default String toParameterFilename(String baseName, String jsonPath) {
+        return getFilename(CodegenKeyType.PARAMETER, baseName, jsonPath);
+    }
+
+    @Deprecated
+    default String toOperationFilename(String name, String jsonPath) {
+        return getFilename(CodegenKeyType.OPERATION, name, jsonPath);
+    }
+
+    @Deprecated
+    default String toSecuritySchemeFilename(String baseName, String jsonPath) {
+        return getFilename(CodegenKeyType.SECURITY_SCHEME, baseName, jsonPath);
+    }
+
+    @Deprecated
+    default String toServerFilename(String baseName, String jsonPath) {
+        return getFilename(CodegenKeyType.SERVER, baseName, jsonPath);
+    }
+
+    @Deprecated
+    default String toSecurityFilename(String baseName, String jsonPath) {
+        return getFilename(CodegenKeyType.SECURITY, baseName, jsonPath);
+    }
+
+    @Deprecated
+    default String getPascalCaseServer(String basename, String jsonPath) {
+        return getPascalCase(CodegenKeyType.SERVER, basename, jsonPath);
+    }
+
+    @Deprecated
+    default String getFilesMetadataFilename() {
+        return getReportFilename(ReportFileType.FILES);
+    }
+
+    @Deprecated
+    default String getVersionMetadataFilename() {
+        return getReportFilename(ReportFileType.VERSION);
+    }
+
+    @Deprecated
+    default String getName() {
+        return getGeneratorMetadata().getName();
+    }
+
+    @Deprecated
+    default GeneratorType getTag() {
+        return getGeneratorMetadata().getType();
+    }
+
+    @Deprecated
+    default GeneratorLanguage generatorLanguage() {
+        return getGeneratorMetadata().getLanguage();
+    }
+
+    @Deprecated
+    default String generatorLanguageVersion() {
+        return getGeneratorMetadata().getLanguageVersion();
+    }
 }

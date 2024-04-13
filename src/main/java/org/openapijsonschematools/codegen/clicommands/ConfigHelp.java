@@ -20,6 +20,7 @@ package org.openapijsonschematools.codegen.clicommands;
 import io.airlift.airline.Command;
 import io.airlift.airline.Option;
 import org.apache.commons.lang3.StringUtils;
+import org.openapijsonschematools.codegen.generators.generatormetadata.GeneratorMetadata;
 import org.openapijsonschematools.codegen.generators.models.CliOption;
 import org.openapijsonschematools.codegen.generators.Generator;
 import org.openapijsonschematools.codegen.generators.generatorloader.GeneratorLoader;
@@ -295,18 +296,19 @@ public class ConfigHelp extends AbstractCommand {
     }
 
     private void generateMdMetadata(StringBuilder sb, Generator config) {
+        GeneratorMetadata meta = config.getGeneratorMetadata();
         sb.append("## METADATA").append(newline).append(newline);
 
         sb.append("| Property | Value | Notes |").append(newline);
         sb.append("| -------- | ----- | ----- |").append(newline);
-        sb.append("| generator name | "+config.getName()+" | pass this to the generate command after -g |").append(newline);
-        sb.append("| generator stability | "+config.getGeneratorMetadata().getStability()+" | |").append(newline);
-        sb.append("| generator type | "+config.getTag()+" | |").append(newline);
-        if (config.generatorLanguage() != null) {
-            sb.append("| generator language | "+config.generatorLanguage().toString()+" | |").append(newline);
+        sb.append("| generator name | "+meta.getName()+" | pass this to the generate command after -g |").append(newline);
+        sb.append("| generator stability | "+meta.getStability()+" | |").append(newline);
+        sb.append("| generator type | "+meta.getType()+" | |").append(newline);
+        if (meta.getLanguage() != null) {
+            sb.append("| generator language | "+meta.getLanguage().toString()+" | |").append(newline);
         }
-        if (config.generatorLanguageVersion() != null) {
-            sb.append("| generator language version | "+config.generatorLanguageVersion()+" | |").append(newline);
+        if (meta.getLanguageVersion() != null) {
+            sb.append("| generator language version | "+meta.getLanguageVersion()+" | |").append(newline);
         }
         sb.append("| generator default templating engine | "+config.defaultTemplatingEngine()+" | |").append(newline);
         sb.append("| helpTxt | "+config.getHelp()+" | |").append(newline);

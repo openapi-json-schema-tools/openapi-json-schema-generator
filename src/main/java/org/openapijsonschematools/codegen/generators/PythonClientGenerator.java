@@ -294,6 +294,17 @@ public class PythonClientGenerator extends DefaultGenerator implements Generator
                         OperationFeature.Servers
                 )
         );
+        String generatorName = "python";
+        GeneratorType generatorType = GeneratorType.CLIENT;
+        generatorMetadata = GeneratorMetadata.newBuilder()
+            .name(generatorName)
+            .language(GeneratorLanguage.PYTHON)
+            .languageVersion(">=3.8")
+            .type(generatorType)
+            .stability(getStability())
+            .featureSet(getFeatureSet())
+            .generationMessage(String.format(Locale.ROOT, "OpenAPI JSON Schema Generator: %s (%s)", generatorName, generatorType))
+            .build();
 
         modelPackage = "components.schema";
         apiPackage = "apis";
@@ -1753,11 +1764,6 @@ public class PythonClientGenerator extends DefaultGenerator implements Generator
     }
 
     @Override
-    public GeneratorType getTag() {
-        return GeneratorType.CLIENT;
-    }
-
-    @Override
     public String toResponseModuleName(String componentName, String jsonPath) {
         String[] pathPieces = jsonPath.split("/");
         if (jsonPath.startsWith("#/components/responses")) {
@@ -1802,9 +1808,6 @@ public class PythonClientGenerator extends DefaultGenerator implements Generator
     public String defaultTemplatingEngine() {
         return "handlebars";
     }
-
-    @Override
-    public String generatorLanguageVersion() { return ">=3.8"; }
 
     @Override
     public void preprocessOpenAPI(OpenAPI openAPI) {

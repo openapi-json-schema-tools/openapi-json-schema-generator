@@ -82,6 +82,7 @@ import org.openapijsonschematools.codegen.generators.openapimodels.LinkedHashMap
 import org.openapijsonschematools.codegen.generators.openapimodels.MapBuilder;
 import org.openapijsonschematools.codegen.generators.openapimodels.PairCacheKey;
 import org.openapijsonschematools.codegen.generators.openapimodels.ParameterCollection;
+import org.openapijsonschematools.codegen.generators.openapimodels.ReportFileType;
 import org.openapijsonschematools.codegen.generators.openapimodels.SchemaTestCase;
 import org.openapijsonschematools.codegen.templating.SupportingFile;
 import org.openapijsonschematools.codegen.common.SerializerUtils;
@@ -781,16 +782,6 @@ public class DefaultGenerator implements Generator {
         this.inputSpec = inputSpec;
     }
 
-    @Override
-    public String getFilesMetadataFilename() {
-        return filesMetadataFilename;
-    }
-
-    @Override
-    public String getVersionMetadataFilename() {
-        return versionMetadataFilename;
-    }
-
     public void setTemplateDir(String templateDir) {
         this.templateDir = templateDir;
     }
@@ -923,6 +914,18 @@ public class DefaultGenerator implements Generator {
         return getPascalCase(CodegenKeyType.PARAMETER, basename, null);
     }
 
+    @Override
+    public String getReportFilename(ReportFileType type) {
+        switch (type) {
+            case FILES:
+                return filesMetadataFilename;
+            case VERSION:
+                return versionMetadataFilename;
+            default:
+                return null;
+        }
+    }
+
     /**
      * Returns metadata about the generator.
      *
@@ -1009,16 +1012,16 @@ public class DefaultGenerator implements Generator {
      * returns string presentation of the example path (it's a constructor)
      */
     public DefaultGenerator() {
-        GeneratorType generatorType = getTag();
-        if (generatorType == null) {
-            generatorType = GeneratorType.OTHER;
-        }
-
+        GeneratorType generatorType = GeneratorType.CLIENT;
         generatorMetadata = GeneratorMetadata.newBuilder()
-                .stability(getStability())
-                .featureSet(DefaultFeatureSet)
-                .generationMessage(String.format(Locale.ROOT, "OpenAPI JSON Schema Generator: %s (%s)", getName(), generatorType.toValue()))
-                .build();
+            .name("DefaultGenerator")
+            .language(GeneratorLanguage.JAVA)
+            .languageVersion("17")
+            .type(generatorType)
+            .stability(getStability())
+            .featureSet(DefaultFeatureSet)
+            .generationMessage(String.format(Locale.ROOT, "OpenAPI JSON Schema Generator: %s (%s)", getName(), generatorType.toValue()))
+            .build();
 
         defaultIncludes = new HashSet<>(
                 Arrays.asList("double",
@@ -4619,16 +4622,6 @@ public class DefaultGenerator implements Generator {
     }
 
     @Override
-    public GeneratorType getTag() {
-        return null;
-    }
-
-    @Override
-    public String getName() {
-        return null;
-    }
-
-    @Override
     public String getHelp() {
         return null;
     }
@@ -5472,16 +5465,6 @@ public class DefaultGenerator implements Generator {
     @Override
     public String defaultTemplatingEngine() {
         return "mustache";
-    }
-
-    @Override
-    public GeneratorLanguage generatorLanguage() {
-        return GeneratorLanguage.JAVA;
-    }
-
-    @Override
-    public String generatorLanguageVersion() {
-        return null;
     }
 
     /**

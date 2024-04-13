@@ -54,6 +54,7 @@ import org.openapijsonschematools.codegen.generators.openapimodels.CodegenServer
 import org.openapijsonschematools.codegen.generators.openapimodels.CodegenList;
 import org.openapijsonschematools.codegen.generators.openapimodels.CodegenTag;
 import org.openapijsonschematools.codegen.generators.openapimodels.CodegenText;
+import org.openapijsonschematools.codegen.generators.openapimodels.ReportFileType;
 import org.openapijsonschematools.codegen.templating.DryRunTemplateManager;
 import org.openapijsonschematools.codegen.templating.SupportingFile;
 import org.openapijsonschematools.codegen.common.SerializerUtils;
@@ -1438,7 +1439,7 @@ public class DefaultGeneratorRunner implements GeneratorRunner {
                 }
             }
         }
-        bundle.put("generatorLanguageVersion", generator.generatorLanguageVersion());
+        bundle.put("generatorLanguageVersion", generator.getGeneratorMetadata().getLanguageVersion());
         // todo verify support and operation bundles have access to the common variables
 
         if (openAPI.getExternalDocs() != null) {
@@ -1774,7 +1775,7 @@ public class DefaultGeneratorRunner implements GeneratorRunner {
      * @param files The list tracking generated files
      */
     private void generateVersionMetadata(List<File> files) {
-        String versionMetadata = generator.outputFolder() + File.separator + METADATA_DIR + File.separator + generator.getVersionMetadataFilename();
+        String versionMetadata = generator.outputFolder() + File.separator + METADATA_DIR + File.separator + generator.getReportFilename(ReportFileType.VERSION);
         if (generateMetadata) {
             File versionMetadataFile = new File(versionMetadata);
             try {
@@ -1842,7 +1843,7 @@ public class DefaultGeneratorRunner implements GeneratorRunner {
                     }
                 });
 
-                String targetFile = generator.outputFolder() + File.separator + METADATA_DIR + File.separator + generator.getFilesMetadataFilename();
+                String targetFile = generator.outputFolder() + File.separator + METADATA_DIR + File.separator + generator.getReportFilename(ReportFileType.FILES);
 
                 File filesFile = this.templateProcessor.writeToFile(targetFile, sb.toString().getBytes(StandardCharsets.UTF_8));
                 if (filesFile != null) {

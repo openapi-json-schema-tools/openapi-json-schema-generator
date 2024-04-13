@@ -30,6 +30,8 @@ import org.apache.commons.io.FilenameUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.openapijsonschematools.codegen.common.ModelUtils;
 import org.openapijsonschematools.codegen.generators.generatormetadata.FeatureSet;
+import org.openapijsonschematools.codegen.generators.generatormetadata.GeneratorLanguage;
+import org.openapijsonschematools.codegen.generators.generatormetadata.GeneratorMetadata;
 import org.openapijsonschematools.codegen.generators.generatormetadata.Stability;
 import org.openapijsonschematools.codegen.generators.generatormetadata.features.ComponentsFeature;
 import org.openapijsonschematools.codegen.generators.generatormetadata.features.GlobalFeature;
@@ -147,11 +149,6 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
             pathPieces[2] = getFilename(CodegenKeyType.SERVER, pathPieces[2], jsonPath).toLowerCase(Locale.ROOT);
             pathPieces[3] = getFilename(CodegenKeyType.SCHEMA, pathPieces[pathPieces.length-1], jsonPath);
         }
-    }
-
-    @Override
-    public String generatorLanguageVersion() {
-        return "17";
     }
 
     public JavaClientGenerator() {
@@ -332,6 +329,17 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
                 SchemaFeature.UniqueItems
             )
         );
+        String generatorName = "java";
+        GeneratorType generatorType = GeneratorType.CLIENT;
+        generatorMetadata = GeneratorMetadata.newBuilder()
+            .name(generatorName)
+            .language(GeneratorLanguage.JAVA)
+            .languageVersion("17")
+            .type(generatorType)
+            .stability(getStability())
+            .featureSet(getFeatureSet())
+            .generationMessage(String.format(Locale.ROOT, "OpenAPI JSON Schema Generator: %s (%s)", generatorName, generatorType))
+            .build();
 
         outputFolder = "generated-code" + File.separator + "java";
         embeddedTemplateDir = templateDir = "java";
@@ -351,16 +359,6 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
                     put("src/test/java/packagename/components/schemas/Schema_test.hbs", ".java");
                 }}
         );
-    }
-
-    @Override
-    public GeneratorType getTag() {
-        return GeneratorType.CLIENT;
-    }
-
-    @Override
-    public String getName() {
-        return "java";
     }
 
     @Override

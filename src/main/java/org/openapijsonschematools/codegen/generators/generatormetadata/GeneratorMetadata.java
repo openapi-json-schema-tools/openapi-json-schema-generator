@@ -24,6 +24,10 @@ import java.util.Map;
  */
 @SuppressWarnings("WeakerAccess")
 public class GeneratorMetadata {
+    private String name;
+    private GeneratorLanguage language;
+    private String languageVersion;
+    private GeneratorType type;
     private Stability stability;
     private Map<String, FeatureSet> libraryFeatures;
     private FeatureSet featureSet;
@@ -31,6 +35,10 @@ public class GeneratorMetadata {
 
     private GeneratorMetadata(Builder builder) {
         if (builder != null) {
+            name = builder.name;
+            language = builder.language;
+            languageVersion = builder.languageVersion;
+            type = builder.type;
             stability = builder.stability;
             generationMessage = builder.generationMessage;
             libraryFeatures = builder.libraryFeatures;
@@ -50,6 +58,10 @@ public class GeneratorMetadata {
     public static Builder newBuilder(GeneratorMetadata copy) {
         Builder builder = new Builder();
         if (copy != null) {
+            builder.name = copy.getName();
+            builder.language = copy.getLanguage();
+            builder.languageVersion = copy.getLanguageVersion();
+            builder.type = copy.getType();
             builder.stability = copy.getStability();
             builder.generationMessage = copy.getGenerationMessage();
             builder.libraryFeatures = copy.getLibraryFeatures();
@@ -57,6 +69,14 @@ public class GeneratorMetadata {
         }
         return builder;
     }
+
+    public String getName() { return name; }
+
+    public GeneratorType getType() { return type; }
+
+    public GeneratorLanguage getLanguage() { return language; }
+
+    public String getLanguageVersion() { return languageVersion; }
 
     /**
      * Returns a message which can be displayed during generation.
@@ -98,12 +118,36 @@ public class GeneratorMetadata {
      * {@code GeneratorMetadata} builder static inner class.
      */
     public static final class Builder {
+        private String name;
+        private GeneratorLanguage language;
+        private String languageVersion;
+        private GeneratorType type;
         private Stability stability;
         private String generationMessage;
         private FeatureSet featureSet = FeatureSet.UNSPECIFIED;
         private Map<String, FeatureSet> libraryFeatures = new HashMap<>();
 
         private Builder() {
+        }
+
+        public Builder name(String name) {
+            this.name = name;
+            return this;
+        }
+
+        public Builder type(GeneratorType type) {
+            this.type = type;
+            return this;
+        }
+
+        public Builder language(GeneratorLanguage language) {
+            this.language = language;
+            return this;
+        }
+
+        public Builder languageVersion(String languageVersion) {
+            this.languageVersion = languageVersion;
+            return this;
         }
 
         /**

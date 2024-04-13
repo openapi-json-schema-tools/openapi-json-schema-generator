@@ -13,16 +13,6 @@ public class MyclientcodegenGenerator extends DefaultCodegen implements CodegenC
   protected String apiVersion = "1.0.0";
 
   /**
-   * Configures the type of generator.
-   *
-   * @return  the CodegenType for this generator
-   * @see     org.openapijsonschematools.codegen.CodegenType
-   */
-  public CodegenType getTag() {
-    return CodegenType.DOCUMENTATION;
-  }
-
-  /**
    * Configures a friendly name for the generator.  This will be used by the generator
    * to select the library with the -g flag.
    *
