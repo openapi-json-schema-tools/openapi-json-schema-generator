@@ -217,7 +217,10 @@ public interface Generator {
         return getFilename(CodegenKeyType.OPERATION, name, jsonPath);
     }
 
-    String toSecuritySchemeFilename(String baseName, String jsonPath);
+    @Deprecated
+    default String toSecuritySchemeFilename(String baseName, String jsonPath) {
+        return getFilename(CodegenKeyType.SECURITY_SCHEME, baseName, jsonPath);
+    }
 
     String toServerFilename(String baseName, String jsonPath);
 

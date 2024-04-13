@@ -921,11 +921,6 @@ public class DefaultGenerator implements Generator {
     }
 
     @Override
-    public String toSecuritySchemeFilename(String basename, String jsonPath) {
-        return toModuleFilename(basename, jsonPath);
-    }
-
-    @Override
     public String toServerFilename(String basename, String jsonPath) {
         return toModuleFilename(basename, jsonPath);
     }
@@ -3401,6 +3396,7 @@ public class DefaultGenerator implements Generator {
             case PATH:
             case PARAMETER:
             case SECURITY:
+            case SECURITY_SCHEME:
             case REQUEST_BODY:
                 return toModuleFilename(lastJsonPathFragment, jsonPath);
             default:
@@ -3928,7 +3924,7 @@ public class DefaultGenerator implements Generator {
                 }
             }
         } else if (pathPieces[2].equals(securitySchemesIdentifier)) {
-            pathPieces[3] = toSecuritySchemeFilename(pathPieces[3], null);
+            pathPieces[3] = getFilename(CodegenKeyType.SECURITY_SCHEME, pathPieces[3], null);
         }
     }
 
@@ -4746,7 +4742,7 @@ public class DefaultGenerator implements Generator {
                 // 2. #/paths/~1pet~1{petId}/get/parameters/0/schema (other schemas: parameters, response headers etc)
                 return getSchemaFilename(ref);
             case "securitySchemes":
-                return toSecuritySchemeFilename(refPieces[3], ref);
+                return getFilename(CodegenKeyType.SECURITY_SCHEME, refPieces[3], ref);
         }
         return null;
     }
@@ -4997,7 +4993,7 @@ public class DefaultGenerator implements Generator {
             case "securitySchemes":
                 usedKey = escapeUnsafeCharacters(key);
                 isValid = isValid(usedKey);
-                snakeCaseName = toSecuritySchemeFilename(usedKey, sourceJsonPath);
+                snakeCaseName = getFilename(CodegenKeyType.SECURITY_SCHEME, usedKey, sourceJsonPath);
                 pascalCaseName = getPascalCase(CodegenKeyType.SECURITY_SCHEME, usedKey, sourceJsonPath);
                 break;
             case "servers":

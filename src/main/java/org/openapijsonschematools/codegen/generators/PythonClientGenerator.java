@@ -1837,11 +1837,6 @@ public class PythonClientGenerator extends DefaultGenerator implements Generator
     }
 
     @Override
-    public String toSecuritySchemeFilename(String basename, String jsonPath) {
-        return "security_scheme_" + toModuleFilename(basename, null);
-    }
-
-    @Override
     public String toServerFilename(String basename, String jsonPath) {
         if (jsonPath.endsWith("/servers")) {
             return "servers";
@@ -1852,6 +1847,8 @@ public class PythonClientGenerator extends DefaultGenerator implements Generator
     @Override
     public String getFilename(CodegenKeyType type, String lastJsonPathFragment, String jsonPath) {
         switch(type) {
+            case SECURITY_SCHEME:
+                return "security_scheme_" + toModuleFilename(lastJsonPathFragment, null);
             case OPERATION:
                 return lastJsonPathFragment;
             case PARAMETER:

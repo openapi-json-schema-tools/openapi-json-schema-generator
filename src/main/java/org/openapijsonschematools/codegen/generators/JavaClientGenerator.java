@@ -1093,11 +1093,6 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
     }
 
     @Override
-    public String toSecuritySchemeFilename(String basename, String jsonPath) {
-        return toModelName(basename, jsonPath);
-    }
-
-    @Override
     public String toResponseModuleName(String componentName, String jsonPath) {
         String[] pathPieces = jsonPath.split("/");
         if (jsonPath.startsWith("#/components/responses/")) {
@@ -2579,6 +2574,8 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
     public String getFilename(CodegenKeyType type, String lastJsonPathFragment, String jsonPath) {
         String[] pathPieces = jsonPath.split("/");
         switch(type) {
+            case SECURITY_SCHEME:
+                return toModelName(lastJsonPathFragment, jsonPath);
             case OPERATION:
                 String pathJsonPath = "#/paths/"+pathPieces[2];
                 String pthClassName = getFilename(CodegenKeyType.PATH, ModelUtils.decodeSlashes(pathPieces[2]), pathJsonPath);
