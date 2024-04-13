@@ -2509,15 +2509,6 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
     }
 
     @Override
-    public String toOperationFilename(String name, String jsonPath) {
-        String[] pathPieces = jsonPath.split("/");
-        String pathJsonPath = "#/paths/"+pathPieces[2];
-        String pathClassName = getFilename(CodegenKeyType.PATH, ModelUtils.decodeSlashes(pathPieces[2]), pathJsonPath);
-        String operationFileName = pathClassName + StringUtils.capitalize(name);
-        return operationFileName;
-    }
-
-    @Override
     public String getPascalCase(CodegenKeyType type, String lastJsonPathFragment, String jsonPath) {
         switch (type) {
             case SCHEMA:
@@ -2536,7 +2527,7 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
             case SECURITY_SCHEME:
                 return toModelName(lastJsonPathFragment, jsonPath);
             case OPERATION:
-                return toOperationFilename(lastJsonPathFragment, jsonPath);
+                return getFilename(CodegenKeyType.OPERATION, lastJsonPathFragment, jsonPath);
             case PARAMETER:
                 return getFilename(CodegenKeyType.PARAMETER, lastJsonPathFragment, jsonPath);
             case RESPONSE:
@@ -2588,6 +2579,11 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
     public String getFilename(CodegenKeyType type, String lastJsonPathFragment, String jsonPath) {
         String[] pathPieces = jsonPath.split("/");
         switch(type) {
+            case OPERATION:
+                String pathJsonPath = "#/paths/"+pathPieces[2];
+                String pthClassName = getFilename(CodegenKeyType.PATH, ModelUtils.decodeSlashes(pathPieces[2]), pathJsonPath);
+                String operationFileName = pthClassName + StringUtils.capitalize(lastJsonPathFragment);
+                return operationFileName;
             case PARAMETER:
                 if (jsonPath.startsWith("#/components/parameters/")) {
                     if (pathPieces.length == 4) {

@@ -919,11 +919,6 @@ public class DefaultGenerator implements Generator {
     public String toModuleFilename(String name, String jsonPath) {
         return org.openapijsonschematools.codegen.common.StringUtils.camelize(name);
     }
-    
-    @Override
-    public String toOperationFilename(String name, String jsonPath) {
-        return name;
-    }
 
     @Override
     public String toSecuritySchemeFilename(String basename, String jsonPath) {
@@ -3399,6 +3394,8 @@ public class DefaultGenerator implements Generator {
     @Override
     public String getFilename(CodegenKeyType type, String lastJsonPathFragment, String jsonPath) {
         switch(type) {
+            case OPERATION:
+                return lastJsonPathFragment;
             case CONTENT_TYPE:
                 return toModuleFilename(lastJsonPathFragment, null);
             case PATH:
@@ -3982,7 +3979,7 @@ public class DefaultGenerator implements Generator {
             }
         } else if (pathPieces.length == 4) {
             // #/paths/SomePath/get
-            pathPieces[3] = toOperationFilename(pathPieces[3], jsonPath);
+            pathPieces[3] = getFilename(CodegenKeyType.OPERATION, pathPieces[3], jsonPath);
             return;
         }
         if (xParameters.contains(pathPieces[4])) {

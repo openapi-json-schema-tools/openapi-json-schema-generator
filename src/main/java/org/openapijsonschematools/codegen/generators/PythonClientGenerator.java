@@ -1852,6 +1852,8 @@ public class PythonClientGenerator extends DefaultGenerator implements Generator
     @Override
     public String getFilename(CodegenKeyType type, String lastJsonPathFragment, String jsonPath) {
         switch(type) {
+            case OPERATION:
+                return lastJsonPathFragment;
             case PARAMETER:
                 String[] paramPathPieces = jsonPath.split("/");
                 if (operationVerbs.contains(paramPathPieces[3]) && paramPathPieces.length == 5) {
