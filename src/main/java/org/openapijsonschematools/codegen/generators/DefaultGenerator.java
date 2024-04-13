@@ -128,8 +128,6 @@ import io.swagger.v3.oas.models.security.SecurityScheme;
 import io.swagger.v3.oas.models.servers.Server;
 import io.swagger.v3.oas.models.servers.ServerVariable;
 
-import javax.validation.constraints.NotNull;
-
 import static org.openapijsonschematools.codegen.common.StringUtils.camelize;
 
 @SuppressWarnings("rawtypes")
