@@ -4,6 +4,7 @@ public enum CodegenKeyType {
     SCHEMA,
     PATH,
     MISC, // content-type, operation method
+    CONTENT_TYPE,
     OPERATION,
     PARAMETER,
     REQUEST_BODY,

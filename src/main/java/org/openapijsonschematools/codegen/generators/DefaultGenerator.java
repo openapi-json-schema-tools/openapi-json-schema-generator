@@ -918,11 +918,6 @@ public class DefaultGenerator implements Generator {
     }
 
     @Override
-    public String toContentTypeFilename(String name) {
-        return name;
-    }
-
-    @Override
     public String toModuleFilename(String name, String jsonPath) {
         return org.openapijsonschematools.codegen.common.StringUtils.camelize(name);
     }
@@ -3397,6 +3392,7 @@ public class DefaultGenerator implements Generator {
             case RESPONSE:
                 return toModelName(lastJsonPathFragment, null);
             case MISC:
+            case CONTENT_TYPE:
             case OPERATION:
             case REQUEST_BODY:
             case HEADER:
@@ -3866,7 +3862,7 @@ public class DefaultGenerator implements Generator {
             } else if (pathPieces.length >= 6 && pathPieces[4].equals("content")) {
                 // #/components/headers/someHeader/content/application-json -> length 6
                 String contentType = ModelUtils.decodeSlashes(pathPieces[5]);
-                pathPieces[5] = toContentTypeFilename(contentType);
+                pathPieces[5] = getFilename(CodegenKeyType.CONTENT_TYPE, contentType, null);
                 if (pathPieces.length == 7) {
                     pathPieces[6] = getSchemaFilename(jsonPath);
                 }
@@ -3878,7 +3874,7 @@ public class DefaultGenerator implements Generator {
             } else if (pathPieces.length >= 6 && pathPieces[4].equals("content")) {
                 // #/components/parameters/someParam/content/application-json -> length 6
                 String contentType = ModelUtils.decodeSlashes(pathPieces[5]);
-                pathPieces[5] = toContentTypeFilename(contentType);
+                pathPieces[5] = getFilename(CodegenKeyType.CONTENT_TYPE, contentType, null);
                 if (pathPieces.length == 7) {
                     pathPieces[6] = getSchemaFilename(jsonPath);
                 }
@@ -3888,7 +3884,7 @@ public class DefaultGenerator implements Generator {
             if (pathPieces.length >= 6 && pathPieces[4].equals("content")) {
                 // #/components/requestBodies/someBody/content/application-json -> length 6
                 String contentType = ModelUtils.decodeSlashes(pathPieces[5]);
-                pathPieces[5] = toContentTypeFilename(contentType);
+                pathPieces[5] = getFilename(CodegenKeyType.CONTENT_TYPE, contentType, null);
                 if (pathPieces.length == 7) {
                     pathPieces[6] = getSchemaFilename(jsonPath);
                 }
@@ -3922,7 +3918,7 @@ public class DefaultGenerator implements Generator {
                 } else if (pathPieces.length >= 8 && pathPieces[6].equals("content")) {
                     // #/components/responses/someResponse/headers/SomeHeader/content/application-json -> length 8
                     String contentType = ModelUtils.decodeSlashes(pathPieces[7]);
-                    pathPieces[7] = toContentTypeFilename(contentType);
+                    pathPieces[7] = getFilename(CodegenKeyType.CONTENT_TYPE, contentType, null);
                     if (pathPieces.length == 9) {
                         // #/components/responses/someResponse/headers/SomeHeader/content/application-json/schema
                         pathPieces[8] = getSchemaFilename(jsonPath);
@@ -3935,7 +3931,7 @@ public class DefaultGenerator implements Generator {
                 }
                 // #/components/responses/someResponse/content/application-json -> length 6
                 String contentType = ModelUtils.decodeSlashes(pathPieces[5]);
-                pathPieces[5] = toContentTypeFilename(contentType);
+                pathPieces[5] = getFilename(CodegenKeyType.CONTENT_TYPE, contentType, null);
                 if (pathPieces.length == 7) {
                     pathPieces[6] = getSchemaFilename(jsonPath);
                 }
@@ -3980,7 +3976,7 @@ public class DefaultGenerator implements Generator {
             if (pathPieces.length >= 7 && pathPieces[5].equals("content")) {
                 // #/paths/somePath/parameters/0/content/application-json -> length 7
                 String contentType = ModelUtils.decodeSlashes(pathPieces[6]);
-                pathPieces[6] = toContentTypeFilename(contentType);
+                pathPieces[6] = getFilename(CodegenKeyType.CONTENT_TYPE, contentType, null);
                 if (pathPieces.length == 8) {
                     pathPieces[7] = getSchemaFilename(jsonPath);
                     return;
@@ -4047,7 +4043,7 @@ public class DefaultGenerator implements Generator {
                 }
                 // #/paths/somePath/get/responses/200/content/application-json -> length 8
                 String contentType = ModelUtils.decodeSlashes(pathPieces[7]);
-                pathPieces[7] = toContentTypeFilename(contentType);
+                pathPieces[7] = getFilename(CodegenKeyType.CONTENT_TYPE, contentType, null);
                 if (pathPieces.length == 9) {
                     pathPieces[8] = getSchemaFilename(jsonPath);
                 }
@@ -4063,7 +4059,7 @@ public class DefaultGenerator implements Generator {
                 if (pathPieces.length >= 10 && pathPieces[8].equals("content")) {
                     // #/paths/somePath/get/responses/200/headers/someHeader/content/application-json -> length 10
                     String contentType = ModelUtils.decodeSlashes(pathPieces[9]);
-                    pathPieces[9] = toContentTypeFilename(contentType);
+                    pathPieces[9] = getFilename(CodegenKeyType.CONTENT_TYPE, contentType, null);
                     if (pathPieces.length == 11) {
                         pathPieces[10] = getSchemaFilename(jsonPath);
                     }
@@ -4083,7 +4079,7 @@ public class DefaultGenerator implements Generator {
             if (pathPieces.length >= 8 && pathPieces[6].equals("content")) {
                 // #/paths/somePath/get/parameters/1/content/application-json -> length 8
                 String contentType = ModelUtils.decodeSlashes(pathPieces[7]);
-                pathPieces[7] = toContentTypeFilename(contentType);
+                pathPieces[7] = getFilename(CodegenKeyType.CONTENT_TYPE, contentType, null);
                 if (pathPieces.length == 9) {
                     pathPieces[8] = getSchemaFilename(jsonPath);
                 }
@@ -4101,7 +4097,7 @@ public class DefaultGenerator implements Generator {
             if (pathPieces.length >= 7 && pathPieces[5].equals("content")) {
                 // #/paths/somePath/get/requestBody/content/application-json -> length 7
                 String contentType = ModelUtils.decodeSlashes(pathPieces[6]);
-                pathPieces[6] = toContentTypeFilename(contentType);
+                pathPieces[6] = getFilename(CodegenKeyType.CONTENT_TYPE, contentType, null);
                 if (pathPieces.length == 8) {
                     // #/paths/somePath/get/requestBody/content/application-json/schema
                     pathPieces[7] = getSchemaFilename(jsonPath);

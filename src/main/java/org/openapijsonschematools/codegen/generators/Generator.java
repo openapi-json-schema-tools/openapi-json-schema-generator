@@ -113,7 +113,10 @@ public interface Generator {
         return getPascalCase(CodegenKeyType.SCHEMA, name, sourceJsonPath);
     }
     Set<String> getImports(String sourceJsonPath, CodegenSchema schema, FeatureSet featureSet);
-    String toContentTypeFilename(String name);
+    @Deprecated
+    default String toContentTypeFilename(String name) {
+        return getFilename(CodegenKeyType.CONTENT_TYPE, name, null);
+    }
 
     String toParamName(String name);
 

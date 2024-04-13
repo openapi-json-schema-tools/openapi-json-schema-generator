@@ -827,11 +827,6 @@ public class PythonClientGenerator extends DefaultGenerator implements Generator
         return underscore(dropDots(toModelName(name, jsonPath)));
     }
 
-    @Override
-    public String toContentTypeFilename(String name) {
-        return toModuleFilename(name, null);
-    }
-
     /*
     This method requires jsonPath to be passed in
     It handles responses and schemas
@@ -1893,6 +1888,8 @@ public class PythonClientGenerator extends DefaultGenerator implements Generator
     @Override
     public String getFilename(CodegenKeyType type, String lastJsonPathFragment, String jsonPath) {
         switch(type) {
+            case CONTENT_TYPE:
+                return toModuleFilename(lastJsonPathFragment, null);
             case SECURITY:
                 if (jsonPath.endsWith("/security")) {
                     return "security";
@@ -2133,6 +2130,7 @@ public class PythonClientGenerator extends DefaultGenerator implements Generator
             case OPERATION:
             case REQUEST_BODY:
             case HEADER:
+            case CONTENT_TYPE:
             case SECURITY_SCHEME:
                 return toModelName(lastJsonPathFragment, jsonPath);
             case PARAMETER:

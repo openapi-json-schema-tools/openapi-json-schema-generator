@@ -1088,11 +1088,6 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
     }
 
     @Override
-    public String toContentTypeFilename(String name) {
-        return toModuleFilename(name, null);
-    }
-
-    @Override
     public String toModelFilename(String name, String jsonPath) {
         return toModelName(name, jsonPath);
     }
@@ -2628,6 +2623,7 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
                 return toModelName(lastJsonPathFragment, jsonPath);
             case MISC:
             case HEADER:
+            case CONTENT_TYPE:
             case SECURITY_SCHEME:
                 return toModelName(lastJsonPathFragment, jsonPath);
             case OPERATION:
@@ -3209,6 +3205,8 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
     public String getFilename(CodegenKeyType type, String lastJsonPathFragment, String jsonPath) {
         String[] pathPieces = jsonPath.split("/");
         switch(type) {
+            case CONTENT_TYPE:
+                return toModuleFilename(lastJsonPathFragment, null);
             case SECURITY:
                 if (pathPieces.length == 2) {
                     // #/security
