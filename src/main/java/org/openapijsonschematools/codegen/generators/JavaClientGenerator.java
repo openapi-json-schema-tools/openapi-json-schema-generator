@@ -1341,19 +1341,6 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
         return true;
     }
 
-    public String toPathFilename(String name, String jsonPath) {
-        String[] pathPieces = jsonPath.split("/");
-        boolean pathClassCase = (pathPieces.length == 3 || (pathPieces.length == 4 && pathPieces[1].equals("apis")));
-        if (pathClassCase) {
-            // #/paths/somePath -> Somepath
-            // #/apis/paths/somePath -> Somepath
-            String moduleFilename = toModuleFilename(name, jsonPath);
-            return camelize(moduleFilename, false);
-        }
-        // #/paths/somePath/blah -> somepath
-        return toModuleFilename(name, jsonPath);
-    }
-
     @Override
     public String toParameterFilename(String name, String jsonPath) {
         // adds prefix parameter_ onto the result so modules do not start with _
@@ -2546,7 +2533,7 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
         // #/paths/somePath/get -> SomepathGet
         String[] pathPieces = jsonPath.split("/");
         String pathJsonPath = "#/paths/"+pathPieces[2];
-        String pathClassName = toPathFilename(ModelUtils.decodeSlashes(pathPieces[2]), pathJsonPath);
+        String pathClassName = getFilename(CodegenKeyType.PATH, ModelUtils.decodeSlashes(pathPieces[2]), pathJsonPath);
         return pathClassName + StringUtils.capitalize(pathPieces[3]);
     }
 
@@ -2554,7 +2541,7 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
     public String toOperationFilename(String name, String jsonPath) {
         String[] pathPieces = jsonPath.split("/");
         String pathJsonPath = "#/paths/"+pathPieces[2];
-        String pathClassName = toPathFilename(ModelUtils.decodeSlashes(pathPieces[2]), pathJsonPath);
+        String pathClassName = getFilename(CodegenKeyType.PATH, ModelUtils.decodeSlashes(pathPieces[2]), pathJsonPath);
         String operationFileName = pathClassName + StringUtils.capitalize(name);
         return operationFileName;
     }
@@ -2565,7 +2552,7 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
             case SCHEMA:
                 return getSchemaPascalCaseName(lastJsonPathFragment, jsonPath, true);
             case PATH:
-                return camelize(toPathFilename(lastJsonPathFragment, jsonPath));
+                return camelize(getFilename(CodegenKeyType.PATH, lastJsonPathFragment, jsonPath));
             case REQUEST_BODY:
                 if (jsonPath.startsWith("#/paths")) {
                     String prefix = getPathClassNamePrefix(jsonPath);
@@ -3156,6 +3143,16 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
     public String getFilename(CodegenKeyType type, String lastJsonPathFragment, String jsonPath) {
         String[] pathPieces = jsonPath.split("/");
         switch(type) {
+            case PATH:
+                boolean pathClassCase = (pathPieces.length == 3 || (pathPieces.length == 4 && pathPieces[1].equals("apis")));
+                if (pathClassCase) {
+                    // #/paths/somePath -> Somepath
+                    // #/apis/paths/somePath -> Somepath
+                    String moduleFilename = toModuleFilename(lastJsonPathFragment, jsonPath);
+                    return camelize(moduleFilename, false);
+                }
+                // #/paths/somePath/blah -> somepath
+                return toModuleFilename(lastJsonPathFragment, jsonPath);
             case HEADER:
                 if (jsonPath.startsWith("#/components/headers/")) {
                     if (pathPieces.length == 4) {

@@ -920,10 +920,6 @@ public class DefaultGenerator implements Generator {
         return org.openapijsonschematools.codegen.common.StringUtils.camelize(name);
     }
 
-    public String toPathFilename(String name, String jsonPath) {
-        return toModuleFilename(name, jsonPath);
-    }
-
     @Override
     public String toParameterFilename(String basename, String jsonPath) {
         return toModuleFilename(basename, jsonPath);
@@ -3385,7 +3381,7 @@ public class DefaultGenerator implements Generator {
                 usedKey = usedKey + suffix;
                 return usedKey;
             case PATH:
-                return camelize(toPathFilename(lastJsonPathFragment, jsonPath));
+                return camelize(getFilename(CodegenKeyType.PATH, lastJsonPathFragment, jsonPath));
             case PARAMETER:
             case RESPONSE:
                 return toModelName(lastJsonPathFragment, null);
@@ -3410,6 +3406,7 @@ public class DefaultGenerator implements Generator {
         switch(type) {
             case CONTENT_TYPE:
                 return toModuleFilename(lastJsonPathFragment, null);
+            case PATH:
             case SECURITY:
             case REQUEST_BODY:
                 return toModuleFilename(lastJsonPathFragment, jsonPath);
@@ -3950,7 +3947,7 @@ public class DefaultGenerator implements Generator {
             return;
         }
         // #/paths/somePath
-        pathPieces[2] = toPathFilename(ModelUtils.decodeSlashes(pathPieces[2]), jsonPath);
+        pathPieces[2] = getFilename(CodegenKeyType.PATH, ModelUtils.decodeSlashes(pathPieces[2]), jsonPath);
         if (pathPieces.length < 4) {
             return;
         }
@@ -4151,7 +4148,7 @@ public class DefaultGenerator implements Generator {
         if (pathPieces[2].equals("tags")) {
             pathPieces[3] = toApiFilename(pathPieces[3]);
         } else if (pathPieces[2].equals("paths")) {
-            pathPieces[3] = toPathFilename(ModelUtils.decodeSlashes(pathPieces[3]), jsonPath);
+            pathPieces[3] = getFilename(CodegenKeyType.PATH, ModelUtils.decodeSlashes(pathPieces[3]), jsonPath);
         }
     }
 
@@ -4963,7 +4960,7 @@ public class DefaultGenerator implements Generator {
             case "paths":
                 usedKey = escapeUnsafeCharacters(key);
                 isValid = isValid(usedKey);
-                snakeCaseName = toPathFilename(usedKey, sourceJsonPath);
+                snakeCaseName = getFilename(CodegenKeyType.PATH, usedKey, sourceJsonPath);
                 pascalCaseName = getPascalCase(CodegenKeyType.PATH, usedKey, sourceJsonPath);
                 break;
             case "misc":

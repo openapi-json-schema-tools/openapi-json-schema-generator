@@ -1870,6 +1870,8 @@ public class PythonClientGenerator extends DefaultGenerator implements Generator
     @Override
     public String getFilename(CodegenKeyType type, String lastJsonPathFragment, String jsonPath) {
         switch(type) {
+            case PATH:
+                return toModuleFilename(lastJsonPathFragment, jsonPath);
             case HEADER:
                 String[] pathPieces = jsonPath.split("/");
                 if ((pathPieces.length == 5 || pathPieces.length == 7) && lastJsonPathFragment.equals("headers")) {
@@ -2120,7 +2122,7 @@ public class PythonClientGenerator extends DefaultGenerator implements Generator
                 }
                 return toModelName(usedKey + suffix, jsonPath);
             case PATH:
-                return camelize(toPathFilename(lastJsonPathFragment, jsonPath));
+                return camelize(getFilename(CodegenKeyType.PATH, lastJsonPathFragment, jsonPath));
             case MISC:
             case OPERATION:
             case REQUEST_BODY:

@@ -202,7 +202,10 @@ public interface Generator {
         return getFilename(CodegenKeyType.HEADER, componentName, jsonPath);
     }
 
-    String toPathFilename(String path, String jsonPath);
+    @Deprecated
+    default String toPathFilename(String path, String jsonPath) {
+        return getFilename(CodegenKeyType.PATH, path, jsonPath);
+    }
 
     String toParameterFilename(String baseName, String jsonPath);
 
