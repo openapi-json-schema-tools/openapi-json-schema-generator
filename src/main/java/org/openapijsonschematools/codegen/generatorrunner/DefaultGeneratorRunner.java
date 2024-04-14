@@ -54,8 +54,8 @@ import org.openapijsonschematools.codegen.generators.openapimodels.CodegenServer
 import org.openapijsonschematools.codegen.generators.openapimodels.CodegenList;
 import org.openapijsonschematools.codegen.generators.openapimodels.CodegenTag;
 import org.openapijsonschematools.codegen.generators.openapimodels.CodegenText;
-import org.openapijsonschematools.codegen.generators.openapimodels.GeneratedFileType;
-import org.openapijsonschematools.codegen.generators.openapimodels.ReportFileType;
+import org.openapijsonschematools.codegen.generators.models.GeneratedFileType;
+import org.openapijsonschematools.codegen.generators.models.ReportFileType;
 import org.openapijsonschematools.codegen.templating.DryRunTemplateManager;
 import org.openapijsonschematools.codegen.templating.SupportingFile;
 import org.openapijsonschematools.codegen.common.SerializerUtils;
@@ -473,7 +473,7 @@ public class DefaultGeneratorRunner implements GeneratorRunner {
                 endpointInfo.put("servers", servers);
                 endpointInfo.put("security", security);
                 endpointInfo.put("packageName", generator.packageName());
-                endpointInfo.put("apiPackage", generator.apiPackage());
+                endpointInfo.put("apiPackage", generator.generatorSettings().apiPackage);
                 endpointInfo.put("headerSize", "#");
                 endpointInfo.put("identifierPieces", Collections.unmodifiableList(new ArrayList<>()));
                 endpointInfo.put("docRoot", "../../");
@@ -1241,7 +1241,7 @@ public class DefaultGeneratorRunner implements GeneratorRunner {
             apiData.put("tag", tag);
             apiData.put("pathToOperations", pathToOperations);
             apiData.put("operations", operations);
-            apiData.put("apiPackage", generator.apiPackage());
+            apiData.put("apiPackage", generator.generatorSettings().apiPackage);
             apiData.put("docRoot", "../../");
             apiData.put("headerSize", "#");
 
@@ -1364,7 +1364,7 @@ public class DefaultGeneratorRunner implements GeneratorRunner {
             CodegenList<CodegenSecurityRequirementObject> security) {
 
         Map<String, Object> bundle = new HashMap<>(generator.additionalProperties());
-        bundle.put("apiPackage", generator.apiPackage());
+        bundle.put("apiPackage", generator.generatorSettings().apiPackage);
 
         URL url = URLPathUtils.getServerURL(openAPI, null);
         TreeSet<CodegenList<CodegenServer>> allServers = new TreeSet<>();
@@ -1412,7 +1412,7 @@ public class DefaultGeneratorRunner implements GeneratorRunner {
         bundle.put("hasServers", hasServers);  // also true if there are no root servers but there are pathItem/operation servers
         bundle.put("paths", paths);
         bundle.put("security", security);
-        bundle.put("apiFolder", generator.apiPackage().replace('.', File.separatorChar));
+        bundle.put("apiFolder", generator.generatorSettings().apiPackage.replace('.', File.separatorChar));
         bundle.put("modelPackage", generator.modelPackage());
         if (securitySchemes == null) {
             bundle.put("hasHttpSignatureSecurityScheme", false);

@@ -25,6 +25,8 @@ import io.swagger.v3.oas.models.OpenAPI;
 
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.FilenameUtils;
+import org.openapijsonschematools.codegen.config.GeneratorSettings;
+import org.openapijsonschematools.codegen.config.WorkflowSettings;
 import org.openapijsonschematools.codegen.generators.generatormetadata.FeatureSet;
 import org.openapijsonschematools.codegen.generators.generatormetadata.GeneratorLanguage;
 import org.openapijsonschematools.codegen.generators.models.CliOption;
@@ -33,11 +35,12 @@ import org.openapijsonschematools.codegen.generators.generatormetadata.Generator
 import org.openapijsonschematools.codegen.generators.generatormetadata.features.ComponentsFeature;
 import org.openapijsonschematools.codegen.generators.generatormetadata.features.OperationFeature;
 import org.openapijsonschematools.codegen.generators.generatormetadata.features.SchemaFeature;
+import org.openapijsonschematools.codegen.generators.models.CodeGeneratorSettings;
 import org.openapijsonschematools.codegen.generators.openapimodels.CodegenDiscriminator;
 import org.openapijsonschematools.codegen.generators.openapimodels.CodegenKeyType;
 import org.openapijsonschematools.codegen.generators.openapimodels.CodegenPatternInfo;
 import org.openapijsonschematools.codegen.generators.openapimodels.CodegenSchema;
-import org.openapijsonschematools.codegen.generators.openapimodels.GeneratedFileType;
+import org.openapijsonschematools.codegen.generators.models.GeneratedFileType;
 import org.openapijsonschematools.codegen.templating.SupportingFile;
 import org.openapijsonschematools.codegen.generators.generatormetadata.features.DataTypeFeature;
 import org.openapijsonschematools.codegen.generators.generatormetadata.features.DocumentationFeature;
@@ -59,7 +62,6 @@ import org.openapijsonschematools.codegen.common.ModelUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import javax.validation.constraints.NotNull;
 import java.io.File;
 import java.io.IOException;
 import java.time.OffsetDateTime;
@@ -90,8 +92,6 @@ public class PythonClientGenerator extends DefaultGenerator implements Generator
 
     protected Map<Character, String> regexModifiers;
 
-    private final String testFolder;
-
     // A cache to efficiently look up a Schema instance based on the return value of `toModelName()`.
     private Map<String, Schema> modelNameToSchemaCache;
     private final DateTimeFormatter iso8601Date = DateTimeFormatter.ISO_DATE;
@@ -100,15 +100,190 @@ public class PythonClientGenerator extends DefaultGenerator implements Generator
     private final HashMap<PairCacheKey, String> modelNameCache = new HashMap<>();
     protected String packageVersion = "1.0.0";
     protected String projectName; // for setup.py, e.g. petstore-api
+    private final String testFolder;
+
+    private static final FeatureSet featureSet = FeatureSet.newBuilder()
+        .includeDataTypeFeatures(
+            DataTypeFeature.Int32,
+            DataTypeFeature.Int64,
+            DataTypeFeature.Integer,
+            DataTypeFeature.Float,
+            DataTypeFeature.Double,
+            DataTypeFeature.Number,
+            DataTypeFeature.String,
+            DataTypeFeature.Binary,
+            DataTypeFeature.Boolean,
+            DataTypeFeature.Date,
+            DataTypeFeature.DateTime,
+            DataTypeFeature.Uuid,
+            DataTypeFeature.File,
+            DataTypeFeature.Array,
+            DataTypeFeature.Object,
+            DataTypeFeature.Null,
+            DataTypeFeature.AnyType,
+            DataTypeFeature.Enum
+        )
+        .excludeDataTypeFeatures(
+            DataTypeFeature.Byte,
+            DataTypeFeature.Password
+        )
+        .includeSchemaFeatures(
+            SchemaFeature.AdditionalProperties,
+            SchemaFeature.AllOf,
+            SchemaFeature.AnyOf,
+            SchemaFeature.Const,
+            SchemaFeature.Contains,
+            SchemaFeature.Default,
+            SchemaFeature.DependentRequired,
+            SchemaFeature.DependentSchemas,
+            SchemaFeature.Discriminator,
+            SchemaFeature.Else,
+            SchemaFeature.Enum,
+            SchemaFeature.ExclusiveMaximum,
+            SchemaFeature.ExclusiveMinimum,
+            SchemaFeature.Format,
+            SchemaFeature.If,
+            SchemaFeature.Items,
+            SchemaFeature.MaxContains,
+            SchemaFeature.MaxItems,
+            SchemaFeature.MaxLength,
+            SchemaFeature.MaxProperties,
+            SchemaFeature.Maximum,
+            SchemaFeature.MinContains,
+            SchemaFeature.MinItems,
+            SchemaFeature.MinLength,
+            SchemaFeature.MinProperties,
+            SchemaFeature.Minimum,
+            SchemaFeature.MultipleOf,
+            SchemaFeature.Not,
+            SchemaFeature.Nullable,
+            SchemaFeature.OneOf,
+            SchemaFeature.Pattern,
+            SchemaFeature.PatternProperties,
+            SchemaFeature.PrefixItems,
+            SchemaFeature.Properties,
+            SchemaFeature.PropertyNames,
+            SchemaFeature.Ref,
+            SchemaFeature.Required,
+            SchemaFeature.Then,
+            SchemaFeature.Type,
+            SchemaFeature.UnevaluatedItems,
+            SchemaFeature.UnevaluatedProperties,
+            SchemaFeature.UniqueItems
+        )
+        .includeDocumentationFeatures(
+            DocumentationFeature.Readme,
+            DocumentationFeature.Servers,
+            DocumentationFeature.Security,
+            DocumentationFeature.ComponentSchemas,
+            DocumentationFeature.ComponentResponses,
+            DocumentationFeature.ComponentParameters,
+            DocumentationFeature.ComponentRequestBodies,
+            DocumentationFeature.ComponentHeaders,
+            DocumentationFeature.ComponentSecuritySchemes,
+            DocumentationFeature.Api
+        )
+        .includeWireFormatFeatures(WireFormatFeature.JSON, WireFormatFeature.Custom)
+        .includeSecurityFeatures(
+            SecurityFeature.ApiKey,
+            SecurityFeature.HTTP_Basic,
+            SecurityFeature.HTTP_Bearer
+        )
+        .includeGlobalFeatures(
+            GlobalFeature.Info,
+            GlobalFeature.Servers,
+            GlobalFeature.Paths,
+            GlobalFeature.Components,
+            GlobalFeature.Security,
+            GlobalFeature.Tags
+        )
+        .includeComponentsFeatures(
+            ComponentsFeature.schemas,
+            ComponentsFeature.responses,
+            ComponentsFeature.parameters,
+            ComponentsFeature.requestBodies,
+            ComponentsFeature.headers,
+            ComponentsFeature.securitySchemes
+        )
+        .includeParameterFeatures(
+            ParameterFeature.Name,
+            ParameterFeature.Required,
+            ParameterFeature.In_Path,
+            ParameterFeature.In_Query,
+            ParameterFeature.In_Header,
+            ParameterFeature.Style_Matrix,
+            ParameterFeature.Style_Label,
+            ParameterFeature.Style_Form,
+            ParameterFeature.Style_Simple,
+            ParameterFeature.Style_PipeDelimited,
+            ParameterFeature.Style_SpaceDelimited,
+            ParameterFeature.Explode,
+            ParameterFeature.Schema,
+            ParameterFeature.Content
+        )
+        .includeOperationFeatures(
+            OperationFeature.Responses_Default,
+            OperationFeature.Responses_HttpStatusCode,
+            OperationFeature.Responses_RangedResponseCodes,
+            OperationFeature.Responses_RedirectionResponse,
+            OperationFeature.Security,
+            OperationFeature.Servers
+        )
+        .build();
+    public static final GeneratorMetadata generatorMetadata = GeneratorMetadata.newBuilder()
+        .name("python")
+            .language(GeneratorLanguage.PYTHON)
+            .languageVersion(">=3.8")
+            .type(GeneratorType.CLIENT)
+            .stability(Stability.STABLE)
+            .featureSet(featureSet)
+            .generationMessage(String.format(Locale.ROOT, "OpenAPI JSON Schema Generator: %s (%s)", "python", GeneratorType.CLIENT))
+        .helpTxt(
+        String.join("<br />",
+                    "Generates a Python client library",
+                        "",
+                        "Features in this generator:",
+                        "- type hints on endpoints and model creation",
+                        "- model parameter names use the spec defined keys and cases",
+                        "- robust composition (oneOf/anyOf/allOf/not) where payload data is stored in one instance only",
+                        "- endpoint parameter names use the spec defined keys and cases",
+                        "- inline schemas are supported at any location including composition",
+                        "- multiple content types supported in request body and response bodies",
+                        "- run time type checking + json schema validation",
+                        "- json schema keyword validation may be selectively disabled with SchemaConfiguration",
+                        "- enums of type string/integer/boolean typed using typing.Literal",
+                        "- mypy static type checking run on generated sample",
+                        "- Sending/receiving decimals as strings supported with type:string format: number -> DecimalSchema",
+                        "- Sending/receiving uuids as strings supported with type:string format: uuid -> UUIDSchema",
+                        "- quicker load time for python modules (a single endpoint can be imported and used without loading others)",
+                        "- composed schemas with type constraints supported (type:object + oneOf/anyOf/allOf)",
+                        "- schemas are not coerced/cast. For example string + date are both stored as string, and there is a date accessor"
+    )
+            )
+                .build();
+
+
+    public PythonClientGenerator(GeneratorSettings generatorSettings, WorkflowSettings workflowSettings) {
+        String apiPackage = Objects.requireNonNullElse(generatorSettings.getApiPackage(), "apis");
+        String embeddedTemplateDir = "python";
+        String packageName = Objects.requireNonNullElse(generatorSettings.getPackageName(), "openapi_client");
+        this.generatorSettings = new CodeGeneratorSettings(
+            apiPackage,
+            workflowSettings.getOutputDir(),
+            workflowSettings.getTemplateDir(),
+            embeddedTemplateDir,
+            packageName
+        );
+        testFolder = "test";
+    }
 
     public PythonClientGenerator() {
         super();
+        testFolder = "test";
         loadDeepObjectIntoItems = false;
         importBaseType = false;
         addSchemaImportsFromV3SpecLocations = true;
         removeEnumValuePrefix = false;
-
-        packageName = "openapi_client";
 
         // from https://docs.python.org/3/reference/lexical_analysis.html#keywords
         setReservedWordsLowerCase(
@@ -168,176 +343,13 @@ public class PythonClientGenerator extends DefaultGenerator implements Generator
         typeMapping.put("URI", "str");
         typeMapping.put("null", "none_type");
 
-        modifyFeatureSet(features -> features
-                .includeDataTypeFeatures(
-                        DataTypeFeature.Int32,
-                        DataTypeFeature.Int64,
-                        DataTypeFeature.Integer,
-                        DataTypeFeature.Float,
-                        DataTypeFeature.Double,
-                        DataTypeFeature.Number,
-                        DataTypeFeature.String,
-                        DataTypeFeature.Binary,
-                        DataTypeFeature.Boolean,
-                        DataTypeFeature.Date,
-                        DataTypeFeature.DateTime,
-                        DataTypeFeature.Uuid,
-                        DataTypeFeature.File,
-                        DataTypeFeature.Array,
-                        DataTypeFeature.Object,
-                        DataTypeFeature.Null,
-                        DataTypeFeature.AnyType,
-                        DataTypeFeature.Enum
-                )
-                .excludeDataTypeFeatures(
-                        DataTypeFeature.Byte,
-                        DataTypeFeature.Password
-                )
-                .includeSchemaFeatures(
-                        SchemaFeature.AdditionalProperties,
-                        SchemaFeature.AllOf,
-                        SchemaFeature.AnyOf,
-                        SchemaFeature.Const,
-                        SchemaFeature.Contains,
-                        SchemaFeature.Default,
-                        SchemaFeature.DependentRequired,
-                        SchemaFeature.DependentSchemas,
-                        SchemaFeature.Discriminator,
-                        SchemaFeature.Else,
-                        SchemaFeature.Enum,
-                        SchemaFeature.ExclusiveMaximum,
-                        SchemaFeature.ExclusiveMinimum,
-                        SchemaFeature.Format,
-                        SchemaFeature.If,
-                        SchemaFeature.Items,
-                        SchemaFeature.MaxContains,
-                        SchemaFeature.MaxItems,
-                        SchemaFeature.MaxLength,
-                        SchemaFeature.MaxProperties,
-                        SchemaFeature.Maximum,
-                        SchemaFeature.MinContains,
-                        SchemaFeature.MinItems,
-                        SchemaFeature.MinLength,
-                        SchemaFeature.MinProperties,
-                        SchemaFeature.Minimum,
-                        SchemaFeature.MultipleOf,
-                        SchemaFeature.Not,
-                        SchemaFeature.Nullable,
-                        SchemaFeature.OneOf,
-                        SchemaFeature.Pattern,
-                        SchemaFeature.PatternProperties,
-                        SchemaFeature.PrefixItems,
-                        SchemaFeature.Properties,
-                        SchemaFeature.PropertyNames,
-                        SchemaFeature.Ref,
-                        SchemaFeature.Required,
-                        SchemaFeature.Then,
-                        SchemaFeature.Type,
-                        SchemaFeature.UnevaluatedItems,
-                        SchemaFeature.UnevaluatedProperties,
-                        SchemaFeature.UniqueItems
-                )
-                .includeDocumentationFeatures(
-                        DocumentationFeature.Readme,
-                        DocumentationFeature.Servers,
-                        DocumentationFeature.Security,
-                        DocumentationFeature.ComponentSchemas,
-                        DocumentationFeature.ComponentResponses,
-                        DocumentationFeature.ComponentParameters,
-                        DocumentationFeature.ComponentRequestBodies,
-                        DocumentationFeature.ComponentHeaders,
-                        DocumentationFeature.ComponentSecuritySchemes,
-                        DocumentationFeature.Api
-                )
-                .includeWireFormatFeatures(WireFormatFeature.JSON, WireFormatFeature.Custom)
-                .includeSecurityFeatures(
-                        SecurityFeature.ApiKey,
-                        SecurityFeature.HTTP_Basic,
-                        SecurityFeature.HTTP_Bearer
-                )
-                .includeGlobalFeatures(
-                        GlobalFeature.Info,
-                        GlobalFeature.Servers,
-                        GlobalFeature.Paths,
-                        GlobalFeature.Components,
-                        GlobalFeature.Security,
-                        GlobalFeature.Tags
-                )
-                .includeComponentsFeatures(
-                        ComponentsFeature.schemas,
-                        ComponentsFeature.responses,
-                        ComponentsFeature.parameters,
-                        ComponentsFeature.requestBodies,
-                        ComponentsFeature.headers,
-                        ComponentsFeature.securitySchemes
-                )
-                .includeParameterFeatures(
-                        ParameterFeature.Name,
-                        ParameterFeature.Required,
-                        ParameterFeature.In_Path,
-                        ParameterFeature.In_Query,
-                        ParameterFeature.In_Header,
-                        ParameterFeature.Style_Matrix,
-                        ParameterFeature.Style_Label,
-                        ParameterFeature.Style_Form,
-                        ParameterFeature.Style_Simple,
-                        ParameterFeature.Style_PipeDelimited,
-                        ParameterFeature.Style_SpaceDelimited,
-                        ParameterFeature.Explode,
-                        ParameterFeature.Schema,
-                        ParameterFeature.Content
-                )
-                .includeOperationFeatures(
-                        OperationFeature.Responses_Default,
-                        OperationFeature.Responses_HttpStatusCode,
-                        OperationFeature.Responses_RangedResponseCodes,
-                        OperationFeature.Responses_RedirectionResponse,
-                        OperationFeature.Security,
-                        OperationFeature.Servers
-                )
-        );
-        FeatureSet featureSet = getGeneratorMetadata().getFeatureSet();
         String generatorName = "python";
         GeneratorType generatorType = GeneratorType.CLIENT;
-        generatorMetadata = GeneratorMetadata.newBuilder()
-            .name(generatorName)
-            .language(GeneratorLanguage.PYTHON)
-            .languageVersion(">=3.8")
-            .type(generatorType)
-            .stability(Stability.STABLE)
-            .featureSet(featureSet)
-            .generationMessage(String.format(Locale.ROOT, "OpenAPI JSON Schema Generator: %s (%s)", generatorName, generatorType))
-            .helpTxt(
-                String.join("<br />",
-                    "Generates a Python client library",
-                    "",
-                    "Features in this generator:",
-                    "- type hints on endpoints and model creation",
-                    "- model parameter names use the spec defined keys and cases",
-                    "- robust composition (oneOf/anyOf/allOf/not) where payload data is stored in one instance only",
-                    "- endpoint parameter names use the spec defined keys and cases",
-                    "- inline schemas are supported at any location including composition",
-                    "- multiple content types supported in request body and response bodies",
-                    "- run time type checking + json schema validation",
-                    "- json schema keyword validation may be selectively disabled with SchemaConfiguration",
-                    "- enums of type string/integer/boolean typed using typing.Literal",
-                    "- mypy static type checking run on generated sample",
-                    "- Sending/receiving decimals as strings supported with type:string format: number -> DecimalSchema",
-                    "- Sending/receiving uuids as strings supported with type:string format: uuid -> UUIDSchema",
-                    "- quicker load time for python modules (a single endpoint can be imported and used without loading others)",
-                    "- composed schemas with type constraints supported (type:object + oneOf/anyOf/allOf)",
-                    "- schemas are not coerced/cast. For example string + date are both stored as string, and there is a date accessor"
-                )
-            )
-            .build();
 
         modelPackage = "components.schema";
-        apiPackage = "apis";
         outputFolder = "generated-code" + File.separatorChar + "python";
 
         embeddedTemplateDir = templateDir = "python";
-
-        testFolder = "test";
 
         // default HIDE_GENERATION_TIMESTAMP to true
         hideGenerationTimestamp = Boolean.TRUE;
@@ -412,10 +424,6 @@ public class PythonClientGenerator extends DefaultGenerator implements Generator
 
         languageSpecificPrimitives.add("file_type");
         languageSpecificPrimitives.add("none_type");
-
-        generatorMetadata = GeneratorMetadata.newBuilder(generatorMetadata)
-                .stability(Stability.STABLE)
-                .build();
     }
 
     @Override

@@ -153,12 +153,12 @@ public class MyclientcodegenGenerator extends DefaultCodegen implements CodegenC
   }
 
   /**
-   * Location to write api files.  You can use the apiPackage() as defined when the class is
+   * Location to write api files.  You can use the apiPackage as defined when the class is
    * instantiated
    */
   @Override
   public String apiFileFolder() {
-    return outputFolder + "/" + sourceFolder + "/" + apiPackage().replace('.', File.separatorChar);
+    return outputFolder + "/" + sourceFolder + "/" + generatorSettings().apiPackage.replace('.', File.separatorChar);
   }
 
   /**

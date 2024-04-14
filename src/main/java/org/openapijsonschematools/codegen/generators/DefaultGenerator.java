@@ -38,6 +38,8 @@ import io.swagger.v3.oas.models.security.SecurityRequirement;
 import org.apache.commons.text.StringEscapeUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.tuple.Pair;
+import org.openapijsonschematools.codegen.config.GeneratorSettings;
+import org.openapijsonschematools.codegen.config.WorkflowSettings;
 import org.openapijsonschematools.codegen.generators.models.CliOption;
 import org.openapijsonschematools.codegen.common.CodegenConstants;
 import org.openapijsonschematools.codegen.config.GlobalSettings;
@@ -47,6 +49,7 @@ import org.openapijsonschematools.codegen.generators.generatormetadata.features.
 import org.openapijsonschematools.codegen.generators.generatormetadata.features.GlobalFeature;
 import org.openapijsonschematools.codegen.generators.generatormetadata.features.SchemaFeature;
 import org.openapijsonschematools.codegen.generators.generatormetadata.features.WireFormatFeature;
+import org.openapijsonschematools.codegen.generators.models.CodeGeneratorSettings;
 import org.openapijsonschematools.codegen.generators.models.VendorExtension;
 import org.openapijsonschematools.codegen.generators.openapimodels.ArrayListWithContext;
 import org.openapijsonschematools.codegen.generators.openapimodels.CodegenCallback;
@@ -78,12 +81,12 @@ import org.openapijsonschematools.codegen.generators.openapimodels.CodegenText;
 import org.openapijsonschematools.codegen.generators.openapimodels.CodegenXml;
 import org.openapijsonschematools.codegen.generators.openapimodels.EnumInfo;
 import org.openapijsonschematools.codegen.generators.openapimodels.EnumValue;
-import org.openapijsonschematools.codegen.generators.openapimodels.GeneratedFileType;
+import org.openapijsonschematools.codegen.generators.models.GeneratedFileType;
 import org.openapijsonschematools.codegen.generators.openapimodels.LinkedHashMapWithContext;
 import org.openapijsonschematools.codegen.generators.openapimodels.MapBuilder;
 import org.openapijsonschematools.codegen.generators.openapimodels.PairCacheKey;
 import org.openapijsonschematools.codegen.generators.openapimodels.ParameterCollection;
-import org.openapijsonschematools.codegen.generators.openapimodels.ReportFileType;
+import org.openapijsonschematools.codegen.generators.models.ReportFileType;
 import org.openapijsonschematools.codegen.generators.openapimodels.SchemaTestCase;
 import org.openapijsonschematools.codegen.templating.SupportingFile;
 import org.openapijsonschematools.codegen.common.SerializerUtils;
@@ -133,6 +136,20 @@ import static org.openapijsonschematools.codegen.common.StringUtils.camelize;
 
 @SuppressWarnings("rawtypes")
 public class DefaultGenerator implements Generator {
+    protected CodeGeneratorSettings generatorSettings;
+    public DefaultGenerator(GeneratorSettings generatorSettings, WorkflowSettings workflowSettings) {
+        String apiPackage = Objects.requireNonNullElse(generatorSettings.getApiPackage(), "apis");
+        String embeddedTemplateDir = "java";
+        String packageName = Objects.requireNonNullElse(generatorSettings.getPackageName(), "openapiclient");
+        this.generatorSettings = new CodeGeneratorSettings(
+            apiPackage,
+            workflowSettings.getOutputDir(),
+            workflowSettings.getTemplateDir(),
+            embeddedTemplateDir,
+            packageName
+        );
+    }
+
     private final Logger LOGGER = LoggerFactory.getLogger(DefaultGenerator.class);
 
     public static FeatureSet DefaultFeatureSet;
@@ -200,7 +217,16 @@ public class DefaultGenerator implements Generator {
         falseSchema.setNot(new Schema());
     }
 
-    protected GeneratorMetadata generatorMetadata;
+    public static final GeneratorMetadata generatorMetadata = GeneratorMetadata.newBuilder()
+        .name("java")
+        .language(GeneratorLanguage.JAVA)
+        .languageVersion("17")
+        .type(GeneratorType.CLIENT)
+        .stability(Stability.EXPERIMENTAL)
+        .featureSet(DefaultFeatureSet)
+        .generationMessage("OpenAPI JSON Schema Generator: java "+GeneratorType.CLIENT.toValue())
+        .helpTxt("todo replace help text")
+        .build();
     protected String inputSpec;
     protected String outputFolder = "";
     protected Set<String> defaultIncludes;
@@ -211,7 +237,7 @@ public class DefaultGenerator implements Generator {
     protected Set<String> languageSpecificPrimitives = new HashSet<>();
     // a map to store the mapping between a schema and the new one
     // a map to store the mapping between inline schema and the name provided by the user
-    protected String modelPackage = "components.schema", apiPackage = "";
+    protected String modelPackage = "components.schema";
     protected String modelNamePrefix = "", modelNameSuffix = "";
     protected String apiNamePrefix = "", apiNameSuffix = "Api";
     protected String filesMetadataFilename = "FILES";
@@ -319,12 +345,10 @@ public class DefaultGenerator implements Generator {
             setTemplateEngineName((String) additionalProperties.get(CodegenConstants.TEMPLATING_ENGINE));
         }
 
+        String usedTemplateDir = templateDir;
         if (additionalProperties.containsKey(CodegenConstants.TEMPLATE_DIR)) {
             this.setTemplateDir((String) additionalProperties.get(CodegenConstants.TEMPLATE_DIR));
-        }
-
-        if (additionalProperties.containsKey(CodegenConstants.API_PACKAGE)) {
-            this.setApiPackage((String) additionalProperties.get(CodegenConstants.API_PACKAGE));
+            usedTemplateDir = (String) additionalProperties.get(CodegenConstants.TEMPLATE_DIR);
         }
 
         if (additionalProperties.containsKey(CodegenConstants.HIDE_GENERATION_TIMESTAMP)) {
@@ -717,11 +741,6 @@ public class DefaultGenerator implements Generator {
     }
 
     @Override
-    public String apiPackage() {
-        return apiPackage;
-    }
-
-    @Override
     public String templateDir() {
         return templateDir;
     }
@@ -749,6 +768,11 @@ public class DefaultGenerator implements Generator {
     @Override
     public Map<String, Object> vendorExtensions() {
         return vendorExtensions;
+    }
+
+    @Override
+    public CodeGeneratorSettings generatorSettings() {
+        return generatorSettings;
     }
 
     @Override
@@ -803,10 +827,6 @@ public class DefaultGenerator implements Generator {
 
     public void setApiNamePrefix(String apiNamePrefix) {
         this.apiNamePrefix = apiNamePrefix;
-    }
-
-    public void setApiPackage(String apiPackage) {
-        this.apiPackage = apiPackage;
     }
 
     public void setAllowUnicodeIdentifiers(Boolean allowUnicodeIdentifiers) {
@@ -1016,16 +1036,6 @@ public class DefaultGenerator implements Generator {
     public DefaultGenerator() {
         GeneratorType generatorType = GeneratorType.CLIENT;
         String name = "DefaultGenerator";
-        generatorMetadata = GeneratorMetadata.newBuilder()
-            .name(name)
-            .language(GeneratorLanguage.JAVA)
-            .languageVersion("17")
-            .type(generatorType)
-            .stability(Stability.EXPERIMENTAL)
-            .featureSet(DefaultFeatureSet)
-            .generationMessage(String.format(Locale.ROOT, "OpenAPI JSON Schema Generator: %s (%s)", name, generatorType.toValue()))
-            .helpTxt("todo replace help text")
-            .build();
 
         defaultIncludes = new HashSet<>(
                 Arrays.asList("double",
@@ -4100,7 +4110,7 @@ public class DefaultGenerator implements Generator {
         originalPieces[0] = "#";
         String jsonPath = String.join("/", originalPieces);
 
-        pathPieces[1] = apiPackage.replace('.', File.separatorChar);
+        pathPieces[1] = generatorSettings.apiPackage.replace('.', File.separatorChar);
         if (pathPieces.length < 4) {
             return;
         }
@@ -5342,13 +5352,6 @@ public class DefaultGenerator implements Generator {
     @Override
     public void setRemoveEnumValuePrefix(final boolean removeEnumValuePrefix) {
         this.removeEnumValuePrefix = removeEnumValuePrefix;
-    }
-
-    protected void modifyFeatureSet(Consumer<FeatureSet.Builder> processor) {
-        FeatureSet.Builder builder = getGeneratorMetadata().getFeatureSet().modify();
-        processor.accept(builder);
-        this.generatorMetadata = GeneratorMetadata.newBuilder(generatorMetadata)
-                .featureSet(builder.build()).build();
     }
 
     /**

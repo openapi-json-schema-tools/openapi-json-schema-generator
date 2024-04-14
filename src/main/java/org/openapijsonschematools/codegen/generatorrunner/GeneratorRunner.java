@@ -24,8 +24,5 @@ import java.util.List;
 
 public interface GeneratorRunner {
     GeneratorRunner opts(ClientOptInput opts);
-
-    String requestBodyFileFolder();
-
     List<File> generate();
 }

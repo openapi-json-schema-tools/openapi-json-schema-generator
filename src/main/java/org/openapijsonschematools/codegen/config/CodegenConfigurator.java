@@ -470,7 +470,7 @@ public class CodegenConfigurator {
 
         // We load the config via generatorSettings.getGeneratorName() because this is guaranteed to be set
         // regardless of entrypoint (CLI sets properties on this type, config deserialization sets on generatorSettings).
-        Generator config = GeneratorLoader.forName(generatorSettings.getGeneratorName());
+        Generator config = GeneratorLoader.getGenerator(generatorSettings.getGeneratorName(), generatorSettings, workflowSettings);
 
         // TODO: Work toward Generator having a "WorkflowSettings" property, or better a "Workflow" object which itself has a "WorkflowSettings" property.
         config.setInputSpec(workflowSettings.getInputSpec());

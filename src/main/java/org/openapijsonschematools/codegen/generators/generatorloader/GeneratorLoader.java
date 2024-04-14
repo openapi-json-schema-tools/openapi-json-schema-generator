@@ -17,13 +17,40 @@
 
 package org.openapijsonschematools.codegen.generators.generatorloader;
 
+import org.openapijsonschematools.codegen.config.GeneratorSettings;
+import org.openapijsonschematools.codegen.config.WorkflowSettings;
 import org.openapijsonschematools.codegen.generators.Generator;
 
+import java.lang.reflect.Constructor;
+import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ServiceLoader;
 
 public class GeneratorLoader {
+    public static Generator getGenerator(String name, GeneratorSettings generatorSettings, WorkflowSettings workflowSettings) {
+        ServiceLoader<Generator> loader = ServiceLoader.load(Generator.class, Generator.class.getClassLoader());
+
+        StringBuilder availableConfigs = new StringBuilder();
+        for (Generator config : loader) {
+            availableConfigs.append(config.getName()).append("\n");
+        }
+
+        GeneratorNotFoundException exc = new GeneratorNotFoundException("Can't load config class with name '".concat(name) + "'\nAvailable:\n" + availableConfigs);
+        for (Generator config : loader) {
+            if (config.getGeneratorMetadata().getName().equals(name)) {
+                try {
+                    Constructor<?> constructor = config.getClass().getDeclaredConstructor(GeneratorSettings.class, WorkflowSettings.class);
+                    return (Generator) constructor.newInstance(generatorSettings, workflowSettings);
+                } catch (NoSuchMethodException | InvocationTargetException | InstantiationException |
+                         IllegalAccessException e) {
+                    throw exc;
+                }
+            }
+        }
+        throw exc;
+    }
+
     /**
      * Tries to load config class with SPI first, then with class name directly from classpath
      *

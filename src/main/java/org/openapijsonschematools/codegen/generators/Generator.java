@@ -22,11 +22,12 @@ import io.swagger.v3.oas.models.OpenAPI;
 import org.openapijsonschematools.codegen.common.CodegenConstants;
 import org.openapijsonschematools.codegen.generators.generatormetadata.GeneratorLanguage;
 import org.openapijsonschematools.codegen.generators.generatormetadata.GeneratorType;
+import org.openapijsonschematools.codegen.generators.models.CodeGeneratorSettings;
 import org.openapijsonschematools.codegen.generators.models.VendorExtension;
 import org.openapijsonschematools.codegen.generators.openapimodels.CodegenKeyType;
 import org.openapijsonschematools.codegen.generators.openapimodels.CodegenRefInfo;
-import org.openapijsonschematools.codegen.generators.openapimodels.GeneratedFileType;
-import org.openapijsonschematools.codegen.generators.openapimodels.ReportFileType;
+import org.openapijsonschematools.codegen.generators.models.GeneratedFileType;
+import org.openapijsonschematools.codegen.generators.models.ReportFileType;
 import org.openapijsonschematools.codegen.templating.SupportingFile;
 import org.openapijsonschematools.codegen.generators.models.CliOption;
 import org.openapijsonschematools.codegen.generators.openapimodels.CodegenKey;
@@ -54,8 +55,7 @@ public interface Generator extends OpenApiProcessor, Comparable<Generator> {
 
     Map<String, Object> vendorExtensions();
 
-    // todo move to generatorsettings
-    String apiPackage();
+    CodeGeneratorSettings generatorSettings();
 
     // todo move to generatorsettings
     String outputFolder();
@@ -68,6 +68,12 @@ public interface Generator extends OpenApiProcessor, Comparable<Generator> {
 
     // todo move to generatorsettings
     String packageName();
+
+    // todo move to generator settings
+    String getOutputDir();
+
+    // todo move to generator settings
+    void setOutputDir(String dir);
 
     // todo deprecate this and make a key of api
     String toApiName(String name);
@@ -100,10 +106,6 @@ public interface Generator extends OpenApiProcessor, Comparable<Generator> {
     String getInputSpec();
 
     void setInputSpec(String inputSpec);
-
-    String getOutputDir();
-
-    void setOutputDir(String dir);
 
     // todo deprecate this
     CodegenKey getKey(String key, String keyType);
@@ -357,4 +359,9 @@ public interface Generator extends OpenApiProcessor, Comparable<Generator> {
     @Deprecated
     String modelPackagePathFragment();
     // 108 - 30 -> 78
+
+    @Deprecated
+    default String apiPackage() {
+        return generatorSettings().apiPackage;
+    }
 }
