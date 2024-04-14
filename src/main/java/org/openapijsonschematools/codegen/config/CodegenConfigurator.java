@@ -480,7 +480,6 @@ public class CodegenConfigurator {
         config.setSkipOperationExample(workflowSettings.isSkipOperationExample());
         config.setEnablePostProcessFile(workflowSettings.isEnablePostProcessFile());
         config.setEnableMinimalUpdate(workflowSettings.isEnableMinimalUpdate());
-        config.setStrictSpecBehavior(workflowSettings.isStrictSpecBehavior());
         config.setTemplateEngineName(workflowSettings.getTemplatingEngineName());
         config.additionalProperties().put(CodegenConstants.TEMPLATING_ENGINE, workflowSettings.getTemplatingEngineName());
 

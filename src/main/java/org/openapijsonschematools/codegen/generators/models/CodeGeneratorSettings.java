@@ -6,11 +6,13 @@ public class CodeGeneratorSettings {
     public final String templateDir;
     public final String embeddedTemplateDir;
     public final String packageName;
-    public CodeGeneratorSettings(String apiPackage, String outputFolder, String templateDir, String embeddedTemplateDir, String packageName) {
+    public final boolean strictSpecBehavior;
+    public CodeGeneratorSettings(String apiPackage, String outputFolder, String templateDir, String embeddedTemplateDir, String packageName, boolean strictSpecBehavior) {
         this.apiPackage = apiPackage;
         this.outputFolder = outputFolder;
         this.templateDir = templateDir;
         this.embeddedTemplateDir = embeddedTemplateDir;
         this.packageName = packageName;
+        this.strictSpecBehavior = strictSpecBehavior;
     }
 }

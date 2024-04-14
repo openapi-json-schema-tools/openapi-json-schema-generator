@@ -77,6 +77,7 @@ public interface Generator extends OpenApiProcessor, Comparable<Generator> {
 
     String escapeQuotationMark(String input);
 
+    // todo deprecate this and move it into new
     void processOpts();
 
     List<CliOption> cliOptions();
@@ -85,8 +86,10 @@ public interface Generator extends OpenApiProcessor, Comparable<Generator> {
 
     List<SupportingFile> supportingFiles();
 
+    // todo deprecate this
     String getInputSpec();
 
+    // todo remove this, pass in new
     void setInputSpec(String inputSpec);
 
     // todo deprecate this
@@ -98,12 +101,11 @@ public interface Generator extends OpenApiProcessor, Comparable<Generator> {
 
     Set<String> languageSpecificPrimitives();
 
+    // todo remove + move this into the new constructor
     void preprocessOpenAPI(OpenAPI openAPI);
 
+    // todo remove and move this into the new constructor
     void processOpenAPI(OpenAPI openAPI);
-
-    // todo remove this because it is unused
-    Compiler processCompiler(Compiler compiler);
 
     // todo deprecate this, use getKey with api type
     String toApiFilename(String name);
@@ -116,11 +118,10 @@ public interface Generator extends OpenApiProcessor, Comparable<Generator> {
 
     TreeMap<String, CodegenSchema> updateAllModels(TreeMap<String, CodegenSchema> models);
 
+    // todo remove and use postGenerationMsg in generationMetadata
     void postProcess();
 
     TreeMap<String, CodegenSchema> postProcessAllModels(TreeMap<String, CodegenSchema> schemas);
-
-    TreeMap<String, CodegenSchema> postProcessModels(TreeMap<String, CodegenSchema> models);
 
     Map<String, Object> postProcessSupportingFileData(Map<String, Object> data);
 
@@ -134,10 +135,13 @@ public interface Generator extends OpenApiProcessor, Comparable<Generator> {
 
     boolean isSkipOverwrite();
 
+    // todo remove this, set in new
     void setSkipOverwrite(boolean skipOverwrite);
 
+    // todo remove this, set in new
     void setRemoveOperationIdPrefix(boolean removeOperationIdPrefix);
 
+    // todo remove this set in new
     void setSkipOperationExample(boolean skipOperationExample);
 
     boolean isHideGenerationTimestamp();
@@ -146,8 +150,10 @@ public interface Generator extends OpenApiProcessor, Comparable<Generator> {
 
     void setDocExtension(String docExtension);
 
+    // todo remove this set in new
     void setIgnoreFilePathOverride(String ignoreFileOverride);
 
+    // todo deprecate and use settings
     String getIgnoreFilePathOverride();
 
     String sanitizeName(String name);
@@ -156,6 +162,7 @@ public interface Generator extends OpenApiProcessor, Comparable<Generator> {
 
     boolean isEnablePostProcessFile();
 
+    // todo remove this, set in new
     void setEnablePostProcessFile(boolean isEnablePostProcessFile);
 
     /**
@@ -165,15 +172,15 @@ public interface Generator extends OpenApiProcessor, Comparable<Generator> {
      */
     void setOpenAPI(OpenAPI openAPI);
 
+    // todo remove this set in new
     void setTemplateEngineName(String name);
 
     TemplatingEngineAdapter getTemplatingEngine();
 
     boolean isEnableMinimalUpdate();
 
+    // todo remove this set in new
     void setEnableMinimalUpdate(boolean isEnableMinimalUpdate);
-
-    void setStrictSpecBehavior(boolean strictSpecBehavior);
 
     CodegenPatternInfo getPatternInfo(String pattern);
 
@@ -370,5 +377,5 @@ public interface Generator extends OpenApiProcessor, Comparable<Generator> {
     default String packageName() {
         return generatorSettings().packageName;
     }
-    // 107 - 34 -> 73
+    // 107 - 36 -> 71
 }

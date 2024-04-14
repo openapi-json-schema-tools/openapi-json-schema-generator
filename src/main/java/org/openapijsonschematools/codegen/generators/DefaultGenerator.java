@@ -25,7 +25,6 @@ import com.github.curiousoddman.rgxgen.config.RgxGenOption;
 import com.github.curiousoddman.rgxgen.config.RgxGenProperties;
 import com.google.common.collect.ImmutableMap;
 import com.samskivert.mustache.Mustache;
-import com.samskivert.mustache.Mustache.Compiler;
 import com.samskivert.mustache.Mustache.Lambda;
 
 import io.swagger.v3.oas.models.Components;
@@ -112,7 +111,6 @@ import java.util.*;
 import java.util.Map.Entry;
 import java.util.concurrent.ConcurrentSkipListSet;
 import java.util.concurrent.TimeUnit;
-import java.util.function.Consumer;
 import java.util.function.Function;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -146,7 +144,8 @@ public class DefaultGenerator implements Generator {
             workflowSettings.getOutputDir(),
             workflowSettings.getTemplateDir(),
             embeddedTemplateDir,
-            packageName
+            packageName,
+            workflowSettings.isStrictSpecBehavior()
         );
     }
 
@@ -307,8 +306,6 @@ public class DefaultGenerator implements Generator {
     // flag to indicate whether to only update files whose contents have changed
     protected boolean enableMinimalUpdate = false;
 
-    // acts strictly upon a spec, potentially modifying it to have consistent behavior across generators.
-    protected boolean strictSpecBehavior = true;
     // flag to indicate whether enum value prefixes are removed
     protected boolean removeEnumValuePrefix = true;
 
@@ -487,13 +484,6 @@ public class DefaultGenerator implements Generator {
         return models;
     }
 
-    // override with any special post-processing
-    @Override
-    @SuppressWarnings("static-method")
-    public TreeMap<String, CodegenSchema> postProcessModels(TreeMap<String, CodegenSchema> models) {
-        return models;
-    }
-
     /**
      * Returns the common prefix of variables for enum naming if
      * two or more variables are present
@@ -606,13 +596,6 @@ public class DefaultGenerator implements Generator {
     @Override
     @SuppressWarnings("unused")
     public void processOpenAPI(OpenAPI openAPI) {
-    }
-
-    // override with any special handling of the JMustache compiler
-    @Override
-    @SuppressWarnings("unused")
-    public Compiler processCompiler(Compiler compiler) {
-        return compiler;
     }
 
     // override with any special text escaping logic
@@ -5278,17 +5261,6 @@ public class DefaultGenerator implements Generator {
     @Override
     public void setEnableMinimalUpdate(boolean enableMinimalUpdate) {
         this.enableMinimalUpdate = enableMinimalUpdate;
-    }
-
-    /**
-     * Sets the boolean valid indicating whether generation will work strictly against the specification, potentially making
-     * minor changes to the input document.
-     *
-     * @param strictSpecBehavior true if we will behave strictly, false to allow specification documents which pass validation to be loosely interpreted against the spec.
-     */
-    @Override
-    public void setStrictSpecBehavior(final boolean strictSpecBehavior) {
-        this.strictSpecBehavior = strictSpecBehavior;
     }
 
     /**

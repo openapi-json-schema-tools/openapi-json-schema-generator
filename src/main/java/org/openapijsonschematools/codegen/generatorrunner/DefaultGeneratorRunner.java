@@ -130,11 +130,6 @@ public class DefaultGeneratorRunner implements GeneratorRunner {
         } else {
             TemplatingEngineAdapter templatingEngine = this.generator.getTemplatingEngine();
 
-            if (templatingEngine instanceof MustacheEngineAdapter) {
-                MustacheEngineAdapter mustacheEngineAdapter = (MustacheEngineAdapter) templatingEngine;
-                mustacheEngineAdapter.setCompiler(this.generator.processCompiler(mustacheEngineAdapter.getCompiler()));
-            }
-
             TemplatePathLocator commonTemplateLocator = new CommonTemplateContentLocator();
             TemplatePathLocator generatorTemplateLocator = new GeneratorTemplateContentLocator(this.generator);
             this.templateProcessor = new TemplateManager(
