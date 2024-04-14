@@ -89,13 +89,17 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
         String apiPackage = Objects.requireNonNullElse(generatorSettings.getApiPackage(), "apis");
         String embeddedTemplateDir = "java";
         String packageName = Objects.requireNonNullElse(generatorSettings.getPackageName(), "org.openapijsonschematools.client");
+        String outputDir = workflowSettings.getOutputDir();
         this.generatorSettings = new CodeGeneratorSettings(
             apiPackage,
-            workflowSettings.getOutputDir(),
+            outputDir,
             workflowSettings.getTemplateDir(),
             embeddedTemplateDir,
             packageName
         );
+        if (this.outputTestFolder.isEmpty()) {
+            setOutputTestFolder(outputDir);
+        }
     }
 
     private final Logger LOGGER = LoggerFactory.getLogger(JavaClientGenerator.class);
@@ -3350,14 +3354,6 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
 
     public void setSourceFolder(String sourceFolder) {
         this.sourceFolder = sourceFolder;
-    }
-
-    @Override
-    public void setOutputDir(String dir) {
-        super.setOutputDir(dir);
-        if (this.outputTestFolder.isEmpty()) {
-            setOutputTestFolder(dir);
-        }
     }
 
     public void setOutputTestFolder(String outputTestFolder) {

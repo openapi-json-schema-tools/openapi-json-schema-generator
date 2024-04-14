@@ -57,6 +57,7 @@ public class GeneratorLoader {
      * @param name name of config, or full qualified class name in classpath
      * @return config class
      */
+    @Deprecated
     public static Generator forName(String name) {
         ServiceLoader<Generator> loader = ServiceLoader.load(Generator.class, Generator.class.getClassLoader());
 

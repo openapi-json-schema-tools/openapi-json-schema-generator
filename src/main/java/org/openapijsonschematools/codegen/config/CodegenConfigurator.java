@@ -367,7 +367,7 @@ public class CodegenConfigurator {
         Validate.notEmpty(inputSpec, "input spec must be specified");
 
         GeneratorSettings generatorSettings = generatorSettingsBuilder.build();
-        Generator config = GeneratorLoader.forName(generatorSettings.getGeneratorName());
+        Generator config = GeneratorLoader.getGenerator(generatorSettings.getGeneratorName(), generatorSettings, null);
         if (isEmpty(templatingEngineName)) {
             // if templatingEngineName is empty check the config for a default
             String defaultTemplatingEngine = config.defaultTemplatingEngine();
@@ -474,7 +474,6 @@ public class CodegenConfigurator {
 
         // TODO: Work toward Generator having a "WorkflowSettings" property, or better a "Workflow" object which itself has a "WorkflowSettings" property.
         config.setInputSpec(workflowSettings.getInputSpec());
-        config.setOutputDir(workflowSettings.getOutputDir());
         config.setSkipOverwrite(workflowSettings.isSkipOverwrite());
         config.setIgnoreFilePathOverride(workflowSettings.getIgnoreFileOverride());
         config.setRemoveOperationIdPrefix(workflowSettings.isRemoveOperationIdPrefix());

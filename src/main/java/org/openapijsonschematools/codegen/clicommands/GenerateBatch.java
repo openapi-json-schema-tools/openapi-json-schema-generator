@@ -211,9 +211,8 @@ public class GenerateBatch extends AbstractCommand {
                 Generator config = opts.config;
                 name = config.getName();
                 
-                Path target = Paths.get(config.getOutputDir());
+                Path target = Paths.get(config.outputFolder());
                 Path updated = rootDir.resolve(target);
-                config.setOutputDir(updated.toString());
 
                 if (this.clean) {
                     cleanPreviousFiles(name, updated);

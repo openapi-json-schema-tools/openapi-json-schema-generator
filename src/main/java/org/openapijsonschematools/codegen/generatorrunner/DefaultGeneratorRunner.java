@@ -166,7 +166,7 @@ public class DefaultGeneratorRunner implements GeneratorRunner {
         }
 
         if (this.ignoreProcessor == null) {
-            this.ignoreProcessor = new CodegenIgnoreProcessor(generator.getOutputDir());
+            this.ignoreProcessor = new CodegenIgnoreProcessor(generator.outputFolder());
         }
         return this;
     }
@@ -1725,7 +1725,7 @@ public class DefaultGeneratorRunner implements GeneratorRunner {
     }
 
     protected File processTemplateToFile(Map<String, Object> templateData, String templateName, String outputFilename, boolean shouldGenerate, String skippedByOption) throws IOException {
-        return processTemplateToFile(templateData, templateName, outputFilename, shouldGenerate, skippedByOption, this.generator.getOutputDir());
+        return processTemplateToFile(templateData, templateName, outputFilename, shouldGenerate, skippedByOption, this.generator.outputFolder());
     }
 
     private File processTemplateToFile(Map<String, Object> templateData, String templateName, String outputFilename, boolean shouldGenerate, String skippedByOption, String intendedOutputDir) throws IOException {
@@ -1794,7 +1794,7 @@ public class DefaultGeneratorRunner implements GeneratorRunner {
         if (generateMetadata) {
             try {
                 StringBuilder sb = new StringBuilder();
-                Path outDir = absPath(new File(this.generator.getOutputDir()));
+                Path outDir = absPath(new File(this.generator.outputFolder()));
 
                 List<File> filesToSort = new ArrayList<>();
 

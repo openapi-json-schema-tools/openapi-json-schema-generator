@@ -786,16 +786,6 @@ public class DefaultGenerator implements Generator {
     }
 
     @Override
-    public void setOutputDir(String dir) {
-        this.outputFolder = dir;
-    }
-
-    @Override
-    public String getOutputDir() {
-        return outputFolder();
-    }
-
-    @Override
     public String getInputSpec() {
         return inputSpec;
     }

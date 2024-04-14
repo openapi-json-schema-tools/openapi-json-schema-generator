@@ -69,12 +69,6 @@ public interface Generator extends OpenApiProcessor, Comparable<Generator> {
     // todo move to generatorsettings
     String packageName();
 
-    // todo move to generator settings
-    String getOutputDir();
-
-    // todo move to generator settings
-    void setOutputDir(String dir);
-
     // todo deprecate this and make a key of api
     String toApiName(String name);
 
@@ -363,5 +357,10 @@ public interface Generator extends OpenApiProcessor, Comparable<Generator> {
     @Deprecated
     default String apiPackage() {
         return generatorSettings().apiPackage;
+    }
+
+    @Deprecated
+    default String getOutputDir() {
+        return outputFolder();
     }
 }

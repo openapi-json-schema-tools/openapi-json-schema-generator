@@ -107,7 +107,7 @@ public class ConfigHelp extends AbstractCommand {
 
         try {
             StringBuilder sb = new StringBuilder();
-            Generator config = GeneratorLoader.forName(generatorName);
+            Generator config = GeneratorLoader.getGenerator(generatorName, null, null);
 
             String desiredFormat = StringUtils.defaultIfBlank(format, FORMAT_TEXT);
 
