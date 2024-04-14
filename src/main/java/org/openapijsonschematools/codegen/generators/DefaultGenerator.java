@@ -145,7 +145,8 @@ public class DefaultGenerator implements Generator {
             workflowSettings.getTemplateDir(),
             embeddedTemplateDir,
             packageName,
-            workflowSettings.isStrictSpecBehavior()
+            workflowSettings.isStrictSpecBehavior(),
+            workflowSettings.isEnableMinimalUpdate()
         );
     }
 
@@ -303,7 +304,6 @@ public class DefaultGenerator implements Generator {
     // flag to indicate whether to use environment variable to post process file
     protected boolean enablePostProcessFile = false;
 
-    // flag to indicate whether to only update files whose contents have changed
     protected boolean enableMinimalUpdate = false;
 
     // flag to indicate whether enum value prefixes are removed
@@ -5243,24 +5243,6 @@ public class DefaultGenerator implements Generator {
     @Override
     public void setEnablePostProcessFile(boolean enablePostProcessFile) {
         this.enablePostProcessFile = enablePostProcessFile;
-    }
-
-    /**
-     * Get the boolean value indicating the state of the option for updating only changed files
-     */
-    @Override
-    public boolean isEnableMinimalUpdate() {
-        return enableMinimalUpdate;
-    }
-
-    /**
-     * Set the boolean value indicating the state of the option for updating only changed files
-     *
-     * @param enableMinimalUpdate true to enable minimal update
-     */
-    @Override
-    public void setEnableMinimalUpdate(boolean enableMinimalUpdate) {
-        this.enableMinimalUpdate = enableMinimalUpdate;
     }
 
     /**

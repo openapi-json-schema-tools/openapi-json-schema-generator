@@ -177,11 +177,6 @@ public interface Generator extends OpenApiProcessor, Comparable<Generator> {
 
     TemplatingEngineAdapter getTemplatingEngine();
 
-    boolean isEnableMinimalUpdate();
-
-    // todo remove this set in new
-    void setEnableMinimalUpdate(boolean isEnableMinimalUpdate);
-
     CodegenPatternInfo getPatternInfo(String pattern);
 
     boolean isRemoveEnumValuePrefix();
@@ -376,6 +371,11 @@ public interface Generator extends OpenApiProcessor, Comparable<Generator> {
     @Deprecated
     default String packageName() {
         return generatorSettings().packageName;
+    }
+
+    @Deprecated
+    default boolean isEnableMinimalUpdate() {
+        return generatorSettings().enableMinimalUpdate;
     }
     // 107 - 36 -> 71
 }
