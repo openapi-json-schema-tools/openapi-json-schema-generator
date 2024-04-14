@@ -734,15 +734,6 @@ public class DefaultGenerator implements Generator {
         return modelPackage;
     }
 
-    @Override
-    public String embeddedTemplateDir() {
-        if (embeddedTemplateDir != null) {
-            return embeddedTemplateDir;
-        } else {
-            return templateDir;
-        }
-    }
-
     @Deprecated
     public String toResponseModuleName(String componentName, String jsonPath) { return getFilename(CodegenKeyType.RESPONSE, componentName, jsonPath); }
 

@@ -62,7 +62,7 @@ public class GeneratorTemplateContentLocator implements TemplatePathLocator {
         }
 
         // Fall back to the template file for generator root directory embedded/packaged in the JAR file...
-        String loc = config.embeddedTemplateDir() + File.separator + relativeTemplateFile;
+        String loc = config.generatorSettings().embeddedTemplateDir + File.separator + relativeTemplateFile;
         // *only* looks for those files in classpath as defined by embeddedTemplateDir
         if (embeddedTemplateExists(loc)) {
             return loc;

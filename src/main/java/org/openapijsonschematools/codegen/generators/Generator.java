@@ -58,9 +58,6 @@ public interface Generator extends OpenApiProcessor, Comparable<Generator> {
     CodeGeneratorSettings generatorSettings();
 
     // todo move to generatorsettings
-    String embeddedTemplateDir();
-
-    // todo move to generatorsettings
     String packageName();
 
     // todo deprecate this and make a key of api
@@ -366,5 +363,10 @@ public interface Generator extends OpenApiProcessor, Comparable<Generator> {
     default String templateDir() {
         return generatorSettings().templateDir;
     }
-    // 107 - 33 -> 74
+
+    @Deprecated
+    default String embeddedTemplateDir() {
+        return generatorSettings().templateDir;
+    }
+    // 107 - 34 -> 73
 }
