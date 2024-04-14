@@ -58,9 +58,6 @@ public interface Generator extends OpenApiProcessor, Comparable<Generator> {
     CodeGeneratorSettings generatorSettings();
 
     // todo move to generatorsettings
-    String outputFolder();
-
-    // todo move to generatorsettings
     String templateDir();
 
     // todo move to generatorsettings
@@ -357,6 +354,11 @@ public interface Generator extends OpenApiProcessor, Comparable<Generator> {
     @Deprecated
     default String apiPackage() {
         return generatorSettings().apiPackage;
+    }
+
+    @Deprecated
+    default String outputFolder() {
+        return generatorSettings().outputFolder;
     }
 
     @Deprecated

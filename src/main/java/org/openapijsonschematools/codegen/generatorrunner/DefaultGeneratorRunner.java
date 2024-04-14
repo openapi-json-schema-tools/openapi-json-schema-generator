@@ -166,7 +166,7 @@ public class DefaultGeneratorRunner implements GeneratorRunner {
         }
 
         if (this.ignoreProcessor == null) {
-            this.ignoreProcessor = new CodegenIgnoreProcessor(generator.outputFolder());
+            this.ignoreProcessor = new CodegenIgnoreProcessor(generator.generatorSettings().outputFolder);
         }
         return this;
     }
@@ -1293,7 +1293,7 @@ public class DefaultGeneratorRunner implements GeneratorRunner {
 
         for (SupportingFile support : generator.supportingFiles()) {
             try {
-                String outputFolder = generator.outputFolder();
+                String outputFolder = generator.generatorSettings().outputFolder;
                 if (StringUtils.isNotEmpty(support.getFolder())) {
                     outputFolder += File.separator + support.getFolder();
                 }
@@ -1327,7 +1327,7 @@ public class DefaultGeneratorRunner implements GeneratorRunner {
         // Consider .openapi-generator-ignore a supporting file
         // Output .openapi-generator-ignore if it doesn't exist and wasn't explicitly created by a generator
         final String openapiGeneratorIgnore = ".openapi-generator-ignore";
-        String ignoreFileNameTarget = generator.outputFolder() + File.separator + openapiGeneratorIgnore;
+        String ignoreFileNameTarget = generator.generatorSettings().outputFolder + File.separator + openapiGeneratorIgnore;
         File ignoreFile = new File(ignoreFileNameTarget);
         if (generateMetadata) {
             try {
@@ -1725,7 +1725,7 @@ public class DefaultGeneratorRunner implements GeneratorRunner {
     }
 
     protected File processTemplateToFile(Map<String, Object> templateData, String templateName, String outputFilename, boolean shouldGenerate, String skippedByOption) throws IOException {
-        return processTemplateToFile(templateData, templateName, outputFilename, shouldGenerate, skippedByOption, this.generator.outputFolder());
+        return processTemplateToFile(templateData, templateName, outputFilename, shouldGenerate, skippedByOption, this.generator.generatorSettings().outputFolder);
     }
 
     private File processTemplateToFile(Map<String, Object> templateData, String templateName, String outputFilename, boolean shouldGenerate, String skippedByOption, String intendedOutputDir) throws IOException {
@@ -1759,7 +1759,7 @@ public class DefaultGeneratorRunner implements GeneratorRunner {
      * @param files The list tracking generated files
      */
     private void generateVersionMetadata(List<File> files) {
-        String versionMetadata = generator.outputFolder() + File.separator + METADATA_DIR + File.separator + generator.getReportFilename(ReportFileType.VERSION);
+        String versionMetadata = generator.generatorSettings().outputFolder + File.separator + METADATA_DIR + File.separator + generator.getReportFilename(ReportFileType.VERSION);
         if (generateMetadata) {
             File versionMetadataFile = new File(versionMetadata);
             try {
@@ -1794,7 +1794,7 @@ public class DefaultGeneratorRunner implements GeneratorRunner {
         if (generateMetadata) {
             try {
                 StringBuilder sb = new StringBuilder();
-                Path outDir = absPath(new File(this.generator.outputFolder()));
+                Path outDir = absPath(new File(this.generator.generatorSettings().outputFolder));
 
                 List<File> filesToSort = new ArrayList<>();
 
@@ -1827,7 +1827,7 @@ public class DefaultGeneratorRunner implements GeneratorRunner {
                     }
                 });
 
-                String targetFile = generator.outputFolder() + File.separator + METADATA_DIR + File.separator + generator.getReportFilename(ReportFileType.FILES);
+                String targetFile = generator.generatorSettings().outputFolder + File.separator + METADATA_DIR + File.separator + generator.getReportFilename(ReportFileType.FILES);
 
                 File filesFile = this.templateProcessor.writeToFile(targetFile, sb.toString().getBytes(StandardCharsets.UTF_8));
                 if (filesFile != null) {

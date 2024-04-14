@@ -781,11 +781,6 @@ public class DefaultGenerator implements Generator {
     }
 
     @Override
-    public String outputFolder() {
-        return outputFolder;
-    }
-
-    @Override
     public String getInputSpec() {
         return inputSpec;
     }

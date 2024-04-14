@@ -211,7 +211,7 @@ public class GenerateBatch extends AbstractCommand {
                 Generator config = opts.config;
                 name = config.getName();
                 
-                Path target = Paths.get(config.outputFolder());
+                Path target = Paths.get(config.generatorSettings().outputFolder);
                 Path updated = rootDir.resolve(target);
 
                 if (this.clean) {
