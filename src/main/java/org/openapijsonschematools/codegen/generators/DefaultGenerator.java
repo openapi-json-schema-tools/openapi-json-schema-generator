@@ -152,7 +152,8 @@ public class DefaultGenerator implements Generator {
             workflowSettings.getIgnoreFileOverride(),
             workflowSettings.isSkipOperationExample(),
             workflowSettings.isEnablePostProcessFile(),
-            workflowSettings.getTemplatingEngineName()
+            workflowSettings.getTemplatingEngineName(),
+            workflowSettings.getInputSpec()
         );
     }
 
@@ -718,16 +719,6 @@ public class DefaultGenerator implements Generator {
     @Override
     public List<SupportingFile> supportingFiles() {
         return supportingFiles;
-    }
-
-    @Override
-    public String getInputSpec() {
-        return inputSpec;
-    }
-
-    @Override
-    public void setInputSpec(String inputSpec) {
-        this.inputSpec = inputSpec;
     }
 
     public void setModelPackage(String modelPackage) {

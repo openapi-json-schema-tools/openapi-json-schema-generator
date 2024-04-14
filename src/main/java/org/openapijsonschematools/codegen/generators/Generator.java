@@ -86,12 +86,6 @@ public interface Generator extends OpenApiProcessor, Comparable<Generator> {
     List<SupportingFile> supportingFiles();
 
     // todo deprecate this
-    String getInputSpec();
-
-    // todo remove this, pass in new
-    void setInputSpec(String inputSpec);
-
-    // todo deprecate this
     CodegenKey getKey(String key, String keyType);
 
     Map<String, String> instantiationTypes();
@@ -366,5 +360,10 @@ public interface Generator extends OpenApiProcessor, Comparable<Generator> {
     default boolean isEnablePostProcessFile() {
         return generatorSettings().enablePostProcessFile;
     }
-    // 102 - 38 -> 64
+
+    @Deprecated
+    default String getInputSpec() {
+        return generatorSettings().inputSpecLocation;
+    }
+    // 96 - 41 -> 55
 }

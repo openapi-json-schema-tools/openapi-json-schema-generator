@@ -280,7 +280,8 @@ public class PythonClientGenerator extends DefaultGenerator implements Generator
             workflowSettings.getIgnoreFileOverride(),
             workflowSettings.isSkipOperationExample(),
             workflowSettings.isEnablePostProcessFile(),
-            workflowSettings.getTemplatingEngineName()
+            workflowSettings.getTemplatingEngineName(),
+            workflowSettings.getInputSpec()
         );
         testFolder = "test";
     }

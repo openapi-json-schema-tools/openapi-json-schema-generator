@@ -275,7 +275,7 @@ public class DefaultGeneratorRunner implements GeneratorRunner {
         generator.additionalProperties().put("generatedDate", ZonedDateTime.now().toString());
         generator.additionalProperties().put("generatedYear", String.valueOf(ZonedDateTime.now().getYear()));
         generator.additionalProperties().put("generatorClass", generator.getClass().getSimpleName());
-        generator.additionalProperties().put("inputSpec", generator.getInputSpec());
+        generator.additionalProperties().put("inputSpec", generator.generatorSettings().inputSpecLocation);
 
         if (openAPI.getExtensions() != null) {
             generator.vendorExtensions().putAll(openAPI.getExtensions());

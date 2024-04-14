@@ -14,6 +14,7 @@ public class CodeGeneratorSettings {
     public final boolean skipOperationExample;
     public final boolean enablePostProcessFile;  // boolean value indicating the state of the option for post-processing file using environment variables.
     public final String templateEngineName;
+    public final String inputSpecLocation;  // input spec's location, as URL or file
     public CodeGeneratorSettings(
         String apiPackage,
         String outputFolder,
@@ -27,7 +28,8 @@ public class CodeGeneratorSettings {
         String ignoreFilePathOverride,
         boolean skipOperationExample,
         boolean enablePostProcessFile,
-        String templateEngineName
+        String templateEngineName,
+        String inputSpecLocation
     ) {
         this.apiPackage = apiPackage;
         this.outputFolder = outputFolder;
@@ -42,5 +44,6 @@ public class CodeGeneratorSettings {
         this.skipOperationExample = skipOperationExample;
         this.enablePostProcessFile = enablePostProcessFile;
         this.templateEngineName = templateEngineName;
+        this.inputSpecLocation = inputSpecLocation;
     }
 }
