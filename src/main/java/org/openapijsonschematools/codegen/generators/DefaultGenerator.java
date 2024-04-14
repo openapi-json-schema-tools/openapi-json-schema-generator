@@ -149,7 +149,8 @@ public class DefaultGenerator implements Generator {
             workflowSettings.isEnableMinimalUpdate(),
             workflowSettings.isSkipOverwrite(),
             workflowSettings.isRemoveOperationIdPrefix(),
-            workflowSettings.getIgnoreFileOverride()
+            workflowSettings.getIgnoreFileOverride(),
+            workflowSettings.isSkipOperationExample()
         );
     }
 
@@ -268,7 +269,6 @@ public class DefaultGenerator implements Generator {
     protected List<CliOption> cliOptions = new ArrayList<>();
     protected String removeOperationIdPrefixDelimiter = "_";
     protected int removeOperationIdPrefixCount = 1;
-    protected boolean skipOperationExample;
 
     private static final Pattern COMMON_PREFIX_ENUM_NAME = Pattern.compile("[a-zA-Z\\d]+\\z");
 
@@ -378,11 +378,6 @@ public class DefaultGenerator implements Generator {
         if (additionalProperties.containsKey(CodegenConstants.REMOVE_OPERATION_ID_PREFIX_COUNT)) {
             this.setRemoveOperationIdPrefixCount(Integer.parseInt(additionalProperties
                     .get(CodegenConstants.REMOVE_OPERATION_ID_PREFIX_COUNT).toString()));
-        }
-
-        if (additionalProperties.containsKey(CodegenConstants.SKIP_OPERATION_EXAMPLE)) {
-            this.setSkipOperationExample(Boolean.parseBoolean(additionalProperties
-                    .get(CodegenConstants.SKIP_OPERATION_EXAMPLE).toString()));
         }
 
         if (additionalProperties.containsKey(CodegenConstants.DOCEXTENSION)) {
@@ -4144,11 +4139,6 @@ public class DefaultGenerator implements Generator {
 
     public void setRemoveOperationIdPrefixCount(int removeOperationIdPrefixCount) {
         this.removeOperationIdPrefixCount = removeOperationIdPrefixCount;
-    }
-
-    @Override
-    public void setSkipOperationExample(boolean skipOperationExample) {
-        this.skipOperationExample = skipOperationExample;
     }
 
     @Override

@@ -100,7 +100,8 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
             workflowSettings.isEnableMinimalUpdate(),
             workflowSettings.isSkipOverwrite(),
             workflowSettings.isRemoveOperationIdPrefix(),
-            workflowSettings.getIgnoreFileOverride()
+            workflowSettings.getIgnoreFileOverride(),
+            workflowSettings.isSkipOperationExample()
         );
         if (this.outputTestFolder.isEmpty()) {
             setOutputTestFolder(outputDir);

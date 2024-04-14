@@ -277,7 +277,8 @@ public class PythonClientGenerator extends DefaultGenerator implements Generator
             workflowSettings.isEnableMinimalUpdate(),
             workflowSettings.isSkipOverwrite(),
             workflowSettings.isRemoveOperationIdPrefix(),
-            workflowSettings.getIgnoreFileOverride()
+            workflowSettings.getIgnoreFileOverride(),
+            workflowSettings.isSkipOperationExample()
         );
         testFolder = "test";
     }

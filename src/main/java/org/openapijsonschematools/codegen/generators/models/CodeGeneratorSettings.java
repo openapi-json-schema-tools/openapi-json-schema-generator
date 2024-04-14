@@ -11,7 +11,20 @@ public class CodeGeneratorSettings {
     public final boolean skipOverwrite;
     public final boolean removeOperationIdPrefix;
     public final String ignoreFilePathOverride;
-    public CodeGeneratorSettings(String apiPackage, String outputFolder, String templateDir, String embeddedTemplateDir, String packageName, boolean strictSpecBehavior, boolean enableMinimalUpdate, boolean skipOverwrite, boolean removeOperationIdPrefix, String ignoreFilePathOverride) {
+    public final boolean skipOperationExample;
+    public CodeGeneratorSettings(
+        String apiPackage,
+        String outputFolder,
+        String templateDir,
+        String embeddedTemplateDir,
+        String packageName,
+        boolean strictSpecBehavior,
+        boolean enableMinimalUpdate,
+        boolean skipOverwrite,
+        boolean removeOperationIdPrefix,
+        String ignoreFilePathOverride,
+        boolean skipOperationExample
+    ) {
         this.apiPackage = apiPackage;
         this.outputFolder = outputFolder;
         this.templateDir = templateDir;
@@ -22,5 +35,6 @@ public class CodeGeneratorSettings {
         this.skipOverwrite = skipOverwrite;
         this.removeOperationIdPrefix = removeOperationIdPrefix;
         this.ignoreFilePathOverride = ignoreFilePathOverride;
+        this.skipOperationExample = skipOperationExample;
     }
 }

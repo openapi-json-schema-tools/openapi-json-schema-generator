@@ -132,9 +132,6 @@ public interface Generator extends OpenApiProcessor, Comparable<Generator> {
 
     String getFilePath(GeneratedFileType type, String jsonPath);
 
-    // todo remove this set in new
-    void setSkipOperationExample(boolean skipOperationExample);
-
     boolean isHideGenerationTimestamp();
 
     void setHideGenerationTimestamp(boolean hideGenerationTimestamp);
