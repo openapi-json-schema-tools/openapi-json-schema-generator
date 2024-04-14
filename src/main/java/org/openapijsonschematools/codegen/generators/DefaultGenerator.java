@@ -345,12 +345,6 @@ public class DefaultGenerator implements Generator {
             setTemplateEngineName((String) additionalProperties.get(CodegenConstants.TEMPLATING_ENGINE));
         }
 
-        String usedTemplateDir = templateDir;
-        if (additionalProperties.containsKey(CodegenConstants.TEMPLATE_DIR)) {
-            this.setTemplateDir((String) additionalProperties.get(CodegenConstants.TEMPLATE_DIR));
-            usedTemplateDir = (String) additionalProperties.get(CodegenConstants.TEMPLATE_DIR);
-        }
-
         if (additionalProperties.containsKey(CodegenConstants.HIDE_GENERATION_TIMESTAMP)) {
             setHideGenerationTimestamp(convertPropertyToBooleanAndWriteBack(CodegenConstants.HIDE_GENERATION_TIMESTAMP));
         } else {
@@ -741,11 +735,6 @@ public class DefaultGenerator implements Generator {
     }
 
     @Override
-    public String templateDir() {
-        return templateDir;
-    }
-
-    @Override
     public String embeddedTemplateDir() {
         if (embeddedTemplateDir != null) {
             return embeddedTemplateDir;
@@ -788,10 +777,6 @@ public class DefaultGenerator implements Generator {
     @Override
     public void setInputSpec(String inputSpec) {
         this.inputSpec = inputSpec;
-    }
-
-    public void setTemplateDir(String templateDir) {
-        this.templateDir = templateDir;
     }
 
     public void setModelPackage(String modelPackage) {

@@ -41,7 +41,7 @@ public class AuthorTemplate extends AbstractCommand {
     @Override
     void execute() {
         Generator config = GeneratorLoader.getGenerator(generatorName, null, null);
-        String templateDirectory = config.templateDir();
+        String templateDirectory = config.generatorSettings().templateDir;
 
         log("Requesting '{}' from embedded resource directory '{}'", generatorName, templateDirectory);
 

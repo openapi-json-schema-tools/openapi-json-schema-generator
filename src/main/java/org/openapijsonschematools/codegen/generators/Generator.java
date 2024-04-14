@@ -58,9 +58,6 @@ public interface Generator extends OpenApiProcessor, Comparable<Generator> {
     CodeGeneratorSettings generatorSettings();
 
     // todo move to generatorsettings
-    String templateDir();
-
-    // todo move to generatorsettings
     String embeddedTemplateDir();
 
     // todo move to generatorsettings
@@ -349,7 +346,6 @@ public interface Generator extends OpenApiProcessor, Comparable<Generator> {
 
     @Deprecated
     String modelPackagePathFragment();
-    // 108 - 30 -> 78
 
     @Deprecated
     default String apiPackage() {
@@ -365,4 +361,10 @@ public interface Generator extends OpenApiProcessor, Comparable<Generator> {
     default String getOutputDir() {
         return outputFolder();
     }
+
+    @Deprecated
+    default String templateDir() {
+        return generatorSettings().templateDir;
+    }
+    // 107 - 33 -> 74
 }

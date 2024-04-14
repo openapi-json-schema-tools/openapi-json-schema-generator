@@ -54,7 +54,7 @@ public class GeneratorTemplateContentLocator implements TemplatePathLocator {
 
         // check the supplied template main folder for the file
         // File.separator is necessary here as the file load is OS-specific
-        final String template = config.templateDir() + File.separator + relativeTemplateFile;
+        final String template = config.generatorSettings().templateDir + File.separator + relativeTemplateFile;
         // looks for user-defined file or classpath
         // supports template dir which refers to local file system or custom path in classpath as defined by templateDir
         if (new File(template).exists() || classpathTemplateExists(template)) {
