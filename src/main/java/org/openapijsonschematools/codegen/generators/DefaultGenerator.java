@@ -472,12 +472,6 @@ public class DefaultGenerator implements Generator {
         return modelNameToSchemaCache;
     }
 
-    @Override
-    public String packageName() {
-        // used to generate imports
-        return packageName;
-    }
-
     public String packagePath() {
         return packageName.replace('.', File.separatorChar);
     }
@@ -1806,7 +1800,7 @@ public class DefaultGenerator implements Generator {
                     String complexType = mm.modelName;
                     if (shouldAddImport(complexType)) {
                         String refModule = complexType.split("\\.")[0];
-                        String refModuleLocation = packageName() + ".components.schema";
+                        String refModuleLocation = generatorSettings.packageName + ".components.schema";
                         CodegenRefInfo<CodegenSchema> refInfo = new CodegenRefInfo<>(new CodegenSchema(), null, refModule, refModuleLocation, null);
                         imports.add(getImport(refInfo));
                     }
