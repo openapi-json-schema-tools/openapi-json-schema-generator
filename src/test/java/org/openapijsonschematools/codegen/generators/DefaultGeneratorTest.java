@@ -52,7 +52,6 @@ import org.openapijsonschematools.codegen.generators.openapimodels.CodegenRespon
 import org.openapijsonschematools.codegen.generators.openapimodels.CodegenSchema;
 import org.openapijsonschematools.codegen.generators.openapimodels.CodegenSecurityScheme;
 import org.openapijsonschematools.codegen.generators.openapimodels.EnumValue;
-import org.openapijsonschematools.codegen.templating.mustache.CamelCaseLambda;
 import org.openapijsonschematools.codegen.templating.mustache.IndentedLambda;
 import org.openapijsonschematools.codegen.templating.mustache.LowercaseLambda;
 import org.openapijsonschematools.codegen.templating.mustache.TitlecaseLambda;
@@ -1710,7 +1709,6 @@ public class DefaultGeneratorTest {
         assertTrue(lambdas.get("lowercase") instanceof LowercaseLambda, "Expecting LowercaseLambda class");
         assertTrue(lambdas.get("uppercase") instanceof UppercaseLambda, "Expecting UppercaseLambda class");
         assertTrue(lambdas.get("titlecase") instanceof TitlecaseLambda, "Expecting TitlecaseLambda class");
-        assertTrue(lambdas.get("camelcase") instanceof CamelCaseLambda, "Expecting CamelCaseLambda class");
         assertTrue(lambdas.get("indented") instanceof IndentedLambda, "Expecting IndentedLambda class");
         assertTrue(lambdas.get("indented_8") instanceof IndentedLambda, "Expecting IndentedLambda class");
         assertTrue(lambdas.get("indented_12") instanceof IndentedLambda, "Expecting IndentedLambda class");

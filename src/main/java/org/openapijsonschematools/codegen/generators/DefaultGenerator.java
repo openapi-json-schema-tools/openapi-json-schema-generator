@@ -78,6 +78,7 @@ import org.openapijsonschematools.codegen.generators.openapimodels.CodegenText;
 import org.openapijsonschematools.codegen.generators.openapimodels.CodegenXml;
 import org.openapijsonschematools.codegen.generators.openapimodels.EnumInfo;
 import org.openapijsonschematools.codegen.generators.openapimodels.EnumValue;
+import org.openapijsonschematools.codegen.generators.openapimodels.GeneratedFileType;
 import org.openapijsonschematools.codegen.generators.openapimodels.LinkedHashMapWithContext;
 import org.openapijsonschematools.codegen.generators.openapimodels.MapBuilder;
 import org.openapijsonschematools.codegen.generators.openapimodels.PairCacheKey;
@@ -687,6 +688,20 @@ public class DefaultGenerator implements Generator {
     }
 
     @Override
+    public HashMap<CodegenConstants.JSON_PATH_LOCATION_TYPE, HashMap<String, String>> getJsonPathTemplateFiles(GeneratedFileType type) {
+        switch (type) {
+            case CODE:
+                return jsonPathTemplateFiles;
+            case DOCUMENTATION:
+                return jsonPathDocTemplateFiles;
+            case TEST:
+                return jsonPathTestTemplateFiles;
+            default:
+                return null;
+        }
+    }
+
+    @Override
     public Set<String> reservedWords() {
         return reservedWords;
     }
@@ -696,7 +711,7 @@ public class DefaultGenerator implements Generator {
         return languageSpecificPrimitives;
     }
 
-    @Override
+    @Deprecated
     public String modelPackage() {
         return modelPackage;
     }
@@ -718,20 +733,6 @@ public class DefaultGenerator implements Generator {
         } else {
             return templateDir;
         }
-    }
-    @Override
-    public HashMap<CodegenConstants.JSON_PATH_LOCATION_TYPE, HashMap<String, String>> jsonPathTemplateFiles() {
-        return jsonPathTemplateFiles;
-    }
-
-    @Override
-    public HashMap<CodegenConstants.JSON_PATH_LOCATION_TYPE, HashMap<String, String>> jsonPathDocTemplateFiles() {
-        return jsonPathDocTemplateFiles;
-    }
-
-    @Override
-    public HashMap<CodegenConstants.JSON_PATH_LOCATION_TYPE, HashMap<String, String>> jsonPathTestTemplateFiles() {
-        return jsonPathTestTemplateFiles;
     }
 
     @Deprecated
@@ -1001,7 +1002,7 @@ public class DefaultGenerator implements Generator {
         if ("".equals(modelPackage())) {
             return refClass;
         } else {
-            return modelPackage() + "." + refClass;
+            return modelPackage + "." + refClass;
         }
     }
 
@@ -3790,10 +3791,9 @@ public class DefaultGenerator implements Generator {
         // rename schemas + requestBodies
         switch (pathPieces[2]) {
             case "schemas":
+                // #/components/schemas/SomeSchema
                 // modelPackage replaces pathPieces[1] + pathPieces[2]
-                String fragment = modelPackagePathFragment();
-                String[] fragments = fragment.split("/");
-                pathPieces[1] = fragments[0];
+                String[] fragments = modelPackage.split("\\.");
                 pathPieces[2] = fragments[1];
                 if (pathPieces.length == 4) {
                     // #/components/schemas/SomeSchema
@@ -4110,29 +4110,7 @@ public class DefaultGenerator implements Generator {
             pathPieces[3] = getFilename(CodegenKeyType.PATH, ModelUtils.decodeSlashes(pathPieces[3]), jsonPath);
         }
     }
-
-    @Override
-    public String getFilepath(String jsonPath) {
-        String[] pathPieces = jsonPath.split("/");
-        pathPieces[0] = outputFolder + File.separatorChar + packagePath();
-        if (jsonPath.startsWith("#/components")) {
-            updateComponentsFilepath(pathPieces);
-        } else if (jsonPath.startsWith("#/paths")) {
-            updatePathsFilepath(pathPieces);
-        } else if (jsonPath.startsWith("#/servers")) {
-            updateServersFilepath(pathPieces);
-        } else if (jsonPath.startsWith("#/security")) {
-            updateSecurityFilepath(pathPieces);
-        } else if (jsonPath.startsWith("#/apis")) {
-            // this is a fake json path that the code generates and uses to generate apis
-            updateApisFilepath(pathPieces);
-        }
-        List<String> finalPathPieces = Arrays.stream(pathPieces)
-                .filter(Objects::nonNull)
-                .collect(Collectors.toList());
-        return String.join(File.separator, finalPathPieces);
-    }
-
+    
     @Override
     public String getSubpackage(String jsonPath) {
         String[] pathPieces = jsonPath.split("/");
@@ -4159,52 +4137,64 @@ public class DefaultGenerator implements Generator {
         }
         return subpackage.substring(1,lastPeriodIndex);
     }
-    @Override
-    public String getTestFilepath(String jsonPath) {
-        String[] pathPieces = jsonPath.split("/");
-        pathPieces[0] = outputFolder + File.separatorChar + "test";
-        if (jsonPath.startsWith("#/components")) {
-            // #/components/schemas/someSchema
-            updateComponentsFilepath(pathPieces);
-            if (pathPieces.length == 4) {
-                int lastIndex = pathPieces.length - 1;
-                pathPieces[lastIndex] = "test_" + pathPieces[lastIndex];
-            }
-        } else if (jsonPath.startsWith("#/paths")) {
-            updatePathsFilepath(pathPieces);
-            // #/paths/somePath/get
-            if (pathPieces.length == 4) {
-                int lastIndex = pathPieces.length - 1;
-                pathPieces[lastIndex] = "test_" + pathPieces[lastIndex];
-            }
-        }
-        List<String> finalPathPieces = Arrays.stream(pathPieces)
-                .filter(Objects::nonNull)
-                .collect(Collectors.toList());
-        return String.join(File.separator, finalPathPieces);
-    }
-
 
     @Override
-    public String getDocsFilepath(String jsonPath) {
+    public String getFilePath(GeneratedFileType type, String jsonPath) {
         String[] pathPieces = jsonPath.split("/");
-        pathPieces[0] = outputFolder + File.separatorChar + docsFolder;
-        if (jsonPath.startsWith("#/components")) {
-            updateComponentsFilepath(pathPieces);
-        } else if (jsonPath.startsWith("#/paths")) {
-            updatePathsFilepath(pathPieces);
-        } else if (jsonPath.startsWith("#/servers")) {
-            updateServersFilepath(pathPieces);
-        } else if (jsonPath.startsWith("#/apis")) {
-            // this is a fake json path that the code generates and uses to generate apis
-            updateApisFilepath(pathPieces);
+        switch (type) {
+            case CODE:
+                pathPieces[0] = outputFolder + File.separatorChar + packagePath();
+                if (jsonPath.startsWith("#/components")) {
+                    updateComponentsFilepath(pathPieces);
+                } else if (jsonPath.startsWith("#/paths")) {
+                    updatePathsFilepath(pathPieces);
+                } else if (jsonPath.startsWith("#/servers")) {
+                    updateServersFilepath(pathPieces);
+                } else if (jsonPath.startsWith("#/security")) {
+                    updateSecurityFilepath(pathPieces);
+                } else if (jsonPath.startsWith("#/apis")) {
+                    // this is a fake json path that the code generates and uses to generate apis
+                    updateApisFilepath(pathPieces);
+                }
+                break;
+            case DOCUMENTATION:
+                pathPieces[0] = outputFolder + File.separatorChar + docsFolder;
+                if (jsonPath.startsWith("#/components")) {
+                    updateComponentsFilepath(pathPieces);
+                } else if (jsonPath.startsWith("#/paths")) {
+                    updatePathsFilepath(pathPieces);
+                } else if (jsonPath.startsWith("#/servers")) {
+                    updateServersFilepath(pathPieces);
+                } else if (jsonPath.startsWith("#/apis")) {
+                    // this is a fake json path that the code generates and uses to generate apis
+                    updateApisFilepath(pathPieces);
+                }
+                break;
+            case TEST:
+                pathPieces[0] = outputFolder + File.separatorChar + "test";
+                if (jsonPath.startsWith("#/components")) {
+                    // #/components/schemas/someSchema
+                    updateComponentsFilepath(pathPieces);
+                    if (pathPieces.length == 4) {
+                        int lastIndex = pathPieces.length - 1;
+                        pathPieces[lastIndex] = "test_" + pathPieces[lastIndex];
+                    }
+                } else if (jsonPath.startsWith("#/paths")) {
+                    updatePathsFilepath(pathPieces);
+                    // #/paths/somePath/get
+                    if (pathPieces.length == 4) {
+                        int lastIndex = pathPieces.length - 1;
+                        pathPieces[lastIndex] = "test_" + pathPieces[lastIndex];
+                    }
+                }
         }
-        List<String> finalPathPieces = Arrays.stream(pathPieces)
-                .filter(Objects::nonNull)
-                .collect(Collectors.toList());
-        return String.join(File.separator, finalPathPieces);
+        List<String> codePieces = Arrays.stream(pathPieces)
+            .filter(Objects::nonNull)
+            .collect(Collectors.toList());
+        return String.join(File.separator, codePieces);
     }
-
+    
+    
     @Override
     public boolean isSkipOverwrite() {
         return skipOverwrite;
@@ -4750,7 +4740,7 @@ public class DefaultGenerator implements Generator {
     }
 
     protected String getModuleLocation(String ref) {
-        String filePath = getFilepath(ref);
+        String filePath = getFilePath(GeneratedFileType.CODE, ref);
         String prefix = outputFolder + File.separatorChar + "src" + File.separatorChar;
         String localFilepath = filePath.substring(prefix.length());
         return localFilepath.replaceAll(String.valueOf(File.separatorChar), ".");
@@ -4758,7 +4748,7 @@ public class DefaultGenerator implements Generator {
 
     @Override
     public String getRefModuleLocation(String ref) {
-        String filePath = getFilepath(ref);
+        String filePath = getFilePath(GeneratedFileType.CODE, ref);
         String prefix = outputFolder + File.separatorChar + "src" + File.separatorChar;
         int endIndex = filePath.lastIndexOf(File.separatorChar);
         String localFilepath = filePath.substring(prefix.length(), endIndex);

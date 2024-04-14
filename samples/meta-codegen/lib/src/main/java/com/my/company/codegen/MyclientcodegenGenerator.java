@@ -145,11 +145,11 @@ public class MyclientcodegenGenerator extends DefaultCodegen implements CodegenC
   }
 
   /**
-   * Location to write model files.  You can use the modelPackage() as defined when the class is
+   * Location to write model files.  You can use the modelPackage as defined when the class is
    * instantiated
    */
   public String modelFileFolder() {
-    return outputFolder + "/" + sourceFolder + "/" + modelPackage().replace('.', File.separatorChar);
+    return outputFolder + "/" + sourceFolder + "/" + modelPackage.replace('.', File.separatorChar);
   }
 
   /**

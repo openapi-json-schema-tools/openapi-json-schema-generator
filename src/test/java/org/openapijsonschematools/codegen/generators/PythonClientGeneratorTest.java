@@ -230,13 +230,4 @@ public class PythonClientGeneratorTest {
         Assert.assertEquals(enumVars.get(new EnumValue("#FFA5A4", "string", null)), "NUMBER_SIGN_FFA5A4");
         Assert.assertEquals(enumVars.get(new EnumValue("2D_Object", "string", null)), "DIGIT_TWO_D_OBJECT");
     }
-
-    @Test(description = "format imports of models using a package containing dots")
-    public void testImportWithQualifiedPackageName() throws Exception {
-        final PythonClientGenerator codegen = new PythonClientGenerator();
-        codegen.setPackageName("openapi.client");
-
-        String importValue = codegen.toModelImport("model_name.ModelName");
-        Assert.assertEquals(importValue, "from openapi.client.components.schema import model_name");
-    }
 }

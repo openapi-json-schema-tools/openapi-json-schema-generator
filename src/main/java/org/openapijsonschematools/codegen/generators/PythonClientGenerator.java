@@ -37,6 +37,7 @@ import org.openapijsonschematools.codegen.generators.openapimodels.CodegenDiscri
 import org.openapijsonschematools.codegen.generators.openapimodels.CodegenKeyType;
 import org.openapijsonschematools.codegen.generators.openapimodels.CodegenPatternInfo;
 import org.openapijsonschematools.codegen.generators.openapimodels.CodegenSchema;
+import org.openapijsonschematools.codegen.generators.openapimodels.GeneratedFileType;
 import org.openapijsonschematools.codegen.templating.SupportingFile;
 import org.openapijsonschematools.codegen.generators.generatormetadata.features.DataTypeFeature;
 import org.openapijsonschematools.codegen.generators.generatormetadata.features.DocumentationFeature;
@@ -986,7 +987,7 @@ public class PythonClientGenerator extends DefaultGenerator implements Generator
             return null;
         }
         String modelModule = refClassPieces[0];
-        return "from " + packageName + "." +  modelPackage() + " import " + modelModule;
+        return "from " + packageName + "." +  modelPackage + " import " + modelModule;
     }
 
     /***
@@ -1922,7 +1923,7 @@ public class PythonClientGenerator extends DefaultGenerator implements Generator
         if (sourceJsonPath != null && ref.startsWith(sourceJsonPath + "/")) {
             // internal in-schema reference, no import needed
             // TODO handle this in the future
-            if (getFilepath(sourceJsonPath).equals(getFilepath(ref))) {
+            if (getFilePath(GeneratedFileType.CODE, sourceJsonPath).equals(getFilePath(GeneratedFileType.CODE, ref))) {
                 // TODO ensure that getFilepath returns the same file for somePath/get/QueryParameters
                 // TODO ensure that getFilepath returns the same file for schemas/SomeSchema...
                 return null;

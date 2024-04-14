@@ -25,6 +25,7 @@ import org.openapijsonschematools.codegen.generators.generatormetadata.Generator
 import org.openapijsonschematools.codegen.generators.models.VendorExtension;
 import org.openapijsonschematools.codegen.generators.openapimodels.CodegenKeyType;
 import org.openapijsonschematools.codegen.generators.openapimodels.CodegenRefInfo;
+import org.openapijsonschematools.codegen.generators.openapimodels.GeneratedFileType;
 import org.openapijsonschematools.codegen.generators.openapimodels.ReportFileType;
 import org.openapijsonschematools.codegen.templating.SupportingFile;
 import org.openapijsonschematools.codegen.generators.models.CliOption;
@@ -53,28 +54,33 @@ public interface Generator extends OpenApiProcessor, Comparable<Generator> {
 
     Map<String, Object> vendorExtensions();
 
+    // todo move to generatorsettings
     String apiPackage();
 
+    // todo move to generatorsettings
     String outputFolder();
 
+    // todo move to generatorsettings
     String templateDir();
 
+    // todo move to generatorsettings
     String embeddedTemplateDir();
 
-    String modelPackage();
-
-    String modelPackagePathFragment();
-
+    // todo move to generatorsettings
     String packageName();
 
+    // todo deprecate this and make a key of api
     String toApiName(String name);
 
+    // todo remove this because it is unused
     String toApiVarName(String name);
 
+    // todo deprecate this and change it to getClassName
     String toModelName(String name, String jsonPath);
 
     String escapeText(String text);
 
+    // todo remove because unused
     String escapeTextWhileAllowingNewLines(String text);
 
     String escapeUnsafeCharacters(String input);
@@ -97,19 +103,14 @@ public interface Generator extends OpenApiProcessor, Comparable<Generator> {
 
     String getOutputDir();
 
-    String packagePath();
-
     void setOutputDir(String dir);
 
+    // todo deprecate this
     CodegenKey getKey(String key, String keyType);
 
     Map<String, String> instantiationTypes();
 
-    HashMap<CodegenConstants.JSON_PATH_LOCATION_TYPE, HashMap<String, String>> jsonPathTemplateFiles();
-
-    HashMap<CodegenConstants.JSON_PATH_LOCATION_TYPE, HashMap<String, String>> jsonPathDocTemplateFiles();
-
-    HashMap<CodegenConstants.JSON_PATH_LOCATION_TYPE, HashMap<String, String>> jsonPathTestTemplateFiles();
+    HashMap<CodegenConstants.JSON_PATH_LOCATION_TYPE, HashMap<String, String>> getJsonPathTemplateFiles(GeneratedFileType type);
 
     Set<String> languageSpecificPrimitives();
 
@@ -117,15 +118,17 @@ public interface Generator extends OpenApiProcessor, Comparable<Generator> {
 
     void processOpenAPI(OpenAPI openAPI);
 
+    // todo remove this because it is unused
     Compiler processCompiler(Compiler compiler);
 
+    // todo deprecate this, use getKey with api type
     String toApiFilename(String name);
 
+    // todo deprecate and change to getSnakeCase
     String toModelFilename(String name, String jsonPath);
 
+    // todo can this be eliminated? getPascalCase/getSnakeCase and getFileName should do everything
     String toModuleFilename(String name, String jsonPath);
-
-    String toModelImport(String refClass);
 
     TreeMap<String, CodegenSchema> updateAllModels(TreeMap<String, CodegenSchema> models);
 
@@ -138,17 +141,12 @@ public interface Generator extends OpenApiProcessor, Comparable<Generator> {
     Map<String, Object> postProcessSupportingFileData(Map<String, Object> data);
 
     void postProcessModelProperty(CodegenSchema model, CodegenSchema property);
-
-    // handles almost all files to be written
-    String getFilepath(String jsonPath);
-
+    
     String getImport(CodegenRefInfo<?> refInfo);
     String getRefModuleLocation(String ref);
     String getSubpackage(String jsonPath);
 
-    String getDocsFilepath(String jsonPath);
-
-    String getTestFilepath(String jsonPath);
+    String getFilePath(GeneratedFileType type, String jsonPath);
 
     boolean isSkipOverwrite();
 
@@ -319,4 +317,44 @@ public interface Generator extends OpenApiProcessor, Comparable<Generator> {
     default FeatureSet getFeatureSet() {
         return getGeneratorMetadata().getFeatureSet();
     }
+
+    @Deprecated
+    default HashMap<CodegenConstants.JSON_PATH_LOCATION_TYPE, HashMap<String, String>> jsonPathTemplateFiles() {
+        return getJsonPathTemplateFiles(GeneratedFileType.CODE);
+    }
+
+    @Deprecated
+    default HashMap<CodegenConstants.JSON_PATH_LOCATION_TYPE, HashMap<String, String>> jsonPathDocTemplateFiles() {
+        return getJsonPathTemplateFiles(GeneratedFileType.DOCUMENTATION);
+    }
+
+    @Deprecated
+    default HashMap<CodegenConstants.JSON_PATH_LOCATION_TYPE, HashMap<String, String>> jsonPathTestTemplateFiles() {
+        return getJsonPathTemplateFiles(GeneratedFileType.TEST);
+    }
+
+    @Deprecated
+    default String getFilepath(String jsonPath) {
+        return getFilePath(GeneratedFileType.CODE, jsonPath);
+    }
+
+    @Deprecated
+    default String getDocsFilepath(String jsonPath) {
+        return getFilePath(GeneratedFileType.DOCUMENTATION, jsonPath);
+    }
+
+    @Deprecated
+    default String getTestFilePath(String jsonPath) {
+        return getFilePath(GeneratedFileType.TEST, jsonPath);
+    }
+
+    @Deprecated
+    String toModelImport(String refClass);
+
+    @Deprecated
+    String modelPackage();
+
+    @Deprecated
+    String modelPackagePathFragment();
+    // 108 - 30 -> 78
 }

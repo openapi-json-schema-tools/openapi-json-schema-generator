@@ -56,6 +56,7 @@ import org.openapijsonschematools.codegen.generators.openapimodels.CodegenSecuri
 import org.openapijsonschematools.codegen.generators.openapimodels.CodegenServer;
 import org.openapijsonschematools.codegen.generators.openapimodels.EnumInfo;
 import org.openapijsonschematools.codegen.generators.openapimodels.EnumValue;
+import org.openapijsonschematools.codegen.generators.openapimodels.GeneratedFileType;
 import org.openapijsonschematools.codegen.generators.openapimodels.MapBuilder;
 import org.openapijsonschematools.codegen.generators.openapimodels.OperationInput;
 import org.openapijsonschematools.codegen.generators.openapimodels.OperationInputProvider;
@@ -1322,7 +1323,7 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
         if (sourceJsonPath != null && ref.startsWith(sourceJsonPath + "/")) {
             // internal in-schema reference, no import needed
             // TODO handle this in the future
-            if (getFilepath(sourceJsonPath).equals(getFilepath(ref))) {
+            if (getFilePath(GeneratedFileType.CODE, sourceJsonPath).equals(getFilePath(GeneratedFileType.CODE, ref))) {
                 // TODO ensure that getFilepath returns the same file for somePath/get/QueryParameters
                 // TODO ensure that getFilepath returns the same file for schemas/SomeSchema...
                 return null;
@@ -1395,7 +1396,7 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
 
     @Override
     public String getRefModuleLocation(String ref) {
-        String filePath = getFilepath(ref);
+        String filePath = getFilePath(GeneratedFileType.CODE, ref);
         String prefix = outputFolder + File.separatorChar + "src" + File.separatorChar + "main" + File.separatorChar + "java" + File.separatorChar;
         // modules are always in a package one above them, so strip off the last jsonPath fragment
         String localFilepath = filePath.substring(prefix.length(), filePath.lastIndexOf(File.separatorChar));
@@ -2032,14 +2033,17 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
     }
 
     protected String getModuleLocation(String ref) {
-        String filePath = getFilepath(ref);
+        String filePath = getFilePath(GeneratedFileType.CODE, ref);
         String prefix = outputFolder + File.separatorChar + "src" + File.separatorChar + "main" + File.separatorChar + "java" + File.separatorChar;
         String localFilepath = filePath.substring(prefix.length());
         return localFilepath.replaceAll(String.valueOf(File.separatorChar), ".");
     }
 
     @Override
-    public String getTestFilepath(String jsonPath) {
+    public String getFilePath(GeneratedFileType type, String jsonPath) {
+        if (type != GeneratedFileType.TEST) {
+            return super.getFilePath(type, jsonPath);
+        }
         String[] pathPieces = jsonPath.split("/");
         pathPieces[0] = outputFolder + File.separatorChar + testPackagePath();
         if (jsonPath.startsWith("#/components")) {
@@ -2051,8 +2055,8 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
             }
         }
         List<String> finalPathPieces = Arrays.stream(pathPieces)
-                .filter(Objects::nonNull)
-                .collect(Collectors.toList());
+            .filter(Objects::nonNull)
+            .collect(Collectors.toList());
         return String.join(File.separator, finalPathPieces);
     }
 
