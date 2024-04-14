@@ -372,7 +372,7 @@ public class DefaultGeneratorRunner implements GeneratorRunner {
             File written = processTemplateToFile(templateData, templateName, outputFilename, shouldGenerate, skippedByOption);
             if (written != null) {
                 files.add(written);
-                if (generator.isEnablePostProcessFile() && !dryRun) {
+                if (generator.generatorSettings().enablePostProcessFile && !dryRun) {
                     generator.postProcessFile(written, skippedByOption);
                 }
             }
@@ -390,7 +390,7 @@ public class DefaultGeneratorRunner implements GeneratorRunner {
                 File written = processTemplateToFile(templateData, templateName, outputFilename, shouldGenerate, skippedByOption);
                 if (written != null) {
                     files.add(written);
-                    if (generator.isEnablePostProcessFile() && !dryRun) {
+                    if (generator.generatorSettings().enablePostProcessFile && !dryRun) {
                         generator.postProcessFile(written, skippedByOption);
                     }
                 }
@@ -605,7 +605,7 @@ public class DefaultGeneratorRunner implements GeneratorRunner {
                         File written = processTemplateToFile(contentTypeTemplateData, templateFile, outputFilepath, true, CodegenConstants.CONTENT);
                         if (written != null) {
                             files.add(written);
-                            if (generator.isEnablePostProcessFile() && !dryRun) {
+                            if (generator.generatorSettings().enablePostProcessFile && !dryRun) {
                                 generator.postProcessFile(written, "content");
                             }
                         }
@@ -628,7 +628,7 @@ public class DefaultGeneratorRunner implements GeneratorRunner {
                     File written = processTemplateToFile(contentTemplateData, contentTemplateFile, outputFilepath, true, CodegenConstants.CONTENT);
                     if (written != null) {
                         files.add(written);
-                        if (generator.isEnablePostProcessFile() && !dryRun) {
+                        if (generator.generatorSettings().enablePostProcessFile && !dryRun) {
                             generator.postProcessFile(written, "content");
                         }
                     }
@@ -885,7 +885,7 @@ public class DefaultGeneratorRunner implements GeneratorRunner {
                 File written = processTemplateToFile(templateData, templateFile, filename, shouldGenerate, skippedByOption);
                 if (written != null) {
                     files.add(written);
-                    if (generator.isEnablePostProcessFile() && !dryRun) {
+                    if (generator.generatorSettings().enablePostProcessFile && !dryRun) {
                         generator.postProcessFile(written, skippedByOption);
                     }
                 }
@@ -920,7 +920,7 @@ public class DefaultGeneratorRunner implements GeneratorRunner {
                     File written = processTemplateToFile(templateData, templateFile, filename, shouldGenerate, skippedByOption);
                     if (written != null) {
                         files.add(written);
-                        if (generator.isEnablePostProcessFile() && !dryRun) {
+                        if (generator.generatorSettings().enablePostProcessFile && !dryRun) {
                             generator.postProcessFile(written, skippedByOption);
                         }
                     }
@@ -952,7 +952,7 @@ public class DefaultGeneratorRunner implements GeneratorRunner {
                 File written = processTemplateToFile(templateData, templateFile, filename, shouldGenerate, skippedByOption);
                 if (written != null) {
                     files.add(written);
-                    if (generator.isEnablePostProcessFile() && !dryRun) {
+                    if (generator.generatorSettings().enablePostProcessFile && !dryRun) {
                         generator.postProcessFile(written, skippedByOption);
                     }
                 }
@@ -1290,7 +1290,7 @@ public class DefaultGeneratorRunner implements GeneratorRunner {
                 File written = processTemplateToFile(bundle, support.getTemplateFile(), outputFilename, shouldGenerate, CodegenConstants.SUPPORTING_FILES);
                 if (written != null) {
                     files.add(written);
-                    if (generator.isEnablePostProcessFile() && !dryRun) {
+                    if (generator.generatorSettings().enablePostProcessFile && !dryRun) {
                         generator.postProcessFile(written, "supporting-file");
                     }
                 }
@@ -1313,7 +1313,7 @@ public class DefaultGeneratorRunner implements GeneratorRunner {
                 File written = processTemplateToFile(bundle, openapiGeneratorIgnore, ignoreFileNameTarget, shouldGenerate, CodegenConstants.SUPPORTING_FILES);
                 if (written != null) {
                     files.add(written);
-                    if (generator.isEnablePostProcessFile() && !dryRun) {
+                    if (generator.generatorSettings().enablePostProcessFile && !dryRun) {
                         generator.postProcessFile(written, "openapi-generator-ignore");
                     }
                 }
@@ -1737,7 +1737,7 @@ public class DefaultGeneratorRunner implements GeneratorRunner {
                 File written = this.templateProcessor.writeToFile(versionMetadata, ImplementationVersion.read().getBytes(StandardCharsets.UTF_8));
                 if (written != null) {
                     files.add(versionMetadataFile);
-                    if (generator.isEnablePostProcessFile() && !dryRun) {
+                    if (generator.generatorSettings().enablePostProcessFile && !dryRun) {
                         generator.postProcessFile(written, "openapi-generator-version");
                     }
                 }

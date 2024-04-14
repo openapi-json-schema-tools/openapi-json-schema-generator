@@ -474,8 +474,6 @@ public class CodegenConfigurator {
 
         // TODO: Work toward Generator having a "WorkflowSettings" property, or better a "Workflow" object which itself has a "WorkflowSettings" property.
         config.setInputSpec(workflowSettings.getInputSpec());
-        config.setEnablePostProcessFile(workflowSettings.isEnablePostProcessFile());
-        config.setTemplateEngineName(workflowSettings.getTemplatingEngineName());
         config.additionalProperties().put(CodegenConstants.TEMPLATING_ENGINE, workflowSettings.getTemplatingEngineName());
 
         // TODO: Work toward Generator having a "GeneratorSettings" property.

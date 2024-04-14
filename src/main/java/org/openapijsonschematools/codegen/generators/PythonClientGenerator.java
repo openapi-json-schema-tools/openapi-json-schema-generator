@@ -278,7 +278,9 @@ public class PythonClientGenerator extends DefaultGenerator implements Generator
             workflowSettings.isSkipOverwrite(),
             workflowSettings.isRemoveOperationIdPrefix(),
             workflowSettings.getIgnoreFileOverride(),
-            workflowSettings.isSkipOperationExample()
+            workflowSettings.isSkipOperationExample(),
+            workflowSettings.isEnablePostProcessFile(),
+            workflowSettings.getTemplatingEngineName()
         );
         testFolder = "test";
     }
@@ -446,7 +448,7 @@ public class PythonClientGenerator extends DefaultGenerator implements Generator
 
         super.processOpts();
 
-        if (!"handlebars".equals(this.templateEngineName)) {
+        if (!"handlebars".equals(generatorSettings.templateEngineName)) {
             throw new RuntimeException("Only the HandlebarsEngineAdapter is supported for this generator");
         }
 

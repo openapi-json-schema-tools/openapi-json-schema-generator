@@ -142,20 +142,12 @@ public interface Generator extends OpenApiProcessor, Comparable<Generator> {
 
     void postProcessFile(File file, String fileType);
 
-    boolean isEnablePostProcessFile();
-
-    // todo remove this, set in new
-    void setEnablePostProcessFile(boolean isEnablePostProcessFile);
-
     /**
      * Set the OpenAPI instance. This method needs to be called right after the instantiation of the Codegen class.
      *
      * @param openAPI specification being generated
      */
     void setOpenAPI(OpenAPI openAPI);
-
-    // todo remove this set in new
-    void setTemplateEngineName(String name);
 
     TemplatingEngineAdapter getTemplatingEngine();
 
@@ -368,6 +360,11 @@ public interface Generator extends OpenApiProcessor, Comparable<Generator> {
     @Deprecated
     default String getIgnoreFilePathOverride() {
         return generatorSettings().ignoreFilePathOverride;
+    }
+
+    @Deprecated
+    default boolean isEnablePostProcessFile() {
+        return generatorSettings().enablePostProcessFile;
     }
     // 102 - 38 -> 64
 }

@@ -150,7 +150,9 @@ public class DefaultGenerator implements Generator {
             workflowSettings.isSkipOverwrite(),
             workflowSettings.isRemoveOperationIdPrefix(),
             workflowSettings.getIgnoreFileOverride(),
-            workflowSettings.isSkipOperationExample()
+            workflowSettings.isSkipOperationExample(),
+            workflowSettings.isEnablePostProcessFile(),
+            workflowSettings.getTemplatingEngineName()
         );
     }
 
@@ -174,7 +176,6 @@ public class DefaultGenerator implements Generator {
 
 
 
-    protected String templateEngineName;
     protected String headersSchemaFragment = "Headers";
     protected static final Set<String> operationVerbs = Set.of("get", "put", "post", "delete", "options", "head", "patch", "trace");
     protected Set<String> xParameters = Set.of("PathParameters", "QueryParameters", "HeaderParameters", "CookieParameters");
@@ -339,10 +340,6 @@ public class DefaultGenerator implements Generator {
 
     @Override
     public void processOpts() {
-        if (this.templateEngineName == null && additionalProperties.containsKey(CodegenConstants.TEMPLATING_ENGINE)) {
-            setTemplateEngineName((String) additionalProperties.get(CodegenConstants.TEMPLATING_ENGINE));
-        }
-
         if (additionalProperties.containsKey(CodegenConstants.HIDE_GENERATION_TIMESTAMP)) {
             setHideGenerationTimestamp(convertPropertyToBooleanAndWriteBack(CodegenConstants.HIDE_GENERATION_TIMESTAMP));
         } else {
@@ -383,11 +380,6 @@ public class DefaultGenerator implements Generator {
         if (additionalProperties.containsKey(CodegenConstants.DOCEXTENSION)) {
             this.setDocExtension(String.valueOf(additionalProperties
                     .get(CodegenConstants.DOCEXTENSION).toString()));
-        }
-
-        if (additionalProperties.containsKey(CodegenConstants.ENABLE_POST_PROCESS_FILE)) {
-            this.setEnablePostProcessFile(Boolean.parseBoolean(additionalProperties
-                    .get(CodegenConstants.ENABLE_POST_PROCESS_FILE).toString()));
         }
 
         if (additionalProperties.containsKey(CodegenConstants.REMOVE_ENUM_VALUE_PREFIX)) {
@@ -4174,13 +4166,8 @@ public class DefaultGenerator implements Generator {
     }
 
     @Override
-    public void setTemplateEngineName(String templateEngineName) {
-        this.templateEngineName = templateEngineName;
-    }
-
-    @Override
     public TemplatingEngineAdapter getTemplatingEngine() {
-        String loadedTemplateEngineName = templateEngineName;
+        String loadedTemplateEngineName = generatorSettings.templateEngineName;
         if (loadedTemplateEngineName ==  null) {
             loadedTemplateEngineName = defaultTemplatingEngine();
         }
@@ -5183,26 +5170,6 @@ public class DefaultGenerator implements Generator {
     @Override
     public void postProcessFile(File file, String fileType) {
         LOGGER.debug("Post processing file {} ({})", file, fileType);
-    }
-
-    /**
-     * Boolean value indicating the state of the option for post-processing file using environment variables.
-     *
-     * @return true if the option is enabled
-     */
-    @Override
-    public boolean isEnablePostProcessFile() {
-        return enablePostProcessFile;
-    }
-
-    /**
-     * Set the boolean value indicating the state of the option for post-processing file using environment variables.
-     *
-     * @param enablePostProcessFile true to enable post-processing file
-     */
-    @Override
-    public void setEnablePostProcessFile(boolean enablePostProcessFile) {
-        this.enablePostProcessFile = enablePostProcessFile;
     }
 
     /**

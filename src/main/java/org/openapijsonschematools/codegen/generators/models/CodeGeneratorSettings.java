@@ -12,6 +12,8 @@ public class CodeGeneratorSettings {
     public final boolean removeOperationIdPrefix;
     public final String ignoreFilePathOverride;
     public final boolean skipOperationExample;
+    public final boolean enablePostProcessFile;  // boolean value indicating the state of the option for post-processing file using environment variables.
+    public final String templateEngineName;
     public CodeGeneratorSettings(
         String apiPackage,
         String outputFolder,
@@ -23,7 +25,9 @@ public class CodeGeneratorSettings {
         boolean skipOverwrite,
         boolean removeOperationIdPrefix,
         String ignoreFilePathOverride,
-        boolean skipOperationExample
+        boolean skipOperationExample,
+        boolean enablePostProcessFile,
+        String templateEngineName
     ) {
         this.apiPackage = apiPackage;
         this.outputFolder = outputFolder;
@@ -36,5 +40,7 @@ public class CodeGeneratorSettings {
         this.removeOperationIdPrefix = removeOperationIdPrefix;
         this.ignoreFilePathOverride = ignoreFilePathOverride;
         this.skipOperationExample = skipOperationExample;
+        this.enablePostProcessFile = enablePostProcessFile;
+        this.templateEngineName = templateEngineName;
     }
 }
