@@ -153,7 +153,7 @@ public class DefaultGeneratorRunner implements GeneratorRunner {
             this.userDefinedTemplates = Collections.unmodifiableList(userFiles);
         }
 
-        String ignoreFileLocation = generator.getIgnoreFilePathOverride();
+        String ignoreFileLocation = generator.generatorSettings().ignoreFilePathOverride;
         if (ignoreFileLocation != null) {
             final File ignoreFile = new File(ignoreFileLocation);
             if (ignoreFile.exists() && ignoreFile.canRead()) {

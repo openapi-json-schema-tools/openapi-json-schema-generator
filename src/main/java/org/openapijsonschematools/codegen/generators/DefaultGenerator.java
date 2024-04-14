@@ -148,7 +148,8 @@ public class DefaultGenerator implements Generator {
             workflowSettings.isStrictSpecBehavior(),
             workflowSettings.isEnableMinimalUpdate(),
             workflowSettings.isSkipOverwrite(),
-            workflowSettings.isRemoveOperationIdPrefix()
+            workflowSettings.isRemoveOperationIdPrefix(),
+            workflowSettings.getIgnoreFileOverride()
         );
     }
 
@@ -4409,16 +4410,6 @@ public class DefaultGenerator implements Generator {
     @Override
     public String getIgnoreFilePathOverride() {
         return ignoreFilePathOverride;
-    }
-
-    /**
-     * Sets an override location for the '.openapi-generator-ignore' location for the first code generation.
-     *
-     * @param ignoreFileOverride The full path to an ignore file
-     */
-    @Override
-    public void setIgnoreFilePathOverride(final String ignoreFileOverride) {
-        this.ignoreFilePathOverride = ignoreFileOverride;
     }
 
     public boolean convertPropertyToBoolean(String propertyKey) {

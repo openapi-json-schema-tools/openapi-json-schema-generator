@@ -276,7 +276,8 @@ public class PythonClientGenerator extends DefaultGenerator implements Generator
             workflowSettings.isStrictSpecBehavior(),
             workflowSettings.isEnableMinimalUpdate(),
             workflowSettings.isSkipOverwrite(),
-            workflowSettings.isRemoveOperationIdPrefix()
+            workflowSettings.isRemoveOperationIdPrefix(),
+            workflowSettings.getIgnoreFileOverride()
         );
         testFolder = "test";
     }

@@ -474,7 +474,6 @@ public class CodegenConfigurator {
 
         // TODO: Work toward Generator having a "WorkflowSettings" property, or better a "Workflow" object which itself has a "WorkflowSettings" property.
         config.setInputSpec(workflowSettings.getInputSpec());
-        config.setIgnoreFilePathOverride(workflowSettings.getIgnoreFileOverride());
         config.setSkipOperationExample(workflowSettings.isSkipOperationExample());
         config.setEnablePostProcessFile(workflowSettings.isEnablePostProcessFile());
         config.setTemplateEngineName(workflowSettings.getTemplatingEngineName());

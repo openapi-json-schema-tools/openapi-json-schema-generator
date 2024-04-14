@@ -10,7 +10,8 @@ public class CodeGeneratorSettings {
     public final boolean enableMinimalUpdate;  // flag to indicate whether to only update files whose contents have changed
     public final boolean skipOverwrite;
     public final boolean removeOperationIdPrefix;
-    public CodeGeneratorSettings(String apiPackage, String outputFolder, String templateDir, String embeddedTemplateDir, String packageName, boolean strictSpecBehavior, boolean enableMinimalUpdate, boolean skipOverwrite, boolean removeOperationIdPrefix) {
+    public final String ignoreFilePathOverride;
+    public CodeGeneratorSettings(String apiPackage, String outputFolder, String templateDir, String embeddedTemplateDir, String packageName, boolean strictSpecBehavior, boolean enableMinimalUpdate, boolean skipOverwrite, boolean removeOperationIdPrefix, String ignoreFilePathOverride) {
         this.apiPackage = apiPackage;
         this.outputFolder = outputFolder;
         this.templateDir = templateDir;
@@ -20,5 +21,6 @@ public class CodeGeneratorSettings {
         this.enableMinimalUpdate = enableMinimalUpdate;
         this.skipOverwrite = skipOverwrite;
         this.removeOperationIdPrefix = removeOperationIdPrefix;
+        this.ignoreFilePathOverride = ignoreFilePathOverride;
     }
 }

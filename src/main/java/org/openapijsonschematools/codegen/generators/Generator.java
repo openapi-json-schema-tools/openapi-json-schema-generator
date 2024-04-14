@@ -17,7 +17,6 @@
 
 package org.openapijsonschematools.codegen.generators;
 
-import com.samskivert.mustache.Mustache.Compiler;
 import io.swagger.v3.oas.models.OpenAPI;
 import org.openapijsonschematools.codegen.common.CodegenConstants;
 import org.openapijsonschematools.codegen.generators.generatormetadata.GeneratorLanguage;
@@ -141,12 +140,6 @@ public interface Generator extends OpenApiProcessor, Comparable<Generator> {
     void setHideGenerationTimestamp(boolean hideGenerationTimestamp);
 
     void setDocExtension(String docExtension);
-
-    // todo remove this set in new
-    void setIgnoreFilePathOverride(String ignoreFileOverride);
-
-    // todo deprecate and use settings
-    String getIgnoreFilePathOverride();
 
     String sanitizeName(String name);
 
@@ -373,6 +366,11 @@ public interface Generator extends OpenApiProcessor, Comparable<Generator> {
     @Deprecated
     default boolean isSkipOverwrite() {
         return generatorSettings().skipOverwrite;
+    }
+
+    @Deprecated
+    default String getIgnoreFilePathOverride() {
+        return generatorSettings().ignoreFilePathOverride;
     }
     // 102 - 38 -> 64
 }
