@@ -125,7 +125,7 @@ public class DefaultGeneratorRunner implements GeneratorRunner {
         // must be called after processOptions
         TemplateManagerOptions templateManagerOptions = new TemplateManagerOptions(
             this.generator.generatorSettings().enableMinimalUpdate,
-            this.generator.isSkipOverwrite()
+            this.generator.generatorSettings().skipOverwrite
         );
 
         if (this.dryRun) {

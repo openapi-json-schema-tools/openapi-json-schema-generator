@@ -133,14 +133,6 @@ public interface Generator extends OpenApiProcessor, Comparable<Generator> {
 
     String getFilePath(GeneratedFileType type, String jsonPath);
 
-    boolean isSkipOverwrite();
-
-    // todo remove this, set in new
-    void setSkipOverwrite(boolean skipOverwrite);
-
-    // todo remove this, set in new
-    void setRemoveOperationIdPrefix(boolean removeOperationIdPrefix);
-
     // todo remove this set in new
     void setSkipOperationExample(boolean skipOperationExample);
 
@@ -377,5 +369,10 @@ public interface Generator extends OpenApiProcessor, Comparable<Generator> {
     default boolean isEnableMinimalUpdate() {
         return generatorSettings().enableMinimalUpdate;
     }
-    // 107 - 36 -> 71
+
+    @Deprecated
+    default boolean isSkipOverwrite() {
+        return generatorSettings().skipOverwrite;
+    }
+    // 102 - 38 -> 64
 }

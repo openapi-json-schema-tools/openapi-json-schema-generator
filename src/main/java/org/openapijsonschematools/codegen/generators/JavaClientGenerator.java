@@ -97,7 +97,9 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
             embeddedTemplateDir,
             packageName,
             workflowSettings.isStrictSpecBehavior(),
-            workflowSettings.isEnableMinimalUpdate()
+            workflowSettings.isEnableMinimalUpdate(),
+            workflowSettings.isSkipOverwrite(),
+            workflowSettings.isRemoveOperationIdPrefix()
         );
         if (this.outputTestFolder.isEmpty()) {
             setOutputTestFolder(outputDir);

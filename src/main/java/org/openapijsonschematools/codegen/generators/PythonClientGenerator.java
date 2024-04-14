@@ -274,7 +274,9 @@ public class PythonClientGenerator extends DefaultGenerator implements Generator
             embeddedTemplateDir,
             packageName,
             workflowSettings.isStrictSpecBehavior(),
-            workflowSettings.isEnableMinimalUpdate()
+            workflowSettings.isEnableMinimalUpdate(),
+            workflowSettings.isSkipOverwrite(),
+            workflowSettings.isRemoveOperationIdPrefix()
         );
         testFolder = "test";
     }

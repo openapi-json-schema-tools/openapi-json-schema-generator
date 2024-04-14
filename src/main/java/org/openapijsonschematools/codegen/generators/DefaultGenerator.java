@@ -146,7 +146,9 @@ public class DefaultGenerator implements Generator {
             embeddedTemplateDir,
             packageName,
             workflowSettings.isStrictSpecBehavior(),
-            workflowSettings.isEnableMinimalUpdate()
+            workflowSettings.isEnableMinimalUpdate(),
+            workflowSettings.isSkipOverwrite(),
+            workflowSettings.isRemoveOperationIdPrefix()
         );
     }
 
@@ -263,8 +265,6 @@ public class DefaultGenerator implements Generator {
     */
     protected List<SupportingFile> supportingFiles = new ArrayList<>();
     protected List<CliOption> cliOptions = new ArrayList<>();
-    protected boolean skipOverwrite;
-    protected boolean removeOperationIdPrefix;
     protected String removeOperationIdPrefixDelimiter = "_";
     protected int removeOperationIdPrefixCount = 1;
     protected boolean skipOperationExample;
@@ -367,11 +367,6 @@ public class DefaultGenerator implements Generator {
 
         if (additionalProperties.containsKey(CodegenConstants.MODEL_NAME_SUFFIX)) {
             this.setModelNameSuffix((String) additionalProperties.get(CodegenConstants.MODEL_NAME_SUFFIX));
-        }
-
-        if (additionalProperties.containsKey(CodegenConstants.REMOVE_OPERATION_ID_PREFIX)) {
-            this.setRemoveOperationIdPrefix(Boolean.parseBoolean(additionalProperties
-                    .get(CodegenConstants.REMOVE_OPERATION_ID_PREFIX).toString()));
         }
 
         if (additionalProperties.containsKey(CodegenConstants.REMOVE_OPERATION_ID_PREFIX_DELIMITER)) {
@@ -2522,7 +2517,7 @@ public class DefaultGenerator implements Generator {
         String operationId = getOrGenerateOperationId(operation, path, httpMethod);
 
         // remove prefix in operationId
-        if (removeOperationIdPrefix) {
+        if (generatorSettings.removeOperationIdPrefix) {
             // The prefix is everything before the removeOperationIdPrefixCount occurrence of removeOperationIdPrefixDelimiter
             String[] components = operationId.split("[" + removeOperationIdPrefixDelimiter + "]");
             if (components.length > 1) {
@@ -4140,22 +4135,6 @@ public class DefaultGenerator implements Generator {
             .filter(Objects::nonNull)
             .collect(Collectors.toList());
         return String.join(File.separator, codePieces);
-    }
-    
-    
-    @Override
-    public boolean isSkipOverwrite() {
-        return skipOverwrite;
-    }
-
-    @Override
-    public void setSkipOverwrite(boolean skipOverwrite) {
-        this.skipOverwrite = skipOverwrite;
-    }
-
-    @Override
-    public void setRemoveOperationIdPrefix(boolean removeOperationIdPrefix) {
-        this.removeOperationIdPrefix = removeOperationIdPrefix;
     }
 
     public void setRemoveOperationIdPrefixDelimiter(String removeOperationIdPrefixDelimiter) {
