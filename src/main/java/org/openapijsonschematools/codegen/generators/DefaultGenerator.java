@@ -292,9 +292,6 @@ public class DefaultGenerator implements Generator {
     protected String apiNamePrefix = "", apiNameSuffix = "Api";
     protected String filesMetadataFilename = "FILES";
     protected String versionMetadataFilename = "VERSION";
-
-    protected String packageName = "src.main.java";
-
     protected String docsFolder = "docs";
     // for writing api files
     protected HashMap<CodegenConstants.JSON_PATH_LOCATION_TYPE, HashMap<String, String>> jsonPathTemplateFiles = new HashMap<>();
@@ -498,7 +495,7 @@ public class DefaultGenerator implements Generator {
     }
 
     public String packagePath() {
-        return packageName.replace('.', File.separatorChar);
+        return generatorSettings.packageName.replace('.', File.separatorChar);
     }
 
     /**
@@ -1696,7 +1693,7 @@ public class DefaultGenerator implements Generator {
 
     @Override
     public String getImport(CodegenRefInfo<?> refInfo) {
-        String prefix = "from " + packageName + ".components.";
+        String prefix = "from " + generatorSettings.packageName + ".components.";
         if (refInfo.ref instanceof CodegenSchema) {
             if (refInfo.refModuleAlias == null) {
                 return "from " + refInfo.refModuleLocation + " import " + refInfo.refModule;
@@ -1836,7 +1833,7 @@ public class DefaultGenerator implements Generator {
     }
 
     private String schemaPathFromDocRoot(String moduleLocation) {
-        return moduleLocation.replace('.', File.separatorChar).substring(packageName.length()+1);
+        return moduleLocation.replace('.', File.separatorChar).substring(generatorSettings.packageName.length()+1);
     }
 
     private LinkedHashMap<CodegenPatternInfo, CodegenSchema> getPatternProperties(Map<String, Schema> schemaPatternProperties, String jsonPath, String sourceJsonPath) {
@@ -2921,20 +2918,20 @@ public class DefaultGenerator implements Generator {
 
     protected String getPathFromDocRoot(String sourceJsonPath) {
         String moduleLocation = getModuleLocation(sourceJsonPath);
-        return moduleLocation.replace('.', File.separatorChar).substring(packageName.length()+1);
+        return moduleLocation.replace('.', File.separatorChar).substring(generatorSettings.packageName.length()+1);
     }
 
     protected String responsePathFromDocRoot(String sourceJsonPath) {
         if (sourceJsonPath.startsWith("#/components/responses")) {
             String moduleLocation = getModuleLocation(sourceJsonPath);
-            return moduleLocation.replace('.', File.separatorChar).substring(packageName.length()+1);
+            return moduleLocation.replace('.', File.separatorChar).substring(generatorSettings.packageName.length()+1);
         }
         // otherwise response is inline and the operation file is the location
         // #/paths/somePath/verb/responses/200
         int secondToLastSlashIndex = sourceJsonPath.lastIndexOf("/", sourceJsonPath.lastIndexOf("/")-1);
         String sourceJsonPathSubstring = sourceJsonPath.substring(0, secondToLastSlashIndex);
         String moduleLocation = getModuleLocation(sourceJsonPathSubstring);
-        return moduleLocation.replace('.', File.separatorChar).substring(packageName.length()+1);
+        return moduleLocation.replace('.', File.separatorChar).substring(generatorSettings.packageName.length()+1);
     }
 
     private CodegenText getCodegenText(String input) {

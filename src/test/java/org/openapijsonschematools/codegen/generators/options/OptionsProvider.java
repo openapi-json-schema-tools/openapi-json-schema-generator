@@ -17,10 +17,16 @@
 
 package org.openapijsonschematools.codegen.generators.options;
 
+import org.openapijsonschematools.codegen.config.GeneratorSettings;
+import org.openapijsonschematools.codegen.config.WorkflowSettings;
+
 import java.util.Map;
 
 public interface OptionsProvider {
     String getLanguage();
     Map<String, String> createOptions();
+
+    WorkflowSettings createWorkflowInput();
+    GeneratorSettings createGeneratorInput();
     boolean isServer();
 }

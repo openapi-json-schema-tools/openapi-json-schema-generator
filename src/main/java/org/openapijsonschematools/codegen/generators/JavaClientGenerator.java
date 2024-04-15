@@ -170,7 +170,6 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
         requestBodiesIdentifier = "requestbodies";
         securitySchemesIdentifier = "securityschemes";
         requestBodyIdentifier = "requestbody";
-        packageName = "org.openapijsonschematools.client";
         addSchemaImportsFromV3SpecLocations = true;
         deepestRefSchemaImportNeeded = true;
         objectIOClassNamePiece = "Map";
@@ -405,11 +404,11 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
     }
 
     public String packagePath() {
-        return "src" + File.separatorChar + "main" + File.separatorChar + "java" + File.separatorChar + packageName.replace('.', File.separatorChar);
+        return "src" + File.separatorChar + "main" + File.separatorChar + "java" + File.separatorChar + generatorSettings.packageName.replace('.', File.separatorChar);
     }
 
     protected String testPackagePath() {
-        return "src" + File.separatorChar + "test" + File.separatorChar + "java" + File.separatorChar + packageName.replace('.', File.separatorChar);
+        return "src" + File.separatorChar + "test" + File.separatorChar + "java" + File.separatorChar + generatorSettings.packageName.replace('.', File.separatorChar);
     }
 
     @Override
@@ -547,7 +546,7 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
             setOutputTestFolder(additionalProperties.get(TEST_OUTPUT).toString());
         }
 
-        additionalProperties.put(CodegenConstants.PACKAGE_NAME, packageName);
+        additionalProperties.put(CodegenConstants.PACKAGE_NAME, generatorSettings.packageName);
         List<String> schemaSupportingFiles = new ArrayList<>();
         schemaSupportingFiles.add("AnyTypeJsonSchema");
         schemaSupportingFiles.add("BooleanJsonSchema");
@@ -1441,14 +1440,14 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
         if (schema.types != null) {
             if (schema.types.contains("array")) {
                 imports.add("import java.util.List;");
-                imports.add("import "+packageName + ".schemas.validation.FrozenList;");
+                imports.add("import "+ generatorSettings.packageName + ".schemas.validation.FrozenList;");
                 if (schema.items != null) {
                     imports.addAll(getDeeperImports(sourceJsonPath, schema.items));
                 }
             }
             if (schema.types.contains("object")) {
                 imports.add("import java.util.Map;");
-                imports.add("import "+packageName + ".schemas.validation.FrozenMap;");
+                imports.add("import "+ generatorSettings.packageName + ".schemas.validation.FrozenMap;");
                 if (schema.mapValueSchema != null) {
                     imports.addAll(getDeeperImports(sourceJsonPath, schema.mapValueSchema));
                 }
@@ -1559,7 +1558,7 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
             if (schema.types.size() == 1) {
                 if (schema.types.contains("boolean")) {
                     if (schema.isSimpleBoolean()) {
-                        imports.add("import "+packageName + ".schemas.BooleanJsonSchema;");
+                        imports.add("import "+ generatorSettings.packageName + ".schemas.BooleanJsonSchema;");
                         imports.add("import org.checkerframework.checker.nullness.qual.Nullable;");
                     } else {
                         addCustomSchemaImports(imports, schema);
@@ -1568,7 +1567,7 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
                     }
                 } else if (schema.types.contains("null")) {
                     if (schema.isSimpleNull()) {
-                        imports.add("import "+packageName + ".schemas.NullJsonSchema;");
+                        imports.add("import "+generatorSettings.packageName + ".schemas.NullJsonSchema;");
                         imports.add("import org.checkerframework.checker.nullness.qual.Nullable;");
                     } else {
                         addCustomSchemaImports(imports, schema);
@@ -1579,11 +1578,11 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
                     if (schema.isSimpleInteger()) {
                         imports.add("import org.checkerframework.checker.nullness.qual.Nullable;");
                         if (schema.format == null || schema.format.equals("int")) {
-                            imports.add("import "+packageName + ".schemas.IntJsonSchema;");
+                            imports.add("import "+generatorSettings.packageName + ".schemas.IntJsonSchema;");
                         } else if (schema.format.equals("int32")) {
-                            imports.add("import "+packageName + ".schemas.Int32JsonSchema;");
+                            imports.add("import "+generatorSettings.packageName + ".schemas.Int32JsonSchema;");
                         } else if (schema.format.equals("int64")) {
-                            imports.add("import "+packageName + ".schemas.Int64JsonSchema;");
+                            imports.add("import "+generatorSettings.packageName + ".schemas.Int64JsonSchema;");
                         }
                     } else {
                         addCustomSchemaImports(imports, schema);
@@ -1594,15 +1593,15 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
                     if (schema.isSimpleNumber()) {
                         imports.add("import org.checkerframework.checker.nullness.qual.Nullable;");
                         if (schema.format == null) {
-                            imports.add("import "+packageName + ".schemas.NumberJsonSchema;");
+                            imports.add("import "+generatorSettings.packageName + ".schemas.NumberJsonSchema;");
                         } else if (schema.format.equals("int32")) {
-                            imports.add("import "+packageName + ".schemas.Int32JsonSchema;");
+                            imports.add("import "+generatorSettings.packageName + ".schemas.Int32JsonSchema;");
                         } else if (schema.format.equals("int64")) {
-                            imports.add("import "+packageName + ".schemas.Int64JsonSchema;");
+                            imports.add("import "+generatorSettings.packageName + ".schemas.Int64JsonSchema;");
                         } else if (schema.format.equals("float")) {
-                            imports.add("import "+packageName + ".schemas.FloatJsonSchema;");
+                            imports.add("import "+generatorSettings.packageName + ".schemas.FloatJsonSchema;");
                         } else if (schema.format.equals("double")) {
-                            imports.add("import "+packageName + ".schemas.DoubleJsonSchema;");
+                            imports.add("import "+generatorSettings.packageName + ".schemas.DoubleJsonSchema;");
                         }
                     } else {
                         addCustomSchemaImports(imports, schema);
@@ -1613,21 +1612,21 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
                     if (schema.isSimpleString()) {
                         imports.add("import org.checkerframework.checker.nullness.qual.Nullable;");
                         if (schema.format == null) {
-                            imports.add("import "+packageName + ".schemas.StringJsonSchema;");
+                            imports.add("import "+generatorSettings.packageName + ".schemas.StringJsonSchema;");
                         } else if (schema.format.equals("date")) {
-                            imports.add("import "+packageName + ".schemas.DateJsonSchema;");
+                            imports.add("import "+generatorSettings.packageName + ".schemas.DateJsonSchema;");
                         } else if (schema.format.equals("date-time")) {
-                            imports.add("import "+packageName + ".schemas.DateTimeJsonSchema;");
+                            imports.add("import "+generatorSettings.packageName + ".schemas.DateTimeJsonSchema;");
                         } else if (schema.format.equals("number")) {
-                            imports.add("import "+packageName + ".schemas.DecimalJsonSchema;");
+                            imports.add("import "+generatorSettings.packageName + ".schemas.DecimalJsonSchema;");
                         } else if (schema.format.equals("uuid")) {
-                            imports.add("import "+packageName + ".schemas.UuidJsonSchema;");
+                            imports.add("import "+generatorSettings.packageName + ".schemas.UuidJsonSchema;");
                         } else if (schema.format.equals("byte")) {
                             // todo implement this
-                            imports.add("import "+packageName + ".schemas.StringJsonSchema;");
+                            imports.add("import "+generatorSettings.packageName + ".schemas.StringJsonSchema;");
                         } else if (schema.format.equals("binary")) {
                             // todo implement this
-                            imports.add("import "+packageName + ".schemas.StringJsonSchema;");
+                            imports.add("import "+generatorSettings.packageName + ".schemas.StringJsonSchema;");
                         }
                     } else {
                         addCustomSchemaImports(imports, schema);
@@ -1637,9 +1636,9 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
                 } else if (schema.types.contains("object")) {
                     if (schema.isSimpleObject()) {
                         imports.add("import org.checkerframework.checker.nullness.qual.Nullable;");
-                        imports.add("import "+packageName + ".schemas.MapJsonSchema;");
+                        imports.add("import "+generatorSettings.packageName + ".schemas.MapJsonSchema;");
                         // add this in case the 1 higher schema is an array of FrozenMap
-                        imports.add("import "+packageName + ".schemas.validation.FrozenMap;");
+                        imports.add("import "+generatorSettings.packageName + ".schemas.validation.FrozenMap;");
                     } else {
                         addCustomSchemaImports(imports, schema);
                         imports.add("import java.util.Set;");
@@ -1651,9 +1650,9 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
                 } else if (schema.types.contains("array")) {
                     if (schema.isSimpleArray()) {
                         imports.add("import org.checkerframework.checker.nullness.qual.Nullable;");
-                        imports.add("import "+packageName + ".schemas.ListJsonSchema;");
+                        imports.add("import "+generatorSettings.packageName + ".schemas.ListJsonSchema;");
                         // add this in case the 1 higher schema is a map of FrozenList
-                        imports.add("import "+packageName + ".schemas.validation.FrozenList;");
+                        imports.add("import "+generatorSettings.packageName + ".schemas.validation.FrozenList;");
                     } else {
                         addCustomSchemaImports(imports, schema);
                         imports.add("import java.util.Set;");
@@ -1695,29 +1694,29 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
             // no types
             if (schema.isBooleanSchemaTrue) {
                 imports.add("import org.checkerframework.checker.nullness.qual.Nullable;");
-                imports.add("import "+packageName + ".schemas.AnyTypeJsonSchema;");
+                imports.add("import "+generatorSettings.packageName + ".schemas.AnyTypeJsonSchema;");
             } else if (schema.isBooleanSchemaFalse) {
                 imports.add("import org.checkerframework.checker.nullness.qual.Nullable;");
-                imports.add("import "+packageName + ".schemas.NotAnyTypeJsonSchema;");
+                imports.add("import "+generatorSettings.packageName + ".schemas.NotAnyTypeJsonSchema;");
             } else if (schema.isSimpleAnyType()) {
                 imports.add("import org.checkerframework.checker.nullness.qual.Nullable;");
-                imports.add("import "+packageName + ".schemas.AnyTypeJsonSchema;");
+                imports.add("import "+generatorSettings.packageName + ".schemas.AnyTypeJsonSchema;");
                 // in case higher schema is ListBuilder add List + Map
             } else {
                 addCustomSchemaImports(imports, schema);
                 imports.add("import java.time.LocalDate;");
                 imports.add("import java.time.ZonedDateTime;");
                 imports.add("import java.util.UUID;");
-                imports.add("import "+packageName + ".schemas.validation.FrozenList;");
+                imports.add("import "+generatorSettings.packageName + ".schemas.validation.FrozenList;");
                 imports.add("import java.util.List;");
-                imports.add("import "+packageName + ".schemas.validation.FrozenMap;");
+                imports.add("import "+generatorSettings.packageName + ".schemas.validation.FrozenMap;");
                 imports.add("import java.util.Map;");
-                imports.add("import "+packageName + ".schemas.validation.NullSchemaValidator;");
-                imports.add("import "+packageName + ".schemas.validation.BooleanSchemaValidator;");
-                imports.add("import "+packageName + ".schemas.validation.NumberSchemaValidator;");
-                imports.add("import "+packageName + ".schemas.validation.StringSchemaValidator;");
-                imports.add("import "+packageName + ".schemas.validation.ListSchemaValidator;");
-                imports.add("import "+packageName + ".schemas.validation.MapSchemaValidator;");
+                imports.add("import "+generatorSettings.packageName + ".schemas.validation.NullSchemaValidator;");
+                imports.add("import "+generatorSettings.packageName + ".schemas.validation.BooleanSchemaValidator;");
+                imports.add("import "+generatorSettings.packageName + ".schemas.validation.NumberSchemaValidator;");
+                imports.add("import "+generatorSettings.packageName + ".schemas.validation.StringSchemaValidator;");
+                imports.add("import "+generatorSettings.packageName + ".schemas.validation.ListSchemaValidator;");
+                imports.add("import "+generatorSettings.packageName + ".schemas.validation.MapSchemaValidator;");
                 imports.add("import java.util.LinkedHashMap;");
                 imports.add("import java.util.ArrayList;"); // for validate
                 addPropertiesImports(schema, imports);
@@ -1741,8 +1740,8 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
                     imports.addAll(getDeeperImports(sourceJsonPath, schema.items));
                 }
                 if (schema.additionalProperties == null || !schema.additionalProperties.isBooleanSchemaFalse) {
-                    imports.add("import "+packageName + ".exceptions.UnsetPropertyException;");
-                    imports.add("import "+packageName + ".exceptions.InvalidAdditionalPropertyException;");
+                    imports.add("import "+generatorSettings.packageName + ".exceptions.UnsetPropertyException;");
+                    imports.add("import "+generatorSettings.packageName + ".exceptions.InvalidAdditionalPropertyException;");
                 }
             }
         }
@@ -1757,45 +1756,45 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
 
     private void addDefaultValueImport(CodegenSchema schema, Set<String> imports) {
         if (schema.defaultValue != null) {
-            imports.add("import "+packageName + ".schemas.validation.DefaultValueMethod;");
+            imports.add("import "+generatorSettings.packageName + ".schemas.validation.DefaultValueMethod;");
         }
     }
 
 
     private void addEnumValidator(CodegenSchema schema, Set<String> imports) {
         if (schema.enumInfo != null) {
-            imports.add("import "+packageName + ".schemas.SetMaker;");
+            imports.add("import "+generatorSettings.packageName + ".schemas.SetMaker;");
             if (schema.enumInfo.typeToValues.containsKey("null")) {
-                imports.add("import "+packageName + ".schemas.validation.NullEnumValidator;");
-                imports.add("import "+packageName + ".schemas.validation.NullValueMethod;");
+                imports.add("import "+generatorSettings.packageName + ".schemas.validation.NullEnumValidator;");
+                imports.add("import "+generatorSettings.packageName + ".schemas.validation.NullValueMethod;");
             }
             if (schema.enumInfo.typeToValues.containsKey("boolean")) {
-                imports.add("import "+packageName + ".schemas.validation.BooleanEnumValidator;");
-                imports.add("import "+packageName + ".schemas.validation.BooleanValueMethod;");
+                imports.add("import "+generatorSettings.packageName + ".schemas.validation.BooleanEnumValidator;");
+                imports.add("import "+generatorSettings.packageName + ".schemas.validation.BooleanValueMethod;");
             }
             if (schema.enumInfo.typeToValues.containsKey("string")) {
-                imports.add("import "+packageName + ".schemas.validation.StringEnumValidator;");
-                imports.add("import "+packageName + ".schemas.validation.StringValueMethod;");
+                imports.add("import "+generatorSettings.packageName + ".schemas.validation.StringEnumValidator;");
+                imports.add("import "+generatorSettings.packageName + ".schemas.validation.StringValueMethod;");
             }
             if (schema.enumInfo.typeToValues.containsKey("Integer")) {
                 imports.add("import java.math.BigDecimal;");
-                imports.add("import "+packageName + ".schemas.validation.IntegerEnumValidator;");
-                imports.add("import "+packageName + ".schemas.validation.IntegerValueMethod;");
+                imports.add("import "+generatorSettings.packageName + ".schemas.validation.IntegerEnumValidator;");
+                imports.add("import "+generatorSettings.packageName + ".schemas.validation.IntegerValueMethod;");
             }
             if (schema.enumInfo.typeToValues.containsKey("Long")) {
                 imports.add("import java.math.BigDecimal;");
-                imports.add("import "+packageName + ".schemas.validation.LongEnumValidator;");
-                imports.add("import "+packageName + ".schemas.validation.LongValueMethod;");
+                imports.add("import "+generatorSettings.packageName + ".schemas.validation.LongEnumValidator;");
+                imports.add("import "+generatorSettings.packageName + ".schemas.validation.LongValueMethod;");
             }
             if (schema.enumInfo.typeToValues.containsKey("Float")) {
                 imports.add("import java.math.BigDecimal;");
-                imports.add("import "+packageName + ".schemas.validation.FloatEnumValidator;");
-                imports.add("import "+packageName + ".schemas.validation.FloatValueMethod;");
+                imports.add("import "+generatorSettings.packageName + ".schemas.validation.FloatEnumValidator;");
+                imports.add("import "+generatorSettings.packageName + ".schemas.validation.FloatValueMethod;");
             }
             if (schema.enumInfo.typeToValues.containsKey("Double")) {
                 imports.add("import java.math.BigDecimal;");
-                imports.add("import "+packageName + ".schemas.validation.DoubleEnumValidator;");
-                imports.add("import "+packageName + ".schemas.validation.DoubleValueMethod;");
+                imports.add("import "+generatorSettings.packageName + ".schemas.validation.DoubleEnumValidator;");
+                imports.add("import "+generatorSettings.packageName + ".schemas.validation.DoubleValueMethod;");
             }
         }
     }
@@ -1803,47 +1802,47 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
     private void addConstImports(CodegenSchema schema, Set<String> imports) {
         if (schema.constInfo != null) {
             if (schema.constInfo.typeToValues.containsKey("null")) {
-                imports.add("import "+packageName + ".schemas.validation.NullEnumValidator;");
-                imports.add("import "+packageName + ".schemas.validation.NullValueMethod;");
+                imports.add("import "+generatorSettings.packageName + ".schemas.validation.NullEnumValidator;");
+                imports.add("import "+generatorSettings.packageName + ".schemas.validation.NullValueMethod;");
             }
             if (schema.constInfo.typeToValues.containsKey("boolean")) {
-                imports.add("import "+packageName + ".schemas.validation.BooleanEnumValidator;");
-                imports.add("import "+packageName + ".schemas.validation.BooleanValueMethod;");
+                imports.add("import "+generatorSettings.packageName + ".schemas.validation.BooleanEnumValidator;");
+                imports.add("import "+generatorSettings.packageName + ".schemas.validation.BooleanValueMethod;");
             }
             if (schema.constInfo.typeToValues.containsKey("string")) {
-                imports.add("import "+packageName + ".schemas.validation.StringEnumValidator;");
-                imports.add("import "+packageName + ".schemas.validation.StringValueMethod;");
+                imports.add("import "+generatorSettings.packageName + ".schemas.validation.StringEnumValidator;");
+                imports.add("import "+generatorSettings.packageName + ".schemas.validation.StringValueMethod;");
             }
             if (schema.constInfo.typeToValues.containsKey("Integer")) {
                 imports.add("import java.math.BigDecimal;");
-                imports.add("import "+packageName + ".schemas.validation.IntegerEnumValidator;");
-                imports.add("import "+packageName + ".schemas.validation.IntegerValueMethod;");
+                imports.add("import "+generatorSettings.packageName + ".schemas.validation.IntegerEnumValidator;");
+                imports.add("import "+generatorSettings.packageName + ".schemas.validation.IntegerValueMethod;");
             }
             if (schema.constInfo.typeToValues.containsKey("Long")) {
                 imports.add("import java.math.BigDecimal;");
-                imports.add("import "+packageName + ".schemas.validation.LongEnumValidator;");
-                imports.add("import "+packageName + ".schemas.validation.LongValueMethod;");
+                imports.add("import "+generatorSettings.packageName + ".schemas.validation.LongEnumValidator;");
+                imports.add("import "+generatorSettings.packageName + ".schemas.validation.LongValueMethod;");
             }
             if (schema.constInfo.typeToValues.containsKey("Float")) {
                 imports.add("import java.math.BigDecimal;");
-                imports.add("import "+packageName + ".schemas.validation.FloatEnumValidator;");
-                imports.add("import "+packageName + ".schemas.validation.FloatValueMethod;");
+                imports.add("import "+generatorSettings.packageName + ".schemas.validation.FloatEnumValidator;");
+                imports.add("import "+generatorSettings.packageName + ".schemas.validation.FloatValueMethod;");
             }
             if (schema.constInfo.typeToValues.containsKey("Double")) {
                 imports.add("import java.math.BigDecimal;");
-                imports.add("import "+packageName + ".schemas.validation.DoubleEnumValidator;");
-                imports.add("import "+packageName + ".schemas.validation.DoubleValueMethod;");
+                imports.add("import "+generatorSettings.packageName + ".schemas.validation.DoubleEnumValidator;");
+                imports.add("import "+generatorSettings.packageName + ".schemas.validation.DoubleValueMethod;");
             }
         }
     }
 
     private void addPropertiesImports(CodegenSchema schema, Set<String> imports) {
         if (schema.properties != null) {
-            imports.add("import " + packageName + ".schemas.validation.PropertyEntry;");
+            imports.add("import " + generatorSettings.packageName + ".schemas.validation.PropertyEntry;");
             imports.add("import java.util.Map;");
             imports.add("import java.util.Set;");
-            imports.add("import " + packageName + ".exceptions.UnsetPropertyException;");
-            imports.add("import " + packageName + ".schemas.GenericBuilder;");
+            imports.add("import " + generatorSettings.packageName + ".exceptions.UnsetPropertyException;");
+            imports.add("import " + generatorSettings.packageName + ".schemas.GenericBuilder;");
         }
     }
 
@@ -1857,16 +1856,16 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
 
     private void addDependentSchemasImports(CodegenSchema schema, Set<String> imports) {
         if (schema.dependentSchemas != null) {
-            imports.add("import " + packageName + ".schemas.validation.PropertyEntry;");
+            imports.add("import " + generatorSettings.packageName + ".schemas.validation.PropertyEntry;");
             imports.add("import java.util.Map;");
         }
     }
 
     private void addDependentRequiredImports(CodegenSchema schema, Set<String> imports) {
         if (schema.dependentRequired != null) {
-            imports.add("import "+packageName + ".schemas.validation.MapUtils;");
+            imports.add("import "+generatorSettings.packageName + ".schemas.validation.MapUtils;");
             imports.add("import java.util.AbstractMap;");
-            imports.add("import "+packageName + ".schemas.SetMaker;");
+            imports.add("import "+generatorSettings.packageName + ".schemas.SetMaker;");
         }
     }
 
@@ -1890,14 +1889,14 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
 
     private void addAdditionalPropertiesImports(CodegenSchema schema, Set<String> imports) {
         if (schema.additionalProperties == null || !schema.additionalProperties.isBooleanSchemaFalse) {
-            imports.add("import "+packageName + ".exceptions.UnsetPropertyException;");
-            imports.add("import "+packageName + ".exceptions.InvalidAdditionalPropertyException;");
+            imports.add("import "+generatorSettings.packageName + ".exceptions.UnsetPropertyException;");
+            imports.add("import "+generatorSettings.packageName + ".exceptions.InvalidAdditionalPropertyException;");
         }
         if (schema.additionalProperties != null) {
-            imports.add("import "+packageName + ".schemas.GenericBuilder;");
-            imports.add("import "+packageName + ".schemas.validation.MapUtils;");
+            imports.add("import "+generatorSettings.packageName + ".schemas.GenericBuilder;");
+            imports.add("import "+generatorSettings.packageName + ".schemas.validation.MapUtils;");
         } else {
-            imports.add("import "+packageName + ".schemas.UnsetAddPropsSetter;");
+            imports.add("import "+generatorSettings.packageName + ".schemas.UnsetAddPropsSetter;");
         }
     }
 
@@ -1905,7 +1904,7 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
     private void addRequiredValidator(CodegenSchema schema, Set<String> imports) {
         if (schema.requiredProperties != null) {
             imports.add("import java.util.Set;");
-            imports.add("import "+packageName + ".schemas.GenericBuilder;");
+            imports.add("import "+generatorSettings.packageName + ".schemas.GenericBuilder;");
         }
     }
 
@@ -1916,23 +1915,23 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
     }
 
     private void addCustomSchemaImports(Set<String> imports, CodegenSchema schema) {
-        imports.add("import " + packageName + ".schemas.validation.JsonSchema;");
-        imports.add("import " + packageName + ".schemas.validation.JsonSchemaInfo;");
-        imports.add("import "+packageName + ".configurations.SchemaConfiguration;");
-        imports.add("import "+packageName + ".exceptions.ValidationException;");
+        imports.add("import " + generatorSettings.packageName + ".schemas.validation.JsonSchema;");
+        imports.add("import " + generatorSettings.packageName + ".schemas.validation.JsonSchemaInfo;");
+        imports.add("import "+generatorSettings.packageName + ".configurations.SchemaConfiguration;");
+        imports.add("import "+generatorSettings.packageName + ".exceptions.ValidationException;");
         imports.add("import java.util.Set;"); // for validate
         imports.add("import java.util.HashSet;"); // for validate
         imports.add("import java.util.Objects;"); // for validate
         imports.add("import java.util.LinkedHashSet;"); // for validate
         imports.add("import java.util.List;"); // for castToAllowedTypes
-        imports.add("import "+packageName + ".schemas.validation.PathToSchemasMap;"); // for getNewInstance
-        imports.add("import "+packageName + ".schemas.validation.ValidationMetadata;"); // for getNewInstance
-        imports.add("import "+packageName + ".configurations.JsonSchemaKeywordFlags;"); // for getNewInstance
+        imports.add("import "+generatorSettings.packageName + ".schemas.validation.PathToSchemasMap;"); // for getNewInstance
+        imports.add("import "+generatorSettings.packageName + ".schemas.validation.ValidationMetadata;"); // for getNewInstance
+        imports.add("import "+generatorSettings.packageName + ".configurations.JsonSchemaKeywordFlags;"); // for getNewInstance
         imports.add("import org.checkerframework.checker.nullness.qual.Nullable;");
     }
 
     private void addBooleanSchemaImports(Set<String> imports, CodegenSchema schema) {
-        imports.add("import " + packageName + ".schemas.validation.BooleanSchemaValidator;");
+        imports.add("import " + generatorSettings.packageName + ".schemas.validation.BooleanSchemaValidator;");
         addAllOfValidator(schema, imports);
         addAnyOfValidator(schema, imports);
         addOneOfValidator(schema, imports);
@@ -1942,7 +1941,7 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
     }
 
     private void addNullSchemaImports(Set<String> imports, CodegenSchema schema) {
-        imports.add("import " + packageName + ".schemas.validation.NullSchemaValidator;");
+        imports.add("import " + generatorSettings.packageName + ".schemas.validation.NullSchemaValidator;");
         addAllOfValidator(schema, imports);
         addAnyOfValidator(schema, imports);
         addOneOfValidator(schema, imports);
@@ -1952,8 +1951,8 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
     }
 
     private void addMapSchemaImports(Set<String> imports, CodegenSchema schema) {
-        imports.add("import " + packageName + ".schemas.validation.MapSchemaValidator;");
-        imports.add("import "+packageName + ".schemas.validation.FrozenMap;");
+        imports.add("import " + generatorSettings.packageName + ".schemas.validation.MapSchemaValidator;");
+        imports.add("import "+generatorSettings.packageName + ".schemas.validation.FrozenMap;");
         imports.add("import java.util.Map;");
         imports.add("import java.util.ArrayList;"); // for castToAllowedTypes
         imports.add("import java.util.LinkedHashMap;");
@@ -1969,8 +1968,8 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
     }
 
     private void addListSchemaImports(Set<String> imports, CodegenSchema schema) {
-        imports.add("import " + packageName + ".schemas.validation.ListSchemaValidator;");
-        imports.add("import "+packageName + ".schemas.validation.FrozenList;");
+        imports.add("import " + generatorSettings.packageName + ".schemas.validation.ListSchemaValidator;");
+        imports.add("import "+generatorSettings.packageName + ".schemas.validation.FrozenList;");
         imports.add("import java.util.List;");
         imports.add("import java.util.ArrayList;"); // for castToAllowedTypes
         imports.add("import java.util.LinkedHashMap;");
@@ -1980,7 +1979,7 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
     }
 
     private void addNumberSchemaImports(Set<String> imports, CodegenSchema schema) {
-        imports.add("import " + packageName + ".schemas.validation.NumberSchemaValidator;");
+        imports.add("import " + generatorSettings.packageName + ".schemas.validation.NumberSchemaValidator;");
         addAllOfValidator(schema, imports);
         addAnyOfValidator(schema, imports);
         addOneOfValidator(schema, imports);
@@ -2004,7 +2003,7 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
                     break;
             }
         }
-        imports.add("import " + packageName + ".schemas.validation.StringSchemaValidator;");
+        imports.add("import " + generatorSettings.packageName + ".schemas.validation.StringSchemaValidator;");
         addAllOfValidator(schema, imports);
         addAnyOfValidator(schema, imports);
         addOneOfValidator(schema, imports);
@@ -2017,7 +2016,7 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
 
     @Override
     public String getImport(CodegenRefInfo<?> refInfo) {
-        String prefix = "import " + packageName + ".components.";
+        String prefix = "import " + generatorSettings.packageName + ".components.";
         if (refInfo.ref instanceof CodegenSchema) {
             if (refInfo.refModuleAlias == null) {
                 return "import " + refInfo.refModuleLocation + "." + refInfo.refModule + ";";

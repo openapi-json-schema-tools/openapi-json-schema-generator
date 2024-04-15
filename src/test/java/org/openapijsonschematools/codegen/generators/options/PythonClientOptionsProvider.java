@@ -19,6 +19,8 @@ package org.openapijsonschematools.codegen.generators.options;
 
 import com.google.common.collect.ImmutableMap;
 import org.openapijsonschematools.codegen.common.CodegenConstants;
+import org.openapijsonschematools.codegen.config.GeneratorSettings;
+import org.openapijsonschematools.codegen.config.WorkflowSettings;
 import org.openapijsonschematools.codegen.generators.PythonClientGenerator;
 
 import java.util.Map;
@@ -40,7 +42,6 @@ public class PythonClientOptionsProvider implements OptionsProvider {
     public Map<String, String> createOptions() {
         ImmutableMap.Builder<String, String> builder = new ImmutableMap.Builder<String, String>();
         return builder.put(PythonClientGenerator.PACKAGE_URL, PACKAGE_URL_VALUE)
-                .put(CodegenConstants.PACKAGE_NAME, PACKAGE_NAME_VALUE)
                 .put(CodegenConstants.PROJECT_NAME, PROJECT_NAME_VALUE)
                 .put(CodegenConstants.PACKAGE_VERSION, PACKAGE_VERSION_VALUE)
                 .put(CodegenConstants.HIDE_GENERATION_TIMESTAMP, "true")
@@ -48,8 +49,17 @@ public class PythonClientOptionsProvider implements OptionsProvider {
                 .put(PythonClientGenerator.USE_NOSE, USE_NOSE_VALUE)
                 .put(PythonClientGenerator.RECURSION_LIMIT, RECURSION_LIMIT)
                 .put(CodegenConstants.NON_COMPLIANT_USE_DISCR_IF_COMPOSITION_FAILS, "false")
-                .put(CodegenConstants.TEMPLATING_ENGINE, "handlebars")
                 .build();
+    }
+
+    @Override
+    public WorkflowSettings createWorkflowInput() {
+        return WorkflowSettings.newBuilder().withTemplatingEngineName("handlebars").build();
+    }
+
+    @Override
+    public GeneratorSettings createGeneratorInput() {
+        return GeneratorSettings.newBuilder().withPackageName(PACKAGE_NAME_VALUE).build();
     }
 
     @Override

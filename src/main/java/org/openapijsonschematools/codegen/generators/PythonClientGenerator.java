@@ -367,8 +367,7 @@ public class PythonClientGenerator extends DefaultGenerator implements Generator
         regexModifiers.put('u', "UNICODE");
 
         cliOptions.clear();
-        cliOptions.add(new CliOption(CodegenConstants.PACKAGE_NAME, "python package name (convention: snake_case).")
-            .defaultValue("openapi_client"));
+        // TODO ensure that PACKAGE_NAME + TEMPLATING_ENGINE is documented in help
         cliOptions.add(new CliOption(CodegenConstants.PROJECT_NAME, "python project name in setup.py (e.g. petstore-api)."));
         cliOptions.add(new CliOption(CodegenConstants.PACKAGE_VERSION, "python package version.")
             .defaultValue("1.0.0"));
@@ -385,12 +384,6 @@ public class PythonClientGenerator extends DefaultGenerator implements Generator
         cliOptions.add(CliOption.newBoolean(USE_NOSE, "use the nose test framework").
             defaultValue(Boolean.FALSE.toString()));
         cliOptions.add(new CliOption(RECURSION_LIMIT, "Set the recursion limit. If not set, use the system default value."));
-        CliOption templateEngineOption = new CliOption(CodegenConstants.TEMPLATING_ENGINE, "template engine");
-        templateEngineOption.setDefault("handlebars");
-        Map<String, String> templateEngineEnumValueToDesc = new HashMap<>();
-        templateEngineEnumValueToDesc.put("handlebars", "handlebars templating engine");
-        templateEngineOption.setEnum(templateEngineEnumValueToDesc);
-        cliOptions.add(templateEngineOption);
         CliOption nonCompliantUseDiscrIfCompositionFails = CliOption.newBoolean(CodegenConstants.NON_COMPLIANT_USE_DISCR_IF_COMPOSITION_FAILS, CodegenConstants.NON_COMPLIANT_USE_DISCR_IF_COMPOSITION_FAILS_DESC);
         Map<String, String> nonCompliantUseDiscrIfCompositionFailsOpts = new HashMap<>();
         nonCompliantUseDiscrIfCompositionFailsOpts.put("true", "If composition fails and a discriminator exists, the composition errors will be ignored and validation will be attempted with the discriminator");
@@ -721,24 +714,19 @@ public class PythonClientGenerator extends DefaultGenerator implements Generator
 
         boolean excludeTests = false;
 
-        if (additionalProperties.containsKey(CodegenConstants.PACKAGE_NAME)) {
-            setPackageName((String) additionalProperties.get(CodegenConstants.PACKAGE_NAME));
-        }
 
+        if (additionalProperties.containsKey(CodegenConstants.PACKAGE_VERSION)) {
+            setPackageVersion((String) additionalProperties.get(CodegenConstants.PACKAGE_VERSION));
+        }
         if (additionalProperties.containsKey(CodegenConstants.PROJECT_NAME)) {
             setProjectName((String) additionalProperties.get(CodegenConstants.PROJECT_NAME));
         } else {
             // default: set project based on package name
             // e.g. petstore_api (package name) => petstore-api (project name)
-            setProjectName(packageName.replaceAll("_", "-"));
-        }
-
-        if (additionalProperties.containsKey(CodegenConstants.PACKAGE_VERSION)) {
-            setPackageVersion((String) additionalProperties.get(CodegenConstants.PACKAGE_VERSION));
+            setProjectName(generatorSettings.packageName.replaceAll("_", "-"));
         }
 
         additionalProperties.put(CodegenConstants.PROJECT_NAME, projectName);
-        additionalProperties.put(CodegenConstants.PACKAGE_NAME, packageName);
         additionalProperties.put(CodegenConstants.PACKAGE_VERSION, packageVersion);
 
         if (additionalProperties.containsKey(CodegenConstants.EXCLUDE_TESTS)) {
@@ -806,7 +794,7 @@ public class PythonClientGenerator extends DefaultGenerator implements Generator
         supportingFiles.add(new SupportingFile("configurations" + File.separatorChar + "api_configuration.hbs", packagePath() + File.separatorChar + "configurations", "api_configuration.py"));
 
         // If the package name consists of dots(openapi.client), then we need to create the directory structure like openapi/client with __init__ files.
-        String[] packageNameSplits = packageName.split("\\.");
+        String[] packageNameSplits = generatorSettings.packageName.split("\\.");
         String currentPackagePath = "";
         for (int i = 0; i < packageNameSplits.length - 1; i++) {
             if (i > 0) {
@@ -991,7 +979,7 @@ public class PythonClientGenerator extends DefaultGenerator implements Generator
             return null;
         }
         String modelModule = refClassPieces[0];
-        return "from " + packageName + "." +  modelPackage + " import " + modelModule;
+        return "from " + generatorSettings.packageName + "." +  modelPackage + " import " + modelModule;
     }
 
     /***
@@ -1780,7 +1768,7 @@ public class PythonClientGenerator extends DefaultGenerator implements Generator
     public String packagePath() {
         // src is needed for modern packaging per
         // https://packaging.python.org/en/latest/tutorials/packaging-projects/
-        return "src" + File.separatorChar + packageName.replace('.', File.separatorChar);
+        return "src" + File.separatorChar + generatorSettings.packageName.replace('.', File.separatorChar);
     }
 
 
@@ -2219,11 +2207,6 @@ public class PythonClientGenerator extends DefaultGenerator implements Generator
                 Thread.currentThread().interrupt();
             }
         }
-    }
-
-    public void setPackageName(String packageName) {
-        this.packageName = packageName;
-        additionalProperties.put(CodegenConstants.PACKAGE_NAME, this.packageName);
     }
 
     public void setProjectName(String projectName) {
