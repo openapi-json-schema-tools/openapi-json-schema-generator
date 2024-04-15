@@ -90,6 +90,9 @@ public class DefaultGeneratorTest {
         public ThisDefaultGenerator() {
             super(null, null);
         }
+        public ThisDefaultGenerator(WorkflowSettings ws) {
+            super(null, ws);
+        }
         @Override
         public String escapeUnsafeCharacters(String input) {
             return input;
@@ -3116,14 +3119,14 @@ public class DefaultGeneratorTest {
     @Test
     public void testRemoveOperationIdPrefix() {
         final OpenAPI openAPI = TestUtils.parseFlattenSpec("src/test/resources/bugs/issue_9719.yaml");
-        final DefaultGenerator codegen = new ThisDefaultGenerator();
+        WorkflowSettings ws = WorkflowSettings.newBuilder().withRemoveOperationIdPrefix(true).build();
+        final DefaultGenerator codegen = new ThisDefaultGenerator(ws);
         codegen.setOpenAPI(openAPI);
 
         String path;
         Operation operation;
         CodegenOperation co;
 
-        codegen.additionalProperties().put(CodegenConstants.REMOVE_OPERATION_ID_PREFIX, "True");
         codegen.additionalProperties().put(CodegenConstants.REMOVE_OPERATION_ID_PREFIX_DELIMITER, ".");
         codegen.additionalProperties().put(CodegenConstants.REMOVE_OPERATION_ID_PREFIX_COUNT, 2);
         codegen.processOpts();
@@ -3132,7 +3135,6 @@ public class DefaultGeneratorTest {
         co = codegen.fromOperation(operation, getOperationPath(path, "get"), null, null, null);
         assertEquals(co.operationId.pascalCase, "UsersGetAll");
 
-        codegen.additionalProperties().put(CodegenConstants.REMOVE_OPERATION_ID_PREFIX, "True");
         codegen.additionalProperties().put(CodegenConstants.REMOVE_OPERATION_ID_PREFIX_DELIMITER, ".");
         codegen.additionalProperties().put(CodegenConstants.REMOVE_OPERATION_ID_PREFIX_COUNT, -1);
         codegen.processOpts();
@@ -3141,7 +3143,6 @@ public class DefaultGeneratorTest {
         co = codegen.fromOperation(operation, getOperationPath(path, "get"), null, null, null);
         assertEquals(co.operationId.pascalCase, "GetAll");
 
-        codegen.additionalProperties().put(CodegenConstants.REMOVE_OPERATION_ID_PREFIX, "True");
         codegen.additionalProperties().put(CodegenConstants.REMOVE_OPERATION_ID_PREFIX_DELIMITER, ".");
         codegen.additionalProperties().put(CodegenConstants.REMOVE_OPERATION_ID_PREFIX_COUNT, 10);
         codegen.processOpts();
@@ -3150,7 +3151,6 @@ public class DefaultGeneratorTest {
         co = codegen.fromOperation(operation, getOperationPath(path, "get"), null, null, null);
         assertEquals(co.operationId.pascalCase, "GetAll");
 
-        codegen.additionalProperties().put(CodegenConstants.REMOVE_OPERATION_ID_PREFIX, "True");
         codegen.additionalProperties().put(CodegenConstants.REMOVE_OPERATION_ID_PREFIX_DELIMITER, "_");
         codegen.additionalProperties().put(CodegenConstants.REMOVE_OPERATION_ID_PREFIX_COUNT, 2);
         codegen.processOpts();
@@ -3159,7 +3159,6 @@ public class DefaultGeneratorTest {
         co = codegen.fromOperation(operation, getOperationPath(path, "get"), null, null, null);
         assertEquals(co.operationId.pascalCase, "UsersGetAll");
 
-        codegen.additionalProperties().put(CodegenConstants.REMOVE_OPERATION_ID_PREFIX, "True");
         codegen.additionalProperties().put(CodegenConstants.REMOVE_OPERATION_ID_PREFIX_DELIMITER, "_");
         codegen.additionalProperties().put(CodegenConstants.REMOVE_OPERATION_ID_PREFIX_COUNT, -1);
         codegen.processOpts();
@@ -3168,7 +3167,6 @@ public class DefaultGeneratorTest {
         co = codegen.fromOperation(operation, getOperationPath(path, "get"), null, null, null);
         assertEquals(co.operationId.pascalCase, "GetAll");
 
-        codegen.additionalProperties().put(CodegenConstants.REMOVE_OPERATION_ID_PREFIX, "True");
         codegen.additionalProperties().put(CodegenConstants.REMOVE_OPERATION_ID_PREFIX_DELIMITER, "_");
         codegen.additionalProperties().put(CodegenConstants.REMOVE_OPERATION_ID_PREFIX_COUNT, 10);
         codegen.processOpts();

@@ -222,9 +222,6 @@ public class DefaultGenerator implements Generator {
     protected String requestBodyIdentifier = "request_body";
     private final Pattern patternRegex = Pattern.compile("^/?(.+?)/?([simu]{0,4})$");
     private final CodegenKey additionalPropertySampleKey = new CodegenKey("someAdditionalProperty", true, "additional_property", "AdditionalProperty", "additional-property", "additionalProperty");
-
-
-
     protected String headersSchemaFragment = "Headers";
     protected static final Set<String> operationVerbs = Set.of("get", "put", "post", "delete", "options", "head", "patch", "trace");
     protected Set<String> xParameters = Set.of("PathParameters", "QueryParameters", "HeaderParameters", "CookieParameters");
