@@ -229,7 +229,7 @@ public class PythonClientGenerator extends DefaultGenerator implements Generator
             OperationFeature.Security,
             OperationFeature.Servers
         )
-        .build();
+    .build();
     public static final GeneratorMetadata generatorMetadata = GeneratorMetadata.newBuilder()
         .name("python")
             .language(GeneratorLanguage.PYTHON)
@@ -239,55 +239,38 @@ public class PythonClientGenerator extends DefaultGenerator implements Generator
             .featureSet(featureSet)
             .generationMessage(String.format(Locale.ROOT, "OpenAPI JSON Schema Generator: %s (%s)", "python", GeneratorType.CLIENT))
         .helpTxt(
-        String.join("<br />",
-                    "Generates a Python client library",
-                        "",
-                        "Features in this generator:",
-                        "- type hints on endpoints and model creation",
-                        "- model parameter names use the spec defined keys and cases",
-                        "- robust composition (oneOf/anyOf/allOf/not) where payload data is stored in one instance only",
-                        "- endpoint parameter names use the spec defined keys and cases",
-                        "- inline schemas are supported at any location including composition",
-                        "- multiple content types supported in request body and response bodies",
-                        "- run time type checking + json schema validation",
-                        "- json schema keyword validation may be selectively disabled with SchemaConfiguration",
-                        "- enums of type string/integer/boolean typed using typing.Literal",
-                        "- mypy static type checking run on generated sample",
-                        "- Sending/receiving decimals as strings supported with type:string format: number -> DecimalSchema",
-                        "- Sending/receiving uuids as strings supported with type:string format: uuid -> UUIDSchema",
-                        "- quicker load time for python modules (a single endpoint can be imported and used without loading others)",
-                        "- composed schemas with type constraints supported (type:object + oneOf/anyOf/allOf)",
-                        "- schemas are not coerced/cast. For example string + date are both stored as string, and there is a date accessor"
-    )
+            String.join(
+                "<br />",
+                  "Generates a Python client library",
+                "",
+                "Features in this generator:",
+                "- type hints on endpoints and model creation",
+                "- model parameter names use the spec defined keys and cases",
+                "- robust composition (oneOf/anyOf/allOf/not) where payload data is stored in one instance only",
+                "- endpoint parameter names use the spec defined keys and cases",
+                "- inline schemas are supported at any location including composition",
+                "- multiple content types supported in request body and response bodies",
+                "- run time type checking + json schema validation",
+                "- json schema keyword validation may be selectively disabled with SchemaConfiguration",
+                "- enums of type string/integer/boolean typed using typing.Literal",
+                "- mypy static type checking run on generated sample",
+                "- Sending/receiving decimals as strings supported with type:string format: number -> DecimalSchema",
+                "- Sending/receiving uuids as strings supported with type:string format: uuid -> UUIDSchema",
+                "- quicker load time for python modules (a single endpoint can be imported and used without loading others)",
+                "- composed schemas with type constraints supported (type:object + oneOf/anyOf/allOf)",
+                "- schemas are not coerced/cast. For example string + date are both stored as string, and there is a date accessor"
             )
-                .build();
-
+        )
+    .build();
 
     public PythonClientGenerator(GeneratorSettings generatorSettings, WorkflowSettings workflowSettings) {
-        String apiPackage = Objects.requireNonNullElse(generatorSettings.getApiPackage(), "apis");
-        String embeddedTemplateDir = "python";
-        String packageName = Objects.requireNonNullElse(generatorSettings.getPackageName(), "openapi_client");
-        this.generatorSettings = new CodeGeneratorSettings(
-            apiPackage,
-            workflowSettings.getOutputDir(),
-            workflowSettings.getTemplateDir(),
-            embeddedTemplateDir,
-            packageName,
-            workflowSettings.isStrictSpecBehavior(),
-            workflowSettings.isEnableMinimalUpdate(),
-            workflowSettings.isSkipOverwrite(),
-            workflowSettings.isRemoveOperationIdPrefix(),
-            workflowSettings.getIgnoreFileOverride(),
-            workflowSettings.isSkipOperationExample(),
-            workflowSettings.isEnablePostProcessFile(),
-            workflowSettings.getTemplatingEngineName(),
-            workflowSettings.getInputSpec()
+        super(
+            generatorSettings,
+            workflowSettings,
+            "python",
+            "openapi_client",
+            "generated_code" + File.separator + "python"
         );
-        testFolder = "test";
-    }
-
-    public PythonClientGenerator() {
-        super();
         testFolder = "test";
         loadDeepObjectIntoItems = false;
         importBaseType = false;
@@ -296,22 +279,22 @@ public class PythonClientGenerator extends DefaultGenerator implements Generator
 
         // from https://docs.python.org/3/reference/lexical_analysis.html#keywords
         setReservedWordsLowerCase(
-                Arrays.asList(
-                        // local variable name used in API methods (endpoints)
-                        "all_params", "resource_path", "path_params", "query_params",
-                        "header_params", "form_params", "local_var_files", "body_params", "auth_settings",
-                        // @property
-                        "property",
-                        // python reserved words
-                        "and", "del", "from", "not", "while", "as", "elif", "global", "or", "with",
-                        "assert", "else", "if", "pass", "yield", "break", "except", "import",
-                        "print", "class", "exec", "in", "raise", "continue", "finally", "is",
-                        "return", "def", "for", "lambda", "try", "self", "nonlocal", "None", "True",
-                        "False", "async", "await",
-                        // imports, imports_schema_types.handlebars, include these to prevent name collision
-                        "datetime", "decimal", "functools", "io", "re",
-                        "typing", "typing_extensions", "uuid", "immutabledict", "schemas"
-                ));
+            Arrays.asList(
+                // local variable name used in API methods (endpoints)
+                "all_params", "resource_path", "path_params", "query_params",
+                "header_params", "form_params", "local_var_files", "body_params", "auth_settings",
+                // @property
+                "property",
+                // python reserved words
+                "and", "del", "from", "not", "while", "as", "elif", "global", "or", "with",
+                "assert", "else", "if", "pass", "yield", "break", "except", "import",
+                "print", "class", "exec", "in", "raise", "continue", "finally", "is",
+                "return", "def", "for", "lambda", "try", "self", "nonlocal", "None", "True",
+                "False", "async", "await",
+                // imports, imports_schema_types.handlebars, include these to prevent name collision
+                "datetime", "decimal", "functools", "io", "re",
+                "typing", "typing_extensions", "uuid", "immutabledict", "schemas"
+            ));
 
         languageSpecificPrimitives.clear();
         languageSpecificPrimitives.add("int");
@@ -356,7 +339,6 @@ public class PythonClientGenerator extends DefaultGenerator implements Generator
         GeneratorType generatorType = GeneratorType.CLIENT;
 
         modelPackage = "components.schema";
-        outputFolder = "generated-code" + File.separatorChar + "python";
 
         embeddedTemplateDir = templateDir = "python";
 
@@ -365,17 +347,17 @@ public class PythonClientGenerator extends DefaultGenerator implements Generator
 
         // from https://docs.python.org/3/reference/lexical_analysis.html#keywords
         setReservedWordsLowerCase(
-                Arrays.asList(
-                        // @property
-                        "property",
-                        // python reserved words
-                        "and", "del", "from", "not", "while", "as", "elif", "global", "or", "with",
-                        "assert", "else", "if", "pass", "yield", "break", "except", "import",
-                        "print", "class", "exec", "in", "raise", "continue", "finally", "is",
-                        "return", "def", "for", "lambda", "try", "self", "nonlocal", "None", "True",
-                        "False", "async", "await",
-                        // types
-                        "float", "int", "str", "bool", "dict", "immutabledict", "list", "tuple"));
+            Arrays.asList(
+                // @property
+                "property",
+                // python reserved words
+                "and", "del", "from", "not", "while", "as", "elif", "global", "or", "with",
+                "assert", "else", "if", "pass", "yield", "break", "except", "import",
+                "print", "class", "exec", "in", "raise", "continue", "finally", "is",
+                "return", "def", "for", "lambda", "try", "self", "nonlocal", "None", "True",
+                "False", "async", "await",
+                // types
+                "float", "int", "str", "bool", "dict", "immutabledict", "list", "tuple"));
 
         regexModifiers = new HashMap<>();
         regexModifiers.put('i', "IGNORECASE");
@@ -386,10 +368,10 @@ public class PythonClientGenerator extends DefaultGenerator implements Generator
 
         cliOptions.clear();
         cliOptions.add(new CliOption(CodegenConstants.PACKAGE_NAME, "python package name (convention: snake_case).")
-                .defaultValue("openapi_client"));
+            .defaultValue("openapi_client"));
         cliOptions.add(new CliOption(CodegenConstants.PROJECT_NAME, "python project name in setup.py (e.g. petstore-api)."));
         cliOptions.add(new CliOption(CodegenConstants.PACKAGE_VERSION, "python package version.")
-                .defaultValue("1.0.0"));
+            .defaultValue("1.0.0"));
         cliOptions.add(new CliOption(PACKAGE_URL, "python package URL."));
         // this generator does not use SORT_PARAMS_BY_REQUIRED_FLAG
         // this generator uses the following order for endpoint parameters and model properties
@@ -397,11 +379,11 @@ public class PythonClientGenerator extends DefaultGenerator implements Generator
         // optional params which are set to unset as their default for method signatures only
         // optional params as **kwargs
         cliOptions.add(new CliOption(CodegenConstants.HIDE_GENERATION_TIMESTAMP, CodegenConstants.HIDE_GENERATION_TIMESTAMP_DESC)
-                .defaultValue(Boolean.TRUE.toString()));
+            .defaultValue(Boolean.TRUE.toString()));
         cliOptions.add(new CliOption(CodegenConstants.SOURCECODEONLY_GENERATION, CodegenConstants.SOURCECODEONLY_GENERATION_DESC)
-                .defaultValue(Boolean.FALSE.toString()));
+            .defaultValue(Boolean.FALSE.toString()));
         cliOptions.add(CliOption.newBoolean(USE_NOSE, "use the nose test framework").
-                defaultValue(Boolean.FALSE.toString()));
+            defaultValue(Boolean.FALSE.toString()));
         cliOptions.add(new CliOption(RECURSION_LIMIT, "Set the recursion limit. If not set, use the system default value."));
         CliOption templateEngineOption = new CliOption(CodegenConstants.TEMPLATING_ENGINE, "template engine");
         templateEngineOption.setDefault("handlebars");
@@ -433,6 +415,11 @@ public class PythonClientGenerator extends DefaultGenerator implements Generator
 
         languageSpecificPrimitives.add("file_type");
         languageSpecificPrimitives.add("none_type");
+    }
+
+    @Override
+    public GeneratorMetadata getGeneratorMetadata() {
+        return generatorMetadata;
     }
 
     @Override
@@ -1034,7 +1021,7 @@ public class PythonClientGenerator extends DefaultGenerator implements Generator
         boolean testFolderSet = testFolder != null;
         if (testFolderSet && anyModelContainsTestCases) {
             // delete the test folder because tests there will be autogenerated
-            String testPath = outputFolder + File.separatorChar + testFolder;
+            String testPath = generatorSettings.outputFolder + File.separatorChar + testFolder;
             File testDirectory = new File(testPath);
             try {
                 FileUtils.cleanDirectory(testDirectory);

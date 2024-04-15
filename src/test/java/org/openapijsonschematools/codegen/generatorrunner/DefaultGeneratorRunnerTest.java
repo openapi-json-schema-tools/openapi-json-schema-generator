@@ -311,7 +311,7 @@ public class DefaultGeneratorRunnerTest {
         openAPI.getPaths().addPathItem("/path3", new PathItem().addParametersItem(new QueryParameter().name("p1").schema(new StringSchema())).get(new Operation().operationId("op3").addParametersItem(new QueryParameter().name("p2").schema(new IntegerSchema())).responses(new ApiResponses().addApiResponse("201", new ApiResponse().description("OK")))));
         openAPI.getPaths().addPathItem("/path4", new PathItem().addParametersItem(new QueryParameter().name("p1").schema(new StringSchema())).get(new Operation().operationId("op4").responses(new ApiResponses().addApiResponse("201", new ApiResponse().description("OK")))));
 
-        Generator config = new DefaultGenerator();
+        Generator config = new DefaultGenerator(null, null);
         ClientOptInput opts = new ClientOptInput(
                 openAPI,
                 config,

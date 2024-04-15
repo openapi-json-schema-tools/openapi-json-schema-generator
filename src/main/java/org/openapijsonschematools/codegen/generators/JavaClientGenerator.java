@@ -43,7 +43,6 @@ import org.openapijsonschematools.codegen.common.CodegenConstants;
 import org.openapijsonschematools.codegen.generators.generatormetadata.GeneratorType;
 import org.openapijsonschematools.codegen.generators.generatormetadata.features.SecurityFeature;
 import org.openapijsonschematools.codegen.generators.models.CliOption;
-import org.openapijsonschematools.codegen.generators.models.CodeGeneratorSettings;
 import org.openapijsonschematools.codegen.generators.openapimodels.CodegenHeader;
 import org.openapijsonschematools.codegen.generators.openapimodels.CodegenKey;
 import org.openapijsonschematools.codegen.generators.openapimodels.CodegenKeyType;
@@ -86,29 +85,123 @@ import static org.openapijsonschematools.codegen.common.StringUtils.escape;
 
 public class JavaClientGenerator extends DefaultGenerator implements Generator {
     public JavaClientGenerator(GeneratorSettings generatorSettings, WorkflowSettings workflowSettings) {
-        String apiPackage = Objects.requireNonNullElse(generatorSettings.getApiPackage(), "apis");
-        String embeddedTemplateDir = "java";
-        String packageName = Objects.requireNonNullElse(generatorSettings.getPackageName(), "org.openapijsonschematools.client");
-        String outputDir = workflowSettings.getOutputDir();
-        this.generatorSettings = new CodeGeneratorSettings(
-            apiPackage,
-            outputDir,
-            workflowSettings.getTemplateDir(),
-            embeddedTemplateDir,
-            packageName,
-            workflowSettings.isStrictSpecBehavior(),
-            workflowSettings.isEnableMinimalUpdate(),
-            workflowSettings.isSkipOverwrite(),
-            workflowSettings.isRemoveOperationIdPrefix(),
-            workflowSettings.getIgnoreFileOverride(),
-            workflowSettings.isSkipOperationExample(),
-            workflowSettings.isEnablePostProcessFile(),
-            workflowSettings.getTemplatingEngineName(),
-            workflowSettings.getInputSpec()
+        super(
+            generatorSettings,
+            workflowSettings,
+            "java",
+            "org.openapijsonschematools.client",
+            "generated-code" + File.separator + "java"
         );
         if (this.outputTestFolder.isEmpty()) {
-            setOutputTestFolder(outputDir);
+            setOutputTestFolder(this.generatorSettings.outputFolder);
         }
+        headersSchemaFragment = "HeadersSchema";
+
+        supportsInheritance = true;
+
+        hideGenerationTimestamp = false;
+
+        setReservedWordsLowerCase(
+            Arrays.asList(
+                // used as internal variables, can collide with parameter names
+                "localVarPath", "localVarQueryParams", "localVarCollectionQueryParams",
+                "localVarHeaderParams", "localVarCookieParams", "localVarFormParams", "localVarPostBody",
+                "localVarAccepts", "localVarAccept", "localVarContentTypes",
+                "localVarContentType", "localVarAuthNames", "localReturnType",
+                "ApiClient", "ApiException", "ApiResponse", "Configuration", "StringUtil",
+
+                // language reserved words
+                "abstract", "continue", "for", "new", "switch", "assert",
+                "default", "if", "package", "synchronized", "boolean", "do", "goto", "private",
+                "this", "break", "double", "implements", "protected", "throw", "byte", "else",
+                "import", "public", "throws", "case", "enum", "instanceof", "return", "transient",
+                "catch", "extends", "int", "short", "try", "char", "final", "interface", "static",
+                "void", "class", "finally", "long", "strictfp", "volatile", "const", "float",
+                "native", "super", "while", "null",
+                // additional types
+                "localdate", "zoneddatetime", "list", "map", "linkedhashset", "void", "string", "uuid", "number", "integer", "toString"
+            )
+        );
+
+        languageSpecificPrimitives = Sets.newHashSet("String",
+            "boolean",
+            "Boolean",
+            "Double",
+            "Integer",
+            "Long",
+            "Float",
+            "Object",
+            "byte[]"
+        );
+        typeMapping.put("date", "Date");
+        typeMapping.put("file", "File");
+        typeMapping.put("AnyType", "Object");
+
+        cliOptions.add(new CliOption(CodegenConstants.API_PACKAGE, CodegenConstants.API_PACKAGE_DESC));
+        cliOptions.add(new CliOption(CodegenConstants.INVOKER_PACKAGE, CodegenConstants.INVOKER_PACKAGE_DESC).defaultValue(this.getInvokerPackage()));
+        cliOptions.add(new CliOption(CodegenConstants.GROUP_ID, CodegenConstants.GROUP_ID_DESC).defaultValue(this.getGroupId()));
+        cliOptions.add(new CliOption(CodegenConstants.ARTIFACT_ID, CodegenConstants.ARTIFACT_ID_DESC).defaultValue(this.getArtifactId()));
+        cliOptions.add(new CliOption(CodegenConstants.ARTIFACT_VERSION, CodegenConstants.ARTIFACT_VERSION_DESC).defaultValue(ARTIFACT_VERSION_DEFAULT_VALUE));
+        cliOptions.add(new CliOption(CodegenConstants.ARTIFACT_URL, CodegenConstants.ARTIFACT_URL_DESC).defaultValue(this.getArtifactUrl()));
+        cliOptions.add(new CliOption(CodegenConstants.ARTIFACT_DESCRIPTION, CodegenConstants.ARTIFACT_DESCRIPTION_DESC).defaultValue(this.getArtifactDescription()));
+        cliOptions.add(new CliOption(CodegenConstants.SCM_CONNECTION, CodegenConstants.SCM_CONNECTION_DESC).defaultValue(this.getScmConnection()));
+        cliOptions.add(new CliOption(CodegenConstants.SCM_DEVELOPER_CONNECTION, CodegenConstants.SCM_DEVELOPER_CONNECTION_DESC).defaultValue(this.getScmDeveloperConnection()));
+        cliOptions.add(new CliOption(CodegenConstants.SCM_URL, CodegenConstants.SCM_URL_DESC).defaultValue(this.getScmUrl()));
+        cliOptions.add(new CliOption(CodegenConstants.DEVELOPER_NAME, CodegenConstants.DEVELOPER_NAME_DESC).defaultValue(this.getDeveloperName()));
+        cliOptions.add(new CliOption(CodegenConstants.DEVELOPER_EMAIL, CodegenConstants.DEVELOPER_EMAIL_DESC).defaultValue(this.getDeveloperEmail()));
+        cliOptions.add(new CliOption(CodegenConstants.DEVELOPER_ORGANIZATION, CodegenConstants.DEVELOPER_ORGANIZATION_DESC).defaultValue(this.getDeveloperOrganization()));
+        cliOptions.add(new CliOption(CodegenConstants.DEVELOPER_ORGANIZATION_URL, CodegenConstants.DEVELOPER_ORGANIZATION_URL_DESC).defaultValue(this.getDeveloperOrganizationUrl()));
+        cliOptions.add(new CliOption(CodegenConstants.LICENSE_NAME, CodegenConstants.LICENSE_NAME_DESC).defaultValue(this.getLicenseName()));
+        cliOptions.add(new CliOption(CodegenConstants.LICENSE_URL, CodegenConstants.LICENSE_URL_DESC).defaultValue(this.getLicenseUrl()));
+        cliOptions.add(new CliOption(CodegenConstants.SOURCE_FOLDER, CodegenConstants.SOURCE_FOLDER_DESC).defaultValue(this.getSourceFolder()));
+        cliOptions.add(CliOption.newBoolean(CodegenConstants.HIDE_GENERATION_TIMESTAMP, CodegenConstants.HIDE_GENERATION_TIMESTAMP_DESC, this.isHideGenerationTimestamp()));
+
+        cliOptions.add(CliOption.newString(CodegenConstants.PARENT_GROUP_ID, CodegenConstants.PARENT_GROUP_ID_DESC));
+        cliOptions.add(CliOption.newString(CodegenConstants.PARENT_ARTIFACT_ID, CodegenConstants.PARENT_ARTIFACT_ID_DESC));
+        cliOptions.add(CliOption.newString(CodegenConstants.PARENT_VERSION, CodegenConstants.PARENT_VERSION_DESC));
+        CliOption snapShotVersion = CliOption.newString(CodegenConstants.SNAPSHOT_VERSION, CodegenConstants.SNAPSHOT_VERSION_DESC);
+        Map<String, String> snapShotVersionOptions = new HashMap<>();
+        snapShotVersionOptions.put("true", "Use a SnapShot Version");
+        snapShotVersionOptions.put("false", "Use a Release Version");
+        snapShotVersion.setEnum(snapShotVersionOptions);
+        cliOptions.add(snapShotVersion);
+        cliOptions.add(CliOption.newString(TEST_OUTPUT, "Set output folder for models and APIs tests").defaultValue(DEFAULT_TEST_FOLDER));
+
+        requestBodiesIdentifier = "requestbodies";
+        securitySchemesIdentifier = "securityschemes";
+        requestBodyIdentifier = "requestbody";
+        packageName = "org.openapijsonschematools.client";
+        addSchemaImportsFromV3SpecLocations = true;
+        deepestRefSchemaImportNeeded = true;
+        objectIOClassNamePiece = "Map";
+        arrayIOClassNamePiece = "List";
+        arrayObjectInputClassNameSuffix = "Builder";
+
+        // this tells users what openapi types turn in to
+        instantiationTypes.put("object", "FrozenMap");
+        instantiationTypes.put("array", "FrozenList");
+        instantiationTypes.put("string", "String");
+        instantiationTypes.put("number", "Number (int, long, float, double)");
+        instantiationTypes.put("integer", "Number (int, long, float with integer values, double with integer values)");
+        instantiationTypes.put("boolean", "boolean");
+        instantiationTypes.put("null", "Void (null)");
+
+        embeddedTemplateDir = templateDir = "java";
+        invokerPackage = "org.openapijsonschematools.client";
+        artifactId = "openapi-java-client";
+        modelPackage = "components.schemas";
+
+        // cliOptions default redefinition need to be updated
+        updateOption(CodegenConstants.INVOKER_PACKAGE, this.getInvokerPackage());
+        updateOption(CodegenConstants.ARTIFACT_ID, this.getArtifactId());
+//        updateOption(CodegenConstants.API_PACKAGE, apiPackage);
+
+        jsonPathTestTemplateFiles.put(
+            CodegenConstants.JSON_PATH_LOCATION_TYPE.SCHEMA,
+            new HashMap<>() {{
+                put("src/test/java/packagename/components/schemas/Schema_test.hbs", ".java");
+            }}
+        );
     }
 
     private final Logger LOGGER = LoggerFactory.getLogger(JavaClientGenerator.class);
@@ -278,6 +371,11 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
                 .build();
 
     @Override
+    public GeneratorMetadata getGeneratorMetadata() {
+        return generatorMetadata;
+    }
+
+    @Override
     public String toModuleFilename(String name, String jsonPath) {
         String usedName = sanitizeName(name, "[^a-zA-Z0-9]+");
         // todo check if empty and if so them use enum name
@@ -304,118 +402,6 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
             pathPieces[2] = getFilename(CodegenKeyType.SERVER, pathPieces[2], jsonPath).toLowerCase(Locale.ROOT);
             pathPieces[3] = getFilename(CodegenKeyType.SCHEMA, pathPieces[pathPieces.length-1], jsonPath);
         }
-    }
-
-    public JavaClientGenerator() {
-        super();
-        headersSchemaFragment = "HeadersSchema";
-
-        supportsInheritance = true;
-
-        hideGenerationTimestamp = false;
-
-        setReservedWordsLowerCase(
-                Arrays.asList(
-                        // used as internal variables, can collide with parameter names
-                        "localVarPath", "localVarQueryParams", "localVarCollectionQueryParams",
-                        "localVarHeaderParams", "localVarCookieParams", "localVarFormParams", "localVarPostBody",
-                        "localVarAccepts", "localVarAccept", "localVarContentTypes",
-                        "localVarContentType", "localVarAuthNames", "localReturnType",
-                        "ApiClient", "ApiException", "ApiResponse", "Configuration", "StringUtil",
-
-                        // language reserved words
-                        "abstract", "continue", "for", "new", "switch", "assert",
-                        "default", "if", "package", "synchronized", "boolean", "do", "goto", "private",
-                        "this", "break", "double", "implements", "protected", "throw", "byte", "else",
-                        "import", "public", "throws", "case", "enum", "instanceof", "return", "transient",
-                        "catch", "extends", "int", "short", "try", "char", "final", "interface", "static",
-                        "void", "class", "finally", "long", "strictfp", "volatile", "const", "float",
-                        "native", "super", "while", "null",
-                        // additional types
-                        "localdate", "zoneddatetime", "list", "map", "linkedhashset", "void", "string", "uuid", "number", "integer", "toString"
-                )
-        );
-
-        languageSpecificPrimitives = Sets.newHashSet("String",
-                "boolean",
-                "Boolean",
-                "Double",
-                "Integer",
-                "Long",
-                "Float",
-                "Object",
-                "byte[]"
-        );
-        typeMapping.put("date", "Date");
-        typeMapping.put("file", "File");
-        typeMapping.put("AnyType", "Object");
-
-        cliOptions.add(new CliOption(CodegenConstants.API_PACKAGE, CodegenConstants.API_PACKAGE_DESC));
-        cliOptions.add(new CliOption(CodegenConstants.INVOKER_PACKAGE, CodegenConstants.INVOKER_PACKAGE_DESC).defaultValue(this.getInvokerPackage()));
-        cliOptions.add(new CliOption(CodegenConstants.GROUP_ID, CodegenConstants.GROUP_ID_DESC).defaultValue(this.getGroupId()));
-        cliOptions.add(new CliOption(CodegenConstants.ARTIFACT_ID, CodegenConstants.ARTIFACT_ID_DESC).defaultValue(this.getArtifactId()));
-        cliOptions.add(new CliOption(CodegenConstants.ARTIFACT_VERSION, CodegenConstants.ARTIFACT_VERSION_DESC).defaultValue(ARTIFACT_VERSION_DEFAULT_VALUE));
-        cliOptions.add(new CliOption(CodegenConstants.ARTIFACT_URL, CodegenConstants.ARTIFACT_URL_DESC).defaultValue(this.getArtifactUrl()));
-        cliOptions.add(new CliOption(CodegenConstants.ARTIFACT_DESCRIPTION, CodegenConstants.ARTIFACT_DESCRIPTION_DESC).defaultValue(this.getArtifactDescription()));
-        cliOptions.add(new CliOption(CodegenConstants.SCM_CONNECTION, CodegenConstants.SCM_CONNECTION_DESC).defaultValue(this.getScmConnection()));
-        cliOptions.add(new CliOption(CodegenConstants.SCM_DEVELOPER_CONNECTION, CodegenConstants.SCM_DEVELOPER_CONNECTION_DESC).defaultValue(this.getScmDeveloperConnection()));
-        cliOptions.add(new CliOption(CodegenConstants.SCM_URL, CodegenConstants.SCM_URL_DESC).defaultValue(this.getScmUrl()));
-        cliOptions.add(new CliOption(CodegenConstants.DEVELOPER_NAME, CodegenConstants.DEVELOPER_NAME_DESC).defaultValue(this.getDeveloperName()));
-        cliOptions.add(new CliOption(CodegenConstants.DEVELOPER_EMAIL, CodegenConstants.DEVELOPER_EMAIL_DESC).defaultValue(this.getDeveloperEmail()));
-        cliOptions.add(new CliOption(CodegenConstants.DEVELOPER_ORGANIZATION, CodegenConstants.DEVELOPER_ORGANIZATION_DESC).defaultValue(this.getDeveloperOrganization()));
-        cliOptions.add(new CliOption(CodegenConstants.DEVELOPER_ORGANIZATION_URL, CodegenConstants.DEVELOPER_ORGANIZATION_URL_DESC).defaultValue(this.getDeveloperOrganizationUrl()));
-        cliOptions.add(new CliOption(CodegenConstants.LICENSE_NAME, CodegenConstants.LICENSE_NAME_DESC).defaultValue(this.getLicenseName()));
-        cliOptions.add(new CliOption(CodegenConstants.LICENSE_URL, CodegenConstants.LICENSE_URL_DESC).defaultValue(this.getLicenseUrl()));
-        cliOptions.add(new CliOption(CodegenConstants.SOURCE_FOLDER, CodegenConstants.SOURCE_FOLDER_DESC).defaultValue(this.getSourceFolder()));
-        cliOptions.add(CliOption.newBoolean(CodegenConstants.HIDE_GENERATION_TIMESTAMP, CodegenConstants.HIDE_GENERATION_TIMESTAMP_DESC, this.isHideGenerationTimestamp()));
-
-        cliOptions.add(CliOption.newString(CodegenConstants.PARENT_GROUP_ID, CodegenConstants.PARENT_GROUP_ID_DESC));
-        cliOptions.add(CliOption.newString(CodegenConstants.PARENT_ARTIFACT_ID, CodegenConstants.PARENT_ARTIFACT_ID_DESC));
-        cliOptions.add(CliOption.newString(CodegenConstants.PARENT_VERSION, CodegenConstants.PARENT_VERSION_DESC));
-        CliOption snapShotVersion = CliOption.newString(CodegenConstants.SNAPSHOT_VERSION, CodegenConstants.SNAPSHOT_VERSION_DESC);
-        Map<String, String> snapShotVersionOptions = new HashMap<>();
-        snapShotVersionOptions.put("true", "Use a SnapShot Version");
-        snapShotVersionOptions.put("false", "Use a Release Version");
-        snapShotVersion.setEnum(snapShotVersionOptions);
-        cliOptions.add(snapShotVersion);
-        cliOptions.add(CliOption.newString(TEST_OUTPUT, "Set output folder for models and APIs tests").defaultValue(DEFAULT_TEST_FOLDER));
-
-        requestBodiesIdentifier = "requestbodies";
-        securitySchemesIdentifier = "securityschemes";
-        requestBodyIdentifier = "requestbody";
-        packageName = "org.openapijsonschematools.client";
-        addSchemaImportsFromV3SpecLocations = true;
-        deepestRefSchemaImportNeeded = true;
-        objectIOClassNamePiece = "Map";
-        arrayIOClassNamePiece = "List";
-        arrayObjectInputClassNameSuffix = "Builder";
-
-        // this tells users what openapi types turn in to
-        instantiationTypes.put("object", "FrozenMap");
-        instantiationTypes.put("array", "FrozenList");
-        instantiationTypes.put("string", "String");
-        instantiationTypes.put("number", "Number (int, long, float, double)");
-        instantiationTypes.put("integer", "Number (int, long, float with integer values, double with integer values)");
-        instantiationTypes.put("boolean", "boolean");
-        instantiationTypes.put("null", "Void (null)");
-
-        outputFolder = "generated-code" + File.separator + "java";
-        embeddedTemplateDir = templateDir = "java";
-        invokerPackage = "org.openapijsonschematools.client";
-        artifactId = "openapi-java-client";
-        modelPackage = "components.schemas";
-
-        // cliOptions default redefinition need to be updated
-        updateOption(CodegenConstants.INVOKER_PACKAGE, this.getInvokerPackage());
-        updateOption(CodegenConstants.ARTIFACT_ID, this.getArtifactId());
-//        updateOption(CodegenConstants.API_PACKAGE, apiPackage);
-
-        jsonPathTestTemplateFiles.put(
-                CodegenConstants.JSON_PATH_LOCATION_TYPE.SCHEMA,
-                new HashMap<>() {{
-                    put("src/test/java/packagename/components/schemas/Schema_test.hbs", ".java");
-                }}
-        );
     }
 
     public String packagePath() {
@@ -1417,7 +1403,7 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
     @Override
     public String getRefModuleLocation(String ref) {
         String filePath = getFilePath(GeneratedFileType.CODE, ref);
-        String prefix = outputFolder + File.separatorChar + "src" + File.separatorChar + "main" + File.separatorChar + "java" + File.separatorChar;
+        String prefix = generatorSettings.outputFolder + File.separatorChar + "src" + File.separatorChar + "main" + File.separatorChar + "java" + File.separatorChar;
         // modules are always in a package one above them, so strip off the last jsonPath fragment
         String localFilepath = filePath.substring(prefix.length(), filePath.lastIndexOf(File.separatorChar));
         return localFilepath.replaceAll(String.valueOf(File.separatorChar), ".");
@@ -2054,7 +2040,7 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
 
     protected String getModuleLocation(String ref) {
         String filePath = getFilePath(GeneratedFileType.CODE, ref);
-        String prefix = outputFolder + File.separatorChar + "src" + File.separatorChar + "main" + File.separatorChar + "java" + File.separatorChar;
+        String prefix = generatorSettings.outputFolder + File.separatorChar + "src" + File.separatorChar + "main" + File.separatorChar + "java" + File.separatorChar;
         String localFilepath = filePath.substring(prefix.length());
         return localFilepath.replaceAll(String.valueOf(File.separatorChar), ".");
     }
@@ -2065,7 +2051,7 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
             return super.getFilePath(type, jsonPath);
         }
         String[] pathPieces = jsonPath.split("/");
-        pathPieces[0] = outputFolder + File.separatorChar + testPackagePath();
+        pathPieces[0] = generatorSettings.outputFolder + File.separatorChar + testPackagePath();
         if (jsonPath.startsWith("#/components")) {
             // #/components/schemas/someSchema
             updateComponentsFilepath(pathPieces);

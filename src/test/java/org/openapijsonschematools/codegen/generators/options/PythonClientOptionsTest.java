@@ -25,23 +25,21 @@ import static org.mockito.Mockito.verify;
 
 
 public class PythonClientOptionsTest extends AbstractOptionsTest {
-
-    private PythonClientGenerator clientCodegen = mock(PythonClientGenerator.class, mockSettings);
-
     public PythonClientOptionsTest() {
         super(new PythonClientOptionsProvider());
     }
 
     @Override
-    protected Generator getCodegenConfig() {
-        return clientCodegen;
+    protected PythonClientGenerator getCodegenConfig() {
+        return new PythonClientGenerator(null, null);
     }
 
     @SuppressWarnings("unused")
     @Override
     protected void verifyOptions() {
-        verify(clientCodegen).setPackageVersion(PythonClientOptionsProvider.PACKAGE_VERSION_VALUE);
-        verify(clientCodegen).setPackageName(PythonClientOptionsProvider.PACKAGE_NAME_VALUE);
+        PythonClientGenerator gen = getCodegenConfig();
+        verify(gen).setPackageVersion(PythonClientOptionsProvider.PACKAGE_VERSION_VALUE);
+        verify(gen).setPackageName(PythonClientOptionsProvider.PACKAGE_NAME_VALUE);
     }
 }
 

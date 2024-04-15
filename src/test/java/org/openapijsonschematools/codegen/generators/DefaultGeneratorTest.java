@@ -39,6 +39,8 @@ import io.swagger.v3.oas.models.responses.ApiResponses;
 import io.swagger.v3.oas.models.security.SecurityScheme;
 import org.openapijsonschematools.codegen.TestUtils;
 import org.openapijsonschematools.codegen.common.CodegenConstants;
+import org.openapijsonschematools.codegen.config.GeneratorSettings;
+import org.openapijsonschematools.codegen.config.WorkflowSettings;
 import org.openapijsonschematools.codegen.generators.openapimodels.CodegenDiscriminator;
 import org.openapijsonschematools.codegen.generators.openapimodels.CodegenEncoding;
 import org.openapijsonschematools.codegen.generators.openapimodels.CodegenHeader;
@@ -85,6 +87,9 @@ import static org.testng.Assert.fail;
 
 public class DefaultGeneratorTest {
     public static class ThisDefaultGenerator extends DefaultGenerator {
+        public ThisDefaultGenerator() {
+            super(null, null);
+        }
         @Override
         public String escapeUnsafeCharacters(String input) {
             return input;
@@ -4007,7 +4012,7 @@ public class DefaultGeneratorTest {
 
     class GeneratorWithMultipleInheritance extends DefaultGenerator {
         public GeneratorWithMultipleInheritance() {
-            super();
+            super(null, null);
             supportsInheritance = true;
             supportsMultipleInheritance = true;
         }

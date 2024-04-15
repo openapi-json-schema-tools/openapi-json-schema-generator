@@ -49,7 +49,7 @@ public class PythonClientGeneratorTest {
     public void testRecursiveExampleValueWithCycle() throws Exception {
 
         final OpenAPI openAPI = TestUtils.parseSpec("src/test/resources/3_0/issue_7532.yaml");
-        final PythonClientGenerator codegen = new PythonClientGenerator();
+        final PythonClientGenerator codegen = new PythonClientGenerator(null, null);
         codegen.setOpenAPI(openAPI);
         Schema schemaWithCycleInTreesProperty = openAPI.getComponents().getSchemas().get("Forest");
         String exampleValue = codegen.toExampleValue(schemaWithCycleInTreesProperty, null);
@@ -64,14 +64,14 @@ public class PythonClientGeneratorTest {
     @Test(expectedExceptions = RuntimeException.class)
     public void testSpecWithTooLowVersionThrowsException() {
         final OpenAPI openAPI = TestUtils.parseSpec("src/test/resources/2_0/sample_spec.yml");
-        final PythonClientGenerator codegen = new PythonClientGenerator();
+        final PythonClientGenerator codegen = new PythonClientGenerator(null, null);
         codegen.preprocessOpenAPI(openAPI);
     }
 
     @Test
     public void testSpecWithAcceptableVersion() {
         final OpenAPI openAPI = TestUtils.parseSpec("src/test/resources/3_0/petstore.yaml");
-        final PythonClientGenerator codegen = new PythonClientGenerator();
+        final PythonClientGenerator codegen = new PythonClientGenerator(null, null);
         codegen.preprocessOpenAPI(openAPI);
         Assert.assertEquals(openAPI.getOpenapi() , "3.0.0");
         Assert.assertTrue(openAPI.getExtensions() == null);
@@ -80,7 +80,7 @@ public class PythonClientGeneratorTest {
     @Test
     public void testSpecWithAcceptableVersionAndExtension() {
         final OpenAPI openAPI = TestUtils.parseSpec("src/test/resources/3_0/issue_12196.yaml");
-        final PythonClientGenerator codegen = new PythonClientGenerator();
+        final PythonClientGenerator codegen = new PythonClientGenerator(null, null);
         codegen.preprocessOpenAPI(openAPI);
         Assert.assertEquals(openAPI.getOpenapi() , "3.0.0");
         Assert.assertFalse(openAPI.getExtensions().isEmpty());
@@ -108,7 +108,7 @@ public class PythonClientGeneratorTest {
 
     private void testEndpointExampleValue(String endpoint, String specFilePath, String expectedAnswerPath) throws IOException {
         final OpenAPI openAPI = TestUtils.parseFlattenSpec(specFilePath);
-        final PythonClientGenerator codegen = new PythonClientGenerator();
+        final PythonClientGenerator codegen = new PythonClientGenerator(null, null);
         codegen.setOpenAPI(openAPI);
 
         final Operation operation = openAPI.getPaths().get(endpoint).getPost();
@@ -174,7 +174,7 @@ public class PythonClientGeneratorTest {
     @Test
     public void testRegexWithoutTrailingSlashWorks() {
         OpenAPI openAPI = TestUtils.parseFlattenSpec("src/test/resources/3_0/11_regex.yaml");
-        PythonClientGenerator codegen = new PythonClientGenerator();
+        PythonClientGenerator codegen = new PythonClientGenerator(null, null);
         codegen.setOpenAPI(openAPI);
 
         String modelName = "UUID";
@@ -193,7 +193,7 @@ public class PythonClientGeneratorTest {
     @Test
     public void testRegexWithMultipleFlagsWorks() {
         OpenAPI openAPI = TestUtils.parseFlattenSpec("src/test/resources/3_0/11_regex.yaml");
-        PythonClientGenerator codegen = new PythonClientGenerator();
+        PythonClientGenerator codegen = new PythonClientGenerator(null, null);
         codegen.setOpenAPI(openAPI);
 
         String modelName = "StringWithRegexWithThreeFlags";
@@ -212,7 +212,7 @@ public class PythonClientGeneratorTest {
     @Test
     public void testEnumNames() {
         OpenAPI openAPI = TestUtils.parseFlattenSpec("src/test/resources/3_0/70_schema_enum_names.yaml");
-        PythonClientGenerator codegen = new PythonClientGenerator();
+        PythonClientGenerator codegen = new PythonClientGenerator(null, null);
         codegen.setOpenAPI(openAPI);
 
         String modelName = "StringEnum";

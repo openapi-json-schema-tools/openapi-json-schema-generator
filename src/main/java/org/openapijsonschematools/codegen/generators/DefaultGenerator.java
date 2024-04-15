@@ -135,25 +135,73 @@ import static org.openapijsonschematools.codegen.common.StringUtils.camelize;
 @SuppressWarnings("rawtypes")
 public class DefaultGenerator implements Generator {
     protected CodeGeneratorSettings generatorSettings;
+
+    protected DefaultGenerator(GeneratorSettings generatorSettings, WorkflowSettings workflowSettings, String embeddedTemplateDir, String packageNameDefault, String outputFolderDefault) {
+        this.generatorSettings = CodeGeneratorSettings.of(generatorSettings, workflowSettings, embeddedTemplateDir, packageNameDefault, outputFolderDefault);
+        defaultIncludes = new HashSet<>(
+            Arrays.asList("double",
+                "int",
+                "long",
+                "short",
+                "char",
+                "float",
+                "String",
+                "boolean",
+                "Boolean",
+                "Double",
+                "Void",
+                "Integer",
+                "Long",
+                "Float")
+        );
+
+        typeMapping = new HashMap<>();
+        typeMapping.put("array", "List");
+        typeMapping.put("set", "Set");
+        typeMapping.put("map", "Map");
+        typeMapping.put("boolean", "Boolean");
+        typeMapping.put("string", "String");
+        typeMapping.put("int", "Integer");
+        typeMapping.put("float", "Float");
+        typeMapping.put("double", "Double");
+        typeMapping.put("number", "BigDecimal");
+        typeMapping.put("decimal", "BigDecimal");
+        typeMapping.put("DateTime", "Date");
+        typeMapping.put("long", "Long");
+        typeMapping.put("short", "Short");
+        typeMapping.put("char", "String");
+        typeMapping.put("object", "Object");
+        typeMapping.put("integer", "Integer");
+        // FIXME: java specific type should be in Java Based Abstract Implementations
+        typeMapping.put("ByteArray", "byte[]");
+        typeMapping.put("binary", "File");
+        typeMapping.put("file", "File");
+        typeMapping.put("UUID", "UUID");
+        typeMapping.put("URI", "URI");
+        typeMapping.put("AnyType", "oas_any_type_not_mapped");
+
+        instantiationTypes = new HashMap<>();
+
+        reservedWords = new HashSet<>();
+
+        // name formatting options
+        cliOptions.add(CliOption.newBoolean(CodegenConstants.ALLOW_UNICODE_IDENTIFIERS, CodegenConstants
+            .ALLOW_UNICODE_IDENTIFIERS_DESC).defaultValue(Boolean.FALSE.toString()));
+
+        // initialize special character mapping
+        initializeSpecialCharacterMapping();
+
+        // Register common Mustache lambdas.
+        registerMustacheLambdas();
+    }
+
     public DefaultGenerator(GeneratorSettings generatorSettings, WorkflowSettings workflowSettings) {
-        String apiPackage = Objects.requireNonNullElse(generatorSettings.getApiPackage(), "apis");
-        String embeddedTemplateDir = "java";
-        String packageName = Objects.requireNonNullElse(generatorSettings.getPackageName(), "openapiclient");
-        this.generatorSettings = new CodeGeneratorSettings(
-            apiPackage,
-            workflowSettings.getOutputDir(),
-            workflowSettings.getTemplateDir(),
-            embeddedTemplateDir,
-            packageName,
-            workflowSettings.isStrictSpecBehavior(),
-            workflowSettings.isEnableMinimalUpdate(),
-            workflowSettings.isSkipOverwrite(),
-            workflowSettings.isRemoveOperationIdPrefix(),
-            workflowSettings.getIgnoreFileOverride(),
-            workflowSettings.isSkipOperationExample(),
-            workflowSettings.isEnablePostProcessFile(),
-            workflowSettings.getTemplatingEngineName(),
-            workflowSettings.getInputSpec()
+        this(
+            generatorSettings,
+            workflowSettings,
+            "java",
+            "openapiclient",
+            "generated-code" + File.separator + "java"
         );
     }
 
@@ -234,7 +282,6 @@ public class DefaultGenerator implements Generator {
         .helpTxt("todo replace help text")
         .build();
     protected String inputSpec;
-    protected String outputFolder = "";
     protected Set<String> defaultIncludes;
     protected Map<String, String> typeMapping;
     // instantiationTypes map from container types only: set, map, and array to the in language-type
@@ -936,74 +983,6 @@ public class DefaultGenerator implements Generator {
         } else {
             return modelPackage + "." + refClass;
         }
-    }
-
-    /**
-     * Default constructor.
-     * This method will map between OAS type and language-specified type, as well as mapping
-     * between OAS type and the corresponding import statement for the language. This will
-     * also add some language specified CLI options, if any.
-     * returns string presentation of the example path (it's a constructor)
-     */
-    public DefaultGenerator() {
-        GeneratorType generatorType = GeneratorType.CLIENT;
-        String name = "DefaultGenerator";
-
-        defaultIncludes = new HashSet<>(
-                Arrays.asList("double",
-                        "int",
-                        "long",
-                        "short",
-                        "char",
-                        "float",
-                        "String",
-                        "boolean",
-                        "Boolean",
-                        "Double",
-                        "Void",
-                        "Integer",
-                        "Long",
-                        "Float")
-        );
-
-        typeMapping = new HashMap<>();
-        typeMapping.put("array", "List");
-        typeMapping.put("set", "Set");
-        typeMapping.put("map", "Map");
-        typeMapping.put("boolean", "Boolean");
-        typeMapping.put("string", "String");
-        typeMapping.put("int", "Integer");
-        typeMapping.put("float", "Float");
-        typeMapping.put("double", "Double");
-        typeMapping.put("number", "BigDecimal");
-        typeMapping.put("decimal", "BigDecimal");
-        typeMapping.put("DateTime", "Date");
-        typeMapping.put("long", "Long");
-        typeMapping.put("short", "Short");
-        typeMapping.put("char", "String");
-        typeMapping.put("object", "Object");
-        typeMapping.put("integer", "Integer");
-        // FIXME: java specific type should be in Java Based Abstract Implementations
-        typeMapping.put("ByteArray", "byte[]");
-        typeMapping.put("binary", "File");
-        typeMapping.put("file", "File");
-        typeMapping.put("UUID", "UUID");
-        typeMapping.put("URI", "URI");
-        typeMapping.put("AnyType", "oas_any_type_not_mapped");
-
-        instantiationTypes = new HashMap<>();
-
-        reservedWords = new HashSet<>();
-
-        // name formatting options
-        cliOptions.add(CliOption.newBoolean(CodegenConstants.ALLOW_UNICODE_IDENTIFIERS, CodegenConstants
-                .ALLOW_UNICODE_IDENTIFIERS_DESC).defaultValue(Boolean.FALSE.toString()));
-
-        // initialize special character mapping
-        initializeSpecialCharacterMapping();
-
-        // Register common Mustache lambdas.
-        registerMustacheLambdas();
     }
 
     /**
@@ -4065,7 +4044,7 @@ public class DefaultGenerator implements Generator {
         String[] pathPieces = jsonPath.split("/");
         switch (type) {
             case CODE:
-                pathPieces[0] = outputFolder + File.separatorChar + packagePath();
+                pathPieces[0] = generatorSettings.outputFolder + File.separatorChar + packagePath();
                 if (jsonPath.startsWith("#/components")) {
                     updateComponentsFilepath(pathPieces);
                 } else if (jsonPath.startsWith("#/paths")) {
@@ -4080,7 +4059,7 @@ public class DefaultGenerator implements Generator {
                 }
                 break;
             case DOCUMENTATION:
-                pathPieces[0] = outputFolder + File.separatorChar + docsFolder;
+                pathPieces[0] = generatorSettings.outputFolder + File.separatorChar + docsFolder;
                 if (jsonPath.startsWith("#/components")) {
                     updateComponentsFilepath(pathPieces);
                 } else if (jsonPath.startsWith("#/paths")) {
@@ -4093,7 +4072,7 @@ public class DefaultGenerator implements Generator {
                 }
                 break;
             case TEST:
-                pathPieces[0] = outputFolder + File.separatorChar + "test";
+                pathPieces[0] = generatorSettings.outputFolder + File.separatorChar + "test";
                 if (jsonPath.startsWith("#/components")) {
                     // #/components/schemas/someSchema
                     updateComponentsFilepath(pathPieces);
@@ -4627,7 +4606,7 @@ public class DefaultGenerator implements Generator {
 
     protected String getModuleLocation(String ref) {
         String filePath = getFilePath(GeneratedFileType.CODE, ref);
-        String prefix = outputFolder + File.separatorChar + "src" + File.separatorChar;
+        String prefix = generatorSettings.outputFolder + File.separatorChar + "src" + File.separatorChar;
         String localFilepath = filePath.substring(prefix.length());
         return localFilepath.replaceAll(String.valueOf(File.separatorChar), ".");
     }
@@ -4635,7 +4614,7 @@ public class DefaultGenerator implements Generator {
     @Override
     public String getRefModuleLocation(String ref) {
         String filePath = getFilePath(GeneratedFileType.CODE, ref);
-        String prefix = outputFolder + File.separatorChar + "src" + File.separatorChar;
+        String prefix = generatorSettings.outputFolder + File.separatorChar + "src" + File.separatorChar;
         int endIndex = filePath.lastIndexOf(File.separatorChar);
         String localFilepath = filePath.substring(prefix.length(), endIndex);
         return localFilepath.replaceAll(String.valueOf(File.separatorChar), ".");
