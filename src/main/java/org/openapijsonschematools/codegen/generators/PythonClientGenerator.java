@@ -35,7 +35,6 @@ import org.openapijsonschematools.codegen.generators.generatormetadata.Generator
 import org.openapijsonschematools.codegen.generators.generatormetadata.features.ComponentsFeature;
 import org.openapijsonschematools.codegen.generators.generatormetadata.features.OperationFeature;
 import org.openapijsonschematools.codegen.generators.generatormetadata.features.SchemaFeature;
-import org.openapijsonschematools.codegen.generators.models.CodeGeneratorSettings;
 import org.openapijsonschematools.codegen.generators.openapimodels.CodegenDiscriminator;
 import org.openapijsonschematools.codegen.generators.openapimodels.CodegenKeyType;
 import org.openapijsonschematools.codegen.generators.openapimodels.CodegenPatternInfo;
@@ -238,27 +237,48 @@ public class PythonClientGenerator extends DefaultGenerator implements Generator
             .stability(Stability.STABLE)
             .featureSet(featureSet)
             .generationMessage(String.format(Locale.ROOT, "OpenAPI JSON Schema Generator: %s (%s)", "python", GeneratorType.CLIENT))
-        .helpTxt(
-            String.join(
-                "<br />",
-                  "Generates a Python client library",
-                "",
-                "Features in this generator:",
-                "- type hints on endpoints and model creation",
-                "- model parameter names use the spec defined keys and cases",
-                "- robust composition (oneOf/anyOf/allOf/not) where payload data is stored in one instance only",
-                "- endpoint parameter names use the spec defined keys and cases",
-                "- inline schemas are supported at any location including composition",
-                "- multiple content types supported in request body and response bodies",
-                "- run time type checking + json schema validation",
-                "- json schema keyword validation may be selectively disabled with SchemaConfiguration",
-                "- enums of type string/integer/boolean typed using typing.Literal",
-                "- mypy static type checking run on generated sample",
-                "- Sending/receiving decimals as strings supported with type:string format: number -> DecimalSchema",
-                "- Sending/receiving uuids as strings supported with type:string format: uuid -> UUIDSchema",
-                "- quicker load time for python modules (a single endpoint can be imported and used without loading others)",
-                "- composed schemas with type constraints supported (type:object + oneOf/anyOf/allOf)",
-                "- schemas are not coerced/cast. For example string + date are both stored as string, and there is a date accessor"
+        .helpMsg(String.join(
+            "<br />",
+              "Generates a Python client library",
+            "",
+            "Features in this generator:",
+            "- type hints on endpoints and model creation",
+            "- model parameter names use the spec defined keys and cases",
+            "- robust composition (oneOf/anyOf/allOf/not) where payload data is stored in one instance only",
+            "- endpoint parameter names use the spec defined keys and cases",
+            "- inline schemas are supported at any location including composition",
+            "- multiple content types supported in request body and response bodies",
+            "- run time type checking + json schema validation",
+            "- json schema keyword validation may be selectively disabled with SchemaConfiguration",
+            "- enums of type string/integer/boolean typed using typing.Literal",
+            "- mypy static type checking run on generated sample",
+            "- Sending/receiving decimals as strings supported with type:string format: number -> DecimalSchema",
+            "- Sending/receiving uuids as strings supported with type:string format: uuid -> UUIDSchema",
+            "- quicker load time for python modules (a single endpoint can be imported and used without loading others)",
+            "- composed schemas with type constraints supported (type:object + oneOf/anyOf/allOf)",
+            "- schemas are not coerced/cast. For example string + date are both stored as string, and there is a date accessor"
+        ))
+        .postGenerationMsg(defaultPostGenerationMsg)
+        .reservedWords(
+            getLowerCaseWords(
+                Arrays.asList( // from https://docs.python.org/3/reference/lexical_analysis.html#keywords
+                    // local variable name used in API methods (endpoints)
+                    "all_params", "resource_path", "path_params", "query_params",
+                    "header_params", "form_params", "local_var_files", "body_params", "auth_settings",
+                    // @property
+                    "property", "@property",
+                    // python reserved words
+                    "and", "del", "from", "not", "while", "as", "elif", "global", "or", "with",
+                    "assert", "else", "if", "pass", "yield", "break", "except", "import",
+                    "print", "class", "exec", "in", "raise", "continue", "finally", "is",
+                    "return", "def", "for", "lambda", "try", "self", "nonlocal", "None", "True",
+                    "False", "async", "await",
+                    // imports, imports_schema_types.handlebars, include these to prevent name collision
+                    "datetime", "decimal", "functools", "io", "re",
+                    "typing", "typing_extensions", "uuid", "immutabledict", "schemas",
+                    // types
+                    "float", "int", "str", "bool", "dict", "immutabledict", "list", "tuple"
+                )
             )
         )
     .build();
@@ -276,25 +296,6 @@ public class PythonClientGenerator extends DefaultGenerator implements Generator
         importBaseType = false;
         addSchemaImportsFromV3SpecLocations = true;
         removeEnumValuePrefix = false;
-
-        // from https://docs.python.org/3/reference/lexical_analysis.html#keywords
-        setReservedWordsLowerCase(
-            Arrays.asList(
-                // local variable name used in API methods (endpoints)
-                "all_params", "resource_path", "path_params", "query_params",
-                "header_params", "form_params", "local_var_files", "body_params", "auth_settings",
-                // @property
-                "property",
-                // python reserved words
-                "and", "del", "from", "not", "while", "as", "elif", "global", "or", "with",
-                "assert", "else", "if", "pass", "yield", "break", "except", "import",
-                "print", "class", "exec", "in", "raise", "continue", "finally", "is",
-                "return", "def", "for", "lambda", "try", "self", "nonlocal", "None", "True",
-                "False", "async", "await",
-                // imports, imports_schema_types.handlebars, include these to prevent name collision
-                "datetime", "decimal", "functools", "io", "re",
-                "typing", "typing_extensions", "uuid", "immutabledict", "schemas"
-            ));
 
         languageSpecificPrimitives.clear();
         languageSpecificPrimitives.add("int");
@@ -335,29 +336,10 @@ public class PythonClientGenerator extends DefaultGenerator implements Generator
         typeMapping.put("URI", "str");
         typeMapping.put("null", "none_type");
 
-        String generatorName = "python";
-        GeneratorType generatorType = GeneratorType.CLIENT;
-
         modelPackage = "components.schema";
-
-        embeddedTemplateDir = templateDir = "python";
 
         // default HIDE_GENERATION_TIMESTAMP to true
         hideGenerationTimestamp = Boolean.TRUE;
-
-        // from https://docs.python.org/3/reference/lexical_analysis.html#keywords
-        setReservedWordsLowerCase(
-            Arrays.asList(
-                // @property
-                "property",
-                // python reserved words
-                "and", "del", "from", "not", "while", "as", "elif", "global", "or", "with",
-                "assert", "else", "if", "pass", "yield", "break", "except", "import",
-                "print", "class", "exec", "in", "raise", "continue", "finally", "is",
-                "return", "def", "for", "lambda", "try", "self", "nonlocal", "None", "True",
-                "False", "async", "await",
-                // types
-                "float", "int", "str", "bool", "dict", "immutabledict", "list", "tuple"));
 
         regexModifiers = new HashMap<>();
         regexModifiers.put('i', "IGNORECASE");
@@ -2077,18 +2059,6 @@ public class PythonClientGenerator extends DefaultGenerator implements Generator
         }
 
         return underscore(sanitizeName(operationId));
-    }
-
-    @Override
-    public void postProcess() {
-        LOGGER.info("################################################################################");
-        LOGGER.info("# Thanks for using OpenAPI JSON Schema Generator.                              #");
-        LOGGER.info("# Please consider donation to help us maintain this project \uD83D\uDE4F                 #");
-        LOGGER.info("# https://github.com/sponsors/spacether                                        #");
-        LOGGER.info("#                                                                              #");
-        LOGGER.info("# This generator was written by Justin Black (https://github.com/spacether)    #");
-        LOGGER.info("# Please support his work directly via https://github.com/sponsors/spacether \uD83D\uDE4F#");
-        LOGGER.info("################################################################################");
     }
 
     @Override

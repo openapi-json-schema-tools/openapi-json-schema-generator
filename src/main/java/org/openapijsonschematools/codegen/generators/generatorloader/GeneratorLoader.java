@@ -34,11 +34,12 @@ import java.util.ServiceLoader;
 import java.util.Set;
 
 public class GeneratorLoader {
+    private static final Map<String, Class<? extends Generator>> generatorNameToGenerator = Map.ofEntries(
+        new AbstractMap.SimpleEntry<>(JavaClientGenerator.generatorMetadata.getName(), JavaClientGenerator.class),
+        new AbstractMap.SimpleEntry<>(PythonClientGenerator.generatorMetadata.getName(), PythonClientGenerator.class)
+    );
+
     public static Generator getGenerator(String name, GeneratorSettings generatorSettings, WorkflowSettings workflowSettings) {
-        Map<String, Class<? extends Generator>> generatorNameToGenerator = Map.ofEntries(
-            new AbstractMap.SimpleEntry<>(JavaClientGenerator.generatorMetadata.getName(), JavaClientGenerator.class),
-            new AbstractMap.SimpleEntry<>(PythonClientGenerator.generatorMetadata.getName(), PythonClientGenerator.class)
-        );
         StringBuilder availableConfigs = new StringBuilder();
         for (String generatorName : generatorNameToGenerator.keySet()) {
             availableConfigs.append(generatorName).append("\n");
@@ -88,11 +89,11 @@ public class GeneratorLoader {
     }
 
     public static List<Generator> getAll() {
-        ServiceLoader<Generator> loader = ServiceLoader.load(Generator.class, Generator.class.getClassLoader());
-        List<Generator> output = new ArrayList<Generator>();
-        for (Generator aLoader : loader) {
-            output.add(aLoader);
+        List<Generator> genrators = new ArrayList<Generator>();
+        for (String generatorName: generatorNameToGenerator.keySet()) {
+            Generator generator = getGenerator(generatorName, null, null);
+            genrators.add(generator);
         }
-        return output;
+        return genrators;
     }
 }

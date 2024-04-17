@@ -135,6 +135,14 @@ import static org.openapijsonschematools.codegen.common.StringUtils.camelize;
 @SuppressWarnings("rawtypes")
 public class DefaultGenerator implements Generator {
     protected CodeGeneratorSettings generatorSettings;
+    protected static final List<String> defaultPostGenerationMsg = List.of(
+        "################################################################################",
+        "# Thanks for using OpenAPI JSON Schema Generator.                              #",
+        "# Please consider donation to help us maintain this project \uD83D\uDE4F                 #",
+        "# https://github.com/sponsors/spacether                                        #",
+        "################################################################################"
+    );
+
 
     protected DefaultGenerator(GeneratorSettings generatorSettings, WorkflowSettings workflowSettings, String embeddedTemplateDir, String packageNameDefault, String outputFolderDefault) {
         this.generatorSettings = CodeGeneratorSettings.of(generatorSettings, workflowSettings, embeddedTemplateDir, packageNameDefault, outputFolderDefault);
@@ -181,8 +189,6 @@ public class DefaultGenerator implements Generator {
         typeMapping.put("AnyType", "oas_any_type_not_mapped");
 
         instantiationTypes = new HashMap<>();
-
-        reservedWords = new HashSet<>();
 
         // name formatting options
         cliOptions.add(CliOption.newBoolean(CodegenConstants.ALLOW_UNICODE_IDENTIFIERS, CodegenConstants
@@ -276,14 +282,15 @@ public class DefaultGenerator implements Generator {
         .stability(Stability.EXPERIMENTAL)
         .featureSet(DefaultFeatureSet)
         .generationMessage("OpenAPI JSON Schema Generator: java "+GeneratorType.CLIENT.toValue())
-        .helpTxt("todo replace help text")
+        .helpMsg("todo replace help text")
+        .postGenerationMsg(defaultPostGenerationMsg)
+        .reservedWords(Set.of())
         .build();
     protected String inputSpec;
     protected Set<String> defaultIncludes;
     protected Map<String, String> typeMapping;
     // instantiationTypes map from container types only: set, map, and array to the in language-type
     protected Map<String, String> instantiationTypes;
-    protected Set<String> reservedWords;
     protected Set<String> languageSpecificPrimitives = new HashSet<>();
     // a map to store the mapping between a schema and the new one
     // a map to store the mapping between inline schema and the name provided by the user
@@ -300,8 +307,6 @@ public class DefaultGenerator implements Generator {
     // for writing test files
     protected HashMap<CodegenConstants.JSON_PATH_LOCATION_TYPE, HashMap<String, String>> jsonPathTestTemplateFiles = new HashMap<>();
 
-    protected String templateDir;
-    protected String embeddedTemplateDir;
     protected Map<String, Object> additionalProperties = new HashMap<>();
     protected Map<String, Object> vendorExtensions = new HashMap<>();
     /*
@@ -347,8 +352,6 @@ public class DefaultGenerator implements Generator {
     protected String ignoreFilePathOverride;
     // flag to indicate whether to use environment variable to post process file
     protected boolean enablePostProcessFile = false;
-
-    protected boolean enableMinimalUpdate = false;
 
     // flag to indicate whether enum value prefixes are removed
     protected boolean removeEnumValuePrefix = true;
@@ -424,13 +427,7 @@ public class DefaultGenerator implements Generator {
                     .get(CodegenConstants.DOCEXTENSION).toString()));
         }
 
-        if (additionalProperties.containsKey(CodegenConstants.REMOVE_ENUM_VALUE_PREFIX)) {
-            this.setRemoveEnumValuePrefix(Boolean.parseBoolean(additionalProperties
-                    .get(CodegenConstants.REMOVE_ENUM_VALUE_PREFIX).toString()));
-        }
-
         requiredAddPropUnsetSchema = fromSchema(new JsonSchema(), null, null);
-
     }
 
     /***
@@ -569,17 +566,6 @@ public class DefaultGenerator implements Generator {
         this.openAPI = openAPI;
     }
 
-    // override with any message to be shown right before the process finishes
-    @Override
-    @SuppressWarnings("static-method")
-    public void postProcess() {
-        LOGGER.info("################################################################################");
-        LOGGER.info("# Thanks for using OpenAPI JSON Schema Generator.                              #");
-        LOGGER.info("# Please consider donation to help us maintain this project \uD83D\uDE4F                 #");
-        LOGGER.info("# https://github.com/sponsors/spacether                                        #");
-        LOGGER.info("################################################################################");
-    }
-
     // override with any special post-processing
     @Override
     @SuppressWarnings("static-method")
@@ -646,32 +632,6 @@ public class DefaultGenerator implements Generator {
     }
 
     /**
-     * Escape characters while allowing new lines
-     *
-     * @param input String to be escaped
-     * @return escaped string
-     */
-    @Override
-    public String escapeTextWhileAllowingNewLines(String input) {
-        if (input == null) {
-            return null;
-        }
-
-        // remove \t
-        // replace \ with \\
-        // replace " with \"
-        // outer unescape to retain the original multibyte characters
-        // finally escalate characters avoiding code injection
-        return escapeUnsafeCharacters(
-                StringEscapeUtils.unescapeJava(
-                                StringEscapeUtils.escapeJava(input)
-                                        .replace("\\/", "/"))
-                        .replaceAll("\\t", " ")
-                        .replace("\\", "\\\\")
-                        .replace("\"", "\\\""));
-    }
-
-    /**
      * override with any special text escaping logic to handle unsafe
      * characters to avoid code injection
      *
@@ -719,11 +679,6 @@ public class DefaultGenerator implements Generator {
             default:
                 return null;
         }
-    }
-
-    @Override
-    public Set<String> reservedWords() {
-        return reservedWords;
     }
 
     @Override
@@ -916,7 +871,7 @@ public class DefaultGenerator implements Generator {
      * @return the sanitized variable name
      */
     public String toVarName(final String name) {
-        if (reservedWords.contains(name)) {
+        if (generatorMetadata.getReservedWords().contains(name)) {
             return escapeReservedWord(name);
         } else if (name.chars().anyMatch(character -> specialCharReplacements.containsKey(String.valueOf((char) character)))) {
             return org.openapijsonschematools.codegen.common.StringUtils.escape(name, specialCharReplacements, null, null);
@@ -941,7 +896,7 @@ public class DefaultGenerator implements Generator {
             result = result.substring(0, 1).toLowerCase(Locale.ROOT) + result.substring(1);
         }
         name = result; // FIXME: a parameter should not be assigned. Also declare the methods parameters as 'final'.
-        if (reservedWords.contains(name)) {
+        if (generatorMetadata.getReservedWords().contains(name)) {
             return escapeReservedWord(name);
         } else if (name.chars().anyMatch(character -> specialCharReplacements.containsKey(String.valueOf((char) character)))) {
             return org.openapijsonschematools.codegen.common.StringUtils.escape(name, specialCharReplacements, null, null);
@@ -3472,15 +3427,16 @@ public class DefaultGenerator implements Generator {
         return cs;
     }
 
-    protected void setReservedWordsLowerCase(List<String> words) {
-        reservedWords = new HashSet<>();
+    protected static Set<String> getLowerCaseWords(List<String> words) {
+        Set<String> lowerCaseWords = new HashSet<>();
         for (String word : words) {
-            reservedWords.add(word.toLowerCase(Locale.ROOT));
+            lowerCaseWords.add(word.toLowerCase(Locale.ROOT));
         }
+        return lowerCaseWords;
     }
 
     protected boolean isReservedWord(String word) {
-        return word != null && reservedWords.contains(word.toLowerCase(Locale.ROOT));
+        return word != null && generatorMetadata.getReservedWords().contains(word.toLowerCase(Locale.ROOT));
     }
 
     /**
@@ -4232,7 +4188,7 @@ public class DefaultGenerator implements Generator {
         LinkedHashMap<String, EnumValue> enumNameToValue = new LinkedHashMap<>();
         int truncateIdx = 0;
 
-        if (isRemoveEnumValuePrefix()) {
+        if (generatorSettings.removeEnumValuePrefix) {
             String commonPrefix = findCommonPrefixOfVars(values);
             truncateIdx = commonPrefix.length();
         }
@@ -5134,24 +5090,6 @@ public class DefaultGenerator implements Generator {
     @Override
     public void postProcessFile(File file, String fileType) {
         LOGGER.debug("Post processing file {} ({})", file, fileType);
-    }
-
-    /**
-     * Get the boolean value indicating whether to remove enum value prefixes
-     */
-    @Override
-    public boolean isRemoveEnumValuePrefix() {
-        return this.removeEnumValuePrefix;
-    }
-
-    /**
-     * Set the boolean value indicating whether to remove enum value prefixes
-     *
-     * @param removeEnumValuePrefix true to enable enum value prefix removal
-     */
-    @Override
-    public void setRemoveEnumValuePrefix(final boolean removeEnumValuePrefix) {
-        this.removeEnumValuePrefix = removeEnumValuePrefix;
     }
 
     /**

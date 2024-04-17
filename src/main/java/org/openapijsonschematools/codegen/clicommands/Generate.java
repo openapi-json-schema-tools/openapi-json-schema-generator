@@ -61,7 +61,7 @@ public class Generate extends AbstractCommand {
     private String templateDir;
 
     @Option(name = {"-e", "--engine"}, title = "templating engine",
-            description = "templating engine: \"mustache\" (default) or \"handlebars\" (beta)")
+            description = "templating engine: \"handlebars\"(default) or \"mustache\"")
     private String templatingEngine;
 
     @Option(
@@ -164,6 +164,10 @@ public class Generate extends AbstractCommand {
     @Option(name = {"--remove-operation-id-prefix"}, title = "remove prefix of the operationId",
             description = CodegenConstants.REMOVE_OPERATION_ID_PREFIX_DESC)
     private Boolean removeOperationIdPrefix;
+
+    @Option(name = {"--remove-enum-value-prefix"}, title = "remove prefix of the enum values",
+        description = CodegenConstants.REMOVE_ENUM_VALUE_PREFIX_DESC)
+    private Boolean removeEnumValuePrefix;
 
     @Option(name = {"--skip-operation-example"}, title = "skip examples defined in the operation",
             description = CodegenConstants.SKIP_OPERATION_EXAMPLE_DESC)
@@ -312,6 +316,10 @@ public class Generate extends AbstractCommand {
         }
 
         if (removeOperationIdPrefix != null) {
+            configurator.setRemoveOperationIdPrefix(removeOperationIdPrefix);
+        }
+
+        if (removeEnumValuePrefix != null) {
             configurator.setRemoveOperationIdPrefix(removeOperationIdPrefix);
         }
 

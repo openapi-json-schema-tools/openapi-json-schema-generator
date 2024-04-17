@@ -101,28 +101,6 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
 
         hideGenerationTimestamp = false;
 
-        setReservedWordsLowerCase(
-            Arrays.asList(
-                // used as internal variables, can collide with parameter names
-                "localVarPath", "localVarQueryParams", "localVarCollectionQueryParams",
-                "localVarHeaderParams", "localVarCookieParams", "localVarFormParams", "localVarPostBody",
-                "localVarAccepts", "localVarAccept", "localVarContentTypes",
-                "localVarContentType", "localVarAuthNames", "localReturnType",
-                "ApiClient", "ApiException", "ApiResponse", "Configuration", "StringUtil",
-
-                // language reserved words
-                "abstract", "continue", "for", "new", "switch", "assert",
-                "default", "if", "package", "synchronized", "boolean", "do", "goto", "private",
-                "this", "break", "double", "implements", "protected", "throw", "byte", "else",
-                "import", "public", "throws", "case", "enum", "instanceof", "return", "transient",
-                "catch", "extends", "int", "short", "try", "char", "final", "interface", "static",
-                "void", "class", "finally", "long", "strictfp", "volatile", "const", "float",
-                "native", "super", "while", "null",
-                // additional types
-                "localdate", "zoneddatetime", "list", "map", "linkedhashset", "void", "string", "uuid", "number", "integer", "toString"
-            )
-        );
-
         languageSpecificPrimitives = Sets.newHashSet("String",
             "boolean",
             "Boolean",
@@ -185,7 +163,6 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
         instantiationTypes.put("boolean", "boolean");
         instantiationTypes.put("null", "Void (null)");
 
-        embeddedTemplateDir = templateDir = "java";
         invokerPackage = "org.openapijsonschematools.client";
         artifactId = "openapi-java-client";
         modelPackage = "components.schemas";
@@ -332,42 +309,65 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
         .stability(Stability.STABLE)
         .featureSet(featureSet)
         .generationMessage(String.format(Locale.ROOT, "OpenAPI JSON Schema Generator: %s (%s)", "java", GeneratorType.CLIENT))
-        .helpTxt(
-        String.join("<br />",
-                    "Generates a Java client library",
-                        "",
-                        "Features in this generator:",
-                        "- v3.0.0 - [v3.1.0](#schema-feature) OpenAPI Specification support",
-                        "- Very thorough documentation generated in the style of javadocs",
-                        "- Input types constrained for a Schema in SomeSchema.validate",
-                        "  - validate method can accept arbitrary List/Map/null/int/long/double/float/String json data",
-                        "- Immutable List output classes generated and returned by validate for List&lt;?&gt; input",
-                        "- Immutable Map output classes generated and returned by validate for Map&lt;?, ?&gt; input",
-                        "- Strictly typed list input can be instantiated in client code using generated ListBuilders",
-                        "- Strictly typed map input can be instantiated in client code using generated MapBuilders",
-                        "  - Sequential map builders are generated ensuring that required properties are set before build is invoked. Looks like:",
-                        "  - `new MapBuilder().requiredA(\"a\").requiredB(\"b\").build()`",
-                        "  - `new MapBuilder().requiredA(\"a\").requiredB(\"b\").optionalProp(\"c\").additionalProperty(\"someAddProp\", \"d\").build()`",
-                        "- Run time type checking and validation when",
-                        "  - validating schema payloads",
-                        "  - instantiating List output class (validation run)",
-                        "  - instantiating Map output class (validation run)",
-                        "  - Note: if needed, validation of json schema keywords can be deactivated via a SchemaConfiguration class",
-                        "- Enums classes are generated and may be input into Schema.validate or the List/MapBuilder add/setter methods",
-                        "- The [Checker-Framework's](https://github.com/typetools/checker-framework) NullnessChecker and @Nullable annotations are used in the java client",
-                        "  - ensuring that null pointer exceptions will not happen",
-                        "- Invalid (in java) property names supported like `class`, `1var`, `hi-there` etc in",
-                        "  - component schema names",
-                        "  - schema property names (a fallback setter is written in the MapBuilder)",
-                        "- Generated interfaces are largely consistent with the python code",
-                        "- Openapi spec inline schemas supported at any depth in any location",
-                        "- Format support for: int32, int64, float, double, date, datetime, uuid",
-                        "- Payload values are not coerced when validated, so a date/date-time value can pass other validations that describe the payload only as type string",
-                        "- enum types are generated for enums of type string/integer/number/boolean/null",
-                        "- String transmission of numbers supported with type: string, format: number"
-    )
+        .helpMsg(String.join(
+            "<br />",
+        "Generates a Java client library",
+            "",
+            "Features in this generator:",
+            "- v3.0.0 - [v3.1.0](#schema-feature) OpenAPI Specification support",
+            "- Very thorough documentation generated in the style of javadocs",
+            "- Input types constrained for a Schema in SomeSchema.validate",
+            "  - validate method can accept arbitrary List/Map/null/int/long/double/float/String json data",
+            "- Immutable List output classes generated and returned by validate for List&lt;?&gt; input",
+            "- Immutable Map output classes generated and returned by validate for Map&lt;?, ?&gt; input",
+            "- Strictly typed list input can be instantiated in client code using generated ListBuilders",
+            "- Strictly typed map input can be instantiated in client code using generated MapBuilders",
+            "  - Sequential map builders are generated ensuring that required properties are set before build is invoked. Looks like:",
+            "  - `new MapBuilder().requiredA(\"a\").requiredB(\"b\").build()`",
+            "  - `new MapBuilder().requiredA(\"a\").requiredB(\"b\").optionalProp(\"c\").additionalProperty(\"someAddProp\", \"d\").build()`",
+            "- Run time type checking and validation when",
+            "  - validating schema payloads",
+            "  - instantiating List output class (validation run)",
+            "  - instantiating Map output class (validation run)",
+            "  - Note: if needed, validation of json schema keywords can be deactivated via a SchemaConfiguration class",
+            "- Enums classes are generated and may be input into Schema.validate or the List/MapBuilder add/setter methods",
+            "- The [Checker-Framework's](https://github.com/typetools/checker-framework) NullnessChecker and @Nullable annotations are used in the java client",
+            "  - ensuring that null pointer exceptions will not happen",
+            "- Invalid (in java) property names supported like `class`, `1var`, `hi-there` etc in",
+            "  - component schema names",
+            "  - schema property names (a fallback setter is written in the MapBuilder)",
+            "- Generated interfaces are largely consistent with the python code",
+            "- Openapi spec inline schemas supported at any depth in any location",
+            "- Format support for: int32, int64, float, double, date, datetime, uuid",
+            "- Payload values are not coerced when validated, so a date/date-time value can pass other validations that describe the payload only as type string",
+            "- enum types are generated for enums of type string/integer/number/boolean/null",
+            "- String transmission of numbers supported with type: string, format: number"
+        ))
+        .postGenerationMsg(defaultPostGenerationMsg)
+        .reservedWords(
+            getLowerCaseWords(
+                Arrays.asList(
+                    // used as internal variables, can collide with parameter names
+                    "localVarPath", "localVarQueryParams", "localVarCollectionQueryParams",
+                    "localVarHeaderParams", "localVarCookieParams", "localVarFormParams", "localVarPostBody",
+                    "localVarAccepts", "localVarAccept", "localVarContentTypes",
+                    "localVarContentType", "localVarAuthNames", "localReturnType",
+                    "ApiClient", "ApiException", "ApiResponse", "Configuration", "StringUtil",
+
+                    // language reserved words
+                    "abstract", "continue", "for", "new", "switch", "assert",
+                    "default", "if", "package", "synchronized", "boolean", "do", "goto", "private",
+                    "this", "break", "double", "implements", "protected", "throw", "byte", "else",
+                    "import", "public", "throws", "case", "enum", "instanceof", "return", "transient",
+                    "catch", "extends", "int", "short", "try", "char", "final", "interface", "static",
+                    "void", "class", "finally", "long", "strictfp", "volatile", "const", "float",
+                    "native", "super", "while", "null",
+                    // additional types
+                    "localdate", "zoneddatetime", "list", "map", "linkedhashset", "void", "string", "uuid", "number", "integer", "toString"
+                )
             )
-                .build();
+        )
+    .build();
 
     @Override
     public GeneratorMetadata getGeneratorMetadata() {
@@ -1065,7 +1065,7 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
     @Override
     public String toApiVarName(String name) {
         String apiVarName = super.toApiVarName(name);
-        if (reservedWords.contains(apiVarName)) {
+        if (generatorMetadata.getReservedWords().contains(apiVarName)) {
             apiVarName = escapeReservedWord(apiVarName);
         }
         return apiVarName;
@@ -2206,7 +2206,7 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
         LinkedHashMap<String, EnumValue> enumNameToValue = new LinkedHashMap<>();
         int truncateIdx = 0;
 
-        if (isRemoveEnumValuePrefix()) {
+        if (generatorSettings.removeEnumValuePrefix) {
             String commonPrefix = findCommonPrefixOfVars(values);
             truncateIdx = commonPrefix.length();
         }

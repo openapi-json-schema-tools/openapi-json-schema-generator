@@ -463,21 +463,6 @@ public class DefaultGeneratorTest {
     }
 
     @Test
-    public void testEscapeTextWhileAllowingNewLines() {
-        final DefaultGenerator codegen = new ThisDefaultGenerator();
-
-        // allow new lines
-        Assert.assertEquals(codegen.escapeTextWhileAllowingNewLines("\n"), "\n");
-        Assert.assertEquals(codegen.escapeTextWhileAllowingNewLines("\r"), "\r");
-
-        // escape other special characters
-        Assert.assertEquals(codegen.escapeTextWhileAllowingNewLines("\t"), " ");
-        Assert.assertEquals(codegen.escapeTextWhileAllowingNewLines("\\"), "\\\\");
-        Assert.assertEquals(codegen.escapeTextWhileAllowingNewLines("\""), "\\\"");
-        Assert.assertEquals(codegen.escapeTextWhileAllowingNewLines("\\/"), "/");
-    }
-
-    @Test
     public void updateCodegenPropertyEnum() {
         CodegenSchema array = codegenPropertyWithArrayOfIntegerValues();
 
@@ -523,7 +508,8 @@ public class DefaultGeneratorTest {
 
     @Test
     public void updateCodegenPropertyEnumWithPrefixRemoved() {
-        DefaultGenerator codegen = new ThisDefaultGenerator();
+        WorkflowSettings ws = WorkflowSettings.newBuilder().withRemoveEnumValuePrefix(true).build();
+        DefaultGenerator codegen = new ThisDefaultGenerator(ws);
         CodegenSchema enumProperty = codegenProperty(codegen, Arrays.asList("animal_dog", "animal_cat"), "updateCodegenPropertyEnumWithPrefixRemoved", null);
 
         Map<EnumValue, String> enumVars = enumProperty.items.enumInfo.valueToName;
@@ -534,8 +520,8 @@ public class DefaultGeneratorTest {
 
     @Test
     public void updateCodegenPropertyEnumWithoutPrefixRemoved() {
-        final DefaultGenerator codegen = new ThisDefaultGenerator();
-        codegen.setRemoveEnumValuePrefix(false);
+        WorkflowSettings ws = WorkflowSettings.newBuilder().withRemoveEnumValuePrefix(false).build();
+        final DefaultGenerator codegen = new ThisDefaultGenerator(ws);
 
         CodegenSchema enumProperty = codegenProperty(codegen, Arrays.asList("animal_dog", "animal_cat"), "updateCodegenPropertyEnumWithoutPrefixRemoved", null);
 
@@ -547,7 +533,8 @@ public class DefaultGeneratorTest {
 
     @Test
     public void postProcessModelsEnumWithPrefixRemoved() {
-        final DefaultGenerator codegen = new ThisDefaultGenerator();
+        WorkflowSettings ws = WorkflowSettings.newBuilder().withRemoveEnumValuePrefix(true).build();
+        final DefaultGenerator codegen = new ThisDefaultGenerator(ws);
         TreeMap<String, CodegenSchema> schemas = codegenModel(codegen, Arrays.asList("animal_dog", "animal_cat"), "postProcessModelsEnumWithPrefixRemoved", null, null);
         CodegenSchema cm = schemas.get("model");
 
@@ -559,8 +546,8 @@ public class DefaultGeneratorTest {
 
     @Test
     public void postProcessModelsEnumWithoutPrefixRemoved() {
-        final DefaultGenerator codegen = new ThisDefaultGenerator();
-        codegen.setRemoveEnumValuePrefix(false);
+        WorkflowSettings ws = WorkflowSettings.newBuilder().withRemoveEnumValuePrefix(false).build();
+        final DefaultGenerator codegen = new ThisDefaultGenerator(ws);
         TreeMap<String, CodegenSchema> objs = codegenModel(codegen, Arrays.asList("animal_dog", "animal_cat"), "postProcessModelsEnumWithoutPrefixRemoved", null, null);
         CodegenSchema cm = objs.get("model");
 

@@ -319,6 +319,11 @@ public class CodegenConfigurator {
         return this;
     }
 
+    public CodegenConfigurator setRemoveEnumValuePrefix(boolean removeEnumValuePrefix) {
+        workflowSettingsBuilder.withRemoveEnumValuePrefix(removeEnumValuePrefix);
+        return this;
+    }
+
     public CodegenConfigurator setSkipOperationExample(boolean skipOperationExample) {
         workflowSettingsBuilder.withSkipOperationExample(skipOperationExample);
         return this;
@@ -367,12 +372,7 @@ public class CodegenConfigurator {
         Validate.notEmpty(inputSpec, "input spec must be specified");
 
         GeneratorSettings generatorSettings = generatorSettingsBuilder.build();
-        Generator config = GeneratorLoader.getGenerator(generatorSettings.getGeneratorName(), generatorSettings, null);
-        if (isEmpty(templatingEngineName)) {
-            // if templatingEngineName is empty check the config for a default
-            String defaultTemplatingEngine = config.defaultTemplatingEngine();
-            workflowSettingsBuilder.withTemplatingEngineName(defaultTemplatingEngine);
-        } else {
+        if (!isEmpty(templatingEngineName)) {
             workflowSettingsBuilder.withTemplatingEngineName(templatingEngineName);
         }
 

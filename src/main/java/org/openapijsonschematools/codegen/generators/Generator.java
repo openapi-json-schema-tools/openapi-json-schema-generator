@@ -56,19 +56,13 @@ public interface Generator extends OpenApiProcessor, Comparable<Generator> {
 
     CodeGeneratorSettings generatorSettings();
 
-    // todo deprecate this and make a key of api
     String toApiName(String name);
 
-    // todo remove this because it is unused
     String toApiVarName(String name);
 
-    // todo deprecate this and change it to getClassName
     String toModelName(String name, String jsonPath);
 
     String escapeText(String text);
-
-    // todo remove because unused
-    String escapeTextWhileAllowingNewLines(String text);
 
     String escapeUnsafeCharacters(String input);
 
@@ -76,22 +70,21 @@ public interface Generator extends OpenApiProcessor, Comparable<Generator> {
 
     String escapeQuotationMark(String input);
 
-    // todo deprecate this and move it into new
+    // todo remove this and move it into new
     void processOpts();
 
     List<CliOption> cliOptions();
 
-    Set<String> reservedWords();
-
     List<SupportingFile> supportingFiles();
 
-    // todo deprecate this
     CodegenKey getKey(String key, String keyType);
 
+    // todo move into metadata
     Map<String, String> instantiationTypes();
 
     HashMap<CodegenConstants.JSON_PATH_LOCATION_TYPE, HashMap<String, String>> getJsonPathTemplateFiles(GeneratedFileType type);
 
+    // todo move into metadata
     Set<String> languageSpecificPrimitives();
 
     // todo remove + move this into the new constructor
@@ -100,19 +93,13 @@ public interface Generator extends OpenApiProcessor, Comparable<Generator> {
     // todo remove and move this into the new constructor
     void processOpenAPI(OpenAPI openAPI);
 
-    // todo deprecate this, use getKey with api type
     String toApiFilename(String name);
 
-    // todo deprecate and change to getSnakeCase
     String toModelFilename(String name, String jsonPath);
 
-    // todo can this be eliminated? getPascalCase/getSnakeCase and getFileName should do everything
     String toModuleFilename(String name, String jsonPath);
 
     TreeMap<String, CodegenSchema> updateAllModels(TreeMap<String, CodegenSchema> models);
-
-    // todo remove and use postGenerationMsg in generationMetadata
-    void postProcess();
 
     TreeMap<String, CodegenSchema> postProcessAllModels(TreeMap<String, CodegenSchema> schemas);
 
@@ -146,10 +133,6 @@ public interface Generator extends OpenApiProcessor, Comparable<Generator> {
     TemplatingEngineAdapter getTemplatingEngine();
 
     CodegenPatternInfo getPatternInfo(String pattern);
-
-    boolean isRemoveEnumValuePrefix();
-
-    void setRemoveEnumValuePrefix(boolean removeEnumValuePrefix);
 
     String defaultTemplatingEngine();
 
@@ -261,7 +244,7 @@ public interface Generator extends OpenApiProcessor, Comparable<Generator> {
 
     @Deprecated
     default String getHelp() {
-        return getGeneratorMetadata().getHelpTxt();
+        return getGeneratorMetadata().getHelpMsg();
     }
 
     @Deprecated
@@ -365,5 +348,15 @@ public interface Generator extends OpenApiProcessor, Comparable<Generator> {
     default String getInputSpec() {
         return generatorSettings().inputSpecLocation;
     }
-    // 96 - 41 -> 55
+
+    @Deprecated
+    default boolean isRemoveEnumValuePrefix() {
+        return generatorSettings().removeEnumValuePrefix;
+    }
+
+    @Deprecated
+    default Set<String> reservedWords() {
+        return getGeneratorMetadata().getReservedWords();
+    }
+    // 93 - 42 -> 51
 }

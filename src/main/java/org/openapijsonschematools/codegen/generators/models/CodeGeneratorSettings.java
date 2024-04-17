@@ -20,6 +20,7 @@ public class CodeGeneratorSettings {
     public final boolean enablePostProcessFile;  // boolean value indicating the state of the option for post-processing file using environment variables.
     public final String templateEngineName;
     public final String inputSpecLocation;  // input spec's location, as URL or file
+    public final boolean removeEnumValuePrefix;
     public CodeGeneratorSettings(
         String apiPackage,
         String outputFolder,
@@ -34,7 +35,8 @@ public class CodeGeneratorSettings {
         boolean skipOperationExample,
         boolean enablePostProcessFile,
         String templateEngineName,
-        String inputSpecLocation
+        String inputSpecLocation,
+        boolean removeEnumValuePrefix
     ) {
         this.apiPackage = apiPackage;
         this.outputFolder = outputFolder;
@@ -50,6 +52,7 @@ public class CodeGeneratorSettings {
         this.enablePostProcessFile = enablePostProcessFile;
         this.templateEngineName = templateEngineName;
         this.inputSpecLocation = inputSpecLocation;
+        this.removeEnumValuePrefix = removeEnumValuePrefix;
     }
 
     public static CodeGeneratorSettings of(GeneratorSettings generatorSettings, WorkflowSettings workflowSettings, String embeddedTemplateDir, String packageNameDefault, String outputFolderDefault) {
@@ -67,6 +70,7 @@ public class CodeGeneratorSettings {
         boolean enablePostProcessingFile = workflowSettings != null ? workflowSettings.isSkipOperationExample() : WorkflowSettings.DEFAULT_ENABLE_POST_PROCESS_FILE;
         String templateEnginName = workflowSettings != null ? workflowSettings.getTemplatingEngineName() : WorkflowSettings.DEFAULT_TEMPLATING_ENGINE_NAME;
         String inputSpecLocation = workflowSettings != null ? workflowSettings.getInputSpec() : null;
+        boolean removeEnumValuePrefix = workflowSettings != null ? workflowSettings.isRemoveEnumValuePrefix() : WorkflowSettings.DEFAULT_REMOVE_ENUM_VALUE_PREFIX;
         return new CodeGeneratorSettings(
             apiPackage,
             outputDir,
@@ -81,7 +85,8 @@ public class CodeGeneratorSettings {
             skipOperationExample,
             enablePostProcessingFile,
             templateEnginName,
-            inputSpecLocation
+            inputSpecLocation,
+            removeEnumValuePrefix
         );
     }
 }

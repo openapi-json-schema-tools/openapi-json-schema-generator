@@ -247,7 +247,7 @@ public class ConfigHelp extends AbstractCommand {
         sb.append(newline).append("## RESERVED WORDS").append(newline).append(newline);
 
         sb.append("<ul class=\"column-ul\">").append(newline);
-        config.reservedWords()
+        config.getGeneratorMetadata().getReservedWords()
                 .stream()
                 .sorted(String::compareTo)
                 .forEach(s -> sb.append("<li>").append(escapeHtml4(s)).append("</li>").append(newline));
@@ -311,7 +311,7 @@ public class ConfigHelp extends AbstractCommand {
             sb.append("| generator language version | "+meta.getLanguageVersion()+" | |").append(newline);
         }
         sb.append("| generator default templating engine | "+config.defaultTemplatingEngine()+" | |").append(newline);
-        sb.append("| helpTxt | "+meta.getHelpTxt()+" | |").append(newline);
+        sb.append("| helpMsg | "+meta.getHelpMsg()+" | |").append(newline);
 
         sb.append(newline);
     }
@@ -423,7 +423,7 @@ public class ConfigHelp extends AbstractCommand {
 
         if (Boolean.TRUE.equals(reservedWords)) {
             sb.append(newline).append("RESERVED WORDS").append(newline).append(newline);
-            String[] arr = config.reservedWords().stream().sorted().toArray(String[]::new);
+            String[] arr = config.getGeneratorMetadata().getReservedWords().stream().sorted().toArray(String[]::new);
             writePlainTextFromArray(sb, arr, optIndent);
             sb.append(newline);
         }

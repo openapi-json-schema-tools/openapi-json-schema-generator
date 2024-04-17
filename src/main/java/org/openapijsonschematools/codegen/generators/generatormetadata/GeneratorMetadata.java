@@ -17,7 +17,9 @@
 package org.openapijsonschematools.codegen.generators.generatormetadata;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 /**
  * Represents metadata about a generator.
@@ -32,7 +34,9 @@ public class GeneratorMetadata {
     private Map<String, FeatureSet> libraryFeatures;
     private FeatureSet featureSet;
     private String generationMessage;
-    private String helpTxt;
+    private String helpMsg;
+    private List<String> postGenerationMsg;
+    private Set<String> reservedWords;
 
     private GeneratorMetadata(Builder builder) {
         if (builder != null) {
@@ -44,7 +48,9 @@ public class GeneratorMetadata {
             generationMessage = builder.generationMessage;
             libraryFeatures = builder.libraryFeatures;
             featureSet = builder.featureSet;
-            helpTxt = builder.helpTxt;
+            helpMsg = builder.helpMsg;
+            postGenerationMsg = builder.postGenerationMsg;
+            reservedWords = builder.reservedWords;
         }
     }
 
@@ -68,7 +74,9 @@ public class GeneratorMetadata {
             builder.generationMessage = copy.getGenerationMessage();
             builder.libraryFeatures = copy.getLibraryFeatures();
             builder.featureSet = copy.getFeatureSet();
-            builder.helpTxt = copy.getHelpTxt();
+            builder.helpMsg = copy.getHelpMsg();
+            builder.postGenerationMsg = copy.getPostGenerationMsg();
+            builder.reservedWords = copy.getReservedWords();
         }
         return builder;
     }
@@ -117,7 +125,11 @@ public class GeneratorMetadata {
         return libraryFeatures;
     }
 
-    public String getHelpTxt() { return helpTxt; }
+    public String getHelpMsg() { return helpMsg; }
+
+    public List<String> getPostGenerationMsg() { return postGenerationMsg; }
+
+    public Set<String> getReservedWords() { return reservedWords; }
 
     /**
      * {@code GeneratorMetadata} builder static inner class.
@@ -131,7 +143,9 @@ public class GeneratorMetadata {
         private String generationMessage;
         private FeatureSet featureSet = FeatureSet.UNSPECIFIED;
         private Map<String, FeatureSet> libraryFeatures = new HashMap<>();
-        private String helpTxt;
+        private String helpMsg;
+        private List<String> postGenerationMsg;
+        private Set<String> reservedWords;
 
         private Builder() {
         }
@@ -204,8 +218,18 @@ public class GeneratorMetadata {
             return this;
         }
 
-        public Builder helpTxt(String helpTxt) {
-            this.helpTxt = helpTxt;
+        public Builder helpMsg(String helpMsg) {
+            this.helpMsg = helpMsg;
+            return this;
+        }
+
+        public Builder postGenerationMsg(List<String> postGenerationMsg) {
+            this.postGenerationMsg = postGenerationMsg;
+            return this;
+        }
+
+        public Builder reservedWords(Set<String> reservedWords) {
+            this.reservedWords = reservedWords;
             return this;
         }
 

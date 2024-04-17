@@ -1610,8 +1610,12 @@ public class DefaultGeneratorRunner implements GeneratorRunner {
             }
         }
 
-        // post-process
-        generator.postProcess();
+        List<String> postGenerationMsg = generator.getGeneratorMetadata().getPostGenerationMsg();
+        if (postGenerationMsg != null && !postGenerationMsg.isEmpty()) {
+            for (String msg: postGenerationMsg) {
+                LOGGER.info(msg);
+            }
+        }
 
         // reset GlobalSettings, so that the running thread can be reused for another generator-run
         GlobalSettings.reset();
