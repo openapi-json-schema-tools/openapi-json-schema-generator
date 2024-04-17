@@ -145,7 +145,9 @@ public class DefaultGenerator implements Generator {
 
     private static Map<String, Object> getInitialAdditionalProperties(GeneratorSettings generatorSettings, CodeGeneratorSettings codeGeneratorSettings) {
         Map<String, Object> initialAddProps = new HashMap<>();
-        initialAddProps.putAll(generatorSettings.getAdditionalProperties());
+        if (generatorSettings != null) {
+            initialAddProps.putAll(generatorSettings.getAdditionalProperties());
+        }
         initialAddProps.put(CodegenConstants.HIDE_GENERATION_TIMESTAMP, codeGeneratorSettings.hideGenerationTimestamp);
         initialAddProps.put(CodegenConstants.TEMPLATING_ENGINE, codeGeneratorSettings.templateEngineName);
         if (codeGeneratorSettings.templateDir != null) {
