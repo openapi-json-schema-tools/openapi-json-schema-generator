@@ -12,7 +12,7 @@ title: Documentation for the java generator
 | generator language | Java | |
 | generator language version | 17 | |
 | generator default templating engine | handlebars | |
-| helpTxt | Generates a Java client library<br /><br />Features in this generator:<br />- v3.0.0 - [v3.1.0](#schema-feature) OpenAPI Specification support<br />- Very thorough documentation generated in the style of javadocs<br />- Input types constrained for a Schema in SomeSchema.validate<br />  - validate method can accept arbitrary List/Map/null/int/long/double/float/String json data<br />- Immutable List output classes generated and returned by validate for List&lt;?&gt; input<br />- Immutable Map output classes generated and returned by validate for Map&lt;?, ?&gt; input<br />- Strictly typed list input can be instantiated in client code using generated ListBuilders<br />- Strictly typed map input can be instantiated in client code using generated MapBuilders<br />  - Sequential map builders are generated ensuring that required properties are set before build is invoked. Looks like:<br />  - `new MapBuilder().requiredA("a").requiredB("b").build()`<br />  - `new MapBuilder().requiredA("a").requiredB("b").optionalProp("c").additionalProperty("someAddProp", "d").build()`<br />- Run time type checking and validation when<br />  - validating schema payloads<br />  - instantiating List output class (validation run)<br />  - instantiating Map output class (validation run)<br />  - Note: if needed, validation of json schema keywords can be deactivated via a SchemaConfiguration class<br />- Enums classes are generated and may be input into Schema.validate or the List/MapBuilder add/setter methods<br />- The [Checker-Framework's](https://github.com/typetools/checker-framework) NullnessChecker and @Nullable annotations are used in the java client<br />  - ensuring that null pointer exceptions will not happen<br />- Invalid (in java) property names supported like `class`, `1var`, `hi-there` etc in<br />  - component schema names<br />  - schema property names (a fallback setter is written in the MapBuilder)<br />- Generated interfaces are largely consistent with the python code<br />- Openapi spec inline schemas supported at any depth in any location<br />- Format support for: int32, int64, float, double, date, datetime, uuid<br />- Payload values are not coerced when validated, so a date/date-time value can pass other validations that describe the payload only as type string<br />- enum types are generated for enums of type string/integer/number/boolean/null<br />- String transmission of numbers supported with type: string, format: number | |
+| helpMsg | Generates a Java client library<br /><br />Features in this generator:<br />- v3.0.0 - [v3.1.0](#schema-feature) OpenAPI Specification support<br />- Very thorough documentation generated in the style of javadocs<br />- Input types constrained for a Schema in SomeSchema.validate<br />  - validate method can accept arbitrary List/Map/null/int/long/double/float/String json data<br />- Immutable List output classes generated and returned by validate for List&lt;?&gt; input<br />- Immutable Map output classes generated and returned by validate for Map&lt;?, ?&gt; input<br />- Strictly typed list input can be instantiated in client code using generated ListBuilders<br />- Strictly typed map input can be instantiated in client code using generated MapBuilders<br />  - Sequential map builders are generated ensuring that required properties are set before build is invoked. Looks like:<br />  - `new MapBuilder().requiredA("a").requiredB("b").build()`<br />  - `new MapBuilder().requiredA("a").requiredB("b").optionalProp("c").additionalProperty("someAddProp", "d").build()`<br />- Run time type checking and validation when<br />  - validating schema payloads<br />  - instantiating List output class (validation run)<br />  - instantiating Map output class (validation run)<br />  - Note: if needed, validation of json schema keywords can be deactivated via a SchemaConfiguration class<br />- Enums classes are generated and may be input into Schema.validate or the List/MapBuilder add/setter methods<br />- The [Checker-Framework's](https://github.com/typetools/checker-framework) NullnessChecker and @Nullable annotations are used in the java client<br />  - ensuring that null pointer exceptions will not happen<br />- Invalid (in java) property names supported like `class`, `1var`, `hi-there` etc in<br />  - component schema names<br />  - schema property names (a fallback setter is written in the MapBuilder)<br />- Generated interfaces are largely consistent with the python code<br />- Openapi spec inline schemas supported at any depth in any location<br />- Format support for: int32, int64, float, double, date, datetime, uuid<br />- Payload values are not coerced when validated, so a date/date-time value can pass other validations that describe the payload only as type string<br />- enum types are generated for enums of type string/integer/number/boolean/null<br />- String transmission of numbers supported with type: string, format: number | |
 
 ## CONFIG OPTIONS
 These options may be applied as additional-properties (cli) or configOptions (plugins). Refer to [configuration docs](https://openapi-generator.tech/docs/configuration) for more details.
@@ -20,7 +20,6 @@ These options may be applied as additional-properties (cli) or configOptions (pl
 | Option | Description | Values | Default |
 | ------ | ----------- | ------ | ------- |
 |allowUnicodeIdentifiers|boolean, toggles whether unicode identifiers are allowed in names or not, default is false| |false|
-|apiPackage|package for generated api classes| |apis|
 |artifactDescription|artifact description in generated pom.xml| |OpenAPI Java|
 |artifactId|artifactId in generated pom.xml. This also becomes part of the generated library's filename| |openapi-java-client|
 |artifactUrl|artifact URL in generated pom.xml| |https://github.com/openapi-json-schema-tools/openapi-json-schema-generator|
@@ -30,7 +29,6 @@ These options may be applied as additional-properties (cli) or configOptions (pl
 |developerOrganization|developer organization in generated pom.xml| |OpenAPITools.org|
 |developerOrganizationUrl|developer organization URL in generated pom.xml| |http://openapijsonschematools.org|
 |groupId|groupId in generated pom.xml| |org.openapijsonschematools|
-|hideGenerationTimestamp|Hides the generation timestamp when files are generated.| |false|
 |invokerPackage|root package for generated code| |org.openapijsonschematools.client|
 |licenseName|The name of the license| |Unlicense|
 |licenseUrl|The URL of the license| |http://unlicense.org|
@@ -192,26 +190,26 @@ These options may be applied as additional-properties (cli) or configOptions (pl
 | Name | Supported | Defined By |
 | ---- | --------- | ---------- |
 |Custom|✗|OAS2,OAS3
-|Int32|✓|OAS2,OAS3
-|Int64|✓|OAS2,OAS3
-|Integer|✓|OAS2,OAS3
-|Float|✓|OAS2,OAS3
-|Double|✓|OAS2,OAS3
-|Number|✓|OAS2,OAS3
-|String|✓|OAS2,OAS3
+|Int32|✗|OAS2,OAS3
+|Int64|✗|OAS2,OAS3
+|Integer|✗|OAS2,OAS3
+|Float|✗|OAS2,OAS3
+|Double|✗|OAS2,OAS3
+|Number|✗|OAS2,OAS3
+|String|✗|OAS2,OAS3
 |Byte|✗|OAS2,OAS3
 |Binary|✗|OAS2,OAS3
-|Boolean|✓|OAS2,OAS3
-|Date|✓|OAS2,OAS3
-|DateTime|✓|OAS2,OAS3
+|Boolean|✗|OAS2,OAS3
+|Date|✗|OAS2,OAS3
+|DateTime|✗|OAS2,OAS3
 |Password|✗|OAS2,OAS3
 |File|✗|OAS2
-|Uuid|✓|OAS2,OAS3
-|Array|✓|OAS2,OAS3
-|Null|✓|OAS3
-|AnyType|✓|OAS2,OAS3
-|Object|✓|OAS2,OAS3
-|Enum|✓|OAS2,OAS3
+|Uuid|✗|OAS2,OAS3
+|Array|✗|OAS2,OAS3
+|Null|✗|OAS3
+|AnyType|✗|OAS2,OAS3
+|Object|✗|OAS2,OAS3
+|Enum|✗|OAS2,OAS3
 
 ### Documentation Feature
 | Name | Supported | Defined By |
@@ -233,7 +231,7 @@ These options may be applied as additional-properties (cli) or configOptions (pl
 ### Global Feature
 | Name | Supported | Defined By |
 | ---- | --------- | ---------- |
-|Info|✓|OAS2,OAS3
+|Info|✗|OAS2,OAS3
 |Servers|✓|OAS3
 |Paths|✓|OAS2,OAS3
 |Webhooks|✗|OAS3
@@ -334,7 +332,7 @@ These options may be applied as additional-properties (cli) or configOptions (pl
 ### Wire Format Feature
 | Name | Supported | Defined By |
 | ---- | --------- | ---------- |
-|JSON|✓|OAS2,OAS3
+|JSON|✗|OAS2,OAS3
 |XML|✗|OAS2,OAS3
 |PROTOBUF|✗|ToolingExtension
 |Custom|✗|OAS2,OAS3
