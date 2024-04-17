@@ -3204,7 +3204,18 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
         }
         // must be sequential after initial setting above
         if (additionalProperties.containsKey(CodegenConstants.SNAPSHOT_VERSION)) {
-            if (convertPropertyToBooleanAndWriteBack(CodegenConstants.SNAPSHOT_VERSION)) {
+            final Object booleanValue = additionalProperties.get(CodegenConstants.SNAPSHOT_VERSION);
+            boolean result1 = Boolean.FALSE;
+            if (booleanValue instanceof Boolean) {
+                result1 = (Boolean) booleanValue;
+            } else if (booleanValue instanceof String) {
+                result1 = Boolean.parseBoolean((String) booleanValue);
+            } else {
+                LOGGER.warn("The value (generator's option) must be either boolean or string. Default to `false`.");
+            }
+            boolean result = result1;
+            additionalProperties.put(CodegenConstants.SNAPSHOT_VERSION, result);
+            if (result) {
                 this.setArtifactVersion(this.buildSnapshotVersion(this.getArtifactVersion()));
             }
         }

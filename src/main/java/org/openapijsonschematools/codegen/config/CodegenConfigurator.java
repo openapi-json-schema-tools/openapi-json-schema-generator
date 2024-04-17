@@ -477,18 +477,6 @@ public class CodegenConfigurator {
         // regardless of entrypoint (CLI sets properties on this type, config deserialization sets on generatorSettings).
         Generator config = GeneratorLoader.getGenerator(generatorSettings.getGeneratorName(), generatorSettings, workflowSettings);
 
-        // TODO: Work toward Generator having a "WorkflowSettings" property, or better a "Workflow" object which itself has a "WorkflowSettings" property.
-        config.additionalProperties().put(CodegenConstants.TEMPLATING_ENGINE, workflowSettings.getTemplatingEngineName());
-
-        // TODO: Work toward Generator having a "GeneratorSettings" property.
-        config.additionalProperties().putAll(generatorSettings.getAdditionalProperties());
-
-        // any other additional properties?
-        String templateDir = workflowSettings.getTemplateDir();
-        if (templateDir != null) {
-            config.additionalProperties().put(CodegenConstants.TEMPLATE_DIR, workflowSettings.getTemplateDir());
-        }
-
         return new ClientOptInput(
                 (OpenAPI)context.getSpecDocument(),
                 config,

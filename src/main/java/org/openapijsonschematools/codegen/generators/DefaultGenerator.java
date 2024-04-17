@@ -143,25 +143,20 @@ public class DefaultGenerator implements Generator {
         "################################################################################"
     );
 
+    private static Map<String, Object> getInitialAdditionalProperties(GeneratorSettings generatorSettings, CodeGeneratorSettings codeGeneratorSettings) {
+        Map<String, Object> initialAddProps = new HashMap<>();
+        initialAddProps.putAll(generatorSettings.getAdditionalProperties());
+        initialAddProps.put(CodegenConstants.HIDE_GENERATION_TIMESTAMP, codeGeneratorSettings.hideGenerationTimestamp);
+        initialAddProps.put(CodegenConstants.TEMPLATING_ENGINE, codeGeneratorSettings.templateEngineName);
+        if (codeGeneratorSettings.templateDir != null) {
+            initialAddProps.put(CodegenConstants.TEMPLATE_DIR, codeGeneratorSettings.templateDir);
+        }
+        return initialAddProps;
+    }
 
     protected DefaultGenerator(GeneratorSettings generatorSettings, WorkflowSettings workflowSettings, String embeddedTemplateDir, String packageNameDefault, String outputFolderDefault) {
         this.generatorSettings = CodeGeneratorSettings.of(generatorSettings, workflowSettings, embeddedTemplateDir, packageNameDefault, outputFolderDefault);
-        defaultIncludes = new HashSet<>(
-            Arrays.asList("double",
-                "int",
-                "long",
-                "short",
-                "char",
-                "float",
-                "String",
-                "boolean",
-                "Boolean",
-                "Double",
-                "Void",
-                "Integer",
-                "Long",
-                "Float")
-        );
+        additionalProperties = getInitialAdditionalProperties(generatorSettings, this.generatorSettings);
 
         // name formatting options
         cliOptions.add(CliOption.newBoolean(CodegenConstants.ALLOW_UNICODE_IDENTIFIERS, CodegenConstants
@@ -182,7 +177,6 @@ public class DefaultGenerator implements Generator {
             "openapiclient",
             "generated-code" + File.separator + "java"
         );
-        additionalProperties.put(CodegenConstants.HIDE_GENERATION_TIMESTAMP, this.generatorSettings.hideGenerationTimestamp);
     }
 
     private final Logger LOGGER = LoggerFactory.getLogger(DefaultGenerator.class);
@@ -263,7 +257,6 @@ public class DefaultGenerator implements Generator {
         .languageSpecificPrimitives(Set.of())
         .build();
     protected String inputSpec;
-    protected Set<String> defaultIncludes;
     protected Map<String, String> typeMapping;
     protected String modelPackage = "components.schema";
     protected String modelNamePrefix = "", modelNameSuffix = "";
@@ -3437,8 +3430,7 @@ public class DefaultGenerator implements Generator {
      * @return true if the library/module/package of the corresponding type needs to be imported
      */
     protected boolean needToImport(String type) {
-        return StringUtils.isNotBlank(type) && !defaultIncludes.contains(type)
-                && !generatorMetadata.getLanguageSpecificPrimitives().contains(type);
+        return true;
     }
 
     protected void addImports(Set<String> importsToBeAddedTo, Set<String> importsToAdd) {
@@ -4228,20 +4220,6 @@ public class DefaultGenerator implements Generator {
     }
 
     /**
-     * reads propertyKey from additionalProperties, converts it to a boolean and
-     * writes it back to additionalProperties to be usable as a boolean in
-     * mustache files.
-     *
-     * @param propertyKey property key
-     * @return property value as boolean
-     */
-    public boolean convertPropertyToBooleanAndWriteBack(String propertyKey) {
-        boolean result = convertPropertyToBoolean(propertyKey);
-        writePropertyBack(propertyKey, result);
-        return result;
-    }
-
-    /**
      * Provides an override location, if any is specified, for the .openapi-generator-ignore.
      * <p>
      * This is originally intended for the first generation only.
@@ -4253,24 +4231,7 @@ public class DefaultGenerator implements Generator {
         return ignoreFilePathOverride;
     }
 
-    public boolean convertPropertyToBoolean(String propertyKey) {
-        final Object booleanValue = additionalProperties.get(propertyKey);
-        boolean result = Boolean.FALSE;
-        if (booleanValue instanceof Boolean) {
-            result = (Boolean) booleanValue;
-        } else if (booleanValue instanceof String) {
-            result = Boolean.parseBoolean((String) booleanValue);
-        } else {
-            LOGGER.warn("The value (generator's option) must be either boolean or string. Default to `false`.");
-        }
-        return result;
-    }
-
-    public void writePropertyBack(String propertyKey, boolean value) {
-        additionalProperties.put(propertyKey, value);
-    }
-
-//    private List<Map<String, Object>> getScopes(Scopes scopes) {
+    //    private List<Map<String, Object>> getScopes(Scopes scopes) {
 //        if (scopes != null && !scopes.isEmpty()) {
 //            List<Map<String, Object>> newScopes = new ArrayList<>();
 //            for (Map.Entry<String, String> scopeEntry : scopes.entrySet()) {

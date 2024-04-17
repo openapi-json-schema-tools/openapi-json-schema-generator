@@ -70,7 +70,7 @@ public interface Generator extends OpenApiProcessor, Comparable<Generator> {
 
     String escapeQuotationMark(String input);
 
-    // todo remove this and move it into new
+    // todo remove this and move it into the generator constructor
     void processOpts();
 
     List<CliOption> cliOptions();
@@ -81,10 +81,10 @@ public interface Generator extends OpenApiProcessor, Comparable<Generator> {
 
     HashMap<CodegenConstants.JSON_PATH_LOCATION_TYPE, HashMap<String, String>> getJsonPathTemplateFiles(GeneratedFileType type);
 
-    // todo remove + move this into the new constructor
+    // todo remove this and move it into the generator constructor
     void preprocessOpenAPI(OpenAPI openAPI);
 
-    // todo remove and move this into the new constructor
+    // todo remove this and move it into the generator constructor
     void processOpenAPI(OpenAPI openAPI);
 
     String toApiFilename(String name);
