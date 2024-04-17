@@ -163,31 +163,6 @@ public class DefaultGenerator implements Generator {
                 "Float")
         );
 
-        typeMapping = new HashMap<>();
-        typeMapping.put("array", "List");
-        typeMapping.put("set", "Set");
-        typeMapping.put("map", "Map");
-        typeMapping.put("boolean", "Boolean");
-        typeMapping.put("string", "String");
-        typeMapping.put("int", "Integer");
-        typeMapping.put("float", "Float");
-        typeMapping.put("double", "Double");
-        typeMapping.put("number", "BigDecimal");
-        typeMapping.put("decimal", "BigDecimal");
-        typeMapping.put("DateTime", "Date");
-        typeMapping.put("long", "Long");
-        typeMapping.put("short", "Short");
-        typeMapping.put("char", "String");
-        typeMapping.put("object", "Object");
-        typeMapping.put("integer", "Integer");
-        // FIXME: java specific type should be in Java Based Abstract Implementations
-        typeMapping.put("ByteArray", "byte[]");
-        typeMapping.put("binary", "File");
-        typeMapping.put("file", "File");
-        typeMapping.put("UUID", "UUID");
-        typeMapping.put("URI", "URI");
-        typeMapping.put("AnyType", "oas_any_type_not_mapped");
-
         // name formatting options
         cliOptions.add(CliOption.newBoolean(CodegenConstants.ALLOW_UNICODE_IDENTIFIERS, CodegenConstants
             .ALLOW_UNICODE_IDENTIFIERS_DESC).defaultValue(Boolean.FALSE.toString()));
@@ -284,13 +259,11 @@ public class DefaultGenerator implements Generator {
         .postGenerationMsg(defaultPostGenerationMsg)
         .reservedWords(Set.of())
         .instantiationTypes(Map.of())
+        .languageSpecificPrimitives(Set.of())
         .build();
     protected String inputSpec;
     protected Set<String> defaultIncludes;
     protected Map<String, String> typeMapping;
-    protected Set<String> languageSpecificPrimitives = new HashSet<>();
-    // a map to store the mapping between a schema and the new one
-    // a map to store the mapping between inline schema and the name provided by the user
     protected String modelPackage = "components.schema";
     protected String modelNamePrefix = "", modelNameSuffix = "";
     protected String apiNamePrefix = "", apiNameSuffix = "Api";
@@ -671,11 +644,6 @@ public class DefaultGenerator implements Generator {
             default:
                 return null;
         }
-    }
-
-    @Override
-    public Set<String> languageSpecificPrimitives() {
-        return languageSpecificPrimitives;
     }
 
     @Deprecated
@@ -3476,7 +3444,7 @@ public class DefaultGenerator implements Generator {
      */
     protected boolean needToImport(String type) {
         return StringUtils.isNotBlank(type) && !defaultIncludes.contains(type)
-                && !languageSpecificPrimitives.contains(type);
+                && !generatorMetadata.getLanguageSpecificPrimitives().contains(type);
     }
 
     protected void addImports(Set<String> importsToBeAddedTo, Set<String> importsToAdd) {

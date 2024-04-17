@@ -236,7 +236,7 @@ public class ConfigHelp extends AbstractCommand {
         sb.append(newline).append("## LANGUAGE PRIMITIVES").append(newline).append(newline);
 
         sb.append("<ul class=\"column-ul\">").append(newline);
-        config.languageSpecificPrimitives()
+        config.getGeneratorMetadata().getLanguageSpecificPrimitives()
                 .stream()
                 .sorted(String::compareTo)
                 .forEach(s -> sb.append("<li>").append(escapeHtml4(s)).append("</li>").append(newline));
@@ -416,7 +416,7 @@ public class ConfigHelp extends AbstractCommand {
 
         {
             sb.append(newline).append("LANGUAGE PRIMITIVES").append(newline).append(newline);
-            String[] arr = config.languageSpecificPrimitives().stream().sorted().toArray(String[]::new);
+            String[] arr = config.getGeneratorMetadata().getLanguageSpecificPrimitives().stream().sorted().toArray(String[]::new);
             writePlainTextFromArray(sb, arr, optIndent);
             sb.append(newline);
         }

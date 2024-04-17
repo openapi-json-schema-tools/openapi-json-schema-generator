@@ -81,9 +81,6 @@ public interface Generator extends OpenApiProcessor, Comparable<Generator> {
 
     HashMap<CodegenConstants.JSON_PATH_LOCATION_TYPE, HashMap<String, String>> getJsonPathTemplateFiles(GeneratedFileType type);
 
-    // todo move into metadata
-    Set<String> languageSpecificPrimitives();
-
     // todo remove + move this into the new constructor
     void preprocessOpenAPI(OpenAPI openAPI);
 
@@ -359,6 +356,11 @@ public interface Generator extends OpenApiProcessor, Comparable<Generator> {
     @Deprecated
     default Map<String, String> instantiationTypes() {
         return getGeneratorMetadata().getInstantiationTypes();
+    }
+
+    @Deprecated
+    default Set<String> languageSpecificPrimitives() {
+        return getGeneratorMetadata().getLanguageSpecificPrimitives();
     }
     // 93 - 42 -> 51
 }

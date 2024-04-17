@@ -38,6 +38,7 @@ public class GeneratorMetadata {
     private List<String> postGenerationMsg;
     private Set<String> reservedWords;
     private Map<String, String> instantiationTypes;
+    private Set<String> languageSpecificPrimitives;
 
     private GeneratorMetadata(Builder builder) {
         if (builder != null) {
@@ -53,6 +54,7 @@ public class GeneratorMetadata {
             postGenerationMsg = builder.postGenerationMsg;
             reservedWords = builder.reservedWords;
             instantiationTypes = builder.instantiationTypes;
+            languageSpecificPrimitives = builder.languageSpecificPrimitives;
         }
     }
 
@@ -80,6 +82,7 @@ public class GeneratorMetadata {
             builder.postGenerationMsg = copy.getPostGenerationMsg();
             builder.reservedWords = copy.getReservedWords();
             builder.instantiationTypes = copy.getInstantiationTypes();
+            builder.languageSpecificPrimitives = copy.getLanguageSpecificPrimitives();
         }
         return builder;
     }
@@ -136,6 +139,8 @@ public class GeneratorMetadata {
 
     public Map<String, String> getInstantiationTypes() { return instantiationTypes; }
 
+    public Set<String> getLanguageSpecificPrimitives() { return languageSpecificPrimitives; }
+
     /**
      * {@code GeneratorMetadata} builder static inner class.
      */
@@ -152,6 +157,7 @@ public class GeneratorMetadata {
         private List<String> postGenerationMsg;
         private Set<String> reservedWords;
         private Map<String, String> instantiationTypes;
+        private Set<String> languageSpecificPrimitives;
 
         private Builder() {
         }
@@ -241,6 +247,11 @@ public class GeneratorMetadata {
 
         public Builder instantiationTypes(Map<String, String> instantiationTypes) {
             this.instantiationTypes = instantiationTypes;
+            return this;
+        }
+
+        public Builder languageSpecificPrimitives(Set<String> languageSpecificPrimitives) {
+            this.languageSpecificPrimitives = languageSpecificPrimitives;
             return this;
         }
 

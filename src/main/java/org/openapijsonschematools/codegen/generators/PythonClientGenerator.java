@@ -292,6 +292,22 @@ public class PythonClientGenerator extends DefaultGenerator implements Generator
                 new AbstractMap.SimpleEntry<>("null", "None")
             )
         )
+        .languageSpecificPrimitives(
+            Set.of(
+                "int",
+                "float",
+                "list",
+                "dict",
+                "bool",
+                "str",
+                "datetime",
+                "date",
+                "object",
+                "file",
+                "bytes",
+                "None"
+            )
+        )
     .build();
 
     public PythonClientGenerator(GeneratorSettings generatorSettings, WorkflowSettings workflowSettings) {
@@ -307,45 +323,6 @@ public class PythonClientGenerator extends DefaultGenerator implements Generator
         importBaseType = false;
         addSchemaImportsFromV3SpecLocations = true;
         removeEnumValuePrefix = false;
-
-        languageSpecificPrimitives.clear();
-        languageSpecificPrimitives.add("int");
-        languageSpecificPrimitives.add("float");
-        languageSpecificPrimitives.add("list");
-        languageSpecificPrimitives.add("dict");
-        languageSpecificPrimitives.add("bool");
-        languageSpecificPrimitives.add("str");
-        languageSpecificPrimitives.add("datetime");
-        languageSpecificPrimitives.add("date");
-        languageSpecificPrimitives.add("object");
-        // TODO file and binary is mapped as `file`
-        languageSpecificPrimitives.add("file");
-        languageSpecificPrimitives.add("bytes");
-
-        typeMapping.clear();
-        typeMapping.put("integer", "int");
-        typeMapping.put("float", "float");
-        typeMapping.put("number", "float");
-        typeMapping.put("long", "int");
-        typeMapping.put("double", "float");
-        typeMapping.put("array", "list");
-        typeMapping.put("set", "list");
-        typeMapping.put("map", "dict");
-        typeMapping.put("boolean", "bool");
-        typeMapping.put("string", "str");
-        typeMapping.put("date", "date");
-        typeMapping.put("DateTime", "datetime");
-        typeMapping.put("object", "object");
-        typeMapping.put("AnyType", "object");
-        typeMapping.put("file", "file");
-        // TODO binary should be mapped to byte array
-        // mapped to String as a workaround
-        typeMapping.put("binary", "str");
-        typeMapping.put("ByteArray", "str");
-        // map uuid to string for the time being
-        typeMapping.put("UUID", "str");
-        typeMapping.put("URI", "str");
-        typeMapping.put("null", "none_type");
 
         modelPackage = "components.schema";
 
@@ -389,10 +366,6 @@ public class PythonClientGenerator extends DefaultGenerator implements Generator
         // In principle, this should be enabled by default for all code generators. However, due to limitations
         // in other code generators, support needs to be enabled on a case-by-case basis.
         supportsAdditionalPropertiesWithComposedSchema = true;
-
-        // this tells users what openapi types turn in to
-        languageSpecificPrimitives.add("file_type");
-        languageSpecificPrimitives.add("none_type");
     }
 
     @Override

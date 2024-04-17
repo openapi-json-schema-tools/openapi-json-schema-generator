@@ -96,24 +96,9 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
             setOutputTestFolder(this.generatorSettings.outputFolder);
         }
         headersSchemaFragment = "HeadersSchema";
-
         supportsInheritance = true;
-
         hideGenerationTimestamp = false;
 
-        languageSpecificPrimitives = Sets.newHashSet("String",
-            "boolean",
-            "Boolean",
-            "Double",
-            "Integer",
-            "Long",
-            "Float",
-            "Object",
-            "byte[]"
-        );
-        typeMapping.put("date", "Date");
-        typeMapping.put("file", "File");
-        typeMapping.put("AnyType", "Object");
 
         cliOptions.add(new CliOption(CodegenConstants.API_PACKAGE, CodegenConstants.API_PACKAGE_DESC));
         cliOptions.add(new CliOption(CodegenConstants.INVOKER_PACKAGE, CodegenConstants.INVOKER_PACKAGE_DESC).defaultValue(this.getInvokerPackage()));
@@ -367,6 +352,19 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
                 new AbstractMap.SimpleEntry<>("integer", "Number (int, long, float with integer values, double with integer values)"),
                 new AbstractMap.SimpleEntry<>("boolean", "boolean"),
                 new AbstractMap.SimpleEntry<>("null", "Void (null)")
+            )
+        )
+        .languageSpecificPrimitives(
+            Sets.newHashSet(
+                "String",
+                "boolean",
+                "Boolean",
+                "Double",
+                "Integer",
+                "Long",
+                "Float",
+                "Object",
+                "byte[]"
             )
         )
     .build();
