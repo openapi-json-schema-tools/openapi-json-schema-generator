@@ -182,6 +182,7 @@ public class DefaultGenerator implements Generator {
             "openapiclient",
             "generated-code" + File.separator + "java"
         );
+        additionalProperties.put(CodegenConstants.HIDE_GENERATION_TIMESTAMP, this.generatorSettings.hideGenerationTimestamp);
     }
 
     private final Logger LOGGER = LoggerFactory.getLogger(DefaultGenerator.class);
@@ -312,7 +313,6 @@ public class DefaultGenerator implements Generator {
      */
     protected boolean supportsAdditionalPropertiesWithComposedSchema = true;
     protected Boolean allowUnicodeIdentifiers = false;
-    protected Boolean hideGenerationTimestamp = true;
     // How to encode special characters like $
     // They are translated to words like "Dollar" and prefixed with '
     // Then translated back during JSON encoding and decoding
@@ -355,12 +355,6 @@ public class DefaultGenerator implements Generator {
 
     @Override
     public void processOpts() {
-        if (additionalProperties.containsKey(CodegenConstants.HIDE_GENERATION_TIMESTAMP)) {
-            setHideGenerationTimestamp(convertPropertyToBooleanAndWriteBack(CodegenConstants.HIDE_GENERATION_TIMESTAMP));
-        } else {
-            additionalProperties.put(CodegenConstants.HIDE_GENERATION_TIMESTAMP, hideGenerationTimestamp);
-        }
-
         if (additionalProperties.containsKey(CodegenConstants.ALLOW_UNICODE_IDENTIFIERS)) {
             this.setAllowUnicodeIdentifiers(Boolean.valueOf(additionalProperties
                     .get(CodegenConstants.ALLOW_UNICODE_IDENTIFIERS).toString()));
@@ -4011,16 +4005,6 @@ public class DefaultGenerator implements Generator {
 
     public void setRemoveOperationIdPrefixCount(int removeOperationIdPrefixCount) {
         this.removeOperationIdPrefixCount = removeOperationIdPrefixCount;
-    }
-
-    @Override
-    public boolean isHideGenerationTimestamp() {
-        return hideGenerationTimestamp;
-    }
-
-    @Override
-    public void setHideGenerationTimestamp(boolean hideGenerationTimestamp) {
-        this.hideGenerationTimestamp = hideGenerationTimestamp;
     }
 
     /**

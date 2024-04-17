@@ -21,6 +21,7 @@ public class CodeGeneratorSettings {
     public final String templateEngineName;
     public final String inputSpecLocation;  // input spec's location, as URL or file
     public final boolean removeEnumValuePrefix;
+    public final boolean hideGenerationTimestamp;
     public CodeGeneratorSettings(
         String apiPackage,
         String outputFolder,
@@ -36,7 +37,8 @@ public class CodeGeneratorSettings {
         boolean enablePostProcessFile,
         String templateEngineName,
         String inputSpecLocation,
-        boolean removeEnumValuePrefix
+        boolean removeEnumValuePrefix,
+        boolean hideGenerationTimestamp
     ) {
         this.apiPackage = apiPackage;
         this.outputFolder = outputFolder;
@@ -53,6 +55,7 @@ public class CodeGeneratorSettings {
         this.templateEngineName = templateEngineName;
         this.inputSpecLocation = inputSpecLocation;
         this.removeEnumValuePrefix = removeEnumValuePrefix;
+        this.hideGenerationTimestamp = hideGenerationTimestamp;
     }
 
     public static CodeGeneratorSettings of(GeneratorSettings generatorSettings, WorkflowSettings workflowSettings, String embeddedTemplateDir, String packageNameDefault, String outputFolderDefault) {
@@ -71,6 +74,7 @@ public class CodeGeneratorSettings {
         String templateEnginName = workflowSettings != null ? workflowSettings.getTemplatingEngineName() : WorkflowSettings.DEFAULT_TEMPLATING_ENGINE_NAME;
         String inputSpecLocation = workflowSettings != null ? workflowSettings.getInputSpec() : null;
         boolean removeEnumValuePrefix = workflowSettings != null ? workflowSettings.isRemoveEnumValuePrefix() : WorkflowSettings.DEFAULT_REMOVE_ENUM_VALUE_PREFIX;
+        boolean hideGenerationTimestamp = workflowSettings != null ? workflowSettings.isHideGenerationTimestamp() : WorkflowSettings.DEFAULT_HIDE_GENERATION_TIMESTAMP;
         return new CodeGeneratorSettings(
             apiPackage,
             outputDir,
@@ -86,7 +90,8 @@ public class CodeGeneratorSettings {
             enablePostProcessingFile,
             templateEnginName,
             inputSpecLocation,
-            removeEnumValuePrefix
+            removeEnumValuePrefix,
+            hideGenerationTimestamp
         );
     }
 }

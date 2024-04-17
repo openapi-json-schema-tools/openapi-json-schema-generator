@@ -107,10 +107,6 @@ public interface Generator extends OpenApiProcessor, Comparable<Generator> {
 
     String getFilePath(GeneratedFileType type, String jsonPath);
 
-    boolean isHideGenerationTimestamp();
-
-    void setHideGenerationTimestamp(boolean hideGenerationTimestamp);
-
     void setDocExtension(String docExtension);
 
     String sanitizeName(String name);
@@ -362,5 +358,10 @@ public interface Generator extends OpenApiProcessor, Comparable<Generator> {
     default Set<String> languageSpecificPrimitives() {
         return getGeneratorMetadata().getLanguageSpecificPrimitives();
     }
-    // 93 - 42 -> 51
+
+    @Deprecated
+    default boolean isHideGenerationTimestamp() {
+        return generatorSettings().hideGenerationTimestamp;
+    }
+    // 93 - 45 -> 48
 }

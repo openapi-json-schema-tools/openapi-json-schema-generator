@@ -192,6 +192,10 @@ public class Generate extends AbstractCommand {
         description = "Only write output files that have changed.")
     private Boolean minimalUpdate;
 
+    @Option(name = {"--hide-generation-timestamp"}, title = "hides the generation timestamp in the generated files",
+        description = CodegenConstants.HIDE_GENERATION_TIMESTAMP_DESC)
+    private Boolean hideGenerationTimestamp;
+
     @Override
     public void execute() {
         // this initial check allows for field-level package private injection (for unit testing)
@@ -320,7 +324,11 @@ public class Generate extends AbstractCommand {
         }
 
         if (removeEnumValuePrefix != null) {
-            configurator.setRemoveOperationIdPrefix(removeOperationIdPrefix);
+            configurator.setRemoveEnumValuePrefix(removeEnumValuePrefix);
+        }
+
+        if (hideGenerationTimestamp != null) {
+            configurator.setHideGenerationTimestamp(hideGenerationTimestamp);
         }
 
         if (skipOperationExample != null) {

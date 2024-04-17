@@ -250,27 +250,27 @@ public class DefaultGeneratorTest {
         codegen.processOpts();
 
         Assert.assertEquals(codegen.additionalProperties().get(CodegenConstants.HIDE_GENERATION_TIMESTAMP), Boolean.TRUE);
-        Assert.assertTrue(codegen.isHideGenerationTimestamp());
+        Assert.assertTrue(codegen.generatorSettings.hideGenerationTimestamp);
     }
 
     @Test
     public void testSettersForConfigValues() throws Exception {
-        final DefaultGenerator codegen = new ThisDefaultGenerator();
-        codegen.setHideGenerationTimestamp(false);
+        WorkflowSettings ws = WorkflowSettings.newBuilder().withHideGenerationTimestamp(false).build();
+        final DefaultGenerator codegen = new ThisDefaultGenerator(ws);
         codegen.processOpts();
 
         Assert.assertEquals(codegen.additionalProperties().get(CodegenConstants.HIDE_GENERATION_TIMESTAMP), Boolean.FALSE);
-        Assert.assertFalse(codegen.isHideGenerationTimestamp());
+        Assert.assertFalse(codegen.generatorSettings.hideGenerationTimestamp);
     }
 
     @Test
-    public void testAdditionalPropertiesPutForConfigValues() throws Exception {
-        final DefaultGenerator codegen = new ThisDefaultGenerator();
-        codegen.additionalProperties().put(CodegenConstants.HIDE_GENERATION_TIMESTAMP, false);
+    public void testAdditionalPropertiesPutForConfigValues() {
+        WorkflowSettings ws = WorkflowSettings.newBuilder().withHideGenerationTimestamp(false).build();
+        final DefaultGenerator codegen = new ThisDefaultGenerator(ws);
         codegen.processOpts();
 
         Assert.assertEquals(codegen.additionalProperties().get(CodegenConstants.HIDE_GENERATION_TIMESTAMP), Boolean.FALSE);
-        Assert.assertFalse(codegen.isHideGenerationTimestamp());
+        Assert.assertFalse(codegen.generatorSettings.hideGenerationTimestamp);
     }
 
     @Test

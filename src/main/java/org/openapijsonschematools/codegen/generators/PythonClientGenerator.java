@@ -326,9 +326,6 @@ public class PythonClientGenerator extends DefaultGenerator implements Generator
 
         modelPackage = "components.schema";
 
-        // default HIDE_GENERATION_TIMESTAMP to true
-        hideGenerationTimestamp = Boolean.TRUE;
-
         regexModifiers = new HashMap<>();
         regexModifiers.put('i', "IGNORECASE");
         regexModifiers.put('l', "LOCALE");
