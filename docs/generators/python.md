@@ -70,18 +70,16 @@ These options may be applied as additional-properties (cli) or configOptions (pl
 
 <ul class="column-ul">
 <li>@property</li>
-<li>all_params</li>
 <li>and</li>
 <li>as</li>
 <li>assert</li>
 <li>async</li>
-<li>auth_settings</li>
 <li>await</li>
-<li>body_params</li>
 <li>bool</li>
 <li>break</li>
 <li>class</li>
 <li>continue</li>
+<li>cookie_params</li>
 <li>datetime</li>
 <li>decimal</li>
 <li>def</li>
@@ -95,7 +93,6 @@ These options may be applied as additional-properties (cli) or configOptions (pl
 <li>finally</li>
 <li>float</li>
 <li>for</li>
-<li>form_params</li>
 <li>from</li>
 <li>functools</li>
 <li>global</li>
@@ -109,7 +106,6 @@ These options may be applied as additional-properties (cli) or configOptions (pl
 <li>is</li>
 <li>lambda</li>
 <li>list</li>
-<li>local_var_files</li>
 <li>none</li>
 <li>nonlocal</li>
 <li>not</li>

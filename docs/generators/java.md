@@ -190,26 +190,26 @@ These options may be applied as additional-properties (cli) or configOptions (pl
 | Name | Supported | Defined By |
 | ---- | --------- | ---------- |
 |Custom|✗|OAS2,OAS3
-|Int32|✗|OAS2,OAS3
-|Int64|✗|OAS2,OAS3
-|Integer|✗|OAS2,OAS3
-|Float|✗|OAS2,OAS3
-|Double|✗|OAS2,OAS3
-|Number|✗|OAS2,OAS3
-|String|✗|OAS2,OAS3
+|Int32|✓|OAS2,OAS3
+|Int64|✓|OAS2,OAS3
+|Integer|✓|OAS2,OAS3
+|Float|✓|OAS2,OAS3
+|Double|✓|OAS2,OAS3
+|Number|✓|OAS2,OAS3
+|String|✓|OAS2,OAS3
 |Byte|✗|OAS2,OAS3
 |Binary|✗|OAS2,OAS3
-|Boolean|✗|OAS2,OAS3
-|Date|✗|OAS2,OAS3
-|DateTime|✗|OAS2,OAS3
+|Boolean|✓|OAS2,OAS3
+|Date|✓|OAS2,OAS3
+|DateTime|✓|OAS2,OAS3
 |Password|✗|OAS2,OAS3
 |File|✗|OAS2
-|Uuid|✗|OAS2,OAS3
-|Array|✗|OAS2,OAS3
-|Null|✗|OAS3
-|AnyType|✗|OAS2,OAS3
-|Object|✗|OAS2,OAS3
-|Enum|✗|OAS2,OAS3
+|Uuid|✓|OAS2,OAS3
+|Array|✓|OAS2,OAS3
+|Null|✓|OAS3
+|AnyType|✓|OAS2,OAS3
+|Object|✓|OAS2,OAS3
+|Enum|✓|OAS2,OAS3
 
 ### Documentation Feature
 | Name | Supported | Defined By |
@@ -231,7 +231,7 @@ These options may be applied as additional-properties (cli) or configOptions (pl
 ### Global Feature
 | Name | Supported | Defined By |
 | ---- | --------- | ---------- |
-|Info|✗|OAS2,OAS3
+|Info|✓|OAS2,OAS3
 |Servers|✓|OAS3
 |Paths|✓|OAS2,OAS3
 |Webhooks|✗|OAS3
@@ -332,7 +332,7 @@ These options may be applied as additional-properties (cli) or configOptions (pl
 ### Wire Format Feature
 | Name | Supported | Defined By |
 | ---- | --------- | ---------- |
-|JSON|✗|OAS2,OAS3
+|JSON|✓|OAS2,OAS3
 |XML|✗|OAS2,OAS3
 |PROTOBUF|✗|ToolingExtension
 |Custom|✗|OAS2,OAS3

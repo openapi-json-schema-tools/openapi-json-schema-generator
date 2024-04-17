@@ -36,12 +36,14 @@ import org.openapijsonschematools.codegen.generators.generatormetadata.Generator
 import org.openapijsonschematools.codegen.generators.generatormetadata.GeneratorMetadata;
 import org.openapijsonschematools.codegen.generators.generatormetadata.Stability;
 import org.openapijsonschematools.codegen.generators.generatormetadata.features.ComponentsFeature;
+import org.openapijsonschematools.codegen.generators.generatormetadata.features.DataTypeFeature;
 import org.openapijsonschematools.codegen.generators.generatormetadata.features.GlobalFeature;
 import org.openapijsonschematools.codegen.generators.generatormetadata.features.OperationFeature;
 import org.openapijsonschematools.codegen.generators.generatormetadata.features.SchemaFeature;
 import org.openapijsonschematools.codegen.common.CodegenConstants;
 import org.openapijsonschematools.codegen.generators.generatormetadata.GeneratorType;
 import org.openapijsonschematools.codegen.generators.generatormetadata.features.SecurityFeature;
+import org.openapijsonschematools.codegen.generators.generatormetadata.features.WireFormatFeature;
 import org.openapijsonschematools.codegen.generators.models.CliOption;
 import org.openapijsonschematools.codegen.generators.openapimodels.CodegenHeader;
 import org.openapijsonschematools.codegen.generators.openapimodels.CodegenKey;
@@ -190,6 +192,24 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
     private final Map<String, String> schemaKeyToModelNameCache = new HashMap<>();
 
     private static final FeatureSet featureSet = FeatureSet.newBuilder()
+        .includeDataTypeFeatures(
+            DataTypeFeature.Int32,
+            DataTypeFeature.Int64,
+            DataTypeFeature.Integer,
+            DataTypeFeature.Float,
+            DataTypeFeature.Double,
+            DataTypeFeature.Number,
+            DataTypeFeature.String,
+            DataTypeFeature.Boolean,
+            DataTypeFeature.Date,
+            DataTypeFeature.DateTime,
+            DataTypeFeature.Uuid,
+            DataTypeFeature.Array,
+            DataTypeFeature.Object,
+            DataTypeFeature.Null,
+            DataTypeFeature.AnyType,
+            DataTypeFeature.Enum
+        )
         .includeDocumentationFeatures(
             DocumentationFeature.Readme,
             DocumentationFeature.Servers,
@@ -206,7 +226,8 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
             GlobalFeature.Components,
             GlobalFeature.Servers,
             GlobalFeature.Security,
-            GlobalFeature.Paths
+            GlobalFeature.Paths,
+            GlobalFeature.Info
         )
         .includeComponentsFeatures(
             ComponentsFeature.schemas,
@@ -272,6 +293,9 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
             SchemaFeature.UnevaluatedItems,
             SchemaFeature.UnevaluatedProperties,
             SchemaFeature.UniqueItems
+        )
+        .includeWireFormatFeatures(
+            WireFormatFeature.JSON
         )
         .build();
     public static final GeneratorMetadata generatorMetadata = GeneratorMetadata.newBuilder()

@@ -263,8 +263,8 @@ public class PythonClientGenerator extends DefaultGenerator implements Generator
             getLowerCaseWords(
                 Arrays.asList( // from https://docs.python.org/3/reference/lexical_analysis.html#keywords
                     // local variable name used in API methods (endpoints)
-                    "all_params", "resource_path", "path_params", "query_params",
-                    "header_params", "form_params", "local_var_files", "body_params", "auth_settings",
+                    "resource_path", "path_params", "query_params",
+                    "header_params", "cookie_params",
                     // @property
                     "property", "@property",
                     // python reserved words
