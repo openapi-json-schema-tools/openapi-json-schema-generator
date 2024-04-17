@@ -255,10 +255,6 @@ public class Generate extends AbstractCommand {
             configurator.setTemplateDir(templateDir);
         }
 
-        if (isNotEmpty(packageName)) {
-            configurator.setPackageName(packageName);
-        }
-
         if (isNotEmpty(templatingEngine)) {
             configurator.setTemplatingEngineName(templatingEngine);
         }
@@ -350,7 +346,19 @@ public class Generate extends AbstractCommand {
         if (globalProperties != null && !globalProperties.isEmpty()) {
             CodegenConfiguratorUtils.applyGlobalPropertiesKvpList(globalProperties, configurator);
         }
+
+        if (isNotEmpty(packageName)) {
+            configurator.setPackageName(packageName);
+        }
+
         CodegenConfiguratorUtils.applyAdditionalPropertiesKvpList(additionalProperties, configurator);
+
+        if (!isNotEmpty(packageName) && (configurator.getAdditionalProperties() != null && configurator.getAdditionalProperties().containsKey("packageName"))) {
+            // if packageName is passed as an additional property warn them
+            System.out.println("packageName should be passed in using --package-name from now on");
+            packageName = (String) configurator.getAdditionalProperties().get("packageName");
+            configurator.setPackageName(packageName);
+        }
 
         try {
             final ClientOptInput clientOptInput = configurator.toClientOptInput();

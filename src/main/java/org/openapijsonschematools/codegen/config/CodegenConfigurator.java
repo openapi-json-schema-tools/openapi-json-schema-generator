@@ -468,6 +468,10 @@ public class CodegenConfigurator {
         return new Context<>(specification, generatorSettings, workflowSettings);
     }
 
+    public Map<String, Object> getAdditionalProperties() {
+        return additionalProperties;
+    }
+
     public ClientOptInput toClientOptInput() {
         Context<?> context = toContext();
         WorkflowSettings workflowSettings = context.getWorkflowSettings();
