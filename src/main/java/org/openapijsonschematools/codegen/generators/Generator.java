@@ -79,9 +79,6 @@ public interface Generator extends OpenApiProcessor, Comparable<Generator> {
 
     CodegenKey getKey(String key, String keyType);
 
-    // todo move into metadata
-    Map<String, String> instantiationTypes();
-
     HashMap<CodegenConstants.JSON_PATH_LOCATION_TYPE, HashMap<String, String>> getJsonPathTemplateFiles(GeneratedFileType type);
 
     // todo move into metadata
@@ -357,6 +354,11 @@ public interface Generator extends OpenApiProcessor, Comparable<Generator> {
     @Deprecated
     default Set<String> reservedWords() {
         return getGeneratorMetadata().getReservedWords();
+    }
+
+    @Deprecated
+    default Map<String, String> instantiationTypes() {
+        return getGeneratorMetadata().getInstantiationTypes();
     }
     // 93 - 42 -> 51
 }

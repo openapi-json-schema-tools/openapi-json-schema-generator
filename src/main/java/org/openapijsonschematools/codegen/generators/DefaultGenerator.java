@@ -188,8 +188,6 @@ public class DefaultGenerator implements Generator {
         typeMapping.put("URI", "URI");
         typeMapping.put("AnyType", "oas_any_type_not_mapped");
 
-        instantiationTypes = new HashMap<>();
-
         // name formatting options
         cliOptions.add(CliOption.newBoolean(CodegenConstants.ALLOW_UNICODE_IDENTIFIERS, CodegenConstants
             .ALLOW_UNICODE_IDENTIFIERS_DESC).defaultValue(Boolean.FALSE.toString()));
@@ -285,12 +283,11 @@ public class DefaultGenerator implements Generator {
         .helpMsg("todo replace help text")
         .postGenerationMsg(defaultPostGenerationMsg)
         .reservedWords(Set.of())
+        .instantiationTypes(Map.of())
         .build();
     protected String inputSpec;
     protected Set<String> defaultIncludes;
     protected Map<String, String> typeMapping;
-    // instantiationTypes map from container types only: set, map, and array to the in language-type
-    protected Map<String, String> instantiationTypes;
     protected Set<String> languageSpecificPrimitives = new HashSet<>();
     // a map to store the mapping between a schema and the new one
     // a map to store the mapping between inline schema and the name provided by the user
@@ -660,11 +657,6 @@ public class DefaultGenerator implements Generator {
         LOGGER.warn("escapeQuotationMark should be overridden in the code generator with proper logic to escape " +
                 "single/double quote");
         return input.replace("\"", "\\\"");
-    }
-
-    @Override
-    public Map<String, String> instantiationTypes() {
-        return instantiationTypes;
     }
 
     @Override

@@ -281,6 +281,17 @@ public class PythonClientGenerator extends DefaultGenerator implements Generator
                 )
             )
         )
+        .instantiationTypes(
+            Map.ofEntries(
+                new AbstractMap.SimpleEntry<>("object", "immutabledict.immutabledict"),
+                new AbstractMap.SimpleEntry<>("array", "tuple"),
+                new AbstractMap.SimpleEntry<>("string", "str"),
+                new AbstractMap.SimpleEntry<>("number", "typing.Union[float, int]"),
+                new AbstractMap.SimpleEntry<>("integer", "int"),
+                new AbstractMap.SimpleEntry<>("boolean", "bool"),
+                new AbstractMap.SimpleEntry<>("null", "None")
+            )
+        )
     .build();
 
     public PythonClientGenerator(GeneratorSettings generatorSettings, WorkflowSettings workflowSettings) {
@@ -380,14 +391,6 @@ public class PythonClientGenerator extends DefaultGenerator implements Generator
         supportsAdditionalPropertiesWithComposedSchema = true;
 
         // this tells users what openapi types turn in to
-        instantiationTypes.put("object", "immutabledict.immutabledict");
-        instantiationTypes.put("array", "tuple");
-        instantiationTypes.put("string", "str");
-        instantiationTypes.put("number", "typing.Union[float, int]");
-        instantiationTypes.put("integer", "int");
-        instantiationTypes.put("boolean", "bool");
-        instantiationTypes.put("null", "None");
-
         languageSpecificPrimitives.add("file_type");
         languageSpecificPrimitives.add("none_type");
     }

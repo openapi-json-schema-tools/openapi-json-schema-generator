@@ -220,7 +220,7 @@ public class ConfigHelp extends AbstractCommand {
         sb.append("| Type/Alias | Instantiated By |").append(newline);
         sb.append("| ---------- | --------------- |").append(newline);
 
-        config.instantiationTypes()
+        config.getGeneratorMetadata().getInstantiationTypes()
                 .entrySet()
                 .stream()
                 .sorted(Map.Entry.comparingByKey())
@@ -401,7 +401,7 @@ public class ConfigHelp extends AbstractCommand {
             sb.append(newline).append(newline);
         });
 
-        Map<String, String> instantiationTypes = config.instantiationTypes();
+        Map<String, String> instantiationTypes = config.getGeneratorMetadata().getInstantiationTypes();
         if (instantiationTypes != null) {
             sb.append(newline).append("INSTANTIATION TYPES").append(newline).append(newline);
             Map<String, String> map = instantiationTypes

@@ -37,6 +37,7 @@ public class GeneratorMetadata {
     private String helpMsg;
     private List<String> postGenerationMsg;
     private Set<String> reservedWords;
+    private Map<String, String> instantiationTypes;
 
     private GeneratorMetadata(Builder builder) {
         if (builder != null) {
@@ -51,6 +52,7 @@ public class GeneratorMetadata {
             helpMsg = builder.helpMsg;
             postGenerationMsg = builder.postGenerationMsg;
             reservedWords = builder.reservedWords;
+            instantiationTypes = builder.instantiationTypes;
         }
     }
 
@@ -77,6 +79,7 @@ public class GeneratorMetadata {
             builder.helpMsg = copy.getHelpMsg();
             builder.postGenerationMsg = copy.getPostGenerationMsg();
             builder.reservedWords = copy.getReservedWords();
+            builder.instantiationTypes = copy.getInstantiationTypes();
         }
         return builder;
     }
@@ -131,6 +134,8 @@ public class GeneratorMetadata {
 
     public Set<String> getReservedWords() { return reservedWords; }
 
+    public Map<String, String> getInstantiationTypes() { return instantiationTypes; }
+
     /**
      * {@code GeneratorMetadata} builder static inner class.
      */
@@ -146,6 +151,7 @@ public class GeneratorMetadata {
         private String helpMsg;
         private List<String> postGenerationMsg;
         private Set<String> reservedWords;
+        private Map<String, String> instantiationTypes;
 
         private Builder() {
         }
@@ -230,6 +236,11 @@ public class GeneratorMetadata {
 
         public Builder reservedWords(Set<String> reservedWords) {
             this.reservedWords = reservedWords;
+            return this;
+        }
+
+        public Builder instantiationTypes(Map<String, String> instantiationTypes) {
+            this.instantiationTypes = instantiationTypes;
             return this;
         }
 

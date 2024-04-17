@@ -154,15 +154,6 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
         arrayIOClassNamePiece = "List";
         arrayObjectInputClassNameSuffix = "Builder";
 
-        // this tells users what openapi types turn in to
-        instantiationTypes.put("object", "FrozenMap");
-        instantiationTypes.put("array", "FrozenList");
-        instantiationTypes.put("string", "String");
-        instantiationTypes.put("number", "Number (int, long, float, double)");
-        instantiationTypes.put("integer", "Number (int, long, float with integer values, double with integer values)");
-        instantiationTypes.put("boolean", "boolean");
-        instantiationTypes.put("null", "Void (null)");
-
         invokerPackage = "org.openapijsonschematools.client";
         artifactId = "openapi-java-client";
         modelPackage = "components.schemas";
@@ -365,6 +356,17 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
                     // additional types
                     "localdate", "zoneddatetime", "list", "map", "linkedhashset", "void", "string", "uuid", "number", "integer", "toString"
                 )
+            )
+        )
+        .instantiationTypes(
+            Map.ofEntries(
+                new AbstractMap.SimpleEntry<>("object", "FrozenMap"),
+                new AbstractMap.SimpleEntry<>("array", "FrozenList"),
+                new AbstractMap.SimpleEntry<>("string", "String"),
+                new AbstractMap.SimpleEntry<>("number", "Number (int, long, float, double)"),
+                new AbstractMap.SimpleEntry<>("integer", "Number (int, long, float with integer values, double with integer values)"),
+                new AbstractMap.SimpleEntry<>("boolean", "boolean"),
+                new AbstractMap.SimpleEntry<>("null", "Void (null)")
             )
         )
     .build();
