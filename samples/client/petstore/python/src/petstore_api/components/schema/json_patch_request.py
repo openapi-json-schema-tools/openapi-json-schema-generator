@@ -10,6 +10,10 @@
 from __future__ import annotations
 from petstore_api.shared_imports.schema_imports import *  # pyright: ignore [reportWildcardImportFromLibrary]
 
+
+from petstore_api.components.schema import json_patch_request_add_replace_test
+from petstore_api.components.schema import json_patch_request_move_copy
+from petstore_api.components.schema import json_patch_request_remove
 OneOf = typing.Tuple[
     typing.Type[json_patch_request_add_replace_test.JSONPatchRequestAddReplaceTest],
     typing.Type[json_patch_request_remove.JSONPatchRequestRemove],

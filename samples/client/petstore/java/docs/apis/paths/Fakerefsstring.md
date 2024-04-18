@@ -42,7 +42,7 @@ import org.openapijsonschematools.client.schemas.validation.MapUtils;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.paths.fakerefsstring.post.FakerefsstringPostRequestBody;
-import org.openapijsonschematools.client.components.schemas.String;
+import org.openapijsonschematools.client.components.schemas.StringSchema;
 import org.openapijsonschematools.client.RootServerInfo;
 import org.openapijsonschematools.client.servers.RootServer0;
 import org.openapijsonschematools.client.servers.RootServer1;

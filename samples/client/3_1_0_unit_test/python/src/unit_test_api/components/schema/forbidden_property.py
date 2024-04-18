@@ -10,7 +10,7 @@
 from __future__ import annotations
 from unit_test_api.shared_imports.schema_imports import *  # pyright: ignore [reportWildcardImportFromLibrary]
 
-Not: typing_extensions.TypeAlias = schemas.AnyTypeSchema
+_Not: typing_extensions.TypeAlias = schemas.AnyTypeSchema
 
 
 @dataclasses.dataclass(frozen=True)
@@ -18,7 +18,7 @@ class Foo(
     schemas.AnyTypeSchema[schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES], typing.Tuple[schemas.OUTPUT_BASE_TYPES, ...]],
 ):
     # any type
-    not_: typing.Type[Not] = dataclasses.field(default_factory=lambda: Not) # type: ignore
+    not_: typing.Type[_Not] = dataclasses.field(default_factory=lambda: _Not) # type: ignore
 
 Properties = typing.TypedDict(
     'Properties',

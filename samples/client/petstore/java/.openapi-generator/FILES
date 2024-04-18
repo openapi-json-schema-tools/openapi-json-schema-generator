@@ -114,7 +114,7 @@ docs/components/schemas/Animal.md
 docs/components/schemas/AnimalFarm.md
 docs/components/schemas/AnyTypeAndFormat.md
 docs/components/schemas/AnyTypeNotString.md
-docs/components/schemas/ApiResponse.md
+docs/components/schemas/ApiResponseSchema.md
 docs/components/schemas/Apple.md
 docs/components/schemas/AppleReq.md
 docs/components/schemas/ArrayHoldingAnyType.md
@@ -127,8 +127,8 @@ docs/components/schemas/Banana.md
 docs/components/schemas/BananaReq.md
 docs/components/schemas/Bar.md
 docs/components/schemas/BasquePig.md
-docs/components/schemas/Boolean.md
 docs/components/schemas/BooleanEnum.md
+docs/components/schemas/BooleanSchema.md
 docs/components/schemas/Capitalization.md
 docs/components/schemas/Cat.md
 docs/components/schemas/Category.md
@@ -191,8 +191,8 @@ docs/components/schemas/NoAdditionalProperties.md
 docs/components/schemas/NullableClass.md
 docs/components/schemas/NullableShape.md
 docs/components/schemas/NullableString.md
-docs/components/schemas/Number.md
 docs/components/schemas/NumberOnly.md
+docs/components/schemas/NumberSchema.md
 docs/components/schemas/NumberWithExclusiveMinMax.md
 docs/components/schemas/NumberWithValidations.md
 docs/components/schemas/ObjWithRequiredProps.md
@@ -224,7 +224,7 @@ docs/components/schemas/RefPet.md
 docs/components/schemas/ReqPropsFromExplicitAddProps.md
 docs/components/schemas/ReqPropsFromTrueAddProps.md
 docs/components/schemas/ReqPropsFromUnsetAddProps.md
-docs/components/schemas/Return.md
+docs/components/schemas/ReturnSchema.md
 docs/components/schemas/ScaleneTriangle.md
 docs/components/schemas/Schema200Response.md
 docs/components/schemas/SelfReferencingArrayModel.md
@@ -234,10 +234,10 @@ docs/components/schemas/ShapeOrNull.md
 docs/components/schemas/SimpleQuadrilateral.md
 docs/components/schemas/SomeObject.md
 docs/components/schemas/SpecialModelname.md
-docs/components/schemas/String.md
 docs/components/schemas/StringBooleanMap.md
 docs/components/schemas/StringEnum.md
 docs/components/schemas/StringEnumWithDefaultValue.md
+docs/components/schemas/StringSchema.md
 docs/components/schemas/StringWithValidation.md
 docs/components/schemas/Tag.md
 docs/components/schemas/Triangle.md
@@ -878,7 +878,7 @@ src/main/java/org/openapijsonschematools/client/components/schemas/Animal.java
 src/main/java/org/openapijsonschematools/client/components/schemas/AnimalFarm.java
 src/main/java/org/openapijsonschematools/client/components/schemas/AnyTypeAndFormat.java
 src/main/java/org/openapijsonschematools/client/components/schemas/AnyTypeNotString.java
-src/main/java/org/openapijsonschematools/client/components/schemas/ApiResponse.java
+src/main/java/org/openapijsonschematools/client/components/schemas/ApiResponseSchema.java
 src/main/java/org/openapijsonschematools/client/components/schemas/Apple.java
 src/main/java/org/openapijsonschematools/client/components/schemas/AppleReq.java
 src/main/java/org/openapijsonschematools/client/components/schemas/ArrayHoldingAnyType.java
@@ -891,8 +891,8 @@ src/main/java/org/openapijsonschematools/client/components/schemas/Banana.java
 src/main/java/org/openapijsonschematools/client/components/schemas/BananaReq.java
 src/main/java/org/openapijsonschematools/client/components/schemas/Bar.java
 src/main/java/org/openapijsonschematools/client/components/schemas/BasquePig.java
-src/main/java/org/openapijsonschematools/client/components/schemas/Boolean.java
 src/main/java/org/openapijsonschematools/client/components/schemas/BooleanEnum.java
+src/main/java/org/openapijsonschematools/client/components/schemas/BooleanSchema.java
 src/main/java/org/openapijsonschematools/client/components/schemas/Capitalization.java
 src/main/java/org/openapijsonschematools/client/components/schemas/Cat.java
 src/main/java/org/openapijsonschematools/client/components/schemas/Category.java
@@ -955,8 +955,8 @@ src/main/java/org/openapijsonschematools/client/components/schemas/NoAdditionalP
 src/main/java/org/openapijsonschematools/client/components/schemas/NullableClass.java
 src/main/java/org/openapijsonschematools/client/components/schemas/NullableShape.java
 src/main/java/org/openapijsonschematools/client/components/schemas/NullableString.java
-src/main/java/org/openapijsonschematools/client/components/schemas/Number.java
 src/main/java/org/openapijsonschematools/client/components/schemas/NumberOnly.java
+src/main/java/org/openapijsonschematools/client/components/schemas/NumberSchema.java
 src/main/java/org/openapijsonschematools/client/components/schemas/NumberWithExclusiveMinMax.java
 src/main/java/org/openapijsonschematools/client/components/schemas/NumberWithValidations.java
 src/main/java/org/openapijsonschematools/client/components/schemas/ObjWithRequiredProps.java
@@ -988,7 +988,7 @@ src/main/java/org/openapijsonschematools/client/components/schemas/RefPet.java
 src/main/java/org/openapijsonschematools/client/components/schemas/ReqPropsFromExplicitAddProps.java
 src/main/java/org/openapijsonschematools/client/components/schemas/ReqPropsFromTrueAddProps.java
 src/main/java/org/openapijsonschematools/client/components/schemas/ReqPropsFromUnsetAddProps.java
-src/main/java/org/openapijsonschematools/client/components/schemas/Return.java
+src/main/java/org/openapijsonschematools/client/components/schemas/ReturnSchema.java
 src/main/java/org/openapijsonschematools/client/components/schemas/ScaleneTriangle.java
 src/main/java/org/openapijsonschematools/client/components/schemas/Schema200Response.java
 src/main/java/org/openapijsonschematools/client/components/schemas/SelfReferencingArrayModel.java
@@ -998,10 +998,10 @@ src/main/java/org/openapijsonschematools/client/components/schemas/ShapeOrNull.j
 src/main/java/org/openapijsonschematools/client/components/schemas/SimpleQuadrilateral.java
 src/main/java/org/openapijsonschematools/client/components/schemas/SomeObject.java
 src/main/java/org/openapijsonschematools/client/components/schemas/SpecialModelname.java
-src/main/java/org/openapijsonschematools/client/components/schemas/String.java
 src/main/java/org/openapijsonschematools/client/components/schemas/StringBooleanMap.java
 src/main/java/org/openapijsonschematools/client/components/schemas/StringEnum.java
 src/main/java/org/openapijsonschematools/client/components/schemas/StringEnumWithDefaultValue.java
+src/main/java/org/openapijsonschematools/client/components/schemas/StringSchema.java
 src/main/java/org/openapijsonschematools/client/components/schemas/StringWithValidation.java
 src/main/java/org/openapijsonschematools/client/components/schemas/Tag.java
 src/main/java/org/openapijsonschematools/client/components/schemas/Triangle.java

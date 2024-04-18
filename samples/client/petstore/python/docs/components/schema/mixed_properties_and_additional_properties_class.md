@@ -28,22 +28,19 @@ base class: schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]
 ### &lowbar;&lowbar;new&lowbar;&lowbar; method
 Keyword Argument | Type | Description | Notes
 ---------------- | ---- | ----------- | -----
-**uuid** | str, uuid.UUID, schemas.Unset |  | [optional] value must be a uuid
-**dateTime** | str, datetime.datetime, schemas.Unset |  | [optional] value must conform to RFC-3339 date-time
 **map** | [MapDictInput](#mapdictinput), [MapDict](#mapdict), schemas.Unset |  | [optional]
 **kwargs** | schemas.immutabledict, tuple, float, int, str, bool, None, bytes, schemas.FileIO | any string name can be used but the value must be the correct type | [optional] typed value is accessed with the get_additional_property_ method
 
 ### properties
 Property | Type | Description | Notes
 -------- | ---- | ----------- | -----
-**uuid** | str, schemas.Unset |  | [optional] value must be a uuid
-**dateTime** | str, schemas.Unset |  | [optional] value must conform to RFC-3339 date-time
 **map** | [MapDict](#mapdict), schemas.Unset |  | [optional]
 
 ### methods
 Method | Input Type | Return Type | Notes
 ------ | ---------- | ----------- | ------
 from_dict_ | [MixedPropertiesAndAdditionalPropertiesClassDictInput](#mixedpropertiesandadditionalpropertiesclassdictinput), [MixedPropertiesAndAdditionalPropertiesClassDict](#mixedpropertiesandadditionalpropertiesclassdict) | [MixedPropertiesAndAdditionalPropertiesClassDict](#mixedpropertiesandadditionalpropertiesclassdict) | a constructor
+&lowbar;&lowbar;getitem&lowbar;&lowbar; | str | schemas.immutabledict, str, float, int, bool, None, tuple, bytes, io.FileIO | This model has invalid python names so this method is used under the hood when you access instance["uuid"], instance["dateTime"], 
 get_additional_property_ | str | schemas.immutabledict, tuple, float, int, str, bool, None, bytes, schemas.FileIO, schemas.Unset | provides type safety for additional properties
 
 # Map

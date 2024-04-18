@@ -105,6 +105,9 @@ class _6(
     pattern: schemas.PatternInfo = schemas.PatternInfo(
         pattern=r'^2020.*'  # noqa: E501
     )
+
+from petstore_api.components.schema import animal
+from petstore_api.components.schema import number_with_validations
 OneOf = typing.Tuple[
     typing.Type[number_with_validations.NumberWithValidations],
     typing.Type[animal.Animal],

@@ -16,6 +16,7 @@ import org.openapijsonschematools.client.paths.fake.get.parameters.parameter2.Sc
 import org.openapijsonschematools.client.paths.fake.get.parameters.parameter3.Schema3;
 import org.openapijsonschematools.client.paths.fake.get.parameters.parameter4.Schema4;
 import org.openapijsonschematools.client.paths.fake.get.parameters.parameter5.Schema5;
+import org.openapijsonschematools.client.schemas.AnyTypeJsonSchema;
 import org.openapijsonschematools.client.schemas.GenericBuilder;
 import org.openapijsonschematools.client.schemas.NotAnyTypeJsonSchema;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;

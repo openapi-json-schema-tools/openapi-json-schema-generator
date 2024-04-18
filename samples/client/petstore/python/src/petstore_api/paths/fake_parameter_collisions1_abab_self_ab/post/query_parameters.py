@@ -52,17 +52,12 @@ class QueryParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES])
             str,
             schemas.Unset
         ] = schemas.unset,
-        self: typing.Union[
-            str,
-            schemas.Unset
-        ] = schemas.unset,
         configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None,
     ):
         arg_: typing.Dict[str, typing.Any] = {}
         for key_, val in (
             ("aB", aB),
             ("Ab", Ab),
-            ("self", self),
         ):
             if isinstance(val, schemas.Unset):
                 continue
@@ -93,16 +88,6 @@ class QueryParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES])
     @property
     def Ab(self) -> typing.Union[str, schemas.Unset]:
         val = self.get("Ab", schemas.unset)
-        if isinstance(val, schemas.Unset):
-            return val
-        return typing.cast(
-            str,
-            val
-        )
-    
-    @property
-    def self(self) -> typing.Union[str, schemas.Unset]:
-        val = self.get("self", schemas.unset)
         if isinstance(val, schemas.Unset):
             return val
         return typing.cast(

@@ -22,9 +22,9 @@ A class that contains necessary nested
 | static class | [Schema200Response.Schema200Response1](#schema200response1)<br> schema class |
 | static class | [Schema200Response.Schema200ResponseMapBuilder](#schema200responsemapbuilder)<br> builder for Map payloads |
 | static class | [Schema200Response.Schema200ResponseMap](#schema200responsemap)<br> output class for Map payloads |
-| sealed interface | [Schema200Response.ClassBoxed](#classboxed)<br> sealed interface for validated payloads |
-| record | [Schema200Response.ClassBoxedString](#classboxedstring)<br> boxed class to store validated String payloads |
-| static class | [Schema200Response.Class](#class)<br> schema class |
+| sealed interface | [Schema200Response.ClassSchemaBoxed](#classschemaboxed)<br> sealed interface for validated payloads |
+| record | [Schema200Response.ClassSchemaBoxedString](#classschemaboxedstring)<br> boxed class to store validated String payloads |
+| static class | [Schema200Response.ClassSchema](#classschema)<br> schema class |
 | sealed interface | [Schema200Response.NameBoxed](#nameboxed)<br> sealed interface for validated payloads |
 | record | [Schema200Response.NameBoxedNumber](#nameboxednumber)<br> boxed class to store validated Number payloads |
 | static class | [Schema200Response.Name](#name)<br> schema class |
@@ -155,7 +155,7 @@ model with an invalid class name for python, starts with a number
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |
-| Map<String, Class<? extends JsonSchema>> | properties = Map.ofEntries(<br>&nbsp;&nbsp;&nbsp;&nbsp;new PropertyEntry("name", [Name.class](#name))),<br>&nbsp;&nbsp;&nbsp;&nbsp;new PropertyEntry("class", [Class.class](#class)))<br>)<br> |
+| Map<String, Class<? extends JsonSchema>> | properties = Map.ofEntries(<br>&nbsp;&nbsp;&nbsp;&nbsp;new PropertyEntry("name", [Name.class](#name))),<br>&nbsp;&nbsp;&nbsp;&nbsp;new PropertyEntry("class", [ClassSchema.class](#classschema)))<br>)<br> |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
@@ -196,7 +196,7 @@ A class that builds the Map input type
 | Map<String, @Nullable Object> | build()<br>Returns map input that should be used with Schema.validate |
 | [Schema200ResponseMapBuilder](#schema200responsemapbuilder) | name(int value) |
 | [Schema200ResponseMapBuilder](#schema200responsemapbuilder) | name(float value) |
-| [Schema200ResponseMapBuilder](#schema200responsemapbuilder) | class(String value) |
+| [Schema200ResponseMapBuilder](#schema200responsemapbuilder) | setClass(String value) |
 | [Schema200ResponseMapBuilder](#schema200responsemapbuilder) | additionalProperty(String key, Void value) |
 | [Schema200ResponseMapBuilder](#schema200responsemapbuilder) | additionalProperty(String key, boolean value) |
 | [Schema200ResponseMapBuilder](#schema200responsemapbuilder) | additionalProperty(String key, String value) |
@@ -218,26 +218,26 @@ A class to store validated Map payloads
 | ----------------- | ---------------------- |
 | static [Schema200ResponseMap](#schema200responsemap) | of([Map<String, ? extends @Nullable Object>](#schema200responsemapbuilder) arg, SchemaConfiguration configuration) |
 | Number | name()<br>[optional] value must be a 32 bit integer |
-| String | class()<br>[optional] |
+| @Nullable Object | get(String key)<br>This schema has invalid Java names so this method must be used when you access instance["class"],  |
 | @Nullable Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
-## ClassBoxed
-public sealed interface ClassBoxed<br>
+## ClassSchemaBoxed
+public sealed interface ClassSchemaBoxed<br>
 permits<br>
-[ClassBoxedString](#classboxedstring)
+[ClassSchemaBoxedString](#classschemaboxedstring)
 
 sealed interface that stores validated payloads using boxed classes
 
-## ClassBoxedString
-public record ClassBoxedString<br>
-implements [ClassBoxed](#classboxed)
+## ClassSchemaBoxedString
+public record ClassSchemaBoxedString<br>
+implements [ClassSchemaBoxed](#classschemaboxed)
 
 record that stores validated String payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| ClassBoxedString(String data)<br>Creates an instance, private visibility |
+| ClassSchemaBoxedString(String data)<br>Creates an instance, private visibility |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
@@ -245,8 +245,8 @@ record that stores validated String payloads, sealed permits implementation
 | String | data()<br>validated payload |
 | @Nullable Object | getData()<br>validated payload |
 
-## Class
-public static class Class<br>
+## ClassSchema
+public static class ClassSchema<br>
 extends StringJsonSchema.StringJsonSchema1
 
 A schema class that validates payloads

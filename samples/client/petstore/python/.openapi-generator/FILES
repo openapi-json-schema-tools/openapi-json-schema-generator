@@ -52,6 +52,7 @@ docs/components/responses/response_successful_xml_and_json_array_of_pet.md
 docs/components/responses/response_successful_xml_and_json_array_of_pet/content/application_json/schema.md
 docs/components/responses/response_successful_xml_and_json_array_of_pet/content/application_xml/schema.md
 docs/components/schema/_200_response.md
+docs/components/schema/_return.md
 docs/components/schema/abstract_step_message.md
 docs/components/schema/additional_properties_class.md
 docs/components/schema/additional_properties_schema.md
@@ -171,7 +172,6 @@ docs/components/schema/ref_pet.md
 docs/components/schema/req_props_from_explicit_add_props.md
 docs/components/schema/req_props_from_true_add_props.md
 docs/components/schema/req_props_from_unset_add_props.md
-docs/components/schema/return.md
 docs/components/schema/scalene_triangle.md
 docs/components/schema/self_referencing_array_model.md
 docs/components/schema/self_referencing_object_model.md
@@ -573,6 +573,7 @@ src/petstore_api/components/responses/response_successful_xml_and_json_array_of_
 src/petstore_api/components/responses/response_successful_xml_and_json_array_of_pet/content/application_xml/schema.py
 src/petstore_api/components/schema/_200_response.py
 src/petstore_api/components/schema/__init__.py
+src/petstore_api/components/schema/_return.py
 src/petstore_api/components/schema/abstract_step_message.py
 src/petstore_api/components/schema/additional_properties_class.py
 src/petstore_api/components/schema/additional_properties_schema.py
@@ -692,7 +693,6 @@ src/petstore_api/components/schema/ref_pet.py
 src/petstore_api/components/schema/req_props_from_explicit_add_props.py
 src/petstore_api/components/schema/req_props_from_true_add_props.py
 src/petstore_api/components/schema/req_props_from_unset_add_props.py
-src/petstore_api/components/schema/return.py
 src/petstore_api/components/schema/scalene_triangle.py
 src/petstore_api/components/schema/self_referencing_array_model.py
 src/petstore_api/components/schema/self_referencing_object_model.py

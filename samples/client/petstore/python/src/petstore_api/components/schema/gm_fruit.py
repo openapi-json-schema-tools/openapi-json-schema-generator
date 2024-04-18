@@ -72,6 +72,9 @@ class GmFruitDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
         return self.get(name, schemas.unset)
 GmFruitDictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL]
+
+from petstore_api.components.schema import apple
+from petstore_api.components.schema import banana
 AnyOf = typing.Tuple[
     typing.Type[apple.Apple],
     typing.Type[banana.Banana],

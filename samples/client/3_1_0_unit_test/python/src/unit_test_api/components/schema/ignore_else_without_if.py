@@ -16,11 +16,11 @@ class ElseConst:
 
     @schemas.classproperty
     def POSITIVE_0(cls) -> typing.Literal["0"]:
-        return Else.validate("0")
+        return _Else.validate("0")
 
 
 @dataclasses.dataclass(frozen=True)
-class Else(
+class _Else(
     schemas.AnyTypeSchema[schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES], typing.Tuple[schemas.OUTPUT_BASE_TYPES, ...]],
 ):
     # any type
@@ -43,5 +43,5 @@ class IgnoreElseWithoutIf(
     Do not edit the class manually.
     """
     # any type
-    else_: typing.Type[Else] = dataclasses.field(default_factory=lambda: Else) # type: ignore
+    else_: typing.Type[_Else] = dataclasses.field(default_factory=lambda: _Else) # type: ignore
 

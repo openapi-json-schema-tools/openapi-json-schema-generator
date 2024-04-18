@@ -53,7 +53,7 @@ class Number(
 
 
 @dataclasses.dataclass(frozen=True)
-class Float(
+class _Float(
     schemas.Float32Schema
 ):
     types: typing.FrozenSet[typing.Type] = frozenset({
@@ -152,8 +152,8 @@ class String(
 Byte: typing_extensions.TypeAlias = schemas.StrSchema
 Binary: typing_extensions.TypeAlias = schemas.BinarySchema
 Date: typing_extensions.TypeAlias = schemas.DateSchema
-DateTime: typing_extensions.TypeAlias = schemas.DateTimeSchema
-Uuid: typing_extensions.TypeAlias = schemas.UUIDSchema
+_DateTime: typing_extensions.TypeAlias = schemas.DateTimeSchema
+_Uuid: typing_extensions.TypeAlias = schemas.UUIDSchema
 UuidNoExample: typing_extensions.TypeAlias = schemas.UUIDSchema
 
 
@@ -201,7 +201,7 @@ Properties = typing.TypedDict(
         "int32withValidations": typing.Type[Int32withValidations],
         "int64": typing.Type[Int64],
         "number": typing.Type[Number],
-        "float": typing.Type[Float],
+        "float": typing.Type[_Float],
         "float32": typing.Type[Float32],
         "double": typing.Type[Double],
         "float64": typing.Type[Float64],
@@ -210,8 +210,8 @@ Properties = typing.TypedDict(
         "byte": typing.Type[Byte],
         "binary": typing.Type[Binary],
         "date": typing.Type[Date],
-        "dateTime": typing.Type[DateTime],
-        "uuid": typing.Type[Uuid],
+        "dateTime": typing.Type[_DateTime],
+        "uuid": typing.Type[_Uuid],
         "uuidNoExample": typing.Type[UuidNoExample],
         "password": typing.Type[Password],
         "pattern_with_digits": typing.Type[PatternWithDigits],
@@ -278,11 +278,6 @@ class FormatTestDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
             int,
             schemas.Unset
         ] = schemas.unset,
-        float: typing.Union[
-            int,
-            float,
-            schemas.Unset
-        ] = schemas.unset,
         float32: typing.Union[
             int,
             float,
@@ -312,16 +307,6 @@ class FormatTestDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
             io.FileIO,
             io.BufferedReader,
             schemas.FileIO,
-            schemas.Unset
-        ] = schemas.unset,
-        dateTime: typing.Union[
-            str,
-            datetime.datetime,
-            schemas.Unset
-        ] = schemas.unset,
-        uuid: typing.Union[
-            str,
-            uuid.UUID,
             schemas.Unset
         ] = schemas.unset,
         uuidNoExample: typing.Union[
@@ -355,15 +340,12 @@ class FormatTestDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
             ("int32", int32),
             ("int32withValidations", int32withValidations),
             ("int64", int64),
-            ("float", float),
             ("float32", float32),
             ("double", double),
             ("float64", float64),
             ("arrayWithUniqueItems", arrayWithUniqueItems),
             ("string", string),
             ("binary", binary),
-            ("dateTime", dateTime),
-            ("uuid", uuid),
             ("uuidNoExample", uuidNoExample),
             ("pattern_with_digits", pattern_with_digits),
             ("pattern_with_digits_and_delimiter", pattern_with_digits_and_delimiter),
@@ -455,16 +437,6 @@ class FormatTestDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         )
     
     @property
-    def float(self) -> typing.Union[int, float, schemas.Unset]:
-        val = self.get("float", schemas.unset)
-        if isinstance(val, schemas.Unset):
-            return val
-        return typing.cast(
-            typing.Union[int, float],
-            val
-        )
-    
-    @property
     def float32(self) -> typing.Union[int, float, schemas.Unset]:
         val = self.get("float32", schemas.unset)
         if isinstance(val, schemas.Unset):
@@ -521,26 +493,6 @@ class FormatTestDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
             return val
         return typing.cast(
             typing.Union[bytes, schemas.FileIO],
-            val
-        )
-    
-    @property
-    def dateTime(self) -> typing.Union[str, schemas.Unset]:
-        val = self.get("dateTime", schemas.unset)
-        if isinstance(val, schemas.Unset):
-            return val
-        return typing.cast(
-            str,
-            val
-        )
-    
-    @property
-    def uuid(self) -> typing.Union[str, schemas.Unset]:
-        val = self.get("uuid", schemas.unset)
-        if isinstance(val, schemas.Unset):
-            return val
-        return typing.cast(
-            str,
             val
         )
     

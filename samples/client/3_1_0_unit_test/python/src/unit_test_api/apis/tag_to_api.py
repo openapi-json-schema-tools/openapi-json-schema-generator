@@ -18,7 +18,7 @@ from unit_test_api.apis.tags.dependent_required_api import DependentRequiredApi
 from unit_test_api.apis.tags.enum_api import EnumApi
 from unit_test_api.apis.tags.exclusive_maximum_api import ExclusiveMaximumApi
 from unit_test_api.apis.tags.exclusive_minimum_api import ExclusiveMinimumApi
-from unit_test_api.apis.tags.not_api import NotApi
+from unit_test_api.apis.tags._not_api import _NotApi
 from unit_test_api.apis.tags.if_then_else_api import IfThenElseApi
 from unit_test_api.apis.tags.items_api import ItemsApi
 from unit_test_api.apis.tags.max_contains_api import MaxContainsApi
@@ -63,7 +63,7 @@ TagToApi = typing.TypedDict(
         "enum": typing.Type[EnumApi],
         "exclusiveMaximum": typing.Type[ExclusiveMaximumApi],
         "exclusiveMinimum": typing.Type[ExclusiveMinimumApi],
-        "not": typing.Type[NotApi],
+        "not": typing.Type[_NotApi],
         "if-then-else": typing.Type[IfThenElseApi],
         "items": typing.Type[ItemsApi],
         "maxContains": typing.Type[MaxContainsApi],
@@ -109,7 +109,7 @@ tag_to_api = TagToApi(
         "enum": EnumApi,
         "exclusiveMaximum": ExclusiveMaximumApi,
         "exclusiveMinimum": ExclusiveMinimumApi,
-        "not": NotApi,
+        "not": _NotApi,
         "if-then-else": IfThenElseApi,
         "items": ItemsApi,
         "maxContains": MaxContainsApi,

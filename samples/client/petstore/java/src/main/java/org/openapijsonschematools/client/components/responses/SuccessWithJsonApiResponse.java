@@ -29,7 +29,7 @@ public class SuccessWithJsonApiResponse {
         }
     }
     public sealed interface SealedResponseBody permits ApplicationjsonResponseBody {}
-    public record ApplicationjsonResponseBody(ApplicationjsonSchema.ApiResponse1Boxed body) implements SealedResponseBody { }
+    public record ApplicationjsonResponseBody(ApplicationjsonSchema.ApiResponseSchema1Boxed body) implements SealedResponseBody { }
 
     public static class SuccessWithJsonApiResponse1 extends ResponseDeserializer<SealedResponseBody, SuccessWithJsonApiResponseHeadersSchema.SuccessWithJsonApiResponseHeadersSchemaMap, SealedMediaType> {
         public SuccessWithJsonApiResponse1() {

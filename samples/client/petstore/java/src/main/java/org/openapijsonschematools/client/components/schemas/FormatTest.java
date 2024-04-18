@@ -43,11 +43,11 @@ public class FormatTest {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public sealed interface IntegerBoxed permits IntegerBoxedNumber {
+    public sealed interface IntegerSchemaBoxed permits IntegerSchemaBoxedNumber {
         @Nullable Object getData();
     }
     
-    public record IntegerBoxedNumber(Number data) implements IntegerBoxed {
+    public record IntegerSchemaBoxedNumber(Number data) implements IntegerSchemaBoxed {
         @Override
         public @Nullable Object getData() {
             return data;
@@ -56,10 +56,10 @@ public class FormatTest {
     
     
     
-    public static class Integer extends JsonSchema<IntegerBoxed> implements NumberSchemaValidator<IntegerBoxedNumber> {
-        private static @Nullable Integer instance = null;
+    public static class IntegerSchema extends JsonSchema<IntegerSchemaBoxed> implements NumberSchemaValidator<IntegerSchemaBoxedNumber> {
+        private static @Nullable IntegerSchema instance = null;
     
-        protected Integer() {
+        protected IntegerSchema() {
             super(new JsonSchemaInfo()
                 .type(Set.of(
                     Integer.class,
@@ -74,9 +74,9 @@ public class FormatTest {
             );
         }
     
-        public static Integer getInstance() {
+        public static IntegerSchema getInstance() {
             if (instance == null) {
-                instance = new Integer();
+                instance = new IntegerSchema();
             }
             return instance;
         }
@@ -123,11 +123,11 @@ public class FormatTest {
             throw new RuntimeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
         @Override
-        public IntegerBoxedNumber validateAndBox(Number arg, SchemaConfiguration configuration) throws ValidationException {
-            return new IntegerBoxedNumber(validate(arg, configuration));
+        public IntegerSchemaBoxedNumber validateAndBox(Number arg, SchemaConfiguration configuration) throws ValidationException {
+            return new IntegerSchemaBoxedNumber(validate(arg, configuration));
         }
         @Override
-        public IntegerBoxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException {
+        public IntegerSchemaBoxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException {
             if (arg instanceof Number castArg) {
                 return validateAndBox(castArg, configuration);
             }
@@ -240,11 +240,11 @@ public class FormatTest {
     }
     
     
-    public sealed interface NumberBoxed permits NumberBoxedNumber {
+    public sealed interface NumberSchemaBoxed permits NumberSchemaBoxedNumber {
         @Nullable Object getData();
     }
     
-    public record NumberBoxedNumber(Number data) implements NumberBoxed {
+    public record NumberSchemaBoxedNumber(Number data) implements NumberSchemaBoxed {
         @Override
         public @Nullable Object getData() {
             return data;
@@ -253,10 +253,10 @@ public class FormatTest {
     
     
     
-    public static class Number extends JsonSchema<NumberBoxed> implements NumberSchemaValidator<NumberBoxedNumber> {
-        private static @Nullable Number instance = null;
+    public static class NumberSchema extends JsonSchema<NumberSchemaBoxed> implements NumberSchemaValidator<NumberSchemaBoxedNumber> {
+        private static @Nullable NumberSchema instance = null;
     
-        protected Number() {
+        protected NumberSchema() {
             super(new JsonSchemaInfo()
                 .type(Set.of(
                     Integer.class,
@@ -270,9 +270,9 @@ public class FormatTest {
             );
         }
     
-        public static Number getInstance() {
+        public static NumberSchema getInstance() {
             if (instance == null) {
-                instance = new Number();
+                instance = new NumberSchema();
             }
             return instance;
         }
@@ -319,11 +319,11 @@ public class FormatTest {
             throw new RuntimeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
         @Override
-        public NumberBoxedNumber validateAndBox(Number arg, SchemaConfiguration configuration) throws ValidationException {
-            return new NumberBoxedNumber(validate(arg, configuration));
+        public NumberSchemaBoxedNumber validateAndBox(Number arg, SchemaConfiguration configuration) throws ValidationException {
+            return new NumberSchemaBoxedNumber(validate(arg, configuration));
         }
         @Override
-        public NumberBoxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException {
+        public NumberSchemaBoxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException {
             if (arg instanceof Number castArg) {
                 return validateAndBox(castArg, configuration);
             }
@@ -331,11 +331,11 @@ public class FormatTest {
         }
     }    
     
-    public sealed interface FloatBoxed permits FloatBoxedNumber {
+    public sealed interface FloatSchemaBoxed permits FloatSchemaBoxedNumber {
         @Nullable Object getData();
     }
     
-    public record FloatBoxedNumber(Number data) implements FloatBoxed {
+    public record FloatSchemaBoxedNumber(Number data) implements FloatSchemaBoxed {
         @Override
         public @Nullable Object getData() {
             return data;
@@ -344,10 +344,10 @@ public class FormatTest {
     
     
     
-    public static class Float extends JsonSchema<FloatBoxed> implements NumberSchemaValidator<FloatBoxedNumber> {
-        private static @Nullable Float instance = null;
+    public static class FloatSchema extends JsonSchema<FloatSchemaBoxed> implements NumberSchemaValidator<FloatSchemaBoxedNumber> {
+        private static @Nullable FloatSchema instance = null;
     
-        protected Float() {
+        protected FloatSchema() {
             super(new JsonSchemaInfo()
                 .type(Set.of(
                     Integer.class,
@@ -361,9 +361,9 @@ public class FormatTest {
             );
         }
     
-        public static Float getInstance() {
+        public static FloatSchema getInstance() {
             if (instance == null) {
-                instance = new Float();
+                instance = new FloatSchema();
             }
             return instance;
         }
@@ -397,11 +397,11 @@ public class FormatTest {
             throw new RuntimeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
         @Override
-        public FloatBoxedNumber validateAndBox(Number arg, SchemaConfiguration configuration) throws ValidationException {
-            return new FloatBoxedNumber(validate(arg, configuration));
+        public FloatSchemaBoxedNumber validateAndBox(Number arg, SchemaConfiguration configuration) throws ValidationException {
+            return new FloatSchemaBoxedNumber(validate(arg, configuration));
         }
         @Override
-        public FloatBoxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException {
+        public FloatSchemaBoxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException {
             if (arg instanceof Number castArg) {
                 return validateAndBox(castArg, configuration);
             }
@@ -420,11 +420,11 @@ public class FormatTest {
     }
     
     
-    public sealed interface DoubleBoxed permits DoubleBoxedNumber {
+    public sealed interface DoubleSchemaBoxed permits DoubleSchemaBoxedNumber {
         @Nullable Object getData();
     }
     
-    public record DoubleBoxedNumber(Number data) implements DoubleBoxed {
+    public record DoubleSchemaBoxedNumber(Number data) implements DoubleSchemaBoxed {
         @Override
         public @Nullable Object getData() {
             return data;
@@ -433,10 +433,10 @@ public class FormatTest {
     
     
     
-    public static class Double extends JsonSchema<DoubleBoxed> implements NumberSchemaValidator<DoubleBoxedNumber> {
-        private static @Nullable Double instance = null;
+    public static class DoubleSchema extends JsonSchema<DoubleSchemaBoxed> implements NumberSchemaValidator<DoubleSchemaBoxedNumber> {
+        private static @Nullable DoubleSchema instance = null;
     
-        protected Double() {
+        protected DoubleSchema() {
             super(new JsonSchemaInfo()
                 .type(Set.of(
                     Integer.class,
@@ -450,9 +450,9 @@ public class FormatTest {
             );
         }
     
-        public static Double getInstance() {
+        public static DoubleSchema getInstance() {
             if (instance == null) {
-                instance = new Double();
+                instance = new DoubleSchema();
             }
             return instance;
         }
@@ -486,11 +486,11 @@ public class FormatTest {
             throw new RuntimeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
         @Override
-        public DoubleBoxedNumber validateAndBox(Number arg, SchemaConfiguration configuration) throws ValidationException {
-            return new DoubleBoxedNumber(validate(arg, configuration));
+        public DoubleSchemaBoxedNumber validateAndBox(Number arg, SchemaConfiguration configuration) throws ValidationException {
+            return new DoubleSchemaBoxedNumber(validate(arg, configuration));
         }
         @Override
-        public DoubleBoxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException {
+        public DoubleSchemaBoxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException {
             if (arg instanceof Number castArg) {
                 return validateAndBox(castArg, configuration);
             }
@@ -658,11 +658,11 @@ public class FormatTest {
         }
     }    
     
-    public sealed interface StringBoxed permits StringBoxedString {
+    public sealed interface StringSchemaBoxed permits StringSchemaBoxedString {
         @Nullable Object getData();
     }
     
-    public record StringBoxedString(String data) implements StringBoxed {
+    public record StringSchemaBoxedString(String data) implements StringSchemaBoxed {
         @Override
         public @Nullable Object getData() {
             return data;
@@ -671,10 +671,10 @@ public class FormatTest {
     
     
     
-    public static class String extends JsonSchema<StringBoxed> implements StringSchemaValidator<StringBoxedString> {
-        private static @Nullable String instance = null;
+    public static class StringSchema extends JsonSchema<StringSchemaBoxed> implements StringSchemaValidator<StringSchemaBoxedString> {
+        private static @Nullable StringSchema instance = null;
     
-        protected String() {
+        protected StringSchema() {
             super(new JsonSchemaInfo()
                 .type(Set.of(
                     String.class
@@ -686,9 +686,9 @@ public class FormatTest {
             );
         }
     
-        public static String getInstance() {
+        public static StringSchema getInstance() {
             if (instance == null) {
-                instance = new String();
+                instance = new StringSchema();
             }
             return instance;
         }
@@ -719,11 +719,11 @@ public class FormatTest {
             throw new RuntimeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
         @Override
-        public StringBoxedString validateAndBox(String arg, SchemaConfiguration configuration) throws ValidationException {
-            return new StringBoxedString(validate(arg, configuration));
+        public StringSchemaBoxedString validateAndBox(String arg, SchemaConfiguration configuration) throws ValidationException {
+            return new StringSchemaBoxedString(validate(arg, configuration));
         }
         @Override
-        public StringBoxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException {
+        public StringSchemaBoxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException {
             if (arg instanceof String castArg) {
                 return validateAndBox(castArg, configuration);
             }
@@ -731,11 +731,11 @@ public class FormatTest {
         }
     }    
     
-    public static class Byte extends StringJsonSchema.StringJsonSchema1 {
-        private static @Nullable Byte instance = null;
-        public static Byte getInstance() {
+    public static class ByteSchema extends StringJsonSchema.StringJsonSchema1 {
+        private static @Nullable ByteSchema instance = null;
+        public static ByteSchema getInstance() {
             if (instance == null) {
-                instance = new Byte();
+                instance = new ByteSchema();
             }
             return instance;
         }
@@ -776,11 +776,11 @@ public class FormatTest {
     }
     
     
-    public static class Uuid extends UuidJsonSchema.UuidJsonSchema1 {
-        private static @Nullable Uuid instance = null;
-        public static Uuid getInstance() {
+    public static class UuidSchema extends UuidJsonSchema.UuidJsonSchema1 {
+        private static @Nullable UuidSchema instance = null;
+        public static UuidSchema getInstance() {
             if (instance == null) {
-                instance = new Uuid();
+                instance = new UuidSchema();
             }
             return instance;
         }
@@ -1059,14 +1059,6 @@ public class FormatTest {
             return FormatTest1.getInstance().validate(arg, configuration);
         }
         
-        public String byte() {
-                        @Nullable Object value = get("byte");
-            if (!(value instanceof String)) {
-                throw new RuntimeException("Invalid value stored for byte");
-            }
-            return (String) value;
-        }
-        
         public String date() {
                         @Nullable Object value = get("date");
             if (!(value instanceof String)) {
@@ -1075,30 +1067,12 @@ public class FormatTest {
             return (String) value;
         }
         
-        public Number number() {
-                        @Nullable Object value = get("number");
-            if (!(value instanceof Number)) {
-                throw new RuntimeException("Invalid value stored for number");
-            }
-            return (Number) value;
-        }
-        
         public String password() {
                         @Nullable Object value = get("password");
             if (!(value instanceof String)) {
                 throw new RuntimeException("Invalid value stored for password");
             }
             return (String) value;
-        }
-        
-        public Number integer() throws UnsetPropertyException {
-            String key = "integer";
-            throwIfKeyNotPresent(key);
-            @Nullable Object value = get(key);
-            if (!(value instanceof Number)) {
-                throw new RuntimeException("Invalid value stored for integer");
-            }
-            return (Number) value;
         }
         
         public Number int32() throws UnsetPropertyException {
@@ -1131,32 +1105,12 @@ public class FormatTest {
             return (Number) value;
         }
         
-        public Number float() throws UnsetPropertyException {
-            String key = "float";
-            throwIfKeyNotPresent(key);
-            @Nullable Object value = get(key);
-            if (!(value instanceof Number)) {
-                throw new RuntimeException("Invalid value stored for float");
-            }
-            return (Number) value;
-        }
-        
         public Number float32() throws UnsetPropertyException {
             String key = "float32";
             throwIfKeyNotPresent(key);
             @Nullable Object value = get(key);
             if (!(value instanceof Number)) {
                 throw new RuntimeException("Invalid value stored for float32");
-            }
-            return (Number) value;
-        }
-        
-        public Number double() throws UnsetPropertyException {
-            String key = "double";
-            throwIfKeyNotPresent(key);
-            @Nullable Object value = get(key);
-            if (!(value instanceof Number)) {
-                throw new RuntimeException("Invalid value stored for double");
             }
             return (Number) value;
         }
@@ -1181,16 +1135,6 @@ public class FormatTest {
             return (ArrayWithUniqueItemsList) value;
         }
         
-        public String string() throws UnsetPropertyException {
-            String key = "string";
-            throwIfKeyNotPresent(key);
-            @Nullable Object value = get(key);
-            if (!(value instanceof String)) {
-                throw new RuntimeException("Invalid value stored for string");
-            }
-            return (String) value;
-        }
-        
         public String binary() throws UnsetPropertyException {
             String key = "binary";
             throwIfKeyNotPresent(key);
@@ -1207,16 +1151,6 @@ public class FormatTest {
             @Nullable Object value = get(key);
             if (!(value instanceof String)) {
                 throw new RuntimeException("Invalid value stored for dateTime");
-            }
-            return (String) value;
-        }
-        
-        public String uuid() throws UnsetPropertyException {
-            String key = "uuid";
-            throwIfKeyNotPresent(key);
-            @Nullable Object value = get(key);
-            if (!(value instanceof String)) {
-                throw new RuntimeException("Invalid value stored for uuid");
             }
             return (String) value;
         }
@@ -1268,14 +1202,14 @@ public class FormatTest {
         }
     }
     
-    public interface SetterForByte <T> {
+    public interface SetterForByteSchema <T> {
         Map<String, @Nullable Object> getInstance();
-        T getBuilderAfterByte(Map<String, @Nullable Object> instance);
+        T getBuilderAfterByteSchema(Map<String, @Nullable Object> instance);
         
-        default T byte(String value) {
+        default T setByte(String value) {
             var instance = getInstance();
             instance.put("byte", value);
-            return getBuilderAfterByte(instance);
+            return getBuilderAfterByteSchema(instance);
         }
     }
     
@@ -1290,32 +1224,32 @@ public class FormatTest {
         }
     }
     
-    public interface SetterForNumber <T> {
+    public interface SetterForNumberSchema <T> {
         Map<String, @Nullable Object> getInstance();
-        T getBuilderAfterNumber(Map<String, @Nullable Object> instance);
+        T getBuilderAfterNumberSchema(Map<String, @Nullable Object> instance);
         
-        default T number(int value) {
+        default T setNumber(int value) {
             var instance = getInstance();
             instance.put("number", value);
-            return getBuilderAfterNumber(instance);
+            return getBuilderAfterNumberSchema(instance);
         }
         
-        default T number(float value) {
+        default T setNumber(float value) {
             var instance = getInstance();
             instance.put("number", value);
-            return getBuilderAfterNumber(instance);
+            return getBuilderAfterNumberSchema(instance);
         }
         
-        default T number(long value) {
+        default T setNumber(long value) {
             var instance = getInstance();
             instance.put("number", value);
-            return getBuilderAfterNumber(instance);
+            return getBuilderAfterNumberSchema(instance);
         }
         
-        default T number(double value) {
+        default T setNumber(double value) {
             var instance = getInstance();
             instance.put("number", value);
-            return getBuilderAfterNumber(instance);
+            return getBuilderAfterNumberSchema(instance);
         }
     }
     
@@ -1330,32 +1264,32 @@ public class FormatTest {
         }
     }
     
-    public interface SetterForInteger <T> {
+    public interface SetterForIntegerSchema <T> {
         Map<String, @Nullable Object> getInstance();
-        T getBuilderAfterInteger(Map<String, @Nullable Object> instance);
+        T getBuilderAfterIntegerSchema(Map<String, @Nullable Object> instance);
         
-        default T integer(int value) {
+        default T setInteger(int value) {
             var instance = getInstance();
             instance.put("integer", value);
-            return getBuilderAfterInteger(instance);
+            return getBuilderAfterIntegerSchema(instance);
         }
         
-        default T integer(float value) {
+        default T setInteger(float value) {
             var instance = getInstance();
             instance.put("integer", value);
-            return getBuilderAfterInteger(instance);
+            return getBuilderAfterIntegerSchema(instance);
         }
         
-        default T integer(long value) {
+        default T setInteger(long value) {
             var instance = getInstance();
             instance.put("integer", value);
-            return getBuilderAfterInteger(instance);
+            return getBuilderAfterIntegerSchema(instance);
         }
         
-        default T integer(double value) {
+        default T setInteger(double value) {
             var instance = getInstance();
             instance.put("integer", value);
-            return getBuilderAfterInteger(instance);
+            return getBuilderAfterIntegerSchema(instance);
         }
     }
     
@@ -1422,32 +1356,32 @@ public class FormatTest {
         }
     }
     
-    public interface SetterForFloat <T> {
+    public interface SetterForFloatSchema <T> {
         Map<String, @Nullable Object> getInstance();
-        T getBuilderAfterFloat(Map<String, @Nullable Object> instance);
+        T getBuilderAfterFloatSchema(Map<String, @Nullable Object> instance);
         
-        default T float(int value) {
+        default T setFloat(int value) {
             var instance = getInstance();
             instance.put("float", value);
-            return getBuilderAfterFloat(instance);
+            return getBuilderAfterFloatSchema(instance);
         }
         
-        default T float(float value) {
+        default T setFloat(float value) {
             var instance = getInstance();
             instance.put("float", value);
-            return getBuilderAfterFloat(instance);
+            return getBuilderAfterFloatSchema(instance);
         }
         
-        default T float(long value) {
+        default T setFloat(long value) {
             var instance = getInstance();
             instance.put("float", value);
-            return getBuilderAfterFloat(instance);
+            return getBuilderAfterFloatSchema(instance);
         }
         
-        default T float(double value) {
+        default T setFloat(double value) {
             var instance = getInstance();
             instance.put("float", value);
-            return getBuilderAfterFloat(instance);
+            return getBuilderAfterFloatSchema(instance);
         }
     }
     
@@ -1480,32 +1414,32 @@ public class FormatTest {
         }
     }
     
-    public interface SetterForDouble <T> {
+    public interface SetterForDoubleSchema <T> {
         Map<String, @Nullable Object> getInstance();
-        T getBuilderAfterDouble(Map<String, @Nullable Object> instance);
+        T getBuilderAfterDoubleSchema(Map<String, @Nullable Object> instance);
         
-        default T double(int value) {
+        default T setDouble(int value) {
             var instance = getInstance();
             instance.put("double", value);
-            return getBuilderAfterDouble(instance);
+            return getBuilderAfterDoubleSchema(instance);
         }
         
-        default T double(float value) {
+        default T setDouble(float value) {
             var instance = getInstance();
             instance.put("double", value);
-            return getBuilderAfterDouble(instance);
+            return getBuilderAfterDoubleSchema(instance);
         }
         
-        default T double(long value) {
+        default T setDouble(long value) {
             var instance = getInstance();
             instance.put("double", value);
-            return getBuilderAfterDouble(instance);
+            return getBuilderAfterDoubleSchema(instance);
         }
         
-        default T double(double value) {
+        default T setDouble(double value) {
             var instance = getInstance();
             instance.put("double", value);
-            return getBuilderAfterDouble(instance);
+            return getBuilderAfterDoubleSchema(instance);
         }
     }
     
@@ -1549,14 +1483,14 @@ public class FormatTest {
         }
     }
     
-    public interface SetterForString <T> {
+    public interface SetterForStringSchema <T> {
         Map<String, @Nullable Object> getInstance();
-        T getBuilderAfterString(Map<String, @Nullable Object> instance);
+        T getBuilderAfterStringSchema(Map<String, @Nullable Object> instance);
         
-        default T string(String value) {
+        default T setString(String value) {
             var instance = getInstance();
             instance.put("string", value);
-            return getBuilderAfterString(instance);
+            return getBuilderAfterStringSchema(instance);
         }
     }
     
@@ -1582,14 +1516,14 @@ public class FormatTest {
         }
     }
     
-    public interface SetterForUuid <T> {
+    public interface SetterForUuidSchema <T> {
         Map<String, @Nullable Object> getInstance();
-        T getBuilderAfterUuid(Map<String, @Nullable Object> instance);
+        T getBuilderAfterUuidSchema(Map<String, @Nullable Object> instance);
         
-        default T uuid(String value) {
+        default T setUuid(String value) {
             var instance = getInstance();
             instance.put("uuid", value);
-            return getBuilderAfterUuid(instance);
+            return getBuilderAfterUuidSchema(instance);
         }
     }
     
@@ -1637,7 +1571,7 @@ public class FormatTest {
         }
     }
     
-    public static class FormatTestMap0000Builder extends UnsetAddPropsSetter<FormatTestMap0000Builder> implements GenericBuilder<Map<String, @Nullable Object>>, SetterForInteger<FormatTestMap0000Builder>, SetterForInt32<FormatTestMap0000Builder>, SetterForInt32withValidations<FormatTestMap0000Builder>, SetterForInt64<FormatTestMap0000Builder>, SetterForFloat<FormatTestMap0000Builder>, SetterForFloat32<FormatTestMap0000Builder>, SetterForDouble<FormatTestMap0000Builder>, SetterForFloat64<FormatTestMap0000Builder>, SetterForArrayWithUniqueItems<FormatTestMap0000Builder>, SetterForString<FormatTestMap0000Builder>, SetterForBinary<FormatTestMap0000Builder>, SetterForDateTime<FormatTestMap0000Builder>, SetterForUuid<FormatTestMap0000Builder>, SetterForUuidNoExample<FormatTestMap0000Builder>, SetterForPatternWithDigits<FormatTestMap0000Builder>, SetterForPatternWithDigitsAndDelimiter<FormatTestMap0000Builder>, SetterForNoneProp<FormatTestMap0000Builder> {
+    public static class FormatTestMap0000Builder extends UnsetAddPropsSetter<FormatTestMap0000Builder> implements GenericBuilder<Map<String, @Nullable Object>>, SetterForIntegerSchema<FormatTestMap0000Builder>, SetterForInt32<FormatTestMap0000Builder>, SetterForInt32withValidations<FormatTestMap0000Builder>, SetterForInt64<FormatTestMap0000Builder>, SetterForFloatSchema<FormatTestMap0000Builder>, SetterForFloat32<FormatTestMap0000Builder>, SetterForDoubleSchema<FormatTestMap0000Builder>, SetterForFloat64<FormatTestMap0000Builder>, SetterForArrayWithUniqueItems<FormatTestMap0000Builder>, SetterForStringSchema<FormatTestMap0000Builder>, SetterForBinary<FormatTestMap0000Builder>, SetterForDateTime<FormatTestMap0000Builder>, SetterForUuidSchema<FormatTestMap0000Builder>, SetterForUuidNoExample<FormatTestMap0000Builder>, SetterForPatternWithDigits<FormatTestMap0000Builder>, SetterForPatternWithDigitsAndDelimiter<FormatTestMap0000Builder>, SetterForNoneProp<FormatTestMap0000Builder> {
         private final Map<String, @Nullable Object> instance;
         private static final Set<String> knownKeys = Set.of(
             "byte",
@@ -1674,7 +1608,7 @@ public class FormatTest {
         public Map<String, @Nullable Object> getInstance() {
             return instance;
         }
-        public FormatTestMap0000Builder getBuilderAfterInteger(Map<String, @Nullable Object> instance) {
+        public FormatTestMap0000Builder getBuilderAfterIntegerSchema(Map<String, @Nullable Object> instance) {
             return this;
         }
         public FormatTestMap0000Builder getBuilderAfterInt32(Map<String, @Nullable Object> instance) {
@@ -1686,13 +1620,13 @@ public class FormatTest {
         public FormatTestMap0000Builder getBuilderAfterInt64(Map<String, @Nullable Object> instance) {
             return this;
         }
-        public FormatTestMap0000Builder getBuilderAfterFloat(Map<String, @Nullable Object> instance) {
+        public FormatTestMap0000Builder getBuilderAfterFloatSchema(Map<String, @Nullable Object> instance) {
             return this;
         }
         public FormatTestMap0000Builder getBuilderAfterFloat32(Map<String, @Nullable Object> instance) {
             return this;
         }
-        public FormatTestMap0000Builder getBuilderAfterDouble(Map<String, @Nullable Object> instance) {
+        public FormatTestMap0000Builder getBuilderAfterDoubleSchema(Map<String, @Nullable Object> instance) {
             return this;
         }
         public FormatTestMap0000Builder getBuilderAfterFloat64(Map<String, @Nullable Object> instance) {
@@ -1701,7 +1635,7 @@ public class FormatTest {
         public FormatTestMap0000Builder getBuilderAfterArrayWithUniqueItems(Map<String, @Nullable Object> instance) {
             return this;
         }
-        public FormatTestMap0000Builder getBuilderAfterString(Map<String, @Nullable Object> instance) {
+        public FormatTestMap0000Builder getBuilderAfterStringSchema(Map<String, @Nullable Object> instance) {
             return this;
         }
         public FormatTestMap0000Builder getBuilderAfterBinary(Map<String, @Nullable Object> instance) {
@@ -1710,7 +1644,7 @@ public class FormatTest {
         public FormatTestMap0000Builder getBuilderAfterDateTime(Map<String, @Nullable Object> instance) {
             return this;
         }
-        public FormatTestMap0000Builder getBuilderAfterUuid(Map<String, @Nullable Object> instance) {
+        public FormatTestMap0000Builder getBuilderAfterUuidSchema(Map<String, @Nullable Object> instance) {
             return this;
         }
         public FormatTestMap0000Builder getBuilderAfterUuidNoExample(Map<String, @Nullable Object> instance) {
@@ -1743,7 +1677,7 @@ public class FormatTest {
         }
     }
     
-    public static class FormatTestMap0010Builder implements SetterForNumber<FormatTestMap0000Builder> {
+    public static class FormatTestMap0010Builder implements SetterForNumberSchema<FormatTestMap0000Builder> {
         private final Map<String, @Nullable Object> instance;
         public FormatTestMap0010Builder(Map<String, @Nullable Object> instance) {
             this.instance = instance;
@@ -1751,12 +1685,12 @@ public class FormatTest {
         public Map<String, @Nullable Object> getInstance() {
             return instance;
         }
-        public FormatTestMap0000Builder getBuilderAfterNumber(Map<String, @Nullable Object> instance) {
+        public FormatTestMap0000Builder getBuilderAfterNumberSchema(Map<String, @Nullable Object> instance) {
             return new FormatTestMap0000Builder(instance);
         }
     }
     
-    public static class FormatTestMap0011Builder implements SetterForNumber<FormatTestMap0001Builder>, SetterForPassword<FormatTestMap0010Builder> {
+    public static class FormatTestMap0011Builder implements SetterForNumberSchema<FormatTestMap0001Builder>, SetterForPassword<FormatTestMap0010Builder> {
         private final Map<String, @Nullable Object> instance;
         public FormatTestMap0011Builder(Map<String, @Nullable Object> instance) {
             this.instance = instance;
@@ -1764,7 +1698,7 @@ public class FormatTest {
         public Map<String, @Nullable Object> getInstance() {
             return instance;
         }
-        public FormatTestMap0001Builder getBuilderAfterNumber(Map<String, @Nullable Object> instance) {
+        public FormatTestMap0001Builder getBuilderAfterNumberSchema(Map<String, @Nullable Object> instance) {
             return new FormatTestMap0001Builder(instance);
         }
         public FormatTestMap0010Builder getBuilderAfterPassword(Map<String, @Nullable Object> instance) {
@@ -1801,7 +1735,7 @@ public class FormatTest {
         }
     }
     
-    public static class FormatTestMap0110Builder implements SetterForDate<FormatTestMap0010Builder>, SetterForNumber<FormatTestMap0100Builder> {
+    public static class FormatTestMap0110Builder implements SetterForDate<FormatTestMap0010Builder>, SetterForNumberSchema<FormatTestMap0100Builder> {
         private final Map<String, @Nullable Object> instance;
         public FormatTestMap0110Builder(Map<String, @Nullable Object> instance) {
             this.instance = instance;
@@ -1812,12 +1746,12 @@ public class FormatTest {
         public FormatTestMap0010Builder getBuilderAfterDate(Map<String, @Nullable Object> instance) {
             return new FormatTestMap0010Builder(instance);
         }
-        public FormatTestMap0100Builder getBuilderAfterNumber(Map<String, @Nullable Object> instance) {
+        public FormatTestMap0100Builder getBuilderAfterNumberSchema(Map<String, @Nullable Object> instance) {
             return new FormatTestMap0100Builder(instance);
         }
     }
     
-    public static class FormatTestMap0111Builder implements SetterForDate<FormatTestMap0011Builder>, SetterForNumber<FormatTestMap0101Builder>, SetterForPassword<FormatTestMap0110Builder> {
+    public static class FormatTestMap0111Builder implements SetterForDate<FormatTestMap0011Builder>, SetterForNumberSchema<FormatTestMap0101Builder>, SetterForPassword<FormatTestMap0110Builder> {
         private final Map<String, @Nullable Object> instance;
         public FormatTestMap0111Builder(Map<String, @Nullable Object> instance) {
             this.instance = instance;
@@ -1828,7 +1762,7 @@ public class FormatTest {
         public FormatTestMap0011Builder getBuilderAfterDate(Map<String, @Nullable Object> instance) {
             return new FormatTestMap0011Builder(instance);
         }
-        public FormatTestMap0101Builder getBuilderAfterNumber(Map<String, @Nullable Object> instance) {
+        public FormatTestMap0101Builder getBuilderAfterNumberSchema(Map<String, @Nullable Object> instance) {
             return new FormatTestMap0101Builder(instance);
         }
         public FormatTestMap0110Builder getBuilderAfterPassword(Map<String, @Nullable Object> instance) {
@@ -1836,7 +1770,7 @@ public class FormatTest {
         }
     }
     
-    public static class FormatTestMap1000Builder implements SetterForByte<FormatTestMap0000Builder> {
+    public static class FormatTestMap1000Builder implements SetterForByteSchema<FormatTestMap0000Builder> {
         private final Map<String, @Nullable Object> instance;
         public FormatTestMap1000Builder(Map<String, @Nullable Object> instance) {
             this.instance = instance;
@@ -1844,12 +1778,12 @@ public class FormatTest {
         public Map<String, @Nullable Object> getInstance() {
             return instance;
         }
-        public FormatTestMap0000Builder getBuilderAfterByte(Map<String, @Nullable Object> instance) {
+        public FormatTestMap0000Builder getBuilderAfterByteSchema(Map<String, @Nullable Object> instance) {
             return new FormatTestMap0000Builder(instance);
         }
     }
     
-    public static class FormatTestMap1001Builder implements SetterForByte<FormatTestMap0001Builder>, SetterForPassword<FormatTestMap1000Builder> {
+    public static class FormatTestMap1001Builder implements SetterForByteSchema<FormatTestMap0001Builder>, SetterForPassword<FormatTestMap1000Builder> {
         private final Map<String, @Nullable Object> instance;
         public FormatTestMap1001Builder(Map<String, @Nullable Object> instance) {
             this.instance = instance;
@@ -1857,7 +1791,7 @@ public class FormatTest {
         public Map<String, @Nullable Object> getInstance() {
             return instance;
         }
-        public FormatTestMap0001Builder getBuilderAfterByte(Map<String, @Nullable Object> instance) {
+        public FormatTestMap0001Builder getBuilderAfterByteSchema(Map<String, @Nullable Object> instance) {
             return new FormatTestMap0001Builder(instance);
         }
         public FormatTestMap1000Builder getBuilderAfterPassword(Map<String, @Nullable Object> instance) {
@@ -1865,7 +1799,7 @@ public class FormatTest {
         }
     }
     
-    public static class FormatTestMap1010Builder implements SetterForByte<FormatTestMap0010Builder>, SetterForNumber<FormatTestMap1000Builder> {
+    public static class FormatTestMap1010Builder implements SetterForByteSchema<FormatTestMap0010Builder>, SetterForNumberSchema<FormatTestMap1000Builder> {
         private final Map<String, @Nullable Object> instance;
         public FormatTestMap1010Builder(Map<String, @Nullable Object> instance) {
             this.instance = instance;
@@ -1873,15 +1807,15 @@ public class FormatTest {
         public Map<String, @Nullable Object> getInstance() {
             return instance;
         }
-        public FormatTestMap0010Builder getBuilderAfterByte(Map<String, @Nullable Object> instance) {
+        public FormatTestMap0010Builder getBuilderAfterByteSchema(Map<String, @Nullable Object> instance) {
             return new FormatTestMap0010Builder(instance);
         }
-        public FormatTestMap1000Builder getBuilderAfterNumber(Map<String, @Nullable Object> instance) {
+        public FormatTestMap1000Builder getBuilderAfterNumberSchema(Map<String, @Nullable Object> instance) {
             return new FormatTestMap1000Builder(instance);
         }
     }
     
-    public static class FormatTestMap1011Builder implements SetterForByte<FormatTestMap0011Builder>, SetterForNumber<FormatTestMap1001Builder>, SetterForPassword<FormatTestMap1010Builder> {
+    public static class FormatTestMap1011Builder implements SetterForByteSchema<FormatTestMap0011Builder>, SetterForNumberSchema<FormatTestMap1001Builder>, SetterForPassword<FormatTestMap1010Builder> {
         private final Map<String, @Nullable Object> instance;
         public FormatTestMap1011Builder(Map<String, @Nullable Object> instance) {
             this.instance = instance;
@@ -1889,10 +1823,10 @@ public class FormatTest {
         public Map<String, @Nullable Object> getInstance() {
             return instance;
         }
-        public FormatTestMap0011Builder getBuilderAfterByte(Map<String, @Nullable Object> instance) {
+        public FormatTestMap0011Builder getBuilderAfterByteSchema(Map<String, @Nullable Object> instance) {
             return new FormatTestMap0011Builder(instance);
         }
-        public FormatTestMap1001Builder getBuilderAfterNumber(Map<String, @Nullable Object> instance) {
+        public FormatTestMap1001Builder getBuilderAfterNumberSchema(Map<String, @Nullable Object> instance) {
             return new FormatTestMap1001Builder(instance);
         }
         public FormatTestMap1010Builder getBuilderAfterPassword(Map<String, @Nullable Object> instance) {
@@ -1900,7 +1834,7 @@ public class FormatTest {
         }
     }
     
-    public static class FormatTestMap1100Builder implements SetterForByte<FormatTestMap0100Builder>, SetterForDate<FormatTestMap1000Builder> {
+    public static class FormatTestMap1100Builder implements SetterForByteSchema<FormatTestMap0100Builder>, SetterForDate<FormatTestMap1000Builder> {
         private final Map<String, @Nullable Object> instance;
         public FormatTestMap1100Builder(Map<String, @Nullable Object> instance) {
             this.instance = instance;
@@ -1908,7 +1842,7 @@ public class FormatTest {
         public Map<String, @Nullable Object> getInstance() {
             return instance;
         }
-        public FormatTestMap0100Builder getBuilderAfterByte(Map<String, @Nullable Object> instance) {
+        public FormatTestMap0100Builder getBuilderAfterByteSchema(Map<String, @Nullable Object> instance) {
             return new FormatTestMap0100Builder(instance);
         }
         public FormatTestMap1000Builder getBuilderAfterDate(Map<String, @Nullable Object> instance) {
@@ -1916,7 +1850,7 @@ public class FormatTest {
         }
     }
     
-    public static class FormatTestMap1101Builder implements SetterForByte<FormatTestMap0101Builder>, SetterForDate<FormatTestMap1001Builder>, SetterForPassword<FormatTestMap1100Builder> {
+    public static class FormatTestMap1101Builder implements SetterForByteSchema<FormatTestMap0101Builder>, SetterForDate<FormatTestMap1001Builder>, SetterForPassword<FormatTestMap1100Builder> {
         private final Map<String, @Nullable Object> instance;
         public FormatTestMap1101Builder(Map<String, @Nullable Object> instance) {
             this.instance = instance;
@@ -1924,7 +1858,7 @@ public class FormatTest {
         public Map<String, @Nullable Object> getInstance() {
             return instance;
         }
-        public FormatTestMap0101Builder getBuilderAfterByte(Map<String, @Nullable Object> instance) {
+        public FormatTestMap0101Builder getBuilderAfterByteSchema(Map<String, @Nullable Object> instance) {
             return new FormatTestMap0101Builder(instance);
         }
         public FormatTestMap1001Builder getBuilderAfterDate(Map<String, @Nullable Object> instance) {
@@ -1935,7 +1869,7 @@ public class FormatTest {
         }
     }
     
-    public static class FormatTestMap1110Builder implements SetterForByte<FormatTestMap0110Builder>, SetterForDate<FormatTestMap1010Builder>, SetterForNumber<FormatTestMap1100Builder> {
+    public static class FormatTestMap1110Builder implements SetterForByteSchema<FormatTestMap0110Builder>, SetterForDate<FormatTestMap1010Builder>, SetterForNumberSchema<FormatTestMap1100Builder> {
         private final Map<String, @Nullable Object> instance;
         public FormatTestMap1110Builder(Map<String, @Nullable Object> instance) {
             this.instance = instance;
@@ -1943,18 +1877,18 @@ public class FormatTest {
         public Map<String, @Nullable Object> getInstance() {
             return instance;
         }
-        public FormatTestMap0110Builder getBuilderAfterByte(Map<String, @Nullable Object> instance) {
+        public FormatTestMap0110Builder getBuilderAfterByteSchema(Map<String, @Nullable Object> instance) {
             return new FormatTestMap0110Builder(instance);
         }
         public FormatTestMap1010Builder getBuilderAfterDate(Map<String, @Nullable Object> instance) {
             return new FormatTestMap1010Builder(instance);
         }
-        public FormatTestMap1100Builder getBuilderAfterNumber(Map<String, @Nullable Object> instance) {
+        public FormatTestMap1100Builder getBuilderAfterNumberSchema(Map<String, @Nullable Object> instance) {
             return new FormatTestMap1100Builder(instance);
         }
     }
     
-    public static class FormatTestMapBuilder implements SetterForByte<FormatTestMap0111Builder>, SetterForDate<FormatTestMap1011Builder>, SetterForNumber<FormatTestMap1101Builder>, SetterForPassword<FormatTestMap1110Builder> {
+    public static class FormatTestMapBuilder implements SetterForByteSchema<FormatTestMap0111Builder>, SetterForDate<FormatTestMap1011Builder>, SetterForNumberSchema<FormatTestMap1101Builder>, SetterForPassword<FormatTestMap1110Builder> {
         private final Map<String, @Nullable Object> instance;
         public FormatTestMapBuilder() {
             this.instance = new LinkedHashMap<>();
@@ -1962,13 +1896,13 @@ public class FormatTest {
         public Map<String, @Nullable Object> getInstance() {
             return instance;
         }
-        public FormatTestMap0111Builder getBuilderAfterByte(Map<String, @Nullable Object> instance) {
+        public FormatTestMap0111Builder getBuilderAfterByteSchema(Map<String, @Nullable Object> instance) {
             return new FormatTestMap0111Builder(instance);
         }
         public FormatTestMap1011Builder getBuilderAfterDate(Map<String, @Nullable Object> instance) {
             return new FormatTestMap1011Builder(instance);
         }
-        public FormatTestMap1101Builder getBuilderAfterNumber(Map<String, @Nullable Object> instance) {
+        public FormatTestMap1101Builder getBuilderAfterNumberSchema(Map<String, @Nullable Object> instance) {
             return new FormatTestMap1101Builder(instance);
         }
         public FormatTestMap1110Builder getBuilderAfterPassword(Map<String, @Nullable Object> instance) {
@@ -2002,22 +1936,22 @@ public class FormatTest {
             super(new JsonSchemaInfo()
                 .type(Set.of(Map.class))
                 .properties(Map.ofEntries(
-                    new PropertyEntry("integer", Integer.class),
+                    new PropertyEntry("integer", IntegerSchema.class),
                     new PropertyEntry("int32", Int32.class),
                     new PropertyEntry("int32withValidations", Int32withValidations.class),
                     new PropertyEntry("int64", Int64.class),
-                    new PropertyEntry("number", Number.class),
-                    new PropertyEntry("float", Float.class),
+                    new PropertyEntry("number", NumberSchema.class),
+                    new PropertyEntry("float", FloatSchema.class),
                     new PropertyEntry("float32", Float32.class),
-                    new PropertyEntry("double", Double.class),
+                    new PropertyEntry("double", DoubleSchema.class),
                     new PropertyEntry("float64", Float64.class),
                     new PropertyEntry("arrayWithUniqueItems", ArrayWithUniqueItems.class),
-                    new PropertyEntry("string", String.class),
-                    new PropertyEntry("byte", Byte.class),
+                    new PropertyEntry("string", StringSchema.class),
+                    new PropertyEntry("byte", ByteSchema.class),
                     new PropertyEntry("binary", Binary.class),
                     new PropertyEntry("date", Date.class),
                     new PropertyEntry("dateTime", DateTime.class),
-                    new PropertyEntry("uuid", Uuid.class),
+                    new PropertyEntry("uuid", UuidSchema.class),
                     new PropertyEntry("uuidNoExample", UuidNoExample.class),
                     new PropertyEntry("password", Password.class),
                     new PropertyEntry("pattern_with_digits", PatternWithDigits.class),

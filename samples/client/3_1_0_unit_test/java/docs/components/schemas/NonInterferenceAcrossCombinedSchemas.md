@@ -26,14 +26,14 @@ A class that contains necessary nested
 | record | [NonInterferenceAcrossCombinedSchemas.Schema2BoxedList](#schema2boxedlist)<br> boxed class to store validated List payloads |
 | record | [NonInterferenceAcrossCombinedSchemas.Schema2BoxedMap](#schema2boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [NonInterferenceAcrossCombinedSchemas.Schema2](#schema2)<br> schema class |
-| sealed interface | [NonInterferenceAcrossCombinedSchemas.ElseBoxed](#elseboxed)<br> sealed interface for validated payloads |
-| record | [NonInterferenceAcrossCombinedSchemas.ElseBoxedVoid](#elseboxedvoid)<br> boxed class to store validated null payloads |
-| record | [NonInterferenceAcrossCombinedSchemas.ElseBoxedBoolean](#elseboxedboolean)<br> boxed class to store validated boolean payloads |
-| record | [NonInterferenceAcrossCombinedSchemas.ElseBoxedNumber](#elseboxednumber)<br> boxed class to store validated Number payloads |
-| record | [NonInterferenceAcrossCombinedSchemas.ElseBoxedString](#elseboxedstring)<br> boxed class to store validated String payloads |
-| record | [NonInterferenceAcrossCombinedSchemas.ElseBoxedList](#elseboxedlist)<br> boxed class to store validated List payloads |
-| record | [NonInterferenceAcrossCombinedSchemas.ElseBoxedMap](#elseboxedmap)<br> boxed class to store validated Map payloads |
-| static class | [NonInterferenceAcrossCombinedSchemas.Else](#else)<br> schema class |
+| sealed interface | [NonInterferenceAcrossCombinedSchemas.ElseSchemaBoxed](#elseschemaboxed)<br> sealed interface for validated payloads |
+| record | [NonInterferenceAcrossCombinedSchemas.ElseSchemaBoxedVoid](#elseschemaboxedvoid)<br> boxed class to store validated null payloads |
+| record | [NonInterferenceAcrossCombinedSchemas.ElseSchemaBoxedBoolean](#elseschemaboxedboolean)<br> boxed class to store validated boolean payloads |
+| record | [NonInterferenceAcrossCombinedSchemas.ElseSchemaBoxedNumber](#elseschemaboxednumber)<br> boxed class to store validated Number payloads |
+| record | [NonInterferenceAcrossCombinedSchemas.ElseSchemaBoxedString](#elseschemaboxedstring)<br> boxed class to store validated String payloads |
+| record | [NonInterferenceAcrossCombinedSchemas.ElseSchemaBoxedList](#elseschemaboxedlist)<br> boxed class to store validated List payloads |
+| record | [NonInterferenceAcrossCombinedSchemas.ElseSchemaBoxedMap](#elseschemaboxedmap)<br> boxed class to store validated Map payloads |
+| static class | [NonInterferenceAcrossCombinedSchemas.ElseSchema](#elseschema)<br> schema class |
 | sealed interface | [NonInterferenceAcrossCombinedSchemas.Schema1Boxed](#schema1boxed)<br> sealed interface for validated payloads |
 | record | [NonInterferenceAcrossCombinedSchemas.Schema1BoxedVoid](#schema1boxedvoid)<br> boxed class to store validated null payloads |
 | record | [NonInterferenceAcrossCombinedSchemas.Schema1BoxedBoolean](#schema1boxedboolean)<br> boxed class to store validated boolean payloads |
@@ -58,14 +58,14 @@ A class that contains necessary nested
 | record | [NonInterferenceAcrossCombinedSchemas.Schema0BoxedList](#schema0boxedlist)<br> boxed class to store validated List payloads |
 | record | [NonInterferenceAcrossCombinedSchemas.Schema0BoxedMap](#schema0boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [NonInterferenceAcrossCombinedSchemas.Schema0](#schema0)<br> schema class |
-| sealed interface | [NonInterferenceAcrossCombinedSchemas.IfBoxed](#ifboxed)<br> sealed interface for validated payloads |
-| record | [NonInterferenceAcrossCombinedSchemas.IfBoxedVoid](#ifboxedvoid)<br> boxed class to store validated null payloads |
-| record | [NonInterferenceAcrossCombinedSchemas.IfBoxedBoolean](#ifboxedboolean)<br> boxed class to store validated boolean payloads |
-| record | [NonInterferenceAcrossCombinedSchemas.IfBoxedNumber](#ifboxednumber)<br> boxed class to store validated Number payloads |
-| record | [NonInterferenceAcrossCombinedSchemas.IfBoxedString](#ifboxedstring)<br> boxed class to store validated String payloads |
-| record | [NonInterferenceAcrossCombinedSchemas.IfBoxedList](#ifboxedlist)<br> boxed class to store validated List payloads |
-| record | [NonInterferenceAcrossCombinedSchemas.IfBoxedMap](#ifboxedmap)<br> boxed class to store validated Map payloads |
-| static class | [NonInterferenceAcrossCombinedSchemas.If](#if)<br> schema class |
+| sealed interface | [NonInterferenceAcrossCombinedSchemas.IfSchemaBoxed](#ifschemaboxed)<br> sealed interface for validated payloads |
+| record | [NonInterferenceAcrossCombinedSchemas.IfSchemaBoxedVoid](#ifschemaboxedvoid)<br> boxed class to store validated null payloads |
+| record | [NonInterferenceAcrossCombinedSchemas.IfSchemaBoxedBoolean](#ifschemaboxedboolean)<br> boxed class to store validated boolean payloads |
+| record | [NonInterferenceAcrossCombinedSchemas.IfSchemaBoxedNumber](#ifschemaboxednumber)<br> boxed class to store validated Number payloads |
+| record | [NonInterferenceAcrossCombinedSchemas.IfSchemaBoxedString](#ifschemaboxedstring)<br> boxed class to store validated String payloads |
+| record | [NonInterferenceAcrossCombinedSchemas.IfSchemaBoxedList](#ifschemaboxedlist)<br> boxed class to store validated List payloads |
+| record | [NonInterferenceAcrossCombinedSchemas.IfSchemaBoxedMap](#ifschemaboxedmap)<br> boxed class to store validated Map payloads |
+| static class | [NonInterferenceAcrossCombinedSchemas.IfSchema](#ifschema)<br> schema class |
 
 ## NonInterferenceAcrossCombinedSchemas1Boxed
 public sealed interface NonInterferenceAcrossCombinedSchemas1Boxed<br>
@@ -337,7 +337,7 @@ A schema class that validates payloads
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |
-| Class<? extends JsonSchema> | elseSchema = [Else.class](#else) |
+| Class<? extends JsonSchema> | elseSchema = [ElseSchema.class](#elseschema) |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
@@ -361,28 +361,28 @@ A schema class that validates payloads
 | [Schema2Boxed](#schema2boxed) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 
-## ElseBoxed
-public sealed interface ElseBoxed<br>
+## ElseSchemaBoxed
+public sealed interface ElseSchemaBoxed<br>
 permits<br>
-[ElseBoxedVoid](#elseboxedvoid),
-[ElseBoxedBoolean](#elseboxedboolean),
-[ElseBoxedNumber](#elseboxednumber),
-[ElseBoxedString](#elseboxedstring),
-[ElseBoxedList](#elseboxedlist),
-[ElseBoxedMap](#elseboxedmap)
+[ElseSchemaBoxedVoid](#elseschemaboxedvoid),
+[ElseSchemaBoxedBoolean](#elseschemaboxedboolean),
+[ElseSchemaBoxedNumber](#elseschemaboxednumber),
+[ElseSchemaBoxedString](#elseschemaboxedstring),
+[ElseSchemaBoxedList](#elseschemaboxedlist),
+[ElseSchemaBoxedMap](#elseschemaboxedmap)
 
 sealed interface that stores validated payloads using boxed classes
 
-## ElseBoxedVoid
-public record ElseBoxedVoid<br>
-implements [ElseBoxed](#elseboxed)
+## ElseSchemaBoxedVoid
+public record ElseSchemaBoxedVoid<br>
+implements [ElseSchemaBoxed](#elseschemaboxed)
 
 record that stores validated null payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| ElseBoxedVoid(Void data)<br>Creates an instance, private visibility |
+| ElseSchemaBoxedVoid(Void data)<br>Creates an instance, private visibility |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
@@ -390,16 +390,16 @@ record that stores validated null payloads, sealed permits implementation
 | Void | data()<br>validated payload |
 | @Nullable Object | getData()<br>validated payload |
 
-## ElseBoxedBoolean
-public record ElseBoxedBoolean<br>
-implements [ElseBoxed](#elseboxed)
+## ElseSchemaBoxedBoolean
+public record ElseSchemaBoxedBoolean<br>
+implements [ElseSchemaBoxed](#elseschemaboxed)
 
 record that stores validated boolean payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| ElseBoxedBoolean(boolean data)<br>Creates an instance, private visibility |
+| ElseSchemaBoxedBoolean(boolean data)<br>Creates an instance, private visibility |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
@@ -407,16 +407,16 @@ record that stores validated boolean payloads, sealed permits implementation
 | boolean | data()<br>validated payload |
 | @Nullable Object | getData()<br>validated payload |
 
-## ElseBoxedNumber
-public record ElseBoxedNumber<br>
-implements [ElseBoxed](#elseboxed)
+## ElseSchemaBoxedNumber
+public record ElseSchemaBoxedNumber<br>
+implements [ElseSchemaBoxed](#elseschemaboxed)
 
 record that stores validated Number payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| ElseBoxedNumber(Number data)<br>Creates an instance, private visibility |
+| ElseSchemaBoxedNumber(Number data)<br>Creates an instance, private visibility |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
@@ -424,16 +424,16 @@ record that stores validated Number payloads, sealed permits implementation
 | Number | data()<br>validated payload |
 | @Nullable Object | getData()<br>validated payload |
 
-## ElseBoxedString
-public record ElseBoxedString<br>
-implements [ElseBoxed](#elseboxed)
+## ElseSchemaBoxedString
+public record ElseSchemaBoxedString<br>
+implements [ElseSchemaBoxed](#elseschemaboxed)
 
 record that stores validated String payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| ElseBoxedString(String data)<br>Creates an instance, private visibility |
+| ElseSchemaBoxedString(String data)<br>Creates an instance, private visibility |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
@@ -441,16 +441,16 @@ record that stores validated String payloads, sealed permits implementation
 | String | data()<br>validated payload |
 | @Nullable Object | getData()<br>validated payload |
 
-## ElseBoxedList
-public record ElseBoxedList<br>
-implements [ElseBoxed](#elseboxed)
+## ElseSchemaBoxedList
+public record ElseSchemaBoxedList<br>
+implements [ElseSchemaBoxed](#elseschemaboxed)
 
 record that stores validated List payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| ElseBoxedList(FrozenList<@Nullable Object> data)<br>Creates an instance, private visibility |
+| ElseSchemaBoxedList(FrozenList<@Nullable Object> data)<br>Creates an instance, private visibility |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
@@ -458,16 +458,16 @@ record that stores validated List payloads, sealed permits implementation
 | FrozenList<@Nullable Object> | data()<br>validated payload |
 | @Nullable Object | getData()<br>validated payload |
 
-## ElseBoxedMap
-public record ElseBoxedMap<br>
-implements [ElseBoxed](#elseboxed)
+## ElseSchemaBoxedMap
+public record ElseSchemaBoxedMap<br>
+implements [ElseSchemaBoxed](#elseschemaboxed)
 
 record that stores validated Map payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| ElseBoxedMap(FrozenMap<@Nullable Object> data)<br>Creates an instance, private visibility |
+| ElseSchemaBoxedMap(FrozenMap<@Nullable Object> data)<br>Creates an instance, private visibility |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
@@ -475,8 +475,8 @@ record that stores validated Map payloads, sealed permits implementation
 | FrozenMap<@Nullable Object> | data()<br>validated payload |
 | @Nullable Object | getData()<br>validated payload |
 
-## Else
-public static class Else<br>
+## ElseSchema
+public static class ElseSchema<br>
 extends JsonSchema
 
 A schema class that validates payloads
@@ -499,13 +499,13 @@ A schema class that validates payloads
 | boolean | validate(boolean arg, SchemaConfiguration configuration) |
 | FrozenMap<@Nullable Object> | validate(Map&lt;?, ?&gt; arg, SchemaConfiguration configuration) |
 | FrozenList<@Nullable Object> | validate(List<?> arg, SchemaConfiguration configuration) |
-| [ElseBoxedString](#elseboxedstring) | validateAndBox(String arg, SchemaConfiguration configuration) |
-| [ElseBoxedVoid](#elseboxedvoid) | validateAndBox(Void arg, SchemaConfiguration configuration) |
-| [ElseBoxedNumber](#elseboxednumber) | validateAndBox(Number arg, SchemaConfiguration configuration) |
-| [ElseBoxedBoolean](#elseboxedboolean) | validateAndBox(boolean arg, SchemaConfiguration configuration) |
-| [ElseBoxedMap](#elseboxedmap) | validateAndBox(Map&lt;?, ?&gt; arg, SchemaConfiguration configuration) |
-| [ElseBoxedList](#elseboxedlist) | validateAndBox(List<?> arg, SchemaConfiguration configuration) |
-| [ElseBoxed](#elseboxed) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
+| [ElseSchemaBoxedString](#elseschemaboxedstring) | validateAndBox(String arg, SchemaConfiguration configuration) |
+| [ElseSchemaBoxedVoid](#elseschemaboxedvoid) | validateAndBox(Void arg, SchemaConfiguration configuration) |
+| [ElseSchemaBoxedNumber](#elseschemaboxednumber) | validateAndBox(Number arg, SchemaConfiguration configuration) |
+| [ElseSchemaBoxedBoolean](#elseschemaboxedboolean) | validateAndBox(boolean arg, SchemaConfiguration configuration) |
+| [ElseSchemaBoxedMap](#elseschemaboxedmap) | validateAndBox(Map&lt;?, ?&gt; arg, SchemaConfiguration configuration) |
+| [ElseSchemaBoxedList](#elseschemaboxedlist) | validateAndBox(List<?> arg, SchemaConfiguration configuration) |
+| [ElseSchemaBoxed](#elseschemaboxed) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 
 ## Schema1Boxed
@@ -925,7 +925,7 @@ A schema class that validates payloads
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |
-| Class<? extends JsonSchema> | if = [If.class](#if) |
+| Class<? extends JsonSchema> | if = [IfSchema.class](#ifschema) |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
@@ -949,28 +949,28 @@ A schema class that validates payloads
 | [Schema0Boxed](#schema0boxed) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 
-## IfBoxed
-public sealed interface IfBoxed<br>
+## IfSchemaBoxed
+public sealed interface IfSchemaBoxed<br>
 permits<br>
-[IfBoxedVoid](#ifboxedvoid),
-[IfBoxedBoolean](#ifboxedboolean),
-[IfBoxedNumber](#ifboxednumber),
-[IfBoxedString](#ifboxedstring),
-[IfBoxedList](#ifboxedlist),
-[IfBoxedMap](#ifboxedmap)
+[IfSchemaBoxedVoid](#ifschemaboxedvoid),
+[IfSchemaBoxedBoolean](#ifschemaboxedboolean),
+[IfSchemaBoxedNumber](#ifschemaboxednumber),
+[IfSchemaBoxedString](#ifschemaboxedstring),
+[IfSchemaBoxedList](#ifschemaboxedlist),
+[IfSchemaBoxedMap](#ifschemaboxedmap)
 
 sealed interface that stores validated payloads using boxed classes
 
-## IfBoxedVoid
-public record IfBoxedVoid<br>
-implements [IfBoxed](#ifboxed)
+## IfSchemaBoxedVoid
+public record IfSchemaBoxedVoid<br>
+implements [IfSchemaBoxed](#ifschemaboxed)
 
 record that stores validated null payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| IfBoxedVoid(Void data)<br>Creates an instance, private visibility |
+| IfSchemaBoxedVoid(Void data)<br>Creates an instance, private visibility |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
@@ -978,16 +978,16 @@ record that stores validated null payloads, sealed permits implementation
 | Void | data()<br>validated payload |
 | @Nullable Object | getData()<br>validated payload |
 
-## IfBoxedBoolean
-public record IfBoxedBoolean<br>
-implements [IfBoxed](#ifboxed)
+## IfSchemaBoxedBoolean
+public record IfSchemaBoxedBoolean<br>
+implements [IfSchemaBoxed](#ifschemaboxed)
 
 record that stores validated boolean payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| IfBoxedBoolean(boolean data)<br>Creates an instance, private visibility |
+| IfSchemaBoxedBoolean(boolean data)<br>Creates an instance, private visibility |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
@@ -995,16 +995,16 @@ record that stores validated boolean payloads, sealed permits implementation
 | boolean | data()<br>validated payload |
 | @Nullable Object | getData()<br>validated payload |
 
-## IfBoxedNumber
-public record IfBoxedNumber<br>
-implements [IfBoxed](#ifboxed)
+## IfSchemaBoxedNumber
+public record IfSchemaBoxedNumber<br>
+implements [IfSchemaBoxed](#ifschemaboxed)
 
 record that stores validated Number payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| IfBoxedNumber(Number data)<br>Creates an instance, private visibility |
+| IfSchemaBoxedNumber(Number data)<br>Creates an instance, private visibility |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
@@ -1012,16 +1012,16 @@ record that stores validated Number payloads, sealed permits implementation
 | Number | data()<br>validated payload |
 | @Nullable Object | getData()<br>validated payload |
 
-## IfBoxedString
-public record IfBoxedString<br>
-implements [IfBoxed](#ifboxed)
+## IfSchemaBoxedString
+public record IfSchemaBoxedString<br>
+implements [IfSchemaBoxed](#ifschemaboxed)
 
 record that stores validated String payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| IfBoxedString(String data)<br>Creates an instance, private visibility |
+| IfSchemaBoxedString(String data)<br>Creates an instance, private visibility |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
@@ -1029,16 +1029,16 @@ record that stores validated String payloads, sealed permits implementation
 | String | data()<br>validated payload |
 | @Nullable Object | getData()<br>validated payload |
 
-## IfBoxedList
-public record IfBoxedList<br>
-implements [IfBoxed](#ifboxed)
+## IfSchemaBoxedList
+public record IfSchemaBoxedList<br>
+implements [IfSchemaBoxed](#ifschemaboxed)
 
 record that stores validated List payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| IfBoxedList(FrozenList<@Nullable Object> data)<br>Creates an instance, private visibility |
+| IfSchemaBoxedList(FrozenList<@Nullable Object> data)<br>Creates an instance, private visibility |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
@@ -1046,16 +1046,16 @@ record that stores validated List payloads, sealed permits implementation
 | FrozenList<@Nullable Object> | data()<br>validated payload |
 | @Nullable Object | getData()<br>validated payload |
 
-## IfBoxedMap
-public record IfBoxedMap<br>
-implements [IfBoxed](#ifboxed)
+## IfSchemaBoxedMap
+public record IfSchemaBoxedMap<br>
+implements [IfSchemaBoxed](#ifschemaboxed)
 
 record that stores validated Map payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| IfBoxedMap(FrozenMap<@Nullable Object> data)<br>Creates an instance, private visibility |
+| IfSchemaBoxedMap(FrozenMap<@Nullable Object> data)<br>Creates an instance, private visibility |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
@@ -1063,8 +1063,8 @@ record that stores validated Map payloads, sealed permits implementation
 | FrozenMap<@Nullable Object> | data()<br>validated payload |
 | @Nullable Object | getData()<br>validated payload |
 
-## If
-public static class If<br>
+## IfSchema
+public static class IfSchema<br>
 extends JsonSchema
 
 A schema class that validates payloads
@@ -1087,13 +1087,13 @@ A schema class that validates payloads
 | boolean | validate(boolean arg, SchemaConfiguration configuration) |
 | FrozenMap<@Nullable Object> | validate(Map&lt;?, ?&gt; arg, SchemaConfiguration configuration) |
 | FrozenList<@Nullable Object> | validate(List<?> arg, SchemaConfiguration configuration) |
-| [IfBoxedString](#ifboxedstring) | validateAndBox(String arg, SchemaConfiguration configuration) |
-| [IfBoxedVoid](#ifboxedvoid) | validateAndBox(Void arg, SchemaConfiguration configuration) |
-| [IfBoxedNumber](#ifboxednumber) | validateAndBox(Number arg, SchemaConfiguration configuration) |
-| [IfBoxedBoolean](#ifboxedboolean) | validateAndBox(boolean arg, SchemaConfiguration configuration) |
-| [IfBoxedMap](#ifboxedmap) | validateAndBox(Map&lt;?, ?&gt; arg, SchemaConfiguration configuration) |
-| [IfBoxedList](#ifboxedlist) | validateAndBox(List<?> arg, SchemaConfiguration configuration) |
-| [IfBoxed](#ifboxed) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
+| [IfSchemaBoxedString](#ifschemaboxedstring) | validateAndBox(String arg, SchemaConfiguration configuration) |
+| [IfSchemaBoxedVoid](#ifschemaboxedvoid) | validateAndBox(Void arg, SchemaConfiguration configuration) |
+| [IfSchemaBoxedNumber](#ifschemaboxednumber) | validateAndBox(Number arg, SchemaConfiguration configuration) |
+| [IfSchemaBoxedBoolean](#ifschemaboxedboolean) | validateAndBox(boolean arg, SchemaConfiguration configuration) |
+| [IfSchemaBoxedMap](#ifschemaboxedmap) | validateAndBox(Map&lt;?, ?&gt; arg, SchemaConfiguration configuration) |
+| [IfSchemaBoxedList](#ifschemaboxedlist) | validateAndBox(List<?> arg, SchemaConfiguration configuration) |
+| [IfSchemaBoxed](#ifschemaboxed) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

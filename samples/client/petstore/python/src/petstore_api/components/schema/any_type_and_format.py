@@ -13,7 +13,7 @@ from petstore_api.shared_imports.schema_imports import *  # pyright: ignore [rep
 
 
 @dataclasses.dataclass(frozen=True)
-class Uuid(
+class _Uuid(
     schemas.AnyTypeSchema[schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES], typing.Tuple[schemas.OUTPUT_BASE_TYPES, ...]],
 ):
     # any type
@@ -31,7 +31,7 @@ class Date(
 
 
 @dataclasses.dataclass(frozen=True)
-class DateTime(
+class _DateTime(
     schemas.AnyTypeSchema[schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES], typing.Tuple[schemas.OUTPUT_BASE_TYPES, ...]],
 ):
     # any type
@@ -85,7 +85,7 @@ class Double(
 
 
 @dataclasses.dataclass(frozen=True)
-class Float(
+class _Float(
     schemas.AnyTypeSchema[schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES], typing.Tuple[schemas.OUTPUT_BASE_TYPES, ...]],
 ):
     # any type
@@ -94,15 +94,15 @@ class Float(
 Properties = typing.TypedDict(
     'Properties',
     {
-        "uuid": typing.Type[Uuid],
+        "uuid": typing.Type[_Uuid],
         "date": typing.Type[Date],
-        "date-time": typing.Type[DateTime],
+        "date-time": typing.Type[_DateTime],
         "number": typing.Type[Number],
         "binary": typing.Type[Binary],
         "int32": typing.Type[Int32],
         "int64": typing.Type[Int64],
         "double": typing.Type[Double],
-        "float": typing.Type[Float],
+        "float": typing.Type[_Float],
     }
 )
 
@@ -126,11 +126,6 @@ class AnyTypeAndFormatDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]
     def __new__(
         cls,
         *,
-        uuid: typing.Union[
-            schemas.INPUT_TYPES_ALL,
-            schemas.OUTPUT_BASE_TYPES,
-            schemas.Unset
-        ] = schemas.unset,
         date: typing.Union[
             schemas.INPUT_TYPES_ALL,
             schemas.OUTPUT_BASE_TYPES,
@@ -161,24 +156,17 @@ class AnyTypeAndFormatDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]
             schemas.OUTPUT_BASE_TYPES,
             schemas.Unset
         ] = schemas.unset,
-        float: typing.Union[
-            schemas.INPUT_TYPES_ALL,
-            schemas.OUTPUT_BASE_TYPES,
-            schemas.Unset
-        ] = schemas.unset,
         configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None,
         **kwargs: schemas.INPUT_TYPES_ALL,
     ):
         arg_: typing.Dict[str, typing.Any] = {}
         for key_, val in (
-            ("uuid", uuid),
             ("date", date),
             ("number", number),
             ("binary", binary),
             ("int32", int32),
             ("int64", int64),
             ("double", double),
-            ("float", float),
         ):
             if isinstance(val, schemas.Unset):
                 continue
@@ -196,13 +184,6 @@ class AnyTypeAndFormatDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> AnyTypeAndFormatDict:
         return AnyTypeAndFormat.validate(arg, configuration=configuration)
-    
-    @property
-    def uuid(self) -> typing.Union[schemas.OUTPUT_BASE_TYPES, schemas.Unset]:
-        val = self.get("uuid", schemas.unset)
-        if isinstance(val, schemas.Unset):
-            return val
-        return val
     
     @property
     def date(self) -> typing.Union[schemas.OUTPUT_BASE_TYPES, schemas.Unset]:
@@ -242,13 +223,6 @@ class AnyTypeAndFormatDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]
     @property
     def double(self) -> typing.Union[schemas.OUTPUT_BASE_TYPES, schemas.Unset]:
         val = self.get("double", schemas.unset)
-        if isinstance(val, schemas.Unset):
-            return val
-        return val
-    
-    @property
-    def float(self) -> typing.Union[schemas.OUTPUT_BASE_TYPES, schemas.Unset]:
-        val = self.get("float", schemas.unset)
         if isinstance(val, schemas.Unset):
             return val
         return val

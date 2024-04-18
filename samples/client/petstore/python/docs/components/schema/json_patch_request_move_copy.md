@@ -27,14 +27,12 @@ base class: schemas.immutabledict[str, str]
 ### &lowbar;&lowbar;new&lowbar;&lowbar; method
 Keyword Argument | Type | Description | Notes
 ---------------- | ---- | ----------- | -----
-**from** | str | A JSON Pointer path. |
 **op** | typing.Literal["move", "copy"] | The operation to perform. | must be one of ["move", "copy"]
 **path** | str | A JSON Pointer path. |
 
 ### properties
 Property | Type | Description | Notes
 -------- | ---- | ----------- | -----
-**from** | str | A JSON Pointer path. |
 **op** | typing.Literal["move", "copy"] | The operation to perform. | must be one of ["move", "copy"]
 **path** | str | A JSON Pointer path. |
 
@@ -42,5 +40,6 @@ Property | Type | Description | Notes
 Method | Input Type | Return Type | Notes
 ------ | ---------- | ----------- | ------
 from_dict_ | [JSONPatchRequestMoveCopyDictInput](#jsonpatchrequestmovecopydictinput), [JSONPatchRequestMoveCopyDict](#jsonpatchrequestmovecopydict) | [JSONPatchRequestMoveCopyDict](#jsonpatchrequestmovecopydict) | a constructor
+&lowbar;&lowbar;getitem&lowbar;&lowbar; | str | str | This model has invalid python names so this method is used under the hood when you access instance["from"], 
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

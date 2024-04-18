@@ -37,11 +37,11 @@ public class ClassModel {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static class Class extends StringJsonSchema.StringJsonSchema1 {
-        private static @Nullable Class instance = null;
-        public static Class getInstance() {
+    public static class ClassSchema extends StringJsonSchema.StringJsonSchema1 {
+        private static @Nullable ClassSchema instance = null;
+        public static ClassSchema getInstance() {
             if (instance == null) {
-                instance = new Class();
+                instance = new ClassSchema();
             }
             return instance;
         }
@@ -67,18 +67,18 @@ public class ClassModel {
         }
     }
     
-    public interface SetterForClass <T> {
+    public interface SetterForClassSchema <T> {
         Map<String, @Nullable Object> getInstance();
-        T getBuilderAfterClass(Map<String, @Nullable Object> instance);
+        T getBuilderAfterClassSchema(Map<String, @Nullable Object> instance);
         
         default T lowLineClass(String value) {
             var instance = getInstance();
             instance.put("_class", value);
-            return getBuilderAfterClass(instance);
+            return getBuilderAfterClassSchema(instance);
         }
     }
     
-    public static class ClassModelMapBuilder extends UnsetAddPropsSetter<ClassModelMapBuilder> implements GenericBuilder<Map<String, @Nullable Object>>, SetterForClass<ClassModelMapBuilder> {
+    public static class ClassModelMapBuilder extends UnsetAddPropsSetter<ClassModelMapBuilder> implements GenericBuilder<Map<String, @Nullable Object>>, SetterForClassSchema<ClassModelMapBuilder> {
         private final Map<String, @Nullable Object> instance;
         private static final Set<String> knownKeys = Set.of(
             "_class"
@@ -95,7 +95,7 @@ public class ClassModel {
         public Map<String, @Nullable Object> getInstance() {
             return instance;
         }
-        public ClassModelMapBuilder getBuilderAfterClass(Map<String, @Nullable Object> instance) {
+        public ClassModelMapBuilder getBuilderAfterClassSchema(Map<String, @Nullable Object> instance) {
             return this;
         }
         public ClassModelMapBuilder getBuilderAfterAdditionalProperty(Map<String, @Nullable Object> instance) {
@@ -165,7 +165,7 @@ public class ClassModel {
         protected ClassModel1() {
             super(new JsonSchemaInfo()
                 .properties(Map.ofEntries(
-                    new PropertyEntry("_class", Class.class)
+                    new PropertyEntry("_class", ClassSchema.class)
                 ))
             );
         }

@@ -56,7 +56,7 @@ class ObjectWithNoDeclaredPropsNullable(
         )
 
 AnyTypeProp: typing_extensions.TypeAlias = schemas.AnyTypeSchema
-Not: typing_extensions.TypeAlias = schemas.NoneSchema
+_Not: typing_extensions.TypeAlias = schemas.NoneSchema
 
 
 @dataclasses.dataclass(frozen=True)
@@ -64,7 +64,7 @@ class AnyTypeExceptNullProp(
     schemas.AnyTypeSchema[schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES], typing.Tuple[schemas.OUTPUT_BASE_TYPES, ...]],
 ):
     # any type
-    not_: typing.Type[Not] = dataclasses.field(default_factory=lambda: Not) # type: ignore
+    not_: typing.Type[_Not] = dataclasses.field(default_factory=lambda: _Not) # type: ignore
 
 AnyTypePropNullable: typing_extensions.TypeAlias = schemas.AnyTypeSchema
 Properties = typing.TypedDict(

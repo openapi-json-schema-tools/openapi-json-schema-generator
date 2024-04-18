@@ -21,7 +21,6 @@ These options may be applied as additional-properties (cli) or configOptions (pl
 | ------ | ----------- | ------ | ------- |
 |allowUnicodeIdentifiers|boolean, toggles whether unicode identifiers are allowed in names or not, default is false| |false|
 |artifactDescription|artifact description in generated pom.xml| |OpenAPI Java|
-|artifactId|artifactId in generated pom.xml. This also becomes part of the generated library's filename| |openapi-java-client|
 |artifactUrl|artifact URL in generated pom.xml| |https://github.com/openapi-json-schema-tools/openapi-json-schema-generator|
 |artifactVersion|artifact version in generated pom.xml. This also becomes part of the generated library's filename| |1.0.0|
 |developerEmail|developer email in generated pom.xml| |team@openapijsonschematools.org|

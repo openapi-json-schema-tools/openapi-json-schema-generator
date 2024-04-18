@@ -10,8 +10,8 @@
 from __future__ import annotations
 from petstore_api.shared_imports.schema_imports import *  # pyright: ignore [reportWildcardImportFromLibrary]
 
-Uuid: typing_extensions.TypeAlias = schemas.UUIDSchema
-DateTime: typing_extensions.TypeAlias = schemas.DateTimeSchema
+_Uuid: typing_extensions.TypeAlias = schemas.UUIDSchema
+_DateTime: typing_extensions.TypeAlias = schemas.DateTimeSchema
 
 from petstore_api.components.schema import animal
 
@@ -93,8 +93,8 @@ class Map(
 Properties = typing.TypedDict(
     'Properties',
     {
-        "uuid": typing.Type[Uuid],
-        "dateTime": typing.Type[DateTime],
+        "uuid": typing.Type[_Uuid],
+        "dateTime": typing.Type[_DateTime],
         "map": typing.Type[Map],
     }
 )
@@ -113,16 +113,6 @@ class MixedPropertiesAndAdditionalPropertiesClassDict(schemas.immutabledict[str,
     def __new__(
         cls,
         *,
-        uuid: typing.Union[
-            str,
-            uuid.UUID,
-            schemas.Unset
-        ] = schemas.unset,
-        dateTime: typing.Union[
-            str,
-            datetime.datetime,
-            schemas.Unset
-        ] = schemas.unset,
         map: typing.Union[
             MapDictInput,
             MapDict,
@@ -133,8 +123,6 @@ class MixedPropertiesAndAdditionalPropertiesClassDict(schemas.immutabledict[str,
     ):
         arg_: typing.Dict[str, typing.Any] = {}
         for key_, val in (
-            ("uuid", uuid),
-            ("dateTime", dateTime),
             ("map", map),
         ):
             if isinstance(val, schemas.Unset):
@@ -153,26 +141,6 @@ class MixedPropertiesAndAdditionalPropertiesClassDict(schemas.immutabledict[str,
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> MixedPropertiesAndAdditionalPropertiesClassDict:
         return MixedPropertiesAndAdditionalPropertiesClass.validate(arg, configuration=configuration)
-    
-    @property
-    def uuid(self) -> typing.Union[str, schemas.Unset]:
-        val = self.get("uuid", schemas.unset)
-        if isinstance(val, schemas.Unset):
-            return val
-        return typing.cast(
-            str,
-            val
-        )
-    
-    @property
-    def dateTime(self) -> typing.Union[str, schemas.Unset]:
-        val = self.get("dateTime", schemas.unset)
-        if isinstance(val, schemas.Unset):
-            return val
-        return typing.cast(
-            str,
-            val
-        )
     
     @property
     def map(self) -> typing.Union[MapDict, schemas.Unset]:

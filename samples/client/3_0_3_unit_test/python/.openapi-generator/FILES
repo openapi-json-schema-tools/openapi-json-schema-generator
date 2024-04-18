@@ -2,6 +2,7 @@
 .gitlab-ci.yml
 .travis.yml
 README.md
+docs/apis/tags/_not_api.md
 docs/apis/tags/additional_properties_api.md
 docs/apis/tags/all_of_api.md
 docs/apis/tags/any_of_api.md
@@ -19,7 +20,6 @@ docs/apis/tags/min_length_api.md
 docs/apis/tags/min_properties_api.md
 docs/apis/tags/minimum_api.md
 docs/apis/tags/multiple_of_api.md
-docs/apis/tags/not_api.md
 docs/apis/tags/one_of_api.md
 docs/apis/tags/operation_request_body_api.md
 docs/apis/tags/path_post_api.md
@@ -30,6 +30,7 @@ docs/apis/tags/required_api.md
 docs/apis/tags/response_content_content_type_schema_api.md
 docs/apis/tags/type_api.md
 docs/apis/tags/unique_items_api.md
+docs/components/schema/_not.md
 docs/components/schema/additionalproperties_allows_a_schema_which_should_validate.md
 docs/components/schema/additionalproperties_are_allowed_by_default.md
 docs/components/schema/additionalproperties_can_exist_by_itself.md
@@ -82,7 +83,6 @@ docs/components/schema/nested_allof_to_check_validation_semantics.md
 docs/components/schema/nested_anyof_to_check_validation_semantics.md
 docs/components/schema/nested_items.md
 docs/components/schema/nested_oneof_to_check_validation_semantics.md
-docs/components/schema/not.md
 docs/components/schema/not_more_complex_schema.md
 docs/components/schema/nul_characters_in_strings.md
 docs/components/schema/null_type_matches_only_the_null_object.md
@@ -653,6 +653,7 @@ src/unit_test_api/apis/paths/response_body_post_uri_reference_format_response_bo
 src/unit_test_api/apis/paths/response_body_post_uri_template_format_response_body_for_content_types.py
 src/unit_test_api/apis/tag_to_api.py
 src/unit_test_api/apis/tags/__init__.py
+src/unit_test_api/apis/tags/_not_api.py
 src/unit_test_api/apis/tags/additional_properties_api.py
 src/unit_test_api/apis/tags/all_of_api.py
 src/unit_test_api/apis/tags/any_of_api.py
@@ -670,7 +671,6 @@ src/unit_test_api/apis/tags/min_length_api.py
 src/unit_test_api/apis/tags/min_properties_api.py
 src/unit_test_api/apis/tags/minimum_api.py
 src/unit_test_api/apis/tags/multiple_of_api.py
-src/unit_test_api/apis/tags/not_api.py
 src/unit_test_api/apis/tags/one_of_api.py
 src/unit_test_api/apis/tags/operation_request_body_api.py
 src/unit_test_api/apis/tags/path_post_api.py
@@ -683,6 +683,7 @@ src/unit_test_api/apis/tags/type_api.py
 src/unit_test_api/apis/tags/unique_items_api.py
 src/unit_test_api/components/__init__.py
 src/unit_test_api/components/schema/__init__.py
+src/unit_test_api/components/schema/_not.py
 src/unit_test_api/components/schema/additionalproperties_allows_a_schema_which_should_validate.py
 src/unit_test_api/components/schema/additionalproperties_are_allowed_by_default.py
 src/unit_test_api/components/schema/additionalproperties_can_exist_by_itself.py
@@ -735,7 +736,6 @@ src/unit_test_api/components/schema/nested_allof_to_check_validation_semantics.p
 src/unit_test_api/components/schema/nested_anyof_to_check_validation_semantics.py
 src/unit_test_api/components/schema/nested_items.py
 src/unit_test_api/components/schema/nested_oneof_to_check_validation_semantics.py
-src/unit_test_api/components/schema/not.py
 src/unit_test_api/components/schema/not_more_complex_schema.py
 src/unit_test_api/components/schema/nul_characters_in_strings.py
 src/unit_test_api/components/schema/null_type_matches_only_the_null_object.py

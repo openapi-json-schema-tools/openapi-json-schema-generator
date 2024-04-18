@@ -71,11 +71,11 @@ public class FakerefsbooleanPost {
         }
     }
 
-    public interface BooleanOperation {
+    public interface ModelBooleanOperation {
         ApiConfiguration getApiConfiguration();
         SchemaConfiguration getSchemaConfiguration();
         HttpClient getClient();
-        default FakerefsbooleanPostResponses.EndpointResponse boolean(PostRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
+        default FakerefsbooleanPostResponses.EndpointResponse modelBoolean(PostRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
             return PostProvider.post(request, getApiConfiguration(), getSchemaConfiguration(), getClient());
         }
     }

@@ -34,9 +34,9 @@ A class that contains necessary nested
 | sealed interface | [FormatTest.UuidNoExampleBoxed](#uuidnoexampleboxed)<br> sealed interface for validated payloads |
 | record | [FormatTest.UuidNoExampleBoxedString](#uuidnoexampleboxedstring)<br> boxed class to store validated String payloads |
 | static class | [FormatTest.UuidNoExample](#uuidnoexample)<br> schema class |
-| sealed interface | [FormatTest.UuidBoxed](#uuidboxed)<br> sealed interface for validated payloads |
-| record | [FormatTest.UuidBoxedString](#uuidboxedstring)<br> boxed class to store validated String payloads |
-| static class | [FormatTest.Uuid](#uuid)<br> schema class |
+| sealed interface | [FormatTest.UuidSchemaBoxed](#uuidschemaboxed)<br> sealed interface for validated payloads |
+| record | [FormatTest.UuidSchemaBoxedString](#uuidschemaboxedstring)<br> boxed class to store validated String payloads |
+| static class | [FormatTest.UuidSchema](#uuidschema)<br> schema class |
 | sealed interface | [FormatTest.DateTimeBoxed](#datetimeboxed)<br> sealed interface for validated payloads |
 | record | [FormatTest.DateTimeBoxedString](#datetimeboxedstring)<br> boxed class to store validated String payloads |
 | static class | [FormatTest.DateTime](#datetime)<br> schema class |
@@ -45,12 +45,12 @@ A class that contains necessary nested
 | static class | [FormatTest.Date](#date)<br> schema class |
 | sealed interface | [FormatTest.BinaryBoxed](#binaryboxed)<br> sealed interface for validated payloads |
 | static class | [FormatTest.Binary](#binary)<br> schema class |
-| sealed interface | [FormatTest.ByteBoxed](#byteboxed)<br> sealed interface for validated payloads |
-| record | [FormatTest.ByteBoxedString](#byteboxedstring)<br> boxed class to store validated String payloads |
-| static class | [FormatTest.Byte](#byte)<br> schema class |
-| sealed interface | [FormatTest.StringBoxed](#stringboxed)<br> sealed interface for validated payloads |
-| record | [FormatTest.StringBoxedString](#stringboxedstring)<br> boxed class to store validated String payloads |
-| static class | [FormatTest.String](#string)<br> schema class |
+| sealed interface | [FormatTest.ByteSchemaBoxed](#byteschemaboxed)<br> sealed interface for validated payloads |
+| record | [FormatTest.ByteSchemaBoxedString](#byteschemaboxedstring)<br> boxed class to store validated String payloads |
+| static class | [FormatTest.ByteSchema](#byteschema)<br> schema class |
+| sealed interface | [FormatTest.StringSchemaBoxed](#stringschemaboxed)<br> sealed interface for validated payloads |
+| record | [FormatTest.StringSchemaBoxedString](#stringschemaboxedstring)<br> boxed class to store validated String payloads |
+| static class | [FormatTest.StringSchema](#stringschema)<br> schema class |
 | sealed interface | [FormatTest.ArrayWithUniqueItemsBoxed](#arraywithuniqueitemsboxed)<br> sealed interface for validated payloads |
 | record | [FormatTest.ArrayWithUniqueItemsBoxedList](#arraywithuniqueitemsboxedlist)<br> boxed class to store validated List payloads |
 | static class | [FormatTest.ArrayWithUniqueItems](#arraywithuniqueitems)<br> schema class |
@@ -62,18 +62,18 @@ A class that contains necessary nested
 | sealed interface | [FormatTest.Float64Boxed](#float64boxed)<br> sealed interface for validated payloads |
 | record | [FormatTest.Float64BoxedNumber](#float64boxednumber)<br> boxed class to store validated Number payloads |
 | static class | [FormatTest.Float64](#float64)<br> schema class |
-| sealed interface | [FormatTest.DoubleBoxed](#doubleboxed)<br> sealed interface for validated payloads |
-| record | [FormatTest.DoubleBoxedNumber](#doubleboxednumber)<br> boxed class to store validated Number payloads |
-| static class | [FormatTest.Double](#double)<br> schema class |
+| sealed interface | [FormatTest.DoubleSchemaBoxed](#doubleschemaboxed)<br> sealed interface for validated payloads |
+| record | [FormatTest.DoubleSchemaBoxedNumber](#doubleschemaboxednumber)<br> boxed class to store validated Number payloads |
+| static class | [FormatTest.DoubleSchema](#doubleschema)<br> schema class |
 | sealed interface | [FormatTest.Float32Boxed](#float32boxed)<br> sealed interface for validated payloads |
 | record | [FormatTest.Float32BoxedNumber](#float32boxednumber)<br> boxed class to store validated Number payloads |
 | static class | [FormatTest.Float32](#float32)<br> schema class |
-| sealed interface | [FormatTest.FloatBoxed](#floatboxed)<br> sealed interface for validated payloads |
-| record | [FormatTest.FloatBoxedNumber](#floatboxednumber)<br> boxed class to store validated Number payloads |
-| static class | [FormatTest.Float](#float)<br> schema class |
-| sealed interface | [FormatTest.NumberBoxed](#numberboxed)<br> sealed interface for validated payloads |
-| record | [FormatTest.NumberBoxedNumber](#numberboxednumber)<br> boxed class to store validated Number payloads |
-| static class | [FormatTest.Number](#number)<br> schema class |
+| sealed interface | [FormatTest.FloatSchemaBoxed](#floatschemaboxed)<br> sealed interface for validated payloads |
+| record | [FormatTest.FloatSchemaBoxedNumber](#floatschemaboxednumber)<br> boxed class to store validated Number payloads |
+| static class | [FormatTest.FloatSchema](#floatschema)<br> schema class |
+| sealed interface | [FormatTest.NumberSchemaBoxed](#numberschemaboxed)<br> sealed interface for validated payloads |
+| record | [FormatTest.NumberSchemaBoxedNumber](#numberschemaboxednumber)<br> boxed class to store validated Number payloads |
+| static class | [FormatTest.NumberSchema](#numberschema)<br> schema class |
 | sealed interface | [FormatTest.Int64Boxed](#int64boxed)<br> sealed interface for validated payloads |
 | record | [FormatTest.Int64BoxedNumber](#int64boxednumber)<br> boxed class to store validated Number payloads |
 | static class | [FormatTest.Int64](#int64)<br> schema class |
@@ -83,9 +83,9 @@ A class that contains necessary nested
 | sealed interface | [FormatTest.Int32Boxed](#int32boxed)<br> sealed interface for validated payloads |
 | record | [FormatTest.Int32BoxedNumber](#int32boxednumber)<br> boxed class to store validated Number payloads |
 | static class | [FormatTest.Int32](#int32)<br> schema class |
-| sealed interface | [FormatTest.IntegerBoxed](#integerboxed)<br> sealed interface for validated payloads |
-| record | [FormatTest.IntegerBoxedNumber](#integerboxednumber)<br> boxed class to store validated Number payloads |
-| static class | [FormatTest.Integer](#integer)<br> schema class |
+| sealed interface | [FormatTest.IntegerSchemaBoxed](#integerschemaboxed)<br> sealed interface for validated payloads |
+| record | [FormatTest.IntegerSchemaBoxedNumber](#integerschemaboxednumber)<br> boxed class to store validated Number payloads |
+| static class | [FormatTest.IntegerSchema](#integerschema)<br> schema class |
 
 ## FormatTest1Boxed
 public sealed interface FormatTest1Boxed<br>
@@ -137,15 +137,15 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(new Jso
 FormatTest.FormatTestMap validatedPayload =
     FormatTest.FormatTest1.validate(
     new FormatTest.FormatTestMapBuilder()
-        .byte("a")
+        .setByte("a")
 
         .date("2020-12-13")
 
-        .number(1)
+        .setNumber(1)
 
         .password("a")
 
-        .integer(1)
+        .setInteger(1)
 
         .int32(1)
 
@@ -153,11 +153,11 @@ FormatTest.FormatTestMap validatedPayload =
 
         .int64(1L)
 
-        .float(3.14f)
+        .setFloat(3.14f)
 
         .float32(3.14f)
 
-        .double(3.14d)
+        .setDouble(3.14d)
 
         .float64(3.14d)
 
@@ -166,13 +166,13 @@ FormatTest.FormatTestMap validatedPayload =
                 1
             )
         )
-        .string("A")
+        .setString("A")
 
         .binary("a")
 
         .dateTime("1970-01-01T00:00:00.00Z")
 
-        .uuid("046b6c7f-0b8a-43b9-b35d-6489e6daee91")
+        .setUuid("046b6c7f-0b8a-43b9-b35d-6489e6daee91")
 
         .uuidNoExample("046b6c7f-0b8a-43b9-b35d-6489e6daee91")
 
@@ -191,7 +191,7 @@ FormatTest.FormatTestMap validatedPayload =
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |
 | Set<Class<?>> | type = Set.of(Map.class) |
-| Map<String, Class<? extends JsonSchema>> | properties = Map.ofEntries(<br>&nbsp;&nbsp;&nbsp;&nbsp;new PropertyEntry("integer", [Integer.class](#integer))),<br>&nbsp;&nbsp;&nbsp;&nbsp;new PropertyEntry("int32", [Int32.class](#int32))),<br>&nbsp;&nbsp;&nbsp;&nbsp;new PropertyEntry("int32withValidations", [Int32withValidations.class](#int32withvalidations))),<br>&nbsp;&nbsp;&nbsp;&nbsp;new PropertyEntry("int64", [Int64.class](#int64))),<br>&nbsp;&nbsp;&nbsp;&nbsp;new PropertyEntry("number", [Number.class](#number))),<br>&nbsp;&nbsp;&nbsp;&nbsp;new PropertyEntry("float", [Float.class](#float))),<br>&nbsp;&nbsp;&nbsp;&nbsp;new PropertyEntry("float32", [Float32.class](#float32))),<br>&nbsp;&nbsp;&nbsp;&nbsp;new PropertyEntry("double", [Double.class](#double))),<br>&nbsp;&nbsp;&nbsp;&nbsp;new PropertyEntry("float64", [Float64.class](#float64))),<br>&nbsp;&nbsp;&nbsp;&nbsp;new PropertyEntry("arrayWithUniqueItems", [ArrayWithUniqueItems.class](#arraywithuniqueitems))),<br>&nbsp;&nbsp;&nbsp;&nbsp;new PropertyEntry("string", [String.class](#string))),<br>&nbsp;&nbsp;&nbsp;&nbsp;new PropertyEntry("byte", [Byte.class](#byte))),<br>&nbsp;&nbsp;&nbsp;&nbsp;new PropertyEntry("binary", [Binary.class](#binary))),<br>&nbsp;&nbsp;&nbsp;&nbsp;new PropertyEntry("date", [Date.class](#date))),<br>&nbsp;&nbsp;&nbsp;&nbsp;new PropertyEntry("dateTime", [DateTime.class](#datetime))),<br>&nbsp;&nbsp;&nbsp;&nbsp;new PropertyEntry("uuid", [Uuid.class](#uuid))),<br>&nbsp;&nbsp;&nbsp;&nbsp;new PropertyEntry("uuidNoExample", [UuidNoExample.class](#uuidnoexample))),<br>&nbsp;&nbsp;&nbsp;&nbsp;new PropertyEntry("password", [Password.class](#password))),<br>&nbsp;&nbsp;&nbsp;&nbsp;new PropertyEntry("pattern_with_digits", [PatternWithDigits.class](#patternwithdigits))),<br>&nbsp;&nbsp;&nbsp;&nbsp;new PropertyEntry("pattern_with_digits_and_delimiter", [PatternWithDigitsAndDelimiter.class](#patternwithdigitsanddelimiter))),<br>&nbsp;&nbsp;&nbsp;&nbsp;new PropertyEntry("noneProp", [NoneProp.class](#noneprop)))<br>)<br> |
+| Map<String, Class<? extends JsonSchema>> | properties = Map.ofEntries(<br>&nbsp;&nbsp;&nbsp;&nbsp;new PropertyEntry("integer", [IntegerSchema.class](#integerschema))),<br>&nbsp;&nbsp;&nbsp;&nbsp;new PropertyEntry("int32", [Int32.class](#int32))),<br>&nbsp;&nbsp;&nbsp;&nbsp;new PropertyEntry("int32withValidations", [Int32withValidations.class](#int32withvalidations))),<br>&nbsp;&nbsp;&nbsp;&nbsp;new PropertyEntry("int64", [Int64.class](#int64))),<br>&nbsp;&nbsp;&nbsp;&nbsp;new PropertyEntry("number", [NumberSchema.class](#numberschema))),<br>&nbsp;&nbsp;&nbsp;&nbsp;new PropertyEntry("float", [FloatSchema.class](#floatschema))),<br>&nbsp;&nbsp;&nbsp;&nbsp;new PropertyEntry("float32", [Float32.class](#float32))),<br>&nbsp;&nbsp;&nbsp;&nbsp;new PropertyEntry("double", [DoubleSchema.class](#doubleschema))),<br>&nbsp;&nbsp;&nbsp;&nbsp;new PropertyEntry("float64", [Float64.class](#float64))),<br>&nbsp;&nbsp;&nbsp;&nbsp;new PropertyEntry("arrayWithUniqueItems", [ArrayWithUniqueItems.class](#arraywithuniqueitems))),<br>&nbsp;&nbsp;&nbsp;&nbsp;new PropertyEntry("string", [StringSchema.class](#stringschema))),<br>&nbsp;&nbsp;&nbsp;&nbsp;new PropertyEntry("byte", [ByteSchema.class](#byteschema))),<br>&nbsp;&nbsp;&nbsp;&nbsp;new PropertyEntry("binary", [Binary.class](#binary))),<br>&nbsp;&nbsp;&nbsp;&nbsp;new PropertyEntry("date", [Date.class](#date))),<br>&nbsp;&nbsp;&nbsp;&nbsp;new PropertyEntry("dateTime", [DateTime.class](#datetime))),<br>&nbsp;&nbsp;&nbsp;&nbsp;new PropertyEntry("uuid", [UuidSchema.class](#uuidschema))),<br>&nbsp;&nbsp;&nbsp;&nbsp;new PropertyEntry("uuidNoExample", [UuidNoExample.class](#uuidnoexample))),<br>&nbsp;&nbsp;&nbsp;&nbsp;new PropertyEntry("password", [Password.class](#password))),<br>&nbsp;&nbsp;&nbsp;&nbsp;new PropertyEntry("pattern_with_digits", [PatternWithDigits.class](#patternwithdigits))),<br>&nbsp;&nbsp;&nbsp;&nbsp;new PropertyEntry("pattern_with_digits_and_delimiter", [PatternWithDigitsAndDelimiter.class](#patternwithdigitsanddelimiter))),<br>&nbsp;&nbsp;&nbsp;&nbsp;new PropertyEntry("noneProp", [NoneProp.class](#noneprop)))<br>)<br> |
 | Set<String> | required = Set.of(<br>&nbsp;&nbsp;&nbsp;&nbsp;"byte",<br>&nbsp;&nbsp;&nbsp;&nbsp;"date",<br>&nbsp;&nbsp;&nbsp;&nbsp;"number",<br>&nbsp;&nbsp;&nbsp;&nbsp;"password"<br>)<br> |
 
 ### Method Summary
@@ -217,10 +217,10 @@ A class that builds the Map input type
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | Map<String, @Nullable Object> | build()<br>Returns map input that should be used with Schema.validate |
-| [FormatTestMap0000Builder](#formattestmap0000builder) | integer(int value) |
-| [FormatTestMap0000Builder](#formattestmap0000builder) | integer(float value) |
-| [FormatTestMap0000Builder](#formattestmap0000builder) | integer(long value) |
-| [FormatTestMap0000Builder](#formattestmap0000builder) | integer(double value) |
+| [FormatTestMap0000Builder](#formattestmap0000builder) | setInteger(int value) |
+| [FormatTestMap0000Builder](#formattestmap0000builder) | setInteger(float value) |
+| [FormatTestMap0000Builder](#formattestmap0000builder) | setInteger(long value) |
+| [FormatTestMap0000Builder](#formattestmap0000builder) | setInteger(double value) |
 | [FormatTestMap0000Builder](#formattestmap0000builder) | int32(int value) |
 | [FormatTestMap0000Builder](#formattestmap0000builder) | int32(float value) |
 | [FormatTestMap0000Builder](#formattestmap0000builder) | int32withValidations(int value) |
@@ -229,27 +229,27 @@ A class that builds the Map input type
 | [FormatTestMap0000Builder](#formattestmap0000builder) | int64(float value) |
 | [FormatTestMap0000Builder](#formattestmap0000builder) | int64(long value) |
 | [FormatTestMap0000Builder](#formattestmap0000builder) | int64(double value) |
-| [FormatTestMap0000Builder](#formattestmap0000builder) | float(int value) |
-| [FormatTestMap0000Builder](#formattestmap0000builder) | float(float value) |
-| [FormatTestMap0000Builder](#formattestmap0000builder) | float(long value) |
-| [FormatTestMap0000Builder](#formattestmap0000builder) | float(double value) |
+| [FormatTestMap0000Builder](#formattestmap0000builder) | setFloat(int value) |
+| [FormatTestMap0000Builder](#formattestmap0000builder) | setFloat(float value) |
+| [FormatTestMap0000Builder](#formattestmap0000builder) | setFloat(long value) |
+| [FormatTestMap0000Builder](#formattestmap0000builder) | setFloat(double value) |
 | [FormatTestMap0000Builder](#formattestmap0000builder) | float32(int value) |
 | [FormatTestMap0000Builder](#formattestmap0000builder) | float32(float value) |
 | [FormatTestMap0000Builder](#formattestmap0000builder) | float32(long value) |
 | [FormatTestMap0000Builder](#formattestmap0000builder) | float32(double value) |
-| [FormatTestMap0000Builder](#formattestmap0000builder) | double(int value) |
-| [FormatTestMap0000Builder](#formattestmap0000builder) | double(float value) |
-| [FormatTestMap0000Builder](#formattestmap0000builder) | double(long value) |
-| [FormatTestMap0000Builder](#formattestmap0000builder) | double(double value) |
+| [FormatTestMap0000Builder](#formattestmap0000builder) | setDouble(int value) |
+| [FormatTestMap0000Builder](#formattestmap0000builder) | setDouble(float value) |
+| [FormatTestMap0000Builder](#formattestmap0000builder) | setDouble(long value) |
+| [FormatTestMap0000Builder](#formattestmap0000builder) | setDouble(double value) |
 | [FormatTestMap0000Builder](#formattestmap0000builder) | float64(int value) |
 | [FormatTestMap0000Builder](#formattestmap0000builder) | float64(float value) |
 | [FormatTestMap0000Builder](#formattestmap0000builder) | float64(long value) |
 | [FormatTestMap0000Builder](#formattestmap0000builder) | float64(double value) |
 | [FormatTestMap0000Builder](#formattestmap0000builder) | arrayWithUniqueItems(List<Number> value) |
-| [FormatTestMap0000Builder](#formattestmap0000builder) | string(String value) |
+| [FormatTestMap0000Builder](#formattestmap0000builder) | setString(String value) |
 | [FormatTestMap0000Builder](#formattestmap0000builder) | binary(String value) |
 | [FormatTestMap0000Builder](#formattestmap0000builder) | dateTime(String value) |
-| [FormatTestMap0000Builder](#formattestmap0000builder) | uuid(String value) |
+| [FormatTestMap0000Builder](#formattestmap0000builder) | setUuid(String value) |
 | [FormatTestMap0000Builder](#formattestmap0000builder) | uuidNoExample(String value) |
 | [FormatTestMap0000Builder](#formattestmap0000builder) | pattern_with_digits(String value) |
 | [FormatTestMap0000Builder](#formattestmap0000builder) | pattern_with_digits_and_delimiter(String value) |
@@ -294,10 +294,10 @@ A class that builds the Map input type
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [FormatTestMap0000Builder](#formattestmap0000builder) | number(int value) |
-| [FormatTestMap0000Builder](#formattestmap0000builder) | number(float value) |
-| [FormatTestMap0000Builder](#formattestmap0000builder) | number(long value) |
-| [FormatTestMap0000Builder](#formattestmap0000builder) | number(double value) |
+| [FormatTestMap0000Builder](#formattestmap0000builder) | setNumber(int value) |
+| [FormatTestMap0000Builder](#formattestmap0000builder) | setNumber(float value) |
+| [FormatTestMap0000Builder](#formattestmap0000builder) | setNumber(long value) |
+| [FormatTestMap0000Builder](#formattestmap0000builder) | setNumber(double value) |
 
 ## FormatTestMap0011Builder
 public class FormatTestMap0011Builder<br>
@@ -313,10 +313,10 @@ A class that builds the Map input type
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [FormatTestMap0001Builder](#formattestmap0001builder) | number(int value) |
-| [FormatTestMap0001Builder](#formattestmap0001builder) | number(float value) |
-| [FormatTestMap0001Builder](#formattestmap0001builder) | number(long value) |
-| [FormatTestMap0001Builder](#formattestmap0001builder) | number(double value) |
+| [FormatTestMap0001Builder](#formattestmap0001builder) | setNumber(int value) |
+| [FormatTestMap0001Builder](#formattestmap0001builder) | setNumber(float value) |
+| [FormatTestMap0001Builder](#formattestmap0001builder) | setNumber(long value) |
+| [FormatTestMap0001Builder](#formattestmap0001builder) | setNumber(double value) |
 | [FormatTestMap0010Builder](#formattestmap0010builder) | password(String value) |
 
 ## FormatTestMap0100Builder
@@ -367,10 +367,10 @@ A class that builds the Map input type
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [FormatTestMap0010Builder](#formattestmap0010builder) | date(String value) |
-| [FormatTestMap0100Builder](#formattestmap0100builder) | number(int value) |
-| [FormatTestMap0100Builder](#formattestmap0100builder) | number(float value) |
-| [FormatTestMap0100Builder](#formattestmap0100builder) | number(long value) |
-| [FormatTestMap0100Builder](#formattestmap0100builder) | number(double value) |
+| [FormatTestMap0100Builder](#formattestmap0100builder) | setNumber(int value) |
+| [FormatTestMap0100Builder](#formattestmap0100builder) | setNumber(float value) |
+| [FormatTestMap0100Builder](#formattestmap0100builder) | setNumber(long value) |
+| [FormatTestMap0100Builder](#formattestmap0100builder) | setNumber(double value) |
 
 ## FormatTestMap0111Builder
 public class FormatTestMap0111Builder<br>
@@ -387,10 +387,10 @@ A class that builds the Map input type
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [FormatTestMap0011Builder](#formattestmap0011builder) | date(String value) |
-| [FormatTestMap0101Builder](#formattestmap0101builder) | number(int value) |
-| [FormatTestMap0101Builder](#formattestmap0101builder) | number(float value) |
-| [FormatTestMap0101Builder](#formattestmap0101builder) | number(long value) |
-| [FormatTestMap0101Builder](#formattestmap0101builder) | number(double value) |
+| [FormatTestMap0101Builder](#formattestmap0101builder) | setNumber(int value) |
+| [FormatTestMap0101Builder](#formattestmap0101builder) | setNumber(float value) |
+| [FormatTestMap0101Builder](#formattestmap0101builder) | setNumber(long value) |
+| [FormatTestMap0101Builder](#formattestmap0101builder) | setNumber(double value) |
 | [FormatTestMap0110Builder](#formattestmap0110builder) | password(String value) |
 
 ## FormatTestMap1000Builder
@@ -407,7 +407,7 @@ A class that builds the Map input type
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [FormatTestMap0000Builder](#formattestmap0000builder) | byte(String value) |
+| [FormatTestMap0000Builder](#formattestmap0000builder) | setByte(String value) |
 
 ## FormatTestMap1001Builder
 public class FormatTestMap1001Builder<br>
@@ -423,7 +423,7 @@ A class that builds the Map input type
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [FormatTestMap0001Builder](#formattestmap0001builder) | byte(String value) |
+| [FormatTestMap0001Builder](#formattestmap0001builder) | setByte(String value) |
 | [FormatTestMap1000Builder](#formattestmap1000builder) | password(String value) |
 
 ## FormatTestMap1010Builder
@@ -440,11 +440,11 @@ A class that builds the Map input type
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [FormatTestMap0010Builder](#formattestmap0010builder) | byte(String value) |
-| [FormatTestMap1000Builder](#formattestmap1000builder) | number(int value) |
-| [FormatTestMap1000Builder](#formattestmap1000builder) | number(float value) |
-| [FormatTestMap1000Builder](#formattestmap1000builder) | number(long value) |
-| [FormatTestMap1000Builder](#formattestmap1000builder) | number(double value) |
+| [FormatTestMap0010Builder](#formattestmap0010builder) | setByte(String value) |
+| [FormatTestMap1000Builder](#formattestmap1000builder) | setNumber(int value) |
+| [FormatTestMap1000Builder](#formattestmap1000builder) | setNumber(float value) |
+| [FormatTestMap1000Builder](#formattestmap1000builder) | setNumber(long value) |
+| [FormatTestMap1000Builder](#formattestmap1000builder) | setNumber(double value) |
 
 ## FormatTestMap1011Builder
 public class FormatTestMap1011Builder<br>
@@ -460,11 +460,11 @@ A class that builds the Map input type
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [FormatTestMap0011Builder](#formattestmap0011builder) | byte(String value) |
-| [FormatTestMap1001Builder](#formattestmap1001builder) | number(int value) |
-| [FormatTestMap1001Builder](#formattestmap1001builder) | number(float value) |
-| [FormatTestMap1001Builder](#formattestmap1001builder) | number(long value) |
-| [FormatTestMap1001Builder](#formattestmap1001builder) | number(double value) |
+| [FormatTestMap0011Builder](#formattestmap0011builder) | setByte(String value) |
+| [FormatTestMap1001Builder](#formattestmap1001builder) | setNumber(int value) |
+| [FormatTestMap1001Builder](#formattestmap1001builder) | setNumber(float value) |
+| [FormatTestMap1001Builder](#formattestmap1001builder) | setNumber(long value) |
+| [FormatTestMap1001Builder](#formattestmap1001builder) | setNumber(double value) |
 | [FormatTestMap1010Builder](#formattestmap1010builder) | password(String value) |
 
 ## FormatTestMap1100Builder
@@ -481,7 +481,7 @@ A class that builds the Map input type
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [FormatTestMap0100Builder](#formattestmap0100builder) | byte(String value) |
+| [FormatTestMap0100Builder](#formattestmap0100builder) | setByte(String value) |
 | [FormatTestMap1000Builder](#formattestmap1000builder) | date(String value) |
 
 ## FormatTestMap1101Builder
@@ -498,7 +498,7 @@ A class that builds the Map input type
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [FormatTestMap0101Builder](#formattestmap0101builder) | byte(String value) |
+| [FormatTestMap0101Builder](#formattestmap0101builder) | setByte(String value) |
 | [FormatTestMap1001Builder](#formattestmap1001builder) | date(String value) |
 | [FormatTestMap1100Builder](#formattestmap1100builder) | password(String value) |
 
@@ -516,12 +516,12 @@ A class that builds the Map input type
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [FormatTestMap0110Builder](#formattestmap0110builder) | byte(String value) |
+| [FormatTestMap0110Builder](#formattestmap0110builder) | setByte(String value) |
 | [FormatTestMap1010Builder](#formattestmap1010builder) | date(String value) |
-| [FormatTestMap1100Builder](#formattestmap1100builder) | number(int value) |
-| [FormatTestMap1100Builder](#formattestmap1100builder) | number(float value) |
-| [FormatTestMap1100Builder](#formattestmap1100builder) | number(long value) |
-| [FormatTestMap1100Builder](#formattestmap1100builder) | number(double value) |
+| [FormatTestMap1100Builder](#formattestmap1100builder) | setNumber(int value) |
+| [FormatTestMap1100Builder](#formattestmap1100builder) | setNumber(float value) |
+| [FormatTestMap1100Builder](#formattestmap1100builder) | setNumber(long value) |
+| [FormatTestMap1100Builder](#formattestmap1100builder) | setNumber(double value) |
 
 ## FormatTestMapBuilder
 public class FormatTestMapBuilder<br>
@@ -537,12 +537,12 @@ A class that builds the Map input type
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [FormatTestMap0111Builder](#formattestmap0111builder) | byte(String value) |
+| [FormatTestMap0111Builder](#formattestmap0111builder) | setByte(String value) |
 | [FormatTestMap1011Builder](#formattestmap1011builder) | date(String value) |
-| [FormatTestMap1101Builder](#formattestmap1101builder) | number(int value) |
-| [FormatTestMap1101Builder](#formattestmap1101builder) | number(float value) |
-| [FormatTestMap1101Builder](#formattestmap1101builder) | number(long value) |
-| [FormatTestMap1101Builder](#formattestmap1101builder) | number(double value) |
+| [FormatTestMap1101Builder](#formattestmap1101builder) | setNumber(int value) |
+| [FormatTestMap1101Builder](#formattestmap1101builder) | setNumber(float value) |
+| [FormatTestMap1101Builder](#formattestmap1101builder) | setNumber(long value) |
+| [FormatTestMap1101Builder](#formattestmap1101builder) | setNumber(double value) |
 | [FormatTestMap1110Builder](#formattestmap1110builder) | password(String value) |
 
 ## FormatTestMap
@@ -555,27 +555,21 @@ A class to store validated Map payloads
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | static [FormatTestMap](#formattestmap) | of([Map<String, ? extends @Nullable Object>](#formattestmapbuilder) arg, SchemaConfiguration configuration) |
-| String | byte()<br> |
 | String | date()<br> value must conform to RFC-3339 full-date YYYY-MM-DD |
-| Number | number()<br> |
 | String | password()<br> |
-| Number | integer()<br>[optional] |
 | Number | int32()<br>[optional] value must be a 32 bit integer |
 | Number | int32withValidations()<br>[optional] value must be a 32 bit integer |
 | Number | int64()<br>[optional] value must be a 64 bit integer |
-| Number | float()<br>[optional] value must be a 32 bit float |
 | Number | float32()<br>[optional] value must be a 32 bit float |
-| Number | double()<br>[optional] value must be a 64 bit float |
 | Number | float64()<br>[optional] value must be a 64 bit float |
 | [ArrayWithUniqueItemsList](#arraywithuniqueitemslist) | arrayWithUniqueItems()<br>[optional] |
-| String | string()<br>[optional] |
 | String | binary()<br>[optional] |
 | String | dateTime()<br>[optional] value must conform to RFC-3339 date-time |
-| String | uuid()<br>[optional] value must be a uuid |
 | String | uuidNoExample()<br>[optional] value must be a uuid |
 | String | pattern_with_digits()<br>[optional] |
 | String | pattern_with_digits_and_delimiter()<br>[optional] |
 | Void | noneProp()<br>[optional] |
+| @Nullable Object | get(String key)<br>This schema has invalid Java names so this method must be used when you access instance["byte"], instance["number"], instance["integer"], instance["float"], instance["double"], instance["string"], instance["uuid"],  |
 | @Nullable Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
 ## NonePropBoxed
@@ -857,23 +851,23 @@ A schema class that validates payloads
 | validate                                                           |
 | validateAndBox                                                     |
 
-## UuidBoxed
-public sealed interface UuidBoxed<br>
+## UuidSchemaBoxed
+public sealed interface UuidSchemaBoxed<br>
 permits<br>
-[UuidBoxedString](#uuidboxedstring)
+[UuidSchemaBoxedString](#uuidschemaboxedstring)
 
 sealed interface that stores validated payloads using boxed classes
 
-## UuidBoxedString
-public record UuidBoxedString<br>
-implements [UuidBoxed](#uuidboxed)
+## UuidSchemaBoxedString
+public record UuidSchemaBoxedString<br>
+implements [UuidSchemaBoxed](#uuidschemaboxed)
 
 record that stores validated String payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| UuidBoxedString(String data)<br>Creates an instance, private visibility |
+| UuidSchemaBoxedString(String data)<br>Creates an instance, private visibility |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
@@ -881,8 +875,8 @@ record that stores validated String payloads, sealed permits implementation
 | String | data()<br>validated payload |
 | @Nullable Object | getData()<br>validated payload |
 
-## Uuid
-public static class Uuid<br>
+## UuidSchema
+public static class UuidSchema<br>
 extends UuidJsonSchema.UuidJsonSchema1
 
 A schema class that validates payloads
@@ -974,23 +968,23 @@ extends JsonSchema
 
 A schema class that validates payloads
 
-## ByteBoxed
-public sealed interface ByteBoxed<br>
+## ByteSchemaBoxed
+public sealed interface ByteSchemaBoxed<br>
 permits<br>
-[ByteBoxedString](#byteboxedstring)
+[ByteSchemaBoxedString](#byteschemaboxedstring)
 
 sealed interface that stores validated payloads using boxed classes
 
-## ByteBoxedString
-public record ByteBoxedString<br>
-implements [ByteBoxed](#byteboxed)
+## ByteSchemaBoxedString
+public record ByteSchemaBoxedString<br>
+implements [ByteSchemaBoxed](#byteschemaboxed)
 
 record that stores validated String payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| ByteBoxedString(String data)<br>Creates an instance, private visibility |
+| ByteSchemaBoxedString(String data)<br>Creates an instance, private visibility |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
@@ -998,29 +992,29 @@ record that stores validated String payloads, sealed permits implementation
 | String | data()<br>validated payload |
 | @Nullable Object | getData()<br>validated payload |
 
-## Byte
-public static class Byte<br>
+## ByteSchema
+public static class ByteSchema<br>
 extends StringJsonSchema.StringJsonSchema1
 
 A schema class that validates payloads
 
-## StringBoxed
-public sealed interface StringBoxed<br>
+## StringSchemaBoxed
+public sealed interface StringSchemaBoxed<br>
 permits<br>
-[StringBoxedString](#stringboxedstring)
+[StringSchemaBoxedString](#stringschemaboxedstring)
 
 sealed interface that stores validated payloads using boxed classes
 
-## StringBoxedString
-public record StringBoxedString<br>
-implements [StringBoxed](#stringboxed)
+## StringSchemaBoxedString
+public record StringSchemaBoxedString<br>
+implements [StringSchemaBoxed](#stringschemaboxed)
 
 record that stores validated String payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| StringBoxedString(String data)<br>Creates an instance, private visibility |
+| StringSchemaBoxedString(String data)<br>Creates an instance, private visibility |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
@@ -1028,8 +1022,8 @@ record that stores validated String payloads, sealed permits implementation
 | String | data()<br>validated payload |
 | @Nullable Object | getData()<br>validated payload |
 
-## String
-public static class String<br>
+## StringSchema
+public static class StringSchema<br>
 extends JsonSchema
 
 A schema class that validates payloads
@@ -1051,7 +1045,7 @@ import java.util.AbstractMap;
 static final SchemaConfiguration configuration = new SchemaConfiguration(new JsonSchemaKeywordFlags.Builder().build());
 
 // String validation
-String validatedPayload = FormatTest.String.validate(
+String validatedPayload = FormatTest.StringSchema.validate(
     "A",
     configuration
 );
@@ -1067,8 +1061,8 @@ String validatedPayload = FormatTest.String.validate(
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | String | validate(String arg, SchemaConfiguration configuration) |
-| [StringBoxedString](#stringboxedstring) | validateAndBox(String arg, SchemaConfiguration configuration) |
-| [StringBoxed](#stringboxed) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
+| [StringSchemaBoxedString](#stringschemaboxedstring) | validateAndBox(String arg, SchemaConfiguration configuration) |
+| [StringSchemaBoxed](#stringschemaboxed) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 
 ## ArrayWithUniqueItemsBoxed
@@ -1245,23 +1239,23 @@ A schema class that validates payloads
 | validate                                                           |
 | validateAndBox                                                     |
 
-## DoubleBoxed
-public sealed interface DoubleBoxed<br>
+## DoubleSchemaBoxed
+public sealed interface DoubleSchemaBoxed<br>
 permits<br>
-[DoubleBoxedNumber](#doubleboxednumber)
+[DoubleSchemaBoxedNumber](#doubleschemaboxednumber)
 
 sealed interface that stores validated payloads using boxed classes
 
-## DoubleBoxedNumber
-public record DoubleBoxedNumber<br>
-implements [DoubleBoxed](#doubleboxed)
+## DoubleSchemaBoxedNumber
+public record DoubleSchemaBoxedNumber<br>
+implements [DoubleSchemaBoxed](#doubleschemaboxed)
 
 record that stores validated Number payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| DoubleBoxedNumber(Number data)<br>Creates an instance, private visibility |
+| DoubleSchemaBoxedNumber(Number data)<br>Creates an instance, private visibility |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
@@ -1269,8 +1263,8 @@ record that stores validated Number payloads, sealed permits implementation
 | Number | data()<br>validated payload |
 | @Nullable Object | getData()<br>validated payload |
 
-## Double
-public static class Double<br>
+## DoubleSchema
+public static class DoubleSchema<br>
 extends JsonSchema
 
 A schema class that validates payloads
@@ -1292,7 +1286,7 @@ import java.util.AbstractMap;
 static final SchemaConfiguration configuration = new SchemaConfiguration(new JsonSchemaKeywordFlags.Builder().build());
 
 // double validation
-double validatedPayload = FormatTest.Double.validate(
+double validatedPayload = FormatTest.DoubleSchema.validate(
     3.14d,
     configuration
 );
@@ -1310,8 +1304,8 @@ double validatedPayload = FormatTest.Double.validate(
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | double | validate(double arg, SchemaConfiguration configuration) |
-| [DoubleBoxedNumber](#doubleboxednumber) | validateAndBox(Number arg, SchemaConfiguration configuration) |
-| [DoubleBoxed](#doubleboxed) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
+| [DoubleSchemaBoxedNumber](#doubleschemaboxednumber) | validateAndBox(Number arg, SchemaConfiguration configuration) |
+| [DoubleSchemaBoxed](#doubleschemaboxed) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 
 ## Float32Boxed
@@ -1349,23 +1343,23 @@ A schema class that validates payloads
 | validate                                                           |
 | validateAndBox                                                     |
 
-## FloatBoxed
-public sealed interface FloatBoxed<br>
+## FloatSchemaBoxed
+public sealed interface FloatSchemaBoxed<br>
 permits<br>
-[FloatBoxedNumber](#floatboxednumber)
+[FloatSchemaBoxedNumber](#floatschemaboxednumber)
 
 sealed interface that stores validated payloads using boxed classes
 
-## FloatBoxedNumber
-public record FloatBoxedNumber<br>
-implements [FloatBoxed](#floatboxed)
+## FloatSchemaBoxedNumber
+public record FloatSchemaBoxedNumber<br>
+implements [FloatSchemaBoxed](#floatschemaboxed)
 
 record that stores validated Number payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| FloatBoxedNumber(Number data)<br>Creates an instance, private visibility |
+| FloatSchemaBoxedNumber(Number data)<br>Creates an instance, private visibility |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
@@ -1373,8 +1367,8 @@ record that stores validated Number payloads, sealed permits implementation
 | Number | data()<br>validated payload |
 | @Nullable Object | getData()<br>validated payload |
 
-## Float
-public static class Float<br>
+## FloatSchema
+public static class FloatSchema<br>
 extends JsonSchema
 
 A schema class that validates payloads
@@ -1399,7 +1393,7 @@ import java.util.AbstractMap;
 static final SchemaConfiguration configuration = new SchemaConfiguration(new JsonSchemaKeywordFlags.Builder().build());
 
 // float validation
-float validatedPayload = FormatTest.Float.validate(
+float validatedPayload = FormatTest.FloatSchema.validate(
     3.14f,
     configuration
 );
@@ -1417,27 +1411,27 @@ float validatedPayload = FormatTest.Float.validate(
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | float | validate(float arg, SchemaConfiguration configuration) |
-| [FloatBoxedNumber](#floatboxednumber) | validateAndBox(Number arg, SchemaConfiguration configuration) |
-| [FloatBoxed](#floatboxed) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
+| [FloatSchemaBoxedNumber](#floatschemaboxednumber) | validateAndBox(Number arg, SchemaConfiguration configuration) |
+| [FloatSchemaBoxed](#floatschemaboxed) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 
-## NumberBoxed
-public sealed interface NumberBoxed<br>
+## NumberSchemaBoxed
+public sealed interface NumberSchemaBoxed<br>
 permits<br>
-[NumberBoxedNumber](#numberboxednumber)
+[NumberSchemaBoxedNumber](#numberschemaboxednumber)
 
 sealed interface that stores validated payloads using boxed classes
 
-## NumberBoxedNumber
-public record NumberBoxedNumber<br>
-implements [NumberBoxed](#numberboxed)
+## NumberSchemaBoxedNumber
+public record NumberSchemaBoxedNumber<br>
+implements [NumberSchemaBoxed](#numberschemaboxed)
 
 record that stores validated Number payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| NumberBoxedNumber(Number data)<br>Creates an instance, private visibility |
+| NumberSchemaBoxedNumber(Number data)<br>Creates an instance, private visibility |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
@@ -1445,8 +1439,8 @@ record that stores validated Number payloads, sealed permits implementation
 | Number | data()<br>validated payload |
 | @Nullable Object | getData()<br>validated payload |
 
-## Number
-public static class Number<br>
+## NumberSchema
+public static class NumberSchema<br>
 extends JsonSchema
 
 A schema class that validates payloads
@@ -1468,7 +1462,7 @@ import java.util.AbstractMap;
 static final SchemaConfiguration configuration = new SchemaConfiguration(new JsonSchemaKeywordFlags.Builder().build());
 
 // int validation
-int validatedPayload = FormatTest.Number.validate(
+int validatedPayload = FormatTest.NumberSchema.validate(
     1,
     configuration
 );
@@ -1486,8 +1480,8 @@ int validatedPayload = FormatTest.Number.validate(
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | Number | validate(Number arg, SchemaConfiguration configuration) |
-| [NumberBoxedNumber](#numberboxednumber) | validateAndBox(Number arg, SchemaConfiguration configuration) |
-| [NumberBoxed](#numberboxed) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
+| [NumberSchemaBoxedNumber](#numberschemaboxednumber) | validateAndBox(Number arg, SchemaConfiguration configuration) |
+| [NumberSchemaBoxed](#numberschemaboxed) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 
 ## Int64Boxed
@@ -1629,23 +1623,23 @@ A schema class that validates payloads
 | validate                                                           |
 | validateAndBox                                                     |
 
-## IntegerBoxed
-public sealed interface IntegerBoxed<br>
+## IntegerSchemaBoxed
+public sealed interface IntegerSchemaBoxed<br>
 permits<br>
-[IntegerBoxedNumber](#integerboxednumber)
+[IntegerSchemaBoxedNumber](#integerschemaboxednumber)
 
 sealed interface that stores validated payloads using boxed classes
 
-## IntegerBoxedNumber
-public record IntegerBoxedNumber<br>
-implements [IntegerBoxed](#integerboxed)
+## IntegerSchemaBoxedNumber
+public record IntegerSchemaBoxedNumber<br>
+implements [IntegerSchemaBoxed](#integerschemaboxed)
 
 record that stores validated Number payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| IntegerBoxedNumber(Number data)<br>Creates an instance, private visibility |
+| IntegerSchemaBoxedNumber(Number data)<br>Creates an instance, private visibility |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
@@ -1653,8 +1647,8 @@ record that stores validated Number payloads, sealed permits implementation
 | Number | data()<br>validated payload |
 | @Nullable Object | getData()<br>validated payload |
 
-## Integer
-public static class Integer<br>
+## IntegerSchema
+public static class IntegerSchema<br>
 extends JsonSchema
 
 A schema class that validates payloads
@@ -1676,7 +1670,7 @@ import java.util.AbstractMap;
 static final SchemaConfiguration configuration = new SchemaConfiguration(new JsonSchemaKeywordFlags.Builder().build());
 
 // int validation
-int validatedPayload = FormatTest.Integer.validate(
+int validatedPayload = FormatTest.IntegerSchema.validate(
     1L,
     configuration
 );
@@ -1695,8 +1689,8 @@ int validatedPayload = FormatTest.Integer.validate(
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | long | validate(long arg, SchemaConfiguration configuration) |
-| [IntegerBoxedNumber](#integerboxednumber) | validateAndBox(Number arg, SchemaConfiguration configuration) |
-| [IntegerBoxed](#integerboxed) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
+| [IntegerSchemaBoxedNumber](#integerschemaboxednumber) | validateAndBox(Number arg, SchemaConfiguration configuration) |
+| [IntegerSchemaBoxed](#integerschemaboxed) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

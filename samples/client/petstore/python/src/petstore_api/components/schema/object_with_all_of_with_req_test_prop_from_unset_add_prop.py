@@ -117,6 +117,8 @@ class _1(
             configuration=configuration,
         )
 
+
+from petstore_api.components.schema import object_with_optional_test_prop
 AllOf = typing.Tuple[
     typing.Type[object_with_optional_test_prop.ObjectWithOptionalTestProp],
     typing.Type[_1],

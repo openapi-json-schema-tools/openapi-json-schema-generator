@@ -71,11 +71,11 @@ public class FakerefsstringPost {
         }
     }
 
-    public interface StringOperation {
+    public interface ModelStringOperation {
         ApiConfiguration getApiConfiguration();
         SchemaConfiguration getSchemaConfiguration();
         HttpClient getClient();
-        default FakerefsstringPostResponses.EndpointResponse string(PostRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
+        default FakerefsstringPostResponses.EndpointResponse modelString(PostRequest request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
             return PostProvider.post(request, getApiConfiguration(), getSchemaConfiguration(), getClient());
         }
     }

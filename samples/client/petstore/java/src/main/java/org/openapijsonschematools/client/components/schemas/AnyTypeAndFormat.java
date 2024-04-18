@@ -36,46 +36,46 @@ public class AnyTypeAndFormat {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public sealed interface UuidBoxed permits UuidBoxedVoid, UuidBoxedBoolean, UuidBoxedNumber, UuidBoxedString, UuidBoxedList, UuidBoxedMap {
+    public sealed interface UuidSchemaBoxed permits UuidSchemaBoxedVoid, UuidSchemaBoxedBoolean, UuidSchemaBoxedNumber, UuidSchemaBoxedString, UuidSchemaBoxedList, UuidSchemaBoxedMap {
         @Nullable Object getData();
     }
     
-    public record UuidBoxedVoid(Void data) implements UuidBoxed {
+    public record UuidSchemaBoxedVoid(Void data) implements UuidSchemaBoxed {
         @Override
         public @Nullable Object getData() {
             return data;
         }
     }
     
-    public record UuidBoxedBoolean(boolean data) implements UuidBoxed {
+    public record UuidSchemaBoxedBoolean(boolean data) implements UuidSchemaBoxed {
         @Override
         public @Nullable Object getData() {
             return data;
         }
     }
     
-    public record UuidBoxedNumber(Number data) implements UuidBoxed {
+    public record UuidSchemaBoxedNumber(Number data) implements UuidSchemaBoxed {
         @Override
         public @Nullable Object getData() {
             return data;
         }
     }
     
-    public record UuidBoxedString(String data) implements UuidBoxed {
+    public record UuidSchemaBoxedString(String data) implements UuidSchemaBoxed {
         @Override
         public @Nullable Object getData() {
             return data;
         }
     }
     
-    public record UuidBoxedList(FrozenList<@Nullable Object> data) implements UuidBoxed {
+    public record UuidSchemaBoxedList(FrozenList<@Nullable Object> data) implements UuidSchemaBoxed {
         @Override
         public @Nullable Object getData() {
             return data;
         }
     }
     
-    public record UuidBoxedMap(FrozenMap<@Nullable Object> data) implements UuidBoxed {
+    public record UuidSchemaBoxedMap(FrozenMap<@Nullable Object> data) implements UuidSchemaBoxed {
         @Override
         public @Nullable Object getData() {
             return data;
@@ -83,18 +83,18 @@ public class AnyTypeAndFormat {
     }
     
     
-    public static class Uuid extends JsonSchema<UuidBoxed> implements NullSchemaValidator<UuidBoxedVoid>, BooleanSchemaValidator<UuidBoxedBoolean>, NumberSchemaValidator<UuidBoxedNumber>, StringSchemaValidator<UuidBoxedString>, ListSchemaValidator<FrozenList<@Nullable Object>, UuidBoxedList>, MapSchemaValidator<FrozenMap<@Nullable Object>, UuidBoxedMap> {
-        private static @Nullable Uuid instance = null;
+    public static class UuidSchema extends JsonSchema<UuidSchemaBoxed> implements NullSchemaValidator<UuidSchemaBoxedVoid>, BooleanSchemaValidator<UuidSchemaBoxedBoolean>, NumberSchemaValidator<UuidSchemaBoxedNumber>, StringSchemaValidator<UuidSchemaBoxedString>, ListSchemaValidator<FrozenList<@Nullable Object>, UuidSchemaBoxedList>, MapSchemaValidator<FrozenMap<@Nullable Object>, UuidSchemaBoxedMap> {
+        private static @Nullable UuidSchema instance = null;
     
-        protected Uuid() {
+        protected UuidSchema() {
             super(new JsonSchemaInfo()
                 .format("uuid")
             );
         }
     
-        public static Uuid getInstance() {
+        public static UuidSchema getInstance() {
             if (instance == null) {
-                instance = new Uuid();
+                instance = new UuidSchema();
             }
             return instance;
         }
@@ -277,31 +277,31 @@ public class AnyTypeAndFormat {
             throw new RuntimeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
         @Override
-        public UuidBoxedVoid validateAndBox(Void arg, SchemaConfiguration configuration) throws ValidationException {
-            return new UuidBoxedVoid(validate(arg, configuration));
+        public UuidSchemaBoxedVoid validateAndBox(Void arg, SchemaConfiguration configuration) throws ValidationException {
+            return new UuidSchemaBoxedVoid(validate(arg, configuration));
         }
         @Override
-        public UuidBoxedBoolean validateAndBox(boolean arg, SchemaConfiguration configuration) throws ValidationException {
-            return new UuidBoxedBoolean(validate(arg, configuration));
+        public UuidSchemaBoxedBoolean validateAndBox(boolean arg, SchemaConfiguration configuration) throws ValidationException {
+            return new UuidSchemaBoxedBoolean(validate(arg, configuration));
         }
         @Override
-        public UuidBoxedNumber validateAndBox(Number arg, SchemaConfiguration configuration) throws ValidationException {
-            return new UuidBoxedNumber(validate(arg, configuration));
+        public UuidSchemaBoxedNumber validateAndBox(Number arg, SchemaConfiguration configuration) throws ValidationException {
+            return new UuidSchemaBoxedNumber(validate(arg, configuration));
         }
         @Override
-        public UuidBoxedString validateAndBox(String arg, SchemaConfiguration configuration) throws ValidationException {
-            return new UuidBoxedString(validate(arg, configuration));
+        public UuidSchemaBoxedString validateAndBox(String arg, SchemaConfiguration configuration) throws ValidationException {
+            return new UuidSchemaBoxedString(validate(arg, configuration));
         }
         @Override
-        public UuidBoxedList validateAndBox(List<?> arg, SchemaConfiguration configuration) throws ValidationException {
-            return new UuidBoxedList(validate(arg, configuration));
+        public UuidSchemaBoxedList validateAndBox(List<?> arg, SchemaConfiguration configuration) throws ValidationException {
+            return new UuidSchemaBoxedList(validate(arg, configuration));
         }
         @Override
-        public UuidBoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException {
-            return new UuidBoxedMap(validate(arg, configuration));
+        public UuidSchemaBoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException {
+            return new UuidSchemaBoxedMap(validate(arg, configuration));
         }
         @Override
-        public UuidBoxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException {
+        public UuidSchemaBoxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException {
             if (arg == null) {
                 Void castArg = (Void) arg;
                 return validateAndBox(castArg, configuration);
@@ -891,46 +891,46 @@ public class AnyTypeAndFormat {
         }
     }    
     
-    public sealed interface NumberBoxed permits NumberBoxedVoid, NumberBoxedBoolean, NumberBoxedNumber, NumberBoxedString, NumberBoxedList, NumberBoxedMap {
+    public sealed interface NumberSchemaBoxed permits NumberSchemaBoxedVoid, NumberSchemaBoxedBoolean, NumberSchemaBoxedNumber, NumberSchemaBoxedString, NumberSchemaBoxedList, NumberSchemaBoxedMap {
         @Nullable Object getData();
     }
     
-    public record NumberBoxedVoid(Void data) implements NumberBoxed {
+    public record NumberSchemaBoxedVoid(Void data) implements NumberSchemaBoxed {
         @Override
         public @Nullable Object getData() {
             return data;
         }
     }
     
-    public record NumberBoxedBoolean(boolean data) implements NumberBoxed {
+    public record NumberSchemaBoxedBoolean(boolean data) implements NumberSchemaBoxed {
         @Override
         public @Nullable Object getData() {
             return data;
         }
     }
     
-    public record NumberBoxedNumber(Number data) implements NumberBoxed {
+    public record NumberSchemaBoxedNumber(Number data) implements NumberSchemaBoxed {
         @Override
         public @Nullable Object getData() {
             return data;
         }
     }
     
-    public record NumberBoxedString(String data) implements NumberBoxed {
+    public record NumberSchemaBoxedString(String data) implements NumberSchemaBoxed {
         @Override
         public @Nullable Object getData() {
             return data;
         }
     }
     
-    public record NumberBoxedList(FrozenList<@Nullable Object> data) implements NumberBoxed {
+    public record NumberSchemaBoxedList(FrozenList<@Nullable Object> data) implements NumberSchemaBoxed {
         @Override
         public @Nullable Object getData() {
             return data;
         }
     }
     
-    public record NumberBoxedMap(FrozenMap<@Nullable Object> data) implements NumberBoxed {
+    public record NumberSchemaBoxedMap(FrozenMap<@Nullable Object> data) implements NumberSchemaBoxed {
         @Override
         public @Nullable Object getData() {
             return data;
@@ -938,18 +938,18 @@ public class AnyTypeAndFormat {
     }
     
     
-    public static class Number extends JsonSchema<NumberBoxed> implements NullSchemaValidator<NumberBoxedVoid>, BooleanSchemaValidator<NumberBoxedBoolean>, NumberSchemaValidator<NumberBoxedNumber>, StringSchemaValidator<NumberBoxedString>, ListSchemaValidator<FrozenList<@Nullable Object>, NumberBoxedList>, MapSchemaValidator<FrozenMap<@Nullable Object>, NumberBoxedMap> {
-        private static @Nullable Number instance = null;
+    public static class NumberSchema extends JsonSchema<NumberSchemaBoxed> implements NullSchemaValidator<NumberSchemaBoxedVoid>, BooleanSchemaValidator<NumberSchemaBoxedBoolean>, NumberSchemaValidator<NumberSchemaBoxedNumber>, StringSchemaValidator<NumberSchemaBoxedString>, ListSchemaValidator<FrozenList<@Nullable Object>, NumberSchemaBoxedList>, MapSchemaValidator<FrozenMap<@Nullable Object>, NumberSchemaBoxedMap> {
+        private static @Nullable NumberSchema instance = null;
     
-        protected Number() {
+        protected NumberSchema() {
             super(new JsonSchemaInfo()
                 .format("number")
             );
         }
     
-        public static Number getInstance() {
+        public static NumberSchema getInstance() {
             if (instance == null) {
-                instance = new Number();
+                instance = new NumberSchema();
             }
             return instance;
         }
@@ -1132,31 +1132,31 @@ public class AnyTypeAndFormat {
             throw new RuntimeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
         @Override
-        public NumberBoxedVoid validateAndBox(Void arg, SchemaConfiguration configuration) throws ValidationException {
-            return new NumberBoxedVoid(validate(arg, configuration));
+        public NumberSchemaBoxedVoid validateAndBox(Void arg, SchemaConfiguration configuration) throws ValidationException {
+            return new NumberSchemaBoxedVoid(validate(arg, configuration));
         }
         @Override
-        public NumberBoxedBoolean validateAndBox(boolean arg, SchemaConfiguration configuration) throws ValidationException {
-            return new NumberBoxedBoolean(validate(arg, configuration));
+        public NumberSchemaBoxedBoolean validateAndBox(boolean arg, SchemaConfiguration configuration) throws ValidationException {
+            return new NumberSchemaBoxedBoolean(validate(arg, configuration));
         }
         @Override
-        public NumberBoxedNumber validateAndBox(Number arg, SchemaConfiguration configuration) throws ValidationException {
-            return new NumberBoxedNumber(validate(arg, configuration));
+        public NumberSchemaBoxedNumber validateAndBox(Number arg, SchemaConfiguration configuration) throws ValidationException {
+            return new NumberSchemaBoxedNumber(validate(arg, configuration));
         }
         @Override
-        public NumberBoxedString validateAndBox(String arg, SchemaConfiguration configuration) throws ValidationException {
-            return new NumberBoxedString(validate(arg, configuration));
+        public NumberSchemaBoxedString validateAndBox(String arg, SchemaConfiguration configuration) throws ValidationException {
+            return new NumberSchemaBoxedString(validate(arg, configuration));
         }
         @Override
-        public NumberBoxedList validateAndBox(List<?> arg, SchemaConfiguration configuration) throws ValidationException {
-            return new NumberBoxedList(validate(arg, configuration));
+        public NumberSchemaBoxedList validateAndBox(List<?> arg, SchemaConfiguration configuration) throws ValidationException {
+            return new NumberSchemaBoxedList(validate(arg, configuration));
         }
         @Override
-        public NumberBoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException {
-            return new NumberBoxedMap(validate(arg, configuration));
+        public NumberSchemaBoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException {
+            return new NumberSchemaBoxedMap(validate(arg, configuration));
         }
         @Override
-        public NumberBoxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException {
+        public NumberSchemaBoxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException {
             if (arg == null) {
                 Void castArg = (Void) arg;
                 return validateAndBox(castArg, configuration);
@@ -2031,46 +2031,46 @@ public class AnyTypeAndFormat {
         }
     }    
     
-    public sealed interface DoubleBoxed permits DoubleBoxedVoid, DoubleBoxedBoolean, DoubleBoxedNumber, DoubleBoxedString, DoubleBoxedList, DoubleBoxedMap {
+    public sealed interface DoubleSchemaBoxed permits DoubleSchemaBoxedVoid, DoubleSchemaBoxedBoolean, DoubleSchemaBoxedNumber, DoubleSchemaBoxedString, DoubleSchemaBoxedList, DoubleSchemaBoxedMap {
         @Nullable Object getData();
     }
     
-    public record DoubleBoxedVoid(Void data) implements DoubleBoxed {
+    public record DoubleSchemaBoxedVoid(Void data) implements DoubleSchemaBoxed {
         @Override
         public @Nullable Object getData() {
             return data;
         }
     }
     
-    public record DoubleBoxedBoolean(boolean data) implements DoubleBoxed {
+    public record DoubleSchemaBoxedBoolean(boolean data) implements DoubleSchemaBoxed {
         @Override
         public @Nullable Object getData() {
             return data;
         }
     }
     
-    public record DoubleBoxedNumber(Number data) implements DoubleBoxed {
+    public record DoubleSchemaBoxedNumber(Number data) implements DoubleSchemaBoxed {
         @Override
         public @Nullable Object getData() {
             return data;
         }
     }
     
-    public record DoubleBoxedString(String data) implements DoubleBoxed {
+    public record DoubleSchemaBoxedString(String data) implements DoubleSchemaBoxed {
         @Override
         public @Nullable Object getData() {
             return data;
         }
     }
     
-    public record DoubleBoxedList(FrozenList<@Nullable Object> data) implements DoubleBoxed {
+    public record DoubleSchemaBoxedList(FrozenList<@Nullable Object> data) implements DoubleSchemaBoxed {
         @Override
         public @Nullable Object getData() {
             return data;
         }
     }
     
-    public record DoubleBoxedMap(FrozenMap<@Nullable Object> data) implements DoubleBoxed {
+    public record DoubleSchemaBoxedMap(FrozenMap<@Nullable Object> data) implements DoubleSchemaBoxed {
         @Override
         public @Nullable Object getData() {
             return data;
@@ -2078,18 +2078,18 @@ public class AnyTypeAndFormat {
     }
     
     
-    public static class Double extends JsonSchema<DoubleBoxed> implements NullSchemaValidator<DoubleBoxedVoid>, BooleanSchemaValidator<DoubleBoxedBoolean>, NumberSchemaValidator<DoubleBoxedNumber>, StringSchemaValidator<DoubleBoxedString>, ListSchemaValidator<FrozenList<@Nullable Object>, DoubleBoxedList>, MapSchemaValidator<FrozenMap<@Nullable Object>, DoubleBoxedMap> {
-        private static @Nullable Double instance = null;
+    public static class DoubleSchema extends JsonSchema<DoubleSchemaBoxed> implements NullSchemaValidator<DoubleSchemaBoxedVoid>, BooleanSchemaValidator<DoubleSchemaBoxedBoolean>, NumberSchemaValidator<DoubleSchemaBoxedNumber>, StringSchemaValidator<DoubleSchemaBoxedString>, ListSchemaValidator<FrozenList<@Nullable Object>, DoubleSchemaBoxedList>, MapSchemaValidator<FrozenMap<@Nullable Object>, DoubleSchemaBoxedMap> {
+        private static @Nullable DoubleSchema instance = null;
     
-        protected Double() {
+        protected DoubleSchema() {
             super(new JsonSchemaInfo()
                 .format("double")
             );
         }
     
-        public static Double getInstance() {
+        public static DoubleSchema getInstance() {
             if (instance == null) {
-                instance = new Double();
+                instance = new DoubleSchema();
             }
             return instance;
         }
@@ -2272,31 +2272,31 @@ public class AnyTypeAndFormat {
             throw new RuntimeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
         @Override
-        public DoubleBoxedVoid validateAndBox(Void arg, SchemaConfiguration configuration) throws ValidationException {
-            return new DoubleBoxedVoid(validate(arg, configuration));
+        public DoubleSchemaBoxedVoid validateAndBox(Void arg, SchemaConfiguration configuration) throws ValidationException {
+            return new DoubleSchemaBoxedVoid(validate(arg, configuration));
         }
         @Override
-        public DoubleBoxedBoolean validateAndBox(boolean arg, SchemaConfiguration configuration) throws ValidationException {
-            return new DoubleBoxedBoolean(validate(arg, configuration));
+        public DoubleSchemaBoxedBoolean validateAndBox(boolean arg, SchemaConfiguration configuration) throws ValidationException {
+            return new DoubleSchemaBoxedBoolean(validate(arg, configuration));
         }
         @Override
-        public DoubleBoxedNumber validateAndBox(Number arg, SchemaConfiguration configuration) throws ValidationException {
-            return new DoubleBoxedNumber(validate(arg, configuration));
+        public DoubleSchemaBoxedNumber validateAndBox(Number arg, SchemaConfiguration configuration) throws ValidationException {
+            return new DoubleSchemaBoxedNumber(validate(arg, configuration));
         }
         @Override
-        public DoubleBoxedString validateAndBox(String arg, SchemaConfiguration configuration) throws ValidationException {
-            return new DoubleBoxedString(validate(arg, configuration));
+        public DoubleSchemaBoxedString validateAndBox(String arg, SchemaConfiguration configuration) throws ValidationException {
+            return new DoubleSchemaBoxedString(validate(arg, configuration));
         }
         @Override
-        public DoubleBoxedList validateAndBox(List<?> arg, SchemaConfiguration configuration) throws ValidationException {
-            return new DoubleBoxedList(validate(arg, configuration));
+        public DoubleSchemaBoxedList validateAndBox(List<?> arg, SchemaConfiguration configuration) throws ValidationException {
+            return new DoubleSchemaBoxedList(validate(arg, configuration));
         }
         @Override
-        public DoubleBoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException {
-            return new DoubleBoxedMap(validate(arg, configuration));
+        public DoubleSchemaBoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException {
+            return new DoubleSchemaBoxedMap(validate(arg, configuration));
         }
         @Override
-        public DoubleBoxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException {
+        public DoubleSchemaBoxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException {
             if (arg == null) {
                 Void castArg = (Void) arg;
                 return validateAndBox(castArg, configuration);
@@ -2316,46 +2316,46 @@ public class AnyTypeAndFormat {
         }
     }    
     
-    public sealed interface FloatBoxed permits FloatBoxedVoid, FloatBoxedBoolean, FloatBoxedNumber, FloatBoxedString, FloatBoxedList, FloatBoxedMap {
+    public sealed interface FloatSchemaBoxed permits FloatSchemaBoxedVoid, FloatSchemaBoxedBoolean, FloatSchemaBoxedNumber, FloatSchemaBoxedString, FloatSchemaBoxedList, FloatSchemaBoxedMap {
         @Nullable Object getData();
     }
     
-    public record FloatBoxedVoid(Void data) implements FloatBoxed {
+    public record FloatSchemaBoxedVoid(Void data) implements FloatSchemaBoxed {
         @Override
         public @Nullable Object getData() {
             return data;
         }
     }
     
-    public record FloatBoxedBoolean(boolean data) implements FloatBoxed {
+    public record FloatSchemaBoxedBoolean(boolean data) implements FloatSchemaBoxed {
         @Override
         public @Nullable Object getData() {
             return data;
         }
     }
     
-    public record FloatBoxedNumber(Number data) implements FloatBoxed {
+    public record FloatSchemaBoxedNumber(Number data) implements FloatSchemaBoxed {
         @Override
         public @Nullable Object getData() {
             return data;
         }
     }
     
-    public record FloatBoxedString(String data) implements FloatBoxed {
+    public record FloatSchemaBoxedString(String data) implements FloatSchemaBoxed {
         @Override
         public @Nullable Object getData() {
             return data;
         }
     }
     
-    public record FloatBoxedList(FrozenList<@Nullable Object> data) implements FloatBoxed {
+    public record FloatSchemaBoxedList(FrozenList<@Nullable Object> data) implements FloatSchemaBoxed {
         @Override
         public @Nullable Object getData() {
             return data;
         }
     }
     
-    public record FloatBoxedMap(FrozenMap<@Nullable Object> data) implements FloatBoxed {
+    public record FloatSchemaBoxedMap(FrozenMap<@Nullable Object> data) implements FloatSchemaBoxed {
         @Override
         public @Nullable Object getData() {
             return data;
@@ -2363,18 +2363,18 @@ public class AnyTypeAndFormat {
     }
     
     
-    public static class Float extends JsonSchema<FloatBoxed> implements NullSchemaValidator<FloatBoxedVoid>, BooleanSchemaValidator<FloatBoxedBoolean>, NumberSchemaValidator<FloatBoxedNumber>, StringSchemaValidator<FloatBoxedString>, ListSchemaValidator<FrozenList<@Nullable Object>, FloatBoxedList>, MapSchemaValidator<FrozenMap<@Nullable Object>, FloatBoxedMap> {
-        private static @Nullable Float instance = null;
+    public static class FloatSchema extends JsonSchema<FloatSchemaBoxed> implements NullSchemaValidator<FloatSchemaBoxedVoid>, BooleanSchemaValidator<FloatSchemaBoxedBoolean>, NumberSchemaValidator<FloatSchemaBoxedNumber>, StringSchemaValidator<FloatSchemaBoxedString>, ListSchemaValidator<FrozenList<@Nullable Object>, FloatSchemaBoxedList>, MapSchemaValidator<FrozenMap<@Nullable Object>, FloatSchemaBoxedMap> {
+        private static @Nullable FloatSchema instance = null;
     
-        protected Float() {
+        protected FloatSchema() {
             super(new JsonSchemaInfo()
                 .format("float")
             );
         }
     
-        public static Float getInstance() {
+        public static FloatSchema getInstance() {
             if (instance == null) {
-                instance = new Float();
+                instance = new FloatSchema();
             }
             return instance;
         }
@@ -2557,31 +2557,31 @@ public class AnyTypeAndFormat {
             throw new RuntimeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
         @Override
-        public FloatBoxedVoid validateAndBox(Void arg, SchemaConfiguration configuration) throws ValidationException {
-            return new FloatBoxedVoid(validate(arg, configuration));
+        public FloatSchemaBoxedVoid validateAndBox(Void arg, SchemaConfiguration configuration) throws ValidationException {
+            return new FloatSchemaBoxedVoid(validate(arg, configuration));
         }
         @Override
-        public FloatBoxedBoolean validateAndBox(boolean arg, SchemaConfiguration configuration) throws ValidationException {
-            return new FloatBoxedBoolean(validate(arg, configuration));
+        public FloatSchemaBoxedBoolean validateAndBox(boolean arg, SchemaConfiguration configuration) throws ValidationException {
+            return new FloatSchemaBoxedBoolean(validate(arg, configuration));
         }
         @Override
-        public FloatBoxedNumber validateAndBox(Number arg, SchemaConfiguration configuration) throws ValidationException {
-            return new FloatBoxedNumber(validate(arg, configuration));
+        public FloatSchemaBoxedNumber validateAndBox(Number arg, SchemaConfiguration configuration) throws ValidationException {
+            return new FloatSchemaBoxedNumber(validate(arg, configuration));
         }
         @Override
-        public FloatBoxedString validateAndBox(String arg, SchemaConfiguration configuration) throws ValidationException {
-            return new FloatBoxedString(validate(arg, configuration));
+        public FloatSchemaBoxedString validateAndBox(String arg, SchemaConfiguration configuration) throws ValidationException {
+            return new FloatSchemaBoxedString(validate(arg, configuration));
         }
         @Override
-        public FloatBoxedList validateAndBox(List<?> arg, SchemaConfiguration configuration) throws ValidationException {
-            return new FloatBoxedList(validate(arg, configuration));
+        public FloatSchemaBoxedList validateAndBox(List<?> arg, SchemaConfiguration configuration) throws ValidationException {
+            return new FloatSchemaBoxedList(validate(arg, configuration));
         }
         @Override
-        public FloatBoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException {
-            return new FloatBoxedMap(validate(arg, configuration));
+        public FloatSchemaBoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException {
+            return new FloatSchemaBoxedMap(validate(arg, configuration));
         }
         @Override
-        public FloatBoxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException {
+        public FloatSchemaBoxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException {
             if (arg == null) {
                 Void castArg = (Void) arg;
                 return validateAndBox(castArg, configuration);
@@ -2621,16 +2621,8 @@ public class AnyTypeAndFormat {
             return AnyTypeAndFormat1.getInstance().validate(arg, configuration);
         }
         
-        public @Nullable Object uuid() throws UnsetPropertyException {
-            return getOrThrow("uuid");
-        }
-        
         public @Nullable Object date() throws UnsetPropertyException {
             return getOrThrow("date");
-        }
-        
-        public @Nullable Object number() throws UnsetPropertyException {
-            return getOrThrow("number");
         }
         
         public @Nullable Object binary() throws UnsetPropertyException {
@@ -2645,14 +2637,6 @@ public class AnyTypeAndFormat {
             return getOrThrow("int64");
         }
         
-        public @Nullable Object double() throws UnsetPropertyException {
-            return getOrThrow("double");
-        }
-        
-        public @Nullable Object float() throws UnsetPropertyException {
-            return getOrThrow("float");
-        }
-        
         public @Nullable Object getAdditionalProperty(String name) throws UnsetPropertyException, InvalidAdditionalPropertyException {
             throwIfKeyKnown(name, requiredKeys, optionalKeys);
             throwIfKeyNotPresent(name);
@@ -2660,62 +2644,62 @@ public class AnyTypeAndFormat {
         }
     }
     
-    public interface SetterForUuid <T> {
+    public interface SetterForUuidSchema <T> {
         Map<String, @Nullable Object> getInstance();
-        T getBuilderAfterUuid(Map<String, @Nullable Object> instance);
+        T getBuilderAfterUuidSchema(Map<String, @Nullable Object> instance);
         
-        default T uuid(Void value) {
+        default T setUuid(Void value) {
             var instance = getInstance();
             instance.put("uuid", null);
-            return getBuilderAfterUuid(instance);
+            return getBuilderAfterUuidSchema(instance);
         }
         
-        default T uuid(boolean value) {
+        default T setUuid(boolean value) {
             var instance = getInstance();
             instance.put("uuid", value);
-            return getBuilderAfterUuid(instance);
+            return getBuilderAfterUuidSchema(instance);
         }
         
-        default T uuid(String value) {
+        default T setUuid(String value) {
             var instance = getInstance();
             instance.put("uuid", value);
-            return getBuilderAfterUuid(instance);
+            return getBuilderAfterUuidSchema(instance);
         }
         
-        default T uuid(int value) {
+        default T setUuid(int value) {
             var instance = getInstance();
             instance.put("uuid", value);
-            return getBuilderAfterUuid(instance);
+            return getBuilderAfterUuidSchema(instance);
         }
         
-        default T uuid(float value) {
+        default T setUuid(float value) {
             var instance = getInstance();
             instance.put("uuid", value);
-            return getBuilderAfterUuid(instance);
+            return getBuilderAfterUuidSchema(instance);
         }
         
-        default T uuid(long value) {
+        default T setUuid(long value) {
             var instance = getInstance();
             instance.put("uuid", value);
-            return getBuilderAfterUuid(instance);
+            return getBuilderAfterUuidSchema(instance);
         }
         
-        default T uuid(double value) {
+        default T setUuid(double value) {
             var instance = getInstance();
             instance.put("uuid", value);
-            return getBuilderAfterUuid(instance);
+            return getBuilderAfterUuidSchema(instance);
         }
         
-        default T uuid(List<?> value) {
+        default T setUuid(List<?> value) {
             var instance = getInstance();
             instance.put("uuid", value);
-            return getBuilderAfterUuid(instance);
+            return getBuilderAfterUuidSchema(instance);
         }
         
-        default T uuid(Map<String, ?> value) {
+        default T setUuid(Map<String, ?> value) {
             var instance = getInstance();
             instance.put("uuid", value);
-            return getBuilderAfterUuid(instance);
+            return getBuilderAfterUuidSchema(instance);
         }
     }
     
@@ -2837,62 +2821,62 @@ public class AnyTypeAndFormat {
         }
     }
     
-    public interface SetterForNumber <T> {
+    public interface SetterForNumberSchema <T> {
         Map<String, @Nullable Object> getInstance();
-        T getBuilderAfterNumber(Map<String, @Nullable Object> instance);
+        T getBuilderAfterNumberSchema(Map<String, @Nullable Object> instance);
         
-        default T number(Void value) {
+        default T setNumber(Void value) {
             var instance = getInstance();
             instance.put("number", null);
-            return getBuilderAfterNumber(instance);
+            return getBuilderAfterNumberSchema(instance);
         }
         
-        default T number(boolean value) {
+        default T setNumber(boolean value) {
             var instance = getInstance();
             instance.put("number", value);
-            return getBuilderAfterNumber(instance);
+            return getBuilderAfterNumberSchema(instance);
         }
         
-        default T number(String value) {
+        default T setNumber(String value) {
             var instance = getInstance();
             instance.put("number", value);
-            return getBuilderAfterNumber(instance);
+            return getBuilderAfterNumberSchema(instance);
         }
         
-        default T number(int value) {
+        default T setNumber(int value) {
             var instance = getInstance();
             instance.put("number", value);
-            return getBuilderAfterNumber(instance);
+            return getBuilderAfterNumberSchema(instance);
         }
         
-        default T number(float value) {
+        default T setNumber(float value) {
             var instance = getInstance();
             instance.put("number", value);
-            return getBuilderAfterNumber(instance);
+            return getBuilderAfterNumberSchema(instance);
         }
         
-        default T number(long value) {
+        default T setNumber(long value) {
             var instance = getInstance();
             instance.put("number", value);
-            return getBuilderAfterNumber(instance);
+            return getBuilderAfterNumberSchema(instance);
         }
         
-        default T number(double value) {
+        default T setNumber(double value) {
             var instance = getInstance();
             instance.put("number", value);
-            return getBuilderAfterNumber(instance);
+            return getBuilderAfterNumberSchema(instance);
         }
         
-        default T number(List<?> value) {
+        default T setNumber(List<?> value) {
             var instance = getInstance();
             instance.put("number", value);
-            return getBuilderAfterNumber(instance);
+            return getBuilderAfterNumberSchema(instance);
         }
         
-        default T number(Map<String, ?> value) {
+        default T setNumber(Map<String, ?> value) {
             var instance = getInstance();
             instance.put("number", value);
-            return getBuilderAfterNumber(instance);
+            return getBuilderAfterNumberSchema(instance);
         }
     }
     
@@ -3073,125 +3057,125 @@ public class AnyTypeAndFormat {
         }
     }
     
-    public interface SetterForDouble <T> {
+    public interface SetterForDoubleSchema <T> {
         Map<String, @Nullable Object> getInstance();
-        T getBuilderAfterDouble(Map<String, @Nullable Object> instance);
+        T getBuilderAfterDoubleSchema(Map<String, @Nullable Object> instance);
         
-        default T double(Void value) {
+        default T setDouble(Void value) {
             var instance = getInstance();
             instance.put("double", null);
-            return getBuilderAfterDouble(instance);
+            return getBuilderAfterDoubleSchema(instance);
         }
         
-        default T double(boolean value) {
+        default T setDouble(boolean value) {
             var instance = getInstance();
             instance.put("double", value);
-            return getBuilderAfterDouble(instance);
+            return getBuilderAfterDoubleSchema(instance);
         }
         
-        default T double(String value) {
+        default T setDouble(String value) {
             var instance = getInstance();
             instance.put("double", value);
-            return getBuilderAfterDouble(instance);
+            return getBuilderAfterDoubleSchema(instance);
         }
         
-        default T double(int value) {
+        default T setDouble(int value) {
             var instance = getInstance();
             instance.put("double", value);
-            return getBuilderAfterDouble(instance);
+            return getBuilderAfterDoubleSchema(instance);
         }
         
-        default T double(float value) {
+        default T setDouble(float value) {
             var instance = getInstance();
             instance.put("double", value);
-            return getBuilderAfterDouble(instance);
+            return getBuilderAfterDoubleSchema(instance);
         }
         
-        default T double(long value) {
+        default T setDouble(long value) {
             var instance = getInstance();
             instance.put("double", value);
-            return getBuilderAfterDouble(instance);
+            return getBuilderAfterDoubleSchema(instance);
         }
         
-        default T double(double value) {
+        default T setDouble(double value) {
             var instance = getInstance();
             instance.put("double", value);
-            return getBuilderAfterDouble(instance);
+            return getBuilderAfterDoubleSchema(instance);
         }
         
-        default T double(List<?> value) {
+        default T setDouble(List<?> value) {
             var instance = getInstance();
             instance.put("double", value);
-            return getBuilderAfterDouble(instance);
+            return getBuilderAfterDoubleSchema(instance);
         }
         
-        default T double(Map<String, ?> value) {
+        default T setDouble(Map<String, ?> value) {
             var instance = getInstance();
             instance.put("double", value);
-            return getBuilderAfterDouble(instance);
+            return getBuilderAfterDoubleSchema(instance);
         }
     }
     
-    public interface SetterForFloat <T> {
+    public interface SetterForFloatSchema <T> {
         Map<String, @Nullable Object> getInstance();
-        T getBuilderAfterFloat(Map<String, @Nullable Object> instance);
+        T getBuilderAfterFloatSchema(Map<String, @Nullable Object> instance);
         
-        default T float(Void value) {
+        default T setFloat(Void value) {
             var instance = getInstance();
             instance.put("float", null);
-            return getBuilderAfterFloat(instance);
+            return getBuilderAfterFloatSchema(instance);
         }
         
-        default T float(boolean value) {
+        default T setFloat(boolean value) {
             var instance = getInstance();
             instance.put("float", value);
-            return getBuilderAfterFloat(instance);
+            return getBuilderAfterFloatSchema(instance);
         }
         
-        default T float(String value) {
+        default T setFloat(String value) {
             var instance = getInstance();
             instance.put("float", value);
-            return getBuilderAfterFloat(instance);
+            return getBuilderAfterFloatSchema(instance);
         }
         
-        default T float(int value) {
+        default T setFloat(int value) {
             var instance = getInstance();
             instance.put("float", value);
-            return getBuilderAfterFloat(instance);
+            return getBuilderAfterFloatSchema(instance);
         }
         
-        default T float(float value) {
+        default T setFloat(float value) {
             var instance = getInstance();
             instance.put("float", value);
-            return getBuilderAfterFloat(instance);
+            return getBuilderAfterFloatSchema(instance);
         }
         
-        default T float(long value) {
+        default T setFloat(long value) {
             var instance = getInstance();
             instance.put("float", value);
-            return getBuilderAfterFloat(instance);
+            return getBuilderAfterFloatSchema(instance);
         }
         
-        default T float(double value) {
+        default T setFloat(double value) {
             var instance = getInstance();
             instance.put("float", value);
-            return getBuilderAfterFloat(instance);
+            return getBuilderAfterFloatSchema(instance);
         }
         
-        default T float(List<?> value) {
+        default T setFloat(List<?> value) {
             var instance = getInstance();
             instance.put("float", value);
-            return getBuilderAfterFloat(instance);
+            return getBuilderAfterFloatSchema(instance);
         }
         
-        default T float(Map<String, ?> value) {
+        default T setFloat(Map<String, ?> value) {
             var instance = getInstance();
             instance.put("float", value);
-            return getBuilderAfterFloat(instance);
+            return getBuilderAfterFloatSchema(instance);
         }
     }
     
-    public static class AnyTypeAndFormatMapBuilder extends UnsetAddPropsSetter<AnyTypeAndFormatMapBuilder> implements GenericBuilder<Map<String, @Nullable Object>>, SetterForUuid<AnyTypeAndFormatMapBuilder>, SetterForDate<AnyTypeAndFormatMapBuilder>, SetterForDatetime<AnyTypeAndFormatMapBuilder>, SetterForNumber<AnyTypeAndFormatMapBuilder>, SetterForBinary<AnyTypeAndFormatMapBuilder>, SetterForInt32<AnyTypeAndFormatMapBuilder>, SetterForInt64<AnyTypeAndFormatMapBuilder>, SetterForDouble<AnyTypeAndFormatMapBuilder>, SetterForFloat<AnyTypeAndFormatMapBuilder> {
+    public static class AnyTypeAndFormatMapBuilder extends UnsetAddPropsSetter<AnyTypeAndFormatMapBuilder> implements GenericBuilder<Map<String, @Nullable Object>>, SetterForUuidSchema<AnyTypeAndFormatMapBuilder>, SetterForDate<AnyTypeAndFormatMapBuilder>, SetterForDatetime<AnyTypeAndFormatMapBuilder>, SetterForNumberSchema<AnyTypeAndFormatMapBuilder>, SetterForBinary<AnyTypeAndFormatMapBuilder>, SetterForInt32<AnyTypeAndFormatMapBuilder>, SetterForInt64<AnyTypeAndFormatMapBuilder>, SetterForDoubleSchema<AnyTypeAndFormatMapBuilder>, SetterForFloatSchema<AnyTypeAndFormatMapBuilder> {
         private final Map<String, @Nullable Object> instance;
         private static final Set<String> knownKeys = Set.of(
             "uuid",
@@ -3216,7 +3200,7 @@ public class AnyTypeAndFormat {
         public Map<String, @Nullable Object> getInstance() {
             return instance;
         }
-        public AnyTypeAndFormatMapBuilder getBuilderAfterUuid(Map<String, @Nullable Object> instance) {
+        public AnyTypeAndFormatMapBuilder getBuilderAfterUuidSchema(Map<String, @Nullable Object> instance) {
             return this;
         }
         public AnyTypeAndFormatMapBuilder getBuilderAfterDate(Map<String, @Nullable Object> instance) {
@@ -3225,7 +3209,7 @@ public class AnyTypeAndFormat {
         public AnyTypeAndFormatMapBuilder getBuilderAfterDatetime(Map<String, @Nullable Object> instance) {
             return this;
         }
-        public AnyTypeAndFormatMapBuilder getBuilderAfterNumber(Map<String, @Nullable Object> instance) {
+        public AnyTypeAndFormatMapBuilder getBuilderAfterNumberSchema(Map<String, @Nullable Object> instance) {
             return this;
         }
         public AnyTypeAndFormatMapBuilder getBuilderAfterBinary(Map<String, @Nullable Object> instance) {
@@ -3237,10 +3221,10 @@ public class AnyTypeAndFormat {
         public AnyTypeAndFormatMapBuilder getBuilderAfterInt64(Map<String, @Nullable Object> instance) {
             return this;
         }
-        public AnyTypeAndFormatMapBuilder getBuilderAfterDouble(Map<String, @Nullable Object> instance) {
+        public AnyTypeAndFormatMapBuilder getBuilderAfterDoubleSchema(Map<String, @Nullable Object> instance) {
             return this;
         }
-        public AnyTypeAndFormatMapBuilder getBuilderAfterFloat(Map<String, @Nullable Object> instance) {
+        public AnyTypeAndFormatMapBuilder getBuilderAfterFloatSchema(Map<String, @Nullable Object> instance) {
             return this;
         }
         public AnyTypeAndFormatMapBuilder getBuilderAfterAdditionalProperty(Map<String, @Nullable Object> instance) {
@@ -3274,15 +3258,15 @@ public class AnyTypeAndFormat {
             super(new JsonSchemaInfo()
                 .type(Set.of(Map.class))
                 .properties(Map.ofEntries(
-                    new PropertyEntry("uuid", Uuid.class),
+                    new PropertyEntry("uuid", UuidSchema.class),
                     new PropertyEntry("date", Date.class),
                     new PropertyEntry("date-time", Datetime.class),
-                    new PropertyEntry("number", Number.class),
+                    new PropertyEntry("number", NumberSchema.class),
                     new PropertyEntry("binary", Binary.class),
                     new PropertyEntry("int32", Int32.class),
                     new PropertyEntry("int64", Int64.class),
-                    new PropertyEntry("double", Double.class),
-                    new PropertyEntry("float", Float.class)
+                    new PropertyEntry("double", DoubleSchema.class),
+                    new PropertyEntry("float", FloatSchema.class)
                 ))
             );
         }

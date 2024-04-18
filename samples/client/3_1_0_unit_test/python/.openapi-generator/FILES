@@ -2,6 +2,7 @@
 .gitlab-ci.yml
 .travis.yml
 README.md
+docs/apis/tags/_not_api.md
 docs/apis/tags/additional_properties_api.md
 docs/apis/tags/all_of_api.md
 docs/apis/tags/any_of_api.md
@@ -27,7 +28,6 @@ docs/apis/tags/min_length_api.md
 docs/apis/tags/min_properties_api.md
 docs/apis/tags/minimum_api.md
 docs/apis/tags/multiple_of_api.md
-docs/apis/tags/not_api.md
 docs/apis/tags/one_of_api.md
 docs/apis/tags/operation_request_body_api.md
 docs/apis/tags/path_post_api.md
@@ -43,6 +43,7 @@ docs/apis/tags/type_api.md
 docs/apis/tags/unevaluated_items_api.md
 docs/apis/tags/unevaluated_properties_api.md
 docs/apis/tags/unique_items_api.md
+docs/components/schema/_not.md
 docs/components/schema/a_schema_given_for_prefixitems.md
 docs/components/schema/additional_items_are_allowed_by_default.md
 docs/components/schema/additionalproperties_are_allowed_by_default.md
@@ -128,7 +129,6 @@ docs/components/schema/nested_items.md
 docs/components/schema/nested_oneof_to_check_validation_semantics.md
 docs/components/schema/non_ascii_pattern_with_additionalproperties.md
 docs/components/schema/non_interference_across_combined_schemas.md
-docs/components/schema/not.md
 docs/components/schema/not_more_complex_schema.md
 docs/components/schema/not_multiple_types.md
 docs/components/schema/nul_characters_in_strings.md
@@ -1058,6 +1058,7 @@ src/unit_test_api/apis/paths/response_body_post_uuid_format_response_body_for_co
 src/unit_test_api/apis/paths/response_body_post_validate_against_correct_branch_then_vs_else_response_body_for_content_types.py
 src/unit_test_api/apis/tag_to_api.py
 src/unit_test_api/apis/tags/__init__.py
+src/unit_test_api/apis/tags/_not_api.py
 src/unit_test_api/apis/tags/additional_properties_api.py
 src/unit_test_api/apis/tags/all_of_api.py
 src/unit_test_api/apis/tags/any_of_api.py
@@ -1083,7 +1084,6 @@ src/unit_test_api/apis/tags/min_length_api.py
 src/unit_test_api/apis/tags/min_properties_api.py
 src/unit_test_api/apis/tags/minimum_api.py
 src/unit_test_api/apis/tags/multiple_of_api.py
-src/unit_test_api/apis/tags/not_api.py
 src/unit_test_api/apis/tags/one_of_api.py
 src/unit_test_api/apis/tags/operation_request_body_api.py
 src/unit_test_api/apis/tags/path_post_api.py
@@ -1101,6 +1101,7 @@ src/unit_test_api/apis/tags/unevaluated_properties_api.py
 src/unit_test_api/apis/tags/unique_items_api.py
 src/unit_test_api/components/__init__.py
 src/unit_test_api/components/schema/__init__.py
+src/unit_test_api/components/schema/_not.py
 src/unit_test_api/components/schema/a_schema_given_for_prefixitems.py
 src/unit_test_api/components/schema/additional_items_are_allowed_by_default.py
 src/unit_test_api/components/schema/additionalproperties_are_allowed_by_default.py
@@ -1186,7 +1187,6 @@ src/unit_test_api/components/schema/nested_items.py
 src/unit_test_api/components/schema/nested_oneof_to_check_validation_semantics.py
 src/unit_test_api/components/schema/non_ascii_pattern_with_additionalproperties.py
 src/unit_test_api/components/schema/non_interference_across_combined_schemas.py
-src/unit_test_api/components/schema/not.py
 src/unit_test_api/components/schema/not_more_complex_schema.py
 src/unit_test_api/components/schema/not_multiple_types.py
 src/unit_test_api/components/schema/nul_characters_in_strings.py

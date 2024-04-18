@@ -11,7 +11,7 @@ from unit_test_api.apis.tags.type_api import TypeApi
 from unit_test_api.apis.tags.multiple_of_api import MultipleOfApi
 from unit_test_api.apis.tags.format_api import FormatApi
 from unit_test_api.apis.tags.enum_api import EnumApi
-from unit_test_api.apis.tags.not_api import NotApi
+from unit_test_api.apis.tags._not_api import _NotApi
 from unit_test_api.apis.tags.default_api import DefaultApi
 from unit_test_api.apis.tags.maximum_api import MaximumApi
 from unit_test_api.apis.tags.max_items_api import MaxItemsApi
@@ -43,7 +43,7 @@ TagToApi = typing.TypedDict(
         "multipleOf": typing.Type[MultipleOfApi],
         "format": typing.Type[FormatApi],
         "enum": typing.Type[EnumApi],
-        "not": typing.Type[NotApi],
+        "not": typing.Type[_NotApi],
         "default": typing.Type[DefaultApi],
         "maximum": typing.Type[MaximumApi],
         "maxItems": typing.Type[MaxItemsApi],
@@ -76,7 +76,7 @@ tag_to_api = TagToApi(
         "multipleOf": MultipleOfApi,
         "format": FormatApi,
         "enum": EnumApi,
-        "not": NotApi,
+        "not": _NotApi,
         "default": DefaultApi,
         "maximum": MaximumApi,
         "maxItems": MaxItemsApi,

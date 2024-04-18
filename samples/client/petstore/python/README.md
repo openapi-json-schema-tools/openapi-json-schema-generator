@@ -353,7 +353,7 @@ Class | Description
 [ReqPropsFromExplicitAddProps](docs/components/schema/req_props_from_explicit_add_props.md) |
 [ReqPropsFromTrueAddProps](docs/components/schema/req_props_from_true_add_props.md) |
 [ReqPropsFromUnsetAddProps](docs/components/schema/req_props_from_unset_add_props.md) |
-[Return](docs/components/schema/return.md) | Model for testing reserved words
+[_Return](docs/components/schema/_return.md) | Model for testing reserved words
 [ScaleneTriangle](docs/components/schema/scalene_triangle.md) |
 [SelfReferencingArrayModel](docs/components/schema/self_referencing_array_model.md) |
 [SelfReferencingObjectModel](docs/components/schema/self_referencing_object_model.md) |

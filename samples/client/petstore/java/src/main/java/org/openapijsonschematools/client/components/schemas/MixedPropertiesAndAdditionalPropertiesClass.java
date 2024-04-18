@@ -30,11 +30,11 @@ public class MixedPropertiesAndAdditionalPropertiesClass {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static class Uuid extends UuidJsonSchema.UuidJsonSchema1 {
-        private static @Nullable Uuid instance = null;
-        public static Uuid getInstance() {
+    public static class UuidSchema extends UuidJsonSchema.UuidJsonSchema1 {
+        private static @Nullable UuidSchema instance = null;
+        public static UuidSchema getInstance() {
             if (instance == null) {
-                instance = new Uuid();
+                instance = new UuidSchema();
             }
             return instance;
         }
@@ -59,7 +59,7 @@ public class MixedPropertiesAndAdditionalPropertiesClass {
         public static final Set<String> requiredKeys = Set.of();
         public static final Set<String> optionalKeys = Set.of();
         public static MapMap of(Map<String, Map<String, ? extends @Nullable Object>> arg, SchemaConfiguration configuration) throws ValidationException {
-            return Map.getInstance().validate(arg, configuration);
+            return MapSchema.getInstance().validate(arg, configuration);
         }
         
         public Animal.AnimalMap getAdditionalProperty(String name) throws UnsetPropertyException {
@@ -101,11 +101,11 @@ public class MixedPropertiesAndAdditionalPropertiesClass {
     }
     
     
-    public sealed interface MapBoxed permits MapBoxedMap {
+    public sealed interface MapSchemaBoxed permits MapSchemaBoxedMap {
         @Nullable Object getData();
     }
     
-    public record MapBoxedMap(MapMap data) implements MapBoxed {
+    public record MapSchemaBoxedMap(MapMap data) implements MapSchemaBoxed {
         @Override
         public @Nullable Object getData() {
             return data;
@@ -113,19 +113,19 @@ public class MixedPropertiesAndAdditionalPropertiesClass {
     }
     
     
-    public static class Map extends JsonSchema<MapBoxed> implements MapSchemaValidator<MapMap, MapBoxedMap> {
-        private static @Nullable Map instance = null;
+    public static class MapSchema extends JsonSchema<MapSchemaBoxed> implements MapSchemaValidator<MapMap, MapSchemaBoxedMap> {
+        private static @Nullable MapSchema instance = null;
     
-        protected Map() {
+        protected MapSchema() {
             super(new JsonSchemaInfo()
                 .type(Set.of(Map.class))
                 .additionalProperties(Animal.Animal1.class)
             );
         }
     
-        public static Map getInstance() {
+        public static MapSchema getInstance() {
             if (instance == null) {
-                instance = new Map();
+                instance = new MapSchema();
             }
             return instance;
         }
@@ -182,11 +182,11 @@ public class MixedPropertiesAndAdditionalPropertiesClass {
             throw new RuntimeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
         @Override
-        public MapBoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException {
-            return new MapBoxedMap(validate(arg, configuration));
+        public MapSchemaBoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException {
+            return new MapSchemaBoxedMap(validate(arg, configuration));
         }
         @Override
-        public MapBoxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException {
+        public MapSchemaBoxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException {
             if (arg instanceof Map<?, ?> castArg) {
                 return validateAndBox(castArg, configuration);
             }
@@ -209,16 +209,6 @@ public class MixedPropertiesAndAdditionalPropertiesClass {
             return MixedPropertiesAndAdditionalPropertiesClass1.getInstance().validate(arg, configuration);
         }
         
-        public String uuid() throws UnsetPropertyException {
-            String key = "uuid";
-            throwIfKeyNotPresent(key);
-            @Nullable Object value = get(key);
-            if (!(value instanceof String)) {
-                throw new RuntimeException("Invalid value stored for uuid");
-            }
-            return (String) value;
-        }
-        
         public String dateTime() throws UnsetPropertyException {
             String key = "dateTime";
             throwIfKeyNotPresent(key);
@@ -229,16 +219,6 @@ public class MixedPropertiesAndAdditionalPropertiesClass {
             return (String) value;
         }
         
-        public MapMap map() throws UnsetPropertyException {
-            String key = "map";
-            throwIfKeyNotPresent(key);
-            @Nullable Object value = get(key);
-            if (!(value instanceof MapMap)) {
-                throw new RuntimeException("Invalid value stored for map");
-            }
-            return (MapMap) value;
-        }
-        
         public @Nullable Object getAdditionalProperty(String name) throws UnsetPropertyException, InvalidAdditionalPropertyException {
             throwIfKeyKnown(name, requiredKeys, optionalKeys);
             throwIfKeyNotPresent(name);
@@ -246,14 +226,14 @@ public class MixedPropertiesAndAdditionalPropertiesClass {
         }
     }
     
-    public interface SetterForUuid <T> {
+    public interface SetterForUuidSchema <T> {
         Map<String, @Nullable Object> getInstance();
-        T getBuilderAfterUuid(Map<String, @Nullable Object> instance);
+        T getBuilderAfterUuidSchema(Map<String, @Nullable Object> instance);
         
-        default T uuid(String value) {
+        default T setUuid(String value) {
             var instance = getInstance();
             instance.put("uuid", value);
-            return getBuilderAfterUuid(instance);
+            return getBuilderAfterUuidSchema(instance);
         }
     }
     
@@ -268,18 +248,18 @@ public class MixedPropertiesAndAdditionalPropertiesClass {
         }
     }
     
-    public interface SetterForMap <T> {
+    public interface SetterForMapSchema <T> {
         Map<String, @Nullable Object> getInstance();
-        T getBuilderAfterMap(Map<String, @Nullable Object> instance);
+        T getBuilderAfterMapSchema(Map<String, @Nullable Object> instance);
         
-        default T map(Map<String, Map<String, @Nullable Object>> value) {
+        default T setMap(Map<String, Map<String, @Nullable Object>> value) {
             var instance = getInstance();
             instance.put("map", value);
-            return getBuilderAfterMap(instance);
+            return getBuilderAfterMapSchema(instance);
         }
     }
     
-    public static class MixedPropertiesAndAdditionalPropertiesClassMapBuilder extends UnsetAddPropsSetter<MixedPropertiesAndAdditionalPropertiesClassMapBuilder> implements GenericBuilder<Map<String, @Nullable Object>>, SetterForUuid<MixedPropertiesAndAdditionalPropertiesClassMapBuilder>, SetterForDateTime<MixedPropertiesAndAdditionalPropertiesClassMapBuilder>, SetterForMap<MixedPropertiesAndAdditionalPropertiesClassMapBuilder> {
+    public static class MixedPropertiesAndAdditionalPropertiesClassMapBuilder extends UnsetAddPropsSetter<MixedPropertiesAndAdditionalPropertiesClassMapBuilder> implements GenericBuilder<Map<String, @Nullable Object>>, SetterForUuidSchema<MixedPropertiesAndAdditionalPropertiesClassMapBuilder>, SetterForDateTime<MixedPropertiesAndAdditionalPropertiesClassMapBuilder>, SetterForMapSchema<MixedPropertiesAndAdditionalPropertiesClassMapBuilder> {
         private final Map<String, @Nullable Object> instance;
         private static final Set<String> knownKeys = Set.of(
             "uuid",
@@ -298,13 +278,13 @@ public class MixedPropertiesAndAdditionalPropertiesClass {
         public Map<String, @Nullable Object> getInstance() {
             return instance;
         }
-        public MixedPropertiesAndAdditionalPropertiesClassMapBuilder getBuilderAfterUuid(Map<String, @Nullable Object> instance) {
+        public MixedPropertiesAndAdditionalPropertiesClassMapBuilder getBuilderAfterUuidSchema(Map<String, @Nullable Object> instance) {
             return this;
         }
         public MixedPropertiesAndAdditionalPropertiesClassMapBuilder getBuilderAfterDateTime(Map<String, @Nullable Object> instance) {
             return this;
         }
-        public MixedPropertiesAndAdditionalPropertiesClassMapBuilder getBuilderAfterMap(Map<String, @Nullable Object> instance) {
+        public MixedPropertiesAndAdditionalPropertiesClassMapBuilder getBuilderAfterMapSchema(Map<String, @Nullable Object> instance) {
             return this;
         }
         public MixedPropertiesAndAdditionalPropertiesClassMapBuilder getBuilderAfterAdditionalProperty(Map<String, @Nullable Object> instance) {
@@ -338,9 +318,9 @@ public class MixedPropertiesAndAdditionalPropertiesClass {
             super(new JsonSchemaInfo()
                 .type(Set.of(Map.class))
                 .properties(Map.ofEntries(
-                    new PropertyEntry("uuid", Uuid.class),
+                    new PropertyEntry("uuid", UuidSchema.class),
                     new PropertyEntry("dateTime", DateTime.class),
-                    new PropertyEntry("map", Map.class)
+                    new PropertyEntry("map", MapSchema.class)
                 ))
             );
         }

@@ -13,9 +13,9 @@ dict, schemas.immutabledict, str, datetime.date, datetime.datetime, uuid.UUID, i
 ## not
 Schema Class | Input Type | Return Type
 ------------ | ---------- | -----------
-[Not](#not) | str | str
+[_Not](#_not) | str | str
 
-# Not
+# _Not
 ```
 type: schemas.Schema
 ```

@@ -9,7 +9,7 @@
 
 from unit_test_api import api_client
 from unit_test_api.shared_imports.operation_imports import *  # pyright: ignore [reportWildcardImportFromLibrary]
-from unit_test_api.components.schema import not
+from unit_test_api.components.schema import _not
 
 from .. import path
 from .responses import response_200

@@ -19,14 +19,14 @@ A class that contains necessary nested
 | record | [IgnoreElseWithoutIf.IgnoreElseWithoutIf1BoxedList](#ignoreelsewithoutif1boxedlist)<br> boxed class to store validated List payloads |
 | record | [IgnoreElseWithoutIf.IgnoreElseWithoutIf1BoxedMap](#ignoreelsewithoutif1boxedmap)<br> boxed class to store validated Map payloads |
 | static class | [IgnoreElseWithoutIf.IgnoreElseWithoutIf1](#ignoreelsewithoutif1)<br> schema class |
-| sealed interface | [IgnoreElseWithoutIf.ElseBoxed](#elseboxed)<br> sealed interface for validated payloads |
-| record | [IgnoreElseWithoutIf.ElseBoxedVoid](#elseboxedvoid)<br> boxed class to store validated null payloads |
-| record | [IgnoreElseWithoutIf.ElseBoxedBoolean](#elseboxedboolean)<br> boxed class to store validated boolean payloads |
-| record | [IgnoreElseWithoutIf.ElseBoxedNumber](#elseboxednumber)<br> boxed class to store validated Number payloads |
-| record | [IgnoreElseWithoutIf.ElseBoxedString](#elseboxedstring)<br> boxed class to store validated String payloads |
-| record | [IgnoreElseWithoutIf.ElseBoxedList](#elseboxedlist)<br> boxed class to store validated List payloads |
-| record | [IgnoreElseWithoutIf.ElseBoxedMap](#elseboxedmap)<br> boxed class to store validated Map payloads |
-| static class | [IgnoreElseWithoutIf.Else](#else)<br> schema class |
+| sealed interface | [IgnoreElseWithoutIf.ElseSchemaBoxed](#elseschemaboxed)<br> sealed interface for validated payloads |
+| record | [IgnoreElseWithoutIf.ElseSchemaBoxedVoid](#elseschemaboxedvoid)<br> boxed class to store validated null payloads |
+| record | [IgnoreElseWithoutIf.ElseSchemaBoxedBoolean](#elseschemaboxedboolean)<br> boxed class to store validated boolean payloads |
+| record | [IgnoreElseWithoutIf.ElseSchemaBoxedNumber](#elseschemaboxednumber)<br> boxed class to store validated Number payloads |
+| record | [IgnoreElseWithoutIf.ElseSchemaBoxedString](#elseschemaboxedstring)<br> boxed class to store validated String payloads |
+| record | [IgnoreElseWithoutIf.ElseSchemaBoxedList](#elseschemaboxedlist)<br> boxed class to store validated List payloads |
+| record | [IgnoreElseWithoutIf.ElseSchemaBoxedMap](#elseschemaboxedmap)<br> boxed class to store validated Map payloads |
+| static class | [IgnoreElseWithoutIf.ElseSchema](#elseschema)<br> schema class |
 | enum | [IgnoreElseWithoutIf.StringElseConst](#stringelseconst)<br>String enum |
 
 ## IgnoreElseWithoutIf1Boxed
@@ -152,7 +152,7 @@ A schema class that validates payloads
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |
-| Class<? extends JsonSchema> | elseSchema = [Else.class](#else) |
+| Class<? extends JsonSchema> | elseSchema = [ElseSchema.class](#elseschema) |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
@@ -176,28 +176,28 @@ A schema class that validates payloads
 | [IgnoreElseWithoutIf1Boxed](#ignoreelsewithoutif1boxed) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 
-## ElseBoxed
-public sealed interface ElseBoxed<br>
+## ElseSchemaBoxed
+public sealed interface ElseSchemaBoxed<br>
 permits<br>
-[ElseBoxedVoid](#elseboxedvoid),
-[ElseBoxedBoolean](#elseboxedboolean),
-[ElseBoxedNumber](#elseboxednumber),
-[ElseBoxedString](#elseboxedstring),
-[ElseBoxedList](#elseboxedlist),
-[ElseBoxedMap](#elseboxedmap)
+[ElseSchemaBoxedVoid](#elseschemaboxedvoid),
+[ElseSchemaBoxedBoolean](#elseschemaboxedboolean),
+[ElseSchemaBoxedNumber](#elseschemaboxednumber),
+[ElseSchemaBoxedString](#elseschemaboxedstring),
+[ElseSchemaBoxedList](#elseschemaboxedlist),
+[ElseSchemaBoxedMap](#elseschemaboxedmap)
 
 sealed interface that stores validated payloads using boxed classes
 
-## ElseBoxedVoid
-public record ElseBoxedVoid<br>
-implements [ElseBoxed](#elseboxed)
+## ElseSchemaBoxedVoid
+public record ElseSchemaBoxedVoid<br>
+implements [ElseSchemaBoxed](#elseschemaboxed)
 
 record that stores validated null payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| ElseBoxedVoid(Void data)<br>Creates an instance, private visibility |
+| ElseSchemaBoxedVoid(Void data)<br>Creates an instance, private visibility |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
@@ -205,16 +205,16 @@ record that stores validated null payloads, sealed permits implementation
 | Void | data()<br>validated payload |
 | @Nullable Object | getData()<br>validated payload |
 
-## ElseBoxedBoolean
-public record ElseBoxedBoolean<br>
-implements [ElseBoxed](#elseboxed)
+## ElseSchemaBoxedBoolean
+public record ElseSchemaBoxedBoolean<br>
+implements [ElseSchemaBoxed](#elseschemaboxed)
 
 record that stores validated boolean payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| ElseBoxedBoolean(boolean data)<br>Creates an instance, private visibility |
+| ElseSchemaBoxedBoolean(boolean data)<br>Creates an instance, private visibility |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
@@ -222,16 +222,16 @@ record that stores validated boolean payloads, sealed permits implementation
 | boolean | data()<br>validated payload |
 | @Nullable Object | getData()<br>validated payload |
 
-## ElseBoxedNumber
-public record ElseBoxedNumber<br>
-implements [ElseBoxed](#elseboxed)
+## ElseSchemaBoxedNumber
+public record ElseSchemaBoxedNumber<br>
+implements [ElseSchemaBoxed](#elseschemaboxed)
 
 record that stores validated Number payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| ElseBoxedNumber(Number data)<br>Creates an instance, private visibility |
+| ElseSchemaBoxedNumber(Number data)<br>Creates an instance, private visibility |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
@@ -239,16 +239,16 @@ record that stores validated Number payloads, sealed permits implementation
 | Number | data()<br>validated payload |
 | @Nullable Object | getData()<br>validated payload |
 
-## ElseBoxedString
-public record ElseBoxedString<br>
-implements [ElseBoxed](#elseboxed)
+## ElseSchemaBoxedString
+public record ElseSchemaBoxedString<br>
+implements [ElseSchemaBoxed](#elseschemaboxed)
 
 record that stores validated String payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| ElseBoxedString(String data)<br>Creates an instance, private visibility |
+| ElseSchemaBoxedString(String data)<br>Creates an instance, private visibility |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
@@ -256,16 +256,16 @@ record that stores validated String payloads, sealed permits implementation
 | String | data()<br>validated payload |
 | @Nullable Object | getData()<br>validated payload |
 
-## ElseBoxedList
-public record ElseBoxedList<br>
-implements [ElseBoxed](#elseboxed)
+## ElseSchemaBoxedList
+public record ElseSchemaBoxedList<br>
+implements [ElseSchemaBoxed](#elseschemaboxed)
 
 record that stores validated List payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| ElseBoxedList(FrozenList<@Nullable Object> data)<br>Creates an instance, private visibility |
+| ElseSchemaBoxedList(FrozenList<@Nullable Object> data)<br>Creates an instance, private visibility |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
@@ -273,16 +273,16 @@ record that stores validated List payloads, sealed permits implementation
 | FrozenList<@Nullable Object> | data()<br>validated payload |
 | @Nullable Object | getData()<br>validated payload |
 
-## ElseBoxedMap
-public record ElseBoxedMap<br>
-implements [ElseBoxed](#elseboxed)
+## ElseSchemaBoxedMap
+public record ElseSchemaBoxedMap<br>
+implements [ElseSchemaBoxed](#elseschemaboxed)
 
 record that stores validated Map payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| ElseBoxedMap(FrozenMap<@Nullable Object> data)<br>Creates an instance, private visibility |
+| ElseSchemaBoxedMap(FrozenMap<@Nullable Object> data)<br>Creates an instance, private visibility |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
@@ -290,8 +290,8 @@ record that stores validated Map payloads, sealed permits implementation
 | FrozenMap<@Nullable Object> | data()<br>validated payload |
 | @Nullable Object | getData()<br>validated payload |
 
-## Else
-public static class Else<br>
+## ElseSchema
+public static class ElseSchema<br>
 extends JsonSchema
 
 A schema class that validates payloads
@@ -314,13 +314,13 @@ A schema class that validates payloads
 | boolean | validate(boolean arg, SchemaConfiguration configuration) |
 | FrozenMap<@Nullable Object> | validate(Map&lt;?, ?&gt; arg, SchemaConfiguration configuration) |
 | FrozenList<@Nullable Object> | validate(List<?> arg, SchemaConfiguration configuration) |
-| [ElseBoxedString](#elseboxedstring) | validateAndBox(String arg, SchemaConfiguration configuration) |
-| [ElseBoxedVoid](#elseboxedvoid) | validateAndBox(Void arg, SchemaConfiguration configuration) |
-| [ElseBoxedNumber](#elseboxednumber) | validateAndBox(Number arg, SchemaConfiguration configuration) |
-| [ElseBoxedBoolean](#elseboxedboolean) | validateAndBox(boolean arg, SchemaConfiguration configuration) |
-| [ElseBoxedMap](#elseboxedmap) | validateAndBox(Map&lt;?, ?&gt; arg, SchemaConfiguration configuration) |
-| [ElseBoxedList](#elseboxedlist) | validateAndBox(List<?> arg, SchemaConfiguration configuration) |
-| [ElseBoxed](#elseboxed) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
+| [ElseSchemaBoxedString](#elseschemaboxedstring) | validateAndBox(String arg, SchemaConfiguration configuration) |
+| [ElseSchemaBoxedVoid](#elseschemaboxedvoid) | validateAndBox(Void arg, SchemaConfiguration configuration) |
+| [ElseSchemaBoxedNumber](#elseschemaboxednumber) | validateAndBox(Number arg, SchemaConfiguration configuration) |
+| [ElseSchemaBoxedBoolean](#elseschemaboxedboolean) | validateAndBox(boolean arg, SchemaConfiguration configuration) |
+| [ElseSchemaBoxedMap](#elseschemaboxedmap) | validateAndBox(Map&lt;?, ?&gt; arg, SchemaConfiguration configuration) |
+| [ElseSchemaBoxedList](#elseschemaboxedlist) | validateAndBox(List<?> arg, SchemaConfiguration configuration) |
+| [ElseSchemaBoxed](#elseschemaboxed) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 
 ## StringElseConst

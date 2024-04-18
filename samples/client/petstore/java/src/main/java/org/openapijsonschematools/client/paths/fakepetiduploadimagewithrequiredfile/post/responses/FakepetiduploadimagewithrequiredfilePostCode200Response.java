@@ -27,7 +27,7 @@ public class FakepetiduploadimagewithrequiredfilePostCode200Response {
         }
     }
     public sealed interface SealedResponseBody permits ApplicationjsonResponseBody {}
-    public record ApplicationjsonResponseBody(ApplicationjsonSchema.ApiResponse1Boxed body) implements SealedResponseBody { }
+    public record ApplicationjsonResponseBody(ApplicationjsonSchema.ApiResponseSchema1Boxed body) implements SealedResponseBody { }
 
     public static class FakepetiduploadimagewithrequiredfilePostCode200Response1 extends ResponseDeserializer<SealedResponseBody, Void, SealedMediaType> {
         public FakepetiduploadimagewithrequiredfilePostCode200Response1() {

@@ -17,17 +17,17 @@ A class that contains necessary nested
 | static class | [MixedPropertiesAndAdditionalPropertiesClass.MixedPropertiesAndAdditionalPropertiesClass1](#mixedpropertiesandadditionalpropertiesclass1)<br> schema class |
 | static class | [MixedPropertiesAndAdditionalPropertiesClass.MixedPropertiesAndAdditionalPropertiesClassMapBuilder](#mixedpropertiesandadditionalpropertiesclassmapbuilder)<br> builder for Map payloads |
 | static class | [MixedPropertiesAndAdditionalPropertiesClass.MixedPropertiesAndAdditionalPropertiesClassMap](#mixedpropertiesandadditionalpropertiesclassmap)<br> output class for Map payloads |
-| sealed interface | [MixedPropertiesAndAdditionalPropertiesClass.MapBoxed](#mapboxed)<br> sealed interface for validated payloads |
-| record | [MixedPropertiesAndAdditionalPropertiesClass.MapBoxedMap](#mapboxedmap)<br> boxed class to store validated Map payloads |
-| static class | [MixedPropertiesAndAdditionalPropertiesClass.Map](#map)<br> schema class |
+| sealed interface | [MixedPropertiesAndAdditionalPropertiesClass.MapSchemaBoxed](#mapschemaboxed)<br> sealed interface for validated payloads |
+| record | [MixedPropertiesAndAdditionalPropertiesClass.MapSchemaBoxedMap](#mapschemaboxedmap)<br> boxed class to store validated Map payloads |
+| static class | [MixedPropertiesAndAdditionalPropertiesClass.MapSchema](#mapschema)<br> schema class |
 | static class | [MixedPropertiesAndAdditionalPropertiesClass.MapMapBuilder](#mapmapbuilder)<br> builder for Map payloads |
 | static class | [MixedPropertiesAndAdditionalPropertiesClass.MapMap](#mapmap)<br> output class for Map payloads |
 | sealed interface | [MixedPropertiesAndAdditionalPropertiesClass.DateTimeBoxed](#datetimeboxed)<br> sealed interface for validated payloads |
 | record | [MixedPropertiesAndAdditionalPropertiesClass.DateTimeBoxedString](#datetimeboxedstring)<br> boxed class to store validated String payloads |
 | static class | [MixedPropertiesAndAdditionalPropertiesClass.DateTime](#datetime)<br> schema class |
-| sealed interface | [MixedPropertiesAndAdditionalPropertiesClass.UuidBoxed](#uuidboxed)<br> sealed interface for validated payloads |
-| record | [MixedPropertiesAndAdditionalPropertiesClass.UuidBoxedString](#uuidboxedstring)<br> boxed class to store validated String payloads |
-| static class | [MixedPropertiesAndAdditionalPropertiesClass.Uuid](#uuid)<br> schema class |
+| sealed interface | [MixedPropertiesAndAdditionalPropertiesClass.UuidSchemaBoxed](#uuidschemaboxed)<br> sealed interface for validated payloads |
+| record | [MixedPropertiesAndAdditionalPropertiesClass.UuidSchemaBoxedString](#uuidschemaboxedstring)<br> boxed class to store validated String payloads |
+| static class | [MixedPropertiesAndAdditionalPropertiesClass.UuidSchema](#uuidschema)<br> schema class |
 
 ## MixedPropertiesAndAdditionalPropertiesClass1Boxed
 public sealed interface MixedPropertiesAndAdditionalPropertiesClass1Boxed<br>
@@ -79,11 +79,11 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(new Jso
 MixedPropertiesAndAdditionalPropertiesClass.MixedPropertiesAndAdditionalPropertiesClassMap validatedPayload =
     MixedPropertiesAndAdditionalPropertiesClass.MixedPropertiesAndAdditionalPropertiesClass1.validate(
     new MixedPropertiesAndAdditionalPropertiesClass.MixedPropertiesAndAdditionalPropertiesClassMapBuilder()
-        .uuid("046b6c7f-0b8a-43b9-b35d-6489e6daee91")
+        .setUuid("046b6c7f-0b8a-43b9-b35d-6489e6daee91")
 
         .dateTime("1970-01-01T00:00:00.00Z")
 
-        .map(
+        .setMap(
             MapUtils.makeMap(
                 new AbstractMap.SimpleEntry<String, Map<String, ?>>(
                     "someAdditionalProperty",
@@ -109,7 +109,7 @@ MixedPropertiesAndAdditionalPropertiesClass.MixedPropertiesAndAdditionalProperti
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |
 | Set<Class<?>> | type = Set.of(Map.class) |
-| Map<String, Class<? extends JsonSchema>> | properties = Map.ofEntries(<br>&nbsp;&nbsp;&nbsp;&nbsp;new PropertyEntry("uuid", [Uuid.class](#uuid))),<br>&nbsp;&nbsp;&nbsp;&nbsp;new PropertyEntry("dateTime", [DateTime.class](#datetime))),<br>&nbsp;&nbsp;&nbsp;&nbsp;new PropertyEntry("map", [Map.class](#map)))<br>)<br> |
+| Map<String, Class<? extends JsonSchema>> | properties = Map.ofEntries(<br>&nbsp;&nbsp;&nbsp;&nbsp;new PropertyEntry("uuid", [UuidSchema.class](#uuidschema))),<br>&nbsp;&nbsp;&nbsp;&nbsp;new PropertyEntry("dateTime", [DateTime.class](#datetime))),<br>&nbsp;&nbsp;&nbsp;&nbsp;new PropertyEntry("map", [MapSchema.class](#mapschema)))<br>)<br> |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
@@ -134,9 +134,9 @@ A class that builds the Map input type
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | Map<String, @Nullable Object> | build()<br>Returns map input that should be used with Schema.validate |
-| [MixedPropertiesAndAdditionalPropertiesClassMapBuilder](#mixedpropertiesandadditionalpropertiesclassmapbuilder) | uuid(String value) |
+| [MixedPropertiesAndAdditionalPropertiesClassMapBuilder](#mixedpropertiesandadditionalpropertiesclassmapbuilder) | setUuid(String value) |
 | [MixedPropertiesAndAdditionalPropertiesClassMapBuilder](#mixedpropertiesandadditionalpropertiesclassmapbuilder) | dateTime(String value) |
-| [MixedPropertiesAndAdditionalPropertiesClassMapBuilder](#mixedpropertiesandadditionalpropertiesclassmapbuilder) | map(Map<String, Map<String, @Nullable Object>> value) |
+| [MixedPropertiesAndAdditionalPropertiesClassMapBuilder](#mixedpropertiesandadditionalpropertiesclassmapbuilder) | setMap(Map<String, Map<String, @Nullable Object>> value) |
 | [MixedPropertiesAndAdditionalPropertiesClassMapBuilder](#mixedpropertiesandadditionalpropertiesclassmapbuilder) | additionalProperty(String key, Void value) |
 | [MixedPropertiesAndAdditionalPropertiesClassMapBuilder](#mixedpropertiesandadditionalpropertiesclassmapbuilder) | additionalProperty(String key, boolean value) |
 | [MixedPropertiesAndAdditionalPropertiesClassMapBuilder](#mixedpropertiesandadditionalpropertiesclassmapbuilder) | additionalProperty(String key, String value) |
@@ -157,28 +157,27 @@ A class to store validated Map payloads
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | static [MixedPropertiesAndAdditionalPropertiesClassMap](#mixedpropertiesandadditionalpropertiesclassmap) | of([Map<String, ? extends @Nullable Object>](#mixedpropertiesandadditionalpropertiesclassmapbuilder) arg, SchemaConfiguration configuration) |
-| String | uuid()<br>[optional] value must be a uuid |
 | String | dateTime()<br>[optional] value must conform to RFC-3339 date-time |
-| [MapMap](#mapmap) | map()<br>[optional] |
+| @Nullable Object | get(String key)<br>This schema has invalid Java names so this method must be used when you access instance["uuid"], instance["map"],  |
 | @Nullable Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
-## MapBoxed
-public sealed interface MapBoxed<br>
+## MapSchemaBoxed
+public sealed interface MapSchemaBoxed<br>
 permits<br>
-[MapBoxedMap](#mapboxedmap)
+[MapSchemaBoxedMap](#mapschemaboxedmap)
 
 sealed interface that stores validated payloads using boxed classes
 
-## MapBoxedMap
-public record MapBoxedMap<br>
-implements [MapBoxed](#mapboxed)
+## MapSchemaBoxedMap
+public record MapSchemaBoxedMap<br>
+implements [MapSchemaBoxed](#mapschemaboxed)
 
 record that stores validated Map payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| MapBoxedMap([MapMap](#mapmap) data)<br>Creates an instance, private visibility |
+| MapSchemaBoxedMap([MapMap](#mapmap) data)<br>Creates an instance, private visibility |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
@@ -186,8 +185,8 @@ record that stores validated Map payloads, sealed permits implementation
 | [MapMap](#mapmap) | data()<br>validated payload |
 | @Nullable Object | getData()<br>validated payload |
 
-## Map
-public static class Map<br>
+## MapSchema
+public static class MapSchema<br>
 extends JsonSchema
 
 A schema class that validates payloads
@@ -210,7 +209,7 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(new Jso
 
 // Map validation
 MixedPropertiesAndAdditionalPropertiesClass.MapMap validatedPayload =
-    MixedPropertiesAndAdditionalPropertiesClass.Map.validate(
+    MixedPropertiesAndAdditionalPropertiesClass.MapSchema.validate(
     new MixedPropertiesAndAdditionalPropertiesClass.MapMapBuilder()
         .additionalProperty(
             "someAdditionalProperty",
@@ -240,8 +239,8 @@ MixedPropertiesAndAdditionalPropertiesClass.MapMap validatedPayload =
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | [MapMap](#mapmap) | validate([Map&lt;?, ?&gt;](#mapmapbuilder) arg, SchemaConfiguration configuration) |
-| [MapBoxedMap](#mapboxedmap) | validateAndBox([Map&lt;?, ?&gt;](#mapmapbuilder) arg, SchemaConfiguration configuration) |
-| [MapBoxed](#mapboxed) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
+| [MapSchemaBoxedMap](#mapschemaboxedmap) | validateAndBox([Map&lt;?, ?&gt;](#mapmapbuilder) arg, SchemaConfiguration configuration) |
+| [MapSchemaBoxed](#mapschemaboxed) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 
 ## MapMapBuilder
@@ -308,23 +307,23 @@ A schema class that validates payloads
 | validate                                                           |
 | validateAndBox                                                     |
 
-## UuidBoxed
-public sealed interface UuidBoxed<br>
+## UuidSchemaBoxed
+public sealed interface UuidSchemaBoxed<br>
 permits<br>
-[UuidBoxedString](#uuidboxedstring)
+[UuidSchemaBoxedString](#uuidschemaboxedstring)
 
 sealed interface that stores validated payloads using boxed classes
 
-## UuidBoxedString
-public record UuidBoxedString<br>
-implements [UuidBoxed](#uuidboxed)
+## UuidSchemaBoxedString
+public record UuidSchemaBoxedString<br>
+implements [UuidSchemaBoxed](#uuidschemaboxed)
 
 record that stores validated String payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| UuidBoxedString(String data)<br>Creates an instance, private visibility |
+| UuidSchemaBoxedString(String data)<br>Creates an instance, private visibility |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
@@ -332,8 +331,8 @@ record that stores validated String payloads, sealed permits implementation
 | String | data()<br>validated payload |
 | @Nullable Object | getData()<br>validated payload |
 
-## Uuid
-public static class Uuid<br>
+## UuidSchema
+public static class UuidSchema<br>
 extends UuidJsonSchema.UuidJsonSchema1
 
 A schema class that validates payloads

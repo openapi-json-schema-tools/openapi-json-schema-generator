@@ -16,6 +16,8 @@ import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.InvalidAdditionalPropertyException;
 import org.openapijsonschematools.client.exceptions.UnsetPropertyException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
+import org.openapijsonschematools.client.schemas.GenericBuilder;
+import org.openapijsonschematools.client.schemas.SetMaker;
 import org.openapijsonschematools.client.schemas.UnsetAddPropsSetter;
 import org.openapijsonschematools.client.schemas.validation.BooleanSchemaValidator;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
@@ -27,7 +29,10 @@ import org.openapijsonschematools.client.schemas.validation.MapSchemaValidator;
 import org.openapijsonschematools.client.schemas.validation.NullSchemaValidator;
 import org.openapijsonschematools.client.schemas.validation.NumberSchemaValidator;
 import org.openapijsonschematools.client.schemas.validation.PathToSchemasMap;
+import org.openapijsonschematools.client.schemas.validation.PropertyEntry;
+import org.openapijsonschematools.client.schemas.validation.StringEnumValidator;
 import org.openapijsonschematools.client.schemas.validation.StringSchemaValidator;
+import org.openapijsonschematools.client.schemas.validation.StringValueMethod;
 import org.openapijsonschematools.client.schemas.validation.ValidationMetadata;
 
 public class IsoscelesTriangle {

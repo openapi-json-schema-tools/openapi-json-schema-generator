@@ -46,7 +46,7 @@ class NotDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
             arg_[key_] = val
         arg_.update(kwargs)
         used_arg_ = typing.cast(NotDictInput, arg_)
-        return Not.validate(used_arg_, configuration=configuration_)
+        return _Not.validate(used_arg_, configuration=configuration_)
     
     @staticmethod
     def from_dict_(
@@ -56,7 +56,7 @@ class NotDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         ],
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> NotDict:
-        return Not.validate(arg, configuration=configuration)
+        return _Not.validate(arg, configuration=configuration)
     
     @property
     def foo(self) -> typing.Union[str, schemas.Unset]:
@@ -75,7 +75,7 @@ NotDictInput = typing.Mapping[str, schemas.INPUT_TYPES_ALL]
 
 
 @dataclasses.dataclass(frozen=True)
-class Not(
+class _Not(
     schemas.Schema[NotDict, tuple]
 ):
     types: typing.FrozenSet[typing.Type] = frozenset({schemas.immutabledict})
@@ -115,5 +115,5 @@ class NotMoreComplexSchema(
     Do not edit the class manually.
     """
     # any type
-    not_: typing.Type[Not] = dataclasses.field(default_factory=lambda: Not) # type: ignore
+    not_: typing.Type[_Not] = dataclasses.field(default_factory=lambda: _Not) # type: ignore
 

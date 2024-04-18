@@ -10,11 +10,11 @@
 from __future__ import annotations
 from petstore_api.shared_imports.schema_imports import *  # pyright: ignore [reportWildcardImportFromLibrary]
 
-Class: typing_extensions.TypeAlias = schemas.StrSchema
+_Class: typing_extensions.TypeAlias = schemas.StrSchema
 Properties = typing.TypedDict(
     'Properties',
     {
-        "_class": typing.Type[Class],
+        "_class": typing.Type[_Class],
     }
 )
 

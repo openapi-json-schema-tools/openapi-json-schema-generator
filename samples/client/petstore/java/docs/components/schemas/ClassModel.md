@@ -22,9 +22,9 @@ A class that contains necessary nested
 | static class | [ClassModel.ClassModel1](#classmodel1)<br> schema class |
 | static class | [ClassModel.ClassModelMapBuilder](#classmodelmapbuilder)<br> builder for Map payloads |
 | static class | [ClassModel.ClassModelMap](#classmodelmap)<br> output class for Map payloads |
-| sealed interface | [ClassModel.ClassBoxed](#classboxed)<br> sealed interface for validated payloads |
-| record | [ClassModel.ClassBoxedString](#classboxedstring)<br> boxed class to store validated String payloads |
-| static class | [ClassModel.Class](#class)<br> schema class |
+| sealed interface | [ClassModel.ClassSchemaBoxed](#classschemaboxed)<br> sealed interface for validated payloads |
+| record | [ClassModel.ClassSchemaBoxedString](#classschemaboxedstring)<br> boxed class to store validated String payloads |
+| static class | [ClassModel.ClassSchema](#classschema)<br> schema class |
 
 ## ClassModel1Boxed
 public sealed interface ClassModel1Boxed<br>
@@ -152,7 +152,7 @@ Model for testing model with &quot;_class&quot; property
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |
-| Map<String, Class<? extends JsonSchema>> | properties = Map.ofEntries(<br>&nbsp;&nbsp;&nbsp;&nbsp;new PropertyEntry("_class", [Class.class](#class)))<br>)<br> |
+| Map<String, Class<? extends JsonSchema>> | properties = Map.ofEntries(<br>&nbsp;&nbsp;&nbsp;&nbsp;new PropertyEntry("_class", [ClassSchema.class](#classschema)))<br>)<br> |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
@@ -215,23 +215,23 @@ A class to store validated Map payloads
 | @Nullable Object | get(String key)<br>This schema has invalid Java names so this method must be used when you access instance["_class"],  |
 | @Nullable Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
-## ClassBoxed
-public sealed interface ClassBoxed<br>
+## ClassSchemaBoxed
+public sealed interface ClassSchemaBoxed<br>
 permits<br>
-[ClassBoxedString](#classboxedstring)
+[ClassSchemaBoxedString](#classschemaboxedstring)
 
 sealed interface that stores validated payloads using boxed classes
 
-## ClassBoxedString
-public record ClassBoxedString<br>
-implements [ClassBoxed](#classboxed)
+## ClassSchemaBoxedString
+public record ClassSchemaBoxedString<br>
+implements [ClassSchemaBoxed](#classschemaboxed)
 
 record that stores validated String payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| ClassBoxedString(String data)<br>Creates an instance, private visibility |
+| ClassSchemaBoxedString(String data)<br>Creates an instance, private visibility |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
@@ -239,8 +239,8 @@ record that stores validated String payloads, sealed permits implementation
 | String | data()<br>validated payload |
 | @Nullable Object | getData()<br>validated payload |
 
-## Class
-public static class Class<br>
+## ClassSchema
+public static class ClassSchema<br>
 extends StringJsonSchema.StringJsonSchema1
 
 A schema class that validates payloads

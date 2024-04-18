@@ -12,13 +12,13 @@ from petstore_api.shared_imports.schema_imports import *  # pyright: ignore [rep
 
 Name2: typing_extensions.TypeAlias = schemas.Int32Schema
 SnakeCase: typing_extensions.TypeAlias = schemas.Int32Schema
-Property: typing_extensions.TypeAlias = schemas.StrSchema
+_Property: typing_extensions.TypeAlias = schemas.StrSchema
 Properties = typing.TypedDict(
     'Properties',
     {
         "name": typing.Type[Name2],
         "snake_case": typing.Type[SnakeCase],
-        "property": typing.Type[Property],
+        "property": typing.Type[_Property],
     }
 )
 
@@ -41,10 +41,6 @@ class NameDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
             int,
             schemas.Unset
         ] = schemas.unset,
-        property: typing.Union[
-            str,
-            schemas.Unset
-        ] = schemas.unset,
         configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None,
         **kwargs: schemas.INPUT_TYPES_ALL,
     ):
@@ -53,7 +49,6 @@ class NameDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         }
         for key_, val in (
             ("snake_case", snake_case),
-            ("property", property),
         ):
             if isinstance(val, schemas.Unset):
                 continue
@@ -86,16 +81,6 @@ class NameDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
             return val
         return typing.cast(
             int,
-            val
-        )
-    
-    @property
-    def property(self) -> typing.Union[str, schemas.Unset]:
-        val = self.get("property", schemas.unset)
-        if isinstance(val, schemas.Unset):
-            return val
-        return typing.cast(
-            str,
             val
         )
     

@@ -86,20 +86,18 @@ Keyword Argument | Type | Description | Notes
 ---------------- | ---- | ----------- | -----
 **aB** | str, schemas.Unset |  | [optional]
 **Ab** | str, schemas.Unset |  | [optional]
-**self** | str, schemas.Unset |  | [optional]
 
 ##### properties
 Property | Type | Description | Notes
 -------- | ---- | ----------- | -----
 **aB** | str, schemas.Unset |  | [optional]
 **Ab** | str, schemas.Unset |  | [optional]
-**self** | str, schemas.Unset |  | [optional]
 
 ##### methods
 Method | Input Type | Return Type | Notes
 ------ | ---------- | ----------- | ------
 from_dict_ | [QueryParametersDictInput](#queryparameters-queryparametersdictinput), [QueryParametersDict](#queryparameters-queryparametersdict) | [QueryParametersDict](#queryparameters-queryparametersdict) | a constructor
-&lowbar;&lowbar;getitem&lowbar;&lowbar; | str | schemas.immutabledict, str, float, int, bool, None, tuple, bytes, io.FileIO | This model has invalid python names so this method is used under the hood when you access instance["1"], instance["A-B"], 
+&lowbar;&lowbar;getitem&lowbar;&lowbar; | str | schemas.immutabledict, str, float, int, bool, None, tuple, bytes, io.FileIO | This model has invalid python names so this method is used under the hood when you access instance["1"], instance["A-B"], instance["self"], 
 ### header_params
 ### HeaderParameters
 ```
@@ -131,19 +129,17 @@ base class: schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]
 Keyword Argument | Type | Description | Notes
 ---------------- | ---- | ----------- | -----
 **aB** | str, schemas.Unset |  | [optional]
-**self** | str, schemas.Unset |  | [optional]
 
 ##### properties
 Property | Type | Description | Notes
 -------- | ---- | ----------- | -----
 **aB** | str, schemas.Unset |  | [optional]
-**self** | str, schemas.Unset |  | [optional]
 
 ##### methods
 Method | Input Type | Return Type | Notes
 ------ | ---------- | ----------- | ------
 from_dict_ | [HeaderParametersDictInput](#headerparameters-headerparametersdictinput), [HeaderParametersDict](#headerparameters-headerparametersdict) | [HeaderParametersDict](#headerparameters-headerparametersdict) | a constructor
-&lowbar;&lowbar;getitem&lowbar;&lowbar; | str | schemas.immutabledict, str, float, int, bool, None, tuple, bytes, io.FileIO | This model has invalid python names so this method is used under the hood when you access instance["1"], instance["A-B"], 
+&lowbar;&lowbar;getitem&lowbar;&lowbar; | str | schemas.immutabledict, str, float, int, bool, None, tuple, bytes, io.FileIO | This model has invalid python names so this method is used under the hood when you access instance["1"], instance["A-B"], instance["self"], 
 ### path_params
 ### PathParameters
 ```
@@ -177,20 +173,18 @@ Keyword Argument | Type | Description | Notes
 ---------------- | ---- | ----------- | -----
 **Ab** | str |  |
 **aB** | str |  |
-**self** | str |  |
 
 ##### properties
 Property | Type | Description | Notes
 -------- | ---- | ----------- | -----
 **Ab** | str |  |
 **aB** | str |  |
-**self** | str |  |
 
 ##### methods
 Method | Input Type | Return Type | Notes
 ------ | ---------- | ----------- | ------
 from_dict_ | [PathParametersDictInput](#pathparameters-pathparametersdictinput), [PathParametersDict](#pathparameters-pathparametersdict) | [PathParametersDict](#pathparameters-pathparametersdict) | a constructor
-&lowbar;&lowbar;getitem&lowbar;&lowbar; | str | schemas.immutabledict, str, float, int, bool, None, tuple, bytes, io.FileIO | This model has invalid python names so this method is used under the hood when you access instance["1"], instance["A-B"], 
+&lowbar;&lowbar;getitem&lowbar;&lowbar; | str | schemas.immutabledict, str, float, int, bool, None, tuple, bytes, io.FileIO | This model has invalid python names so this method is used under the hood when you access instance["1"], instance["A-B"], instance["self"], 
 ### cookie_params
 ### CookieParameters
 ```
@@ -224,20 +218,18 @@ Keyword Argument | Type | Description | Notes
 ---------------- | ---- | ----------- | -----
 **aB** | str, schemas.Unset |  | [optional]
 **Ab** | str, schemas.Unset |  | [optional]
-**self** | str, schemas.Unset |  | [optional]
 
 ##### properties
 Property | Type | Description | Notes
 -------- | ---- | ----------- | -----
 **aB** | str, schemas.Unset |  | [optional]
 **Ab** | str, schemas.Unset |  | [optional]
-**self** | str, schemas.Unset |  | [optional]
 
 ##### methods
 Method | Input Type | Return Type | Notes
 ------ | ---------- | ----------- | ------
 from_dict_ | [CookieParametersDictInput](#cookieparameters-cookieparametersdictinput), [CookieParametersDict](#cookieparameters-cookieparametersdict) | [CookieParametersDict](#cookieparameters-cookieparametersdict) | a constructor
-&lowbar;&lowbar;getitem&lowbar;&lowbar; | str | schemas.immutabledict, str, float, int, bool, None, tuple, bytes, io.FileIO | This model has invalid python names so this method is used under the hood when you access instance["1"], instance["A-B"], 
+&lowbar;&lowbar;getitem&lowbar;&lowbar; | str | schemas.immutabledict, str, float, int, bool, None, tuple, bytes, io.FileIO | This model has invalid python names so this method is used under the hood when you access instance["1"], instance["A-B"], instance["self"], 
 
 ## Return Types
 

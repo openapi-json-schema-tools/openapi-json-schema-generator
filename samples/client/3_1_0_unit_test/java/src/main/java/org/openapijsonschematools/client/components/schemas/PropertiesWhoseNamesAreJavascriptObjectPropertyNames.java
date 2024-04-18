@@ -69,7 +69,7 @@ public class PropertiesWhoseNamesAreJavascriptObjectPropertyNames {
             "length"
         );
         public static ToStringMap of(Map<String, ? extends @Nullable Object> arg, SchemaConfiguration configuration) throws ValidationException {
-            return ToString.getInstance().validate(arg, configuration);
+            return ToStringSchema.getInstance().validate(arg, configuration);
         }
         
         public String length() throws UnsetPropertyException {
@@ -126,46 +126,46 @@ public class PropertiesWhoseNamesAreJavascriptObjectPropertyNames {
     }
     
     
-    public sealed interface ToStringBoxed permits ToStringBoxedVoid, ToStringBoxedBoolean, ToStringBoxedNumber, ToStringBoxedString, ToStringBoxedList, ToStringBoxedMap {
+    public sealed interface ToStringSchemaBoxed permits ToStringSchemaBoxedVoid, ToStringSchemaBoxedBoolean, ToStringSchemaBoxedNumber, ToStringSchemaBoxedString, ToStringSchemaBoxedList, ToStringSchemaBoxedMap {
         @Nullable Object getData();
     }
     
-    public record ToStringBoxedVoid(Void data) implements ToStringBoxed {
+    public record ToStringSchemaBoxedVoid(Void data) implements ToStringSchemaBoxed {
         @Override
         public @Nullable Object getData() {
             return data;
         }
     }
     
-    public record ToStringBoxedBoolean(boolean data) implements ToStringBoxed {
+    public record ToStringSchemaBoxedBoolean(boolean data) implements ToStringSchemaBoxed {
         @Override
         public @Nullable Object getData() {
             return data;
         }
     }
     
-    public record ToStringBoxedNumber(Number data) implements ToStringBoxed {
+    public record ToStringSchemaBoxedNumber(Number data) implements ToStringSchemaBoxed {
         @Override
         public @Nullable Object getData() {
             return data;
         }
     }
     
-    public record ToStringBoxedString(String data) implements ToStringBoxed {
+    public record ToStringSchemaBoxedString(String data) implements ToStringSchemaBoxed {
         @Override
         public @Nullable Object getData() {
             return data;
         }
     }
     
-    public record ToStringBoxedList(FrozenList<@Nullable Object> data) implements ToStringBoxed {
+    public record ToStringSchemaBoxedList(FrozenList<@Nullable Object> data) implements ToStringSchemaBoxed {
         @Override
         public @Nullable Object getData() {
             return data;
         }
     }
     
-    public record ToStringBoxedMap(ToStringMap data) implements ToStringBoxed {
+    public record ToStringSchemaBoxedMap(ToStringMap data) implements ToStringSchemaBoxed {
         @Override
         public @Nullable Object getData() {
             return data;
@@ -173,10 +173,10 @@ public class PropertiesWhoseNamesAreJavascriptObjectPropertyNames {
     }
     
     
-    public static class ToString extends JsonSchema<ToStringBoxed> implements NullSchemaValidator<ToStringBoxedVoid>, BooleanSchemaValidator<ToStringBoxedBoolean>, NumberSchemaValidator<ToStringBoxedNumber>, StringSchemaValidator<ToStringBoxedString>, ListSchemaValidator<FrozenList<@Nullable Object>, ToStringBoxedList>, MapSchemaValidator<ToStringMap, ToStringBoxedMap> {
-        private static @Nullable ToString instance = null;
+    public static class ToStringSchema extends JsonSchema<ToStringSchemaBoxed> implements NullSchemaValidator<ToStringSchemaBoxedVoid>, BooleanSchemaValidator<ToStringSchemaBoxedBoolean>, NumberSchemaValidator<ToStringSchemaBoxedNumber>, StringSchemaValidator<ToStringSchemaBoxedString>, ListSchemaValidator<FrozenList<@Nullable Object>, ToStringSchemaBoxedList>, MapSchemaValidator<ToStringMap, ToStringSchemaBoxedMap> {
+        private static @Nullable ToStringSchema instance = null;
     
-        protected ToString() {
+        protected ToStringSchema() {
             super(new JsonSchemaInfo()
                 .properties(Map.ofEntries(
                     new PropertyEntry("length", Length.class)
@@ -184,9 +184,9 @@ public class PropertiesWhoseNamesAreJavascriptObjectPropertyNames {
             );
         }
     
-        public static ToString getInstance() {
+        public static ToStringSchema getInstance() {
             if (instance == null) {
-                instance = new ToString();
+                instance = new ToStringSchema();
             }
             return instance;
         }
@@ -369,31 +369,31 @@ public class PropertiesWhoseNamesAreJavascriptObjectPropertyNames {
             throw new RuntimeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
         @Override
-        public ToStringBoxedVoid validateAndBox(Void arg, SchemaConfiguration configuration) throws ValidationException {
-            return new ToStringBoxedVoid(validate(arg, configuration));
+        public ToStringSchemaBoxedVoid validateAndBox(Void arg, SchemaConfiguration configuration) throws ValidationException {
+            return new ToStringSchemaBoxedVoid(validate(arg, configuration));
         }
         @Override
-        public ToStringBoxedBoolean validateAndBox(boolean arg, SchemaConfiguration configuration) throws ValidationException {
-            return new ToStringBoxedBoolean(validate(arg, configuration));
+        public ToStringSchemaBoxedBoolean validateAndBox(boolean arg, SchemaConfiguration configuration) throws ValidationException {
+            return new ToStringSchemaBoxedBoolean(validate(arg, configuration));
         }
         @Override
-        public ToStringBoxedNumber validateAndBox(Number arg, SchemaConfiguration configuration) throws ValidationException {
-            return new ToStringBoxedNumber(validate(arg, configuration));
+        public ToStringSchemaBoxedNumber validateAndBox(Number arg, SchemaConfiguration configuration) throws ValidationException {
+            return new ToStringSchemaBoxedNumber(validate(arg, configuration));
         }
         @Override
-        public ToStringBoxedString validateAndBox(String arg, SchemaConfiguration configuration) throws ValidationException {
-            return new ToStringBoxedString(validate(arg, configuration));
+        public ToStringSchemaBoxedString validateAndBox(String arg, SchemaConfiguration configuration) throws ValidationException {
+            return new ToStringSchemaBoxedString(validate(arg, configuration));
         }
         @Override
-        public ToStringBoxedList validateAndBox(List<?> arg, SchemaConfiguration configuration) throws ValidationException {
-            return new ToStringBoxedList(validate(arg, configuration));
+        public ToStringSchemaBoxedList validateAndBox(List<?> arg, SchemaConfiguration configuration) throws ValidationException {
+            return new ToStringSchemaBoxedList(validate(arg, configuration));
         }
         @Override
-        public ToStringBoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException {
-            return new ToStringBoxedMap(validate(arg, configuration));
+        public ToStringSchemaBoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException {
+            return new ToStringSchemaBoxedMap(validate(arg, configuration));
         }
         @Override
-        public ToStringBoxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException {
+        public ToStringSchemaBoxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException {
             if (arg == null) {
                 Void castArg = (Void) arg;
                 return validateAndBox(castArg, configuration);
@@ -436,16 +436,6 @@ public class PropertiesWhoseNamesAreJavascriptObjectPropertyNames {
         );
         public static PropertiesWhoseNamesAreJavascriptObjectPropertyNamesMap of(Map<String, ? extends @Nullable Object> arg, SchemaConfiguration configuration) throws ValidationException {
             return PropertiesWhoseNamesAreJavascriptObjectPropertyNames1.getInstance().validate(arg, configuration);
-        }
-        
-        public @Nullable Object toString() throws UnsetPropertyException {
-            String key = "toString";
-            throwIfKeyNotPresent(key);
-            @Nullable Object value = get(key);
-            if (!(value instanceof Object)) {
-                throw new RuntimeException("Invalid value stored for toString");
-            }
-            return (@Nullable Object) value;
         }
         
         public Number constructor() throws UnsetPropertyException {
@@ -494,62 +484,62 @@ public class PropertiesWhoseNamesAreJavascriptObjectPropertyNames {
         }
     }
     
-    public interface SetterForToString <T> {
+    public interface SetterForToStringSchema <T> {
         Map<String, @Nullable Object> getInstance();
-        T getBuilderAfterToString(Map<String, @Nullable Object> instance);
+        T getBuilderAfterToStringSchema(Map<String, @Nullable Object> instance);
         
         default T toString(Void value) {
             var instance = getInstance();
             instance.put("toString", null);
-            return getBuilderAfterToString(instance);
+            return getBuilderAfterToStringSchema(instance);
         }
         
         default T toString(boolean value) {
             var instance = getInstance();
             instance.put("toString", value);
-            return getBuilderAfterToString(instance);
+            return getBuilderAfterToStringSchema(instance);
         }
         
         default T toString(String value) {
             var instance = getInstance();
             instance.put("toString", value);
-            return getBuilderAfterToString(instance);
+            return getBuilderAfterToStringSchema(instance);
         }
         
         default T toString(int value) {
             var instance = getInstance();
             instance.put("toString", value);
-            return getBuilderAfterToString(instance);
+            return getBuilderAfterToStringSchema(instance);
         }
         
         default T toString(float value) {
             var instance = getInstance();
             instance.put("toString", value);
-            return getBuilderAfterToString(instance);
+            return getBuilderAfterToStringSchema(instance);
         }
         
         default T toString(long value) {
             var instance = getInstance();
             instance.put("toString", value);
-            return getBuilderAfterToString(instance);
+            return getBuilderAfterToStringSchema(instance);
         }
         
         default T toString(double value) {
             var instance = getInstance();
             instance.put("toString", value);
-            return getBuilderAfterToString(instance);
+            return getBuilderAfterToStringSchema(instance);
         }
         
         default T toString(List<?> value) {
             var instance = getInstance();
             instance.put("toString", value);
-            return getBuilderAfterToString(instance);
+            return getBuilderAfterToStringSchema(instance);
         }
         
         default T toString(Map<String, ?> value) {
             var instance = getInstance();
             instance.put("toString", value);
-            return getBuilderAfterToString(instance);
+            return getBuilderAfterToStringSchema(instance);
         }
     }
     
@@ -582,7 +572,7 @@ public class PropertiesWhoseNamesAreJavascriptObjectPropertyNames {
         }
     }
     
-    public static class PropertiesWhoseNamesAreJavascriptObjectPropertyNamesMapBuilder extends UnsetAddPropsSetter<PropertiesWhoseNamesAreJavascriptObjectPropertyNamesMapBuilder> implements GenericBuilder<Map<String, @Nullable Object>>, SetterForProto<PropertiesWhoseNamesAreJavascriptObjectPropertyNamesMapBuilder>, SetterForToString<PropertiesWhoseNamesAreJavascriptObjectPropertyNamesMapBuilder>, SetterForConstructor<PropertiesWhoseNamesAreJavascriptObjectPropertyNamesMapBuilder> {
+    public static class PropertiesWhoseNamesAreJavascriptObjectPropertyNamesMapBuilder extends UnsetAddPropsSetter<PropertiesWhoseNamesAreJavascriptObjectPropertyNamesMapBuilder> implements GenericBuilder<Map<String, @Nullable Object>>, SetterForProto<PropertiesWhoseNamesAreJavascriptObjectPropertyNamesMapBuilder>, SetterForToStringSchema<PropertiesWhoseNamesAreJavascriptObjectPropertyNamesMapBuilder>, SetterForConstructor<PropertiesWhoseNamesAreJavascriptObjectPropertyNamesMapBuilder> {
         private final Map<String, @Nullable Object> instance;
         private static final Set<String> knownKeys = Set.of(
             "__proto__",
@@ -604,7 +594,7 @@ public class PropertiesWhoseNamesAreJavascriptObjectPropertyNames {
         public PropertiesWhoseNamesAreJavascriptObjectPropertyNamesMapBuilder getBuilderAfterProto(Map<String, @Nullable Object> instance) {
             return this;
         }
-        public PropertiesWhoseNamesAreJavascriptObjectPropertyNamesMapBuilder getBuilderAfterToString(Map<String, @Nullable Object> instance) {
+        public PropertiesWhoseNamesAreJavascriptObjectPropertyNamesMapBuilder getBuilderAfterToStringSchema(Map<String, @Nullable Object> instance) {
             return this;
         }
         public PropertiesWhoseNamesAreJavascriptObjectPropertyNamesMapBuilder getBuilderAfterConstructor(Map<String, @Nullable Object> instance) {
@@ -676,7 +666,7 @@ public class PropertiesWhoseNamesAreJavascriptObjectPropertyNames {
             super(new JsonSchemaInfo()
                 .properties(Map.ofEntries(
                     new PropertyEntry("__proto__", Proto.class),
-                    new PropertyEntry("toString", ToString.class),
+                    new PropertyEntry("toString", ToStringSchema.class),
                     new PropertyEntry("constructor", Constructor.class)
                 ))
             );

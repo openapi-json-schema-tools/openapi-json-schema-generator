@@ -12,7 +12,7 @@ A class that contains necessary endpoint classes
 | Modifier and Type | Class and Description |
 | ----------------- | --------------------- |
 | static class | [Post](#post)<br>The class that has a post method to call the endpoint |
-| interface | [BooleanOperation](#booleanoperation)<br>The interface that has a boolean method to call the endpoint |
+| interface | [ModelBooleanOperation](#modelbooleanoperation)<br>The interface that has a modelBoolean method to call the endpoint |
 | static class | [PostRequest](#postrequest)<br>The request inputs class |
 | static class | [PostRequestBuilder](#postrequestbuilder)<br>A builder for the request input class |
 
@@ -33,7 +33,7 @@ import org.openapijsonschematools.client.schemas.validation.MapUtils;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.paths.fakerefsboolean.post.FakerefsbooleanPostRequestBody;
-import org.openapijsonschematools.client.components.schemas.Boolean;
+import org.openapijsonschematools.client.components.schemas.BooleanSchema;
 import org.openapijsonschematools.client.RootServerInfo;
 import org.openapijsonschematools.client.servers.RootServer0;
 import org.openapijsonschematools.client.servers.RootServer1;
@@ -105,15 +105,15 @@ FakerefsbooleanPostCode200Response.ApplicationjsonResponseBody deserializedBody 
 | ----------------- | ---------------------- |
 | [FakerefsbooleanPostResponses.EndpointResponse](../../paths/fakerefsboolean/post/FakerefsbooleanPostResponses.md#endpointresponse) | post([PostRequest](#postrequest) request) |
 
-## BooleanOperation
-public interface BooleanOperation<br>
+## ModelBooleanOperation
+public interface ModelBooleanOperation<br>
 
-an interface that allows one to call the endpoint using a method named boolean by the operationId
+an interface that allows one to call the endpoint using a method named modelBoolean by the operationId
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [FakerefsbooleanPostResponses.EndpointResponse](../../paths/fakerefsboolean/post/FakerefsbooleanPostResponses.md#endpointresponse) | boolean([PostRequest](#postrequest) request) |
+| [FakerefsbooleanPostResponses.EndpointResponse](../../paths/fakerefsboolean/post/FakerefsbooleanPostResponses.md#endpointresponse) | modelBoolean([PostRequest](#postrequest) request) |
 
 ## PostRequest
 public static class PostRequest<br>

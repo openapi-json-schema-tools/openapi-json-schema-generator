@@ -4,7 +4,7 @@ unit_test_api.paths.request_body_post_not_request_body.operation
 | Method Name | Api Class | Notes |
 | ----------- | --------- | ----- |
 | post_not_request_body | [OperationRequestBodyApi](../../apis/tags/operation_request_body_api.md) | This api is only for tag=operation.requestBody |
-| post_not_request_body | [NotApi](../../apis/tags/not_api.md) | This api is only for tag=not |
+| post_not_request_body | [_NotApi](../../apis/tags/_not_api.md) | This api is only for tag=not |
 | post_not_request_body | [PathPostApi](../../apis/tags/path_post_api.md) | This api is only for tag=path.post |
 | post_not_request_body | [ContentTypeJsonApi](../../apis/tags/content_type_json_api.md) | This api is only for tag=contentType_json |
 | post | ApiForPost | This api is only for this endpoint |
@@ -49,7 +49,7 @@ type: schemas.Schema
 ##### Ref Schema Info
 Ref Schema | Input Type | Output Type
 ---------- | ---------- | -----------
-[**not.Not**](../../components/schema/not.md) | dict, schemas.immutabledict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader | schemas.immutabledict, str, float, int, bool, None, tuple, bytes, io.FileIO
+[**_not._Not**](../../components/schema/_not.md) | dict, schemas.immutabledict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader | schemas.immutabledict, str, float, int, bool, None, tuple, bytes, io.FileIO
 
 ## Return Types
 
@@ -97,7 +97,7 @@ with unit_test_api.ApiClient(used_configuration) as api_client:
     api_instance = operation_request_body_api.OperationRequestBodyApi(api_client)
 
     # example passing only required values which don't have defaults set
-    body = not.Not.validate(None)
+    body = _not._Not.validate(None)
     try:
         api_response = api_instance.post_not_request_body(
             body=body,
@@ -109,7 +109,7 @@ with unit_test_api.ApiClient(used_configuration) as api_client:
 
 [[Back to top]](#top)
 [[Back to OperationRequestBodyApi API]](../../apis/tags/operation_request_body_api.md)
-[[Back to NotApi API]](../../apis/tags/not_api.md)
+[[Back to _NotApi API]](../../apis/tags/_not_api.md)
 [[Back to PathPostApi API]](../../apis/tags/path_post_api.md)
 [[Back to ContentTypeJsonApi API]](../../apis/tags/content_type_json_api.md)
 [[Back to Endpoints]](../../../README.md#Endpoints) [[Back to README]](../../../README.md)

@@ -25,14 +25,14 @@ A class that contains necessary nested
 | sealed interface | [PropertiesWhoseNamesAreJavascriptObjectPropertyNames.ConstructorBoxed](#constructorboxed)<br> sealed interface for validated payloads |
 | record | [PropertiesWhoseNamesAreJavascriptObjectPropertyNames.ConstructorBoxedNumber](#constructorboxednumber)<br> boxed class to store validated Number payloads |
 | static class | [PropertiesWhoseNamesAreJavascriptObjectPropertyNames.Constructor](#constructor)<br> schema class |
-| sealed interface | [PropertiesWhoseNamesAreJavascriptObjectPropertyNames.ToStringBoxed](#tostringboxed)<br> sealed interface for validated payloads |
-| record | [PropertiesWhoseNamesAreJavascriptObjectPropertyNames.ToStringBoxedVoid](#tostringboxedvoid)<br> boxed class to store validated null payloads |
-| record | [PropertiesWhoseNamesAreJavascriptObjectPropertyNames.ToStringBoxedBoolean](#tostringboxedboolean)<br> boxed class to store validated boolean payloads |
-| record | [PropertiesWhoseNamesAreJavascriptObjectPropertyNames.ToStringBoxedNumber](#tostringboxednumber)<br> boxed class to store validated Number payloads |
-| record | [PropertiesWhoseNamesAreJavascriptObjectPropertyNames.ToStringBoxedString](#tostringboxedstring)<br> boxed class to store validated String payloads |
-| record | [PropertiesWhoseNamesAreJavascriptObjectPropertyNames.ToStringBoxedList](#tostringboxedlist)<br> boxed class to store validated List payloads |
-| record | [PropertiesWhoseNamesAreJavascriptObjectPropertyNames.ToStringBoxedMap](#tostringboxedmap)<br> boxed class to store validated Map payloads |
-| static class | [PropertiesWhoseNamesAreJavascriptObjectPropertyNames.ToString](#tostring)<br> schema class |
+| sealed interface | [PropertiesWhoseNamesAreJavascriptObjectPropertyNames.ToStringSchemaBoxed](#tostringschemaboxed)<br> sealed interface for validated payloads |
+| record | [PropertiesWhoseNamesAreJavascriptObjectPropertyNames.ToStringSchemaBoxedVoid](#tostringschemaboxedvoid)<br> boxed class to store validated null payloads |
+| record | [PropertiesWhoseNamesAreJavascriptObjectPropertyNames.ToStringSchemaBoxedBoolean](#tostringschemaboxedboolean)<br> boxed class to store validated boolean payloads |
+| record | [PropertiesWhoseNamesAreJavascriptObjectPropertyNames.ToStringSchemaBoxedNumber](#tostringschemaboxednumber)<br> boxed class to store validated Number payloads |
+| record | [PropertiesWhoseNamesAreJavascriptObjectPropertyNames.ToStringSchemaBoxedString](#tostringschemaboxedstring)<br> boxed class to store validated String payloads |
+| record | [PropertiesWhoseNamesAreJavascriptObjectPropertyNames.ToStringSchemaBoxedList](#tostringschemaboxedlist)<br> boxed class to store validated List payloads |
+| record | [PropertiesWhoseNamesAreJavascriptObjectPropertyNames.ToStringSchemaBoxedMap](#tostringschemaboxedmap)<br> boxed class to store validated Map payloads |
+| static class | [PropertiesWhoseNamesAreJavascriptObjectPropertyNames.ToStringSchema](#tostringschema)<br> schema class |
 | static class | [PropertiesWhoseNamesAreJavascriptObjectPropertyNames.ToStringMapBuilder](#tostringmapbuilder)<br> builder for Map payloads |
 | static class | [PropertiesWhoseNamesAreJavascriptObjectPropertyNames.ToStringMap](#tostringmap)<br> output class for Map payloads |
 | sealed interface | [PropertiesWhoseNamesAreJavascriptObjectPropertyNames.LengthBoxed](#lengthboxed)<br> sealed interface for validated payloads |
@@ -165,7 +165,7 @@ A schema class that validates payloads
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |
-| Map<String, Class<? extends JsonSchema>> | properties = Map.ofEntries(<br>&nbsp;&nbsp;&nbsp;&nbsp;new PropertyEntry("__proto__", [Proto.class](#proto))),<br>&nbsp;&nbsp;&nbsp;&nbsp;new PropertyEntry("toString", [ToString.class](#tostring))),<br>&nbsp;&nbsp;&nbsp;&nbsp;new PropertyEntry("constructor", [Constructor.class](#constructor)))<br>)<br> |
+| Map<String, Class<? extends JsonSchema>> | properties = Map.ofEntries(<br>&nbsp;&nbsp;&nbsp;&nbsp;new PropertyEntry("__proto__", [Proto.class](#proto))),<br>&nbsp;&nbsp;&nbsp;&nbsp;new PropertyEntry("toString", [ToStringSchema.class](#tostringschema))),<br>&nbsp;&nbsp;&nbsp;&nbsp;new PropertyEntry("constructor", [Constructor.class](#constructor)))<br>)<br> |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
@@ -241,9 +241,8 @@ A class to store validated Map payloads
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | static [PropertiesWhoseNamesAreJavascriptObjectPropertyNamesMap](#propertieswhosenamesarejavascriptobjectpropertynamesmap) | of([Map<String, ? extends @Nullable Object>](#propertieswhosenamesarejavascriptobjectpropertynamesmapbuilder) arg, SchemaConfiguration configuration) |
-| @Nullable Object | toString()<br>[optional] |
 | Number | constructor()<br>[optional] |
-| @Nullable Object | get(String key)<br>This schema has invalid Java names so this method must be used when you access instance["__proto__"],  |
+| @Nullable Object | get(String key)<br>This schema has invalid Java names so this method must be used when you access instance["__proto__"], instance["toString"],  |
 | @Nullable Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
 ## ConstructorBoxed
@@ -281,28 +280,28 @@ A schema class that validates payloads
 | validate                                                           |
 | validateAndBox                                                     |
 
-## ToStringBoxed
-public sealed interface ToStringBoxed<br>
+## ToStringSchemaBoxed
+public sealed interface ToStringSchemaBoxed<br>
 permits<br>
-[ToStringBoxedVoid](#tostringboxedvoid),
-[ToStringBoxedBoolean](#tostringboxedboolean),
-[ToStringBoxedNumber](#tostringboxednumber),
-[ToStringBoxedString](#tostringboxedstring),
-[ToStringBoxedList](#tostringboxedlist),
-[ToStringBoxedMap](#tostringboxedmap)
+[ToStringSchemaBoxedVoid](#tostringschemaboxedvoid),
+[ToStringSchemaBoxedBoolean](#tostringschemaboxedboolean),
+[ToStringSchemaBoxedNumber](#tostringschemaboxednumber),
+[ToStringSchemaBoxedString](#tostringschemaboxedstring),
+[ToStringSchemaBoxedList](#tostringschemaboxedlist),
+[ToStringSchemaBoxedMap](#tostringschemaboxedmap)
 
 sealed interface that stores validated payloads using boxed classes
 
-## ToStringBoxedVoid
-public record ToStringBoxedVoid<br>
-implements [ToStringBoxed](#tostringboxed)
+## ToStringSchemaBoxedVoid
+public record ToStringSchemaBoxedVoid<br>
+implements [ToStringSchemaBoxed](#tostringschemaboxed)
 
 record that stores validated null payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| ToStringBoxedVoid(Void data)<br>Creates an instance, private visibility |
+| ToStringSchemaBoxedVoid(Void data)<br>Creates an instance, private visibility |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
@@ -310,16 +309,16 @@ record that stores validated null payloads, sealed permits implementation
 | Void | data()<br>validated payload |
 | @Nullable Object | getData()<br>validated payload |
 
-## ToStringBoxedBoolean
-public record ToStringBoxedBoolean<br>
-implements [ToStringBoxed](#tostringboxed)
+## ToStringSchemaBoxedBoolean
+public record ToStringSchemaBoxedBoolean<br>
+implements [ToStringSchemaBoxed](#tostringschemaboxed)
 
 record that stores validated boolean payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| ToStringBoxedBoolean(boolean data)<br>Creates an instance, private visibility |
+| ToStringSchemaBoxedBoolean(boolean data)<br>Creates an instance, private visibility |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
@@ -327,16 +326,16 @@ record that stores validated boolean payloads, sealed permits implementation
 | boolean | data()<br>validated payload |
 | @Nullable Object | getData()<br>validated payload |
 
-## ToStringBoxedNumber
-public record ToStringBoxedNumber<br>
-implements [ToStringBoxed](#tostringboxed)
+## ToStringSchemaBoxedNumber
+public record ToStringSchemaBoxedNumber<br>
+implements [ToStringSchemaBoxed](#tostringschemaboxed)
 
 record that stores validated Number payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| ToStringBoxedNumber(Number data)<br>Creates an instance, private visibility |
+| ToStringSchemaBoxedNumber(Number data)<br>Creates an instance, private visibility |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
@@ -344,16 +343,16 @@ record that stores validated Number payloads, sealed permits implementation
 | Number | data()<br>validated payload |
 | @Nullable Object | getData()<br>validated payload |
 
-## ToStringBoxedString
-public record ToStringBoxedString<br>
-implements [ToStringBoxed](#tostringboxed)
+## ToStringSchemaBoxedString
+public record ToStringSchemaBoxedString<br>
+implements [ToStringSchemaBoxed](#tostringschemaboxed)
 
 record that stores validated String payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| ToStringBoxedString(String data)<br>Creates an instance, private visibility |
+| ToStringSchemaBoxedString(String data)<br>Creates an instance, private visibility |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
@@ -361,16 +360,16 @@ record that stores validated String payloads, sealed permits implementation
 | String | data()<br>validated payload |
 | @Nullable Object | getData()<br>validated payload |
 
-## ToStringBoxedList
-public record ToStringBoxedList<br>
-implements [ToStringBoxed](#tostringboxed)
+## ToStringSchemaBoxedList
+public record ToStringSchemaBoxedList<br>
+implements [ToStringSchemaBoxed](#tostringschemaboxed)
 
 record that stores validated List payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| ToStringBoxedList(FrozenList<@Nullable Object> data)<br>Creates an instance, private visibility |
+| ToStringSchemaBoxedList(FrozenList<@Nullable Object> data)<br>Creates an instance, private visibility |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
@@ -378,16 +377,16 @@ record that stores validated List payloads, sealed permits implementation
 | FrozenList<@Nullable Object> | data()<br>validated payload |
 | @Nullable Object | getData()<br>validated payload |
 
-## ToStringBoxedMap
-public record ToStringBoxedMap<br>
-implements [ToStringBoxed](#tostringboxed)
+## ToStringSchemaBoxedMap
+public record ToStringSchemaBoxedMap<br>
+implements [ToStringSchemaBoxed](#tostringschemaboxed)
 
 record that stores validated Map payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| ToStringBoxedMap([ToStringMap](#tostringmap) data)<br>Creates an instance, private visibility |
+| ToStringSchemaBoxedMap([ToStringMap](#tostringmap) data)<br>Creates an instance, private visibility |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
@@ -395,8 +394,8 @@ record that stores validated Map payloads, sealed permits implementation
 | [ToStringMap](#tostringmap) | data()<br>validated payload |
 | @Nullable Object | getData()<br>validated payload |
 
-## ToString
-public static class ToString<br>
+## ToStringSchema
+public static class ToStringSchema<br>
 extends JsonSchema
 
 A schema class that validates payloads
@@ -419,13 +418,13 @@ A schema class that validates payloads
 | boolean | validate(boolean arg, SchemaConfiguration configuration) |
 | [ToStringMap](#tostringmap) | validate([Map&lt;?, ?&gt;](#tostringmapbuilder) arg, SchemaConfiguration configuration) |
 | FrozenList<@Nullable Object> | validate(List<?> arg, SchemaConfiguration configuration) |
-| [ToStringBoxedString](#tostringboxedstring) | validateAndBox(String arg, SchemaConfiguration configuration) |
-| [ToStringBoxedVoid](#tostringboxedvoid) | validateAndBox(Void arg, SchemaConfiguration configuration) |
-| [ToStringBoxedNumber](#tostringboxednumber) | validateAndBox(Number arg, SchemaConfiguration configuration) |
-| [ToStringBoxedBoolean](#tostringboxedboolean) | validateAndBox(boolean arg, SchemaConfiguration configuration) |
-| [ToStringBoxedMap](#tostringboxedmap) | validateAndBox([Map&lt;?, ?&gt;](#tostringmapbuilder) arg, SchemaConfiguration configuration) |
-| [ToStringBoxedList](#tostringboxedlist) | validateAndBox(List<?> arg, SchemaConfiguration configuration) |
-| [ToStringBoxed](#tostringboxed) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
+| [ToStringSchemaBoxedString](#tostringschemaboxedstring) | validateAndBox(String arg, SchemaConfiguration configuration) |
+| [ToStringSchemaBoxedVoid](#tostringschemaboxedvoid) | validateAndBox(Void arg, SchemaConfiguration configuration) |
+| [ToStringSchemaBoxedNumber](#tostringschemaboxednumber) | validateAndBox(Number arg, SchemaConfiguration configuration) |
+| [ToStringSchemaBoxedBoolean](#tostringschemaboxedboolean) | validateAndBox(boolean arg, SchemaConfiguration configuration) |
+| [ToStringSchemaBoxedMap](#tostringschemaboxedmap) | validateAndBox([Map&lt;?, ?&gt;](#tostringmapbuilder) arg, SchemaConfiguration configuration) |
+| [ToStringSchemaBoxedList](#tostringschemaboxedlist) | validateAndBox(List<?> arg, SchemaConfiguration configuration) |
+| [ToStringSchemaBoxed](#tostringschemaboxed) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 
 ## ToStringMapBuilder

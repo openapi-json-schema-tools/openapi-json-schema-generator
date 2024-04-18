@@ -49,11 +49,11 @@ public class Schema200Response {
     }
     
     
-    public static class Class extends StringJsonSchema.StringJsonSchema1 {
-        private static @Nullable Class instance = null;
-        public static Class getInstance() {
+    public static class ClassSchema extends StringJsonSchema.StringJsonSchema1 {
+        private static @Nullable ClassSchema instance = null;
+        public static ClassSchema getInstance() {
             if (instance == null) {
-                instance = new Class();
+                instance = new ClassSchema();
             }
             return instance;
         }
@@ -83,16 +83,6 @@ public class Schema200Response {
             return (Number) value;
         }
         
-        public String class() throws UnsetPropertyException {
-            String key = "class";
-            throwIfKeyNotPresent(key);
-            @Nullable Object value = get(key);
-            if (!(value instanceof String)) {
-                throw new RuntimeException("Invalid value stored for class");
-            }
-            return (String) value;
-        }
-        
         public @Nullable Object getAdditionalProperty(String name) throws UnsetPropertyException, InvalidAdditionalPropertyException {
             throwIfKeyKnown(name, requiredKeys, optionalKeys);
             throwIfKeyNotPresent(name);
@@ -117,18 +107,18 @@ public class Schema200Response {
         }
     }
     
-    public interface SetterForClass <T> {
+    public interface SetterForClassSchema <T> {
         Map<String, @Nullable Object> getInstance();
-        T getBuilderAfterClass(Map<String, @Nullable Object> instance);
+        T getBuilderAfterClassSchema(Map<String, @Nullable Object> instance);
         
-        default T class(String value) {
+        default T setClass(String value) {
             var instance = getInstance();
             instance.put("class", value);
-            return getBuilderAfterClass(instance);
+            return getBuilderAfterClassSchema(instance);
         }
     }
     
-    public static class Schema200ResponseMapBuilder extends UnsetAddPropsSetter<Schema200ResponseMapBuilder> implements GenericBuilder<Map<String, @Nullable Object>>, SetterForName<Schema200ResponseMapBuilder>, SetterForClass<Schema200ResponseMapBuilder> {
+    public static class Schema200ResponseMapBuilder extends UnsetAddPropsSetter<Schema200ResponseMapBuilder> implements GenericBuilder<Map<String, @Nullable Object>>, SetterForName<Schema200ResponseMapBuilder>, SetterForClassSchema<Schema200ResponseMapBuilder> {
         private final Map<String, @Nullable Object> instance;
         private static final Set<String> knownKeys = Set.of(
             "name",
@@ -149,7 +139,7 @@ public class Schema200Response {
         public Schema200ResponseMapBuilder getBuilderAfterName(Map<String, @Nullable Object> instance) {
             return this;
         }
-        public Schema200ResponseMapBuilder getBuilderAfterClass(Map<String, @Nullable Object> instance) {
+        public Schema200ResponseMapBuilder getBuilderAfterClassSchema(Map<String, @Nullable Object> instance) {
             return this;
         }
         public Schema200ResponseMapBuilder getBuilderAfterAdditionalProperty(Map<String, @Nullable Object> instance) {
@@ -220,7 +210,7 @@ public class Schema200Response {
             super(new JsonSchemaInfo()
                 .properties(Map.ofEntries(
                     new PropertyEntry("name", Name.class),
-                    new PropertyEntry("class", Class.class)
+                    new PropertyEntry("class", ClassSchema.class)
                 ))
             );
         }

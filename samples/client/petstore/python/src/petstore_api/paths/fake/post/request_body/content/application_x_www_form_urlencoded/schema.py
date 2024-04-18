@@ -50,7 +50,7 @@ class Number(
 
 
 @dataclasses.dataclass(frozen=True)
-class Float(
+class _Float(
     schemas.Float32Schema
 ):
     types: typing.FrozenSet[typing.Type] = frozenset({
@@ -103,7 +103,7 @@ Date: typing_extensions.TypeAlias = schemas.DateSchema
 
 
 @dataclasses.dataclass(frozen=True)
-class DateTime(
+class _DateTime(
     schemas.DateTimeSchema
 ):
     types: typing.FrozenSet[typing.Type] = frozenset({
@@ -131,14 +131,14 @@ Properties = typing.TypedDict(
         "int32": typing.Type[Int32],
         "int64": typing.Type[Int64],
         "number": typing.Type[Number],
-        "float": typing.Type[Float],
+        "float": typing.Type[_Float],
         "double": typing.Type[Double],
         "string": typing.Type[String],
         "pattern_without_delimiter": typing.Type[PatternWithoutDelimiter],
         "byte": typing.Type[Byte],
         "binary": typing.Type[Binary],
         "date": typing.Type[Date],
-        "dateTime": typing.Type[DateTime],
+        "dateTime": typing.Type[_DateTime],
         "password": typing.Type[Password],
         "callback": typing.Type[Callback],
     }
@@ -191,11 +191,6 @@ class SchemaDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
             int,
             schemas.Unset
         ] = schemas.unset,
-        float: typing.Union[
-            int,
-            float,
-            schemas.Unset
-        ] = schemas.unset,
         string: typing.Union[
             str,
             schemas.Unset
@@ -210,11 +205,6 @@ class SchemaDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         date: typing.Union[
             str,
             datetime.date,
-            schemas.Unset
-        ] = schemas.unset,
-        dateTime: typing.Union[
-            str,
-            datetime.datetime,
             schemas.Unset
         ] = schemas.unset,
         password: typing.Union[
@@ -238,11 +228,9 @@ class SchemaDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
             ("integer", integer),
             ("int32", int32),
             ("int64", int64),
-            ("float", float),
             ("string", string),
             ("binary", binary),
             ("date", date),
-            ("dateTime", dateTime),
             ("password", password),
             ("callback", callback),
         ):
@@ -322,16 +310,6 @@ class SchemaDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         )
     
     @property
-    def float(self) -> typing.Union[int, float, schemas.Unset]:
-        val = self.get("float", schemas.unset)
-        if isinstance(val, schemas.Unset):
-            return val
-        return typing.cast(
-            typing.Union[int, float],
-            val
-        )
-    
-    @property
     def string(self) -> typing.Union[str, schemas.Unset]:
         val = self.get("string", schemas.unset)
         if isinstance(val, schemas.Unset):
@@ -354,16 +332,6 @@ class SchemaDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
     @property
     def date(self) -> typing.Union[str, schemas.Unset]:
         val = self.get("date", schemas.unset)
-        if isinstance(val, schemas.Unset):
-            return val
-        return typing.cast(
-            str,
-            val
-        )
-    
-    @property
-    def dateTime(self) -> typing.Union[str, schemas.Unset]:
-        val = self.get("dateTime", schemas.unset)
         if isinstance(val, schemas.Unset):
             return val
         return typing.cast(

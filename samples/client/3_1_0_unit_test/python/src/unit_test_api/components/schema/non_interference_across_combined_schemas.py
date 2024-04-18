@@ -13,7 +13,7 @@ from unit_test_api.shared_imports.schema_imports import *  # pyright: ignore [re
 
 
 @dataclasses.dataclass(frozen=True)
-class If(
+class _If(
     schemas.AnyTypeSchema[schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES], typing.Tuple[schemas.OUTPUT_BASE_TYPES, ...]],
 ):
     # any type
@@ -26,7 +26,7 @@ class _0(
     schemas.AnyTypeSchema[schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES], typing.Tuple[schemas.OUTPUT_BASE_TYPES, ...]],
 ):
     # any type
-    if_: typing.Type[If] = dataclasses.field(default_factory=lambda: If) # type: ignore
+    if_: typing.Type[_If] = dataclasses.field(default_factory=lambda: _If) # type: ignore
 
 
 
@@ -49,7 +49,7 @@ class _1(
 
 
 @dataclasses.dataclass(frozen=True)
-class Else(
+class _Else(
     schemas.AnyTypeSchema[schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES], typing.Tuple[schemas.OUTPUT_BASE_TYPES, ...]],
 ):
     # any type
@@ -62,7 +62,7 @@ class _2(
     schemas.AnyTypeSchema[schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES], typing.Tuple[schemas.OUTPUT_BASE_TYPES, ...]],
 ):
     # any type
-    else_: typing.Type[Else] = dataclasses.field(default_factory=lambda: Else) # type: ignore
+    else_: typing.Type[_Else] = dataclasses.field(default_factory=lambda: _Else) # type: ignore
 
 AllOf = typing.Tuple[
     typing.Type[_0],

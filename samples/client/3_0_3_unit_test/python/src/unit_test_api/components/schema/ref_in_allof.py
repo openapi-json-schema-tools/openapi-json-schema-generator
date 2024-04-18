@@ -10,6 +10,8 @@
 from __future__ import annotations
 from unit_test_api.shared_imports.schema_imports import *  # pyright: ignore [reportWildcardImportFromLibrary]
 
+
+from unit_test_api.components.schema import property_named_ref_that_is_not_a_reference
 AllOf = typing.Tuple[
     typing.Type[property_named_ref_that_is_not_a_reference.PropertyNamedRefThatIsNotAReference],
 ]

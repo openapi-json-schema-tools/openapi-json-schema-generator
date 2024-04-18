@@ -24,3 +24,5 @@ class RefInNot(
     # any type
     not_: typing.Type[property_named_ref_that_is_not_a_reference.PropertyNamedRefThatIsNotAReference] = dataclasses.field(default_factory=lambda: property_named_ref_that_is_not_a_reference.PropertyNamedRefThatIsNotAReference) # type: ignore
 
+
+from unit_test_api.components.schema import property_named_ref_that_is_not_a_reference
