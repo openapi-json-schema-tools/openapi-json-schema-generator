@@ -1,5 +1,5 @@
 # MyObjectDto
-openapi_client.components.schema.my_object_dto
+petstore_api.components.schema.my_object_dto
 ```
 type: schemas.Schema
 ```

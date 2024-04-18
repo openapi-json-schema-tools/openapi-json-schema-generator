@@ -1,5 +1,5 @@
 # IsoscelesTriangle
-openapi_client.components.schema.isosceles_triangle
+petstore_api.components.schema.isosceles_triangle
 ```
 type: schemas.Schema
 ```

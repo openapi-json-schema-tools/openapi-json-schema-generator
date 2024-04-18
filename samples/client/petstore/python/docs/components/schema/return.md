@@ -1,5 +1,5 @@
 # Return
-openapi_client.components.schema.return
+petstore_api.components.schema.return
 ```
 type: schemas.Schema
 ```

@@ -1,5 +1,5 @@
 # AnyTypeNotString
-openapi_client.components.schema.any_type_not_string
+petstore_api.components.schema.any_type_not_string
 ```
 type: schemas.Schema
 ```

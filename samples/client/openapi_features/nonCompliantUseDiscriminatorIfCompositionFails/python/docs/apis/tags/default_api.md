@@ -1,5 +1,5 @@
 <a name="top"></a>
-openapi_client.apis.tags.default_api
+this_package.apis.tags.default_api
 # DefaultApi
 
 ## Description

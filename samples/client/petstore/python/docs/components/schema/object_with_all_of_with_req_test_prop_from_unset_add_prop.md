@@ -1,5 +1,5 @@
 # ObjectWithAllOfWithReqTestPropFromUnsetAddProp
-openapi_client.components.schema.object_with_all_of_with_req_test_prop_from_unset_add_prop
+petstore_api.components.schema.object_with_all_of_with_req_test_prop_from_unset_add_prop
 ```
 type: schemas.Schema
 ```

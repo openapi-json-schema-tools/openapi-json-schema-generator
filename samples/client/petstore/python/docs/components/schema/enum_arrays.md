@@ -1,5 +1,5 @@
 # EnumArrays
-openapi_client.components.schema.enum_arrays
+petstore_api.components.schema.enum_arrays
 ```
 type: schemas.Schema
 ```

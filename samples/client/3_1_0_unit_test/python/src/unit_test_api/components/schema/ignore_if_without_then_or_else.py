@@ -16,11 +16,11 @@ class IfConst:
 
     @schemas.classproperty
     def POSITIVE_0(cls) -> typing.Literal["0"]:
-        return _If.validate("0")
+        return If.validate("0")
 
 
 @dataclasses.dataclass(frozen=True)
-class _If(
+class If(
     schemas.AnyTypeSchema[schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES], typing.Tuple[schemas.OUTPUT_BASE_TYPES, ...]],
 ):
     # any type
@@ -43,5 +43,5 @@ class IgnoreIfWithoutThenOrElse(
     Do not edit the class manually.
     """
     # any type
-    if_: typing.Type[_If] = dataclasses.field(default_factory=lambda: _If) # type: ignore
+    if_: typing.Type[If] = dataclasses.field(default_factory=lambda: If) # type: ignore
 

@@ -1,5 +1,5 @@
 # ComposedBool
-openapi_client.components.schema.composed_bool
+petstore_api.components.schema.composed_bool
 ```
 type: schemas.Schema
 ```

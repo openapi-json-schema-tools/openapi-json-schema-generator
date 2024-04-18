@@ -1,5 +1,5 @@
 # PatternpropertiesValidatesPropertiesMatchingARegex
-openapi_client.components.schema.patternproperties_validates_properties_matching_a_regex
+unit_test_api.components.schema.patternproperties_validates_properties_matching_a_regex
 ```
 type: schemas.Schema
 ```

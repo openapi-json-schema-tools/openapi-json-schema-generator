@@ -1,5 +1,5 @@
 # MultipleTypesCanBeSpecifiedInAnArray
-openapi_client.components.schema.multiple_types_can_be_specified_in_an_array
+unit_test_api.components.schema.multiple_types_can_be_specified_in_an_array
 ```
 type: schemas.Schema
 ```

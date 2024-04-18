@@ -1,5 +1,5 @@
 <a name="top"></a>
-openapi_client.apis.tags.default_api
+unit_test_api.apis.tags.default_api
 # DefaultApi
 
 All URIs are relative to the selected server

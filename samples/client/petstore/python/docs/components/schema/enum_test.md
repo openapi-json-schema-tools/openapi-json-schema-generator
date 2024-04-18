@@ -1,5 +1,5 @@
 # EnumTest
-openapi_client.components.schema.enum_test
+petstore_api.components.schema.enum_test
 ```
 type: schemas.Schema
 ```

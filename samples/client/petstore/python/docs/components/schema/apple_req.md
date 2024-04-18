@@ -1,5 +1,5 @@
 # AppleReq
-openapi_client.components.schema.apple_req
+petstore_api.components.schema.apple_req
 ```
 type: schemas.Schema
 ```

@@ -1,5 +1,5 @@
 <a name="top"></a>
-openapi_client.apis.tags.multiple_of_api
+unit_test_api.apis.tags.multiple_of_api
 # MultipleOfApi
 
 All URIs are relative to the selected server

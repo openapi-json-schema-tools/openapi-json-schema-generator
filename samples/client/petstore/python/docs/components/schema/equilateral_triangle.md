@@ -1,5 +1,5 @@
 # EquilateralTriangle
-openapi_client.components.schema.equilateral_triangle
+petstore_api.components.schema.equilateral_triangle
 ```
 type: schemas.Schema
 ```

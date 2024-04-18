@@ -1,5 +1,5 @@
 # Drawing
-openapi_client.components.schema.drawing
+petstore_api.components.schema.drawing
 ```
 type: schemas.Schema
 ```

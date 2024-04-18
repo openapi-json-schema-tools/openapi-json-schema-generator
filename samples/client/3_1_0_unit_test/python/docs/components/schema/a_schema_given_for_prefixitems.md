@@ -1,5 +1,5 @@
 # ASchemaGivenForPrefixitems
-openapi_client.components.schema.a_schema_given_for_prefixitems
+unit_test_api.components.schema.a_schema_given_for_prefixitems
 ```
 type: schemas.Schema
 ```

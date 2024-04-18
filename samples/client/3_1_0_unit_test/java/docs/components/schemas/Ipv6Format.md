@@ -1,5 +1,5 @@
 # Ipv6Format
-org.openapijsonschematools.client.components.schemas.Ipv6Format.java
+unit_test_api.components.schemas.Ipv6Format.java
 public class Ipv6Format<br>
 
 A class that contains necessary nested

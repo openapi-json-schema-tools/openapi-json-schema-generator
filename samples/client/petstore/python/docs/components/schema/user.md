@@ -1,5 +1,5 @@
 # User
-openapi_client.components.schema.user
+petstore_api.components.schema.user
 ```
 type: schemas.Schema
 ```

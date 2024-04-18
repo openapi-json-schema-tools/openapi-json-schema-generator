@@ -1,5 +1,5 @@
 # SpecialModelName
-openapi_client.components.schema.special_model_name
+petstore_api.components.schema.special_model_name
 ```
 type: schemas.Schema
 ```

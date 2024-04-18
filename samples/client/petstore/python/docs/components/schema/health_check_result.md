@@ -1,5 +1,5 @@
 # HealthCheckResult
-openapi_client.components.schema.health_check_result
+petstore_api.components.schema.health_check_result
 ```
 type: schemas.Schema
 ```

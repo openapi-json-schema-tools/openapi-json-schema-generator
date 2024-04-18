@@ -1,5 +1,5 @@
 # IntegerMin15
-openapi_client.components.schema.integer_min15
+petstore_api.components.schema.integer_min15
 ```
 type: schemas.Schema
 ```

@@ -1,4 +1,4 @@
-openapi_client.components.security_schemes.security_scheme_bearer_test
+petstore_api.components.security_schemes.security_scheme_bearer_test
 # SecurityScheme BearerTest
 
 ## Description

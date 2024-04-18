@@ -1,0 +1,53 @@
+package unit_test_api.components.schemas;
+
+import org.junit.Assert;
+import org.junit.Test;
+import unit_test_api.configurations.JsonSchemaKeywordFlags;
+import unit_test_api.configurations.SchemaConfiguration;
+import unit_test_api.exceptions.ValidationException;
+import unit_test_api.schemas.validation.MapUtils;
+import org.checkerframework.checker.nullness.qual.Nullable;
+
+import java.util.Arrays;
+import java.util.List;
+import java.util.Map;
+import java.util.AbstractMap;
+
+public class ByNumberTest {
+    static final SchemaConfiguration configuration = new SchemaConfiguration(new JsonSchemaKeywordFlags.Builder().format().build());
+
+    @Test
+    public void test35IsNotMultipleOf15Fails() {
+        // 35 is not multiple of 1.5
+        final var schema = ByNumber.ByNumber1.getInstance();
+        try {
+            schema.validate(
+                35,
+                configuration
+            );
+            throw new RuntimeException("A different exception must be thrown");
+        } catch (ValidationException ignored) {
+            ;
+        }
+    }
+
+    @Test
+    public void test45IsMultipleOf15Passes() throws ValidationException {
+        // 4.5 is multiple of 1.5
+        final var schema = ByNumber.ByNumber1.getInstance();
+        schema.validate(
+            4.5d,
+            configuration
+        );
+    }
+
+    @Test
+    public void testZeroIsMultipleOfAnythingPasses() throws ValidationException {
+        // zero is multiple of anything
+        final var schema = ByNumber.ByNumber1.getInstance();
+        schema.validate(
+            0,
+            configuration
+        );
+    }
+}

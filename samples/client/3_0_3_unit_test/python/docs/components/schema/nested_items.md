@@ -1,5 +1,5 @@
 # NestedItems
-openapi_client.components.schema.nested_items
+unit_test_api.components.schema.nested_items
 ```
 type: schemas.Schema
 ```

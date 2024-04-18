@@ -1,5 +1,5 @@
 # Boolean
-openapi_client.components.schema.boolean
+petstore_api.components.schema.boolean
 ```
 type: schemas.Schema
 ```

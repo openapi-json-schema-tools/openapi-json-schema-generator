@@ -1,5 +1,5 @@
 # JsonPointerFormat
-openapi_client.components.schema.json_pointer_format
+unit_test_api.components.schema.json_pointer_format
 ```
 type: schemas.Schema
 ```

@@ -1,5 +1,5 @@
 # TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissing
-openapi_client.components.schema.the_default_keyword_does_not_do_anything_if_the_property_is_missing
+unit_test_api.components.schema.the_default_keyword_does_not_do_anything_if_the_property_is_missing
 ```
 type: schemas.Schema
 ```

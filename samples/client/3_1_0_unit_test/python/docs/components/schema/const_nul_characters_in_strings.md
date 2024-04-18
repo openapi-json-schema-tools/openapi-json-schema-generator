@@ -1,5 +1,5 @@
 # ConstNulCharactersInStrings
-openapi_client.components.schema.const_nul_characters_in_strings
+unit_test_api.components.schema.const_nul_characters_in_strings
 ```
 type: schemas.Schema
 ```

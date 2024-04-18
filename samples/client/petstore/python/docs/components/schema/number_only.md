@@ -1,5 +1,5 @@
 # NumberOnly
-openapi_client.components.schema.number_only
+petstore_api.components.schema.number_only
 ```
 type: schemas.Schema
 ```

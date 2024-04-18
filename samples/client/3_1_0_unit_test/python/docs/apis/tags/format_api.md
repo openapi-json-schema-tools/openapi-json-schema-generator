@@ -1,5 +1,5 @@
 <a name="top"></a>
-openapi_client.apis.tags.format_api
+unit_test_api.apis.tags.format_api
 # FormatApi
 
 All URIs are relative to the selected server

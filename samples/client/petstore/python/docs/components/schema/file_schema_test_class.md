@@ -1,5 +1,5 @@
 # FileSchemaTestClass
-openapi_client.components.schema.file_schema_test_class
+petstore_api.components.schema.file_schema_test_class
 ```
 type: schemas.Schema
 ```

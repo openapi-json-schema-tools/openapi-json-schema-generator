@@ -1,4 +1,4 @@
-openapi_client.components.responses.response_successful_xml_and_json_array_of_pet
+petstore_api.components.responses.response_successful_xml_and_json_array_of_pet
 # Response SuccessfulXmlAndJsonArrayOfPet
 
 ## Description

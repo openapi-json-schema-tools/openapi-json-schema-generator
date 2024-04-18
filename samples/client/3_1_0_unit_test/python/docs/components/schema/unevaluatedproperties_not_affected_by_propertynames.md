@@ -1,5 +1,5 @@
 # UnevaluatedpropertiesNotAffectedByPropertynames
-openapi_client.components.schema.unevaluatedproperties_not_affected_by_propertynames
+unit_test_api.components.schema.unevaluatedproperties_not_affected_by_propertynames
 ```
 type: schemas.Schema
 ```

@@ -1,5 +1,5 @@
 # DurationFormat
-openapi_client.components.schema.duration_format
+unit_test_api.components.schema.duration_format
 ```
 type: schemas.Schema
 ```

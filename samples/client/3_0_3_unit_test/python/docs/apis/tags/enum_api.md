@@ -1,5 +1,5 @@
 <a name="top"></a>
-openapi_client.apis.tags.enum_api
+unit_test_api.apis.tags.enum_api
 # EnumApi
 
 All URIs are relative to the selected server

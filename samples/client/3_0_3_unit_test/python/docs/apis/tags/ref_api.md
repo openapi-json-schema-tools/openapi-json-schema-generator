@@ -1,5 +1,5 @@
 <a name="top"></a>
-openapi_client.apis.tags.ref_api
+unit_test_api.apis.tags.ref_api
 # RefApi
 
 All URIs are relative to the selected server

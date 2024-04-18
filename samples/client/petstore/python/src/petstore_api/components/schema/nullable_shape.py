@@ -11,9 +11,6 @@ from __future__ import annotations
 from petstore_api.shared_imports.schema_imports import *  # pyright: ignore [reportWildcardImportFromLibrary]
 
 _2: typing_extensions.TypeAlias = schemas.NoneSchema
-
-from petstore_api.components.schema import quadrilateral
-from petstore_api.components.schema import triangle
 OneOf = typing.Tuple[
     typing.Type[triangle.Triangle],
     typing.Type[quadrilateral.Quadrilateral],

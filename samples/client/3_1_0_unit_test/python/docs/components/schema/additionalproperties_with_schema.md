@@ -1,5 +1,5 @@
 # AdditionalpropertiesWithSchema
-openapi_client.components.schema.additionalproperties_with_schema
+unit_test_api.components.schema.additionalproperties_with_schema
 ```
 type: schemas.Schema
 ```

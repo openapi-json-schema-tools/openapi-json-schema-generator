@@ -1,5 +1,5 @@
 # AdditionalItemsAreAllowedByDefault
-openapi_client.components.schema.additional_items_are_allowed_by_default
+unit_test_api.components.schema.additional_items_are_allowed_by_default
 ```
 type: schemas.Schema
 ```

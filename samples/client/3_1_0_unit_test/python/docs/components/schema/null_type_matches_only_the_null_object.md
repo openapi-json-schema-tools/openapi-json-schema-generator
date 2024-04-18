@@ -1,5 +1,5 @@
 # NullTypeMatchesOnlyTheNullObject
-openapi_client.components.schema.null_type_matches_only_the_null_object
+unit_test_api.components.schema.null_type_matches_only_the_null_object
 ```
 type: schemas.Schema
 ```

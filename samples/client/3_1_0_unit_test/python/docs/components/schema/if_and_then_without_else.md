@@ -1,5 +1,5 @@
 # IfAndThenWithoutElse
-openapi_client.components.schema.if_and_then_without_else
+unit_test_api.components.schema.if_and_then_without_else
 ```
 type: schemas.Schema
 ```

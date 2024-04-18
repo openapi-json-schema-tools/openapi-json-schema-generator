@@ -1,5 +1,5 @@
 # AdditionOperator
-openapi_client.components.schema.addition_operator
+this_package.components.schema.addition_operator
 ```
 type: schemas.Schema
 ```

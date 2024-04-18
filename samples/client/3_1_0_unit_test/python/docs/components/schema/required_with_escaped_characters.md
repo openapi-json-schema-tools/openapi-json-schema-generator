@@ -1,5 +1,5 @@
 # RequiredWithEscapedCharacters
-openapi_client.components.schema.required_with_escaped_characters
+unit_test_api.components.schema.required_with_escaped_characters
 ```
 type: schemas.Schema
 ```

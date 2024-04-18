@@ -1,5 +1,5 @@
 # SubtractionOperator
-openapi_client.components.schema.subtraction_operator
+this_package.components.schema.subtraction_operator
 ```
 type: schemas.Schema
 ```

@@ -1,0 +1,58 @@
+package unit_test_api.components.schemas;
+
+import org.junit.Assert;
+import org.junit.Test;
+import unit_test_api.configurations.JsonSchemaKeywordFlags;
+import unit_test_api.configurations.SchemaConfiguration;
+import unit_test_api.exceptions.ValidationException;
+import unit_test_api.schemas.validation.MapUtils;
+import org.checkerframework.checker.nullness.qual.Nullable;
+
+import java.util.Arrays;
+import java.util.List;
+import java.util.Map;
+import java.util.AbstractMap;
+
+public class EnumWithFalseDoesNotMatch0Test {
+    static final SchemaConfiguration configuration = new SchemaConfiguration(new JsonSchemaKeywordFlags.Builder().format().build());
+
+    @Test
+    public void testFloatZeroIsInvalidFails() {
+        // float zero is invalid
+        final var schema = EnumWithFalseDoesNotMatch0.EnumWithFalseDoesNotMatch01.getInstance();
+        try {
+            schema.validate(
+                0.0d,
+                configuration
+            );
+            throw new RuntimeException("A different exception must be thrown");
+        } catch (ValidationException ignored) {
+            ;
+        }
+    }
+
+    @Test
+    public void testFalseIsValidPasses() throws ValidationException {
+        // false is valid
+        final var schema = EnumWithFalseDoesNotMatch0.EnumWithFalseDoesNotMatch01.getInstance();
+        schema.validate(
+            false,
+            configuration
+        );
+    }
+
+    @Test
+    public void testIntegerZeroIsInvalidFails() {
+        // integer zero is invalid
+        final var schema = EnumWithFalseDoesNotMatch0.EnumWithFalseDoesNotMatch01.getInstance();
+        try {
+            schema.validate(
+                0,
+                configuration
+            );
+            throw new RuntimeException("A different exception must be thrown");
+        } catch (ValidationException ignored) {
+            ;
+        }
+    }
+}

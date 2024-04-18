@@ -1,5 +1,5 @@
 # UnevaluateditemsAsSchema
-org.openapijsonschematools.client.components.schemas.UnevaluateditemsAsSchema.java
+unit_test_api.components.schemas.UnevaluateditemsAsSchema.java
 public class UnevaluateditemsAsSchema<br>
 
 A class that contains necessary nested
@@ -199,7 +199,7 @@ extends StringJsonSchema.StringJsonSchema1
 
 A schema class that validates payloads
 
-| Methods Inherited from class org.openapijsonschematools.client.schemas.StringJsonSchema.StringJsonSchema1 |
+| Methods Inherited from class unit_test_api.schemas.StringJsonSchema.StringJsonSchema1 |
 | ------------------------------------------------------------------ |
 | validate                                                           |
 | validateAndBox                                                     |

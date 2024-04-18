@@ -1,5 +1,5 @@
 # ObjectWithValidations
-openapi_client.components.schema.object_with_validations
+petstore_api.components.schema.object_with_validations
 ```
 type: schemas.Schema
 ```

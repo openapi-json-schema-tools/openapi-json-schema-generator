@@ -1,5 +1,5 @@
 # Category
-openapi_client.components.schema.category
+petstore_api.components.schema.category
 ```
 type: schemas.Schema
 ```

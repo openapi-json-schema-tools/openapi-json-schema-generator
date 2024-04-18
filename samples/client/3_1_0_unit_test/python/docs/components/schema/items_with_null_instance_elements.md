@@ -1,5 +1,5 @@
 # ItemsWithNullInstanceElements
-openapi_client.components.schema.items_with_null_instance_elements
+unit_test_api.components.schema.items_with_null_instance_elements
 ```
 type: schemas.Schema
 ```

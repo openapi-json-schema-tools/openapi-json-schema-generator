@@ -1,5 +1,5 @@
 # Maxproperties0MeansTheObjectIsEmpty
-openapi_client.components.schema.maxproperties0_means_the_object_is_empty
+unit_test_api.components.schema.maxproperties0_means_the_object_is_empty
 ```
 type: schemas.Schema
 ```

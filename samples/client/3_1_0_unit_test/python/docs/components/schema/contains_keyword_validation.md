@@ -1,5 +1,5 @@
 # ContainsKeywordValidation
-openapi_client.components.schema.contains_keyword_validation
+unit_test_api.components.schema.contains_keyword_validation
 ```
 type: schemas.Schema
 ```

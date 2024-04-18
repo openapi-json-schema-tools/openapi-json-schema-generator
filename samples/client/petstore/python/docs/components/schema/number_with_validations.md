@@ -1,5 +1,5 @@
 # NumberWithValidations
-openapi_client.components.schema.number_with_validations
+petstore_api.components.schema.number_with_validations
 ```
 type: schemas.Schema
 ```

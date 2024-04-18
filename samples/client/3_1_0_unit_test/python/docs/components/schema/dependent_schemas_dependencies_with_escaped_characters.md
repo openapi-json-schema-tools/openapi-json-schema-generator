@@ -1,5 +1,5 @@
 # DependentSchemasDependenciesWithEscapedCharacters
-openapi_client.components.schema.dependent_schemas_dependencies_with_escaped_characters
+unit_test_api.components.schema.dependent_schemas_dependencies_with_escaped_characters
 ```
 type: schemas.Schema
 ```

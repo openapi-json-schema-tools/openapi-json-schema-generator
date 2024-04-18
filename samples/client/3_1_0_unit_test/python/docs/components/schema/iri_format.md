@@ -1,5 +1,5 @@
 # IriFormat
-openapi_client.components.schema.iri_format
+unit_test_api.components.schema.iri_format
 ```
 type: schemas.Schema
 ```

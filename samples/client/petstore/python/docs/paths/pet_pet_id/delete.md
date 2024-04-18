@@ -1,4 +1,4 @@
-openapi_client.paths.pet_pet_id.operation
+petstore_api.paths.pet_pet_id.operation
 # Operation Method Name
 
 | Method Name | Api Class | Notes |
@@ -162,15 +162,15 @@ server_index | Class | Description
 ## Code Sample
 
 ```python
-import openapi_client
-from openapi_client.configurations import api_configuration
-from openapi_client.apis.tags import pet_api
-from openapi_client.paths.pet_pet_id.delete import operation
+import petstore_api
+from petstore_api.configurations import api_configuration
+from petstore_api.apis.tags import pet_api
+from petstore_api.paths.pet_pet_id.delete import operation
 from pprint import pprint
 # security_index 0
-from openapi_client.components.security_schemes import security_scheme_api_key
+from petstore_api.components.security_schemes import security_scheme_api_key
 # security_index 1
-from openapi_client.components.security_schemes import security_scheme_petstore_auth
+from petstore_api.components.security_schemes import security_scheme_petstore_auth
 
 # security_scheme_info for security_index 0
 security_scheme_info: api_configuration.SecuritySchemeInfo = {
@@ -196,7 +196,7 @@ used_configuration = api_configuration.ApiConfiguration(
     security_index_info=security_index_info
 )
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(used_configuration) as api_client:
+with petstore_api.ApiClient(used_configuration) as api_client:
     # Create an instance of the API class
     api_instance = pet_api.PetApi(api_client)
 
@@ -213,7 +213,7 @@ with openapi_client.ApiClient(used_configuration) as api_client:
             header_params=header_params,
         )
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except petstore_api.ApiException as e:
         print("Exception when calling PetApi->delete_pet: %s\n" % e)
 
     # example passing only optional values
@@ -230,7 +230,7 @@ with openapi_client.ApiClient(used_configuration) as api_client:
             header_params=header_params,
         )
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except petstore_api.ApiException as e:
         print("Exception when calling PetApi->delete_pet: %s\n" % e)
 ```
 

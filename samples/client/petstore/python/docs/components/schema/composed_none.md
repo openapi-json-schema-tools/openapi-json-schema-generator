@@ -1,5 +1,5 @@
 # ComposedNone
-openapi_client.components.schema.composed_none
+petstore_api.components.schema.composed_none
 ```
 type: schemas.Schema
 ```

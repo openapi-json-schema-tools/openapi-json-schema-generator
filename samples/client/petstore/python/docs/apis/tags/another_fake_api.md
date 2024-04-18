@@ -1,5 +1,5 @@
 <a name="top"></a>
-openapi_client.apis.tags.another_fake_api
+petstore_api.apis.tags.another_fake_api
 # AnotherFakeApi
 
 All URIs are relative to the selected server

@@ -1,4 +1,4 @@
-openapi_client.components.responses.response_success_with_json_api_response
+petstore_api.components.responses.response_success_with_json_api_response
 # Response SuccessWithJsonApiResponse
 
 ## Description

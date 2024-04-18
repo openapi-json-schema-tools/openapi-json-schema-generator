@@ -11,7 +11,7 @@ from __future__ import annotations
 from petstore_api.shared_imports.schema_imports import *  # pyright: ignore [reportWildcardImportFromLibrary]
 
 AdditionalProperties: typing_extensions.TypeAlias = schemas.NotAnyTypeSchema
-_From: typing_extensions.TypeAlias = schemas.StrSchema
+From: typing_extensions.TypeAlias = schemas.StrSchema
 Path: typing_extensions.TypeAlias = schemas.StrSchema
 
 
@@ -84,7 +84,7 @@ class Op(
 Properties = typing.TypedDict(
     'Properties',
     {
-        "from": typing.Type[_From],
+        "from": typing.Type[From],
         "path": typing.Type[Path],
         "op": typing.Type[Op],
     }
@@ -104,6 +104,7 @@ class JSONPatchRequestMoveCopyDict(schemas.immutabledict[str, str]):
     def __new__(
         cls,
         *,
+        from: str,
         op: typing.Literal[
             "move",
             "copy"
@@ -112,6 +113,7 @@ class JSONPatchRequestMoveCopyDict(schemas.immutabledict[str, str]):
         configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None,
     ):
         arg_: typing.Dict[str, typing.Any] = {
+            "from": from,
             "op": op,
             "path": path,
         }
@@ -127,6 +129,10 @@ class JSONPatchRequestMoveCopyDict(schemas.immutabledict[str, str]):
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> JSONPatchRequestMoveCopyDict:
         return JSONPatchRequestMoveCopy.validate(arg, configuration=configuration)
+    
+    @property
+    def from(self) -> str:
+        return self.__getitem__("from")
     
     @property
     def op(self) -> typing.Literal["move", "copy"]:

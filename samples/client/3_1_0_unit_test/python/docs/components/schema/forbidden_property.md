@@ -1,5 +1,5 @@
 # ForbiddenProperty
-openapi_client.components.schema.forbidden_property
+unit_test_api.components.schema.forbidden_property
 ```
 type: schemas.Schema
 ```

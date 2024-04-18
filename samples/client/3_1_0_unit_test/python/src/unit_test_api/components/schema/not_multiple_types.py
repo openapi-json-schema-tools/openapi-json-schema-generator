@@ -13,7 +13,7 @@ from unit_test_api.shared_imports.schema_imports import *  # pyright: ignore [re
 
 
 @dataclasses.dataclass(frozen=True)
-class _Not(
+class Not(
     schemas.Schema[schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES], typing.Tuple[schemas.OUTPUT_BASE_TYPES, ...]],
 ):
     types: typing.FrozenSet[typing.Type] = frozenset({
@@ -59,5 +59,5 @@ class NotMultipleTypes(
     Do not edit the class manually.
     """
     # any type
-    not_: typing.Type[_Not] = dataclasses.field(default_factory=lambda: _Not) # type: ignore
+    not_: typing.Type[Not] = dataclasses.field(default_factory=lambda: Not) # type: ignore
 

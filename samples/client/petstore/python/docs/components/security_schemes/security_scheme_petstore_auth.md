@@ -1,4 +1,4 @@
-openapi_client.components.security_schemes.security_scheme_petstore_auth
+petstore_api.components.security_schemes.security_scheme_petstore_auth
 # SecurityScheme PetstoreAuth
 
 ## Description

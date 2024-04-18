@@ -1,4 +1,4 @@
-openapi_client.components.headers.header_ref_content_schema_header
+petstore_api.components.headers.header_ref_content_schema_header
 # Header RefContentSchemaHeader
 
 ## Description

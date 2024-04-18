@@ -1,4 +1,4 @@
-openapi_client.paths.operators.operation
+this_package.paths.operators.operation
 # Operation Method Name
 
 | Method Name | Api Class | Notes |
@@ -83,14 +83,14 @@ server_index | Class | Description
 ## Code Sample
 
 ```python
-import openapi_client
-from openapi_client.configurations import api_configuration
-from openapi_client.apis.tags import default_api
+import this_package
+from this_package.configurations import api_configuration
+from this_package.apis.tags import default_api
 from pprint import pprint
 used_configuration = api_configuration.ApiConfiguration(
 )
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(used_configuration) as api_client:
+with this_package.ApiClient(used_configuration) as api_client:
     # Create an instance of the API class
     api_instance = default_api.DefaultApi(api_client)
 
@@ -106,7 +106,7 @@ with openapi_client.ApiClient(used_configuration) as api_client:
             body=body,
         )
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except this_package.ApiException as e:
         print("Exception when calling DefaultApi->post_operators: %s\n" % e)
 ```
 

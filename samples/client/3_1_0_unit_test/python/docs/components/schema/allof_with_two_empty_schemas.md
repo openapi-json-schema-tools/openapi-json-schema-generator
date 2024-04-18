@@ -1,5 +1,5 @@
 # AllofWithTwoEmptySchemas
-openapi_client.components.schema.allof_with_two_empty_schemas
+unit_test_api.components.schema.allof_with_two_empty_schemas
 ```
 type: schemas.Schema
 ```

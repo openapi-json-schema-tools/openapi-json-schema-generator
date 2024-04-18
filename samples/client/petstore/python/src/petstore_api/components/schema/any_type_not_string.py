@@ -10,7 +10,7 @@
 from __future__ import annotations
 from petstore_api.shared_imports.schema_imports import *  # pyright: ignore [reportWildcardImportFromLibrary]
 
-_Not: typing_extensions.TypeAlias = schemas.StrSchema
+Not: typing_extensions.TypeAlias = schemas.StrSchema
 
 
 @dataclasses.dataclass(frozen=True)
@@ -23,5 +23,5 @@ class AnyTypeNotString(
     Do not edit the class manually.
     """
     # any type
-    not_: typing.Type[_Not] = dataclasses.field(default_factory=lambda: _Not) # type: ignore
+    not_: typing.Type[Not] = dataclasses.field(default_factory=lambda: Not) # type: ignore
 

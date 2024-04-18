@@ -1,5 +1,5 @@
 <a name="top"></a>
-openapi_client.apis.tags.all_of_api
+unit_test_api.apis.tags.all_of_api
 # AllOfApi
 
 All URIs are relative to the selected server

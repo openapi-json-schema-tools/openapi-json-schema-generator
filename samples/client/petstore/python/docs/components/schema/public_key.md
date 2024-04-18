@@ -1,5 +1,5 @@
 # PublicKey
-openapi_client.components.schema.public_key
+petstore_api.components.schema.public_key
 ```
 type: schemas.Schema
 ```

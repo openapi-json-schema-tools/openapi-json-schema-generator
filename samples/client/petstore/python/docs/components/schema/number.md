@@ -1,5 +1,5 @@
 # Number
-openapi_client.components.schema.number
+petstore_api.components.schema.number
 ```
 type: schemas.Schema
 ```

@@ -1,5 +1,5 @@
 # PatternValidation
-org.openapijsonschematools.client.components.schemas.PatternValidation.java
+unit_test_api.components.schemas.PatternValidation.java
 public class PatternValidation<br>
 
 A class that contains necessary nested

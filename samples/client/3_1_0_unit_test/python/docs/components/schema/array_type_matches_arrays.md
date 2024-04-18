@@ -1,5 +1,5 @@
 # ArrayTypeMatchesArrays
-openapi_client.components.schema.array_type_matches_arrays
+unit_test_api.components.schema.array_type_matches_arrays
 ```
 type: schemas.Schema
 ```

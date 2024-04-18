@@ -1,5 +1,5 @@
 # PropertynamesValidation
-openapi_client.components.schema.propertynames_validation
+unit_test_api.components.schema.propertynames_validation
 ```
 type: schemas.Schema
 ```

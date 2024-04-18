@@ -1,5 +1,5 @@
 # DateTimeTest
-openapi_client.components.schema.date_time_test
+petstore_api.components.schema.date_time_test
 ```
 type: schemas.Schema
 ```

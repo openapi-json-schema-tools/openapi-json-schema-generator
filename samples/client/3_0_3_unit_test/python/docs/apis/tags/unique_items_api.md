@@ -1,5 +1,5 @@
 <a name="top"></a>
-openapi_client.apis.tags.unique_items_api
+unit_test_api.apis.tags.unique_items_api
 # UniqueItemsApi
 
 All URIs are relative to the selected server

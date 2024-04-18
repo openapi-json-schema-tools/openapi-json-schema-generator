@@ -1,5 +1,5 @@
 # ReadOnlyFirst
-openapi_client.components.schema.read_only_first
+petstore_api.components.schema.read_only_first
 ```
 type: schemas.Schema
 ```

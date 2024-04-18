@@ -1,5 +1,5 @@
 # StringEnum
-openapi_client.components.schema.string_enum
+petstore_api.components.schema.string_enum
 ```
 type: schemas.Schema
 ```

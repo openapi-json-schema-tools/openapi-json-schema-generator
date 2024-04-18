@@ -46,11 +46,13 @@ class PathParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         *,
         Ab: str,
         aB: str,
+        self: str,
         configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None,
     ):
         arg_: typing.Dict[str, typing.Any] = {
             "Ab": Ab,
             "aB": aB,
+            "self": self,
         }
         used_arg_ = typing.cast(PathParametersDictInput, arg_)
         return PathParameters.validate(used_arg_, configuration=configuration_)
@@ -77,6 +79,13 @@ class PathParametersDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
         return typing.cast(
             str,
             self.__getitem__("aB")
+        )
+    
+    @property
+    def self(self) -> str:
+        return typing.cast(
+            str,
+            self.__getitem__("self")
         )
 PathParametersDictInput = typing.TypedDict(
     'PathParametersDictInput',

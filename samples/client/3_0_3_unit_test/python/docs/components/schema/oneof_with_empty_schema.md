@@ -1,5 +1,5 @@
 # OneofWithEmptySchema
-openapi_client.components.schema.oneof_with_empty_schema
+unit_test_api.components.schema.oneof_with_empty_schema
 ```
 type: schemas.Schema
 ```

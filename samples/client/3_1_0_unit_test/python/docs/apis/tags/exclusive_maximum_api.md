@@ -1,5 +1,5 @@
 <a name="top"></a>
-openapi_client.apis.tags.exclusive_maximum_api
+unit_test_api.apis.tags.exclusive_maximum_api
 # ExclusiveMaximumApi
 
 All URIs are relative to the selected server

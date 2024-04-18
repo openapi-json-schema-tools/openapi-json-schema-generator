@@ -1,5 +1,5 @@
 # Banana
-openapi_client.components.schema.banana
+petstore_api.components.schema.banana
 ```
 type: schemas.Schema
 ```

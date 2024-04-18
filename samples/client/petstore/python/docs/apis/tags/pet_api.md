@@ -1,5 +1,5 @@
 <a name="top"></a>
-openapi_client.apis.tags.pet_api
+petstore_api.apis.tags.pet_api
 # PetApi
 
 ## Description

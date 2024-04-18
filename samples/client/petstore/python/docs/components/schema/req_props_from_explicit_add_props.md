@@ -1,5 +1,5 @@
 # ReqPropsFromExplicitAddProps
-openapi_client.components.schema.req_props_from_explicit_add_props
+petstore_api.components.schema.req_props_from_explicit_add_props
 ```
 type: schemas.Schema
 ```

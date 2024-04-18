@@ -1,5 +1,5 @@
 # ObjectTypeMatchesObjects
-openapi_client.components.schema.object_type_matches_objects
+unit_test_api.components.schema.object_type_matches_objects
 ```
 type: schemas.Schema
 ```

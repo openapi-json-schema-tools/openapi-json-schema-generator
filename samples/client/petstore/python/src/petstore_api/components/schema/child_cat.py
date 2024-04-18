@@ -103,8 +103,6 @@ class _1(
             configuration=configuration,
         )
 
-
-from petstore_api.components.schema import parent_pet
 AllOf = typing.Tuple[
     typing.Type[parent_pet.ParentPet],
     typing.Type[_1],

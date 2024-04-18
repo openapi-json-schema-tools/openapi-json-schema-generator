@@ -1,5 +1,5 @@
 # AdditionalpropertiesWithNullValuedInstanceProperties
-openapi_client.components.schema.additionalproperties_with_null_valued_instance_properties
+unit_test_api.components.schema.additionalproperties_with_null_valued_instance_properties
 ```
 type: schemas.Schema
 ```

@@ -1,5 +1,5 @@
 # PaginatedResultMyObjectDto
-openapi_client.components.schema.paginated_result_my_object_dto
+petstore_api.components.schema.paginated_result_my_object_dto
 ```
 type: schemas.Schema
 ```

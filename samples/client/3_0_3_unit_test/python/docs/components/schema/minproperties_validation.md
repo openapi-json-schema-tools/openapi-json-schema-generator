@@ -1,5 +1,5 @@
 # MinpropertiesValidation
-openapi_client.components.schema.minproperties_validation
+unit_test_api.components.schema.minproperties_validation
 ```
 type: schemas.Schema
 ```

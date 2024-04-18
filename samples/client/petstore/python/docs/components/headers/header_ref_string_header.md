@@ -1,4 +1,4 @@
-openapi_client.components.headers.header_ref_string_header
+petstore_api.components.headers.header_ref_string_header
 # Header RefStringHeader
 ## Schema
 Ref Class | Input Type | Accessed Type | Description

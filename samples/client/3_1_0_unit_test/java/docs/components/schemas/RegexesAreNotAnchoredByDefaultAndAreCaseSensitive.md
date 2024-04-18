@@ -1,5 +1,5 @@
 # RegexesAreNotAnchoredByDefaultAndAreCaseSensitive
-org.openapijsonschematools.client.components.schemas.RegexesAreNotAnchoredByDefaultAndAreCaseSensitive.java
+unit_test_api.components.schemas.RegexesAreNotAnchoredByDefaultAndAreCaseSensitive.java
 public class RegexesAreNotAnchoredByDefaultAndAreCaseSensitive<br>
 
 A class that contains necessary nested
@@ -202,7 +202,7 @@ extends StringJsonSchema.StringJsonSchema1
 
 A schema class that validates payloads
 
-| Methods Inherited from class org.openapijsonschematools.client.schemas.StringJsonSchema.StringJsonSchema1 |
+| Methods Inherited from class unit_test_api.schemas.StringJsonSchema.StringJsonSchema1 |
 | ------------------------------------------------------------------ |
 | validate                                                           |
 | validateAndBox                                                     |
@@ -237,7 +237,7 @@ extends BooleanJsonSchema.BooleanJsonSchema1
 
 A schema class that validates payloads
 
-| Methods Inherited from class org.openapijsonschematools.client.schemas.BooleanJsonSchema.BooleanJsonSchema1 |
+| Methods Inherited from class unit_test_api.schemas.BooleanJsonSchema.BooleanJsonSchema1 |
 | ------------------------------------------------------------------ |
 | validate                                                           |
 | validateAndBox                                                     |

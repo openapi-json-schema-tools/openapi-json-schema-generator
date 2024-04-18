@@ -53,7 +53,7 @@ class Number(
 
 
 @dataclasses.dataclass(frozen=True)
-class _Float(
+class Float(
     schemas.Float32Schema
 ):
     types: typing.FrozenSet[typing.Type] = frozenset({
@@ -201,7 +201,7 @@ Properties = typing.TypedDict(
         "int32withValidations": typing.Type[Int32withValidations],
         "int64": typing.Type[Int64],
         "number": typing.Type[Number],
-        "float": typing.Type[_Float],
+        "float": typing.Type[Float],
         "float32": typing.Type[Float32],
         "double": typing.Type[Double],
         "float64": typing.Type[Float64],
@@ -278,6 +278,11 @@ class FormatTestDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
             int,
             schemas.Unset
         ] = schemas.unset,
+        float: typing.Union[
+            int,
+            float,
+            schemas.Unset
+        ] = schemas.unset,
         float32: typing.Union[
             int,
             float,
@@ -350,6 +355,7 @@ class FormatTestDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
             ("int32", int32),
             ("int32withValidations", int32withValidations),
             ("int64", int64),
+            ("float", float),
             ("float32", float32),
             ("double", double),
             ("float64", float64),
@@ -445,6 +451,16 @@ class FormatTestDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
             return val
         return typing.cast(
             int,
+            val
+        )
+    
+    @property
+    def float(self) -> typing.Union[int, float, schemas.Unset]:
+        val = self.get("float", schemas.unset)
+        if isinstance(val, schemas.Unset):
+            return val
+        return typing.cast(
+            typing.Union[int, float],
             val
         )
     

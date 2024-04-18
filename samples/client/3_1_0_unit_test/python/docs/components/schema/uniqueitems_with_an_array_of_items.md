@@ -1,5 +1,5 @@
 # UniqueitemsWithAnArrayOfItems
-openapi_client.components.schema.uniqueitems_with_an_array_of_items
+unit_test_api.components.schema.uniqueitems_with_an_array_of_items
 ```
 type: schemas.Schema
 ```

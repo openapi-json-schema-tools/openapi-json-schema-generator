@@ -1,4 +1,4 @@
-openapi_client.paths.user_username.operation
+petstore_api.paths.user_username.operation
 # Operation Method Name
 
 | Method Name | Api Class | Notes |
@@ -159,15 +159,15 @@ server_index | Class | Description
 ## Code Sample
 
 ```python
-import openapi_client
-from openapi_client.configurations import api_configuration
-from openapi_client.apis.tags import user_api
-from openapi_client.paths.user_username.get import operation
+import petstore_api
+from petstore_api.configurations import api_configuration
+from petstore_api.apis.tags import user_api
+from petstore_api.paths.user_username.get import operation
 from pprint import pprint
 used_configuration = api_configuration.ApiConfiguration(
 )
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(used_configuration) as api_client:
+with petstore_api.ApiClient(used_configuration) as api_client:
     # Create an instance of the API class
     api_instance = user_api.UserApi(api_client)
 
@@ -181,7 +181,7 @@ with openapi_client.ApiClient(used_configuration) as api_client:
             path_params=path_params,
         )
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except petstore_api.ApiException as e:
         print("Exception when calling UserApi->get_user_by_name: %s\n" % e)
 ```
 

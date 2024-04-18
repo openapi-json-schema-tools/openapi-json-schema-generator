@@ -1,5 +1,5 @@
 # HostnameFormat
-openapi_client.components.schema.hostname_format
+unit_test_api.components.schema.hostname_format
 ```
 type: schemas.Schema
 ```

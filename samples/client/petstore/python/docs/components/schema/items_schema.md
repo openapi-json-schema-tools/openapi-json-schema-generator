@@ -1,5 +1,5 @@
 # ItemsSchema
-openapi_client.components.schema.items_schema
+petstore_api.components.schema.items_schema
 ```
 type: schemas.Schema
 ```

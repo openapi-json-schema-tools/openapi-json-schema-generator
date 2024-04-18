@@ -158,8 +158,6 @@ class _1(
             configuration=configuration,
         )
 
-
-from petstore_api.components.schema import triangle_interface
 AllOf = typing.Tuple[
     typing.Type[triangle_interface.TriangleInterface],
     typing.Type[_1],

@@ -1,5 +1,5 @@
 # UniqueitemsValidation
-openapi_client.components.schema.uniqueitems_validation
+unit_test_api.components.schema.uniqueitems_validation
 ```
 type: schemas.Schema
 ```

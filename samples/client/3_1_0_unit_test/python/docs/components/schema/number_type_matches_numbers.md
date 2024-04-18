@@ -1,5 +1,5 @@
 # NumberTypeMatchesNumbers
-openapi_client.components.schema.number_type_matches_numbers
+unit_test_api.components.schema.number_type_matches_numbers
 ```
 type: schemas.Schema
 ```

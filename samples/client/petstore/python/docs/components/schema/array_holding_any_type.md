@@ -1,5 +1,5 @@
 # ArrayHoldingAnyType
-openapi_client.components.schema.array_holding_any_type
+petstore_api.components.schema.array_holding_any_type
 ```
 type: schemas.Schema
 ```

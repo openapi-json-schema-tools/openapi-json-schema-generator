@@ -1,5 +1,5 @@
 # ByNumber
-org.openapijsonschematools.client.components.schemas.ByNumber.java
+unit_test_api.components.schemas.ByNumber.java
 public class ByNumber<br>
 
 A class that contains necessary nested

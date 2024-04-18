@@ -1,5 +1,5 @@
 <a name="top"></a>
-openapi_client.apis.tags.content_type_json_api
+unit_test_api.apis.tags.content_type_json_api
 # ContentTypeJsonApi
 
 All URIs are relative to the selected server

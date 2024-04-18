@@ -1,5 +1,5 @@
 # EnumClass
-openapi_client.components.schema.enum_class
+petstore_api.components.schema.enum_class
 ```
 type: schemas.Schema
 ```

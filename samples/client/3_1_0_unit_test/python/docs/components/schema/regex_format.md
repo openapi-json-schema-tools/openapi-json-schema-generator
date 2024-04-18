@@ -1,5 +1,5 @@
 # RegexFormat
-openapi_client.components.schema.regex_format
+unit_test_api.components.schema.regex_format
 ```
 type: schemas.Schema
 ```

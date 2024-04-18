@@ -1,5 +1,5 @@
 # ComposedNumber
-openapi_client.components.schema.composed_number
+petstore_api.components.schema.composed_number
 ```
 type: schemas.Schema
 ```

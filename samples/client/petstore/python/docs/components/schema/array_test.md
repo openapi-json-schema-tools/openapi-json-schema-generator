@@ -1,5 +1,5 @@
 # ArrayTest
-openapi_client.components.schema.array_test
+petstore_api.components.schema.array_test
 ```
 type: schemas.Schema
 ```

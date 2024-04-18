@@ -1,5 +1,5 @@
 # PropertiesPatternpropertiesAdditionalpropertiesInteraction
-openapi_client.components.schema.properties_patternproperties_additionalproperties_interaction
+unit_test_api.components.schema.properties_patternproperties_additionalproperties_interaction
 ```
 type: schemas.Schema
 ```

@@ -1,5 +1,5 @@
 # RefInOneof
-openapi_client.components.schema.ref_in_oneof
+unit_test_api.components.schema.ref_in_oneof
 ```
 type: schemas.Schema
 ```

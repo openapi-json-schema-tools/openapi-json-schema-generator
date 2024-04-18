@@ -1,5 +1,5 @@
 # BasquePig
-openapi_client.components.schema.basque_pig
+petstore_api.components.schema.basque_pig
 ```
 type: schemas.Schema
 ```

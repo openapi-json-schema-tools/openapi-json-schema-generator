@@ -1,5 +1,5 @@
 <a name="top"></a>
-openapi_client.apis.tags.minimum_api
+unit_test_api.apis.tags.minimum_api
 # MinimumApi
 
 All URIs are relative to the selected server

@@ -1,4 +1,4 @@
-openapi_client.paths.fake_classname_test.operation
+petstore_api.paths.fake_classname_test.operation
 # Operation Method Name
 
 | Method Name | Api Class | Notes |
@@ -102,12 +102,12 @@ server_index | Class | Description
 ## Code Sample
 
 ```python
-import openapi_client
-from openapi_client.configurations import api_configuration
-from openapi_client.apis.tags import fake_classname_tags123_api
+import petstore_api
+from petstore_api.configurations import api_configuration
+from petstore_api.apis.tags import fake_classname_tags123_api
 from pprint import pprint
 # security_index 0
-from openapi_client.components.security_schemes import security_scheme_api_key_query
+from petstore_api.components.security_schemes import security_scheme_api_key_query
 
 # security_scheme_info for security_index 0
 security_scheme_info: api_configuration.SecuritySchemeInfo = {
@@ -120,7 +120,7 @@ used_configuration = api_configuration.ApiConfiguration(
     security_scheme_info=security_scheme_info,
 )
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(used_configuration) as api_client:
+with petstore_api.ApiClient(used_configuration) as api_client:
     # Create an instance of the API class
     api_instance = fake_classname_tags123_api.FakeClassnameTags123Api(api_client)
 
@@ -134,7 +134,7 @@ with openapi_client.ApiClient(used_configuration) as api_client:
             body=body,
         )
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except petstore_api.ApiException as e:
         print("Exception when calling FakeClassnameTags123Api->classname: %s\n" % e)
 ```
 

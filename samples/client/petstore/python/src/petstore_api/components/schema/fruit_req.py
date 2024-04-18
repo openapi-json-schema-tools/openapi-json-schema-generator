@@ -11,9 +11,6 @@ from __future__ import annotations
 from petstore_api.shared_imports.schema_imports import *  # pyright: ignore [reportWildcardImportFromLibrary]
 
 _0: typing_extensions.TypeAlias = schemas.NoneSchema
-
-from petstore_api.components.schema import apple_req
-from petstore_api.components.schema import banana_req
 OneOf = typing.Tuple[
     typing.Type[_0],
     typing.Type[apple_req.AppleReq],

@@ -1,5 +1,5 @@
 <a name="top"></a>
-openapi_client.apis.tags.operation_request_body_api
+unit_test_api.apis.tags.operation_request_body_api
 # OperationRequestBodyApi
 
 All URIs are relative to the selected server

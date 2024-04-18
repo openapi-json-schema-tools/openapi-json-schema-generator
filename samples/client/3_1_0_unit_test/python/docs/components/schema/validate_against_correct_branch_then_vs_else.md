@@ -1,5 +1,5 @@
 # ValidateAgainstCorrectBranchThenVsElse
-openapi_client.components.schema.validate_against_correct_branch_then_vs_else
+unit_test_api.components.schema.validate_against_correct_branch_then_vs_else
 ```
 type: schemas.Schema
 ```

@@ -1,5 +1,5 @@
 # IdnHostnameFormat
-openapi_client.components.schema.idn_hostname_format
+unit_test_api.components.schema.idn_hostname_format
 ```
 type: schemas.Schema
 ```

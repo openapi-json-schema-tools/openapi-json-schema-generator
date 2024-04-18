@@ -1,5 +1,5 @@
 # DecimalPayload
-openapi_client.components.schema.decimal_payload
+petstore_api.components.schema.decimal_payload
 ```
 type: schemas.Schema
 ```

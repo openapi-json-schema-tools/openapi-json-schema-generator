@@ -1,5 +1,5 @@
 # ObjectWithInlineCompositionProperty
-openapi_client.components.schema.object_with_inline_composition_property
+petstore_api.components.schema.object_with_inline_composition_property
 ```
 type: schemas.Schema
 ```

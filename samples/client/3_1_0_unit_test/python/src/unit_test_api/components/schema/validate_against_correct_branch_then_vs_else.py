@@ -13,7 +13,7 @@ from unit_test_api.shared_imports.schema_imports import *  # pyright: ignore [re
 
 
 @dataclasses.dataclass(frozen=True)
-class _Else(
+class Else(
     schemas.AnyTypeSchema[schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES], typing.Tuple[schemas.OUTPUT_BASE_TYPES, ...]],
 ):
     # any type
@@ -22,7 +22,7 @@ class _Else(
 
 
 @dataclasses.dataclass(frozen=True)
-class _If(
+class If(
     schemas.AnyTypeSchema[schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES], typing.Tuple[schemas.OUTPUT_BASE_TYPES, ...]],
 ):
     # any type
@@ -49,7 +49,7 @@ class ValidateAgainstCorrectBranchThenVsElse(
     Do not edit the class manually.
     """
     # any type
-    if_: typing.Type[_If] = dataclasses.field(default_factory=lambda: _If) # type: ignore
+    if_: typing.Type[If] = dataclasses.field(default_factory=lambda: If) # type: ignore
     then: typing.Type[Then] = dataclasses.field(default_factory=lambda: Then) # type: ignore
-    else_: typing.Type[_Else] = dataclasses.field(default_factory=lambda: _Else) # type: ignore
+    else_: typing.Type[Else] = dataclasses.field(default_factory=lambda: Else) # type: ignore
 

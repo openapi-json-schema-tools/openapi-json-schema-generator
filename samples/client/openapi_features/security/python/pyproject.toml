@@ -11,7 +11,7 @@ where = ["src"]
 "this_package" = ["py.typed"]
 
 [project]
-name = "openapi-client"
+name = "this-package"
 version = "1.0.0"
 authors = [
   { name="OpenAPI JSON Schema Generator community" },

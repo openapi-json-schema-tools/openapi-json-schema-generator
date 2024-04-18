@@ -1,5 +1,5 @@
 <a name="top"></a>
-openapi_client.apis.tags.if_then_else_api
+unit_test_api.apis.tags.if_then_else_api
 # IfThenElseApi
 
 All URIs are relative to the selected server

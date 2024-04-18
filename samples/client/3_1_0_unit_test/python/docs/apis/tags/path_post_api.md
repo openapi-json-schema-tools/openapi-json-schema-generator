@@ -1,5 +1,5 @@
 <a name="top"></a>
-openapi_client.apis.tags.path_post_api
+unit_test_api.apis.tags.path_post_api
 # PathPostApi
 
 All URIs are relative to the selected server

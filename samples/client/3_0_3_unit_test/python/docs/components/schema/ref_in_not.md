@@ -1,5 +1,5 @@
 # RefInNot
-openapi_client.components.schema.ref_in_not
+unit_test_api.components.schema.ref_in_not
 ```
 type: schemas.Schema
 ```

@@ -1,5 +1,5 @@
 <a name="top"></a>
-openapi_client.apis.tags.fake_classname_tags123_api
+petstore_api.apis.tags.fake_classname_tags123_api
 # FakeClassnameTags123Api
 
 All URIs are relative to the selected server

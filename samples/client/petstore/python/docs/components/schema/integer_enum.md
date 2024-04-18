@@ -1,5 +1,5 @@
 # IntegerEnum
-openapi_client.components.schema.integer_enum
+petstore_api.components.schema.integer_enum
 ```
 type: schemas.Schema
 ```

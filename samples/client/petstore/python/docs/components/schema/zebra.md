@@ -1,5 +1,5 @@
 # Zebra
-openapi_client.components.schema.zebra
+petstore_api.components.schema.zebra
 ```
 type: schemas.Schema
 ```

@@ -1,5 +1,5 @@
 # ObjectModelWithRefProps
-openapi_client.components.schema.object_model_with_ref_props
+petstore_api.components.schema.object_model_with_ref_props
 ```
 type: schemas.Schema
 ```

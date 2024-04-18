@@ -1,5 +1,5 @@
 # NullableClass
-openapi_client.components.schema.nullable_class
+petstore_api.components.schema.nullable_class
 ```
 type: schemas.Schema
 ```

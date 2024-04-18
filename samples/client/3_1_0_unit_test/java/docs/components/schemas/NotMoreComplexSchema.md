@@ -1,5 +1,5 @@
 # NotMoreComplexSchema
-org.openapijsonschematools.client.components.schemas.NotMoreComplexSchema.java
+unit_test_api.components.schemas.NotMoreComplexSchema.java
 public class NotMoreComplexSchema<br>
 
 A class that contains necessary nested
@@ -208,13 +208,13 @@ A schema class that validates payloads
 
 ### Code Sample
 ```
-import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
-import org.openapijsonschematools.client.configurations.SchemaConfiguration;
-import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.schemas.validation.MapUtils;
-import org.openapijsonschematools.client.schemas.validation.FrozenList;
-import org.openapijsonschematools.client.schemas.validation.FrozenMap;
-import org.openapijsonschematools.client.components.schemas.NotMoreComplexSchema;
+import unit_test_api.configurations.JsonSchemaKeywordFlags;
+import unit_test_api.configurations.SchemaConfiguration;
+import unit_test_api.exceptions.ValidationException;
+import unit_test_api.schemas.validation.MapUtils;
+import unit_test_api.schemas.validation.FrozenList;
+import unit_test_api.schemas.validation.FrozenMap;
+import unit_test_api.components.schemas.NotMoreComplexSchema;
 
 import java.util.Arrays;
 import java.util.List;
@@ -316,7 +316,7 @@ extends StringJsonSchema.StringJsonSchema1
 
 A schema class that validates payloads
 
-| Methods Inherited from class org.openapijsonschematools.client.schemas.StringJsonSchema.StringJsonSchema1 |
+| Methods Inherited from class unit_test_api.schemas.StringJsonSchema.StringJsonSchema1 |
 | ------------------------------------------------------------------ |
 | validate                                                           |
 | validateAndBox                                                     |

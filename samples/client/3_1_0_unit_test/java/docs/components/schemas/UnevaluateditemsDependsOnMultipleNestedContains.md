@@ -1,5 +1,5 @@
 # UnevaluateditemsDependsOnMultipleNestedContains
-org.openapijsonschematools.client.components.schemas.UnevaluateditemsDependsOnMultipleNestedContains.java
+unit_test_api.components.schemas.UnevaluateditemsDependsOnMultipleNestedContains.java
 public class UnevaluateditemsDependsOnMultipleNestedContains<br>
 
 A class that contains necessary nested

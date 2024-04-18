@@ -1,5 +1,5 @@
 # NotMoreComplexSchema
-openapi_client.components.schema.not_more_complex_schema
+unit_test_api.components.schema.not_more_complex_schema
 ```
 type: schemas.Schema
 ```

@@ -1,4 +1,4 @@
-openapi_client.components.security_schemes.security_scheme_open_id_connect_test
+petstore_api.components.security_schemes.security_scheme_open_id_connect_test
 # SecurityScheme OpenIdConnectTest
 
 ## Description

@@ -1,5 +1,5 @@
 # InvalidInstanceShouldNotRaiseErrorWhenFloatDivisionInf
-openapi_client.components.schema.invalid_instance_should_not_raise_error_when_float_division_inf
+unit_test_api.components.schema.invalid_instance_should_not_raise_error_when_float_division_inf
 ```
 type: schemas.Schema
 ```

@@ -1,5 +1,5 @@
 # IgnoreIfWithoutThenOrElse
-org.openapijsonschematools.client.components.schemas.IgnoreIfWithoutThenOrElse.java
+unit_test_api.components.schemas.IgnoreIfWithoutThenOrElse.java
 public class IgnoreIfWithoutThenOrElse<br>
 
 A class that contains necessary nested

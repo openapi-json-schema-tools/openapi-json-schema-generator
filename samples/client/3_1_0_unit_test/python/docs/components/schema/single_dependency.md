@@ -1,5 +1,5 @@
 # SingleDependency
-openapi_client.components.schema.single_dependency
+unit_test_api.components.schema.single_dependency
 ```
 type: schemas.Schema
 ```

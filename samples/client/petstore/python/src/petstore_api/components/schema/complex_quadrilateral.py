@@ -158,8 +158,6 @@ class _1(
             configuration=configuration,
         )
 
-
-from petstore_api.components.schema import quadrilateral_interface
 AllOf = typing.Tuple[
     typing.Type[quadrilateral_interface.QuadrilateralInterface],
     typing.Type[_1],

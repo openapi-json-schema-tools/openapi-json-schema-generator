@@ -1,4 +1,4 @@
-openapi_client.paths.pet.operation
+petstore_api.paths.pet.operation
 # Operation Method Name
 
 | Method Name | Api Class | Notes |
@@ -112,30 +112,30 @@ server_index | Class | Description
 ## Code Sample
 
 ```python
-import openapi_client
-from openapi_client.configurations import api_configuration
-from openapi_client.apis.tags import pet_api
+import petstore_api
+from petstore_api.configurations import api_configuration
+from petstore_api.apis.tags import pet_api
 from pprint import pprint
 # security_index 0
-from openapi_client.components.security_schemes import security_scheme_http_signature_test
+from petstore_api.components.security_schemes import security_scheme_http_signature_test
 # security_index 1
-from openapi_client.components.security_schemes import security_scheme_petstore_auth
+from petstore_api.components.security_schemes import security_scheme_petstore_auth
 
 # security_scheme_info for security_index 0
 security_scheme_info: api_configuration.SecuritySchemeInfo = {
     "http_signature_test": security_scheme_http_signature_test.HttpSignatureTest(
-        signing_info=openapi_client.signing.HttpSigningConfiguration(
+        signing_info=petstore_api.signing.HttpSigningConfiguration(
             key_id='my-key-id',
             private_key_path='rsa.pem',
-            signing_scheme=openapi_client.signing.SCHEME_HS2019,
-            signing_algorithm=openapi_client.signing.ALGORITHM_RSASSA_PSS,
+            signing_scheme=petstore_api.signing.SCHEME_HS2019,
+            signing_algorithm=petstore_api.signing.ALGORITHM_RSASSA_PSS,
             signed_headers=[
-                openapi_client.signing.HEADER_REQUEST_TARGET,
-                openapi_client.signing.HEADER_CREATED,
-                openapi_client.signing.HEADER_EXPIRES,
-                openapi_client.signing.HEADER_HOST,
-                openapi_client.signing.HEADER_DATE,
-                openapi_client.signing.HEADER_DIGEST,
+                petstore_api.signing.HEADER_REQUEST_TARGET,
+                petstore_api.signing.HEADER_CREATED,
+                petstore_api.signing.HEADER_EXPIRES,
+                petstore_api.signing.HEADER_HOST,
+                petstore_api.signing.HEADER_DATE,
+                petstore_api.signing.HEADER_DIGEST,
                 'Content-Type',
                 'User-Agent'
             ],
@@ -162,7 +162,7 @@ used_configuration = api_configuration.ApiConfiguration(
     security_index_info=security_index_info
 )
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(used_configuration) as api_client:
+with petstore_api.ApiClient(used_configuration) as api_client:
     # Create an instance of the API class
     api_instance = pet_api.PetApi(api_client)
 
@@ -191,7 +191,7 @@ with openapi_client.ApiClient(used_configuration) as api_client:
             body=body,
         )
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except petstore_api.ApiException as e:
         print("Exception when calling PetApi->update_pet: %s\n" % e)
 ```
 

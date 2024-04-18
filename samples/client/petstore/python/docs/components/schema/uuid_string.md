@@ -1,5 +1,5 @@
 # UUIDString
-openapi_client.components.schema.uuid_string
+petstore_api.components.schema.uuid_string
 ```
 type: schemas.Schema
 ```

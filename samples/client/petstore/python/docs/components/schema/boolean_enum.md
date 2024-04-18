@@ -1,5 +1,5 @@
 # BooleanEnum
-openapi_client.components.schema.boolean_enum
+petstore_api.components.schema.boolean_enum
 ```
 type: schemas.Schema
 ```

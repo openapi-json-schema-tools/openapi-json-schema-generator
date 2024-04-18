@@ -1,5 +1,5 @@
 # PropertyNamedRefThatIsNotAReference
-openapi_client.components.schema.property_named_ref_that_is_not_a_reference
+unit_test_api.components.schema.property_named_ref_that_is_not_a_reference
 ```
 type: schemas.Schema
 ```

@@ -1,4 +1,4 @@
-openapi_client.servers.server_0
+this_package.servers.server_0
 # Server Server0
 
 ## Url

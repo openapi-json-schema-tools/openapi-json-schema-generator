@@ -1,5 +1,5 @@
 # IfAndElseWithoutThen
-org.openapijsonschematools.client.components.schemas.IfAndElseWithoutThen.java
+unit_test_api.components.schemas.IfAndElseWithoutThen.java
 public class IfAndElseWithoutThen<br>
 
 A class that contains necessary nested

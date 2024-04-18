@@ -1,5 +1,5 @@
 # MincontainsWithoutContainsIsIgnored
-org.openapijsonschematools.client.components.schemas.MincontainsWithoutContainsIsIgnored.java
+unit_test_api.components.schemas.MincontainsWithoutContainsIsIgnored.java
 public class MincontainsWithoutContainsIsIgnored<br>
 
 A class that contains necessary nested

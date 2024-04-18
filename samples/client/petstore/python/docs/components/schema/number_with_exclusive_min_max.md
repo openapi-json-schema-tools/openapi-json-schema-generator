@@ -1,5 +1,5 @@
 # NumberWithExclusiveMinMax
-openapi_client.components.schema.number_with_exclusive_min_max
+petstore_api.components.schema.number_with_exclusive_min_max
 ```
 type: schemas.Schema
 ```

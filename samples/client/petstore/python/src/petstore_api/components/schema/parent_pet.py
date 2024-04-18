@@ -12,7 +12,6 @@ from petstore_api.shared_imports.schema_imports import *  # pyright: ignore [rep
 
 
 from petstore_api.components.schema import child_cat
-from petstore_api.components.schema import grandparent_animal
 AllOf = typing.Tuple[
     typing.Type[grandparent_animal.GrandparentAnimal],
 ]

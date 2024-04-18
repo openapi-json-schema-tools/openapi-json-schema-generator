@@ -1,5 +1,5 @@
 # HasOnlyReadOnly
-openapi_client.components.schema.has_only_read_only
+petstore_api.components.schema.has_only_read_only
 ```
 type: schemas.Schema
 ```

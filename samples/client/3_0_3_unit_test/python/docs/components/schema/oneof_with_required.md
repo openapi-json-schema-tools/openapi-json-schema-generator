@@ -1,5 +1,5 @@
 # OneofWithRequired
-openapi_client.components.schema.oneof_with_required
+unit_test_api.components.schema.oneof_with_required
 ```
 type: schemas.Schema
 ```

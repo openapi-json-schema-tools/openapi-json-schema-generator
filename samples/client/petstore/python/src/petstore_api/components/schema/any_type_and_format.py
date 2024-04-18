@@ -85,7 +85,7 @@ class Double(
 
 
 @dataclasses.dataclass(frozen=True)
-class _Float(
+class Float(
     schemas.AnyTypeSchema[schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES], typing.Tuple[schemas.OUTPUT_BASE_TYPES, ...]],
 ):
     # any type
@@ -102,7 +102,7 @@ Properties = typing.TypedDict(
         "int32": typing.Type[Int32],
         "int64": typing.Type[Int64],
         "double": typing.Type[Double],
-        "float": typing.Type[_Float],
+        "float": typing.Type[Float],
     }
 )
 
@@ -161,6 +161,11 @@ class AnyTypeAndFormatDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]
             schemas.OUTPUT_BASE_TYPES,
             schemas.Unset
         ] = schemas.unset,
+        float: typing.Union[
+            schemas.INPUT_TYPES_ALL,
+            schemas.OUTPUT_BASE_TYPES,
+            schemas.Unset
+        ] = schemas.unset,
         configuration_: typing.Optional[schema_configuration.SchemaConfiguration] = None,
         **kwargs: schemas.INPUT_TYPES_ALL,
     ):
@@ -173,6 +178,7 @@ class AnyTypeAndFormatDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]
             ("int32", int32),
             ("int64", int64),
             ("double", double),
+            ("float", float),
         ):
             if isinstance(val, schemas.Unset):
                 continue
@@ -236,6 +242,13 @@ class AnyTypeAndFormatDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]
     @property
     def double(self) -> typing.Union[schemas.OUTPUT_BASE_TYPES, schemas.Unset]:
         val = self.get("double", schemas.unset)
+        if isinstance(val, schemas.Unset):
+            return val
+        return val
+    
+    @property
+    def float(self) -> typing.Union[schemas.OUTPUT_BASE_TYPES, schemas.Unset]:
+        val = self.get("float", schemas.unset)
         if isinstance(val, schemas.Unset):
             return val
         return val

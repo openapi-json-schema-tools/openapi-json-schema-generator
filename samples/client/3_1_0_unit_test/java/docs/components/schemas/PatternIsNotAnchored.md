@@ -1,5 +1,5 @@
 # PatternIsNotAnchored
-org.openapijsonschematools.client.components.schemas.PatternIsNotAnchored.java
+unit_test_api.components.schemas.PatternIsNotAnchored.java
 public class PatternIsNotAnchored<br>
 
 A class that contains necessary nested

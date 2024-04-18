@@ -1,5 +1,5 @@
 # ReqPropsFromTrueAddProps
-openapi_client.components.schema.req_props_from_true_add_props
+petstore_api.components.schema.req_props_from_true_add_props
 ```
 type: schemas.Schema
 ```

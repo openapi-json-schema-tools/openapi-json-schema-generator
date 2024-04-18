@@ -1,5 +1,5 @@
 <a name="top"></a>
-openapi_client.apis.tags.not_api
+unit_test_api.apis.tags.not_api
 # NotApi
 
 All URIs are relative to the selected server

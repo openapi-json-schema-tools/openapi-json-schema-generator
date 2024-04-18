@@ -1,5 +1,5 @@
 # Not
-openapi_client.components.schema.not
+unit_test_api.components.schema.not
 ```
 type: schemas.Schema
 ```

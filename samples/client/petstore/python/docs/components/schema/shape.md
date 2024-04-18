@@ -1,5 +1,5 @@
 # Shape
-openapi_client.components.schema.shape
+petstore_api.components.schema.shape
 ```
 type: schemas.Schema
 ```

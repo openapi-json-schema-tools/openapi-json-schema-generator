@@ -1,5 +1,5 @@
 # ObjectWithOnlyOptionalProps
-openapi_client.components.schema.object_with_only_optional_props
+petstore_api.components.schema.object_with_only_optional_props
 ```
 type: schemas.Schema
 ```

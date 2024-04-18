@@ -1,5 +1,5 @@
 # GmFruit
-openapi_client.components.schema.gm_fruit
+petstore_api.components.schema.gm_fruit
 ```
 type: schemas.Schema
 ```

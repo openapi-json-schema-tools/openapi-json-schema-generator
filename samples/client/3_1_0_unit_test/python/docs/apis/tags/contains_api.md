@@ -1,5 +1,5 @@
 <a name="top"></a>
-openapi_client.apis.tags.contains_api
+unit_test_api.apis.tags.contains_api
 # ContainsApi
 
 All URIs are relative to the selected server

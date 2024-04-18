@@ -1,4 +1,4 @@
-openapi_client.components.responses.response_ref_success_description_only
+petstore_api.components.responses.response_ref_success_description_only
 # Response RefSuccessDescriptionOnly
 
 ## Ref Response Info

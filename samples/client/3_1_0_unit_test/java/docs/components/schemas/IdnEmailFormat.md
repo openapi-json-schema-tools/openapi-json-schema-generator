@@ -1,5 +1,5 @@
 # IdnEmailFormat
-org.openapijsonschematools.client.components.schemas.IdnEmailFormat.java
+unit_test_api.components.schemas.IdnEmailFormat.java
 public class IdnEmailFormat<br>
 
 A class that contains necessary nested

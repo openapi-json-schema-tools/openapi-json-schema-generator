@@ -1,5 +1,5 @@
 # Money
-openapi_client.components.schema.money
+petstore_api.components.schema.money
 ```
 type: schemas.Schema
 ```

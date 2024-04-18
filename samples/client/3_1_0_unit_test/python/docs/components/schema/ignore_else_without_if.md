@@ -1,5 +1,5 @@
 # IgnoreElseWithoutIf
-openapi_client.components.schema.ignore_else_without_if
+unit_test_api.components.schema.ignore_else_without_if
 ```
 type: schemas.Schema
 ```

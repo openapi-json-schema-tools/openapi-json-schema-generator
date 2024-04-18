@@ -1,5 +1,5 @@
 # FormatTest
-openapi_client.components.schema.format_test
+petstore_api.components.schema.format_test
 ```
 type: schemas.Schema
 ```

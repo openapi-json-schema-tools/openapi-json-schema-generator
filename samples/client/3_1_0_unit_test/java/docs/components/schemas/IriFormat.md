@@ -1,5 +1,5 @@
 # IriFormat
-org.openapijsonschematools.client.components.schemas.IriFormat.java
+unit_test_api.components.schemas.IriFormat.java
 public class IriFormat<br>
 
 A class that contains necessary nested

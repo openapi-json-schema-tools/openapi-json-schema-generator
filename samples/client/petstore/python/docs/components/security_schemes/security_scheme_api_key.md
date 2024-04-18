@@ -1,4 +1,4 @@
-openapi_client.components.security_schemes.security_scheme_api_key
+petstore_api.components.security_schemes.security_scheme_api_key
 # SecurityScheme ApiKey
 
 ## Description

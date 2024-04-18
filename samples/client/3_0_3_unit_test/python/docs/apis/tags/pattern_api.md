@@ -1,5 +1,5 @@
 <a name="top"></a>
-openapi_client.apis.tags.pattern_api
+unit_test_api.apis.tags.pattern_api
 # PatternApi
 
 All URIs are relative to the selected server

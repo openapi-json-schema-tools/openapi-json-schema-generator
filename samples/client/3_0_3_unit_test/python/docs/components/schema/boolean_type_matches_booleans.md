@@ -1,5 +1,5 @@
 # BooleanTypeMatchesBooleans
-openapi_client.components.schema.boolean_type_matches_booleans
+unit_test_api.components.schema.boolean_type_matches_booleans
 ```
 type: schemas.Schema
 ```

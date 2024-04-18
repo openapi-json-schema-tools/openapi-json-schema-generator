@@ -1,5 +1,5 @@
 # DateFormat
-org.openapijsonschematools.client.components.schemas.DateFormat.java
+unit_test_api.components.schemas.DateFormat.java
 public class DateFormat<br>
 
 A class that contains necessary nested

@@ -1,4 +1,4 @@
-openapi_client.paths.request_body_post_unevaluateditems_with_items_request_body.operation
+unit_test_api.paths.request_body_post_unevaluateditems_with_items_request_body.operation
 # Operation Method Name
 
 | Method Name | Api Class | Notes |
@@ -85,14 +85,14 @@ server_index | Class | Description
 ## Code Sample
 
 ```python
-import openapi_client
-from openapi_client.configurations import api_configuration
-from openapi_client.apis.tags import unevaluated_items_api
+import unit_test_api
+from unit_test_api.configurations import api_configuration
+from unit_test_api.apis.tags import unevaluated_items_api
 from pprint import pprint
 used_configuration = api_configuration.ApiConfiguration(
 )
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(used_configuration) as api_client:
+with unit_test_api.ApiClient(used_configuration) as api_client:
     # Create an instance of the API class
     api_instance = unevaluated_items_api.UnevaluatedItemsApi(api_client)
 
@@ -105,7 +105,7 @@ with openapi_client.ApiClient(used_configuration) as api_client:
             body=body,
         )
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except unit_test_api.ApiException as e:
         print("Exception when calling UnevaluatedItemsApi->post_unevaluateditems_with_items_request_body: %s\n" % e)
 ```
 

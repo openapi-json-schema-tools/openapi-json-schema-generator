@@ -1,5 +1,5 @@
 # MinitemsValidation
-openapi_client.components.schema.minitems_validation
+unit_test_api.components.schema.minitems_validation
 ```
 type: schemas.Schema
 ```

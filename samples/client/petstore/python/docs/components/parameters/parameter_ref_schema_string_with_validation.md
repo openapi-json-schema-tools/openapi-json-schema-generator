@@ -1,4 +1,4 @@
-openapi_client.components.parameters.parameter_ref_schema_string_with_validation
+petstore_api.components.parameters.parameter_ref_schema_string_with_validation
 # Parameter RefSchemaStringWithValidation
 
 ## Description

@@ -1,5 +1,5 @@
 # Allof
-org.openapijsonschematools.client.components.schemas.Allof.java
+unit_test_api.components.schemas.Allof.java
 public class Allof<br>
 
 A class that contains necessary nested
@@ -426,7 +426,7 @@ extends StringJsonSchema.StringJsonSchema1
 
 A schema class that validates payloads
 
-| Methods Inherited from class org.openapijsonschematools.client.schemas.StringJsonSchema.StringJsonSchema1 |
+| Methods Inherited from class unit_test_api.schemas.StringJsonSchema.StringJsonSchema1 |
 | ------------------------------------------------------------------ |
 | validate                                                           |
 | validateAndBox                                                     |
@@ -666,7 +666,7 @@ extends IntJsonSchema.IntJsonSchema1
 
 A schema class that validates payloads
 
-| Methods Inherited from class org.openapijsonschematools.client.schemas.IntJsonSchema.IntJsonSchema1 |
+| Methods Inherited from class unit_test_api.schemas.IntJsonSchema.IntJsonSchema1 |
 | ------------------------------------------------------------------ |
 | validate                                                           |
 | validateAndBox                                                     |

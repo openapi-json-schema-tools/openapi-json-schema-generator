@@ -1,5 +1,5 @@
 # ByInt
-org.openapijsonschematools.client.components.schemas.ByInt.java
+unit_test_api.components.schemas.ByInt.java
 public class ByInt<br>
 
 A class that contains necessary nested

@@ -1,5 +1,5 @@
 # Dog
-openapi_client.components.schema.dog
+petstore_api.components.schema.dog
 ```
 type: schemas.Schema
 ```

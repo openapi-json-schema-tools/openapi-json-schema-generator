@@ -1,5 +1,5 @@
 # ObjectWithDecimalProperties
-openapi_client.components.schema.object_with_decimal_properties
+petstore_api.components.schema.object_with_decimal_properties
 ```
 type: schemas.Schema
 ```

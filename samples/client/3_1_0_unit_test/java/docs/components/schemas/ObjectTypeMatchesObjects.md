@@ -1,5 +1,5 @@
 # ObjectTypeMatchesObjects
-org.openapijsonschematools.client.components.schemas.ObjectTypeMatchesObjects.java
+unit_test_api.components.schemas.ObjectTypeMatchesObjects.java
 public class ObjectTypeMatchesObjects<br>
 
 A class that contains necessary nested
@@ -44,7 +44,7 @@ extends MapJsonSchema.MapJsonSchema1
 
 A schema class that validates payloads
 
-| Methods Inherited from class org.openapijsonschematools.client.schemas.MapJsonSchema.MapJsonSchema1 |
+| Methods Inherited from class unit_test_api.schemas.MapJsonSchema.MapJsonSchema1 |
 | ------------------------------------------------------------------ |
 | validate                                                           |
 | validateAndBox                                                     |

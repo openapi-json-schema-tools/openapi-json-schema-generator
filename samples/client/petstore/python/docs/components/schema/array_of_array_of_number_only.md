@@ -1,5 +1,5 @@
 # ArrayOfArrayOfNumberOnly
-openapi_client.components.schema.array_of_array_of_number_only
+petstore_api.components.schema.array_of_array_of_number_only
 ```
 type: schemas.Schema
 ```

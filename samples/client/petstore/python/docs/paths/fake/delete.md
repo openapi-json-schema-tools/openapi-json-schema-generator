@@ -1,4 +1,4 @@
-openapi_client.paths.fake.operation
+petstore_api.paths.fake.operation
 # Operation Method Name
 
 | Method Name | Api Class | Notes |
@@ -161,13 +161,13 @@ server_index | Class | Description
 ## Code Sample
 
 ```python
-import openapi_client
-from openapi_client.configurations import api_configuration
-from openapi_client.apis.tags import fake_api
-from openapi_client.paths.fake.delete import operation
+import petstore_api
+from petstore_api.configurations import api_configuration
+from petstore_api.apis.tags import fake_api
+from petstore_api.paths.fake.delete import operation
 from pprint import pprint
 # security_index 0
-from openapi_client.components.security_schemes import security_scheme_bearer_test
+from petstore_api.components.security_schemes import security_scheme_bearer_test
 
 # security_scheme_info for security_index 0
 security_scheme_info: api_configuration.SecuritySchemeInfo = {
@@ -180,7 +180,7 @@ used_configuration = api_configuration.ApiConfiguration(
     security_scheme_info=security_scheme_info,
 )
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(used_configuration) as api_client:
+with petstore_api.ApiClient(used_configuration) as api_client:
     # Create an instance of the API class
     api_instance = fake_api.FakeApi(api_client)
 
@@ -199,7 +199,7 @@ with openapi_client.ApiClient(used_configuration) as api_client:
             header_params=header_params,
         )
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except petstore_api.ApiException as e:
         print("Exception when calling FakeApi->group_parameters: %s\n" % e)
 
     # example passing only optional values
@@ -220,7 +220,7 @@ with openapi_client.ApiClient(used_configuration) as api_client:
             header_params=header_params,
         )
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except petstore_api.ApiException as e:
         print("Exception when calling FakeApi->group_parameters: %s\n" % e)
 ```
 

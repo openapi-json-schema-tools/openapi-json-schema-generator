@@ -1,5 +1,5 @@
 # OneofWithBaseSchema
-openapi_client.components.schema.oneof_with_base_schema
+unit_test_api.components.schema.oneof_with_base_schema
 ```
 type: schemas.Schema
 ```

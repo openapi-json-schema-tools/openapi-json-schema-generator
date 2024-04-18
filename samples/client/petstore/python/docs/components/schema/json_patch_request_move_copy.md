@@ -1,5 +1,5 @@
 # JSONPatchRequestMoveCopy
-openapi_client.components.schema.json_patch_request_move_copy
+petstore_api.components.schema.json_patch_request_move_copy
 ```
 type: schemas.Schema
 ```

@@ -1,5 +1,5 @@
 # IdnHostnameFormat
-org.openapijsonschematools.client.components.schemas.IdnHostnameFormat.java
+unit_test_api.components.schemas.IdnHostnameFormat.java
 public class IdnHostnameFormat<br>
 
 A class that contains necessary nested

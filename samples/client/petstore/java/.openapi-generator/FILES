@@ -1825,9 +1825,6 @@ src/main/java/org/openapijsonschematools/client/servers/ServerWithVariables.java
 src/main/java/org/openapijsonschematools/client/servers/ServerWithoutVariables.java
 src/main/java/org/openapijsonschematools/client/servers/rootserver0/RootServer0Variables.java
 src/main/java/org/openapijsonschematools/client/servers/rootserver1/RootServer1Variables.java
-src/test/java/org/openapijsonschematools/client/components/schemas/NumberTest.java
-src/test/java/org/openapijsonschematools/client/components/schemas/ReturnTest.java
-src/test/java/org/openapijsonschematools/client/components/schemas/StringTest.java
 src/test/java/org/openapijsonschematools/client/configurations/JsonSchemaKeywordFlagsTest.java
 src/test/java/org/openapijsonschematools/client/header/ContentHeaderTest.java
 src/test/java/org/openapijsonschematools/client/header/SchemaHeaderTest.java

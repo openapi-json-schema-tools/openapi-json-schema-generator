@@ -1,5 +1,5 @@
 # Operator
-openapi_client.components.schema.operator
+this_package.components.schema.operator
 ```
 type: schemas.Schema
 ```

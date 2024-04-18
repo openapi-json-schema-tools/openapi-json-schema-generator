@@ -1,5 +1,5 @@
 # MinimumValidation
-openapi_client.components.schema.minimum_validation
+unit_test_api.components.schema.minimum_validation
 ```
 type: schemas.Schema
 ```

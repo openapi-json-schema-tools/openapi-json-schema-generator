@@ -1,5 +1,5 @@
 # ObjectWithNonIntersectingValues
-openapi_client.components.schema.object_with_non_intersecting_values
+petstore_api.components.schema.object_with_non_intersecting_values
 ```
 type: schemas.Schema
 ```

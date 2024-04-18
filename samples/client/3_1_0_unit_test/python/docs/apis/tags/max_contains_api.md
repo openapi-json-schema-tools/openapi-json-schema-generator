@@ -1,5 +1,5 @@
 <a name="top"></a>
-openapi_client.apis.tags.max_contains_api
+unit_test_api.apis.tags.max_contains_api
 # MaxContainsApi
 
 All URIs are relative to the selected server

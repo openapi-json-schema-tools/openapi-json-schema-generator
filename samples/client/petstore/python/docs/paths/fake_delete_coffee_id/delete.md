@@ -1,4 +1,4 @@
-openapi_client.paths.fake_delete_coffee_id.operation
+petstore_api.paths.fake_delete_coffee_id.operation
 # Operation Method Name
 
 | Method Name | Api Class | Notes |
@@ -107,15 +107,15 @@ server_index | Class | Description
 ## Code Sample
 
 ```python
-import openapi_client
-from openapi_client.configurations import api_configuration
-from openapi_client.apis.tags import fake_api
-from openapi_client.paths.fake_delete_coffee_id.delete import operation
+import petstore_api
+from petstore_api.configurations import api_configuration
+from petstore_api.apis.tags import fake_api
+from petstore_api.paths.fake_delete_coffee_id.delete import operation
 from pprint import pprint
 used_configuration = api_configuration.ApiConfiguration(
 )
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(used_configuration) as api_client:
+with petstore_api.ApiClient(used_configuration) as api_client:
     # Create an instance of the API class
     api_instance = fake_api.FakeApi(api_client)
 
@@ -129,7 +129,7 @@ with openapi_client.ApiClient(used_configuration) as api_client:
             path_params=path_params,
         )
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except petstore_api.ApiException as e:
         print("Exception when calling FakeApi->delete_coffee: %s\n" % e)
 ```
 

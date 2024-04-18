@@ -1,5 +1,5 @@
 # AdditionalPropertiesSchema
-openapi_client.components.schema.additional_properties_schema
+petstore_api.components.schema.additional_properties_schema
 ```
 type: schemas.Schema
 ```

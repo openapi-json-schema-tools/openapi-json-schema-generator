@@ -1,4 +1,4 @@
-openapi_client.paths.fake_wild_card_responses.operation
+petstore_api.paths.fake_wild_card_responses.operation
 # Operation Method Name
 
 | Method Name | Api Class | Notes |
@@ -228,14 +228,14 @@ server_index | Class | Description
 ## Code Sample
 
 ```python
-import openapi_client
-from openapi_client.configurations import api_configuration
-from openapi_client.apis.tags import fake_api
+import petstore_api
+from petstore_api.configurations import api_configuration
+from petstore_api.apis.tags import fake_api
 from pprint import pprint
 used_configuration = api_configuration.ApiConfiguration(
 )
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(used_configuration) as api_client:
+with petstore_api.ApiClient(used_configuration) as api_client:
     # Create an instance of the API class
     api_instance = fake_api.FakeApi(api_client)
 
@@ -244,7 +244,7 @@ with openapi_client.ApiClient(used_configuration) as api_client:
         # operation with wildcard responses
         api_response = api_instance.wild_card_responses()
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except petstore_api.ApiException as e:
         print("Exception when calling FakeApi->wild_card_responses: %s\n" % e)
 ```
 

@@ -1,5 +1,5 @@
 # ObjectWithDifficultlyNamedProps
-openapi_client.components.schema.object_with_difficultly_named_props
+petstore_api.components.schema.object_with_difficultly_named_props
 ```
 type: schemas.Schema
 ```

@@ -1,5 +1,5 @@
 # RefInProperty
-openapi_client.components.schema.ref_in_property
+unit_test_api.components.schema.ref_in_property
 ```
 type: schemas.Schema
 ```

@@ -1,5 +1,5 @@
 # DependentSchemasDependentSubschemaIncompatibleWithRoot
-openapi_client.components.schema.dependent_schemas_dependent_subschema_incompatible_with_root
+unit_test_api.components.schema.dependent_schemas_dependent_subschema_incompatible_with_root
 ```
 type: schemas.Schema
 ```

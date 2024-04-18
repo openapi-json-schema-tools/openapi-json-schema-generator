@@ -1,5 +1,5 @@
 # ClassModel
-openapi_client.components.schema.class_model
+petstore_api.components.schema.class_model
 ```
 type: schemas.Schema
 ```

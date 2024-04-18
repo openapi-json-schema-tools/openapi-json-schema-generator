@@ -1,5 +1,5 @@
 # ItemsContains
-openapi_client.components.schema.items_contains
+unit_test_api.components.schema.items_contains
 ```
 type: schemas.Schema
 ```

@@ -1,5 +1,5 @@
 # NotMultipleTypes
-openapi_client.components.schema.not_multiple_types
+unit_test_api.components.schema.not_multiple_types
 ```
 type: schemas.Schema
 ```
