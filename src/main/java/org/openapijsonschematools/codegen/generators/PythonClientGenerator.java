@@ -316,6 +316,7 @@ public class PythonClientGenerator extends DefaultGenerator implements Generator
             workflowSettings,
             "python",
             "openapi_client",
+            "openapi_client",
             "generated_code" + File.separator + "python"
         );
         testFolder = "test";

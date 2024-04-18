@@ -92,6 +92,7 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
             workflowSettings,
             "java",
             "org.openapijsonschematools.client",
+            "openapi-java-client",
             "generated-code" + File.separator + "java"
         );
         if (this.outputTestFolder.isEmpty()) {
@@ -103,7 +104,6 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
 
         cliOptions.add(new CliOption(CodegenConstants.INVOKER_PACKAGE, CodegenConstants.INVOKER_PACKAGE_DESC).defaultValue(this.getInvokerPackage()));
         cliOptions.add(new CliOption(CodegenConstants.GROUP_ID, CodegenConstants.GROUP_ID_DESC).defaultValue(this.getGroupId()));
-        cliOptions.add(new CliOption(CodegenConstants.ARTIFACT_ID, CodegenConstants.ARTIFACT_ID_DESC).defaultValue(this.getArtifactId()));
         cliOptions.add(new CliOption(CodegenConstants.ARTIFACT_VERSION, CodegenConstants.ARTIFACT_VERSION_DESC).defaultValue(ARTIFACT_VERSION_DEFAULT_VALUE));
         cliOptions.add(new CliOption(CodegenConstants.ARTIFACT_URL, CodegenConstants.ARTIFACT_URL_DESC).defaultValue(this.getArtifactUrl()));
         cliOptions.add(new CliOption(CodegenConstants.ARTIFACT_DESCRIPTION, CodegenConstants.ARTIFACT_DESCRIPTION_DESC).defaultValue(this.getArtifactDescription()));
@@ -139,13 +139,10 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
         arrayObjectInputClassNameSuffix = "Builder";
 
         invokerPackage = "org.openapijsonschematools.client";
-        artifactId = "openapi-java-client";
         modelPackage = "components.schemas";
 
         // cliOptions default redefinition need to be updated
         updateOption(CodegenConstants.INVOKER_PACKAGE, this.getInvokerPackage());
-        updateOption(CodegenConstants.ARTIFACT_ID, this.getArtifactId());
-//        updateOption(CodegenConstants.API_PACKAGE, apiPackage);
 
         jsonPathTestTemplateFiles.put(
             CodegenConstants.JSON_PATH_LOCATION_TYPE.SCHEMA,
@@ -167,7 +164,6 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
 
     protected String invokerPackage = "org.openapijsonschematools";
     protected String groupId = "org.openapijsonschematools";
-    protected String artifactId = "openapi-java";
     protected String artifactVersion = null;
     protected String artifactUrl = "https://github.com/openapi-json-schema-tools/openapi-json-schema-generator";
     protected String artifactDescription = "OpenAPI Java";
@@ -461,13 +457,6 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
         } else {
             //not set, use to be passed to template
             additionalProperties.put(CodegenConstants.GROUP_ID, groupId);
-        }
-
-        if (additionalProperties.containsKey(CodegenConstants.ARTIFACT_ID)) {
-            this.setArtifactId((String) additionalProperties.get(CodegenConstants.ARTIFACT_ID));
-        } else {
-            //not set, use to be passed to template
-            additionalProperties.put(CodegenConstants.ARTIFACT_ID, artifactId);
         }
 
         if (additionalProperties.containsKey(CodegenConstants.ARTIFACT_URL)) {
@@ -3268,14 +3257,6 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
 
     public void setGroupId(String groupId) {
         this.groupId = groupId;
-    }
-
-    public String getArtifactId() {
-        return artifactId;
-    }
-
-    public void setArtifactId(String artifactId) {
-        this.artifactId = artifactId;
     }
 
     public String getArtifactVersion() {

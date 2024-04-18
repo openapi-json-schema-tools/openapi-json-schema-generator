@@ -67,7 +67,7 @@ public class WorkflowSettings {
     private String ignoreFileOverride;
     private Map<String, ?> globalProperties = DEFAULT_GLOBAL_PROPERTIES;
     private boolean removeEnumValuePrefix = DEFAULT_REMOVE_ENUM_VALUE_PREFIX;
-    private boolean hideGenerationTimestamp = DEFAULT_HIDE_GENERATION_TIMESTAMP;
+    private Boolean hideGenerationTimestamp = DEFAULT_HIDE_GENERATION_TIMESTAMP;
 
     private WorkflowSettings(Builder builder) {
         this.inputSpec = builder.inputSpec;

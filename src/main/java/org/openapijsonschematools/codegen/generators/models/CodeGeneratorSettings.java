@@ -7,6 +7,7 @@ import java.util.Objects;
 
 public class CodeGeneratorSettings {
     public final String apiPackage;
+    public final String artifactId;
     public final String outputFolder;
     public final String templateDir;
     public final String embeddedTemplateDir;
@@ -24,6 +25,7 @@ public class CodeGeneratorSettings {
     public final boolean hideGenerationTimestamp;
     public CodeGeneratorSettings(
         String apiPackage,
+        String artifactId,
         String outputFolder,
         String templateDir,
         String embeddedTemplateDir,
@@ -41,6 +43,7 @@ public class CodeGeneratorSettings {
         boolean hideGenerationTimestamp
     ) {
         this.apiPackage = apiPackage;
+        this.artifactId = artifactId;
         this.outputFolder = outputFolder;
         this.templateDir = templateDir;
         this.embeddedTemplateDir = embeddedTemplateDir;
@@ -58,9 +61,10 @@ public class CodeGeneratorSettings {
         this.hideGenerationTimestamp = hideGenerationTimestamp;
     }
 
-    public static CodeGeneratorSettings of(GeneratorSettings generatorSettings, WorkflowSettings workflowSettings, String embeddedTemplateDir, String packageNameDefault, String outputFolderDefault) {
-        String defaultApiPackage = "apis";
-        String apiPackage = generatorSettings != null ? Objects.requireNonNullElse(generatorSettings.getApiPackage(), defaultApiPackage) : defaultApiPackage;
+    public static CodeGeneratorSettings of(GeneratorSettings generatorSettings, WorkflowSettings workflowSettings, String embeddedTemplateDir, String packageNameDefault, String artifactIdDefault, String outputFolderDefault) {
+        String apiPackageDefault = "apis";
+        String apiPackage = generatorSettings != null ? Objects.requireNonNullElse(generatorSettings.getApiPackage(), apiPackageDefault) : apiPackageDefault;
+        String artifactId = generatorSettings != null ? Objects.requireNonNullElse(generatorSettings.getArtifactId(), artifactIdDefault) : artifactIdDefault;
         String packageName = generatorSettings != null ? Objects.requireNonNullElse(generatorSettings.getPackageName(), packageNameDefault) : packageNameDefault;
         String outputDir = workflowSettings != null ? workflowSettings.getOutputDir() : outputFolderDefault;
         String templateDir = workflowSettings != null ? workflowSettings.getTemplateDir() : null;
@@ -77,6 +81,7 @@ public class CodeGeneratorSettings {
         boolean hideGenerationTimestamp = workflowSettings != null ? workflowSettings.isHideGenerationTimestamp() : WorkflowSettings.DEFAULT_HIDE_GENERATION_TIMESTAMP;
         return new CodeGeneratorSettings(
             apiPackage,
+            artifactId,
             outputDir,
             templateDir,
             embeddedTemplateDir,

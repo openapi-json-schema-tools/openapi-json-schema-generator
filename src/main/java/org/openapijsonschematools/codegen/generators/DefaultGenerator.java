@@ -156,8 +156,8 @@ public class DefaultGenerator implements Generator {
         return initialAddProps;
     }
 
-    protected DefaultGenerator(GeneratorSettings generatorSettings, WorkflowSettings workflowSettings, String embeddedTemplateDir, String packageNameDefault, String outputFolderDefault) {
-        this.generatorSettings = CodeGeneratorSettings.of(generatorSettings, workflowSettings, embeddedTemplateDir, packageNameDefault, outputFolderDefault);
+    protected DefaultGenerator(GeneratorSettings generatorSettings, WorkflowSettings workflowSettings, String embeddedTemplateDir, String packageNameDefault, String artifactIdDefault, String outputFolderDefault) {
+        this.generatorSettings = CodeGeneratorSettings.of(generatorSettings, workflowSettings, embeddedTemplateDir, packageNameDefault, artifactIdDefault, outputFolderDefault);
         additionalProperties = getInitialAdditionalProperties(generatorSettings, this.generatorSettings);
 
         // name formatting options
@@ -176,6 +176,7 @@ public class DefaultGenerator implements Generator {
             generatorSettings,
             workflowSettings,
             "java",
+            "openapiclient",
             "openapiclient",
             "generated-code" + File.separator + "java"
         );

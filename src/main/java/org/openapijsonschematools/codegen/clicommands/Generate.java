@@ -365,13 +365,13 @@ public class Generate extends AbstractCommand {
         }
         if (!isNotEmpty(artifactId) && (configurator.getAdditionalProperties() != null && configurator.getAdditionalProperties().containsKey("artifactId"))) {
             // if packageName is passed as an additional property warn them
-            LOGGER.warn("Deprecated command line arg: artifactId should be passed in using --artifact-id from now on");
+            LOGGER.warn("Deprecated --additional-properties command line arg: artifactId should be passed in using --artifact-id from now on");
             artifactId = (String) configurator.getAdditionalProperties().get("artifactId");
             configurator.setArtifactId(artifactId);
         }
         if (hideGenerationTimestamp == null && (configurator.getAdditionalProperties() != null && configurator.getAdditionalProperties().containsKey("hideGenerationTimestamp"))) {
             // if packageName is passed as an additional property warn them
-            LOGGER.warn("Deprecated command line arg: hideGenerationTimestamp should be passed in using --hide-generation-timestamp from now on");
+            LOGGER.warn("Deprecated --additional-properties command line arg: hideGenerationTimestamp should be passed in using --hide-generation-timestamp from now on");
             hideGenerationTimestamp = (Boolean) configurator.getAdditionalProperties().get("hideGenerationTimestamp");
             configurator.setHideGenerationTimestamp(hideGenerationTimestamp);
         }

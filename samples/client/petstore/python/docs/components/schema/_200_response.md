@@ -1,5 +1,5 @@
 # _200Response
-openapi_client.components.schema._200_response
+petstore_api.components.schema._200_response
 ```
 type: schemas.Schema
 ```

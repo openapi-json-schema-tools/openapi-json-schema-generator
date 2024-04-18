@@ -1,5 +1,5 @@
 # AbstractStepMessage
-openapi_client.components.schema.abstract_step_message
+petstore_api.components.schema.abstract_step_message
 ```
 type: schemas.Schema
 ```
