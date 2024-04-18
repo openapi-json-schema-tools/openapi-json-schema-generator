@@ -821,7 +821,7 @@ public class DefaultGenerator implements Generator {
      * @return the sanitized variable name
      */
     public String toVarName(final String name) {
-        if (generatorMetadata.getReservedWords().contains(name)) {
+        if (getGeneratorMetadata().getReservedWords().contains(name)) {
             return escapeReservedWord(name);
         } else if (name.chars().anyMatch(character -> specialCharReplacements.containsKey(String.valueOf((char) character)))) {
             return org.openapijsonschematools.codegen.common.StringUtils.escape(name, specialCharReplacements, null, null);
@@ -846,7 +846,7 @@ public class DefaultGenerator implements Generator {
             result = result.substring(0, 1).toLowerCase(Locale.ROOT) + result.substring(1);
         }
         name = result; // FIXME: a parameter should not be assigned. Also declare the methods parameters as 'final'.
-        if (generatorMetadata.getReservedWords().contains(name)) {
+        if (getGeneratorMetadata().getReservedWords().contains(name)) {
             return escapeReservedWord(name);
         } else if (name.chars().anyMatch(character -> specialCharReplacements.containsKey(String.valueOf((char) character)))) {
             return org.openapijsonschematools.codegen.common.StringUtils.escape(name, specialCharReplacements, null, null);
@@ -2067,7 +2067,7 @@ public class DefaultGenerator implements Generator {
                 // import from $ref
                 property.imports = new TreeSet<>();
                 assert generatorMetadata != null;
-                addImports(property.imports, getImports(sourceJsonPath, property, generatorMetadata.getFeatureSet()));
+                addImports(property.imports, getImports(sourceJsonPath, property, getGeneratorMetadata().getFeatureSet()));
             }
             if (p.getSpecVersion().compareTo(SpecVersion.V31) < 0) {
                 //  stop processing if version is less than 3.1.0
@@ -2342,8 +2342,7 @@ public class DefaultGenerator implements Generator {
         if (addSchemaImportsFromV3SpecLocations && sourceJsonPath != null && sourceJsonPath.equals(currentJsonPath)) {
             // imports from properties/items/additionalProperties/oneOf/anyOf/allOf/not
             property.imports = new TreeSet<>();
-            assert generatorMetadata != null;
-            addImports(property.imports, getImports(sourceJsonPath, property, generatorMetadata.getFeatureSet()));
+            addImports(property.imports, getImports(sourceJsonPath, property, getGeneratorMetadata().getFeatureSet()));
         }
 
         LOGGER.debug("debugging fromSchema return: {}", property);
@@ -2775,7 +2774,7 @@ public class DefaultGenerator implements Generator {
         xParametersSchema.setAdditionalProperties(Boolean.FALSE);
         CodegenSchema schema = fromSchema(xParametersSchema, sourceJsonPath, currentJsonPath);
         schema.imports = new TreeSet<>();
-        addImports(schema.imports, getImports(sourceJsonPath, schema, generatorMetadata.getFeatureSet()));
+        addImports(schema.imports, getImports(sourceJsonPath, schema, getGeneratorMetadata().getFeatureSet()));
         return schema;
     }
 
@@ -3386,7 +3385,7 @@ public class DefaultGenerator implements Generator {
     }
 
     protected boolean isReservedWord(String word) {
-        return word != null && generatorMetadata.getReservedWords().contains(word.toLowerCase(Locale.ROOT));
+        return word != null && getGeneratorMetadata().getReservedWords().contains(word.toLowerCase(Locale.ROOT));
     }
 
     /**

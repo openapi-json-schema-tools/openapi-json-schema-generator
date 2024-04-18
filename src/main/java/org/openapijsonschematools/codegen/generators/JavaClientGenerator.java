@@ -1075,7 +1075,7 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
     @Override
     public String toApiVarName(String name) {
         String apiVarName = super.toApiVarName(name);
-        if (generatorMetadata.getReservedWords().contains(apiVarName)) {
+        if (getGeneratorMetadata().getReservedWords().contains(apiVarName)) {
             apiVarName = escapeReservedWord(apiVarName);
         }
         return apiVarName;
