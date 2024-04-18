@@ -1,5 +1,5 @@
 # IfAppearsAtTheEndWhenSerializedKeywordProcessingSequence
-unit_test_api.components.schemas.IfAppearsAtTheEndWhenSerializedKeywordProcessingSequence.java
+org.openapijsonschematools.client.components.schemas.IfAppearsAtTheEndWhenSerializedKeywordProcessingSequence.java
 public class IfAppearsAtTheEndWhenSerializedKeywordProcessingSequence<br>
 
 A class that contains necessary nested

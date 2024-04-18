@@ -1,5 +1,5 @@
 # RegexFormat
-unit_test_api.components.schemas.RegexFormat.java
+org.openapijsonschematools.client.components.schemas.RegexFormat.java
 public class RegexFormat<br>
 
 A class that contains necessary nested

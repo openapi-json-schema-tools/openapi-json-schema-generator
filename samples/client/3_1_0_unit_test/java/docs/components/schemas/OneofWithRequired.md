@@ -1,5 +1,5 @@
 # OneofWithRequired
-unit_test_api.components.schemas.OneofWithRequired.java
+org.openapijsonschematools.client.components.schemas.OneofWithRequired.java
 public class OneofWithRequired<br>
 
 A class that contains necessary nested

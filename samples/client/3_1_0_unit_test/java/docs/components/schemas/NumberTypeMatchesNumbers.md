@@ -1,5 +1,5 @@
 # NumberTypeMatchesNumbers
-unit_test_api.components.schemas.NumberTypeMatchesNumbers.java
+org.openapijsonschematools.client.components.schemas.NumberTypeMatchesNumbers.java
 public class NumberTypeMatchesNumbers<br>
 
 A class that contains necessary nested
@@ -44,7 +44,7 @@ extends NumberJsonSchema.NumberJsonSchema1
 
 A schema class that validates payloads
 
-| Methods Inherited from class unit_test_api.schemas.NumberJsonSchema.NumberJsonSchema1 |
+| Methods Inherited from class org.openapijsonschematools.client.schemas.NumberJsonSchema.NumberJsonSchema1 |
 | ------------------------------------------------------------------ |
 | validate                                                           |
 | validateAndBox                                                     |

@@ -1,5 +1,5 @@
 # MinimumValidationWithSignedInteger
-unit_test_api.components.schemas.MinimumValidationWithSignedInteger.java
+org.openapijsonschematools.client.components.schemas.MinimumValidationWithSignedInteger.java
 public class MinimumValidationWithSignedInteger<br>
 
 A class that contains necessary nested

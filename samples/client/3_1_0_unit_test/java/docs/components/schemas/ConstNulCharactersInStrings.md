@@ -1,5 +1,5 @@
 # ConstNulCharactersInStrings
-unit_test_api.components.schemas.ConstNulCharactersInStrings.java
+org.openapijsonschematools.client.components.schemas.ConstNulCharactersInStrings.java
 public class ConstNulCharactersInStrings<br>
 
 A class that contains necessary nested

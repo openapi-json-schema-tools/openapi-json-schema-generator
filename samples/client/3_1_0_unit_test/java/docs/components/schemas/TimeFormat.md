@@ -1,5 +1,5 @@
 # TimeFormat
-unit_test_api.components.schemas.TimeFormat.java
+org.openapijsonschematools.client.components.schemas.TimeFormat.java
 public class TimeFormat<br>
 
 A class that contains necessary nested

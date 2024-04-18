@@ -1,5 +1,5 @@
 # MinpropertiesValidation
-unit_test_api.components.schemas.MinpropertiesValidation.java
+org.openapijsonschematools.client.components.schemas.MinpropertiesValidation.java
 public class MinpropertiesValidation<br>
 
 A class that contains necessary nested

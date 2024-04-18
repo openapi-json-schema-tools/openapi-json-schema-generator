@@ -1,5 +1,5 @@
 # Ipv4Format
-unit_test_api.components.schemas.Ipv4Format.java
+org.openapijsonschematools.client.components.schemas.Ipv4Format.java
 public class Ipv4Format<br>
 
 A class that contains necessary nested

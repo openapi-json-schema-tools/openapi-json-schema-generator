@@ -1,5 +1,5 @@
 # ExclusiveminimumValidation
-unit_test_api.components.schemas.ExclusiveminimumValidation.java
+org.openapijsonschematools.client.components.schemas.ExclusiveminimumValidation.java
 public class ExclusiveminimumValidation<br>
 
 A class that contains necessary nested

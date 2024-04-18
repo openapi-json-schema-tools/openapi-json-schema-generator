@@ -1,5 +1,5 @@
 # ValidateAgainstCorrectBranchThenVsElse
-unit_test_api.components.schemas.ValidateAgainstCorrectBranchThenVsElse.java
+org.openapijsonschematools.client.components.schemas.ValidateAgainstCorrectBranchThenVsElse.java
 public class ValidateAgainstCorrectBranchThenVsElse<br>
 
 A class that contains necessary nested

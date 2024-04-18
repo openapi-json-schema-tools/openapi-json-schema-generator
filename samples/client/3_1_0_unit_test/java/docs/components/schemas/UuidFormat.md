@@ -1,5 +1,5 @@
 # UuidFormat
-unit_test_api.components.schemas.UuidFormat.java
+org.openapijsonschematools.client.components.schemas.UuidFormat.java
 public class UuidFormat<br>
 
 A class that contains necessary nested

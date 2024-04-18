@@ -1,5 +1,5 @@
 # Maxproperties0MeansTheObjectIsEmpty
-unit_test_api.components.schemas.Maxproperties0MeansTheObjectIsEmpty.java
+org.openapijsonschematools.client.components.schemas.Maxproperties0MeansTheObjectIsEmpty.java
 public class Maxproperties0MeansTheObjectIsEmpty<br>
 
 A class that contains necessary nested

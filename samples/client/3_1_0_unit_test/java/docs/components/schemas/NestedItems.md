@@ -1,5 +1,5 @@
 # NestedItems
-unit_test_api.components.schemas.NestedItems.java
+org.openapijsonschematools.client.components.schemas.NestedItems.java
 public class NestedItems<br>
 
 A class that contains necessary nested
@@ -68,13 +68,13 @@ A schema class that validates payloads
 
 ### Code Sample
 ```
-import unit_test_api.configurations.JsonSchemaKeywordFlags;
-import unit_test_api.configurations.SchemaConfiguration;
-import unit_test_api.exceptions.ValidationException;
-import unit_test_api.schemas.validation.MapUtils;
-import unit_test_api.schemas.validation.FrozenList;
-import unit_test_api.schemas.validation.FrozenMap;
-import unit_test_api.components.schemas.NestedItems;
+import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
+import org.openapijsonschematools.client.configurations.SchemaConfiguration;
+import org.openapijsonschematools.client.exceptions.ValidationException;
+import org.openapijsonschematools.client.schemas.validation.MapUtils;
+import org.openapijsonschematools.client.schemas.validation.FrozenList;
+import org.openapijsonschematools.client.schemas.validation.FrozenMap;
+import org.openapijsonschematools.client.components.schemas.NestedItems;
 
 import java.util.Arrays;
 import java.util.List;
@@ -175,13 +175,13 @@ A schema class that validates payloads
 
 ### Code Sample
 ```
-import unit_test_api.configurations.JsonSchemaKeywordFlags;
-import unit_test_api.configurations.SchemaConfiguration;
-import unit_test_api.exceptions.ValidationException;
-import unit_test_api.schemas.validation.MapUtils;
-import unit_test_api.schemas.validation.FrozenList;
-import unit_test_api.schemas.validation.FrozenMap;
-import unit_test_api.components.schemas.NestedItems;
+import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
+import org.openapijsonschematools.client.configurations.SchemaConfiguration;
+import org.openapijsonschematools.client.exceptions.ValidationException;
+import org.openapijsonschematools.client.schemas.validation.MapUtils;
+import org.openapijsonschematools.client.schemas.validation.FrozenList;
+import org.openapijsonschematools.client.schemas.validation.FrozenMap;
+import org.openapijsonschematools.client.components.schemas.NestedItems;
 
 import java.util.Arrays;
 import java.util.List;
@@ -280,13 +280,13 @@ A schema class that validates payloads
 
 ### Code Sample
 ```
-import unit_test_api.configurations.JsonSchemaKeywordFlags;
-import unit_test_api.configurations.SchemaConfiguration;
-import unit_test_api.exceptions.ValidationException;
-import unit_test_api.schemas.validation.MapUtils;
-import unit_test_api.schemas.validation.FrozenList;
-import unit_test_api.schemas.validation.FrozenMap;
-import unit_test_api.components.schemas.NestedItems;
+import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
+import org.openapijsonschematools.client.configurations.SchemaConfiguration;
+import org.openapijsonschematools.client.exceptions.ValidationException;
+import org.openapijsonschematools.client.schemas.validation.MapUtils;
+import org.openapijsonschematools.client.schemas.validation.FrozenList;
+import org.openapijsonschematools.client.schemas.validation.FrozenMap;
+import org.openapijsonschematools.client.components.schemas.NestedItems;
 
 import java.util.Arrays;
 import java.util.List;
@@ -383,13 +383,13 @@ A schema class that validates payloads
 
 ### Code Sample
 ```
-import unit_test_api.configurations.JsonSchemaKeywordFlags;
-import unit_test_api.configurations.SchemaConfiguration;
-import unit_test_api.exceptions.ValidationException;
-import unit_test_api.schemas.validation.MapUtils;
-import unit_test_api.schemas.validation.FrozenList;
-import unit_test_api.schemas.validation.FrozenMap;
-import unit_test_api.components.schemas.NestedItems;
+import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
+import org.openapijsonschematools.client.configurations.SchemaConfiguration;
+import org.openapijsonschematools.client.exceptions.ValidationException;
+import org.openapijsonschematools.client.schemas.validation.MapUtils;
+import org.openapijsonschematools.client.schemas.validation.FrozenList;
+import org.openapijsonschematools.client.schemas.validation.FrozenMap;
+import org.openapijsonschematools.client.components.schemas.NestedItems;
 
 import java.util.Arrays;
 import java.util.List;
@@ -484,7 +484,7 @@ extends NumberJsonSchema.NumberJsonSchema1
 
 A schema class that validates payloads
 
-| Methods Inherited from class unit_test_api.schemas.NumberJsonSchema.NumberJsonSchema1 |
+| Methods Inherited from class org.openapijsonschematools.client.schemas.NumberJsonSchema.NumberJsonSchema1 |
 | ------------------------------------------------------------------ |
 | validate                                                           |
 | validateAndBox                                                     |

@@ -1,5 +1,5 @@
 # MinlengthValidation
-unit_test_api.components.schemas.MinlengthValidation.java
+org.openapijsonschematools.client.components.schemas.MinlengthValidation.java
 public class MinlengthValidation<br>
 
 A class that contains necessary nested

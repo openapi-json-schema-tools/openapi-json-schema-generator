@@ -1,5 +1,5 @@
 # DurationFormat
-unit_test_api.components.schemas.DurationFormat.java
+org.openapijsonschematools.client.components.schemas.DurationFormat.java
 public class DurationFormat<br>
 
 A class that contains necessary nested

@@ -1,5 +1,5 @@
 # UriReferenceFormat
-unit_test_api.components.schemas.UriReferenceFormat.java
+org.openapijsonschematools.client.components.schemas.UriReferenceFormat.java
 public class UriReferenceFormat<br>
 
 A class that contains necessary nested

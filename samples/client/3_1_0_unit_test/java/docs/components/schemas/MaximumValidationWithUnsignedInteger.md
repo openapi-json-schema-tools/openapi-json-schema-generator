@@ -1,5 +1,5 @@
 # MaximumValidationWithUnsignedInteger
-unit_test_api.components.schemas.MaximumValidationWithUnsignedInteger.java
+org.openapijsonschematools.client.components.schemas.MaximumValidationWithUnsignedInteger.java
 public class MaximumValidationWithUnsignedInteger<br>
 
 A class that contains necessary nested

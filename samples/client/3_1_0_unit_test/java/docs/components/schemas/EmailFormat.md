@@ -1,5 +1,5 @@
 # EmailFormat
-unit_test_api.components.schemas.EmailFormat.java
+org.openapijsonschematools.client.components.schemas.EmailFormat.java
 public class EmailFormat<br>
 
 A class that contains necessary nested

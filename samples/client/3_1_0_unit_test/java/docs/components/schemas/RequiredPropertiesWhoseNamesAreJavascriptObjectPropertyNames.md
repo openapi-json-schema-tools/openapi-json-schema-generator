@@ -1,5 +1,5 @@
 # RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNames
-unit_test_api.components.schemas.RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNames.java
+org.openapijsonschematools.client.components.schemas.RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNames.java
 public class RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNames<br>
 
 A class that contains necessary nested
