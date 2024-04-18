@@ -1,4 +1,4 @@
-this_package.paths.path_with_two_explicit_security.operation
+openapi_client.paths.path_with_two_explicit_security.operation
 # Operation Method Name
 
 | Method Name | Api Class | Notes |
@@ -81,14 +81,14 @@ server_index | Class | Description
 ## Code Sample
 
 ```python
-import this_package
-from this_package.configurations import api_configuration
-from this_package.apis.tags import default_api
+import openapi_client
+from openapi_client.configurations import api_configuration
+from openapi_client.apis.tags import default_api
 from pprint import pprint
 # security_index 0
-from this_package.components.security_schemes import security_scheme_api_key
+from openapi_client.components.security_schemes import security_scheme_api_key
 # security_index 1
-from this_package.components.security_schemes import security_scheme_bearer_test
+from openapi_client.components.security_schemes import security_scheme_bearer_test
 
 # security_scheme_info for security_index 0
 security_scheme_info: api_configuration.SecuritySchemeInfo = {
@@ -115,7 +115,7 @@ used_configuration = api_configuration.ApiConfiguration(
     security_index_info=security_index_info
 )
 # Enter a context with an instance of the API client
-with this_package.ApiClient(used_configuration) as api_client:
+with openapi_client.ApiClient(used_configuration) as api_client:
     # Create an instance of the API class
     api_instance = default_api.DefaultApi(api_client)
 
@@ -124,7 +124,7 @@ with this_package.ApiClient(used_configuration) as api_client:
         # path with two explicit security
         api_response = api_instance.path_with_two_explicit_security()
         pprint(api_response)
-    except this_package.ApiException as e:
+    except openapi_client.ApiException as e:
         print("Exception when calling DefaultApi->path_with_two_explicit_security: %s\n" % e)
 ```
 

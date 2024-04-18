@@ -1,5 +1,5 @@
 # DateTimeWithValidations
-petstore_api.components.schema.date_time_with_validations
+openapi_client.components.schema.date_time_with_validations
 ```
 type: schemas.Schema
 ```

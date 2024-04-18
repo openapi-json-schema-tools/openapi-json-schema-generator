@@ -1,5 +1,5 @@
 # Tag
-petstore_api.components.schema.tag
+openapi_client.components.schema.tag
 ```
 type: schemas.Schema
 ```

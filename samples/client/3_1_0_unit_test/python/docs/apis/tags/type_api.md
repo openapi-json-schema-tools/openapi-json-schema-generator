@@ -1,5 +1,5 @@
 <a name="top"></a>
-unit_test_api.apis.tags.type_api
+openapi_client.apis.tags.type_api
 # TypeApi
 
 All URIs are relative to the selected server

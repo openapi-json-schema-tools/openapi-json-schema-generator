@@ -12,7 +12,7 @@ A class that contains necessary endpoint classes
 | Modifier and Type | Class and Description |
 | ----------------- | --------------------- |
 | static class | [Post](#post)<br>The class that has a post method to call the endpoint |
-| interface | [ModelStringOperation](#modelstringoperation)<br>The interface that has a modelString method to call the endpoint |
+| interface | [StringOperation](#stringoperation)<br>The interface that has a string method to call the endpoint |
 | static class | [PostRequest](#postrequest)<br>The request inputs class |
 | static class | [PostRequestBuilder](#postrequestbuilder)<br>A builder for the request input class |
 
@@ -33,7 +33,7 @@ import org.openapijsonschematools.client.schemas.validation.MapUtils;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.paths.fakerefsstring.post.FakerefsstringPostRequestBody;
-import org.openapijsonschematools.client.components.schemas.StringSchema;
+import org.openapijsonschematools.client.components.schemas.String;
 import org.openapijsonschematools.client.RootServerInfo;
 import org.openapijsonschematools.client.servers.RootServer0;
 import org.openapijsonschematools.client.servers.RootServer1;
@@ -105,15 +105,15 @@ FakerefsstringPostCode200Response.ApplicationjsonResponseBody deserializedBody =
 | ----------------- | ---------------------- |
 | [FakerefsstringPostResponses.EndpointResponse](../../paths/fakerefsstring/post/FakerefsstringPostResponses.md#endpointresponse) | post([PostRequest](#postrequest) request) |
 
-## ModelStringOperation
-public interface ModelStringOperation<br>
+## StringOperation
+public interface StringOperation<br>
 
-an interface that allows one to call the endpoint using a method named modelString by the operationId
+an interface that allows one to call the endpoint using a method named string by the operationId
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [FakerefsstringPostResponses.EndpointResponse](../../paths/fakerefsstring/post/FakerefsstringPostResponses.md#endpointresponse) | modelString([PostRequest](#postrequest) request) |
+| [FakerefsstringPostResponses.EndpointResponse](../../paths/fakerefsstring/post/FakerefsstringPostResponses.md#endpointresponse) | string([PostRequest](#postrequest) request) |
 
 ## PostRequest
 public static class PostRequest<br>

@@ -1,5 +1,5 @@
 # NullableShape
-petstore_api.components.schema.nullable_shape
+openapi_client.components.schema.nullable_shape
 ```
 type: schemas.Schema
 ```

@@ -1,5 +1,5 @@
 # IntegerMax10
-petstore_api.components.schema.integer_max10
+openapi_client.components.schema.integer_max10
 ```
 type: schemas.Schema
 ```

@@ -1,5 +1,5 @@
 # SelfReferencingObjectModel
-petstore_api.components.schema.self_referencing_object_model
+openapi_client.components.schema.self_referencing_object_model
 ```
 type: schemas.Schema
 ```

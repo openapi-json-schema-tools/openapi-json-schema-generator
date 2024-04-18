@@ -1,5 +1,5 @@
 # NotMultipleTypes
-unit_test_api.components.schema.not_multiple_types
+openapi_client.components.schema.not_multiple_types
 ```
 type: schemas.Schema
 ```
@@ -13,9 +13,9 @@ dict, schemas.immutabledict, str, datetime.date, datetime.datetime, uuid.UUID, i
 ## not
 Schema Class | Input Type | Return Type
 ------------ | ---------- | -----------
-[_Not](#_not) | int, bool | int, bool
+[Not](#not) | int, bool | int, bool
 
-# _Not
+# Not
 ```
 type: schemas.Schema
 ```

@@ -1,5 +1,5 @@
 # MultiPropertiesSchema
-petstore_api.components.schema.multi_properties_schema
+openapi_client.components.schema.multi_properties_schema
 ```
 type: schemas.Schema
 ```

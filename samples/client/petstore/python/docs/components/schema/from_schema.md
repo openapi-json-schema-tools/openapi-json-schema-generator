@@ -1,5 +1,5 @@
 # FromSchema
-petstore_api.components.schema.from_schema
+openapi_client.components.schema.from_schema
 ```
 type: schemas.Schema
 ```

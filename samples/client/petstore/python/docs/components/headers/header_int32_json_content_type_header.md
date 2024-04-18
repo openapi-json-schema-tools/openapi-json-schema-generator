@@ -1,4 +1,4 @@
-petstore_api.components.headers.header_int32_json_content_type_header
+openapi_client.components.headers.header_int32_json_content_type_header
 # Header Int32JsonContentTypeHeader
 
 ## Description

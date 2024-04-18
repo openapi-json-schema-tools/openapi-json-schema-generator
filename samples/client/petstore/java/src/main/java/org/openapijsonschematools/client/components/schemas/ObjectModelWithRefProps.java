@@ -191,8 +191,8 @@ public class ObjectModelWithRefProps {
                 .type(Set.of(Map.class))
                 .properties(Map.ofEntries(
                     new PropertyEntry("myNumber", NumberWithValidations.NumberWithValidations1.class),
-                    new PropertyEntry("myString", StringSchema.StringSchema1.class),
-                    new PropertyEntry("myBoolean", BooleanSchema.BooleanSchema1.class)
+                    new PropertyEntry("myString", String.String1.class),
+                    new PropertyEntry("myBoolean", Boolean.Boolean1.class)
                 ))
             );
         }

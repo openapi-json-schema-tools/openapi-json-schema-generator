@@ -1,5 +1,5 @@
 # Triangle
-petstore_api.components.schema.triangle
+openapi_client.components.schema.triangle
 ```
 type: schemas.Schema
 ```

@@ -1,5 +1,5 @@
 # StringBooleanMap
-petstore_api.components.schema.string_boolean_map
+openapi_client.components.schema.string_boolean_map
 ```
 type: schemas.Schema
 ```

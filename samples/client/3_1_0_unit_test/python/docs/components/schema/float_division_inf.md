@@ -1,5 +1,5 @@
 # FloatDivisionInf
-unit_test_api.components.schema.float_division_inf
+openapi_client.components.schema.float_division_inf
 ```
 type: schemas.Schema
 ```

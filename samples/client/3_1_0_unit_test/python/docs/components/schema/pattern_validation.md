@@ -1,5 +1,5 @@
 # PatternValidation
-unit_test_api.components.schema.pattern_validation
+openapi_client.components.schema.pattern_validation
 ```
 type: schemas.Schema
 ```

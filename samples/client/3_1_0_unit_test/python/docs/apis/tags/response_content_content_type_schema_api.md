@@ -1,5 +1,5 @@
 <a name="top"></a>
-unit_test_api.apis.tags.response_content_content_type_schema_api
+openapi_client.apis.tags.response_content_content_type_schema_api
 # ResponseContentContentTypeSchemaApi
 
 All URIs are relative to the selected server

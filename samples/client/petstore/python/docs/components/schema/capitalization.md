@@ -1,5 +1,5 @@
 # Capitalization
-petstore_api.components.schema.capitalization
+openapi_client.components.schema.capitalization
 ```
 type: schemas.Schema
 ```

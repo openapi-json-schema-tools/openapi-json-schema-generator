@@ -1,5 +1,5 @@
 # Player
-petstore_api.components.schema.player
+openapi_client.components.schema.player
 ```
 type: schemas.Schema
 ```

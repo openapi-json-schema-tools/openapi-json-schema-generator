@@ -1,5 +1,5 @@
 # Order
-petstore_api.components.schema.order
+openapi_client.components.schema.order
 ```
 type: schemas.Schema
 ```

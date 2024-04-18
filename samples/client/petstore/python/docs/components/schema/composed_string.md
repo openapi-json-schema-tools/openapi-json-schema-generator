@@ -1,5 +1,5 @@
 # ComposedString
-petstore_api.components.schema.composed_string
+openapi_client.components.schema.composed_string
 ```
 type: schemas.Schema
 ```

@@ -1,5 +1,5 @@
 <a name="top"></a>
-unit_test_api.apis.tags.max_properties_api
+openapi_client.apis.tags.max_properties_api
 # MaxPropertiesApi
 
 All URIs are relative to the selected server

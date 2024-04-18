@@ -1,5 +1,5 @@
 # ObjectModelWithArgAndArgsProperties
-petstore_api.components.schema.object_model_with_arg_and_args_properties
+openapi_client.components.schema.object_model_with_arg_and_args_properties
 ```
 type: schemas.Schema
 ```

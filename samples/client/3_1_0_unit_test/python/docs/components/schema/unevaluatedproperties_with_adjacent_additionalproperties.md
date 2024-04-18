@@ -1,5 +1,5 @@
 # UnevaluatedpropertiesWithAdjacentAdditionalproperties
-unit_test_api.components.schema.unevaluatedproperties_with_adjacent_additionalproperties
+openapi_client.components.schema.unevaluatedproperties_with_adjacent_additionalproperties
 ```
 type: schemas.Schema
 ```

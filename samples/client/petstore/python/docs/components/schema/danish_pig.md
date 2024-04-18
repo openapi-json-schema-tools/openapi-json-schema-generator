@@ -1,5 +1,5 @@
 # DanishPig
-petstore_api.components.schema.danish_pig
+openapi_client.components.schema.danish_pig
 ```
 type: schemas.Schema
 ```

@@ -1,5 +1,5 @@
 # Pig
-petstore_api.components.schema.pig
+openapi_client.components.schema.pig
 ```
 type: schemas.Schema
 ```

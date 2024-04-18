@@ -1,5 +1,5 @@
 # NonAsciiPatternWithAdditionalproperties
-unit_test_api.components.schema.non_ascii_pattern_with_additionalproperties
+openapi_client.components.schema.non_ascii_pattern_with_additionalproperties
 ```
 type: schemas.Schema
 ```

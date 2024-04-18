@@ -1,5 +1,5 @@
 # MultipleDependentsRequired
-unit_test_api.components.schema.multiple_dependents_required
+openapi_client.components.schema.multiple_dependents_required
 ```
 type: schemas.Schema
 ```

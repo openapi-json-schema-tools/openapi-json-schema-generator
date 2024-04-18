@@ -1,5 +1,5 @@
 # RequiredDefaultValidation
-unit_test_api.components.schema.required_default_validation
+openapi_client.components.schema.required_default_validation
 ```
 type: schemas.Schema
 ```

@@ -1,5 +1,5 @@
 # EmptyDependents
-unit_test_api.components.schema.empty_dependents
+openapi_client.components.schema.empty_dependents
 ```
 type: schemas.Schema
 ```

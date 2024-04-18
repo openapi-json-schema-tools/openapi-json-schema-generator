@@ -59,12 +59,12 @@ A record class to store response body for contentType="application/json"
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| ApplicationjsonResponseBody(ApplicationjsonSchema.[ApiResponseSchema1Boxed](../../components/schemas/ApiResponseSchema.md#apiresponseschema1boxed) body)<br>Creates an instance |
+| ApplicationjsonResponseBody(ApplicationjsonSchema.[ApiResponse1Boxed](../../components/schemas/ApiResponse.md#apiresponse1boxed) body)<br>Creates an instance |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| ApplicationjsonSchema.[ApiResponseSchema1Boxed](../../components/schemas/ApiResponseSchema.md#apiresponseschema1boxed) | body()<br>returns the body passed in in the constructor |
+| ApplicationjsonSchema.[ApiResponse1Boxed](../../components/schemas/ApiResponse.md#apiresponse1boxed) | body()<br>returns the body passed in in the constructor |
 
 ## SuccessWithJsonApiResponse1
 public static class SuccessWithJsonApiResponse1<br>

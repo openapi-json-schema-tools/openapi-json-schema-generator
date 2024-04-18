@@ -1,5 +1,5 @@
 # NestedAnyofToCheckValidationSemantics
-unit_test_api.components.schema.nested_anyof_to_check_validation_semantics
+openapi_client.components.schema.nested_anyof_to_check_validation_semantics
 ```
 type: schemas.Schema
 ```

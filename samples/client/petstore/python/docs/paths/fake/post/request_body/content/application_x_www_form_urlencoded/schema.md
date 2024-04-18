@@ -45,6 +45,7 @@ Keyword Argument | Type | Description | Notes
 **integer** | int, schemas.Unset | None | [optional]
 **int32** | int, schemas.Unset | None | [optional] value must be a 32 bit integer
 **int64** | int, schemas.Unset | None | [optional] value must be a 64 bit integer
+**float** | float, int, schemas.Unset | None | [optional] value must be a 32 bit float
 **string** | str, schemas.Unset | None | [optional]
 **binary** | bytes, io.FileIO, io.BufferedReader, schemas.Unset | None | [optional]
 **date** | str, datetime.date, schemas.Unset | None | [optional] value must conform to RFC-3339 full-date YYYY-MM-DD
@@ -63,6 +64,7 @@ Property | Type | Description | Notes
 **integer** | int, schemas.Unset | None | [optional]
 **int32** | int, schemas.Unset | None | [optional] value must be a 32 bit integer
 **int64** | int, schemas.Unset | None | [optional] value must be a 64 bit integer
+**float** | float, int, schemas.Unset | None | [optional] value must be a 32 bit float
 **string** | str, schemas.Unset | None | [optional]
 **binary** | bytes, io.FileIO, schemas.Unset | None | [optional]
 **date** | str, schemas.Unset | None | [optional] value must conform to RFC-3339 full-date YYYY-MM-DD
@@ -74,5 +76,4 @@ Property | Type | Description | Notes
 Method | Input Type | Return Type | Notes
 ------ | ---------- | ----------- | ------
 from_dict_ | [SchemaDictInput](#schemadictinput), [SchemaDict](#schemadict) | [SchemaDict](#schemadict) | a constructor
-&lowbar;&lowbar;getitem&lowbar;&lowbar; | str | schemas.immutabledict, str, float, int, bool, None, tuple, bytes, io.FileIO | This model has invalid python names so this method is used under the hood when you access instance["float"], 
 get_additional_property_ | str | schemas.immutabledict, tuple, float, int, str, bool, None, bytes, schemas.FileIO, schemas.Unset | provides type safety for additional properties

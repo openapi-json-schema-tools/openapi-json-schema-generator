@@ -1,5 +1,5 @@
 # ComposedOneOfDifferentTypes
-petstore_api.components.schema.composed_one_of_different_types
+openapi_client.components.schema.composed_one_of_different_types
 ```
 type: schemas.Schema
 ```

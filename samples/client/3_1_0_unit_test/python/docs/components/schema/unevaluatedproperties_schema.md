@@ -1,5 +1,5 @@
 # UnevaluatedpropertiesSchema
-unit_test_api.components.schema.unevaluatedproperties_schema
+openapi_client.components.schema.unevaluatedproperties_schema
 ```
 type: schemas.Schema
 ```

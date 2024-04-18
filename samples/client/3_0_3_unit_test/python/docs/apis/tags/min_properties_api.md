@@ -1,5 +1,5 @@
 <a name="top"></a>
-unit_test_api.apis.tags.min_properties_api
+openapi_client.apis.tags.min_properties_api
 # MinPropertiesApi
 
 All URIs are relative to the selected server

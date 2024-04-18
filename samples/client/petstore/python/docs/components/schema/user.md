@@ -1,5 +1,5 @@
 # User
-petstore_api.components.schema.user
+openapi_client.components.schema.user
 ```
 type: schemas.Schema
 ```
@@ -119,9 +119,9 @@ dict, schemas.immutabledict, str, datetime.date, datetime.datetime, uuid.UUID, i
 ## not
 Schema Class | Input Type | Return Type
 ------------ | ---------- | -----------
-[_Not](#_not) | None | None
+[Not](#not) | None | None
 
-# _Not
+# Not
 ```
 type: schemas.Schema
 ```

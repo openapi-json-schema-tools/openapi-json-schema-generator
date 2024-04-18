@@ -1,5 +1,5 @@
 # ObjectWithCollidingProperties
-petstore_api.components.schema.object_with_colliding_properties
+openapi_client.components.schema.object_with_colliding_properties
 ```
 type: schemas.Schema
 ```

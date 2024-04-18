@@ -1,5 +1,5 @@
 # Whale
-petstore_api.components.schema.whale
+openapi_client.components.schema.whale
 ```
 type: schemas.Schema
 ```

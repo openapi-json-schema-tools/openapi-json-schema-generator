@@ -1,5 +1,5 @@
 # EnumWithEscapedCharacters
-unit_test_api.components.schema.enum_with_escaped_characters
+openapi_client.components.schema.enum_with_escaped_characters
 ```
 type: schemas.Schema
 ```

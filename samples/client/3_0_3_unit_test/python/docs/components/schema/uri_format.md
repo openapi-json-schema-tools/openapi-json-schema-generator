@@ -1,5 +1,5 @@
 # UriFormat
-unit_test_api.components.schema.uri_format
+openapi_client.components.schema.uri_format
 ```
 type: schemas.Schema
 ```

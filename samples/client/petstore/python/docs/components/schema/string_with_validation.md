@@ -1,5 +1,5 @@
 # StringWithValidation
-petstore_api.components.schema.string_with_validation
+openapi_client.components.schema.string_with_validation
 ```
 type: schemas.Schema
 ```

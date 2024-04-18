@@ -1,5 +1,5 @@
 # Allof
-unit_test_api.components.schema.allof
+openapi_client.components.schema.allof
 ```
 type: schemas.Schema
 ```

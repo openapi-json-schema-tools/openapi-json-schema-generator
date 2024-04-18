@@ -1,5 +1,5 @@
 # JSONPatchRequest
-petstore_api.components.schema.json_patch_request
+openapi_client.components.schema.json_patch_request
 ```
 type: schemas.Schema
 ```

@@ -1,13 +1,13 @@
 package org.openapijsonschematools.client.paths.fakerefsstring.post.requestbody.content.applicationjson;
 
 import org.checkerframework.checker.nullness.qual.Nullable;
-import org.openapijsonschematools.client.components.schemas.StringSchema;
+import org.openapijsonschematools.client.components.schemas.String;
 
-public class ApplicationjsonSchema extends StringSchema {
+public class ApplicationjsonSchema extends String {
     // $refed class
     
     
-    public static class ApplicationjsonSchema1 extends StringSchema1 {
+    public static class ApplicationjsonSchema1 extends String1 {
         private static @Nullable ApplicationjsonSchema1 instance = null;
         public static ApplicationjsonSchema1 getInstance() {
             if (instance == null) {

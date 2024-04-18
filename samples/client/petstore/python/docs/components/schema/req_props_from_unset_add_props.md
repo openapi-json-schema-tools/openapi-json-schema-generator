@@ -1,5 +1,5 @@
 # ReqPropsFromUnsetAddProps
-petstore_api.components.schema.req_props_from_unset_add_props
+openapi_client.components.schema.req_props_from_unset_add_props
 ```
 type: schemas.Schema
 ```

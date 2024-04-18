@@ -1,5 +1,5 @@
 # Apple
-petstore_api.components.schema.apple
+openapi_client.components.schema.apple
 ```
 type: schemas.Schema
 ```

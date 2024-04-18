@@ -1,5 +1,5 @@
 # MaxcontainsWithoutContainsIsIgnored
-unit_test_api.components.schema.maxcontains_without_contains_is_ignored
+openapi_client.components.schema.maxcontains_without_contains_is_ignored
 ```
 type: schemas.Schema
 ```

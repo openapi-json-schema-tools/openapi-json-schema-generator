@@ -1,5 +1,5 @@
 # NotMoreComplexSchema
-unit_test_api.components.schema.not_more_complex_schema
+openapi_client.components.schema.not_more_complex_schema
 ```
 type: schemas.Schema
 ```
@@ -13,9 +13,9 @@ dict, schemas.immutabledict, str, datetime.date, datetime.datetime, uuid.UUID, i
 ## not
 Schema Class | Input Type | Return Type
 ------------ | ---------- | -----------
-[_Not](#_not) | [NotDictInput](#notdictinput), [NotDict](#notdict) | [NotDict](#notdict)
+[Not](#not) | [NotDictInput](#notdictinput), [NotDict](#notdict) | [NotDict](#notdict)
 
-# _Not
+# Not
 ```
 type: schemas.Schema
 ```

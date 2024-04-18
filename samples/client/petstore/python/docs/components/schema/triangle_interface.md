@@ -1,5 +1,5 @@
 # TriangleInterface
-petstore_api.components.schema.triangle_interface
+openapi_client.components.schema.triangle_interface
 ```
 type: schemas.Schema
 ```

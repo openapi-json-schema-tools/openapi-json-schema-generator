@@ -1,5 +1,5 @@
 # Oneof
-unit_test_api.components.schema.oneof
+openapi_client.components.schema.oneof
 ```
 type: schemas.Schema
 ```

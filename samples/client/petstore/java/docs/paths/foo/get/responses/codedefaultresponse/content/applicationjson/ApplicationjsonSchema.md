@@ -67,7 +67,7 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(new Jso
 ApplicationjsonSchema.ApplicationjsonSchemaMap validatedPayload =
     ApplicationjsonSchema.ApplicationjsonSchema1.validate(
     new ApplicationjsonSchema.ApplicationjsonSchemaMapBuilder()
-        .setString(
+        .string(
             MapUtils.makeMap(
                 new AbstractMap.SimpleEntry<String, String>(
                     "bar",
@@ -109,7 +109,7 @@ A class that builds the Map input type
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | Map<String, @Nullable Object> | build()<br>Returns map input that should be used with Schema.validate |
-| [ApplicationjsonSchemaMapBuilder](#applicationjsonschemamapbuilder) | setString(Map<String, @Nullable Object> value) |
+| [ApplicationjsonSchemaMapBuilder](#applicationjsonschemamapbuilder) | string(Map<String, @Nullable Object> value) |
 | [ApplicationjsonSchemaMapBuilder](#applicationjsonschemamapbuilder) | additionalProperty(String key, Void value) |
 | [ApplicationjsonSchemaMapBuilder](#applicationjsonschemamapbuilder) | additionalProperty(String key, boolean value) |
 | [ApplicationjsonSchemaMapBuilder](#applicationjsonschemamapbuilder) | additionalProperty(String key, String value) |
@@ -130,5 +130,5 @@ A class to store validated Map payloads
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | static [ApplicationjsonSchemaMap](#applicationjsonschemamap) | of([Map<String, ? extends @Nullable Object>](#applicationjsonschemamapbuilder) arg, SchemaConfiguration configuration) |
-| @Nullable Object | get(String key)<br>This schema has invalid Java names so this method must be used when you access instance["string"],  |
+| [Foo.FooMap](../../../../../../../components/schemas/Foo.md#foomap) | string()<br>[optional] |
 | @Nullable Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |

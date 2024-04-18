@@ -1,5 +1,5 @@
 <a name="top"></a>
-unit_test_api.apis.tags.const_api
+openapi_client.apis.tags.const_api
 # ConstApi
 
 All URIs are relative to the selected server

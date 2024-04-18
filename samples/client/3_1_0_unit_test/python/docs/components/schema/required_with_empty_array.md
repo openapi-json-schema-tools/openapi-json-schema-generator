@@ -1,5 +1,5 @@
 # RequiredWithEmptyArray
-unit_test_api.components.schema.required_with_empty_array
+openapi_client.components.schema.required_with_empty_array
 ```
 type: schemas.Schema
 ```

@@ -1,5 +1,5 @@
 # IntegerEnumWithDefaultValue
-petstore_api.components.schema.integer_enum_with_default_value
+openapi_client.components.schema.integer_enum_with_default_value
 ```
 type: schemas.Schema
 ```

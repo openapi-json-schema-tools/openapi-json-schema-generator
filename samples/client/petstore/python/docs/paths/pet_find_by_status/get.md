@@ -1,4 +1,4 @@
-petstore_api.paths.pet_find_by_status.operation
+openapi_client.paths.pet_find_by_status.operation
 # Operation Method Name
 
 | Method Name | Api Class | Notes |
@@ -140,17 +140,17 @@ Key | Type | Description | Notes
 ## Code Sample
 
 ```python
-import petstore_api
-from petstore_api.configurations import api_configuration
-from petstore_api.apis.tags import pet_api
-from petstore_api.paths.pet_find_by_status.get import operation
+import openapi_client
+from openapi_client.configurations import api_configuration
+from openapi_client.apis.tags import pet_api
+from openapi_client.paths.pet_find_by_status.get import operation
 from pprint import pprint
 # security_index 0
-from petstore_api.components.security_schemes import security_scheme_api_key
+from openapi_client.components.security_schemes import security_scheme_api_key
 # security_index 1
-from petstore_api.components.security_schemes import security_scheme_http_signature_test
+from openapi_client.components.security_schemes import security_scheme_http_signature_test
 # security_index 2
-from petstore_api.components.security_schemes import security_scheme_petstore_auth
+from openapi_client.components.security_schemes import security_scheme_petstore_auth
 
 # security_scheme_info for security_index 0
 security_scheme_info: api_configuration.SecuritySchemeInfo = {
@@ -163,18 +163,18 @@ security_scheme_info: api_configuration.SecuritySchemeInfo = {
 # security_scheme_info for security_index 1
 security_scheme_info: api_configuration.SecuritySchemeInfo = {
     "http_signature_test": security_scheme_http_signature_test.HttpSignatureTest(
-        signing_info=petstore_api.signing.HttpSigningConfiguration(
+        signing_info=openapi_client.signing.HttpSigningConfiguration(
             key_id='my-key-id',
             private_key_path='rsa.pem',
-            signing_scheme=petstore_api.signing.SCHEME_HS2019,
-            signing_algorithm=petstore_api.signing.ALGORITHM_RSASSA_PSS,
+            signing_scheme=openapi_client.signing.SCHEME_HS2019,
+            signing_algorithm=openapi_client.signing.ALGORITHM_RSASSA_PSS,
             signed_headers=[
-                petstore_api.signing.HEADER_REQUEST_TARGET,
-                petstore_api.signing.HEADER_CREATED,
-                petstore_api.signing.HEADER_EXPIRES,
-                petstore_api.signing.HEADER_HOST,
-                petstore_api.signing.HEADER_DATE,
-                petstore_api.signing.HEADER_DIGEST,
+                openapi_client.signing.HEADER_REQUEST_TARGET,
+                openapi_client.signing.HEADER_CREATED,
+                openapi_client.signing.HEADER_EXPIRES,
+                openapi_client.signing.HEADER_HOST,
+                openapi_client.signing.HEADER_DATE,
+                openapi_client.signing.HEADER_DIGEST,
                 'Content-Type',
                 'User-Agent'
             ],
@@ -202,7 +202,7 @@ used_configuration = api_configuration.ApiConfiguration(
     security_index_info=security_index_info
 )
 # Enter a context with an instance of the API client
-with petstore_api.ApiClient(used_configuration) as api_client:
+with openapi_client.ApiClient(used_configuration) as api_client:
     # Create an instance of the API class
     api_instance = pet_api.PetApi(api_client)
 
@@ -218,7 +218,7 @@ with petstore_api.ApiClient(used_configuration) as api_client:
             query_params=query_params,
         )
         pprint(api_response)
-    except petstore_api.ApiException as e:
+    except openapi_client.ApiException as e:
         print("Exception when calling PetApi->find_pets_by_status: %s\n" % e)
 ```
 

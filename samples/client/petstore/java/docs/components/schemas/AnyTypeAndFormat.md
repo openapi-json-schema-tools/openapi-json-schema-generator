@@ -17,22 +17,22 @@ A class that contains necessary nested
 | static class | [AnyTypeAndFormat.AnyTypeAndFormat1](#anytypeandformat1)<br> schema class |
 | static class | [AnyTypeAndFormat.AnyTypeAndFormatMapBuilder](#anytypeandformatmapbuilder)<br> builder for Map payloads |
 | static class | [AnyTypeAndFormat.AnyTypeAndFormatMap](#anytypeandformatmap)<br> output class for Map payloads |
-| sealed interface | [AnyTypeAndFormat.FloatSchemaBoxed](#floatschemaboxed)<br> sealed interface for validated payloads |
-| record | [AnyTypeAndFormat.FloatSchemaBoxedVoid](#floatschemaboxedvoid)<br> boxed class to store validated null payloads |
-| record | [AnyTypeAndFormat.FloatSchemaBoxedBoolean](#floatschemaboxedboolean)<br> boxed class to store validated boolean payloads |
-| record | [AnyTypeAndFormat.FloatSchemaBoxedNumber](#floatschemaboxednumber)<br> boxed class to store validated Number payloads |
-| record | [AnyTypeAndFormat.FloatSchemaBoxedString](#floatschemaboxedstring)<br> boxed class to store validated String payloads |
-| record | [AnyTypeAndFormat.FloatSchemaBoxedList](#floatschemaboxedlist)<br> boxed class to store validated List payloads |
-| record | [AnyTypeAndFormat.FloatSchemaBoxedMap](#floatschemaboxedmap)<br> boxed class to store validated Map payloads |
-| static class | [AnyTypeAndFormat.FloatSchema](#floatschema)<br> schema class |
-| sealed interface | [AnyTypeAndFormat.DoubleSchemaBoxed](#doubleschemaboxed)<br> sealed interface for validated payloads |
-| record | [AnyTypeAndFormat.DoubleSchemaBoxedVoid](#doubleschemaboxedvoid)<br> boxed class to store validated null payloads |
-| record | [AnyTypeAndFormat.DoubleSchemaBoxedBoolean](#doubleschemaboxedboolean)<br> boxed class to store validated boolean payloads |
-| record | [AnyTypeAndFormat.DoubleSchemaBoxedNumber](#doubleschemaboxednumber)<br> boxed class to store validated Number payloads |
-| record | [AnyTypeAndFormat.DoubleSchemaBoxedString](#doubleschemaboxedstring)<br> boxed class to store validated String payloads |
-| record | [AnyTypeAndFormat.DoubleSchemaBoxedList](#doubleschemaboxedlist)<br> boxed class to store validated List payloads |
-| record | [AnyTypeAndFormat.DoubleSchemaBoxedMap](#doubleschemaboxedmap)<br> boxed class to store validated Map payloads |
-| static class | [AnyTypeAndFormat.DoubleSchema](#doubleschema)<br> schema class |
+| sealed interface | [AnyTypeAndFormat.FloatBoxed](#floatboxed)<br> sealed interface for validated payloads |
+| record | [AnyTypeAndFormat.FloatBoxedVoid](#floatboxedvoid)<br> boxed class to store validated null payloads |
+| record | [AnyTypeAndFormat.FloatBoxedBoolean](#floatboxedboolean)<br> boxed class to store validated boolean payloads |
+| record | [AnyTypeAndFormat.FloatBoxedNumber](#floatboxednumber)<br> boxed class to store validated Number payloads |
+| record | [AnyTypeAndFormat.FloatBoxedString](#floatboxedstring)<br> boxed class to store validated String payloads |
+| record | [AnyTypeAndFormat.FloatBoxedList](#floatboxedlist)<br> boxed class to store validated List payloads |
+| record | [AnyTypeAndFormat.FloatBoxedMap](#floatboxedmap)<br> boxed class to store validated Map payloads |
+| static class | [AnyTypeAndFormat.Float](#float)<br> schema class |
+| sealed interface | [AnyTypeAndFormat.DoubleBoxed](#doubleboxed)<br> sealed interface for validated payloads |
+| record | [AnyTypeAndFormat.DoubleBoxedVoid](#doubleboxedvoid)<br> boxed class to store validated null payloads |
+| record | [AnyTypeAndFormat.DoubleBoxedBoolean](#doubleboxedboolean)<br> boxed class to store validated boolean payloads |
+| record | [AnyTypeAndFormat.DoubleBoxedNumber](#doubleboxednumber)<br> boxed class to store validated Number payloads |
+| record | [AnyTypeAndFormat.DoubleBoxedString](#doubleboxedstring)<br> boxed class to store validated String payloads |
+| record | [AnyTypeAndFormat.DoubleBoxedList](#doubleboxedlist)<br> boxed class to store validated List payloads |
+| record | [AnyTypeAndFormat.DoubleBoxedMap](#doubleboxedmap)<br> boxed class to store validated Map payloads |
+| static class | [AnyTypeAndFormat.Double](#double)<br> schema class |
 | sealed interface | [AnyTypeAndFormat.Int64Boxed](#int64boxed)<br> sealed interface for validated payloads |
 | record | [AnyTypeAndFormat.Int64BoxedVoid](#int64boxedvoid)<br> boxed class to store validated null payloads |
 | record | [AnyTypeAndFormat.Int64BoxedBoolean](#int64boxedboolean)<br> boxed class to store validated boolean payloads |
@@ -57,14 +57,14 @@ A class that contains necessary nested
 | record | [AnyTypeAndFormat.BinaryBoxedList](#binaryboxedlist)<br> boxed class to store validated List payloads |
 | record | [AnyTypeAndFormat.BinaryBoxedMap](#binaryboxedmap)<br> boxed class to store validated Map payloads |
 | static class | [AnyTypeAndFormat.Binary](#binary)<br> schema class |
-| sealed interface | [AnyTypeAndFormat.NumberSchemaBoxed](#numberschemaboxed)<br> sealed interface for validated payloads |
-| record | [AnyTypeAndFormat.NumberSchemaBoxedVoid](#numberschemaboxedvoid)<br> boxed class to store validated null payloads |
-| record | [AnyTypeAndFormat.NumberSchemaBoxedBoolean](#numberschemaboxedboolean)<br> boxed class to store validated boolean payloads |
-| record | [AnyTypeAndFormat.NumberSchemaBoxedNumber](#numberschemaboxednumber)<br> boxed class to store validated Number payloads |
-| record | [AnyTypeAndFormat.NumberSchemaBoxedString](#numberschemaboxedstring)<br> boxed class to store validated String payloads |
-| record | [AnyTypeAndFormat.NumberSchemaBoxedList](#numberschemaboxedlist)<br> boxed class to store validated List payloads |
-| record | [AnyTypeAndFormat.NumberSchemaBoxedMap](#numberschemaboxedmap)<br> boxed class to store validated Map payloads |
-| static class | [AnyTypeAndFormat.NumberSchema](#numberschema)<br> schema class |
+| sealed interface | [AnyTypeAndFormat.NumberBoxed](#numberboxed)<br> sealed interface for validated payloads |
+| record | [AnyTypeAndFormat.NumberBoxedVoid](#numberboxedvoid)<br> boxed class to store validated null payloads |
+| record | [AnyTypeAndFormat.NumberBoxedBoolean](#numberboxedboolean)<br> boxed class to store validated boolean payloads |
+| record | [AnyTypeAndFormat.NumberBoxedNumber](#numberboxednumber)<br> boxed class to store validated Number payloads |
+| record | [AnyTypeAndFormat.NumberBoxedString](#numberboxedstring)<br> boxed class to store validated String payloads |
+| record | [AnyTypeAndFormat.NumberBoxedList](#numberboxedlist)<br> boxed class to store validated List payloads |
+| record | [AnyTypeAndFormat.NumberBoxedMap](#numberboxedmap)<br> boxed class to store validated Map payloads |
+| static class | [AnyTypeAndFormat.Number](#number)<br> schema class |
 | sealed interface | [AnyTypeAndFormat.DatetimeBoxed](#datetimeboxed)<br> sealed interface for validated payloads |
 | record | [AnyTypeAndFormat.DatetimeBoxedVoid](#datetimeboxedvoid)<br> boxed class to store validated null payloads |
 | record | [AnyTypeAndFormat.DatetimeBoxedBoolean](#datetimeboxedboolean)<br> boxed class to store validated boolean payloads |
@@ -81,14 +81,14 @@ A class that contains necessary nested
 | record | [AnyTypeAndFormat.DateBoxedList](#dateboxedlist)<br> boxed class to store validated List payloads |
 | record | [AnyTypeAndFormat.DateBoxedMap](#dateboxedmap)<br> boxed class to store validated Map payloads |
 | static class | [AnyTypeAndFormat.Date](#date)<br> schema class |
-| sealed interface | [AnyTypeAndFormat.UuidSchemaBoxed](#uuidschemaboxed)<br> sealed interface for validated payloads |
-| record | [AnyTypeAndFormat.UuidSchemaBoxedVoid](#uuidschemaboxedvoid)<br> boxed class to store validated null payloads |
-| record | [AnyTypeAndFormat.UuidSchemaBoxedBoolean](#uuidschemaboxedboolean)<br> boxed class to store validated boolean payloads |
-| record | [AnyTypeAndFormat.UuidSchemaBoxedNumber](#uuidschemaboxednumber)<br> boxed class to store validated Number payloads |
-| record | [AnyTypeAndFormat.UuidSchemaBoxedString](#uuidschemaboxedstring)<br> boxed class to store validated String payloads |
-| record | [AnyTypeAndFormat.UuidSchemaBoxedList](#uuidschemaboxedlist)<br> boxed class to store validated List payloads |
-| record | [AnyTypeAndFormat.UuidSchemaBoxedMap](#uuidschemaboxedmap)<br> boxed class to store validated Map payloads |
-| static class | [AnyTypeAndFormat.UuidSchema](#uuidschema)<br> schema class |
+| sealed interface | [AnyTypeAndFormat.UuidBoxed](#uuidboxed)<br> sealed interface for validated payloads |
+| record | [AnyTypeAndFormat.UuidBoxedVoid](#uuidboxedvoid)<br> boxed class to store validated null payloads |
+| record | [AnyTypeAndFormat.UuidBoxedBoolean](#uuidboxedboolean)<br> boxed class to store validated boolean payloads |
+| record | [AnyTypeAndFormat.UuidBoxedNumber](#uuidboxednumber)<br> boxed class to store validated Number payloads |
+| record | [AnyTypeAndFormat.UuidBoxedString](#uuidboxedstring)<br> boxed class to store validated String payloads |
+| record | [AnyTypeAndFormat.UuidBoxedList](#uuidboxedlist)<br> boxed class to store validated List payloads |
+| record | [AnyTypeAndFormat.UuidBoxedMap](#uuidboxedmap)<br> boxed class to store validated Map payloads |
+| static class | [AnyTypeAndFormat.Uuid](#uuid)<br> schema class |
 
 ## AnyTypeAndFormat1Boxed
 public sealed interface AnyTypeAndFormat1Boxed<br>
@@ -149,7 +149,7 @@ AnyTypeAndFormat.AnyTypeAndFormatMap validatedPayload =
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |
 | Set<Class<?>> | type = Set.of(Map.class) |
-| Map<String, Class<? extends JsonSchema>> | properties = Map.ofEntries(<br>&nbsp;&nbsp;&nbsp;&nbsp;new PropertyEntry("uuid", [UuidSchema.class](#uuidschema))),<br>&nbsp;&nbsp;&nbsp;&nbsp;new PropertyEntry("date", [Date.class](#date))),<br>&nbsp;&nbsp;&nbsp;&nbsp;new PropertyEntry("date-time", [Datetime.class](#datetime))),<br>&nbsp;&nbsp;&nbsp;&nbsp;new PropertyEntry("number", [NumberSchema.class](#numberschema))),<br>&nbsp;&nbsp;&nbsp;&nbsp;new PropertyEntry("binary", [Binary.class](#binary))),<br>&nbsp;&nbsp;&nbsp;&nbsp;new PropertyEntry("int32", [Int32.class](#int32))),<br>&nbsp;&nbsp;&nbsp;&nbsp;new PropertyEntry("int64", [Int64.class](#int64))),<br>&nbsp;&nbsp;&nbsp;&nbsp;new PropertyEntry("double", [DoubleSchema.class](#doubleschema))),<br>&nbsp;&nbsp;&nbsp;&nbsp;new PropertyEntry("float", [FloatSchema.class](#floatschema)))<br>)<br> |
+| Map<String, Class<? extends JsonSchema>> | properties = Map.ofEntries(<br>&nbsp;&nbsp;&nbsp;&nbsp;new PropertyEntry("uuid", [Uuid.class](#uuid))),<br>&nbsp;&nbsp;&nbsp;&nbsp;new PropertyEntry("date", [Date.class](#date))),<br>&nbsp;&nbsp;&nbsp;&nbsp;new PropertyEntry("date-time", [Datetime.class](#datetime))),<br>&nbsp;&nbsp;&nbsp;&nbsp;new PropertyEntry("number", [Number.class](#number))),<br>&nbsp;&nbsp;&nbsp;&nbsp;new PropertyEntry("binary", [Binary.class](#binary))),<br>&nbsp;&nbsp;&nbsp;&nbsp;new PropertyEntry("int32", [Int32.class](#int32))),<br>&nbsp;&nbsp;&nbsp;&nbsp;new PropertyEntry("int64", [Int64.class](#int64))),<br>&nbsp;&nbsp;&nbsp;&nbsp;new PropertyEntry("double", [Double.class](#double))),<br>&nbsp;&nbsp;&nbsp;&nbsp;new PropertyEntry("float", [Float.class](#float)))<br>)<br> |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
@@ -174,15 +174,15 @@ A class that builds the Map input type
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | Map<String, @Nullable Object> | build()<br>Returns map input that should be used with Schema.validate |
-| [AnyTypeAndFormatMapBuilder](#anytypeandformatmapbuilder) | setUuid(Void value) |
-| [AnyTypeAndFormatMapBuilder](#anytypeandformatmapbuilder) | setUuid(boolean value) |
-| [AnyTypeAndFormatMapBuilder](#anytypeandformatmapbuilder) | setUuid(String value) |
-| [AnyTypeAndFormatMapBuilder](#anytypeandformatmapbuilder) | setUuid(int value) |
-| [AnyTypeAndFormatMapBuilder](#anytypeandformatmapbuilder) | setUuid(float value) |
-| [AnyTypeAndFormatMapBuilder](#anytypeandformatmapbuilder) | setUuid(long value) |
-| [AnyTypeAndFormatMapBuilder](#anytypeandformatmapbuilder) | setUuid(double value) |
-| [AnyTypeAndFormatMapBuilder](#anytypeandformatmapbuilder) | setUuid(List<?> value) |
-| [AnyTypeAndFormatMapBuilder](#anytypeandformatmapbuilder) | setUuid(Map<String, ?> value) |
+| [AnyTypeAndFormatMapBuilder](#anytypeandformatmapbuilder) | uuid(Void value) |
+| [AnyTypeAndFormatMapBuilder](#anytypeandformatmapbuilder) | uuid(boolean value) |
+| [AnyTypeAndFormatMapBuilder](#anytypeandformatmapbuilder) | uuid(String value) |
+| [AnyTypeAndFormatMapBuilder](#anytypeandformatmapbuilder) | uuid(int value) |
+| [AnyTypeAndFormatMapBuilder](#anytypeandformatmapbuilder) | uuid(float value) |
+| [AnyTypeAndFormatMapBuilder](#anytypeandformatmapbuilder) | uuid(long value) |
+| [AnyTypeAndFormatMapBuilder](#anytypeandformatmapbuilder) | uuid(double value) |
+| [AnyTypeAndFormatMapBuilder](#anytypeandformatmapbuilder) | uuid(List<?> value) |
+| [AnyTypeAndFormatMapBuilder](#anytypeandformatmapbuilder) | uuid(Map<String, ?> value) |
 | [AnyTypeAndFormatMapBuilder](#anytypeandformatmapbuilder) | date(Void value) |
 | [AnyTypeAndFormatMapBuilder](#anytypeandformatmapbuilder) | date(boolean value) |
 | [AnyTypeAndFormatMapBuilder](#anytypeandformatmapbuilder) | date(String value) |
@@ -201,15 +201,15 @@ A class that builds the Map input type
 | [AnyTypeAndFormatMapBuilder](#anytypeandformatmapbuilder) | dateHyphenMinusTime(double value) |
 | [AnyTypeAndFormatMapBuilder](#anytypeandformatmapbuilder) | dateHyphenMinusTime(List<?> value) |
 | [AnyTypeAndFormatMapBuilder](#anytypeandformatmapbuilder) | dateHyphenMinusTime(Map<String, ?> value) |
-| [AnyTypeAndFormatMapBuilder](#anytypeandformatmapbuilder) | setNumber(Void value) |
-| [AnyTypeAndFormatMapBuilder](#anytypeandformatmapbuilder) | setNumber(boolean value) |
-| [AnyTypeAndFormatMapBuilder](#anytypeandformatmapbuilder) | setNumber(String value) |
-| [AnyTypeAndFormatMapBuilder](#anytypeandformatmapbuilder) | setNumber(int value) |
-| [AnyTypeAndFormatMapBuilder](#anytypeandformatmapbuilder) | setNumber(float value) |
-| [AnyTypeAndFormatMapBuilder](#anytypeandformatmapbuilder) | setNumber(long value) |
-| [AnyTypeAndFormatMapBuilder](#anytypeandformatmapbuilder) | setNumber(double value) |
-| [AnyTypeAndFormatMapBuilder](#anytypeandformatmapbuilder) | setNumber(List<?> value) |
-| [AnyTypeAndFormatMapBuilder](#anytypeandformatmapbuilder) | setNumber(Map<String, ?> value) |
+| [AnyTypeAndFormatMapBuilder](#anytypeandformatmapbuilder) | number(Void value) |
+| [AnyTypeAndFormatMapBuilder](#anytypeandformatmapbuilder) | number(boolean value) |
+| [AnyTypeAndFormatMapBuilder](#anytypeandformatmapbuilder) | number(String value) |
+| [AnyTypeAndFormatMapBuilder](#anytypeandformatmapbuilder) | number(int value) |
+| [AnyTypeAndFormatMapBuilder](#anytypeandformatmapbuilder) | number(float value) |
+| [AnyTypeAndFormatMapBuilder](#anytypeandformatmapbuilder) | number(long value) |
+| [AnyTypeAndFormatMapBuilder](#anytypeandformatmapbuilder) | number(double value) |
+| [AnyTypeAndFormatMapBuilder](#anytypeandformatmapbuilder) | number(List<?> value) |
+| [AnyTypeAndFormatMapBuilder](#anytypeandformatmapbuilder) | number(Map<String, ?> value) |
 | [AnyTypeAndFormatMapBuilder](#anytypeandformatmapbuilder) | binary(Void value) |
 | [AnyTypeAndFormatMapBuilder](#anytypeandformatmapbuilder) | binary(boolean value) |
 | [AnyTypeAndFormatMapBuilder](#anytypeandformatmapbuilder) | binary(String value) |
@@ -237,24 +237,24 @@ A class that builds the Map input type
 | [AnyTypeAndFormatMapBuilder](#anytypeandformatmapbuilder) | int64(double value) |
 | [AnyTypeAndFormatMapBuilder](#anytypeandformatmapbuilder) | int64(List<?> value) |
 | [AnyTypeAndFormatMapBuilder](#anytypeandformatmapbuilder) | int64(Map<String, ?> value) |
-| [AnyTypeAndFormatMapBuilder](#anytypeandformatmapbuilder) | setDouble(Void value) |
-| [AnyTypeAndFormatMapBuilder](#anytypeandformatmapbuilder) | setDouble(boolean value) |
-| [AnyTypeAndFormatMapBuilder](#anytypeandformatmapbuilder) | setDouble(String value) |
-| [AnyTypeAndFormatMapBuilder](#anytypeandformatmapbuilder) | setDouble(int value) |
-| [AnyTypeAndFormatMapBuilder](#anytypeandformatmapbuilder) | setDouble(float value) |
-| [AnyTypeAndFormatMapBuilder](#anytypeandformatmapbuilder) | setDouble(long value) |
-| [AnyTypeAndFormatMapBuilder](#anytypeandformatmapbuilder) | setDouble(double value) |
-| [AnyTypeAndFormatMapBuilder](#anytypeandformatmapbuilder) | setDouble(List<?> value) |
-| [AnyTypeAndFormatMapBuilder](#anytypeandformatmapbuilder) | setDouble(Map<String, ?> value) |
-| [AnyTypeAndFormatMapBuilder](#anytypeandformatmapbuilder) | setFloat(Void value) |
-| [AnyTypeAndFormatMapBuilder](#anytypeandformatmapbuilder) | setFloat(boolean value) |
-| [AnyTypeAndFormatMapBuilder](#anytypeandformatmapbuilder) | setFloat(String value) |
-| [AnyTypeAndFormatMapBuilder](#anytypeandformatmapbuilder) | setFloat(int value) |
-| [AnyTypeAndFormatMapBuilder](#anytypeandformatmapbuilder) | setFloat(float value) |
-| [AnyTypeAndFormatMapBuilder](#anytypeandformatmapbuilder) | setFloat(long value) |
-| [AnyTypeAndFormatMapBuilder](#anytypeandformatmapbuilder) | setFloat(double value) |
-| [AnyTypeAndFormatMapBuilder](#anytypeandformatmapbuilder) | setFloat(List<?> value) |
-| [AnyTypeAndFormatMapBuilder](#anytypeandformatmapbuilder) | setFloat(Map<String, ?> value) |
+| [AnyTypeAndFormatMapBuilder](#anytypeandformatmapbuilder) | double(Void value) |
+| [AnyTypeAndFormatMapBuilder](#anytypeandformatmapbuilder) | double(boolean value) |
+| [AnyTypeAndFormatMapBuilder](#anytypeandformatmapbuilder) | double(String value) |
+| [AnyTypeAndFormatMapBuilder](#anytypeandformatmapbuilder) | double(int value) |
+| [AnyTypeAndFormatMapBuilder](#anytypeandformatmapbuilder) | double(float value) |
+| [AnyTypeAndFormatMapBuilder](#anytypeandformatmapbuilder) | double(long value) |
+| [AnyTypeAndFormatMapBuilder](#anytypeandformatmapbuilder) | double(double value) |
+| [AnyTypeAndFormatMapBuilder](#anytypeandformatmapbuilder) | double(List<?> value) |
+| [AnyTypeAndFormatMapBuilder](#anytypeandformatmapbuilder) | double(Map<String, ?> value) |
+| [AnyTypeAndFormatMapBuilder](#anytypeandformatmapbuilder) | float(Void value) |
+| [AnyTypeAndFormatMapBuilder](#anytypeandformatmapbuilder) | float(boolean value) |
+| [AnyTypeAndFormatMapBuilder](#anytypeandformatmapbuilder) | float(String value) |
+| [AnyTypeAndFormatMapBuilder](#anytypeandformatmapbuilder) | float(int value) |
+| [AnyTypeAndFormatMapBuilder](#anytypeandformatmapbuilder) | float(float value) |
+| [AnyTypeAndFormatMapBuilder](#anytypeandformatmapbuilder) | float(long value) |
+| [AnyTypeAndFormatMapBuilder](#anytypeandformatmapbuilder) | float(double value) |
+| [AnyTypeAndFormatMapBuilder](#anytypeandformatmapbuilder) | float(List<?> value) |
+| [AnyTypeAndFormatMapBuilder](#anytypeandformatmapbuilder) | float(Map<String, ?> value) |
 | [AnyTypeAndFormatMapBuilder](#anytypeandformatmapbuilder) | additionalProperty(String key, Void value) |
 | [AnyTypeAndFormatMapBuilder](#anytypeandformatmapbuilder) | additionalProperty(String key, boolean value) |
 | [AnyTypeAndFormatMapBuilder](#anytypeandformatmapbuilder) | additionalProperty(String key, String value) |
@@ -275,35 +275,39 @@ A class to store validated Map payloads
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | static [AnyTypeAndFormatMap](#anytypeandformatmap) | of([Map<String, ? extends @Nullable Object>](#anytypeandformatmapbuilder) arg, SchemaConfiguration configuration) |
+| @Nullable Object | uuid()<br>[optional] value must be a uuid |
 | @Nullable Object | date()<br>[optional] value must conform to RFC-3339 full-date YYYY-MM-DD |
+| @Nullable Object | number()<br>[optional] value must be int or float numeric |
 | @Nullable Object | binary()<br>[optional] |
 | @Nullable Object | int32()<br>[optional] value must be a 32 bit integer |
 | @Nullable Object | int64()<br>[optional] value must be a 64 bit integer |
-| @Nullable Object | get(String key)<br>This schema has invalid Java names so this method must be used when you access instance["uuid"], instance["date-time"], instance["number"], instance["double"], instance["float"],  |
+| @Nullable Object | double()<br>[optional] value must be a 64 bit float |
+| @Nullable Object | float()<br>[optional] value must be a 32 bit float |
+| @Nullable Object | get(String key)<br>This schema has invalid Java names so this method must be used when you access instance["date-time"],  |
 | @Nullable Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
-## FloatSchemaBoxed
-public sealed interface FloatSchemaBoxed<br>
+## FloatBoxed
+public sealed interface FloatBoxed<br>
 permits<br>
-[FloatSchemaBoxedVoid](#floatschemaboxedvoid),
-[FloatSchemaBoxedBoolean](#floatschemaboxedboolean),
-[FloatSchemaBoxedNumber](#floatschemaboxednumber),
-[FloatSchemaBoxedString](#floatschemaboxedstring),
-[FloatSchemaBoxedList](#floatschemaboxedlist),
-[FloatSchemaBoxedMap](#floatschemaboxedmap)
+[FloatBoxedVoid](#floatboxedvoid),
+[FloatBoxedBoolean](#floatboxedboolean),
+[FloatBoxedNumber](#floatboxednumber),
+[FloatBoxedString](#floatboxedstring),
+[FloatBoxedList](#floatboxedlist),
+[FloatBoxedMap](#floatboxedmap)
 
 sealed interface that stores validated payloads using boxed classes
 
-## FloatSchemaBoxedVoid
-public record FloatSchemaBoxedVoid<br>
-implements [FloatSchemaBoxed](#floatschemaboxed)
+## FloatBoxedVoid
+public record FloatBoxedVoid<br>
+implements [FloatBoxed](#floatboxed)
 
 record that stores validated null payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| FloatSchemaBoxedVoid(Void data)<br>Creates an instance, private visibility |
+| FloatBoxedVoid(Void data)<br>Creates an instance, private visibility |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
@@ -311,16 +315,16 @@ record that stores validated null payloads, sealed permits implementation
 | Void | data()<br>validated payload |
 | @Nullable Object | getData()<br>validated payload |
 
-## FloatSchemaBoxedBoolean
-public record FloatSchemaBoxedBoolean<br>
-implements [FloatSchemaBoxed](#floatschemaboxed)
+## FloatBoxedBoolean
+public record FloatBoxedBoolean<br>
+implements [FloatBoxed](#floatboxed)
 
 record that stores validated boolean payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| FloatSchemaBoxedBoolean(boolean data)<br>Creates an instance, private visibility |
+| FloatBoxedBoolean(boolean data)<br>Creates an instance, private visibility |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
@@ -328,16 +332,16 @@ record that stores validated boolean payloads, sealed permits implementation
 | boolean | data()<br>validated payload |
 | @Nullable Object | getData()<br>validated payload |
 
-## FloatSchemaBoxedNumber
-public record FloatSchemaBoxedNumber<br>
-implements [FloatSchemaBoxed](#floatschemaboxed)
+## FloatBoxedNumber
+public record FloatBoxedNumber<br>
+implements [FloatBoxed](#floatboxed)
 
 record that stores validated Number payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| FloatSchemaBoxedNumber(Number data)<br>Creates an instance, private visibility |
+| FloatBoxedNumber(Number data)<br>Creates an instance, private visibility |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
@@ -345,16 +349,16 @@ record that stores validated Number payloads, sealed permits implementation
 | Number | data()<br>validated payload |
 | @Nullable Object | getData()<br>validated payload |
 
-## FloatSchemaBoxedString
-public record FloatSchemaBoxedString<br>
-implements [FloatSchemaBoxed](#floatschemaboxed)
+## FloatBoxedString
+public record FloatBoxedString<br>
+implements [FloatBoxed](#floatboxed)
 
 record that stores validated String payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| FloatSchemaBoxedString(String data)<br>Creates an instance, private visibility |
+| FloatBoxedString(String data)<br>Creates an instance, private visibility |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
@@ -362,16 +366,16 @@ record that stores validated String payloads, sealed permits implementation
 | String | data()<br>validated payload |
 | @Nullable Object | getData()<br>validated payload |
 
-## FloatSchemaBoxedList
-public record FloatSchemaBoxedList<br>
-implements [FloatSchemaBoxed](#floatschemaboxed)
+## FloatBoxedList
+public record FloatBoxedList<br>
+implements [FloatBoxed](#floatboxed)
 
 record that stores validated List payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| FloatSchemaBoxedList(FrozenList<@Nullable Object> data)<br>Creates an instance, private visibility |
+| FloatBoxedList(FrozenList<@Nullable Object> data)<br>Creates an instance, private visibility |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
@@ -379,16 +383,16 @@ record that stores validated List payloads, sealed permits implementation
 | FrozenList<@Nullable Object> | data()<br>validated payload |
 | @Nullable Object | getData()<br>validated payload |
 
-## FloatSchemaBoxedMap
-public record FloatSchemaBoxedMap<br>
-implements [FloatSchemaBoxed](#floatschemaboxed)
+## FloatBoxedMap
+public record FloatBoxedMap<br>
+implements [FloatBoxed](#floatboxed)
 
 record that stores validated Map payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| FloatSchemaBoxedMap(FrozenMap<@Nullable Object> data)<br>Creates an instance, private visibility |
+| FloatBoxedMap(FrozenMap<@Nullable Object> data)<br>Creates an instance, private visibility |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
@@ -396,8 +400,8 @@ record that stores validated Map payloads, sealed permits implementation
 | FrozenMap<@Nullable Object> | data()<br>validated payload |
 | @Nullable Object | getData()<br>validated payload |
 
-## FloatSchema
-public static class FloatSchema<br>
+## Float
+public static class Float<br>
 extends JsonSchema
 
 A schema class that validates payloads
@@ -420,37 +424,37 @@ A schema class that validates payloads
 | boolean | validate(boolean arg, SchemaConfiguration configuration) |
 | FrozenMap<@Nullable Object> | validate(Map&lt;?, ?&gt; arg, SchemaConfiguration configuration) |
 | FrozenList<@Nullable Object> | validate(List<?> arg, SchemaConfiguration configuration) |
-| [FloatSchemaBoxedString](#floatschemaboxedstring) | validateAndBox(String arg, SchemaConfiguration configuration) |
-| [FloatSchemaBoxedVoid](#floatschemaboxedvoid) | validateAndBox(Void arg, SchemaConfiguration configuration) |
-| [FloatSchemaBoxedNumber](#floatschemaboxednumber) | validateAndBox(Number arg, SchemaConfiguration configuration) |
-| [FloatSchemaBoxedBoolean](#floatschemaboxedboolean) | validateAndBox(boolean arg, SchemaConfiguration configuration) |
-| [FloatSchemaBoxedMap](#floatschemaboxedmap) | validateAndBox(Map&lt;?, ?&gt; arg, SchemaConfiguration configuration) |
-| [FloatSchemaBoxedList](#floatschemaboxedlist) | validateAndBox(List<?> arg, SchemaConfiguration configuration) |
-| [FloatSchemaBoxed](#floatschemaboxed) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
+| [FloatBoxedString](#floatboxedstring) | validateAndBox(String arg, SchemaConfiguration configuration) |
+| [FloatBoxedVoid](#floatboxedvoid) | validateAndBox(Void arg, SchemaConfiguration configuration) |
+| [FloatBoxedNumber](#floatboxednumber) | validateAndBox(Number arg, SchemaConfiguration configuration) |
+| [FloatBoxedBoolean](#floatboxedboolean) | validateAndBox(boolean arg, SchemaConfiguration configuration) |
+| [FloatBoxedMap](#floatboxedmap) | validateAndBox(Map&lt;?, ?&gt; arg, SchemaConfiguration configuration) |
+| [FloatBoxedList](#floatboxedlist) | validateAndBox(List<?> arg, SchemaConfiguration configuration) |
+| [FloatBoxed](#floatboxed) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 
-## DoubleSchemaBoxed
-public sealed interface DoubleSchemaBoxed<br>
+## DoubleBoxed
+public sealed interface DoubleBoxed<br>
 permits<br>
-[DoubleSchemaBoxedVoid](#doubleschemaboxedvoid),
-[DoubleSchemaBoxedBoolean](#doubleschemaboxedboolean),
-[DoubleSchemaBoxedNumber](#doubleschemaboxednumber),
-[DoubleSchemaBoxedString](#doubleschemaboxedstring),
-[DoubleSchemaBoxedList](#doubleschemaboxedlist),
-[DoubleSchemaBoxedMap](#doubleschemaboxedmap)
+[DoubleBoxedVoid](#doubleboxedvoid),
+[DoubleBoxedBoolean](#doubleboxedboolean),
+[DoubleBoxedNumber](#doubleboxednumber),
+[DoubleBoxedString](#doubleboxedstring),
+[DoubleBoxedList](#doubleboxedlist),
+[DoubleBoxedMap](#doubleboxedmap)
 
 sealed interface that stores validated payloads using boxed classes
 
-## DoubleSchemaBoxedVoid
-public record DoubleSchemaBoxedVoid<br>
-implements [DoubleSchemaBoxed](#doubleschemaboxed)
+## DoubleBoxedVoid
+public record DoubleBoxedVoid<br>
+implements [DoubleBoxed](#doubleboxed)
 
 record that stores validated null payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| DoubleSchemaBoxedVoid(Void data)<br>Creates an instance, private visibility |
+| DoubleBoxedVoid(Void data)<br>Creates an instance, private visibility |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
@@ -458,16 +462,16 @@ record that stores validated null payloads, sealed permits implementation
 | Void | data()<br>validated payload |
 | @Nullable Object | getData()<br>validated payload |
 
-## DoubleSchemaBoxedBoolean
-public record DoubleSchemaBoxedBoolean<br>
-implements [DoubleSchemaBoxed](#doubleschemaboxed)
+## DoubleBoxedBoolean
+public record DoubleBoxedBoolean<br>
+implements [DoubleBoxed](#doubleboxed)
 
 record that stores validated boolean payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| DoubleSchemaBoxedBoolean(boolean data)<br>Creates an instance, private visibility |
+| DoubleBoxedBoolean(boolean data)<br>Creates an instance, private visibility |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
@@ -475,16 +479,16 @@ record that stores validated boolean payloads, sealed permits implementation
 | boolean | data()<br>validated payload |
 | @Nullable Object | getData()<br>validated payload |
 
-## DoubleSchemaBoxedNumber
-public record DoubleSchemaBoxedNumber<br>
-implements [DoubleSchemaBoxed](#doubleschemaboxed)
+## DoubleBoxedNumber
+public record DoubleBoxedNumber<br>
+implements [DoubleBoxed](#doubleboxed)
 
 record that stores validated Number payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| DoubleSchemaBoxedNumber(Number data)<br>Creates an instance, private visibility |
+| DoubleBoxedNumber(Number data)<br>Creates an instance, private visibility |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
@@ -492,16 +496,16 @@ record that stores validated Number payloads, sealed permits implementation
 | Number | data()<br>validated payload |
 | @Nullable Object | getData()<br>validated payload |
 
-## DoubleSchemaBoxedString
-public record DoubleSchemaBoxedString<br>
-implements [DoubleSchemaBoxed](#doubleschemaboxed)
+## DoubleBoxedString
+public record DoubleBoxedString<br>
+implements [DoubleBoxed](#doubleboxed)
 
 record that stores validated String payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| DoubleSchemaBoxedString(String data)<br>Creates an instance, private visibility |
+| DoubleBoxedString(String data)<br>Creates an instance, private visibility |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
@@ -509,16 +513,16 @@ record that stores validated String payloads, sealed permits implementation
 | String | data()<br>validated payload |
 | @Nullable Object | getData()<br>validated payload |
 
-## DoubleSchemaBoxedList
-public record DoubleSchemaBoxedList<br>
-implements [DoubleSchemaBoxed](#doubleschemaboxed)
+## DoubleBoxedList
+public record DoubleBoxedList<br>
+implements [DoubleBoxed](#doubleboxed)
 
 record that stores validated List payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| DoubleSchemaBoxedList(FrozenList<@Nullable Object> data)<br>Creates an instance, private visibility |
+| DoubleBoxedList(FrozenList<@Nullable Object> data)<br>Creates an instance, private visibility |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
@@ -526,16 +530,16 @@ record that stores validated List payloads, sealed permits implementation
 | FrozenList<@Nullable Object> | data()<br>validated payload |
 | @Nullable Object | getData()<br>validated payload |
 
-## DoubleSchemaBoxedMap
-public record DoubleSchemaBoxedMap<br>
-implements [DoubleSchemaBoxed](#doubleschemaboxed)
+## DoubleBoxedMap
+public record DoubleBoxedMap<br>
+implements [DoubleBoxed](#doubleboxed)
 
 record that stores validated Map payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| DoubleSchemaBoxedMap(FrozenMap<@Nullable Object> data)<br>Creates an instance, private visibility |
+| DoubleBoxedMap(FrozenMap<@Nullable Object> data)<br>Creates an instance, private visibility |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
@@ -543,8 +547,8 @@ record that stores validated Map payloads, sealed permits implementation
 | FrozenMap<@Nullable Object> | data()<br>validated payload |
 | @Nullable Object | getData()<br>validated payload |
 
-## DoubleSchema
-public static class DoubleSchema<br>
+## Double
+public static class Double<br>
 extends JsonSchema
 
 A schema class that validates payloads
@@ -567,13 +571,13 @@ A schema class that validates payloads
 | boolean | validate(boolean arg, SchemaConfiguration configuration) |
 | FrozenMap<@Nullable Object> | validate(Map&lt;?, ?&gt; arg, SchemaConfiguration configuration) |
 | FrozenList<@Nullable Object> | validate(List<?> arg, SchemaConfiguration configuration) |
-| [DoubleSchemaBoxedString](#doubleschemaboxedstring) | validateAndBox(String arg, SchemaConfiguration configuration) |
-| [DoubleSchemaBoxedVoid](#doubleschemaboxedvoid) | validateAndBox(Void arg, SchemaConfiguration configuration) |
-| [DoubleSchemaBoxedNumber](#doubleschemaboxednumber) | validateAndBox(Number arg, SchemaConfiguration configuration) |
-| [DoubleSchemaBoxedBoolean](#doubleschemaboxedboolean) | validateAndBox(boolean arg, SchemaConfiguration configuration) |
-| [DoubleSchemaBoxedMap](#doubleschemaboxedmap) | validateAndBox(Map&lt;?, ?&gt; arg, SchemaConfiguration configuration) |
-| [DoubleSchemaBoxedList](#doubleschemaboxedlist) | validateAndBox(List<?> arg, SchemaConfiguration configuration) |
-| [DoubleSchemaBoxed](#doubleschemaboxed) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
+| [DoubleBoxedString](#doubleboxedstring) | validateAndBox(String arg, SchemaConfiguration configuration) |
+| [DoubleBoxedVoid](#doubleboxedvoid) | validateAndBox(Void arg, SchemaConfiguration configuration) |
+| [DoubleBoxedNumber](#doubleboxednumber) | validateAndBox(Number arg, SchemaConfiguration configuration) |
+| [DoubleBoxedBoolean](#doubleboxedboolean) | validateAndBox(boolean arg, SchemaConfiguration configuration) |
+| [DoubleBoxedMap](#doubleboxedmap) | validateAndBox(Map&lt;?, ?&gt; arg, SchemaConfiguration configuration) |
+| [DoubleBoxedList](#doubleboxedlist) | validateAndBox(List<?> arg, SchemaConfiguration configuration) |
+| [DoubleBoxed](#doubleboxed) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 
 ## Int64Boxed
@@ -1017,28 +1021,28 @@ A schema class that validates payloads
 | [BinaryBoxed](#binaryboxed) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 
-## NumberSchemaBoxed
-public sealed interface NumberSchemaBoxed<br>
+## NumberBoxed
+public sealed interface NumberBoxed<br>
 permits<br>
-[NumberSchemaBoxedVoid](#numberschemaboxedvoid),
-[NumberSchemaBoxedBoolean](#numberschemaboxedboolean),
-[NumberSchemaBoxedNumber](#numberschemaboxednumber),
-[NumberSchemaBoxedString](#numberschemaboxedstring),
-[NumberSchemaBoxedList](#numberschemaboxedlist),
-[NumberSchemaBoxedMap](#numberschemaboxedmap)
+[NumberBoxedVoid](#numberboxedvoid),
+[NumberBoxedBoolean](#numberboxedboolean),
+[NumberBoxedNumber](#numberboxednumber),
+[NumberBoxedString](#numberboxedstring),
+[NumberBoxedList](#numberboxedlist),
+[NumberBoxedMap](#numberboxedmap)
 
 sealed interface that stores validated payloads using boxed classes
 
-## NumberSchemaBoxedVoid
-public record NumberSchemaBoxedVoid<br>
-implements [NumberSchemaBoxed](#numberschemaboxed)
+## NumberBoxedVoid
+public record NumberBoxedVoid<br>
+implements [NumberBoxed](#numberboxed)
 
 record that stores validated null payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| NumberSchemaBoxedVoid(Void data)<br>Creates an instance, private visibility |
+| NumberBoxedVoid(Void data)<br>Creates an instance, private visibility |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
@@ -1046,16 +1050,16 @@ record that stores validated null payloads, sealed permits implementation
 | Void | data()<br>validated payload |
 | @Nullable Object | getData()<br>validated payload |
 
-## NumberSchemaBoxedBoolean
-public record NumberSchemaBoxedBoolean<br>
-implements [NumberSchemaBoxed](#numberschemaboxed)
+## NumberBoxedBoolean
+public record NumberBoxedBoolean<br>
+implements [NumberBoxed](#numberboxed)
 
 record that stores validated boolean payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| NumberSchemaBoxedBoolean(boolean data)<br>Creates an instance, private visibility |
+| NumberBoxedBoolean(boolean data)<br>Creates an instance, private visibility |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
@@ -1063,16 +1067,16 @@ record that stores validated boolean payloads, sealed permits implementation
 | boolean | data()<br>validated payload |
 | @Nullable Object | getData()<br>validated payload |
 
-## NumberSchemaBoxedNumber
-public record NumberSchemaBoxedNumber<br>
-implements [NumberSchemaBoxed](#numberschemaboxed)
+## NumberBoxedNumber
+public record NumberBoxedNumber<br>
+implements [NumberBoxed](#numberboxed)
 
 record that stores validated Number payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| NumberSchemaBoxedNumber(Number data)<br>Creates an instance, private visibility |
+| NumberBoxedNumber(Number data)<br>Creates an instance, private visibility |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
@@ -1080,16 +1084,16 @@ record that stores validated Number payloads, sealed permits implementation
 | Number | data()<br>validated payload |
 | @Nullable Object | getData()<br>validated payload |
 
-## NumberSchemaBoxedString
-public record NumberSchemaBoxedString<br>
-implements [NumberSchemaBoxed](#numberschemaboxed)
+## NumberBoxedString
+public record NumberBoxedString<br>
+implements [NumberBoxed](#numberboxed)
 
 record that stores validated String payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| NumberSchemaBoxedString(String data)<br>Creates an instance, private visibility |
+| NumberBoxedString(String data)<br>Creates an instance, private visibility |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
@@ -1097,16 +1101,16 @@ record that stores validated String payloads, sealed permits implementation
 | String | data()<br>validated payload |
 | @Nullable Object | getData()<br>validated payload |
 
-## NumberSchemaBoxedList
-public record NumberSchemaBoxedList<br>
-implements [NumberSchemaBoxed](#numberschemaboxed)
+## NumberBoxedList
+public record NumberBoxedList<br>
+implements [NumberBoxed](#numberboxed)
 
 record that stores validated List payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| NumberSchemaBoxedList(FrozenList<@Nullable Object> data)<br>Creates an instance, private visibility |
+| NumberBoxedList(FrozenList<@Nullable Object> data)<br>Creates an instance, private visibility |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
@@ -1114,16 +1118,16 @@ record that stores validated List payloads, sealed permits implementation
 | FrozenList<@Nullable Object> | data()<br>validated payload |
 | @Nullable Object | getData()<br>validated payload |
 
-## NumberSchemaBoxedMap
-public record NumberSchemaBoxedMap<br>
-implements [NumberSchemaBoxed](#numberschemaboxed)
+## NumberBoxedMap
+public record NumberBoxedMap<br>
+implements [NumberBoxed](#numberboxed)
 
 record that stores validated Map payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| NumberSchemaBoxedMap(FrozenMap<@Nullable Object> data)<br>Creates an instance, private visibility |
+| NumberBoxedMap(FrozenMap<@Nullable Object> data)<br>Creates an instance, private visibility |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
@@ -1131,8 +1135,8 @@ record that stores validated Map payloads, sealed permits implementation
 | FrozenMap<@Nullable Object> | data()<br>validated payload |
 | @Nullable Object | getData()<br>validated payload |
 
-## NumberSchema
-public static class NumberSchema<br>
+## Number
+public static class Number<br>
 extends JsonSchema
 
 A schema class that validates payloads
@@ -1155,13 +1159,13 @@ A schema class that validates payloads
 | boolean | validate(boolean arg, SchemaConfiguration configuration) |
 | FrozenMap<@Nullable Object> | validate(Map&lt;?, ?&gt; arg, SchemaConfiguration configuration) |
 | FrozenList<@Nullable Object> | validate(List<?> arg, SchemaConfiguration configuration) |
-| [NumberSchemaBoxedString](#numberschemaboxedstring) | validateAndBox(String arg, SchemaConfiguration configuration) |
-| [NumberSchemaBoxedVoid](#numberschemaboxedvoid) | validateAndBox(Void arg, SchemaConfiguration configuration) |
-| [NumberSchemaBoxedNumber](#numberschemaboxednumber) | validateAndBox(Number arg, SchemaConfiguration configuration) |
-| [NumberSchemaBoxedBoolean](#numberschemaboxedboolean) | validateAndBox(boolean arg, SchemaConfiguration configuration) |
-| [NumberSchemaBoxedMap](#numberschemaboxedmap) | validateAndBox(Map&lt;?, ?&gt; arg, SchemaConfiguration configuration) |
-| [NumberSchemaBoxedList](#numberschemaboxedlist) | validateAndBox(List<?> arg, SchemaConfiguration configuration) |
-| [NumberSchemaBoxed](#numberschemaboxed) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
+| [NumberBoxedString](#numberboxedstring) | validateAndBox(String arg, SchemaConfiguration configuration) |
+| [NumberBoxedVoid](#numberboxedvoid) | validateAndBox(Void arg, SchemaConfiguration configuration) |
+| [NumberBoxedNumber](#numberboxednumber) | validateAndBox(Number arg, SchemaConfiguration configuration) |
+| [NumberBoxedBoolean](#numberboxedboolean) | validateAndBox(boolean arg, SchemaConfiguration configuration) |
+| [NumberBoxedMap](#numberboxedmap) | validateAndBox(Map&lt;?, ?&gt; arg, SchemaConfiguration configuration) |
+| [NumberBoxedList](#numberboxedlist) | validateAndBox(List<?> arg, SchemaConfiguration configuration) |
+| [NumberBoxed](#numberboxed) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 
 ## DatetimeBoxed
@@ -1458,28 +1462,28 @@ A schema class that validates payloads
 | [DateBoxed](#dateboxed) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 
-## UuidSchemaBoxed
-public sealed interface UuidSchemaBoxed<br>
+## UuidBoxed
+public sealed interface UuidBoxed<br>
 permits<br>
-[UuidSchemaBoxedVoid](#uuidschemaboxedvoid),
-[UuidSchemaBoxedBoolean](#uuidschemaboxedboolean),
-[UuidSchemaBoxedNumber](#uuidschemaboxednumber),
-[UuidSchemaBoxedString](#uuidschemaboxedstring),
-[UuidSchemaBoxedList](#uuidschemaboxedlist),
-[UuidSchemaBoxedMap](#uuidschemaboxedmap)
+[UuidBoxedVoid](#uuidboxedvoid),
+[UuidBoxedBoolean](#uuidboxedboolean),
+[UuidBoxedNumber](#uuidboxednumber),
+[UuidBoxedString](#uuidboxedstring),
+[UuidBoxedList](#uuidboxedlist),
+[UuidBoxedMap](#uuidboxedmap)
 
 sealed interface that stores validated payloads using boxed classes
 
-## UuidSchemaBoxedVoid
-public record UuidSchemaBoxedVoid<br>
-implements [UuidSchemaBoxed](#uuidschemaboxed)
+## UuidBoxedVoid
+public record UuidBoxedVoid<br>
+implements [UuidBoxed](#uuidboxed)
 
 record that stores validated null payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| UuidSchemaBoxedVoid(Void data)<br>Creates an instance, private visibility |
+| UuidBoxedVoid(Void data)<br>Creates an instance, private visibility |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
@@ -1487,16 +1491,16 @@ record that stores validated null payloads, sealed permits implementation
 | Void | data()<br>validated payload |
 | @Nullable Object | getData()<br>validated payload |
 
-## UuidSchemaBoxedBoolean
-public record UuidSchemaBoxedBoolean<br>
-implements [UuidSchemaBoxed](#uuidschemaboxed)
+## UuidBoxedBoolean
+public record UuidBoxedBoolean<br>
+implements [UuidBoxed](#uuidboxed)
 
 record that stores validated boolean payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| UuidSchemaBoxedBoolean(boolean data)<br>Creates an instance, private visibility |
+| UuidBoxedBoolean(boolean data)<br>Creates an instance, private visibility |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
@@ -1504,16 +1508,16 @@ record that stores validated boolean payloads, sealed permits implementation
 | boolean | data()<br>validated payload |
 | @Nullable Object | getData()<br>validated payload |
 
-## UuidSchemaBoxedNumber
-public record UuidSchemaBoxedNumber<br>
-implements [UuidSchemaBoxed](#uuidschemaboxed)
+## UuidBoxedNumber
+public record UuidBoxedNumber<br>
+implements [UuidBoxed](#uuidboxed)
 
 record that stores validated Number payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| UuidSchemaBoxedNumber(Number data)<br>Creates an instance, private visibility |
+| UuidBoxedNumber(Number data)<br>Creates an instance, private visibility |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
@@ -1521,16 +1525,16 @@ record that stores validated Number payloads, sealed permits implementation
 | Number | data()<br>validated payload |
 | @Nullable Object | getData()<br>validated payload |
 
-## UuidSchemaBoxedString
-public record UuidSchemaBoxedString<br>
-implements [UuidSchemaBoxed](#uuidschemaboxed)
+## UuidBoxedString
+public record UuidBoxedString<br>
+implements [UuidBoxed](#uuidboxed)
 
 record that stores validated String payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| UuidSchemaBoxedString(String data)<br>Creates an instance, private visibility |
+| UuidBoxedString(String data)<br>Creates an instance, private visibility |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
@@ -1538,16 +1542,16 @@ record that stores validated String payloads, sealed permits implementation
 | String | data()<br>validated payload |
 | @Nullable Object | getData()<br>validated payload |
 
-## UuidSchemaBoxedList
-public record UuidSchemaBoxedList<br>
-implements [UuidSchemaBoxed](#uuidschemaboxed)
+## UuidBoxedList
+public record UuidBoxedList<br>
+implements [UuidBoxed](#uuidboxed)
 
 record that stores validated List payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| UuidSchemaBoxedList(FrozenList<@Nullable Object> data)<br>Creates an instance, private visibility |
+| UuidBoxedList(FrozenList<@Nullable Object> data)<br>Creates an instance, private visibility |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
@@ -1555,16 +1559,16 @@ record that stores validated List payloads, sealed permits implementation
 | FrozenList<@Nullable Object> | data()<br>validated payload |
 | @Nullable Object | getData()<br>validated payload |
 
-## UuidSchemaBoxedMap
-public record UuidSchemaBoxedMap<br>
-implements [UuidSchemaBoxed](#uuidschemaboxed)
+## UuidBoxedMap
+public record UuidBoxedMap<br>
+implements [UuidBoxed](#uuidboxed)
 
 record that stores validated Map payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
 | --------------------------- |
-| UuidSchemaBoxedMap(FrozenMap<@Nullable Object> data)<br>Creates an instance, private visibility |
+| UuidBoxedMap(FrozenMap<@Nullable Object> data)<br>Creates an instance, private visibility |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
@@ -1572,8 +1576,8 @@ record that stores validated Map payloads, sealed permits implementation
 | FrozenMap<@Nullable Object> | data()<br>validated payload |
 | @Nullable Object | getData()<br>validated payload |
 
-## UuidSchema
-public static class UuidSchema<br>
+## Uuid
+public static class Uuid<br>
 extends JsonSchema
 
 A schema class that validates payloads
@@ -1596,13 +1600,13 @@ A schema class that validates payloads
 | boolean | validate(boolean arg, SchemaConfiguration configuration) |
 | FrozenMap<@Nullable Object> | validate(Map&lt;?, ?&gt; arg, SchemaConfiguration configuration) |
 | FrozenList<@Nullable Object> | validate(List<?> arg, SchemaConfiguration configuration) |
-| [UuidSchemaBoxedString](#uuidschemaboxedstring) | validateAndBox(String arg, SchemaConfiguration configuration) |
-| [UuidSchemaBoxedVoid](#uuidschemaboxedvoid) | validateAndBox(Void arg, SchemaConfiguration configuration) |
-| [UuidSchemaBoxedNumber](#uuidschemaboxednumber) | validateAndBox(Number arg, SchemaConfiguration configuration) |
-| [UuidSchemaBoxedBoolean](#uuidschemaboxedboolean) | validateAndBox(boolean arg, SchemaConfiguration configuration) |
-| [UuidSchemaBoxedMap](#uuidschemaboxedmap) | validateAndBox(Map&lt;?, ?&gt; arg, SchemaConfiguration configuration) |
-| [UuidSchemaBoxedList](#uuidschemaboxedlist) | validateAndBox(List<?> arg, SchemaConfiguration configuration) |
-| [UuidSchemaBoxed](#uuidschemaboxed) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
+| [UuidBoxedString](#uuidboxedstring) | validateAndBox(String arg, SchemaConfiguration configuration) |
+| [UuidBoxedVoid](#uuidboxedvoid) | validateAndBox(Void arg, SchemaConfiguration configuration) |
+| [UuidBoxedNumber](#uuidboxednumber) | validateAndBox(Number arg, SchemaConfiguration configuration) |
+| [UuidBoxedBoolean](#uuidboxedboolean) | validateAndBox(boolean arg, SchemaConfiguration configuration) |
+| [UuidBoxedMap](#uuidboxedmap) | validateAndBox(Map&lt;?, ?&gt; arg, SchemaConfiguration configuration) |
+| [UuidBoxedList](#uuidboxedlist) | validateAndBox(List<?> arg, SchemaConfiguration configuration) |
+| [UuidBoxed](#uuidboxed) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

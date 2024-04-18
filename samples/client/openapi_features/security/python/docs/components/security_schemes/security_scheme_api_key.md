@@ -1,4 +1,4 @@
-this_package.components.security_schemes.security_scheme_api_key
+openapi_client.components.security_schemes.security_scheme_api_key
 # SecurityScheme ApiKey
 
 ## Description

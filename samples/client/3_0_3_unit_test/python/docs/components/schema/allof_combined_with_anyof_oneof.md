@@ -1,5 +1,5 @@
 # AllofCombinedWithAnyofOneof
-unit_test_api.components.schema.allof_combined_with_anyof_oneof
+openapi_client.components.schema.allof_combined_with_anyof_oneof
 ```
 type: schemas.Schema
 ```

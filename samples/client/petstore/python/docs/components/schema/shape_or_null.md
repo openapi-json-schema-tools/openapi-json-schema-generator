@@ -1,5 +1,5 @@
 # ShapeOrNull
-petstore_api.components.schema.shape_or_null
+openapi_client.components.schema.shape_or_null
 ```
 type: schemas.Schema
 ```

@@ -1,5 +1,5 @@
 # SmallMultipleOfLargeInteger
-unit_test_api.components.schema.small_multiple_of_large_integer
+openapi_client.components.schema.small_multiple_of_large_integer
 ```
 type: schemas.Schema
 ```

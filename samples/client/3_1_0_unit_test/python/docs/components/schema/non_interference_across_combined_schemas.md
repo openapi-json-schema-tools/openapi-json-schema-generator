@@ -1,5 +1,5 @@
 # NonInterferenceAcrossCombinedSchemas
-unit_test_api.components.schema.non_interference_across_combined_schemas
+openapi_client.components.schema.non_interference_across_combined_schemas
 ```
 type: schemas.Schema
 ```

@@ -1,5 +1,5 @@
 # JSONPatchRequestAddReplaceTest
-petstore_api.components.schema.json_patch_request_add_replace_test
+openapi_client.components.schema.json_patch_request_add_replace_test
 ```
 type: schemas.Schema
 ```

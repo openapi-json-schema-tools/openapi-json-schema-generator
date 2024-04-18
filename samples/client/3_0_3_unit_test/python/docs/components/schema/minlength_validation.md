@@ -1,5 +1,5 @@
 # MinlengthValidation
-unit_test_api.components.schema.minlength_validation
+openapi_client.components.schema.minlength_validation
 ```
 type: schemas.Schema
 ```

@@ -1,5 +1,5 @@
 <a name="top"></a>
-unit_test_api.apis.tags.pattern_properties_api
+openapi_client.apis.tags.pattern_properties_api
 # PatternPropertiesApi
 
 All URIs are relative to the selected server

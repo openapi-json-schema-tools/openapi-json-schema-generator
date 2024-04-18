@@ -1,5 +1,5 @@
 # ArrayWithValidationsInItems
-petstore_api.components.schema.array_with_validations_in_items
+openapi_client.components.schema.array_with_validations_in_items
 ```
 type: schemas.Schema
 ```

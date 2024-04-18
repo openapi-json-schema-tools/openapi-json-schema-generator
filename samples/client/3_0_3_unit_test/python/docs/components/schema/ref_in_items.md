@@ -1,5 +1,5 @@
 # RefInItems
-unit_test_api.components.schema.ref_in_items
+openapi_client.components.schema.ref_in_items
 ```
 type: schemas.Schema
 ```

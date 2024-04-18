@@ -1,0 +1,5 @@
+# do not import all endpoints into this module because that uses a lot of memory and stack frames
+# if you need the ability to import all endpoints from this module, import them with
+# from openapi_client.apis.paths.response_body_post_if_appears_at_the_end_when_serialized_keyword_processing_sequence_response_body_for_content_types import ResponseBodyPostIfAppearsAtTheEndWhenSerializedKeywordProcessingSequenceResponseBodyForContentTypes
+
+path = "/responseBody/postIfAppearsAtTheEndWhenSerializedKeywordProcessingSequenceResponseBodyForContentTypes"

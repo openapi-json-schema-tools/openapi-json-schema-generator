@@ -1,5 +1,5 @@
 # AdditionalpropertiesDoesNotLookInApplicators
-unit_test_api.components.schema.additionalproperties_does_not_look_in_applicators
+openapi_client.components.schema.additionalproperties_does_not_look_in_applicators
 ```
 type: schemas.Schema
 ```

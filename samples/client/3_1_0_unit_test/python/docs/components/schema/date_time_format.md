@@ -1,5 +1,5 @@
 # DateTimeFormat
-unit_test_api.components.schema.date_time_format
+openapi_client.components.schema.date_time_format
 ```
 type: schemas.Schema
 ```

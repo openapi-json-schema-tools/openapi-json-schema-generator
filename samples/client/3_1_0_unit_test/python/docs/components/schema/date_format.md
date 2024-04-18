@@ -1,5 +1,5 @@
 # DateFormat
-unit_test_api.components.schema.date_format
+openapi_client.components.schema.date_format
 ```
 type: schemas.Schema
 ```

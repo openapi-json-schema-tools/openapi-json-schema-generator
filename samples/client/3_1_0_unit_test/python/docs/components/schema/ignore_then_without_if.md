@@ -1,5 +1,5 @@
 # IgnoreThenWithoutIf
-unit_test_api.components.schema.ignore_then_without_if
+openapi_client.components.schema.ignore_then_without_if
 ```
 type: schemas.Schema
 ```

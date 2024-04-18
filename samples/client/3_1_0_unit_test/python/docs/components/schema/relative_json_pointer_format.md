@@ -1,5 +1,5 @@
 # RelativeJsonPointerFormat
-unit_test_api.components.schema.relative_json_pointer_format
+openapi_client.components.schema.relative_json_pointer_format
 ```
 type: schemas.Schema
 ```

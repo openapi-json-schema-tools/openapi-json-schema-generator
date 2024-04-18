@@ -48,46 +48,46 @@ public class IfAppearsAtTheEndWhenSerializedKeywordProcessingSequence {
     }
     
     
-    public sealed interface ElseSchemaBoxed permits ElseSchemaBoxedVoid, ElseSchemaBoxedBoolean, ElseSchemaBoxedNumber, ElseSchemaBoxedString, ElseSchemaBoxedList, ElseSchemaBoxedMap {
+    public sealed interface ElseBoxed permits ElseBoxedVoid, ElseBoxedBoolean, ElseBoxedNumber, ElseBoxedString, ElseBoxedList, ElseBoxedMap {
         @Nullable Object getData();
     }
     
-    public record ElseSchemaBoxedVoid(Void data) implements ElseSchemaBoxed {
+    public record ElseBoxedVoid(Void data) implements ElseBoxed {
         @Override
         public @Nullable Object getData() {
             return data;
         }
     }
     
-    public record ElseSchemaBoxedBoolean(boolean data) implements ElseSchemaBoxed {
+    public record ElseBoxedBoolean(boolean data) implements ElseBoxed {
         @Override
         public @Nullable Object getData() {
             return data;
         }
     }
     
-    public record ElseSchemaBoxedNumber(Number data) implements ElseSchemaBoxed {
+    public record ElseBoxedNumber(Number data) implements ElseBoxed {
         @Override
         public @Nullable Object getData() {
             return data;
         }
     }
     
-    public record ElseSchemaBoxedString(String data) implements ElseSchemaBoxed {
+    public record ElseBoxedString(String data) implements ElseBoxed {
         @Override
         public @Nullable Object getData() {
             return data;
         }
     }
     
-    public record ElseSchemaBoxedList(FrozenList<@Nullable Object> data) implements ElseSchemaBoxed {
+    public record ElseBoxedList(FrozenList<@Nullable Object> data) implements ElseBoxed {
         @Override
         public @Nullable Object getData() {
             return data;
         }
     }
     
-    public record ElseSchemaBoxedMap(FrozenMap<@Nullable Object> data) implements ElseSchemaBoxed {
+    public record ElseBoxedMap(FrozenMap<@Nullable Object> data) implements ElseBoxed {
         @Override
         public @Nullable Object getData() {
             return data;
@@ -95,18 +95,18 @@ public class IfAppearsAtTheEndWhenSerializedKeywordProcessingSequence {
     }
     
     
-    public static class ElseSchema extends JsonSchema<ElseSchemaBoxed> implements NullSchemaValidator<ElseSchemaBoxedVoid>, BooleanSchemaValidator<ElseSchemaBoxedBoolean>, NumberSchemaValidator<ElseSchemaBoxedNumber>, StringSchemaValidator<ElseSchemaBoxedString>, ListSchemaValidator<FrozenList<@Nullable Object>, ElseSchemaBoxedList>, MapSchemaValidator<FrozenMap<@Nullable Object>, ElseSchemaBoxedMap> {
-        private static @Nullable ElseSchema instance = null;
+    public static class Else extends JsonSchema<ElseBoxed> implements NullSchemaValidator<ElseBoxedVoid>, BooleanSchemaValidator<ElseBoxedBoolean>, NumberSchemaValidator<ElseBoxedNumber>, StringSchemaValidator<ElseBoxedString>, ListSchemaValidator<FrozenList<@Nullable Object>, ElseBoxedList>, MapSchemaValidator<FrozenMap<@Nullable Object>, ElseBoxedMap> {
+        private static @Nullable Else instance = null;
     
-        protected ElseSchema() {
+        protected Else() {
             super(new JsonSchemaInfo()
                 .constValue("other")
             );
         }
     
-        public static ElseSchema getInstance() {
+        public static Else getInstance() {
             if (instance == null) {
-                instance = new ElseSchema();
+                instance = new Else();
             }
             return instance;
         }
@@ -289,31 +289,31 @@ public class IfAppearsAtTheEndWhenSerializedKeywordProcessingSequence {
             throw new RuntimeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
         @Override
-        public ElseSchemaBoxedVoid validateAndBox(Void arg, SchemaConfiguration configuration) throws ValidationException {
-            return new ElseSchemaBoxedVoid(validate(arg, configuration));
+        public ElseBoxedVoid validateAndBox(Void arg, SchemaConfiguration configuration) throws ValidationException {
+            return new ElseBoxedVoid(validate(arg, configuration));
         }
         @Override
-        public ElseSchemaBoxedBoolean validateAndBox(boolean arg, SchemaConfiguration configuration) throws ValidationException {
-            return new ElseSchemaBoxedBoolean(validate(arg, configuration));
+        public ElseBoxedBoolean validateAndBox(boolean arg, SchemaConfiguration configuration) throws ValidationException {
+            return new ElseBoxedBoolean(validate(arg, configuration));
         }
         @Override
-        public ElseSchemaBoxedNumber validateAndBox(Number arg, SchemaConfiguration configuration) throws ValidationException {
-            return new ElseSchemaBoxedNumber(validate(arg, configuration));
+        public ElseBoxedNumber validateAndBox(Number arg, SchemaConfiguration configuration) throws ValidationException {
+            return new ElseBoxedNumber(validate(arg, configuration));
         }
         @Override
-        public ElseSchemaBoxedString validateAndBox(String arg, SchemaConfiguration configuration) throws ValidationException {
-            return new ElseSchemaBoxedString(validate(arg, configuration));
+        public ElseBoxedString validateAndBox(String arg, SchemaConfiguration configuration) throws ValidationException {
+            return new ElseBoxedString(validate(arg, configuration));
         }
         @Override
-        public ElseSchemaBoxedList validateAndBox(List<?> arg, SchemaConfiguration configuration) throws ValidationException {
-            return new ElseSchemaBoxedList(validate(arg, configuration));
+        public ElseBoxedList validateAndBox(List<?> arg, SchemaConfiguration configuration) throws ValidationException {
+            return new ElseBoxedList(validate(arg, configuration));
         }
         @Override
-        public ElseSchemaBoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException {
-            return new ElseSchemaBoxedMap(validate(arg, configuration));
+        public ElseBoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException {
+            return new ElseBoxedMap(validate(arg, configuration));
         }
         @Override
-        public ElseSchemaBoxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException {
+        public ElseBoxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException {
             if (arg == null) {
                 Void castArg = (Void) arg;
                 return validateAndBox(castArg, configuration);
@@ -333,46 +333,46 @@ public class IfAppearsAtTheEndWhenSerializedKeywordProcessingSequence {
         }
     }    
     
-    public sealed interface IfSchemaBoxed permits IfSchemaBoxedVoid, IfSchemaBoxedBoolean, IfSchemaBoxedNumber, IfSchemaBoxedString, IfSchemaBoxedList, IfSchemaBoxedMap {
+    public sealed interface IfBoxed permits IfBoxedVoid, IfBoxedBoolean, IfBoxedNumber, IfBoxedString, IfBoxedList, IfBoxedMap {
         @Nullable Object getData();
     }
     
-    public record IfSchemaBoxedVoid(Void data) implements IfSchemaBoxed {
+    public record IfBoxedVoid(Void data) implements IfBoxed {
         @Override
         public @Nullable Object getData() {
             return data;
         }
     }
     
-    public record IfSchemaBoxedBoolean(boolean data) implements IfSchemaBoxed {
+    public record IfBoxedBoolean(boolean data) implements IfBoxed {
         @Override
         public @Nullable Object getData() {
             return data;
         }
     }
     
-    public record IfSchemaBoxedNumber(Number data) implements IfSchemaBoxed {
+    public record IfBoxedNumber(Number data) implements IfBoxed {
         @Override
         public @Nullable Object getData() {
             return data;
         }
     }
     
-    public record IfSchemaBoxedString(String data) implements IfSchemaBoxed {
+    public record IfBoxedString(String data) implements IfBoxed {
         @Override
         public @Nullable Object getData() {
             return data;
         }
     }
     
-    public record IfSchemaBoxedList(FrozenList<@Nullable Object> data) implements IfSchemaBoxed {
+    public record IfBoxedList(FrozenList<@Nullable Object> data) implements IfBoxed {
         @Override
         public @Nullable Object getData() {
             return data;
         }
     }
     
-    public record IfSchemaBoxedMap(FrozenMap<@Nullable Object> data) implements IfSchemaBoxed {
+    public record IfBoxedMap(FrozenMap<@Nullable Object> data) implements IfBoxed {
         @Override
         public @Nullable Object getData() {
             return data;
@@ -380,18 +380,18 @@ public class IfAppearsAtTheEndWhenSerializedKeywordProcessingSequence {
     }
     
     
-    public static class IfSchema extends JsonSchema<IfSchemaBoxed> implements NullSchemaValidator<IfSchemaBoxedVoid>, BooleanSchemaValidator<IfSchemaBoxedBoolean>, NumberSchemaValidator<IfSchemaBoxedNumber>, StringSchemaValidator<IfSchemaBoxedString>, ListSchemaValidator<FrozenList<@Nullable Object>, IfSchemaBoxedList>, MapSchemaValidator<FrozenMap<@Nullable Object>, IfSchemaBoxedMap> {
-        private static @Nullable IfSchema instance = null;
+    public static class If extends JsonSchema<IfBoxed> implements NullSchemaValidator<IfBoxedVoid>, BooleanSchemaValidator<IfBoxedBoolean>, NumberSchemaValidator<IfBoxedNumber>, StringSchemaValidator<IfBoxedString>, ListSchemaValidator<FrozenList<@Nullable Object>, IfBoxedList>, MapSchemaValidator<FrozenMap<@Nullable Object>, IfBoxedMap> {
+        private static @Nullable If instance = null;
     
-        protected IfSchema() {
+        protected If() {
             super(new JsonSchemaInfo()
                 .maxLength(4)
             );
         }
     
-        public static IfSchema getInstance() {
+        public static If getInstance() {
             if (instance == null) {
-                instance = new IfSchema();
+                instance = new If();
             }
             return instance;
         }
@@ -574,31 +574,31 @@ public class IfAppearsAtTheEndWhenSerializedKeywordProcessingSequence {
             throw new RuntimeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
         @Override
-        public IfSchemaBoxedVoid validateAndBox(Void arg, SchemaConfiguration configuration) throws ValidationException {
-            return new IfSchemaBoxedVoid(validate(arg, configuration));
+        public IfBoxedVoid validateAndBox(Void arg, SchemaConfiguration configuration) throws ValidationException {
+            return new IfBoxedVoid(validate(arg, configuration));
         }
         @Override
-        public IfSchemaBoxedBoolean validateAndBox(boolean arg, SchemaConfiguration configuration) throws ValidationException {
-            return new IfSchemaBoxedBoolean(validate(arg, configuration));
+        public IfBoxedBoolean validateAndBox(boolean arg, SchemaConfiguration configuration) throws ValidationException {
+            return new IfBoxedBoolean(validate(arg, configuration));
         }
         @Override
-        public IfSchemaBoxedNumber validateAndBox(Number arg, SchemaConfiguration configuration) throws ValidationException {
-            return new IfSchemaBoxedNumber(validate(arg, configuration));
+        public IfBoxedNumber validateAndBox(Number arg, SchemaConfiguration configuration) throws ValidationException {
+            return new IfBoxedNumber(validate(arg, configuration));
         }
         @Override
-        public IfSchemaBoxedString validateAndBox(String arg, SchemaConfiguration configuration) throws ValidationException {
-            return new IfSchemaBoxedString(validate(arg, configuration));
+        public IfBoxedString validateAndBox(String arg, SchemaConfiguration configuration) throws ValidationException {
+            return new IfBoxedString(validate(arg, configuration));
         }
         @Override
-        public IfSchemaBoxedList validateAndBox(List<?> arg, SchemaConfiguration configuration) throws ValidationException {
-            return new IfSchemaBoxedList(validate(arg, configuration));
+        public IfBoxedList validateAndBox(List<?> arg, SchemaConfiguration configuration) throws ValidationException {
+            return new IfBoxedList(validate(arg, configuration));
         }
         @Override
-        public IfSchemaBoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException {
-            return new IfSchemaBoxedMap(validate(arg, configuration));
+        public IfBoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException {
+            return new IfBoxedMap(validate(arg, configuration));
         }
         @Override
-        public IfSchemaBoxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException {
+        public IfBoxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException {
             if (arg == null) {
                 Void castArg = (Void) arg;
                 return validateAndBox(castArg, configuration);
@@ -973,9 +973,9 @@ public class IfAppearsAtTheEndWhenSerializedKeywordProcessingSequence {
     
         protected IfAppearsAtTheEndWhenSerializedKeywordProcessingSequence1() {
             super(new JsonSchemaInfo()
-                .ifSchema(IfSchema.class)
+                .ifSchema(If.class)
                 .then(Then.class)
-                .elseSchema(ElseSchema.class)
+                .elseSchema(Else.class)
             );
         }
     

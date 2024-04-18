@@ -1,4 +1,4 @@
-petstore_api.components.responses.response_success_inline_content_and_header
+openapi_client.components.responses.response_success_inline_content_and_header
 # Response SuccessInlineContentAndHeader
 
 ## Description

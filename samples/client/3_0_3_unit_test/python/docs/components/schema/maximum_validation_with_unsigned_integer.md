@@ -1,5 +1,5 @@
 # MaximumValidationWithUnsignedInteger
-unit_test_api.components.schema.maximum_validation_with_unsigned_integer
+openapi_client.components.schema.maximum_validation_with_unsigned_integer
 ```
 type: schemas.Schema
 ```

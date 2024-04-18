@@ -1,5 +1,5 @@
 # RegexesAreNotAnchoredByDefaultAndAreCaseSensitive
-unit_test_api.components.schema.regexes_are_not_anchored_by_default_and_are_case_sensitive
+openapi_client.components.schema.regexes_are_not_anchored_by_default_and_are_case_sensitive
 ```
 type: schemas.Schema
 ```

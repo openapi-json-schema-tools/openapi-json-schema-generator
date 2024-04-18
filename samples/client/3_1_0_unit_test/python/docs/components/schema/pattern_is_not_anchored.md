@@ -1,5 +1,5 @@
 # PatternIsNotAnchored
-unit_test_api.components.schema.pattern_is_not_anchored
+openapi_client.components.schema.pattern_is_not_anchored
 ```
 type: schemas.Schema
 ```

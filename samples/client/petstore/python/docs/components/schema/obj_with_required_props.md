@@ -1,5 +1,5 @@
 # ObjWithRequiredProps
-petstore_api.components.schema.obj_with_required_props
+openapi_client.components.schema.obj_with_required_props
 ```
 type: schemas.Schema
 ```

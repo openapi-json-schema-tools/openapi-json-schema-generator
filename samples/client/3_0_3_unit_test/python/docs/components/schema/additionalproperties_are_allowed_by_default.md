@@ -1,5 +1,5 @@
 # AdditionalpropertiesAreAllowedByDefault
-unit_test_api.components.schema.additionalproperties_are_allowed_by_default
+openapi_client.components.schema.additionalproperties_are_allowed_by_default
 ```
 type: schemas.Schema
 ```

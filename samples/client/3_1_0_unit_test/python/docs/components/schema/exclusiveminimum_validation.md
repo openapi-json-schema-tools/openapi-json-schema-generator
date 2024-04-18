@@ -1,5 +1,5 @@
 # ExclusiveminimumValidation
-unit_test_api.components.schema.exclusiveminimum_validation
+openapi_client.components.schema.exclusiveminimum_validation
 ```
 type: schemas.Schema
 ```

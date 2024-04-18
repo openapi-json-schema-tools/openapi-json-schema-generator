@@ -1,5 +1,5 @@
 # Ipv4Format
-unit_test_api.components.schema.ipv4_format
+openapi_client.components.schema.ipv4_format
 ```
 type: schemas.Schema
 ```

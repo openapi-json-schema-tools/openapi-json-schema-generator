@@ -1,4 +1,4 @@
-petstore_api.components.request_bodies.request_body_pet
+openapi_client.components.request_bodies.request_body_pet
 # RequestBody Pet
 
 ## Description

@@ -1,5 +1,5 @@
 # UniqueitemsFalseWithAnArrayOfItems
-unit_test_api.components.schema.uniqueitems_false_with_an_array_of_items
+openapi_client.components.schema.uniqueitems_false_with_an_array_of_items
 ```
 type: schemas.Schema
 ```

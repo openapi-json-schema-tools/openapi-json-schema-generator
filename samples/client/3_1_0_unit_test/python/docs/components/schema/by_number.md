@@ -1,5 +1,5 @@
 # ByNumber
-unit_test_api.components.schema.by_number
+openapi_client.components.schema.by_number
 ```
 type: schemas.Schema
 ```

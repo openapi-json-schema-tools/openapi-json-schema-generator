@@ -1,5 +1,5 @@
 # TimeFormat
-unit_test_api.components.schema.time_format
+openapi_client.components.schema.time_format
 ```
 type: schemas.Schema
 ```

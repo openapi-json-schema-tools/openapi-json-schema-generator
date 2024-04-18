@@ -1,5 +1,5 @@
 # ItemsDoesNotLookInApplicatorsValidCase
-unit_test_api.components.schema.items_does_not_look_in_applicators_valid_case
+openapi_client.components.schema.items_does_not_look_in_applicators_valid_case
 ```
 type: schemas.Schema
 ```

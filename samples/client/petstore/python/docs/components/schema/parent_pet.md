@@ -1,5 +1,5 @@
 # ParentPet
-petstore_api.components.schema.parent_pet
+openapi_client.components.schema.parent_pet
 ```
 type: schemas.Schema
 ```

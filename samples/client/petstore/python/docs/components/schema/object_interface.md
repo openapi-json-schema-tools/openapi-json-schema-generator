@@ -1,5 +1,5 @@
 # ObjectInterface
-petstore_api.components.schema.object_interface
+openapi_client.components.schema.object_interface
 ```
 type: schemas.Schema
 ```

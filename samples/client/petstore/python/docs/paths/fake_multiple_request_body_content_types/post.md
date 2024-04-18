@@ -1,4 +1,4 @@
-petstore_api.paths.fake_multiple_request_body_content_types.operation
+openapi_client.paths.fake_multiple_request_body_content_types.operation
 # Operation Method Name
 
 | Method Name | Api Class | Notes |
@@ -178,14 +178,14 @@ server_index | Class | Description
 ## Code Sample
 
 ```python
-import petstore_api
-from petstore_api.configurations import api_configuration
-from petstore_api.apis.tags import fake_api
+import openapi_client
+from openapi_client.configurations import api_configuration
+from openapi_client.apis.tags import fake_api
 from pprint import pprint
 used_configuration = api_configuration.ApiConfiguration(
 )
 # Enter a context with an instance of the API client
-with petstore_api.ApiClient(used_configuration) as api_client:
+with openapi_client.ApiClient(used_configuration) as api_client:
     # Create an instance of the API class
     api_instance = fake_api.FakeApi(api_client)
 
@@ -199,7 +199,7 @@ with petstore_api.ApiClient(used_configuration) as api_client:
             body=body,
         )
         pprint(api_response)
-    except petstore_api.ApiException as e:
+    except openapi_client.ApiException as e:
         print("Exception when calling FakeApi->multiple_request_body_content_types: %s\n" % e)
 ```
 

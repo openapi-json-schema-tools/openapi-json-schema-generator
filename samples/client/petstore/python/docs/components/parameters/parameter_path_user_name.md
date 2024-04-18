@@ -1,4 +1,4 @@
-petstore_api.components.parameters.parameter_path_user_name
+openapi_client.components.parameters.parameter_path_user_name
 # Parameter PathUserName
 
 ## Description

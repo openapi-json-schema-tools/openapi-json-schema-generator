@@ -1,4 +1,4 @@
-petstore_api.components.request_bodies.request_body_user_array
+openapi_client.components.request_bodies.request_body_user_array
 # RequestBody UserArray
 
 ## Description

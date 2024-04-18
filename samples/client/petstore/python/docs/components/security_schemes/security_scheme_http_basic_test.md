@@ -1,4 +1,4 @@
-petstore_api.components.security_schemes.security_scheme_http_basic_test
+openapi_client.components.security_schemes.security_scheme_http_basic_test
 # SecurityScheme HttpBasicTest
 
 ## Description

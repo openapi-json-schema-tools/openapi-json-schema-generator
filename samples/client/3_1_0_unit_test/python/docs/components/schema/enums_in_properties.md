@@ -1,5 +1,5 @@
 # EnumsInProperties
-unit_test_api.components.schema.enums_in_properties
+openapi_client.components.schema.enums_in_properties
 ```
 type: schemas.Schema
 ```

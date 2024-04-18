@@ -1,5 +1,5 @@
 # MinimumValidationWithSignedInteger
-unit_test_api.components.schema.minimum_validation_with_signed_integer
+openapi_client.components.schema.minimum_validation_with_signed_integer
 ```
 type: schemas.Schema
 ```

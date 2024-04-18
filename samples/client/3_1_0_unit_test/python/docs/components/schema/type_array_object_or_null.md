@@ -1,5 +1,5 @@
 # TypeArrayObjectOrNull
-unit_test_api.components.schema.type_array_object_or_null
+openapi_client.components.schema.type_array_object_or_null
 ```
 type: schemas.Schema
 ```

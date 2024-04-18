@@ -40,6 +40,16 @@ public class ApplicationjsonSchema {
             return ApplicationjsonSchema1.getInstance().validate(arg, configuration);
         }
         
+        public Foo.FooMap string() throws UnsetPropertyException {
+            String key = "string";
+            throwIfKeyNotPresent(key);
+            @Nullable Object value = get(key);
+            if (!(value instanceof Foo.FooMap)) {
+                throw new RuntimeException("Invalid value stored for string");
+            }
+            return (Foo.FooMap) value;
+        }
+        
         public @Nullable Object getAdditionalProperty(String name) throws UnsetPropertyException, InvalidAdditionalPropertyException {
             throwIfKeyKnown(name, requiredKeys, optionalKeys);
             throwIfKeyNotPresent(name);
@@ -51,7 +61,7 @@ public class ApplicationjsonSchema {
         Map<String, @Nullable Object> getInstance();
         T getBuilderAfterApplicationjsonString(Map<String, @Nullable Object> instance);
         
-        default T setString(Map<String, @Nullable Object> value) {
+        default T string(Map<String, @Nullable Object> value) {
             var instance = getInstance();
             instance.put("string", value);
             return getBuilderAfterApplicationjsonString(instance);

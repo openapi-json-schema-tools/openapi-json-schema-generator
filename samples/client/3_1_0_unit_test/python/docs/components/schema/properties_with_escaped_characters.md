@@ -1,5 +1,5 @@
 # PropertiesWithEscapedCharacters
-unit_test_api.components.schema.properties_with_escaped_characters
+openapi_client.components.schema.properties_with_escaped_characters
 ```
 type: schemas.Schema
 ```

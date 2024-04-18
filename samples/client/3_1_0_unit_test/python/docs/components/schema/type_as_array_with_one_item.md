@@ -1,5 +1,5 @@
 # TypeAsArrayWithOneItem
-unit_test_api.components.schema.type_as_array_with_one_item
+openapi_client.components.schema.type_as_array_with_one_item
 ```
 type: schemas.Schema
 ```

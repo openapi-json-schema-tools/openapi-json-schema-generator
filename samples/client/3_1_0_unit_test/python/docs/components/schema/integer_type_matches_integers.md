@@ -1,5 +1,5 @@
 # IntegerTypeMatchesIntegers
-unit_test_api.components.schema.integer_type_matches_integers
+openapi_client.components.schema.integer_type_matches_integers
 ```
 type: schemas.Schema
 ```

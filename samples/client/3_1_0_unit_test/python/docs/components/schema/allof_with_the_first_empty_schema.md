@@ -1,5 +1,5 @@
 # AllofWithTheFirstEmptySchema
-unit_test_api.components.schema.allof_with_the_first_empty_schema
+openapi_client.components.schema.allof_with_the_first_empty_schema
 ```
 type: schemas.Schema
 ```

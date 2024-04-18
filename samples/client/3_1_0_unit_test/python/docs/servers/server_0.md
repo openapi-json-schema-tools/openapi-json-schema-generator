@@ -1,4 +1,4 @@
-unit_test_api.servers.server_0
+openapi_client.servers.server_0
 # Server Server0
 
 ## Url

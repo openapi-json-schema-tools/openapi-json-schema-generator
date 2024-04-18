@@ -1,5 +1,5 @@
 # StringTypeMatchesStrings
-unit_test_api.components.schema.string_type_matches_strings
+openapi_client.components.schema.string_type_matches_strings
 ```
 type: schemas.Schema
 ```

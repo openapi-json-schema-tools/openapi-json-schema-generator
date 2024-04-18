@@ -1,4 +1,4 @@
-petstore_api.paths.fake.operation
+openapi_client.paths.fake.operation
 # Operation Method Name
 
 | Method Name | Api Class | Notes |
@@ -89,6 +89,7 @@ Keyword Argument | Type | Description | Notes
 **integer** | int, schemas.Unset | None | [optional]
 **int32** | int, schemas.Unset | None | [optional] value must be a 32 bit integer
 **int64** | int, schemas.Unset | None | [optional] value must be a 64 bit integer
+**float** | float, int, schemas.Unset | None | [optional] value must be a 32 bit float
 **string** | str, schemas.Unset | None | [optional]
 **binary** | bytes, io.FileIO, io.BufferedReader, schemas.Unset | None | [optional]
 **date** | str, datetime.date, schemas.Unset | None | [optional] value must conform to RFC-3339 full-date YYYY-MM-DD
@@ -107,6 +108,7 @@ Property | Type | Description | Notes
 **integer** | int, schemas.Unset | None | [optional]
 **int32** | int, schemas.Unset | None | [optional] value must be a 32 bit integer
 **int64** | int, schemas.Unset | None | [optional] value must be a 64 bit integer
+**float** | float, int, schemas.Unset | None | [optional] value must be a 32 bit float
 **string** | str, schemas.Unset | None | [optional]
 **binary** | bytes, io.FileIO, schemas.Unset | None | [optional]
 **date** | str, schemas.Unset | None | [optional] value must conform to RFC-3339 full-date YYYY-MM-DD
@@ -118,7 +120,6 @@ Property | Type | Description | Notes
 Method | Input Type | Return Type | Notes
 ------ | ---------- | ----------- | ------
 from_dict_ | [SchemaDictInput](#requestbody-content-applicationxwwwformurlencoded-schema-schemadictinput), [SchemaDict](#requestbody-content-applicationxwwwformurlencoded-schema-schemadict) | [SchemaDict](#requestbody-content-applicationxwwwformurlencoded-schema-schemadict) | a constructor
-&lowbar;&lowbar;getitem&lowbar;&lowbar; | str | schemas.immutabledict, str, float, int, bool, None, tuple, bytes, io.FileIO | This model has invalid python names so this method is used under the hood when you access instance["float"], 
 get_additional_property_ | str | schemas.immutabledict, tuple, float, int, str, bool, None, bytes, schemas.FileIO, schemas.Unset | provides type safety for additional properties
 
 ## Return Types
@@ -172,12 +173,12 @@ server_index | Class | Description
 ## Code Sample
 
 ```python
-import petstore_api
-from petstore_api.configurations import api_configuration
-from petstore_api.apis.tags import fake_api
+import openapi_client
+from openapi_client.configurations import api_configuration
+from openapi_client.apis.tags import fake_api
 from pprint import pprint
 # security_index 0
-from petstore_api.components.security_schemes import security_scheme_http_basic_test
+from openapi_client.components.security_schemes import security_scheme_http_basic_test
 
 # security_scheme_info for security_index 0
 security_scheme_info: api_configuration.SecuritySchemeInfo = {
@@ -191,7 +192,7 @@ used_configuration = api_configuration.ApiConfiguration(
     security_scheme_info=security_scheme_info,
 )
 # Enter a context with an instance of the API client
-with petstore_api.ApiClient(used_configuration) as api_client:
+with openapi_client.ApiClient(used_configuration) as api_client:
     # Create an instance of the API class
     api_instance = fake_api.FakeApi(api_client)
 
@@ -201,7 +202,7 @@ with petstore_api.ApiClient(used_configuration) as api_client:
         "int32": 20,
         "int64": 1,
         "number": 32.1,
-        "_float": 3.14,
+        "float": 3.14,
         "double": 67.8,
         "string": "A",
         "pattern_without_delimiter": "AUR,rZ#UM/?R,Fp^l6$ARjbhJk C>",
@@ -218,7 +219,7 @@ with petstore_api.ApiClient(used_configuration) as api_client:
             body=body,
         )
         pprint(api_response)
-    except petstore_api.ApiException as e:
+    except openapi_client.ApiException as e:
         print("Exception when calling FakeApi->endpoint_parameters: %s\n" % e)
 ```
 

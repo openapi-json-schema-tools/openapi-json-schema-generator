@@ -1,5 +1,5 @@
 <a name="top"></a>
-unit_test_api.apis.tags.property_names_api
+openapi_client.apis.tags.property_names_api
 # PropertyNamesApi
 
 All URIs are relative to the selected server

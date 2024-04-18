@@ -1,5 +1,5 @@
 # AdditionalpropertiesAllowsASchemaWhichShouldValidate
-unit_test_api.components.schema.additionalproperties_allows_a_schema_which_should_validate
+openapi_client.components.schema.additionalproperties_allows_a_schema_which_should_validate
 ```
 type: schemas.Schema
 ```

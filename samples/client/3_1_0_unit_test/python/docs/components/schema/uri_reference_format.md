@@ -1,5 +1,5 @@
 # UriReferenceFormat
-unit_test_api.components.schema.uri_reference_format
+openapi_client.components.schema.uri_reference_format
 ```
 type: schemas.Schema
 ```

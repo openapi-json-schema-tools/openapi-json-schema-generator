@@ -1,5 +1,5 @@
 # Currency
-petstore_api.components.schema.currency
+openapi_client.components.schema.currency
 ```
 type: schemas.Schema
 ```

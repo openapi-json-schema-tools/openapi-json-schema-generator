@@ -1,5 +1,5 @@
 # ComposedObject
-petstore_api.components.schema.composed_object
+openapi_client.components.schema.composed_object
 ```
 type: schemas.Schema
 ```

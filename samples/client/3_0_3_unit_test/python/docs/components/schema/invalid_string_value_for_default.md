@@ -1,5 +1,5 @@
 # InvalidStringValueForDefault
-unit_test_api.components.schema.invalid_string_value_for_default
+openapi_client.components.schema.invalid_string_value_for_default
 ```
 type: schemas.Schema
 ```

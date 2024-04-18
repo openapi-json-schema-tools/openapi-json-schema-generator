@@ -1,5 +1,5 @@
 <a name="top"></a>
-unit_test_api.apis.tags.max_length_api
+openapi_client.apis.tags.max_length_api
 # MaxLengthApi
 
 All URIs are relative to the selected server

@@ -34,46 +34,46 @@ public class IfAndThenWithoutElse {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public sealed interface IfSchemaBoxed permits IfSchemaBoxedVoid, IfSchemaBoxedBoolean, IfSchemaBoxedNumber, IfSchemaBoxedString, IfSchemaBoxedList, IfSchemaBoxedMap {
+    public sealed interface IfBoxed permits IfBoxedVoid, IfBoxedBoolean, IfBoxedNumber, IfBoxedString, IfBoxedList, IfBoxedMap {
         @Nullable Object getData();
     }
     
-    public record IfSchemaBoxedVoid(Void data) implements IfSchemaBoxed {
+    public record IfBoxedVoid(Void data) implements IfBoxed {
         @Override
         public @Nullable Object getData() {
             return data;
         }
     }
     
-    public record IfSchemaBoxedBoolean(boolean data) implements IfSchemaBoxed {
+    public record IfBoxedBoolean(boolean data) implements IfBoxed {
         @Override
         public @Nullable Object getData() {
             return data;
         }
     }
     
-    public record IfSchemaBoxedNumber(Number data) implements IfSchemaBoxed {
+    public record IfBoxedNumber(Number data) implements IfBoxed {
         @Override
         public @Nullable Object getData() {
             return data;
         }
     }
     
-    public record IfSchemaBoxedString(String data) implements IfSchemaBoxed {
+    public record IfBoxedString(String data) implements IfBoxed {
         @Override
         public @Nullable Object getData() {
             return data;
         }
     }
     
-    public record IfSchemaBoxedList(FrozenList<@Nullable Object> data) implements IfSchemaBoxed {
+    public record IfBoxedList(FrozenList<@Nullable Object> data) implements IfBoxed {
         @Override
         public @Nullable Object getData() {
             return data;
         }
     }
     
-    public record IfSchemaBoxedMap(FrozenMap<@Nullable Object> data) implements IfSchemaBoxed {
+    public record IfBoxedMap(FrozenMap<@Nullable Object> data) implements IfBoxed {
         @Override
         public @Nullable Object getData() {
             return data;
@@ -81,18 +81,18 @@ public class IfAndThenWithoutElse {
     }
     
     
-    public static class IfSchema extends JsonSchema<IfSchemaBoxed> implements NullSchemaValidator<IfSchemaBoxedVoid>, BooleanSchemaValidator<IfSchemaBoxedBoolean>, NumberSchemaValidator<IfSchemaBoxedNumber>, StringSchemaValidator<IfSchemaBoxedString>, ListSchemaValidator<FrozenList<@Nullable Object>, IfSchemaBoxedList>, MapSchemaValidator<FrozenMap<@Nullable Object>, IfSchemaBoxedMap> {
-        private static @Nullable IfSchema instance = null;
+    public static class If extends JsonSchema<IfBoxed> implements NullSchemaValidator<IfBoxedVoid>, BooleanSchemaValidator<IfBoxedBoolean>, NumberSchemaValidator<IfBoxedNumber>, StringSchemaValidator<IfBoxedString>, ListSchemaValidator<FrozenList<@Nullable Object>, IfBoxedList>, MapSchemaValidator<FrozenMap<@Nullable Object>, IfBoxedMap> {
+        private static @Nullable If instance = null;
     
-        protected IfSchema() {
+        protected If() {
             super(new JsonSchemaInfo()
                 .exclusiveMaximum(0)
             );
         }
     
-        public static IfSchema getInstance() {
+        public static If getInstance() {
             if (instance == null) {
-                instance = new IfSchema();
+                instance = new If();
             }
             return instance;
         }
@@ -275,31 +275,31 @@ public class IfAndThenWithoutElse {
             throw new RuntimeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
         @Override
-        public IfSchemaBoxedVoid validateAndBox(Void arg, SchemaConfiguration configuration) throws ValidationException {
-            return new IfSchemaBoxedVoid(validate(arg, configuration));
+        public IfBoxedVoid validateAndBox(Void arg, SchemaConfiguration configuration) throws ValidationException {
+            return new IfBoxedVoid(validate(arg, configuration));
         }
         @Override
-        public IfSchemaBoxedBoolean validateAndBox(boolean arg, SchemaConfiguration configuration) throws ValidationException {
-            return new IfSchemaBoxedBoolean(validate(arg, configuration));
+        public IfBoxedBoolean validateAndBox(boolean arg, SchemaConfiguration configuration) throws ValidationException {
+            return new IfBoxedBoolean(validate(arg, configuration));
         }
         @Override
-        public IfSchemaBoxedNumber validateAndBox(Number arg, SchemaConfiguration configuration) throws ValidationException {
-            return new IfSchemaBoxedNumber(validate(arg, configuration));
+        public IfBoxedNumber validateAndBox(Number arg, SchemaConfiguration configuration) throws ValidationException {
+            return new IfBoxedNumber(validate(arg, configuration));
         }
         @Override
-        public IfSchemaBoxedString validateAndBox(String arg, SchemaConfiguration configuration) throws ValidationException {
-            return new IfSchemaBoxedString(validate(arg, configuration));
+        public IfBoxedString validateAndBox(String arg, SchemaConfiguration configuration) throws ValidationException {
+            return new IfBoxedString(validate(arg, configuration));
         }
         @Override
-        public IfSchemaBoxedList validateAndBox(List<?> arg, SchemaConfiguration configuration) throws ValidationException {
-            return new IfSchemaBoxedList(validate(arg, configuration));
+        public IfBoxedList validateAndBox(List<?> arg, SchemaConfiguration configuration) throws ValidationException {
+            return new IfBoxedList(validate(arg, configuration));
         }
         @Override
-        public IfSchemaBoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException {
-            return new IfSchemaBoxedMap(validate(arg, configuration));
+        public IfBoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException {
+            return new IfBoxedMap(validate(arg, configuration));
         }
         @Override
-        public IfSchemaBoxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException {
+        public IfBoxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException {
             if (arg == null) {
                 Void castArg = (Void) arg;
                 return validateAndBox(castArg, configuration);
@@ -662,7 +662,7 @@ public class IfAndThenWithoutElse {
     
         protected IfAndThenWithoutElse1() {
             super(new JsonSchemaInfo()
-                .ifSchema(IfSchema.class)
+                .ifSchema(If.class)
                 .then(Then.class)
             );
         }

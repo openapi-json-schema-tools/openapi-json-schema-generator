@@ -26,11 +26,11 @@ public class Fake extends extends ApiClient implements
 [FakerefsobjectmodelwithrefpropsPost.ObjectModelWithRefPropsOperation](../../paths/fakerefsobjectmodelwithrefprops/FakerefsobjectmodelwithrefpropsPost.md#objectmodelwithrefpropsoperation),
 [FakepemcontenttypeGet.PemContentTypeOperation](../../paths/fakepemcontenttype/FakepemcontenttypeGet.md#pemcontenttypeoperation),
 [FakerefsnumberPost.NumberWithValidationsOperation](../../paths/fakerefsnumber/FakerefsnumberPost.md#numberwithvalidationsoperation),
-[FakerefsstringPost.ModelStringOperation](../../paths/fakerefsstring/FakerefsstringPost.md#modelstringoperation),
+[FakerefsstringPost.StringOperation](../../paths/fakerefsstring/FakerefsstringPost.md#stringoperation),
 [FakeinlineadditionalpropertiesPost.InlineAdditionalPropertiesOperation](../../paths/fakeinlineadditionalproperties/FakeinlineadditionalpropertiesPost.md#inlineadditionalpropertiesoperation),
 [FakerefsmammalPost.MammalOperation](../../paths/fakerefsmammal/FakerefsmammalPost.md#mammaloperation),
 [SolidusGet.SlashRouteOperation](../../paths/solidus/SolidusGet.md#slashrouteoperation),
-[FakerefsbooleanPost.ModelBooleanOperation](../../paths/fakerefsboolean/FakerefsbooleanPost.md#modelbooleanoperation),
+[FakerefsbooleanPost.BooleanOperation](../../paths/fakerefsboolean/FakerefsbooleanPost.md#booleanoperation),
 [FakejsonformdataGet.JsonFormDataOperation](../../paths/fakejsonformdata/FakejsonformdataGet.md#jsonformdataoperation),
 [Fakeparametercollisions1ababselfabPost.ParameterCollisionsOperation](../../paths/fakeparametercollisions1ababselfab/Fakeparametercollisions1ababselfabPost.md#parametercollisionsoperation),
 [FakequeryparamwithjsoncontenttypeGet.QueryParamWithJsonContentTypeOperation](../../paths/fakequeryparamwithjsoncontenttype/FakequeryparamwithjsoncontenttypeGet.md#queryparamwithjsoncontenttypeoperation),
@@ -75,11 +75,11 @@ an api client class which contains all the routes for tag="fake"
 | [FakerefsobjectmodelwithrefpropsPostResponses.EndpointResponse](../../paths/fakerefsobjectmodelwithrefprops/post/FakerefsobjectmodelwithrefpropsPostResponses.md#endpointresponse) | [objectModelWithRefProps](#objectmodelwithrefprops)([FakerefsobjectmodelwithrefpropsPost.PostRequest](../../paths/fakerefsobjectmodelwithrefprops/FakerefsobjectmodelwithrefpropsPost.md#postrequest) request)<br>Test serialization of object with $refed properties |
 | [FakepemcontenttypeGetResponses.EndpointResponse](../../paths/fakepemcontenttype/get/FakepemcontenttypeGetResponses.md#endpointresponse) | [pemContentType](#pemcontenttype)([FakepemcontenttypeGet.GetRequest](../../paths/fakepemcontenttype/FakepemcontenttypeGet.md#getrequest) request) |
 | [FakerefsnumberPostResponses.EndpointResponse](../../paths/fakerefsnumber/post/FakerefsnumberPostResponses.md#endpointresponse) | [numberWithValidations](#numberwithvalidations)([FakerefsnumberPost.PostRequest](../../paths/fakerefsnumber/FakerefsnumberPost.md#postrequest) request)<br>Test serialization of outer number types |
-| [FakerefsstringPostResponses.EndpointResponse](../../paths/fakerefsstring/post/FakerefsstringPostResponses.md#endpointresponse) | [modelString](#modelstring)([FakerefsstringPost.PostRequest](../../paths/fakerefsstring/FakerefsstringPost.md#postrequest) request)<br>Test serialization of outer string types |
+| [FakerefsstringPostResponses.EndpointResponse](../../paths/fakerefsstring/post/FakerefsstringPostResponses.md#endpointresponse) | [string](#string)([FakerefsstringPost.PostRequest](../../paths/fakerefsstring/FakerefsstringPost.md#postrequest) request)<br>Test serialization of outer string types |
 | [FakeinlineadditionalpropertiesPostResponses.EndpointResponse](../../paths/fakeinlineadditionalproperties/post/FakeinlineadditionalpropertiesPostResponses.md#endpointresponse) | [inlineAdditionalProperties](#inlineadditionalproperties)([FakeinlineadditionalpropertiesPost.PostRequest](../../paths/fakeinlineadditionalproperties/FakeinlineadditionalpropertiesPost.md#postrequest) request)<br> |
 | [FakerefsmammalPostResponses.EndpointResponse](../../paths/fakerefsmammal/post/FakerefsmammalPostResponses.md#endpointresponse) | [mammal](#mammal)([FakerefsmammalPost.PostRequest](../../paths/fakerefsmammal/FakerefsmammalPost.md#postrequest) request)<br>Test serialization of mammals |
 | [SolidusGetResponses.EndpointResponse](../../paths/solidus/get/SolidusGetResponses.md#endpointresponse) | [slashRoute](#slashroute)([SolidusGet.GetRequest](../../paths/solidus/SolidusGet.md#getrequest) request) |
-| [FakerefsbooleanPostResponses.EndpointResponse](../../paths/fakerefsboolean/post/FakerefsbooleanPostResponses.md#endpointresponse) | [modelBoolean](#modelboolean)([FakerefsbooleanPost.PostRequest](../../paths/fakerefsboolean/FakerefsbooleanPost.md#postrequest) request)<br>Test serialization of outer boolean types |
+| [FakerefsbooleanPostResponses.EndpointResponse](../../paths/fakerefsboolean/post/FakerefsbooleanPostResponses.md#endpointresponse) | [boolean](#boolean)([FakerefsbooleanPost.PostRequest](../../paths/fakerefsboolean/FakerefsbooleanPost.md#postrequest) request)<br>Test serialization of outer boolean types |
 | [FakejsonformdataGetResponses.EndpointResponse](../../paths/fakejsonformdata/get/FakejsonformdataGetResponses.md#endpointresponse) | [jsonFormData](#jsonformdata)([FakejsonformdataGet.GetRequest](../../paths/fakejsonformdata/FakejsonformdataGet.md#getrequest) request)<br> |
 | [Fakeparametercollisions1ababselfabPostResponses.EndpointResponse](../../paths/fakeparametercollisions1ababselfab/post/Fakeparametercollisions1ababselfabPostResponses.md#endpointresponse) | [parameterCollisions](#parametercollisions)([Fakeparametercollisions1ababselfabPost.PostRequest](../../paths/fakeparametercollisions1ababselfab/Fakeparametercollisions1ababselfabPost.md#postrequest) request) |
 | [FakequeryparamwithjsoncontenttypeGetResponses.EndpointResponse](../../paths/fakequeryparamwithjsoncontenttype/get/FakequeryparamwithjsoncontenttypeGetResponses.md#endpointresponse) | [queryParamWithJsonContentType](#queryparamwithjsoncontenttype)([FakequeryparamwithjsoncontenttypeGet.GetRequest](../../paths/fakequeryparamwithjsoncontenttype/FakequeryparamwithjsoncontenttypeGet.md#getrequest) request) |
@@ -2555,8 +2555,8 @@ FakerefsnumberPostResponses.EndpointFakerefsnumberPostCode200Response castRespon
 FakerefsnumberPostCode200Response.ApplicationjsonResponseBody deserializedBody = (FakerefsnumberPostCode200Response.ApplicationjsonResponseBody) castResponse.body;
 // handle deserialized body here
 ```
-### modelString
-public [FakerefsstringPostResponses.EndpointResponse](../../paths/fakerefsstring/post/FakerefsstringPostResponses.md#endpointresponse) modelString([FakerefsstringPost.PostRequest](../../paths/fakerefsstring/FakerefsstringPost.md#postrequest) request)
+### string
+public [FakerefsstringPostResponses.EndpointResponse](../../paths/fakerefsstring/post/FakerefsstringPostResponses.md#endpointresponse) string([FakerefsstringPost.PostRequest](../../paths/fakerefsstring/FakerefsstringPost.md#postrequest) request)
 
 Test serialization of outer string types
 
@@ -2585,7 +2585,7 @@ import org.openapijsonschematools.client.schemas.validation.MapUtils;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.paths.fakerefsstring.post.FakerefsstringPostRequestBody;
-import org.openapijsonschematools.client.components.schemas.StringSchema;
+import org.openapijsonschematools.client.components.schemas.String;
 import org.openapijsonschematools.client.RootServerInfo;
 import org.openapijsonschematools.client.servers.RootServer0;
 import org.openapijsonschematools.client.servers.RootServer1;
@@ -2930,8 +2930,8 @@ try {
 }
 SolidusGetResponses.EndpointSolidusGetCode200Response castResponse = (SolidusGetResponses.EndpointSolidusGetCode200Response) response;
 ```
-### modelBoolean
-public [FakerefsbooleanPostResponses.EndpointResponse](../../paths/fakerefsboolean/post/FakerefsbooleanPostResponses.md#endpointresponse) modelBoolean([FakerefsbooleanPost.PostRequest](../../paths/fakerefsboolean/FakerefsbooleanPost.md#postrequest) request)
+### boolean
+public [FakerefsbooleanPostResponses.EndpointResponse](../../paths/fakerefsboolean/post/FakerefsbooleanPostResponses.md#endpointresponse) boolean([FakerefsbooleanPost.PostRequest](../../paths/fakerefsboolean/FakerefsbooleanPost.md#postrequest) request)
 
 Test serialization of outer boolean types
 
@@ -2960,7 +2960,7 @@ import org.openapijsonschematools.client.schemas.validation.MapUtils;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.paths.fakerefsboolean.post.FakerefsbooleanPostRequestBody;
-import org.openapijsonschematools.client.components.schemas.BooleanSchema;
+import org.openapijsonschematools.client.components.schemas.Boolean;
 import org.openapijsonschematools.client.RootServerInfo;
 import org.openapijsonschematools.client.servers.RootServer0;
 import org.openapijsonschematools.client.servers.RootServer1;

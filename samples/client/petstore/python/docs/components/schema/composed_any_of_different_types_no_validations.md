@@ -1,5 +1,5 @@
 # ComposedAnyOfDifferentTypesNoValidations
-petstore_api.components.schema.composed_any_of_different_types_no_validations
+openapi_client.components.schema.composed_any_of_different_types_no_validations
 ```
 type: schemas.Schema
 ```

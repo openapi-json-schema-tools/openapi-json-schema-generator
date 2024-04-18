@@ -1,5 +1,5 @@
 # Quadrilateral
-petstore_api.components.schema.quadrilateral
+openapi_client.components.schema.quadrilateral
 ```
 type: schemas.Schema
 ```

@@ -1,4 +1,4 @@
-petstore_api.servers.server_1
+openapi_client.servers.server_1
 # Server Server1
 
 ## Description

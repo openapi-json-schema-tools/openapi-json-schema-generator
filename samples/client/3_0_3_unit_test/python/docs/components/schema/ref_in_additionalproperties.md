@@ -1,5 +1,5 @@
 # RefInAdditionalproperties
-unit_test_api.components.schema.ref_in_additionalproperties
+openapi_client.components.schema.ref_in_additionalproperties
 ```
 type: schemas.Schema
 ```

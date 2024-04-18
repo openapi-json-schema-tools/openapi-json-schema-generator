@@ -1,4 +1,4 @@
-petstore_api.components.headers.header_number_header
+openapi_client.components.headers.header_number_header
 # Header NumberHeader
 
 ## Description

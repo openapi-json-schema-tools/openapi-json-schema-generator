@@ -1,5 +1,5 @@
 # PropertiesWhoseNamesAreJavascriptObjectPropertyNames
-unit_test_api.components.schema.properties_whose_names_are_javascript_object_property_names
+openapi_client.components.schema.properties_whose_names_are_javascript_object_property_names
 ```
 type: schemas.Schema
 ```

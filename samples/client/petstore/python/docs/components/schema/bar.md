@@ -1,5 +1,5 @@
 # Bar
-petstore_api.components.schema.bar
+openapi_client.components.schema.bar
 ```
 type: schemas.Schema
 ```

@@ -1,10 +1,10 @@
-unit_test_api.paths.request_body_post_not_request_body.operation
+openapi_client.paths.request_body_post_not_request_body.operation
 # Operation Method Name
 
 | Method Name | Api Class | Notes |
 | ----------- | --------- | ----- |
 | post_not_request_body | [OperationRequestBodyApi](../../apis/tags/operation_request_body_api.md) | This api is only for tag=operation.requestBody |
-| post_not_request_body | [_NotApi](../../apis/tags/_not_api.md) | This api is only for tag=not |
+| post_not_request_body | [NotApi](../../apis/tags/not_api.md) | This api is only for tag=not |
 | post_not_request_body | [PathPostApi](../../apis/tags/path_post_api.md) | This api is only for tag=path.post |
 | post_not_request_body | [ContentTypeJsonApi](../../apis/tags/content_type_json_api.md) | This api is only for tag=contentType_json |
 | post | ApiForPost | This api is only for this endpoint |
@@ -49,7 +49,7 @@ type: schemas.Schema
 ##### Ref Schema Info
 Ref Schema | Input Type | Output Type
 ---------- | ---------- | -----------
-[**_not._Not**](../../components/schema/_not.md) | dict, schemas.immutabledict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader | schemas.immutabledict, str, float, int, bool, None, tuple, bytes, io.FileIO
+[**not.Not**](../../components/schema/not.md) | dict, schemas.immutabledict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader | schemas.immutabledict, str, float, int, bool, None, tuple, bytes, io.FileIO
 
 ## Return Types
 
@@ -85,31 +85,31 @@ server_index | Class | Description
 ## Code Sample
 
 ```python
-import unit_test_api
-from unit_test_api.configurations import api_configuration
-from unit_test_api.apis.tags import operation_request_body_api
+import openapi_client
+from openapi_client.configurations import api_configuration
+from openapi_client.apis.tags import operation_request_body_api
 from pprint import pprint
 used_configuration = api_configuration.ApiConfiguration(
 )
 # Enter a context with an instance of the API client
-with unit_test_api.ApiClient(used_configuration) as api_client:
+with openapi_client.ApiClient(used_configuration) as api_client:
     # Create an instance of the API class
     api_instance = operation_request_body_api.OperationRequestBodyApi(api_client)
 
     # example passing only required values which don't have defaults set
-    body = _not._Not.validate(None)
+    body = not.Not.validate(None)
     try:
         api_response = api_instance.post_not_request_body(
             body=body,
         )
         pprint(api_response)
-    except unit_test_api.ApiException as e:
+    except openapi_client.ApiException as e:
         print("Exception when calling OperationRequestBodyApi->post_not_request_body: %s\n" % e)
 ```
 
 [[Back to top]](#top)
 [[Back to OperationRequestBodyApi API]](../../apis/tags/operation_request_body_api.md)
-[[Back to _NotApi API]](../../apis/tags/_not_api.md)
+[[Back to NotApi API]](../../apis/tags/not_api.md)
 [[Back to PathPostApi API]](../../apis/tags/path_post_api.md)
 [[Back to ContentTypeJsonApi API]](../../apis/tags/content_type_json_api.md)
 [[Back to Endpoints]](../../../README.md#Endpoints) [[Back to README]](../../../README.md)

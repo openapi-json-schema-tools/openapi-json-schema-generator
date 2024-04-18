@@ -1,5 +1,5 @@
 # SimpleEnumValidation
-unit_test_api.components.schema.simple_enum_validation
+openapi_client.components.schema.simple_enum_validation
 ```
 type: schemas.Schema
 ```

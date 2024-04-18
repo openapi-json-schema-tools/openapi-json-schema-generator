@@ -1,5 +1,5 @@
 # RefPet
-petstore_api.components.schema.ref_pet
+openapi_client.components.schema.ref_pet
 ```
 type: schemas.Schema
 ```

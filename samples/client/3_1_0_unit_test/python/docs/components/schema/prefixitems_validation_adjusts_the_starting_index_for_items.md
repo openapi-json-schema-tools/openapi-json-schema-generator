@@ -1,5 +1,5 @@
 # PrefixitemsValidationAdjustsTheStartingIndexForItems
-unit_test_api.components.schema.prefixitems_validation_adjusts_the_starting_index_for_items
+openapi_client.components.schema.prefixitems_validation_adjusts_the_starting_index_for_items
 ```
 type: schemas.Schema
 ```

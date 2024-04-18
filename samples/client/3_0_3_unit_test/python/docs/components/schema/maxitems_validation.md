@@ -1,5 +1,5 @@
 # MaxitemsValidation
-unit_test_api.components.schema.maxitems_validation
+openapi_client.components.schema.maxitems_validation
 ```
 type: schemas.Schema
 ```

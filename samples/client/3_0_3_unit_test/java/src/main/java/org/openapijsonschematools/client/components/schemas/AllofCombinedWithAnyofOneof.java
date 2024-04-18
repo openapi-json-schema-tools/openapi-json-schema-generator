@@ -1,5 +1,4 @@
 package org.openapijsonschematools.client.components.schemas;
-import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.ZonedDateTime;
 import java.util.ArrayList;

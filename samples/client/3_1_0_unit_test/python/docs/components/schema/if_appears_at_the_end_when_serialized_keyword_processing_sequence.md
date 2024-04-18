@@ -1,5 +1,5 @@
 # IfAppearsAtTheEndWhenSerializedKeywordProcessingSequence
-unit_test_api.components.schema.if_appears_at_the_end_when_serialized_keyword_processing_sequence
+openapi_client.components.schema.if_appears_at_the_end_when_serialized_keyword_processing_sequence
 ```
 type: schemas.Schema
 ```

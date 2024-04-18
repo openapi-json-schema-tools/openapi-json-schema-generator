@@ -1,5 +1,5 @@
 # EnumWith0DoesNotMatchFalse
-unit_test_api.components.schema.enum_with0_does_not_match_false
+openapi_client.components.schema.enum_with0_does_not_match_false
 ```
 type: schemas.Schema
 ```

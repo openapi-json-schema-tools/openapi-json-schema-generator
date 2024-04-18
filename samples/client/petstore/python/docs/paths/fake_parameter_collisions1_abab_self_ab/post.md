@@ -1,4 +1,4 @@
-petstore_api.paths.fake_parameter_collisions1_abab_self_ab.operation
+openapi_client.paths.fake_parameter_collisions1_abab_self_ab.operation
 # Operation Method Name
 
 | Method Name | Api Class | Notes |
@@ -86,18 +86,20 @@ Keyword Argument | Type | Description | Notes
 ---------------- | ---- | ----------- | -----
 **aB** | str, schemas.Unset |  | [optional]
 **Ab** | str, schemas.Unset |  | [optional]
+**self** | str, schemas.Unset |  | [optional]
 
 ##### properties
 Property | Type | Description | Notes
 -------- | ---- | ----------- | -----
 **aB** | str, schemas.Unset |  | [optional]
 **Ab** | str, schemas.Unset |  | [optional]
+**self** | str, schemas.Unset |  | [optional]
 
 ##### methods
 Method | Input Type | Return Type | Notes
 ------ | ---------- | ----------- | ------
 from_dict_ | [QueryParametersDictInput](#queryparameters-queryparametersdictinput), [QueryParametersDict](#queryparameters-queryparametersdict) | [QueryParametersDict](#queryparameters-queryparametersdict) | a constructor
-&lowbar;&lowbar;getitem&lowbar;&lowbar; | str | schemas.immutabledict, str, float, int, bool, None, tuple, bytes, io.FileIO | This model has invalid python names so this method is used under the hood when you access instance["1"], instance["A-B"], instance["self"], 
+&lowbar;&lowbar;getitem&lowbar;&lowbar; | str | schemas.immutabledict, str, float, int, bool, None, tuple, bytes, io.FileIO | This model has invalid python names so this method is used under the hood when you access instance["1"], instance["A-B"], 
 ### header_params
 ### HeaderParameters
 ```
@@ -129,17 +131,19 @@ base class: schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]
 Keyword Argument | Type | Description | Notes
 ---------------- | ---- | ----------- | -----
 **aB** | str, schemas.Unset |  | [optional]
+**self** | str, schemas.Unset |  | [optional]
 
 ##### properties
 Property | Type | Description | Notes
 -------- | ---- | ----------- | -----
 **aB** | str, schemas.Unset |  | [optional]
+**self** | str, schemas.Unset |  | [optional]
 
 ##### methods
 Method | Input Type | Return Type | Notes
 ------ | ---------- | ----------- | ------
 from_dict_ | [HeaderParametersDictInput](#headerparameters-headerparametersdictinput), [HeaderParametersDict](#headerparameters-headerparametersdict) | [HeaderParametersDict](#headerparameters-headerparametersdict) | a constructor
-&lowbar;&lowbar;getitem&lowbar;&lowbar; | str | schemas.immutabledict, str, float, int, bool, None, tuple, bytes, io.FileIO | This model has invalid python names so this method is used under the hood when you access instance["1"], instance["A-B"], instance["self"], 
+&lowbar;&lowbar;getitem&lowbar;&lowbar; | str | schemas.immutabledict, str, float, int, bool, None, tuple, bytes, io.FileIO | This model has invalid python names so this method is used under the hood when you access instance["1"], instance["A-B"], 
 ### path_params
 ### PathParameters
 ```
@@ -173,18 +177,20 @@ Keyword Argument | Type | Description | Notes
 ---------------- | ---- | ----------- | -----
 **Ab** | str |  |
 **aB** | str |  |
+**self** | str |  |
 
 ##### properties
 Property | Type | Description | Notes
 -------- | ---- | ----------- | -----
 **Ab** | str |  |
 **aB** | str |  |
+**self** | str |  |
 
 ##### methods
 Method | Input Type | Return Type | Notes
 ------ | ---------- | ----------- | ------
 from_dict_ | [PathParametersDictInput](#pathparameters-pathparametersdictinput), [PathParametersDict](#pathparameters-pathparametersdict) | [PathParametersDict](#pathparameters-pathparametersdict) | a constructor
-&lowbar;&lowbar;getitem&lowbar;&lowbar; | str | schemas.immutabledict, str, float, int, bool, None, tuple, bytes, io.FileIO | This model has invalid python names so this method is used under the hood when you access instance["1"], instance["A-B"], instance["self"], 
+&lowbar;&lowbar;getitem&lowbar;&lowbar; | str | schemas.immutabledict, str, float, int, bool, None, tuple, bytes, io.FileIO | This model has invalid python names so this method is used under the hood when you access instance["1"], instance["A-B"], 
 ### cookie_params
 ### CookieParameters
 ```
@@ -218,18 +224,20 @@ Keyword Argument | Type | Description | Notes
 ---------------- | ---- | ----------- | -----
 **aB** | str, schemas.Unset |  | [optional]
 **Ab** | str, schemas.Unset |  | [optional]
+**self** | str, schemas.Unset |  | [optional]
 
 ##### properties
 Property | Type | Description | Notes
 -------- | ---- | ----------- | -----
 **aB** | str, schemas.Unset |  | [optional]
 **Ab** | str, schemas.Unset |  | [optional]
+**self** | str, schemas.Unset |  | [optional]
 
 ##### methods
 Method | Input Type | Return Type | Notes
 ------ | ---------- | ----------- | ------
 from_dict_ | [CookieParametersDictInput](#cookieparameters-cookieparametersdictinput), [CookieParametersDict](#cookieparameters-cookieparametersdict) | [CookieParametersDict](#cookieparameters-cookieparametersdict) | a constructor
-&lowbar;&lowbar;getitem&lowbar;&lowbar; | str | schemas.immutabledict, str, float, int, bool, None, tuple, bytes, io.FileIO | This model has invalid python names so this method is used under the hood when you access instance["1"], instance["A-B"], instance["self"], 
+&lowbar;&lowbar;getitem&lowbar;&lowbar; | str | schemas.immutabledict, str, float, int, bool, None, tuple, bytes, io.FileIO | This model has invalid python names so this method is used under the hood when you access instance["1"], instance["A-B"], 
 
 ## Return Types
 
@@ -283,15 +291,15 @@ server_index | Class | Description
 ## Code Sample
 
 ```python
-import petstore_api
-from petstore_api.configurations import api_configuration
-from petstore_api.apis.tags import fake_api
-from petstore_api.paths.fake_parameter_collisions1_abab_self_ab.post import operation
+import openapi_client
+from openapi_client.configurations import api_configuration
+from openapi_client.apis.tags import fake_api
+from openapi_client.paths.fake_parameter_collisions1_abab_self_ab.post import operation
 from pprint import pprint
 used_configuration = api_configuration.ApiConfiguration(
 )
 # Enter a context with an instance of the API client
-with petstore_api.ApiClient(used_configuration) as api_client:
+with openapi_client.ApiClient(used_configuration) as api_client:
     # Create an instance of the API class
     api_instance = fake_api.FakeApi(api_client)
 
@@ -318,7 +326,7 @@ with petstore_api.ApiClient(used_configuration) as api_client:
             cookie_params=cookie_params,
         )
         pprint(api_response)
-    except petstore_api.ApiException as e:
+    except openapi_client.ApiException as e:
         print("Exception when calling FakeApi->parameter_collisions: %s\n" % e)
 
     # example passing only optional values
@@ -360,7 +368,7 @@ with petstore_api.ApiClient(used_configuration) as api_client:
             body=body,
         )
         pprint(api_response)
-    except petstore_api.ApiException as e:
+    except openapi_client.ApiException as e:
         print("Exception when calling FakeApi->parameter_collisions: %s\n" % e)
 ```
 

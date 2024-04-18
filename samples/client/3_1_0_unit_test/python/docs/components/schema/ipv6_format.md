@@ -1,5 +1,5 @@
 # Ipv6Format
-unit_test_api.components.schema.ipv6_format
+openapi_client.components.schema.ipv6_format
 ```
 type: schemas.Schema
 ```

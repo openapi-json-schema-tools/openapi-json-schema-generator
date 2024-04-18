@@ -48,46 +48,46 @@ public class IgnoreElseWithoutIf {
     }
     
     
-    public sealed interface ElseSchemaBoxed permits ElseSchemaBoxedVoid, ElseSchemaBoxedBoolean, ElseSchemaBoxedNumber, ElseSchemaBoxedString, ElseSchemaBoxedList, ElseSchemaBoxedMap {
+    public sealed interface ElseBoxed permits ElseBoxedVoid, ElseBoxedBoolean, ElseBoxedNumber, ElseBoxedString, ElseBoxedList, ElseBoxedMap {
         @Nullable Object getData();
     }
     
-    public record ElseSchemaBoxedVoid(Void data) implements ElseSchemaBoxed {
+    public record ElseBoxedVoid(Void data) implements ElseBoxed {
         @Override
         public @Nullable Object getData() {
             return data;
         }
     }
     
-    public record ElseSchemaBoxedBoolean(boolean data) implements ElseSchemaBoxed {
+    public record ElseBoxedBoolean(boolean data) implements ElseBoxed {
         @Override
         public @Nullable Object getData() {
             return data;
         }
     }
     
-    public record ElseSchemaBoxedNumber(Number data) implements ElseSchemaBoxed {
+    public record ElseBoxedNumber(Number data) implements ElseBoxed {
         @Override
         public @Nullable Object getData() {
             return data;
         }
     }
     
-    public record ElseSchemaBoxedString(String data) implements ElseSchemaBoxed {
+    public record ElseBoxedString(String data) implements ElseBoxed {
         @Override
         public @Nullable Object getData() {
             return data;
         }
     }
     
-    public record ElseSchemaBoxedList(FrozenList<@Nullable Object> data) implements ElseSchemaBoxed {
+    public record ElseBoxedList(FrozenList<@Nullable Object> data) implements ElseBoxed {
         @Override
         public @Nullable Object getData() {
             return data;
         }
     }
     
-    public record ElseSchemaBoxedMap(FrozenMap<@Nullable Object> data) implements ElseSchemaBoxed {
+    public record ElseBoxedMap(FrozenMap<@Nullable Object> data) implements ElseBoxed {
         @Override
         public @Nullable Object getData() {
             return data;
@@ -95,18 +95,18 @@ public class IgnoreElseWithoutIf {
     }
     
     
-    public static class ElseSchema extends JsonSchema<ElseSchemaBoxed> implements NullSchemaValidator<ElseSchemaBoxedVoid>, BooleanSchemaValidator<ElseSchemaBoxedBoolean>, NumberSchemaValidator<ElseSchemaBoxedNumber>, StringSchemaValidator<ElseSchemaBoxedString>, ListSchemaValidator<FrozenList<@Nullable Object>, ElseSchemaBoxedList>, MapSchemaValidator<FrozenMap<@Nullable Object>, ElseSchemaBoxedMap> {
-        private static @Nullable ElseSchema instance = null;
+    public static class Else extends JsonSchema<ElseBoxed> implements NullSchemaValidator<ElseBoxedVoid>, BooleanSchemaValidator<ElseBoxedBoolean>, NumberSchemaValidator<ElseBoxedNumber>, StringSchemaValidator<ElseBoxedString>, ListSchemaValidator<FrozenList<@Nullable Object>, ElseBoxedList>, MapSchemaValidator<FrozenMap<@Nullable Object>, ElseBoxedMap> {
+        private static @Nullable Else instance = null;
     
-        protected ElseSchema() {
+        protected Else() {
             super(new JsonSchemaInfo()
                 .constValue("0")
             );
         }
     
-        public static ElseSchema getInstance() {
+        public static Else getInstance() {
             if (instance == null) {
-                instance = new ElseSchema();
+                instance = new Else();
             }
             return instance;
         }
@@ -289,31 +289,31 @@ public class IgnoreElseWithoutIf {
             throw new RuntimeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
         @Override
-        public ElseSchemaBoxedVoid validateAndBox(Void arg, SchemaConfiguration configuration) throws ValidationException {
-            return new ElseSchemaBoxedVoid(validate(arg, configuration));
+        public ElseBoxedVoid validateAndBox(Void arg, SchemaConfiguration configuration) throws ValidationException {
+            return new ElseBoxedVoid(validate(arg, configuration));
         }
         @Override
-        public ElseSchemaBoxedBoolean validateAndBox(boolean arg, SchemaConfiguration configuration) throws ValidationException {
-            return new ElseSchemaBoxedBoolean(validate(arg, configuration));
+        public ElseBoxedBoolean validateAndBox(boolean arg, SchemaConfiguration configuration) throws ValidationException {
+            return new ElseBoxedBoolean(validate(arg, configuration));
         }
         @Override
-        public ElseSchemaBoxedNumber validateAndBox(Number arg, SchemaConfiguration configuration) throws ValidationException {
-            return new ElseSchemaBoxedNumber(validate(arg, configuration));
+        public ElseBoxedNumber validateAndBox(Number arg, SchemaConfiguration configuration) throws ValidationException {
+            return new ElseBoxedNumber(validate(arg, configuration));
         }
         @Override
-        public ElseSchemaBoxedString validateAndBox(String arg, SchemaConfiguration configuration) throws ValidationException {
-            return new ElseSchemaBoxedString(validate(arg, configuration));
+        public ElseBoxedString validateAndBox(String arg, SchemaConfiguration configuration) throws ValidationException {
+            return new ElseBoxedString(validate(arg, configuration));
         }
         @Override
-        public ElseSchemaBoxedList validateAndBox(List<?> arg, SchemaConfiguration configuration) throws ValidationException {
-            return new ElseSchemaBoxedList(validate(arg, configuration));
+        public ElseBoxedList validateAndBox(List<?> arg, SchemaConfiguration configuration) throws ValidationException {
+            return new ElseBoxedList(validate(arg, configuration));
         }
         @Override
-        public ElseSchemaBoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException {
-            return new ElseSchemaBoxedMap(validate(arg, configuration));
+        public ElseBoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException {
+            return new ElseBoxedMap(validate(arg, configuration));
         }
         @Override
-        public ElseSchemaBoxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException {
+        public ElseBoxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException {
             if (arg == null) {
                 Void castArg = (Void) arg;
                 return validateAndBox(castArg, configuration);
@@ -391,7 +391,7 @@ public class IgnoreElseWithoutIf {
     
         protected IgnoreElseWithoutIf1() {
             super(new JsonSchemaInfo()
-                .elseSchema(ElseSchema.class)
+                .elseSchema(Else.class)
             );
         }
     

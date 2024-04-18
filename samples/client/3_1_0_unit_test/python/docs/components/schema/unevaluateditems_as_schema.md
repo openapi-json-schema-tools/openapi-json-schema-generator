@@ -1,5 +1,5 @@
 # UnevaluateditemsAsSchema
-unit_test_api.components.schema.unevaluateditems_as_schema
+openapi_client.components.schema.unevaluateditems_as_schema
 ```
 type: schemas.Schema
 ```

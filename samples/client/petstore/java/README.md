@@ -273,13 +273,13 @@ All URIs are relative to the selected server
 | /fake/refObjInQuery **get** | [Fake.refObjectInQuery](docs/apis/tags/Fake.md#refobjectinquery)  [Fakerefobjinquery.get](docs/apis/paths/Fakerefobjinquery.md#get) [FakerefobjinqueryGet.Get.get](docs/paths/fakerefobjinquery/FakerefobjinqueryGet.md#get) | user list |
 | /fake/refs/array-of-enums **post** | [Fake.arrayOfEnums](docs/apis/tags/Fake.md#arrayofenums)  [Fakerefsarrayofenums.post](docs/apis/paths/Fakerefsarrayofenums.md#post) [FakerefsarrayofenumsPost.Post.post](docs/paths/fakerefsarrayofenums/FakerefsarrayofenumsPost.md#post) | Array of Enums |
 | /fake/refs/arraymodel **post** | [Fake.arrayModel](docs/apis/tags/Fake.md#arraymodel)  [Fakerefsarraymodel.post](docs/apis/paths/Fakerefsarraymodel.md#post) [FakerefsarraymodelPost.Post.post](docs/paths/fakerefsarraymodel/FakerefsarraymodelPost.md#post) | |
-| /fake/refs/boolean **post** | [Fake.modelBoolean](docs/apis/tags/Fake.md#modelboolean)  [Fakerefsboolean.post](docs/apis/paths/Fakerefsboolean.md#post) [FakerefsbooleanPost.Post.post](docs/paths/fakerefsboolean/FakerefsbooleanPost.md#post) | |
+| /fake/refs/boolean **post** | [Fake.boolean](docs/apis/tags/Fake.md#boolean)  [Fakerefsboolean.post](docs/apis/paths/Fakerefsboolean.md#post) [FakerefsbooleanPost.Post.post](docs/paths/fakerefsboolean/FakerefsbooleanPost.md#post) | |
 | /fake/refs/composed_one_of_number_with_validations **post** | [Fake.composedOneOfDifferentTypes](docs/apis/tags/Fake.md#composedoneofdifferenttypes)  [Fakerefscomposedoneofnumberwithvalidations.post](docs/apis/paths/Fakerefscomposedoneofnumberwithvalidations.md#post) [FakerefscomposedoneofnumberwithvalidationsPost.Post.post](docs/paths/fakerefscomposedoneofnumberwithvalidations/FakerefscomposedoneofnumberwithvalidationsPost.md#post) | |
 | /fake/refs/enum **post** | [Fake.stringEnum](docs/apis/tags/Fake.md#stringenum)  [Fakerefsenum.post](docs/apis/paths/Fakerefsenum.md#post) [FakerefsenumPost.Post.post](docs/paths/fakerefsenum/FakerefsenumPost.md#post) | |
 | /fake/refs/mammal **post** | [Fake.mammal](docs/apis/tags/Fake.md#mammal)  [Fakerefsmammal.post](docs/apis/paths/Fakerefsmammal.md#post) [FakerefsmammalPost.Post.post](docs/paths/fakerefsmammal/FakerefsmammalPost.md#post) | |
 | /fake/refs/number **post** | [Fake.numberWithValidations](docs/apis/tags/Fake.md#numberwithvalidations)  [Fakerefsnumber.post](docs/apis/paths/Fakerefsnumber.md#post) [FakerefsnumberPost.Post.post](docs/paths/fakerefsnumber/FakerefsnumberPost.md#post) | |
 | /fake/refs/object_model_with_ref_props **post** | [Fake.objectModelWithRefProps](docs/apis/tags/Fake.md#objectmodelwithrefprops)  [Fakerefsobjectmodelwithrefprops.post](docs/apis/paths/Fakerefsobjectmodelwithrefprops.md#post) [FakerefsobjectmodelwithrefpropsPost.Post.post](docs/paths/fakerefsobjectmodelwithrefprops/FakerefsobjectmodelwithrefpropsPost.md#post) | |
-| /fake/refs/string **post** | [Fake.modelString](docs/apis/tags/Fake.md#modelstring)  [Fakerefsstring.post](docs/apis/paths/Fakerefsstring.md#post) [FakerefsstringPost.Post.post](docs/paths/fakerefsstring/FakerefsstringPost.md#post) | |
+| /fake/refs/string **post** | [Fake.string](docs/apis/tags/Fake.md#string)  [Fakerefsstring.post](docs/apis/paths/Fakerefsstring.md#post) [FakerefsstringPost.Post.post](docs/paths/fakerefsstring/FakerefsstringPost.md#post) | |
 | /fake/responseWithoutSchema **get** | [Fake.responseWithoutSchema](docs/apis/tags/Fake.md#responsewithoutschema)  [Fakeresponsewithoutschema.get](docs/apis/paths/Fakeresponsewithoutschema.md#get) [FakeresponsewithoutschemaGet.Get.get](docs/paths/fakeresponsewithoutschema/FakeresponsewithoutschemaGet.md#get) | receives a response without schema |
 | /fake/test-query-paramters **put** | [Fake.queryParameterCollectionFormat](docs/apis/tags/Fake.md#queryparametercollectionformat)  [Faketestqueryparamters.put](docs/apis/paths/Faketestqueryparamters.md#put) [FaketestqueryparamtersPut.Put.put](docs/paths/faketestqueryparamters/FaketestqueryparamtersPut.md#put) | |
 | /fake/uploadDownloadFile **post** | [Fake.uploadDownloadFile](docs/apis/tags/Fake.md#uploaddownloadfile)  [Fakeuploaddownloadfile.post](docs/apis/paths/Fakeuploaddownloadfile.md#post) [FakeuploaddownloadfilePost.Post.post](docs/paths/fakeuploaddownloadfile/FakeuploaddownloadfilePost.md#post) | uploads a file and downloads a file using application/octet-stream |
@@ -323,7 +323,7 @@ All URIs are relative to the selected server
 | [AnimalFarm.AnimalFarm1](docs/components/schemas/AnimalFarm.md#animalfarm1) | |
 | [AnyTypeAndFormat.AnyTypeAndFormat1](docs/components/schemas/AnyTypeAndFormat.md#anytypeandformat1) | |
 | [AnyTypeNotString.AnyTypeNotString1](docs/components/schemas/AnyTypeNotString.md#anytypenotstring1) | |
-| [ApiResponseSchema.ApiResponseSchema1](docs/components/schemas/ApiResponseSchema.md#apiresponseschema1) | |
+| [ApiResponse.ApiResponse1](docs/components/schemas/ApiResponse.md#apiresponse1) | |
 | [ArrayHoldingAnyType.ArrayHoldingAnyType1](docs/components/schemas/ArrayHoldingAnyType.md#arrayholdinganytype1) | |
 | [ArrayOfArrayOfNumberOnly.ArrayOfArrayOfNumberOnly1](docs/components/schemas/ArrayOfArrayOfNumberOnly.md#arrayofarrayofnumberonly1) | |
 | [ArrayOfEnums.ArrayOfEnums1](docs/components/schemas/ArrayOfEnums.md#arrayofenums1) | |
@@ -332,7 +332,7 @@ All URIs are relative to the selected server
 | [ArrayWithValidationsInItems.ArrayWithValidationsInItems1](docs/components/schemas/ArrayWithValidationsInItems.md#arraywithvalidationsinitems1) | |
 | [Bar.Bar1](docs/components/schemas/Bar.md#bar1) | |
 | [BasquePig.BasquePig1](docs/components/schemas/BasquePig.md#basquepig1) | |
-| [BooleanSchema.BooleanSchema1](docs/components/schemas/BooleanSchema.md#booleanschema1) | |
+| [Boolean.Boolean1](docs/components/schemas/Boolean.md#boolean1) | |
 | [BooleanEnum.BooleanEnum1](docs/components/schemas/BooleanEnum.md#booleanenum1) | |
 | [Capitalization.Capitalization1](docs/components/schemas/Capitalization.md#capitalization1) | |
 | [Cat.Cat1](docs/components/schemas/Cat.md#cat1) | |
@@ -391,7 +391,7 @@ All URIs are relative to the selected server
 | [NullableClass.NullableClass1](docs/components/schemas/NullableClass.md#nullableclass1) | |
 | [NullableShape.NullableShape1](docs/components/schemas/NullableShape.md#nullableshape1) | The value may be a shape or the &#x27;null&#x27; value. For a composed schema to validate a null payload, one of its chosen oneOf schemas must be type null or nullable (introduced in OAS schema &gt;&#x3D; 3.0) |
 | [NullableString.NullableString1](docs/components/schemas/NullableString.md#nullablestring1) | |
-| [NumberSchema.NumberSchema1](docs/components/schemas/NumberSchema.md#numberschema1) | |
+| [Number.Number1](docs/components/schemas/Number.md#number1) | |
 | [NumberOnly.NumberOnly1](docs/components/schemas/NumberOnly.md#numberonly1) | |
 | [NumberWithExclusiveMinMax.NumberWithExclusiveMinMax1](docs/components/schemas/NumberWithExclusiveMinMax.md#numberwithexclusiveminmax1) | |
 | [NumberWithValidations.NumberWithValidations1](docs/components/schemas/NumberWithValidations.md#numberwithvalidations1) | |
@@ -424,7 +424,7 @@ All URIs are relative to the selected server
 | [ReqPropsFromExplicitAddProps.ReqPropsFromExplicitAddProps1](docs/components/schemas/ReqPropsFromExplicitAddProps.md#reqpropsfromexplicitaddprops1) | |
 | [ReqPropsFromTrueAddProps.ReqPropsFromTrueAddProps1](docs/components/schemas/ReqPropsFromTrueAddProps.md#reqpropsfromtrueaddprops1) | |
 | [ReqPropsFromUnsetAddProps.ReqPropsFromUnsetAddProps1](docs/components/schemas/ReqPropsFromUnsetAddProps.md#reqpropsfromunsetaddprops1) | |
-| [ReturnSchema.ReturnSchema1](docs/components/schemas/ReturnSchema.md#returnschema1) | Model for testing reserved words |
+| [Return.Return1](docs/components/schemas/Return.md#return1) | Model for testing reserved words |
 | [ScaleneTriangle.ScaleneTriangle1](docs/components/schemas/ScaleneTriangle.md#scalenetriangle1) | |
 | [SelfReferencingArrayModel.SelfReferencingArrayModel1](docs/components/schemas/SelfReferencingArrayModel.md#selfreferencingarraymodel1) | |
 | [SelfReferencingObjectModel.SelfReferencingObjectModel1](docs/components/schemas/SelfReferencingObjectModel.md#selfreferencingobjectmodel1) | |
@@ -432,7 +432,7 @@ All URIs are relative to the selected server
 | [ShapeOrNull.ShapeOrNull1](docs/components/schemas/ShapeOrNull.md#shapeornull1) | The value may be a shape or the &#x27;null&#x27; value. This is introduced in OAS schema &gt;&#x3D; 3.1. |
 | [SimpleQuadrilateral.SimpleQuadrilateral1](docs/components/schemas/SimpleQuadrilateral.md#simplequadrilateral1) | |
 | [SomeObject.SomeObject1](docs/components/schemas/SomeObject.md#someobject1) | |
-| [StringSchema.StringSchema1](docs/components/schemas/StringSchema.md#stringschema1) | |
+| [String.String1](docs/components/schemas/String.md#string1) | |
 | [StringBooleanMap.StringBooleanMap1](docs/components/schemas/StringBooleanMap.md#stringbooleanmap1) | |
 | [StringEnum.StringEnum1](docs/components/schemas/StringEnum.md#stringenum1) | |
 | [StringEnumWithDefaultValue.StringEnumWithDefaultValue1](docs/components/schemas/StringEnumWithDefaultValue.md#stringenumwithdefaultvalue1) | |

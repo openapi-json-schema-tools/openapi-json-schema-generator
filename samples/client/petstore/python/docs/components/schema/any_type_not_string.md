@@ -1,5 +1,5 @@
 # AnyTypeNotString
-petstore_api.components.schema.any_type_not_string
+openapi_client.components.schema.any_type_not_string
 ```
 type: schemas.Schema
 ```
@@ -13,9 +13,9 @@ dict, schemas.immutabledict, str, datetime.date, datetime.datetime, uuid.UUID, i
 ## not
 Schema Class | Input Type | Return Type
 ------------ | ---------- | -----------
-[_Not](#_not) | str | str
+[Not](#not) | str | str
 
-# _Not
+# Not
 ```
 type: schemas.Schema
 ```

@@ -1,5 +1,5 @@
 # MincontainsWithoutContainsIsIgnored
-unit_test_api.components.schema.mincontains_without_contains_is_ignored
+openapi_client.components.schema.mincontains_without_contains_is_ignored
 ```
 type: schemas.Schema
 ```

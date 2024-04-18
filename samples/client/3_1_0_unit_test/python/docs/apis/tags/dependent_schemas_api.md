@@ -1,5 +1,5 @@
 <a name="top"></a>
-unit_test_api.apis.tags.dependent_schemas_api
+openapi_client.apis.tags.dependent_schemas_api
 # DependentSchemasApi
 
 All URIs are relative to the selected server

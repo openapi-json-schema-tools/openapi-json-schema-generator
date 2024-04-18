@@ -1,5 +1,5 @@
 # ForbiddenProperty
-unit_test_api.components.schema.forbidden_property
+openapi_client.components.schema.forbidden_property
 ```
 type: schemas.Schema
 ```
@@ -54,9 +54,9 @@ dict, schemas.immutabledict, str, datetime.date, datetime.datetime, uuid.UUID, i
 ## not
 Schema Class | Input Type | Return Type
 ------------ | ---------- | -----------
-[_Not](#_not) | dict, schemas.immutabledict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader | schemas.immutabledict, str, float, int, bool, None, tuple, bytes, io.FileIO
+[Not](#not) | dict, schemas.immutabledict, str, datetime.date, datetime.datetime, uuid.UUID, int, float, bool, None, list, tuple, bytes, io.FileIO, io.BufferedReader | schemas.immutabledict, str, float, int, bool, None, tuple, bytes, io.FileIO
 
-# _Not
+# Not
 ```
 type: schemas.Schema
 ```

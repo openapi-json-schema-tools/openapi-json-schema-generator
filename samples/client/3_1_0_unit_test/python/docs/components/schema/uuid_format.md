@@ -1,5 +1,5 @@
 # UuidFormat
-unit_test_api.components.schema.uuid_format
+openapi_client.components.schema.uuid_format
 ```
 type: schemas.Schema
 ```

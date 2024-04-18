@@ -1,5 +1,5 @@
 # BySmallNumber
-unit_test_api.components.schema.by_small_number
+openapi_client.components.schema.by_small_number
 ```
 type: schemas.Schema
 ```

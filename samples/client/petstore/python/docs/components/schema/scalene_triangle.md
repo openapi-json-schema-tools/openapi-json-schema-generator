@@ -1,5 +1,5 @@
 # ScaleneTriangle
-petstore_api.components.schema.scalene_triangle
+openapi_client.components.schema.scalene_triangle
 ```
 type: schemas.Schema
 ```

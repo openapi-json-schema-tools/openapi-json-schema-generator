@@ -30,13 +30,17 @@ import org.openapijsonschematools.codegen.config.ClientOptInput;
 import org.openapijsonschematools.codegen.common.CodegenConstants;
 import org.openapijsonschematools.codegen.generatorrunner.DefaultGeneratorRunner;
 import org.openapijsonschematools.codegen.generatorrunner.GeneratorRunner;
+import org.openapijsonschematools.codegen.generators.DefaultGenerator;
 import org.openapijsonschematools.codegen.generators.generatorloader.GeneratorNotFoundException;
 import org.openapijsonschematools.codegen.config.CodegenConfigurator;
 import org.openapijsonschematools.codegen.config.CodegenConfiguratorUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 @SuppressWarnings({"java:S106"})
 @Command(name = "generate", description = "Generate code with the specified generator.")
 public class Generate extends AbstractCommand {
+    private final Logger LOGGER = LoggerFactory.getLogger(Generate.class);
 
     CodegenConfigurator configurator;
     GeneratorRunner generatorRunner;
@@ -355,9 +359,21 @@ public class Generate extends AbstractCommand {
 
         if (!isNotEmpty(packageName) && (configurator.getAdditionalProperties() != null && configurator.getAdditionalProperties().containsKey("packageName"))) {
             // if packageName is passed as an additional property warn them
-            System.out.println("packageName should be passed in using --package-name from now on");
+            LOGGER.warn("Deprecated command line arg: packageName should be passed in using --package-name from now on");
             packageName = (String) configurator.getAdditionalProperties().get("packageName");
             configurator.setPackageName(packageName);
+        }
+        if (!isNotEmpty(artifactId) && (configurator.getAdditionalProperties() != null && configurator.getAdditionalProperties().containsKey("artifactId"))) {
+            // if packageName is passed as an additional property warn them
+            LOGGER.warn("Deprecated command line arg: artifactId should be passed in using --artifact-id from now on");
+            artifactId = (String) configurator.getAdditionalProperties().get("artifactId");
+            configurator.setArtifactId(artifactId);
+        }
+        if (hideGenerationTimestamp == null && (configurator.getAdditionalProperties() != null && configurator.getAdditionalProperties().containsKey("hideGenerationTimestamp"))) {
+            // if packageName is passed as an additional property warn them
+            LOGGER.warn("Deprecated command line arg: hideGenerationTimestamp should be passed in using --hide-generation-timestamp from now on");
+            hideGenerationTimestamp = (Boolean) configurator.getAdditionalProperties().get("hideGenerationTimestamp");
+            configurator.setHideGenerationTimestamp(hideGenerationTimestamp);
         }
 
         try {

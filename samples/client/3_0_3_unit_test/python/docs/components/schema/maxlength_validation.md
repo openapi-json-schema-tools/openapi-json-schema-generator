@@ -1,5 +1,5 @@
 # MaxlengthValidation
-unit_test_api.components.schema.maxlength_validation
+openapi_client.components.schema.maxlength_validation
 ```
 type: schemas.Schema
 ```

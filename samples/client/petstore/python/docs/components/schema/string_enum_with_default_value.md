@@ -1,5 +1,5 @@
 # StringEnumWithDefaultValue
-petstore_api.components.schema.string_enum_with_default_value
+openapi_client.components.schema.string_enum_with_default_value
 ```
 type: schemas.Schema
 ```

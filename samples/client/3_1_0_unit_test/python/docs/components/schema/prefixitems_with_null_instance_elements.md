@@ -1,5 +1,5 @@
 # PrefixitemsWithNullInstanceElements
-unit_test_api.components.schema.prefixitems_with_null_instance_elements
+openapi_client.components.schema.prefixitems_with_null_instance_elements
 ```
 type: schemas.Schema
 ```

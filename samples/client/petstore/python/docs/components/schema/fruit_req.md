@@ -1,5 +1,5 @@
 # FruitReq
-petstore_api.components.schema.fruit_req
+openapi_client.components.schema.fruit_req
 ```
 type: schemas.Schema
 ```

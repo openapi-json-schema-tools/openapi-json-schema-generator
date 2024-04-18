@@ -1,5 +1,5 @@
 # IdnEmailFormat
-unit_test_api.components.schema.idn_email_format
+openapi_client.components.schema.idn_email_format
 ```
 type: schemas.Schema
 ```

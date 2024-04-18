@@ -1,5 +1,5 @@
 # ChildCat
-petstore_api.components.schema.child_cat
+openapi_client.components.schema.child_cat
 ```
 type: schemas.Schema
 ```

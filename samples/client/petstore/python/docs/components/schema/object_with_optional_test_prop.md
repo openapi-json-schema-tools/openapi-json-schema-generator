@@ -1,5 +1,5 @@
 # ObjectWithOptionalTestProp
-petstore_api.components.schema.object_with_optional_test_prop
+openapi_client.components.schema.object_with_optional_test_prop
 ```
 type: schemas.Schema
 ```

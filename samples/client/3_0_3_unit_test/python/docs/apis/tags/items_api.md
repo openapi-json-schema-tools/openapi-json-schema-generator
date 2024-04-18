@@ -1,5 +1,5 @@
 <a name="top"></a>
-unit_test_api.apis.tags.items_api
+openapi_client.apis.tags.items_api
 # ItemsApi
 
 All URIs are relative to the selected server

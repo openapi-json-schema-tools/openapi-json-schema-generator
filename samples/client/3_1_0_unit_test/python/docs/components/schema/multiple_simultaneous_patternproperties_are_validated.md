@@ -1,5 +1,5 @@
 # MultipleSimultaneousPatternpropertiesAreValidated
-unit_test_api.components.schema.multiple_simultaneous_patternproperties_are_validated
+openapi_client.components.schema.multiple_simultaneous_patternproperties_are_validated
 ```
 type: schemas.Schema
 ```

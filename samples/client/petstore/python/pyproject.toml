@@ -11,7 +11,7 @@ where = ["src"]
 "petstore_api" = ["py.typed"]
 
 [project]
-name = "petstore-api"
+name = "openapi-client"
 version = "1.0.0"
 authors = [
   { name="OpenAPI JSON Schema Generator community" },

@@ -1,4 +1,4 @@
-unit_test_api.paths.response_body_post_nested_oneof_to_check_validation_semantics_response_body_for_content_types.operation
+openapi_client.paths.response_body_post_nested_oneof_to_check_validation_semantics_response_body_for_content_types.operation
 # Operation Method Name
 
 | Method Name | Api Class | Notes |
@@ -83,14 +83,14 @@ server_index | Class | Description
 ## Code Sample
 
 ```python
-import unit_test_api
-from unit_test_api.configurations import api_configuration
-from unit_test_api.apis.tags import one_of_api
+import openapi_client
+from openapi_client.configurations import api_configuration
+from openapi_client.apis.tags import one_of_api
 from pprint import pprint
 used_configuration = api_configuration.ApiConfiguration(
 )
 # Enter a context with an instance of the API client
-with unit_test_api.ApiClient(used_configuration) as api_client:
+with openapi_client.ApiClient(used_configuration) as api_client:
     # Create an instance of the API class
     api_instance = one_of_api.OneOfApi(api_client)
 
@@ -98,7 +98,7 @@ with unit_test_api.ApiClient(used_configuration) as api_client:
     try:
         api_response = api_instance.post_nested_oneof_to_check_validation_semantics_response_body_for_content_types()
         pprint(api_response)
-    except unit_test_api.ApiException as e:
+    except openapi_client.ApiException as e:
         print("Exception when calling OneOfApi->post_nested_oneof_to_check_validation_semantics_response_body_for_content_types: %s\n" % e)
 ```
 

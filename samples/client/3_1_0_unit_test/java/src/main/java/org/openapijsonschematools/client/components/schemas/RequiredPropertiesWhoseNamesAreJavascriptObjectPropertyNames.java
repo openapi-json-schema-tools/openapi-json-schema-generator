@@ -57,6 +57,14 @@ public class RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNames {
             }
         }
         
+        public @Nullable Object toString() {
+            try {
+                return getOrThrow("version");
+            } catch (UnsetPropertyException e) {
+                throw new RuntimeException(e);
+            }
+        }
+        
         public @Nullable Object getAdditionalProperty(String name) throws UnsetPropertyException, InvalidAdditionalPropertyException {
             throwIfKeyKnown(name, requiredKeys, optionalKeys);
             throwIfKeyNotPresent(name);
@@ -182,62 +190,62 @@ public class RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNames {
         }
     }
     
-    public interface SetterForToStringSchema <T> {
+    public interface SetterForToString <T> {
         Map<String, @Nullable Object> getInstance();
-        T getBuilderAfterToStringSchema(Map<String, @Nullable Object> instance);
+        T getBuilderAfterToString(Map<String, @Nullable Object> instance);
         
         default T toString(Void value) {
             var instance = getInstance();
             instance.put("toString", null);
-            return getBuilderAfterToStringSchema(instance);
+            return getBuilderAfterToString(instance);
         }
         
         default T toString(boolean value) {
             var instance = getInstance();
             instance.put("toString", value);
-            return getBuilderAfterToStringSchema(instance);
+            return getBuilderAfterToString(instance);
         }
         
         default T toString(String value) {
             var instance = getInstance();
             instance.put("toString", value);
-            return getBuilderAfterToStringSchema(instance);
+            return getBuilderAfterToString(instance);
         }
         
         default T toString(int value) {
             var instance = getInstance();
             instance.put("toString", value);
-            return getBuilderAfterToStringSchema(instance);
+            return getBuilderAfterToString(instance);
         }
         
         default T toString(float value) {
             var instance = getInstance();
             instance.put("toString", value);
-            return getBuilderAfterToStringSchema(instance);
+            return getBuilderAfterToString(instance);
         }
         
         default T toString(long value) {
             var instance = getInstance();
             instance.put("toString", value);
-            return getBuilderAfterToStringSchema(instance);
+            return getBuilderAfterToString(instance);
         }
         
         default T toString(double value) {
             var instance = getInstance();
             instance.put("toString", value);
-            return getBuilderAfterToStringSchema(instance);
+            return getBuilderAfterToString(instance);
         }
         
         default T toString(List<?> value) {
             var instance = getInstance();
             instance.put("toString", value);
-            return getBuilderAfterToStringSchema(instance);
+            return getBuilderAfterToString(instance);
         }
         
         default T toString(Map<String, ?> value) {
             var instance = getInstance();
             instance.put("toString", value);
-            return getBuilderAfterToStringSchema(instance);
+            return getBuilderAfterToString(instance);
         }
     }
     
@@ -265,7 +273,7 @@ public class RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNames {
         }
     }
     
-    public static class RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNamesMap001Builder implements SetterForToStringSchema<RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNamesMap000Builder> {
+    public static class RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNamesMap001Builder implements SetterForToString<RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNamesMap000Builder> {
         private final Map<String, @Nullable Object> instance;
         public RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNamesMap001Builder(Map<String, @Nullable Object> instance) {
             this.instance = instance;
@@ -273,7 +281,7 @@ public class RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNames {
         public Map<String, @Nullable Object> getInstance() {
             return instance;
         }
-        public RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNamesMap000Builder getBuilderAfterToStringSchema(Map<String, @Nullable Object> instance) {
+        public RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNamesMap000Builder getBuilderAfterToString(Map<String, @Nullable Object> instance) {
             return new RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNamesMap000Builder(instance);
         }
     }
@@ -291,7 +299,7 @@ public class RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNames {
         }
     }
     
-    public static class RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNamesMap011Builder implements SetterForConstructor<RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNamesMap001Builder>, SetterForToStringSchema<RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNamesMap010Builder> {
+    public static class RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNamesMap011Builder implements SetterForConstructor<RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNamesMap001Builder>, SetterForToString<RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNamesMap010Builder> {
         private final Map<String, @Nullable Object> instance;
         public RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNamesMap011Builder(Map<String, @Nullable Object> instance) {
             this.instance = instance;
@@ -302,7 +310,7 @@ public class RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNames {
         public RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNamesMap001Builder getBuilderAfterConstructor(Map<String, @Nullable Object> instance) {
             return new RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNamesMap001Builder(instance);
         }
-        public RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNamesMap010Builder getBuilderAfterToStringSchema(Map<String, @Nullable Object> instance) {
+        public RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNamesMap010Builder getBuilderAfterToString(Map<String, @Nullable Object> instance) {
             return new RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNamesMap010Builder(instance);
         }
     }
@@ -320,7 +328,7 @@ public class RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNames {
         }
     }
     
-    public static class RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNamesMap101Builder implements SetterForProto<RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNamesMap001Builder>, SetterForToStringSchema<RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNamesMap100Builder> {
+    public static class RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNamesMap101Builder implements SetterForProto<RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNamesMap001Builder>, SetterForToString<RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNamesMap100Builder> {
         private final Map<String, @Nullable Object> instance;
         public RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNamesMap101Builder(Map<String, @Nullable Object> instance) {
             this.instance = instance;
@@ -331,7 +339,7 @@ public class RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNames {
         public RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNamesMap001Builder getBuilderAfterProto(Map<String, @Nullable Object> instance) {
             return new RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNamesMap001Builder(instance);
         }
-        public RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNamesMap100Builder getBuilderAfterToStringSchema(Map<String, @Nullable Object> instance) {
+        public RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNamesMap100Builder getBuilderAfterToString(Map<String, @Nullable Object> instance) {
             return new RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNamesMap100Builder(instance);
         }
     }
@@ -352,7 +360,7 @@ public class RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNames {
         }
     }
     
-    public static class RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNamesMapBuilder implements SetterForProto<RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNamesMap011Builder>, SetterForConstructor<RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNamesMap101Builder>, SetterForToStringSchema<RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNamesMap110Builder> {
+    public static class RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNamesMapBuilder implements SetterForProto<RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNamesMap011Builder>, SetterForConstructor<RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNamesMap101Builder>, SetterForToString<RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNamesMap110Builder> {
         private final Map<String, @Nullable Object> instance;
         public RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNamesMapBuilder() {
             this.instance = new LinkedHashMap<>();
@@ -366,7 +374,7 @@ public class RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNames {
         public RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNamesMap101Builder getBuilderAfterConstructor(Map<String, @Nullable Object> instance) {
             return new RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNamesMap101Builder(instance);
         }
-        public RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNamesMap110Builder getBuilderAfterToStringSchema(Map<String, @Nullable Object> instance) {
+        public RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNamesMap110Builder getBuilderAfterToString(Map<String, @Nullable Object> instance) {
             return new RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNamesMap110Builder(instance);
         }
     }

@@ -1,5 +1,5 @@
 # RefInAllof
-unit_test_api.components.schema.ref_in_allof
+openapi_client.components.schema.ref_in_allof
 ```
 type: schemas.Schema
 ```

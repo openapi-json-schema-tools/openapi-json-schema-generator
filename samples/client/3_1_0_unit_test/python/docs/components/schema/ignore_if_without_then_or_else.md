@@ -1,5 +1,5 @@
 # IgnoreIfWithoutThenOrElse
-unit_test_api.components.schema.ignore_if_without_then_or_else
+openapi_client.components.schema.ignore_if_without_then_or_else
 ```
 type: schemas.Schema
 ```

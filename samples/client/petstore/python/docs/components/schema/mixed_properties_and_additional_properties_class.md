@@ -1,5 +1,5 @@
 # MixedPropertiesAndAdditionalPropertiesClass
-petstore_api.components.schema.mixed_properties_and_additional_properties_class
+openapi_client.components.schema.mixed_properties_and_additional_properties_class
 ```
 type: schemas.Schema
 ```

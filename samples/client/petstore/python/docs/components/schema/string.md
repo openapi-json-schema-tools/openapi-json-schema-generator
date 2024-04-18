@@ -1,5 +1,5 @@
 # String
-petstore_api.components.schema.string
+openapi_client.components.schema.string
 ```
 type: schemas.Schema
 ```

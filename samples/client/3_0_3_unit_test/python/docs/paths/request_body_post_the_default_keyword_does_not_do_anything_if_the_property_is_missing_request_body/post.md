@@ -1,4 +1,4 @@
-unit_test_api.paths.request_body_post_the_default_keyword_does_not_do_anything_if_the_property_is_missing_request_body.operation
+openapi_client.paths.request_body_post_the_default_keyword_does_not_do_anything_if_the_property_is_missing_request_body.operation
 # Operation Method Name
 
 | Method Name | Api Class | Notes |
@@ -85,14 +85,14 @@ server_index | Class | Description
 ## Code Sample
 
 ```python
-import unit_test_api
-from unit_test_api.configurations import api_configuration
-from unit_test_api.apis.tags import operation_request_body_api
+import openapi_client
+from openapi_client.configurations import api_configuration
+from openapi_client.apis.tags import operation_request_body_api
 from pprint import pprint
 used_configuration = api_configuration.ApiConfiguration(
 )
 # Enter a context with an instance of the API client
-with unit_test_api.ApiClient(used_configuration) as api_client:
+with openapi_client.ApiClient(used_configuration) as api_client:
     # Create an instance of the API class
     api_instance = operation_request_body_api.OperationRequestBodyApi(api_client)
 
@@ -105,7 +105,7 @@ with unit_test_api.ApiClient(used_configuration) as api_client:
             body=body,
         )
         pprint(api_response)
-    except unit_test_api.ApiException as e:
+    except openapi_client.ApiException as e:
         print("Exception when calling OperationRequestBodyApi->post_the_default_keyword_does_not_do_anything_if_the_property_is_missing_request_body: %s\n" % e)
 ```
 

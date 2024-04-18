@@ -1,5 +1,5 @@
 <a name="top"></a>
-unit_test_api.apis.tags.unevaluated_properties_api
+openapi_client.apis.tags.unevaluated_properties_api
 # UnevaluatedPropertiesApi
 
 All URIs are relative to the selected server

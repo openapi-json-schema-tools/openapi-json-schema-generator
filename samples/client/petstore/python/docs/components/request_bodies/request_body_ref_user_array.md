@@ -1,4 +1,4 @@
-petstore_api.components.request_bodies.request_body_ref_user_array
+openapi_client.components.request_bodies.request_body_ref_user_array
 # RequestBody RefUserArray
 
 ## Content Type To Schema

@@ -1,5 +1,5 @@
 # EmailFormat
-unit_test_api.components.schema.email_format
+openapi_client.components.schema.email_format
 ```
 type: schemas.Schema
 ```

@@ -1,5 +1,5 @@
 # MapTest
-petstore_api.components.schema.map_test
+openapi_client.components.schema.map_test
 ```
 type: schemas.Schema
 ```

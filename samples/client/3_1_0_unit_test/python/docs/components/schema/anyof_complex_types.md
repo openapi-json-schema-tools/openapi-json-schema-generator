@@ -1,5 +1,5 @@
 # AnyofComplexTypes
-unit_test_api.components.schema.anyof_complex_types
+openapi_client.components.schema.anyof_complex_types
 ```
 type: schemas.Schema
 ```

@@ -1,5 +1,5 @@
 # RefInAnyof
-unit_test_api.components.schema.ref_in_anyof
+openapi_client.components.schema.ref_in_anyof
 ```
 type: schemas.Schema
 ```

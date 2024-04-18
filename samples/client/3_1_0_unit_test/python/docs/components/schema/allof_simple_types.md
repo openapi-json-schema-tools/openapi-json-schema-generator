@@ -1,5 +1,5 @@
 # AllofSimpleTypes
-unit_test_api.components.schema.allof_simple_types
+openapi_client.components.schema.allof_simple_types
 ```
 type: schemas.Schema
 ```

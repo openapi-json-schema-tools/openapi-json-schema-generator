@@ -1,5 +1,5 @@
 # ComposedArray
-petstore_api.components.schema.composed_array
+openapi_client.components.schema.composed_array
 ```
 type: schemas.Schema
 ```
