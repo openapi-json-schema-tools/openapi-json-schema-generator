@@ -13,7 +13,7 @@ from petstore_api.shared_imports.schema_imports import *  # pyright: ignore [rep
 
 
 @dataclasses.dataclass(frozen=True)
-class Uuid(
+class _Uuid(
     schemas.AnyTypeSchema[schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES], typing.Tuple[schemas.OUTPUT_BASE_TYPES, ...]],
 ):
     # any type
@@ -31,7 +31,7 @@ class Date(
 
 
 @dataclasses.dataclass(frozen=True)
-class DateTime(
+class _DateTime(
     schemas.AnyTypeSchema[schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES], typing.Tuple[schemas.OUTPUT_BASE_TYPES, ...]],
 ):
     # any type
@@ -94,9 +94,9 @@ class _Float(
 Properties = typing.TypedDict(
     'Properties',
     {
-        "uuid": typing.Type[Uuid],
+        "uuid": typing.Type[_Uuid],
         "date": typing.Type[Date],
-        "date-time": typing.Type[DateTime],
+        "date-time": typing.Type[_DateTime],
         "number": typing.Type[Number],
         "binary": typing.Type[Binary],
         "int32": typing.Type[Int32],
@@ -126,11 +126,6 @@ class AnyTypeAndFormatDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]
     def __new__(
         cls,
         *,
-        uuid: typing.Union[
-            schemas.INPUT_TYPES_ALL,
-            schemas.OUTPUT_BASE_TYPES,
-            schemas.Unset
-        ] = schemas.unset,
         date: typing.Union[
             schemas.INPUT_TYPES_ALL,
             schemas.OUTPUT_BASE_TYPES,
@@ -166,7 +161,6 @@ class AnyTypeAndFormatDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]
     ):
         arg_: typing.Dict[str, typing.Any] = {}
         for key_, val in (
-            ("uuid", uuid),
             ("date", date),
             ("number", number),
             ("binary", binary),
@@ -190,13 +184,6 @@ class AnyTypeAndFormatDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]
         configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
     ) -> AnyTypeAndFormatDict:
         return AnyTypeAndFormat.validate(arg, configuration=configuration)
-    
-    @property
-    def uuid(self) -> typing.Union[schemas.OUTPUT_BASE_TYPES, schemas.Unset]:
-        val = self.get("uuid", schemas.unset)
-        if isinstance(val, schemas.Unset):
-            return val
-        return val
     
     @property
     def date(self) -> typing.Union[schemas.OUTPUT_BASE_TYPES, schemas.Unset]:

@@ -21,27 +21,23 @@ import org.openapijsonschematools.codegen.generators.Generator;
 import org.openapijsonschematools.codegen.generators.PythonClientGenerator;
 
 import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.spy;
 import static org.mockito.Mockito.verify;
 
 
-public class PythonClientOptionsTest extends AbstractOptionsTest {
-
-    private PythonClientGenerator clientCodegen = mock(PythonClientGenerator.class, mockSettings);
-
+public class PythonClientOptionsTest extends AbstractOptionsTest<PythonClientGenerator> {
     public PythonClientOptionsTest() {
         super(new PythonClientOptionsProvider());
     }
 
     @Override
-    protected Generator getCodegenConfig() {
-        return clientCodegen;
+    protected PythonClientGenerator getCodegenConfig() {
+        return new PythonClientGenerator(optionsProvider.createGeneratorInput(), optionsProvider.createWorkflowInput());
     }
 
-    @SuppressWarnings("unused")
     @Override
-    protected void verifyOptions() {
-        verify(clientCodegen).setPackageVersion(PythonClientOptionsProvider.PACKAGE_VERSION_VALUE);
-        verify(clientCodegen).setPackageName(PythonClientOptionsProvider.PACKAGE_NAME_VALUE);
+    protected void verifyOptions(PythonClientGenerator spyGen) {
+        verify(spyGen).setPackageVersion(PythonClientOptionsProvider.PACKAGE_VERSION_VALUE);
     }
 }
 

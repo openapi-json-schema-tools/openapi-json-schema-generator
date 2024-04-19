@@ -39,6 +39,8 @@ import io.swagger.v3.oas.models.responses.ApiResponses;
 import io.swagger.v3.oas.models.security.SecurityScheme;
 import org.openapijsonschematools.codegen.TestUtils;
 import org.openapijsonschematools.codegen.common.CodegenConstants;
+import org.openapijsonschematools.codegen.config.GeneratorSettings;
+import org.openapijsonschematools.codegen.config.WorkflowSettings;
 import org.openapijsonschematools.codegen.generators.openapimodels.CodegenDiscriminator;
 import org.openapijsonschematools.codegen.generators.openapimodels.CodegenEncoding;
 import org.openapijsonschematools.codegen.generators.openapimodels.CodegenHeader;
@@ -52,7 +54,6 @@ import org.openapijsonschematools.codegen.generators.openapimodels.CodegenRespon
 import org.openapijsonschematools.codegen.generators.openapimodels.CodegenSchema;
 import org.openapijsonschematools.codegen.generators.openapimodels.CodegenSecurityScheme;
 import org.openapijsonschematools.codegen.generators.openapimodels.EnumValue;
-import org.openapijsonschematools.codegen.templating.mustache.CamelCaseLambda;
 import org.openapijsonschematools.codegen.templating.mustache.IndentedLambda;
 import org.openapijsonschematools.codegen.templating.mustache.LowercaseLambda;
 import org.openapijsonschematools.codegen.templating.mustache.TitlecaseLambda;
@@ -86,6 +87,12 @@ import static org.testng.Assert.fail;
 
 public class DefaultGeneratorTest {
     public static class ThisDefaultGenerator extends DefaultGenerator {
+        public ThisDefaultGenerator() {
+            super(null, null);
+        }
+        public ThisDefaultGenerator(WorkflowSettings ws) {
+            super(null, ws);
+        }
         @Override
         public String escapeUnsafeCharacters(String input) {
             return input;
@@ -243,27 +250,27 @@ public class DefaultGeneratorTest {
         codegen.processOpts();
 
         Assert.assertEquals(codegen.additionalProperties().get(CodegenConstants.HIDE_GENERATION_TIMESTAMP), Boolean.TRUE);
-        Assert.assertTrue(codegen.isHideGenerationTimestamp());
+        Assert.assertTrue(codegen.generatorSettings.hideGenerationTimestamp);
     }
 
     @Test
     public void testSettersForConfigValues() throws Exception {
-        final DefaultGenerator codegen = new ThisDefaultGenerator();
-        codegen.setHideGenerationTimestamp(false);
+        WorkflowSettings ws = WorkflowSettings.newBuilder().withHideGenerationTimestamp(false).build();
+        final DefaultGenerator codegen = new ThisDefaultGenerator(ws);
         codegen.processOpts();
 
         Assert.assertEquals(codegen.additionalProperties().get(CodegenConstants.HIDE_GENERATION_TIMESTAMP), Boolean.FALSE);
-        Assert.assertFalse(codegen.isHideGenerationTimestamp());
+        Assert.assertFalse(codegen.generatorSettings.hideGenerationTimestamp);
     }
 
     @Test
-    public void testAdditionalPropertiesPutForConfigValues() throws Exception {
-        final DefaultGenerator codegen = new ThisDefaultGenerator();
-        codegen.additionalProperties().put(CodegenConstants.HIDE_GENERATION_TIMESTAMP, false);
+    public void testAdditionalPropertiesPutForConfigValues() {
+        WorkflowSettings ws = WorkflowSettings.newBuilder().withHideGenerationTimestamp(false).build();
+        final DefaultGenerator codegen = new ThisDefaultGenerator(ws);
         codegen.processOpts();
 
         Assert.assertEquals(codegen.additionalProperties().get(CodegenConstants.HIDE_GENERATION_TIMESTAMP), Boolean.FALSE);
-        Assert.assertFalse(codegen.isHideGenerationTimestamp());
+        Assert.assertFalse(codegen.generatorSettings.hideGenerationTimestamp);
     }
 
     @Test
@@ -456,21 +463,6 @@ public class DefaultGeneratorTest {
     }
 
     @Test
-    public void testEscapeTextWhileAllowingNewLines() {
-        final DefaultGenerator codegen = new ThisDefaultGenerator();
-
-        // allow new lines
-        Assert.assertEquals(codegen.escapeTextWhileAllowingNewLines("\n"), "\n");
-        Assert.assertEquals(codegen.escapeTextWhileAllowingNewLines("\r"), "\r");
-
-        // escape other special characters
-        Assert.assertEquals(codegen.escapeTextWhileAllowingNewLines("\t"), " ");
-        Assert.assertEquals(codegen.escapeTextWhileAllowingNewLines("\\"), "\\\\");
-        Assert.assertEquals(codegen.escapeTextWhileAllowingNewLines("\""), "\\\"");
-        Assert.assertEquals(codegen.escapeTextWhileAllowingNewLines("\\/"), "/");
-    }
-
-    @Test
     public void updateCodegenPropertyEnum() {
         CodegenSchema array = codegenPropertyWithArrayOfIntegerValues();
 
@@ -516,7 +508,8 @@ public class DefaultGeneratorTest {
 
     @Test
     public void updateCodegenPropertyEnumWithPrefixRemoved() {
-        DefaultGenerator codegen = new ThisDefaultGenerator();
+        WorkflowSettings ws = WorkflowSettings.newBuilder().withRemoveEnumValuePrefix(true).build();
+        DefaultGenerator codegen = new ThisDefaultGenerator(ws);
         CodegenSchema enumProperty = codegenProperty(codegen, Arrays.asList("animal_dog", "animal_cat"), "updateCodegenPropertyEnumWithPrefixRemoved", null);
 
         Map<EnumValue, String> enumVars = enumProperty.items.enumInfo.valueToName;
@@ -527,8 +520,8 @@ public class DefaultGeneratorTest {
 
     @Test
     public void updateCodegenPropertyEnumWithoutPrefixRemoved() {
-        final DefaultGenerator codegen = new ThisDefaultGenerator();
-        codegen.setRemoveEnumValuePrefix(false);
+        WorkflowSettings ws = WorkflowSettings.newBuilder().withRemoveEnumValuePrefix(false).build();
+        final DefaultGenerator codegen = new ThisDefaultGenerator(ws);
 
         CodegenSchema enumProperty = codegenProperty(codegen, Arrays.asList("animal_dog", "animal_cat"), "updateCodegenPropertyEnumWithoutPrefixRemoved", null);
 
@@ -540,7 +533,8 @@ public class DefaultGeneratorTest {
 
     @Test
     public void postProcessModelsEnumWithPrefixRemoved() {
-        final DefaultGenerator codegen = new ThisDefaultGenerator();
+        WorkflowSettings ws = WorkflowSettings.newBuilder().withRemoveEnumValuePrefix(true).build();
+        final DefaultGenerator codegen = new ThisDefaultGenerator(ws);
         TreeMap<String, CodegenSchema> schemas = codegenModel(codegen, Arrays.asList("animal_dog", "animal_cat"), "postProcessModelsEnumWithPrefixRemoved", null, null);
         CodegenSchema cm = schemas.get("model");
 
@@ -552,8 +546,8 @@ public class DefaultGeneratorTest {
 
     @Test
     public void postProcessModelsEnumWithoutPrefixRemoved() {
-        final DefaultGenerator codegen = new ThisDefaultGenerator();
-        codegen.setRemoveEnumValuePrefix(false);
+        WorkflowSettings ws = WorkflowSettings.newBuilder().withRemoveEnumValuePrefix(false).build();
+        final DefaultGenerator codegen = new ThisDefaultGenerator(ws);
         TreeMap<String, CodegenSchema> objs = codegenModel(codegen, Arrays.asList("animal_dog", "animal_cat"), "postProcessModelsEnumWithoutPrefixRemoved", null, null);
         CodegenSchema cm = objs.get("model");
 
@@ -1710,7 +1704,6 @@ public class DefaultGeneratorTest {
         assertTrue(lambdas.get("lowercase") instanceof LowercaseLambda, "Expecting LowercaseLambda class");
         assertTrue(lambdas.get("uppercase") instanceof UppercaseLambda, "Expecting UppercaseLambda class");
         assertTrue(lambdas.get("titlecase") instanceof TitlecaseLambda, "Expecting TitlecaseLambda class");
-        assertTrue(lambdas.get("camelcase") instanceof CamelCaseLambda, "Expecting CamelCaseLambda class");
         assertTrue(lambdas.get("indented") instanceof IndentedLambda, "Expecting IndentedLambda class");
         assertTrue(lambdas.get("indented_8") instanceof IndentedLambda, "Expecting IndentedLambda class");
         assertTrue(lambdas.get("indented_12") instanceof IndentedLambda, "Expecting IndentedLambda class");
@@ -3113,14 +3106,14 @@ public class DefaultGeneratorTest {
     @Test
     public void testRemoveOperationIdPrefix() {
         final OpenAPI openAPI = TestUtils.parseFlattenSpec("src/test/resources/bugs/issue_9719.yaml");
-        final DefaultGenerator codegen = new ThisDefaultGenerator();
+        WorkflowSettings ws = WorkflowSettings.newBuilder().withRemoveOperationIdPrefix(true).build();
+        final DefaultGenerator codegen = new ThisDefaultGenerator(ws);
         codegen.setOpenAPI(openAPI);
 
         String path;
         Operation operation;
         CodegenOperation co;
 
-        codegen.additionalProperties().put(CodegenConstants.REMOVE_OPERATION_ID_PREFIX, "True");
         codegen.additionalProperties().put(CodegenConstants.REMOVE_OPERATION_ID_PREFIX_DELIMITER, ".");
         codegen.additionalProperties().put(CodegenConstants.REMOVE_OPERATION_ID_PREFIX_COUNT, 2);
         codegen.processOpts();
@@ -3129,7 +3122,6 @@ public class DefaultGeneratorTest {
         co = codegen.fromOperation(operation, getOperationPath(path, "get"), null, null, null);
         assertEquals(co.operationId.pascalCase, "UsersGetAll");
 
-        codegen.additionalProperties().put(CodegenConstants.REMOVE_OPERATION_ID_PREFIX, "True");
         codegen.additionalProperties().put(CodegenConstants.REMOVE_OPERATION_ID_PREFIX_DELIMITER, ".");
         codegen.additionalProperties().put(CodegenConstants.REMOVE_OPERATION_ID_PREFIX_COUNT, -1);
         codegen.processOpts();
@@ -3138,7 +3130,6 @@ public class DefaultGeneratorTest {
         co = codegen.fromOperation(operation, getOperationPath(path, "get"), null, null, null);
         assertEquals(co.operationId.pascalCase, "GetAll");
 
-        codegen.additionalProperties().put(CodegenConstants.REMOVE_OPERATION_ID_PREFIX, "True");
         codegen.additionalProperties().put(CodegenConstants.REMOVE_OPERATION_ID_PREFIX_DELIMITER, ".");
         codegen.additionalProperties().put(CodegenConstants.REMOVE_OPERATION_ID_PREFIX_COUNT, 10);
         codegen.processOpts();
@@ -3147,7 +3138,6 @@ public class DefaultGeneratorTest {
         co = codegen.fromOperation(operation, getOperationPath(path, "get"), null, null, null);
         assertEquals(co.operationId.pascalCase, "GetAll");
 
-        codegen.additionalProperties().put(CodegenConstants.REMOVE_OPERATION_ID_PREFIX, "True");
         codegen.additionalProperties().put(CodegenConstants.REMOVE_OPERATION_ID_PREFIX_DELIMITER, "_");
         codegen.additionalProperties().put(CodegenConstants.REMOVE_OPERATION_ID_PREFIX_COUNT, 2);
         codegen.processOpts();
@@ -3156,7 +3146,6 @@ public class DefaultGeneratorTest {
         co = codegen.fromOperation(operation, getOperationPath(path, "get"), null, null, null);
         assertEquals(co.operationId.pascalCase, "UsersGetAll");
 
-        codegen.additionalProperties().put(CodegenConstants.REMOVE_OPERATION_ID_PREFIX, "True");
         codegen.additionalProperties().put(CodegenConstants.REMOVE_OPERATION_ID_PREFIX_DELIMITER, "_");
         codegen.additionalProperties().put(CodegenConstants.REMOVE_OPERATION_ID_PREFIX_COUNT, -1);
         codegen.processOpts();
@@ -3165,7 +3154,6 @@ public class DefaultGeneratorTest {
         co = codegen.fromOperation(operation, getOperationPath(path, "get"), null, null, null);
         assertEquals(co.operationId.pascalCase, "GetAll");
 
-        codegen.additionalProperties().put(CodegenConstants.REMOVE_OPERATION_ID_PREFIX, "True");
         codegen.additionalProperties().put(CodegenConstants.REMOVE_OPERATION_ID_PREFIX_DELIMITER, "_");
         codegen.additionalProperties().put(CodegenConstants.REMOVE_OPERATION_ID_PREFIX_COUNT, 10);
         codegen.processOpts();
@@ -4009,7 +3997,7 @@ public class DefaultGeneratorTest {
 
     class GeneratorWithMultipleInheritance extends DefaultGenerator {
         public GeneratorWithMultipleInheritance() {
-            super();
+            super(null, null);
             supportsInheritance = true;
             supportsMultipleInheritance = true;
         }

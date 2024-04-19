@@ -20,6 +20,7 @@ package org.openapijsonschematools.codegen.clicommands;
 import io.airlift.airline.Command;
 import io.airlift.airline.Option;
 import org.apache.commons.lang3.StringUtils;
+import org.openapijsonschematools.codegen.generators.generatormetadata.GeneratorMetadata;
 import org.openapijsonschematools.codegen.generators.models.CliOption;
 import org.openapijsonschematools.codegen.generators.Generator;
 import org.openapijsonschematools.codegen.generators.generatorloader.GeneratorLoader;
@@ -106,7 +107,7 @@ public class ConfigHelp extends AbstractCommand {
 
         try {
             StringBuilder sb = new StringBuilder();
-            Generator config = GeneratorLoader.forName(generatorName);
+            Generator config = GeneratorLoader.getGenerator(generatorName, null, null);
 
             String desiredFormat = StringUtils.defaultIfBlank(format, FORMAT_TEXT);
 
@@ -219,7 +220,7 @@ public class ConfigHelp extends AbstractCommand {
         sb.append("| Type/Alias | Instantiated By |").append(newline);
         sb.append("| ---------- | --------------- |").append(newline);
 
-        config.instantiationTypes()
+        config.getGeneratorMetadata().getInstantiationTypes()
                 .entrySet()
                 .stream()
                 .sorted(Map.Entry.comparingByKey())
@@ -235,7 +236,7 @@ public class ConfigHelp extends AbstractCommand {
         sb.append(newline).append("## LANGUAGE PRIMITIVES").append(newline).append(newline);
 
         sb.append("<ul class=\"column-ul\">").append(newline);
-        config.languageSpecificPrimitives()
+        config.getGeneratorMetadata().getLanguageSpecificPrimitives()
                 .stream()
                 .sorted(String::compareTo)
                 .forEach(s -> sb.append("<li>").append(escapeHtml4(s)).append("</li>").append(newline));
@@ -246,7 +247,7 @@ public class ConfigHelp extends AbstractCommand {
         sb.append(newline).append("## RESERVED WORDS").append(newline).append(newline);
 
         sb.append("<ul class=\"column-ul\">").append(newline);
-        config.reservedWords()
+        config.getGeneratorMetadata().getReservedWords()
                 .stream()
                 .sorted(String::compareTo)
                 .forEach(s -> sb.append("<li>").append(escapeHtml4(s)).append("</li>").append(newline));
@@ -295,21 +296,22 @@ public class ConfigHelp extends AbstractCommand {
     }
 
     private void generateMdMetadata(StringBuilder sb, Generator config) {
+        GeneratorMetadata meta = config.getGeneratorMetadata();
         sb.append("## METADATA").append(newline).append(newline);
 
         sb.append("| Property | Value | Notes |").append(newline);
         sb.append("| -------- | ----- | ----- |").append(newline);
-        sb.append("| generator name | "+config.getName()+" | pass this to the generate command after -g |").append(newline);
-        sb.append("| generator stability | "+config.getGeneratorMetadata().getStability()+" | |").append(newline);
-        sb.append("| generator type | "+config.getTag()+" | |").append(newline);
-        if (config.generatorLanguage() != null) {
-            sb.append("| generator language | "+config.generatorLanguage().toString()+" | |").append(newline);
+        sb.append("| generator name | "+meta.getName()+" | pass this to the generate command after -g |").append(newline);
+        sb.append("| generator stability | "+meta.getStability()+" | |").append(newline);
+        sb.append("| generator type | "+meta.getType()+" | |").append(newline);
+        if (meta.getLanguage() != null) {
+            sb.append("| generator language | "+meta.getLanguage().toString()+" | |").append(newline);
         }
-        if (config.generatorLanguageVersion() != null) {
-            sb.append("| generator language version | "+config.generatorLanguageVersion()+" | |").append(newline);
+        if (meta.getLanguageVersion() != null) {
+            sb.append("| generator language version | "+meta.getLanguageVersion()+" | |").append(newline);
         }
         sb.append("| generator default templating engine | "+config.defaultTemplatingEngine()+" | |").append(newline);
-        sb.append("| helpTxt | "+config.getHelp()+" | |").append(newline);
+        sb.append("| helpMsg | "+meta.getHelpMsg()+" | |").append(newline);
 
         sb.append(newline);
     }
@@ -399,7 +401,7 @@ public class ConfigHelp extends AbstractCommand {
             sb.append(newline).append(newline);
         });
 
-        Map<String, String> instantiationTypes = config.instantiationTypes();
+        Map<String, String> instantiationTypes = config.getGeneratorMetadata().getInstantiationTypes();
         if (instantiationTypes != null) {
             sb.append(newline).append("INSTANTIATION TYPES").append(newline).append(newline);
             Map<String, String> map = instantiationTypes
@@ -414,14 +416,14 @@ public class ConfigHelp extends AbstractCommand {
 
         {
             sb.append(newline).append("LANGUAGE PRIMITIVES").append(newline).append(newline);
-            String[] arr = config.languageSpecificPrimitives().stream().sorted().toArray(String[]::new);
+            String[] arr = config.getGeneratorMetadata().getLanguageSpecificPrimitives().stream().sorted().toArray(String[]::new);
             writePlainTextFromArray(sb, arr, optIndent);
             sb.append(newline);
         }
 
         if (Boolean.TRUE.equals(reservedWords)) {
             sb.append(newline).append("RESERVED WORDS").append(newline).append(newline);
-            String[] arr = config.reservedWords().stream().sorted().toArray(String[]::new);
+            String[] arr = config.getGeneratorMetadata().getReservedWords().stream().sorted().toArray(String[]::new);
             writePlainTextFromArray(sb, arr, optIndent);
             sb.append(newline);
         }

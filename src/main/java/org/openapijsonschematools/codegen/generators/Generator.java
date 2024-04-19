@@ -17,94 +17,130 @@
 
 package org.openapijsonschematools.codegen.generators;
 
-import com.samskivert.mustache.Mustache.Compiler;
 import io.swagger.v3.oas.models.OpenAPI;
-import io.swagger.v3.oas.models.Operation;
-import io.swagger.v3.oas.models.PathItem;
-import io.swagger.v3.oas.models.Paths;
-import io.swagger.v3.oas.models.headers.Header;
-import io.swagger.v3.oas.models.media.Schema;
-import io.swagger.v3.oas.models.parameters.Parameter;
-import io.swagger.v3.oas.models.parameters.RequestBody;
-import io.swagger.v3.oas.models.responses.ApiResponse;
-import io.swagger.v3.oas.models.security.SecurityRequirement;
-import io.swagger.v3.oas.models.security.SecurityScheme;
-import io.swagger.v3.oas.models.servers.Server;
-import io.swagger.v3.oas.models.servers.ServerVariable;
-import org.apache.commons.lang3.tuple.Pair;
 import org.openapijsonschematools.codegen.common.CodegenConstants;
 import org.openapijsonschematools.codegen.generators.generatormetadata.GeneratorLanguage;
 import org.openapijsonschematools.codegen.generators.generatormetadata.GeneratorType;
+import org.openapijsonschematools.codegen.generators.models.CodeGeneratorSettings;
 import org.openapijsonschematools.codegen.generators.models.VendorExtension;
 import org.openapijsonschematools.codegen.generators.openapimodels.CodegenKeyType;
 import org.openapijsonschematools.codegen.generators.openapimodels.CodegenRefInfo;
-import org.openapijsonschematools.codegen.generators.openapimodels.CodegenSecurityRequirementObject;
-import org.openapijsonschematools.codegen.generators.openapimodels.CodegenList;
-import org.openapijsonschematools.codegen.generators.openapimodels.CodegenServer;
+import org.openapijsonschematools.codegen.generators.models.GeneratedFileType;
+import org.openapijsonschematools.codegen.generators.models.ReportFileType;
 import org.openapijsonschematools.codegen.templating.SupportingFile;
 import org.openapijsonschematools.codegen.generators.models.CliOption;
-import org.openapijsonschematools.codegen.generators.openapimodels.CodegenHeader;
 import org.openapijsonschematools.codegen.generators.openapimodels.CodegenKey;
-import org.openapijsonschematools.codegen.generators.openapimodels.CodegenOperation;
-import org.openapijsonschematools.codegen.generators.openapimodels.CodegenParameter;
-import org.openapijsonschematools.codegen.generators.openapimodels.CodegenPathItem;
 import org.openapijsonschematools.codegen.generators.openapimodels.CodegenPatternInfo;
-import org.openapijsonschematools.codegen.generators.openapimodels.CodegenRequestBody;
-import org.openapijsonschematools.codegen.generators.openapimodels.CodegenResponse;
 import org.openapijsonschematools.codegen.generators.openapimodels.CodegenSchema;
-import org.openapijsonschematools.codegen.generators.openapimodels.CodegenSecurityRequirementValue;
-import org.openapijsonschematools.codegen.generators.openapimodels.CodegenSecurityScheme;
 import org.openapijsonschematools.codegen.templating.TemplatingEngineAdapter;
 import org.openapijsonschematools.codegen.generators.generatormetadata.FeatureSet;
 import org.openapijsonschematools.codegen.generators.generatormetadata.GeneratorMetadata;
-import org.openapijsonschematools.codegen.generators.openapimodels.CodegenTag;
 
 import javax.validation.constraints.NotNull;
 import java.io.File;
 import java.util.HashMap;
-import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.TreeMap;
 import java.util.function.Function;
 
-public interface Generator {
-    String getFilesMetadataFilename();
-
-    String getVersionMetadataFilename();
+public interface Generator extends OpenApiProcessor, Comparable<Generator> {
+    String getReportFilename(ReportFileType type);
 
     GeneratorMetadata getGeneratorMetadata();
-
-    GeneratorType getTag();
-
-    String getName();
-
-    String getHelp();
 
     Map<String, Object> additionalProperties();
 
     Map<String, Object> vendorExtensions();
 
-    String apiPackage();
-
-    String outputFolder();
-
-    String templateDir();
-
-    String embeddedTemplateDir();
-
-    String modelPackage();
-
-    String modelPackagePathFragment();
-
-    String packageName();
+    CodeGeneratorSettings generatorSettings();
 
     String toApiName(String name);
 
     String toApiVarName(String name);
 
     String toModelName(String name, String jsonPath);
+
+    String escapeText(String text);
+
+    String escapeUnsafeCharacters(String input);
+
+    String escapeReservedWord(String name);
+
+    String escapeQuotationMark(String input);
+
+    // todo remove this and move it into the generator constructor
+    void processOpts();
+
+    List<CliOption> cliOptions();
+
+    List<SupportingFile> supportingFiles();
+
+    CodegenKey getKey(String key, String keyType);
+
+    HashMap<CodegenConstants.JSON_PATH_LOCATION_TYPE, HashMap<String, String>> getJsonPathTemplateFiles(GeneratedFileType type);
+
+    // todo remove this and move it into the generator constructor
+    void preprocessOpenAPI(OpenAPI openAPI);
+
+    // todo remove this and move it into the generator constructor
+    void processOpenAPI(OpenAPI openAPI);
+
+    String toApiFilename(String name);
+
+    String toModelFilename(String name, String jsonPath);
+
+    String toModuleFilename(String name, String jsonPath);
+
+    TreeMap<String, CodegenSchema> updateAllModels(TreeMap<String, CodegenSchema> models);
+
+    TreeMap<String, CodegenSchema> postProcessAllModels(TreeMap<String, CodegenSchema> schemas);
+
+    Map<String, Object> postProcessSupportingFileData(Map<String, Object> data);
+
+    void postProcessModelProperty(CodegenSchema model, CodegenSchema property);
+    
+    String getImport(CodegenRefInfo<?> refInfo);
+    String getRefModuleLocation(String ref);
+    String getSubpackage(String jsonPath);
+
+    String getFilePath(GeneratedFileType type, String jsonPath);
+
+    void setDocExtension(String docExtension);
+
+    String sanitizeName(String name);
+
+    void postProcessFile(File file, String fileType);
+
+    /**
+     * Set the OpenAPI instance. This method needs to be called right after the instantiation of the Codegen class.
+     *
+     * @param openAPI specification being generated
+     */
+    void setOpenAPI(OpenAPI openAPI);
+
+    TemplatingEngineAdapter getTemplatingEngine();
+
+    CodegenPatternInfo getPatternInfo(String pattern);
+
+    String defaultTemplatingEngine();
+
+    List<VendorExtension> getSupportedVendorExtensions();
+
+    String toRefClass(String ref, String sourceJsonPath, String expectedComponentType);
+    Function<CodegenSchema, List<CodegenSchema>> getSchemasFn();
+
+    boolean generateSeparateServerSchemas();
+    boolean shouldGenerateFile(String jsonPath, boolean isDoc);
+
+    String getPascalCase(CodegenKeyType type, String lastJsonPathFragment, String jsonPath);
+    String getFilename(CodegenKeyType type, String lastJsonPathFragment, String jsonPath);
+    Set<String> getImports(String sourceJsonPath, CodegenSchema schema, FeatureSet featureSet);
+
+    default int compareTo(Generator o) {
+        return getGeneratorMetadata().getName().compareTo(o.getGeneratorMetadata().getName());
+    }
 
     @Deprecated
     default String getSchemaFilename(String jsonPath) {
@@ -116,85 +152,10 @@ public interface Generator {
     default String getSchemaPascalCaseName(String name, @NotNull String sourceJsonPath) {
         return getPascalCase(CodegenKeyType.SCHEMA, name, sourceJsonPath);
     }
-    Set<String> getImports(String sourceJsonPath, CodegenSchema schema, FeatureSet featureSet);
     @Deprecated
     default String toContentTypeFilename(String name) {
         return getFilename(CodegenKeyType.CONTENT_TYPE, name, null);
     }
-
-    String toParamName(String name);
-
-    String escapeText(String text);
-
-    String escapeTextWhileAllowingNewLines(String text);
-
-    String escapeUnsafeCharacters(String input);
-
-    String escapeReservedWord(String name);
-
-    String escapeQuotationMark(String input);
-
-    void processOpts();
-
-    List<CliOption> cliOptions();
-
-    Set<String> reservedWords();
-
-    List<SupportingFile> supportingFiles();
-
-    String getInputSpec();
-
-    void setInputSpec(String inputSpec);
-
-    String getOutputDir();
-
-    String packagePath();
-
-    void setOutputDir(String dir);
-
-    CodegenSchema fromSchema(Schema<?> schema, String sourceJsonPath, String currentJsonPath);
-
-    CodegenTag fromTag(String name, String description);
-
-    CodegenList<CodegenSecurityRequirementObject> fromSecurity(List<SecurityRequirement> security, String jsonPath);
-
-    CodegenOperation fromOperation(Operation operation, String jsonPath, LinkedHashMap<Pair<String, String>, CodegenParameter> pathItemParameters, CodegenList<CodegenServer> rootOrPathServers, CodegenList<CodegenSecurityRequirementObject> rootSecurity);
-
-    CodegenKey getKey(String key, String keyType);
-
-    CodegenSecurityScheme fromSecurityScheme(SecurityScheme securityScheme, String jsonPath);
-
-    HashMap<String, CodegenSecurityRequirementValue> fromSecurityRequirement(SecurityRequirement securityScheme, String jsonPath);
-
-    TreeMap<CodegenKey, CodegenPathItem> fromPaths(Paths paths, CodegenList<CodegenServer> rootServers, CodegenList<CodegenSecurityRequirementObject> rootSecurity);
-
-    CodegenPathItem fromPathItem(PathItem pathItem, String jsonPath, CodegenList<CodegenServer> rootServers, CodegenList<CodegenSecurityRequirementObject> rootSecurity);
-
-    CodegenList<CodegenServer> fromServers(List<Server> servers, String jsonPath);
-
-    CodegenSchema fromServerVariables(Map<String, ServerVariable> variables, String jsonPath);
-
-    Map<String, String> instantiationTypes();
-
-    HashMap<CodegenConstants.JSON_PATH_LOCATION_TYPE, HashMap<String, String>> jsonPathTemplateFiles();
-
-    HashMap<CodegenConstants.JSON_PATH_LOCATION_TYPE, HashMap<String, String>> jsonPathDocTemplateFiles();
-
-    HashMap<CodegenConstants.JSON_PATH_LOCATION_TYPE, HashMap<String, String>> jsonPathTestTemplateFiles();
-
-    Set<String> languageSpecificPrimitives();
-
-    void preprocessOpenAPI(OpenAPI openAPI);
-
-    void processOpenAPI(OpenAPI openAPI);
-
-    Compiler processCompiler(Compiler compiler);
-
-    String toApiFilename(String name);
-
-    String toModelFilename(String name, String jsonPath);
-
-    String toModuleFilename(String name, String jsonPath);
 
     @Deprecated
     default String toRequestBodyFilename(String componentName, String jsonPath) {
@@ -240,109 +201,167 @@ public interface Generator {
     default String getPascalCaseServer(String basename, String jsonPath) {
         return getPascalCase(CodegenKeyType.SERVER, basename, jsonPath);
     }
+
+    @Deprecated
+    default String getFilesMetadataFilename() {
+        return getReportFilename(ReportFileType.FILES);
+    }
+
+    @Deprecated
+    default String getVersionMetadataFilename() {
+        return getReportFilename(ReportFileType.VERSION);
+    }
+
+    @Deprecated
+    default String getName() {
+        return getGeneratorMetadata().getName();
+    }
+
+    @Deprecated
+    default GeneratorType getTag() {
+        return getGeneratorMetadata().getType();
+    }
+
+    @Deprecated
+    default GeneratorLanguage generatorLanguage() {
+        return getGeneratorMetadata().getLanguage();
+    }
+
+    @Deprecated
+    default String generatorLanguageVersion() {
+        return getGeneratorMetadata().getLanguageVersion();
+    }
+
+    @Deprecated
+    default String getHelp() {
+        return getGeneratorMetadata().getHelpMsg();
+    }
+
+    @Deprecated
+    String toParamName(String name);
+
+    @Deprecated
+    default FeatureSet getFeatureSet() {
+        return getGeneratorMetadata().getFeatureSet();
+    }
+
+    @Deprecated
+    default HashMap<CodegenConstants.JSON_PATH_LOCATION_TYPE, HashMap<String, String>> jsonPathTemplateFiles() {
+        return getJsonPathTemplateFiles(GeneratedFileType.CODE);
+    }
+
+    @Deprecated
+    default HashMap<CodegenConstants.JSON_PATH_LOCATION_TYPE, HashMap<String, String>> jsonPathDocTemplateFiles() {
+        return getJsonPathTemplateFiles(GeneratedFileType.DOCUMENTATION);
+    }
+
+    @Deprecated
+    default HashMap<CodegenConstants.JSON_PATH_LOCATION_TYPE, HashMap<String, String>> jsonPathTestTemplateFiles() {
+        return getJsonPathTemplateFiles(GeneratedFileType.TEST);
+    }
+
+    @Deprecated
+    default String getFilepath(String jsonPath) {
+        return getFilePath(GeneratedFileType.CODE, jsonPath);
+    }
+
+    @Deprecated
+    default String getDocsFilepath(String jsonPath) {
+        return getFilePath(GeneratedFileType.DOCUMENTATION, jsonPath);
+    }
+
+    @Deprecated
+    default String getTestFilePath(String jsonPath) {
+        return getFilePath(GeneratedFileType.TEST, jsonPath);
+    }
+
+    @Deprecated
     String toModelImport(String refClass);
 
-    TreeMap<String, CodegenSchema> updateAllModels(TreeMap<String, CodegenSchema> models);
+    @Deprecated
+    String modelPackage();
 
-    void postProcess();
+    @Deprecated
+    String modelPackagePathFragment();
 
-    TreeMap<String, CodegenSchema> postProcessAllModels(TreeMap<String, CodegenSchema> schemas);
+    @Deprecated
+    default String apiPackage() {
+        return generatorSettings().apiPackage;
+    }
 
-    TreeMap<String, CodegenSchema> postProcessModels(TreeMap<String, CodegenSchema> models);
+    @Deprecated
+    default String outputFolder() {
+        return generatorSettings().outputFolder;
+    }
 
-    Map<String, Object> postProcessSupportingFileData(Map<String, Object> data);
+    @Deprecated
+    default String getOutputDir() {
+        return outputFolder();
+    }
 
-    void postProcessModelProperty(CodegenSchema model, CodegenSchema property);
+    @Deprecated
+    default String templateDir() {
+        return generatorSettings().templateDir;
+    }
 
-    // handles almost all files to be written
-    String getFilepath(String jsonPath);
+    @Deprecated
+    default String embeddedTemplateDir() {
+        return generatorSettings().templateDir;
+    }
 
-    String getImport(CodegenRefInfo<?> refInfo);
-    String getRefModuleLocation(String ref);
-    String getSubpackage(String jsonPath);
+    @Deprecated
+    default String packageName() {
+        return generatorSettings().packageName;
+    }
 
-    String getDocsFilepath(String jsonPath);
+    @Deprecated
+    default boolean isEnableMinimalUpdate() {
+        return generatorSettings().enableMinimalUpdate;
+    }
 
-    String getTestFilepath(String jsonPath);
+    @Deprecated
+    default boolean isSkipOverwrite() {
+        return generatorSettings().skipOverwrite;
+    }
 
-    boolean isSkipOverwrite();
+    @Deprecated
+    default String getIgnoreFilePathOverride() {
+        return generatorSettings().ignoreFilePathOverride;
+    }
 
-    void setSkipOverwrite(boolean skipOverwrite);
+    @Deprecated
+    default boolean isEnablePostProcessFile() {
+        return generatorSettings().enablePostProcessFile;
+    }
 
-    void setRemoveOperationIdPrefix(boolean removeOperationIdPrefix);
+    @Deprecated
+    default String getInputSpec() {
+        return generatorSettings().inputSpecLocation;
+    }
 
-    void setSkipOperationExample(boolean skipOperationExample);
+    @Deprecated
+    default boolean isRemoveEnumValuePrefix() {
+        return generatorSettings().removeEnumValuePrefix;
+    }
 
-    boolean isHideGenerationTimestamp();
+    @Deprecated
+    default Set<String> reservedWords() {
+        return getGeneratorMetadata().getReservedWords();
+    }
 
-    void setHideGenerationTimestamp(boolean hideGenerationTimestamp);
+    @Deprecated
+    default Map<String, String> instantiationTypes() {
+        return getGeneratorMetadata().getInstantiationTypes();
+    }
 
-    void setDocExtension(String docExtension);
+    @Deprecated
+    default Set<String> languageSpecificPrimitives() {
+        return getGeneratorMetadata().getLanguageSpecificPrimitives();
+    }
 
-    void setIgnoreFilePathOverride(String ignoreFileOverride);
-
-    String getIgnoreFilePathOverride();
-
-    String sanitizeName(String name);
-
-    void postProcessFile(File file, String fileType);
-
-    boolean isEnablePostProcessFile();
-
-    void setEnablePostProcessFile(boolean isEnablePostProcessFile);
-
-    /**
-     * Set the OpenAPI instance. This method needs to be called right after the instantiation of the Codegen class.
-     *
-     * @param openAPI specification being generated
-     */
-    void setOpenAPI(OpenAPI openAPI);
-
-    void setTemplateEngineName(String name);
-
-    TemplatingEngineAdapter getTemplatingEngine();
-
-    boolean isEnableMinimalUpdate();
-
-    void setEnableMinimalUpdate(boolean isEnableMinimalUpdate);
-
-    void setStrictSpecBehavior(boolean strictSpecBehavior);
-
-    FeatureSet getFeatureSet();
-
-    CodegenPatternInfo getPatternInfo(String pattern);
-
-    boolean isRemoveEnumValuePrefix();
-
-    void setRemoveEnumValuePrefix(boolean removeEnumValuePrefix);
-
-    String defaultTemplatingEngine();
-
-    GeneratorLanguage generatorLanguage();
-
-    /*
-    the version of the language that the generator implements
-    For python 3.9.0, generatorLanguageVersion would be "3.9.0"
-    */
-    String generatorLanguageVersion();
-
-    List<VendorExtension> getSupportedVendorExtensions();
-
-    String toRefClass(String ref, String sourceJsonPath, String expectedComponentType);
-
-    CodegenRequestBody fromRequestBody(RequestBody body, String sourceJsonPath);
-
-    CodegenResponse fromResponse(ApiResponse response, String sourceJsonPath);
-
-    CodegenHeader fromHeader(Header parameter, String sourceJsonPath);
-
-    CodegenParameter fromParameter(Parameter parameter, String sourceJsonPath);
-
-    Function<CodegenSchema, List<CodegenSchema>> getSchemasFn();
-
-    boolean generateSeparateServerSchemas();
-    boolean shouldGenerateFile(String jsonPath, boolean isDoc);
-
-    String getPascalCase(CodegenKeyType type, String lastJsonPathFragment, String jsonPath);
-    String getFilename(CodegenKeyType type, String lastJsonPathFragment, String jsonPath);
+    @Deprecated
+    default boolean isHideGenerationTimestamp() {
+        return generatorSettings().hideGenerationTimestamp;
+    }
+    // 93 - 45 -> 48
 }

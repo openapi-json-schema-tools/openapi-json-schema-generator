@@ -30,13 +30,17 @@ import org.openapijsonschematools.codegen.config.ClientOptInput;
 import org.openapijsonschematools.codegen.common.CodegenConstants;
 import org.openapijsonschematools.codegen.generatorrunner.DefaultGeneratorRunner;
 import org.openapijsonschematools.codegen.generatorrunner.GeneratorRunner;
+import org.openapijsonschematools.codegen.generators.DefaultGenerator;
 import org.openapijsonschematools.codegen.generators.generatorloader.GeneratorNotFoundException;
 import org.openapijsonschematools.codegen.config.CodegenConfigurator;
 import org.openapijsonschematools.codegen.config.CodegenConfiguratorUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 @SuppressWarnings({"java:S106"})
 @Command(name = "generate", description = "Generate code with the specified generator.")
 public class Generate extends AbstractCommand {
+    private final Logger LOGGER = LoggerFactory.getLogger(Generate.class);
 
     CodegenConfigurator configurator;
     GeneratorRunner generatorRunner;
@@ -61,7 +65,7 @@ public class Generate extends AbstractCommand {
     private String templateDir;
 
     @Option(name = {"-e", "--engine"}, title = "templating engine",
-            description = "templating engine: \"mustache\" (default) or \"handlebars\" (beta)")
+            description = "templating engine: \"handlebars\"(default) or \"mustache\"")
     private String templatingEngine;
 
     @Option(
@@ -165,6 +169,10 @@ public class Generate extends AbstractCommand {
             description = CodegenConstants.REMOVE_OPERATION_ID_PREFIX_DESC)
     private Boolean removeOperationIdPrefix;
 
+    @Option(name = {"--remove-enum-value-prefix"}, title = "remove prefix of the enum values",
+        description = CodegenConstants.REMOVE_ENUM_VALUE_PREFIX_DESC)
+    private Boolean removeEnumValuePrefix;
+
     @Option(name = {"--skip-operation-example"}, title = "skip examples defined in the operation",
             description = CodegenConstants.SKIP_OPERATION_EXAMPLE_DESC)
     private Boolean skipOperationExample;
@@ -187,6 +195,10 @@ public class Generate extends AbstractCommand {
         title = "Minimal update",
         description = "Only write output files that have changed.")
     private Boolean minimalUpdate;
+
+    @Option(name = {"--hide-generation-timestamp"}, title = "hides the generation timestamp in the generated files",
+        description = CodegenConstants.HIDE_GENERATION_TIMESTAMP_DESC)
+    private Boolean hideGenerationTimestamp;
 
     @Override
     public void execute() {
@@ -245,10 +257,6 @@ public class Generate extends AbstractCommand {
 
         if (isNotEmpty(templateDir)) {
             configurator.setTemplateDir(templateDir);
-        }
-
-        if (isNotEmpty(packageName)) {
-            configurator.setPackageName(packageName);
         }
 
         if (isNotEmpty(templatingEngine)) {
@@ -315,6 +323,14 @@ public class Generate extends AbstractCommand {
             configurator.setRemoveOperationIdPrefix(removeOperationIdPrefix);
         }
 
+        if (removeEnumValuePrefix != null) {
+            configurator.setRemoveEnumValuePrefix(removeEnumValuePrefix);
+        }
+
+        if (hideGenerationTimestamp != null) {
+            configurator.setHideGenerationTimestamp(hideGenerationTimestamp);
+        }
+
         if (skipOperationExample != null) {
             configurator.setSkipOperationExample(skipOperationExample);
         }
@@ -334,6 +350,11 @@ public class Generate extends AbstractCommand {
         if (globalProperties != null && !globalProperties.isEmpty()) {
             CodegenConfiguratorUtils.applyGlobalPropertiesKvpList(globalProperties, configurator);
         }
+
+        if (isNotEmpty(packageName)) {
+            configurator.setPackageName(packageName);
+        }
+
         CodegenConfiguratorUtils.applyAdditionalPropertiesKvpList(additionalProperties, configurator);
 
         try {

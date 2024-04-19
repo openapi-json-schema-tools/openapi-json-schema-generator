@@ -144,19 +144,19 @@ open class MyclientcodegenGenerator() : DefaultCodegen(), CodegenConfig {
     }
 
     /**
-     * Location to write model files.  You can use the modelPackage() as defined when the class is
+     * Location to write model files.  You can use the modelPackage as defined when the class is
      * instantiated
      */
     override fun modelFileFolder(): String {
-        return """$outputFolder/$sourceFolder/${modelPackage().replace('.', File.separatorChar)}"""
+        return """$outputFolder/$sourceFolder/${modelPackage.replace('.', File.separatorChar)}"""
     }
 
     /**
-     * Location to write api files.  You can use the apiPackage() as defined when the class is
+     * Location to write api files.  You can use the apiPackage as defined when the class is
      * instantiated
      */
     override fun apiFileFolder(): String {
-        return """$outputFolder/$sourceFolder/${apiPackage().replace('.', File.separatorChar)}"""
+        return """$outputFolder/$sourceFolder/${generatorSettings().apiPackage.replace('.', File.separatorChar)}"""
     }
 
     /**

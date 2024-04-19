@@ -60,8 +60,6 @@ Keyword Argument | Type | Description | Notes
 **arrayWithUniqueItems** | [ArrayWithUniqueItemsTupleInput](#arraywithuniqueitemstupleinput), [ArrayWithUniqueItemsTuple](#arraywithuniqueitemstuple), schemas.Unset |  | [optional]
 **string** | str, schemas.Unset |  | [optional]
 **binary** | bytes, io.FileIO, io.BufferedReader, schemas.Unset |  | [optional]
-**dateTime** | str, datetime.datetime, schemas.Unset |  | [optional] value must conform to RFC-3339 date-time
-**uuid** | str, uuid.UUID, schemas.Unset |  | [optional] value must be a uuid
 **uuidNoExample** | str, uuid.UUID, schemas.Unset |  | [optional] value must be a uuid
 **pattern_with_digits** | str, schemas.Unset | A string that is a 10 digit number. Can have leading zeros. | [optional]
 **pattern_with_digits_and_delimiter** | str, schemas.Unset | A string starting with &#x27;image_&#x27; (case insensitive) and one to three digits following i.e. Image_01. | [optional]
@@ -85,8 +83,6 @@ Property | Type | Description | Notes
 **arrayWithUniqueItems** | [ArrayWithUniqueItemsTuple](#arraywithuniqueitemstuple), schemas.Unset |  | [optional]
 **string** | str, schemas.Unset |  | [optional]
 **binary** | bytes, io.FileIO, schemas.Unset |  | [optional]
-**dateTime** | str, schemas.Unset |  | [optional] value must conform to RFC-3339 date-time
-**uuid** | str, schemas.Unset |  | [optional] value must be a uuid
 **uuidNoExample** | str, schemas.Unset |  | [optional] value must be a uuid
 **pattern_with_digits** | str, schemas.Unset | A string that is a 10 digit number. Can have leading zeros. | [optional]
 **pattern_with_digits_and_delimiter** | str, schemas.Unset | A string starting with &#x27;image_&#x27; (case insensitive) and one to three digits following i.e. Image_01. | [optional]
@@ -96,7 +92,7 @@ Property | Type | Description | Notes
 Method | Input Type | Return Type | Notes
 ------ | ---------- | ----------- | ------
 from_dict_ | [FormatTestDictInput](#formattestdictinput), [FormatTestDict](#formattestdict) | [FormatTestDict](#formattestdict) | a constructor
-&lowbar;&lowbar;getitem&lowbar;&lowbar; | str | schemas.immutabledict, str, float, int, bool, None, tuple, bytes, io.FileIO | This model has invalid python names so this method is used under the hood when you access instance["float"], 
+&lowbar;&lowbar;getitem&lowbar;&lowbar; | str | schemas.immutabledict, str, float, int, bool, None, tuple, bytes, io.FileIO | This model has invalid python names so this method is used under the hood when you access instance["float"], instance["dateTime"], instance["uuid"], 
 get_additional_property_ | str | schemas.immutabledict, tuple, float, int, str, bool, None, bytes, schemas.FileIO, schemas.Unset | provides type safety for additional properties
 
 # ArrayWithUniqueItems

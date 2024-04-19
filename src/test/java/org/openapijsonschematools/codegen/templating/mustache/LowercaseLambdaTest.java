@@ -11,6 +11,7 @@ import java.util.Map;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 import org.openapijsonschematools.codegen.generators.Generator;
+import org.openapijsonschematools.codegen.generators.generatormetadata.GeneratorMetadata;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
@@ -18,6 +19,9 @@ public class LowercaseLambdaTest extends LambdaTest {
 
     @Mock
     Generator generator;
+
+    @Mock
+    GeneratorMetadata metadata;
 
     @BeforeMethod
     public void setup() {
@@ -39,7 +43,8 @@ public class LowercaseLambdaTest extends LambdaTest {
         Map<String, Object> ctx = context("lowercase", new LowercaseLambda().generator(generator));
 
         when(generator.sanitizeName(anyString())).then(returnsFirstArg());
-        when(generator.reservedWords()).thenReturn(new HashSet<String>(Arrays.asList("reserved")));
+        when(metadata.getReservedWords()).thenReturn(new HashSet<String>(Arrays.asList("reserved")));
+        when(generator.getGeneratorMetadata()).thenReturn(metadata);
         when(generator.escapeReservedWord("reserved")).thenReturn("escaped-reserved");
 
         // When & Then

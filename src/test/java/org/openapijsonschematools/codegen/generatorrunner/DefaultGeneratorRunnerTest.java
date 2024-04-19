@@ -13,6 +13,8 @@ import io.swagger.v3.oas.models.responses.ApiResponse;
 import io.swagger.v3.oas.models.responses.ApiResponses;
 import org.openapijsonschematools.codegen.TestUtils;
 import org.openapijsonschematools.codegen.config.ClientOptInput;
+import org.openapijsonschematools.codegen.config.GeneratorSettings;
+import org.openapijsonschematools.codegen.config.WorkflowSettings;
 import org.openapijsonschematools.codegen.generators.DefaultGenerator;
 import org.openapijsonschematools.codegen.generators.Generator;
 import org.openapijsonschematools.codegen.common.CodegenConstants;
@@ -279,8 +281,8 @@ public class DefaultGeneratorRunnerTest {
         openAPI.getPaths().addPathItem("path1/", new PathItem().get(new Operation().operationId("op1").responses(new ApiResponses().addApiResponse("201", new ApiResponse().description("OK")))));
         openAPI.getPaths().addPathItem("path2/", new PathItem().get(new Operation().operationId("op2").addParametersItem(new QueryParameter().name("p1").schema(new StringSchema())).responses(new ApiResponses().addApiResponse("201", new ApiResponse().description("OK")))));
 
-        Generator config = new DefaultGenerator();
-        config.setStrictSpecBehavior(false);
+        WorkflowSettings ws = WorkflowSettings.newBuilder().withStrictSpecBehavior(false).build();
+        Generator config = new DefaultGenerator(null, ws);
         ClientOptInput opts = new ClientOptInput(
                 openAPI,
                 config,
@@ -309,7 +311,7 @@ public class DefaultGeneratorRunnerTest {
         openAPI.getPaths().addPathItem("/path3", new PathItem().addParametersItem(new QueryParameter().name("p1").schema(new StringSchema())).get(new Operation().operationId("op3").addParametersItem(new QueryParameter().name("p2").schema(new IntegerSchema())).responses(new ApiResponses().addApiResponse("201", new ApiResponse().description("OK")))));
         openAPI.getPaths().addPathItem("/path4", new PathItem().addParametersItem(new QueryParameter().name("p1").schema(new StringSchema())).get(new Operation().operationId("op4").responses(new ApiResponses().addApiResponse("201", new ApiResponse().description("OK")))));
 
-        Generator config = new DefaultGenerator();
+        Generator config = new DefaultGenerator(null, null);
         ClientOptInput opts = new ClientOptInput(
                 openAPI,
                 config,
@@ -335,9 +337,9 @@ public class DefaultGeneratorRunnerTest {
     @Test
     public void testRefModelValidationProperties() {
         OpenAPI openAPI = TestUtils.parseFlattenSpec("src/test/resources/3_0/refAliasedPrimitiveWithValidation.yml");
-        DefaultGenerator config = new DefaultGenerator();
+        WorkflowSettings ws = WorkflowSettings.newBuilder().withStrictSpecBehavior(false).build();
+        DefaultGenerator config = new DefaultGenerator(null, ws);
         config.setModelPackage("components.schema");
-        config.setStrictSpecBehavior(false);
         ClientOptInput opts = new ClientOptInput(
                 openAPI,
                 config,
@@ -598,8 +600,8 @@ public class DefaultGeneratorRunnerTest {
     @Test
     public void testHandlesTrailingSlashInServers() {
         OpenAPI openAPI = TestUtils.parseFlattenSpec("src/test/resources/3_0/issue_7533.yaml");
-        DefaultGenerator config = new DefaultGenerator();
-        config.setStrictSpecBehavior(false);
+        WorkflowSettings ws = WorkflowSettings.newBuilder().withStrictSpecBehavior(false).build();
+        DefaultGenerator config = new DefaultGenerator(null, ws);
         ClientOptInput opts = new ClientOptInput(
                 openAPI,
                 config,
@@ -622,8 +624,8 @@ public class DefaultGeneratorRunnerTest {
     @Test
     public void testHandlesRelativeUrlsInServers() {
         OpenAPI openAPI = TestUtils.parseFlattenSpec("src/test/resources/3_0/issue_10056.yaml");
-        DefaultGenerator config = new DefaultGenerator();
-        config.setStrictSpecBehavior(true);
+        WorkflowSettings ws = WorkflowSettings.newBuilder().withStrictSpecBehavior(true).build();
+        DefaultGenerator config = new DefaultGenerator(null, ws);
         ClientOptInput opts = new ClientOptInput(
                 openAPI,
                 config,
@@ -704,8 +706,8 @@ public class DefaultGeneratorRunnerTest {
     @Test
     public void testRecursionBug4650() {
         OpenAPI openAPI = TestUtils.parseFlattenSpec("src/test/resources/bugs/recursion-bug-4650.yaml");
-        DefaultGenerator config = new DefaultGenerator();
-        config.setStrictSpecBehavior(false);
+        WorkflowSettings ws = WorkflowSettings.newBuilder().withStrictSpecBehavior(false).build();
+        DefaultGenerator config = new DefaultGenerator(null, ws);
         ClientOptInput opts = new ClientOptInput(
                 openAPI,
                 config,

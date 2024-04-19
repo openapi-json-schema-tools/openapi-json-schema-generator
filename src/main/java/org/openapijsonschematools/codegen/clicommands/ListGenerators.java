@@ -84,8 +84,8 @@ public class ListGenerators extends AbstractCommand {
 
     private void appendForType(StringBuilder sb, GeneratorType type, String typeName, List<Generator> generators) {
         List<Generator> list = generators.stream()
-                .filter(g -> Objects.equal(type, g.getTag()))
-                .sorted(Comparator.comparing(Generator::getName))
+                .filter(g -> Objects.equal(type, g.getGeneratorMetadata().getType()))
+                .sorted()
                 .collect(Collectors.toList());
 
         if(!list.isEmpty()) {

@@ -39,13 +39,16 @@ public class WorkflowSettings {
     public static final boolean DEFAULT_VERBOSE = false;
     public static final boolean DEFAULT_SKIP_OVERWRITE = false;
     public static final boolean DEFAULT_REMOVE_OPERATION_ID_PREFIX = false;
+    public static final boolean DEFAULT_REMOVE_ENUM_VALUE_PREFIX = false;
     public static final boolean DEFAULT_SKIP_OPERATION_EXAMPLE = false;
     public static final boolean DEFAULT_LOG_TO_STDERR = false;
     public static final boolean DEFAULT_VALIDATE_SPEC = true;
     public static final boolean DEFAULT_ENABLE_POST_PROCESS_FILE = false;
     public static final boolean DEFAULT_ENABLE_MINIMAL_UPDATE = false;
     public static final boolean DEFAULT_STRICT_SPEC_BEHAVIOR = true;
-    public static final String DEFAULT_TEMPLATING_ENGINE_NAME = null; // this is set by the generator
+    public static final String DEFAULT_TEMPLATING_ENGINE_NAME = "handlebars";
+
+    public static final boolean DEFAULT_HIDE_GENERATION_TIMESTAMP = true;
     public static final Map<String, String> DEFAULT_GLOBAL_PROPERTIES = Collections.unmodifiableMap(new HashMap<>());
 
     private String inputSpec;
@@ -63,6 +66,8 @@ public class WorkflowSettings {
     private String templatingEngineName = DEFAULT_TEMPLATING_ENGINE_NAME;
     private String ignoreFileOverride;
     private Map<String, ?> globalProperties = DEFAULT_GLOBAL_PROPERTIES;
+    private boolean removeEnumValuePrefix = DEFAULT_REMOVE_ENUM_VALUE_PREFIX;
+    private Boolean hideGenerationTimestamp = DEFAULT_HIDE_GENERATION_TIMESTAMP;
 
     private WorkflowSettings(Builder builder) {
         this.inputSpec = builder.inputSpec;
@@ -80,6 +85,8 @@ public class WorkflowSettings {
         this.templatingEngineName = builder.templatingEngineName;
         this.ignoreFileOverride = builder.ignoreFileOverride;
         this.globalProperties = Collections.unmodifiableMap(builder.globalProperties);
+        this.removeEnumValuePrefix = builder.removeEnumValuePrefix;
+        this.hideGenerationTimestamp = builder.hideGenerationTimestamp;
     }
 
     /**
@@ -112,6 +119,8 @@ public class WorkflowSettings {
 
         // this, and any other collections, must be mutable in the builder.
         builder.globalProperties = new HashMap<>(copy.getGlobalProperties());
+        builder.removeEnumValuePrefix = copy.isRemoveEnumValuePrefix();
+        builder.hideGenerationTimestamp = copy.isHideGenerationTimestamp();
 
         // force builder "with" methods to invoke side effects
         builder.withTemplateDir(copy.getTemplateDir());
@@ -166,6 +175,11 @@ public class WorkflowSettings {
         return removeOperationIdPrefix;
     }
 
+    public boolean isRemoveEnumValuePrefix() {
+        return removeEnumValuePrefix;
+    }
+
+    public boolean isHideGenerationTimestamp() { return hideGenerationTimestamp; }
     /**
      * Indicates whether or not to skip examples defined in the operation.
      *
@@ -289,6 +303,8 @@ public class WorkflowSettings {
         private Boolean verbose = DEFAULT_VERBOSE;
         private Boolean skipOverwrite = DEFAULT_SKIP_OVERWRITE;
         private Boolean removeOperationIdPrefix = DEFAULT_REMOVE_OPERATION_ID_PREFIX;
+
+        private Boolean removeEnumValuePrefix = DEFAULT_REMOVE_ENUM_VALUE_PREFIX;
         private Boolean skipOperationExample = DEFAULT_SKIP_OPERATION_EXAMPLE;
         private Boolean logToStderr = DEFAULT_LOG_TO_STDERR;
         private Boolean validateSpec = DEFAULT_VALIDATE_SPEC;
@@ -298,6 +314,7 @@ public class WorkflowSettings {
         private String templateDir;
         private String templatingEngineName = DEFAULT_TEMPLATING_ENGINE_NAME;
         private String ignoreFileOverride;
+        private boolean hideGenerationTimestamp = DEFAULT_HIDE_GENERATION_TIMESTAMP;
 
         // NOTE: All collections must be mutable in the builder, and copied to a new immutable collection in .build()
         private Map<String, String> globalProperties = new HashMap<>();
@@ -364,6 +381,11 @@ public class WorkflowSettings {
          */
         public Builder withRemoveOperationIdPrefix(Boolean removeOperationIdPrefix) {
             this.removeOperationIdPrefix = removeOperationIdPrefix != null ? removeOperationIdPrefix : Boolean.valueOf(DEFAULT_REMOVE_OPERATION_ID_PREFIX);
+            return this;
+        }
+
+        public Builder withRemoveEnumValuePrefix(Boolean removeEnumValuePrefix) {
+            this.removeEnumValuePrefix = removeEnumValuePrefix != null ? removeEnumValuePrefix : Boolean.valueOf(DEFAULT_REMOVE_ENUM_VALUE_PREFIX);
             return this;
         }
 
@@ -498,6 +520,11 @@ public class WorkflowSettings {
          */
         public Builder withIgnoreFileOverride(String ignoreFileOverride) {
             this.ignoreFileOverride = ignoreFileOverride;
+            return this;
+        }
+
+        public Builder withHideGenerationTimestamp(boolean hideGenerationTimestamp) {
+            this.hideGenerationTimestamp = hideGenerationTimestamp;
             return this;
         }
 

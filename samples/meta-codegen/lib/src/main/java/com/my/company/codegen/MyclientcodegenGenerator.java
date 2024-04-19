@@ -13,16 +13,6 @@ public class MyclientcodegenGenerator extends DefaultCodegen implements CodegenC
   protected String apiVersion = "1.0.0";
 
   /**
-   * Configures the type of generator.
-   *
-   * @return  the CodegenType for this generator
-   * @see     org.openapijsonschematools.codegen.CodegenType
-   */
-  public CodegenType getTag() {
-    return CodegenType.DOCUMENTATION;
-  }
-
-  /**
    * Configures a friendly name for the generator.  This will be used by the generator
    * to select the library with the -g flag.
    *
@@ -155,20 +145,20 @@ public class MyclientcodegenGenerator extends DefaultCodegen implements CodegenC
   }
 
   /**
-   * Location to write model files.  You can use the modelPackage() as defined when the class is
+   * Location to write model files.  You can use the modelPackage as defined when the class is
    * instantiated
    */
   public String modelFileFolder() {
-    return outputFolder + "/" + sourceFolder + "/" + modelPackage().replace('.', File.separatorChar);
+    return outputFolder + "/" + sourceFolder + "/" + modelPackage.replace('.', File.separatorChar);
   }
 
   /**
-   * Location to write api files.  You can use the apiPackage() as defined when the class is
+   * Location to write api files.  You can use the apiPackage as defined when the class is
    * instantiated
    */
   @Override
   public String apiFileFolder() {
-    return outputFolder + "/" + sourceFolder + "/" + apiPackage().replace('.', File.separatorChar);
+    return outputFolder + "/" + sourceFolder + "/" + generatorSettings().apiPackage.replace('.', File.separatorChar);
   }
 
   /**

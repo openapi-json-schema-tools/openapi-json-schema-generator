@@ -6,8 +6,11 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonUnwrapped;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import org.apache.commons.lang3.StringUtils;
+import org.openapijsonschematools.codegen.clicommands.Generate;
 import org.openapijsonschematools.codegen.templating.TemplateDefinition;
 import org.openapijsonschematools.codegen.templating.TemplateFileType;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.lang.reflect.Field;
 import java.util.*;
@@ -20,6 +23,7 @@ import java.util.stream.Collectors;
  */
 @SuppressWarnings({"unused", "WeakerAccess"})
 public class DynamicSettings {
+    private final Logger LOGGER = LoggerFactory.getLogger(DynamicSettings.class);
     @JsonAnySetter
     private Map<String, Object> dynamicProperties = new HashMap<>();
 
@@ -70,7 +74,6 @@ public class DynamicSettings {
         for (Map.Entry<String, Object> entry : dynamicProperties.entrySet()) {
             builder.withAdditionalProperty(entry.getKey(), entry.getValue());
         }
-
         return builder.build();
     }
 
@@ -81,8 +84,8 @@ public class DynamicSettings {
      */
     public WorkflowSettings getWorkflowSettings() {
         excludeSettingsFromDynamicProperties();
-        return WorkflowSettings.newBuilder(workflowSettings)
-                .build();
+        WorkflowSettings.Builder builder = WorkflowSettings.newBuilder(workflowSettings);
+        return builder.build();
     }
 
     /**

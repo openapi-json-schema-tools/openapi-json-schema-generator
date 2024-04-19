@@ -12,7 +12,7 @@ title: Documentation for the python generator
 | generator language | Python | |
 | generator language version | >=3.8 | |
 | generator default templating engine | handlebars | |
-| helpTxt | Generates a Python client library<br /><br />Features in this generator:<br />- type hints on endpoints and model creation<br />- model parameter names use the spec defined keys and cases<br />- robust composition (oneOf/anyOf/allOf/not) where payload data is stored in one instance only<br />- endpoint parameter names use the spec defined keys and cases<br />- inline schemas are supported at any location including composition<br />- multiple content types supported in request body and response bodies<br />- run time type checking + json schema validation<br />- json schema keyword validation may be selectively disabled with SchemaConfiguration<br />- enums of type string/integer/boolean typed using typing.Literal<br />- mypy static type checking run on generated sample<br />- Sending/receiving decimals as strings supported with type:string format: number -> DecimalSchema<br />- Sending/receiving uuids as strings supported with type:string format: uuid -> UUIDSchema<br />- quicker load time for python modules (a single endpoint can be imported and used without loading others)<br />- composed schemas with type constraints supported (type:object + oneOf/anyOf/allOf)<br />- schemas are not coerced/cast. For example string + date are both stored as string, and there is a date accessor | |
+| helpMsg | Generates a Python client library<br /><br />Features in this generator:<br />- type hints on endpoints and model creation<br />- model parameter names use the spec defined keys and cases<br />- robust composition (oneOf/anyOf/allOf/not) where payload data is stored in one instance only<br />- endpoint parameter names use the spec defined keys and cases<br />- inline schemas are supported at any location including composition<br />- multiple content types supported in request body and response bodies<br />- run time type checking + json schema validation<br />- json schema keyword validation may be selectively disabled with SchemaConfiguration<br />- enums of type string/integer/boolean typed using typing.Literal<br />- mypy static type checking run on generated sample<br />- Sending/receiving decimals as strings supported with type:string format: number -> DecimalSchema<br />- Sending/receiving uuids as strings supported with type:string format: uuid -> UUIDSchema<br />- quicker load time for python modules (a single endpoint can be imported and used without loading others)<br />- composed schemas with type constraints supported (type:object + oneOf/anyOf/allOf)<br />- schemas are not coerced/cast. For example string + date are both stored as string, and there is a date accessor | |
 
 ## CONFIG OPTIONS
 These options may be applied as additional-properties (cli) or configOptions (plugins). Refer to [configuration docs](https://openapi-generator.tech/docs/configuration) for more details.
@@ -22,12 +22,10 @@ These options may be applied as additional-properties (cli) or configOptions (pl
 |generateSourceCodeOnly|Specifies that only a library source code is to be generated.| |false|
 |hideGenerationTimestamp|Hides the generation timestamp when files are generated.| |true|
 |nonCompliantUseDiscriminatorIfCompositionFails|When true, If the payload fails to validate against composed schemas (allOf/anyOf/oneOf/not) and a discriminator is present, then ignore the composition validation errors and attempt to use the discriminator to validate the payload.<br />Note: setting this to true makes the generated client not comply with json schema because it ignores composition validation errors. Please consider making your schemas more restrictive rather than setting this to true. You can do that by:<ul><li>defining the propertyName as an enum with only one value in the schemas that are in your discriminator map</li><li>setting additionalProperties: false in your schemas</li></ul>|<dl><dt>**true**</dt><dd>If composition fails and a discriminator exists, the composition errors will be ignored and validation will be attempted with the discriminator</dd><dt>**false**</dt><dd>Composition validation must succeed. Discriminator validation must succeed.</dd></dl>|false|
-|packageName|python package name (convention: snake_case).| |openapi_client|
 |packageUrl|python package URL.| |null|
 |packageVersion|python package version.| |1.0.0|
 |projectName|python project name in setup.py (e.g. petstore-api).| |null|
 |recursionLimit|Set the recursion limit. If not set, use the system default value.| |null|
-|templatingEngine|template engine|<dl><dt>**handlebars**</dt><dd>handlebars templating engine</dd></dl>|handlebars|
 |useNose|use the nose test framework| |false|
 
 ## SUPPORTED VENDOR EXTENSIONS
@@ -54,17 +52,16 @@ These options may be applied as additional-properties (cli) or configOptions (pl
 ## LANGUAGE PRIMITIVES
 
 <ul class="column-ul">
+<li>None</li>
 <li>bool</li>
 <li>bytes</li>
 <li>date</li>
 <li>datetime</li>
 <li>dict</li>
 <li>file</li>
-<li>file_type</li>
 <li>float</li>
 <li>int</li>
 <li>list</li>
-<li>none_type</li>
 <li>object</li>
 <li>str</li>
 </ul>
@@ -72,6 +69,7 @@ These options may be applied as additional-properties (cli) or configOptions (pl
 ## RESERVED WORDS
 
 <ul class="column-ul">
+<li>@property</li>
 <li>and</li>
 <li>as</li>
 <li>assert</li>
@@ -81,6 +79,9 @@ These options may be applied as additional-properties (cli) or configOptions (pl
 <li>break</li>
 <li>class</li>
 <li>continue</li>
+<li>cookie_params</li>
+<li>datetime</li>
+<li>decimal</li>
 <li>def</li>
 <li>del</li>
 <li>dict</li>
@@ -93,12 +94,15 @@ These options may be applied as additional-properties (cli) or configOptions (pl
 <li>float</li>
 <li>for</li>
 <li>from</li>
+<li>functools</li>
 <li>global</li>
+<li>header_params</li>
 <li>if</li>
 <li>immutabledict</li>
 <li>import</li>
 <li>in</li>
 <li>int</li>
+<li>io</li>
 <li>is</li>
 <li>lambda</li>
 <li>list</li>
@@ -107,15 +111,23 @@ These options may be applied as additional-properties (cli) or configOptions (pl
 <li>not</li>
 <li>or</li>
 <li>pass</li>
+<li>path_params</li>
 <li>print</li>
 <li>property</li>
+<li>query_params</li>
 <li>raise</li>
+<li>re</li>
+<li>resource_path</li>
 <li>return</li>
+<li>schemas</li>
 <li>self</li>
 <li>str</li>
 <li>true</li>
 <li>try</li>
 <li>tuple</li>
+<li>typing</li>
+<li>typing_extensions</li>
+<li>uuid</li>
 <li>while</li>
 <li>with</li>
 <li>yield</li>

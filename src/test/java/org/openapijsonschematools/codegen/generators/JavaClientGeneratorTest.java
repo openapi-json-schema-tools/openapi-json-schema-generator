@@ -33,7 +33,7 @@ import java.util.Map;
 
 public class JavaClientGeneratorTest {
 
-    private final JavaClientGenerator generator = new JavaClientGenerator();
+    private final JavaClientGenerator generator = new JavaClientGenerator(null, null);
 
     @Test
     void inlineEnum() {
@@ -135,7 +135,7 @@ public class JavaClientGeneratorTest {
     @Test
     public void testEnumNames() {
         OpenAPI openAPI = TestUtils.parseFlattenSpec("src/test/resources/3_0/70_schema_enum_names.yaml");
-        var javaGenerator = new JavaClientGenerator();
+        var javaGenerator = new JavaClientGenerator(null, null);
         javaGenerator.setOpenAPI(openAPI);
 
         String modelName = "StringEnum";

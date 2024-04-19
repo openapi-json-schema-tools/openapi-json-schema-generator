@@ -10,6 +10,8 @@ if [ ! -f "$executable" ]; then
   (cd "${root}" && mvn -B --no-snapshot-updates clean package -DskipTests=true -Dmaven.javadoc.skip=true -Djacoco.skip=true)
 fi
 
+# -ea -> enable assertions
+# -server -> server version of the VM which has more complex optimizations, + is tuned to maximize performance
 export JAVA_OPTS="${JAVA_OPTS} -ea -server -Duser.timezone=UTC"
 export BATCH_OPTS="${BATCH_OPTS:-}"
 
@@ -53,10 +55,10 @@ if [[ ${#files[@]} -eq 1 && "${files[0]}" != *'*'* ]]; then
     java ${JAVA_OPTS} -jar "$executable" generate -c ${files[0]} ${args[@]}
 else
     echo "Please press CTRL+C to stop or the script will continue in 5 seconds."
-    sleep 5
     if [ ${#files[@]} -eq 0 ]; then
       files=("${root}"/bin/generate_samples_configs/*.yaml)
     fi
+    sleep 5
 
     # shellcheck disable=SC2086
     # shellcheck disable=SC2068

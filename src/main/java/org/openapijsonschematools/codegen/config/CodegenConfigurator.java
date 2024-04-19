@@ -68,6 +68,7 @@ public class CodegenConfigurator {
     private String auth;
 
     private List<TemplateDefinition> userDefinedTemplates = new ArrayList<>();
+    private boolean fromFile = false;
 
     public CodegenConfigurator() {
 
@@ -104,6 +105,7 @@ public class CodegenConfigurator {
                 configurator.userDefinedTemplates.addAll(userDefinedTemplateSettings);
             }
 
+            configurator.fromFile = true;
             return configurator;
         }
         return null;
@@ -319,6 +321,16 @@ public class CodegenConfigurator {
         return this;
     }
 
+    public CodegenConfigurator setRemoveEnumValuePrefix(boolean removeEnumValuePrefix) {
+        workflowSettingsBuilder.withRemoveEnumValuePrefix(removeEnumValuePrefix);
+        return this;
+    }
+
+    public CodegenConfigurator setHideGenerationTimestamp(boolean hideGenerationTimestamp) {
+        workflowSettingsBuilder.withHideGenerationTimestamp(hideGenerationTimestamp);
+        return this;
+    }
+
     public CodegenConfigurator setSkipOperationExample(boolean skipOperationExample) {
         workflowSettingsBuilder.withSkipOperationExample(skipOperationExample);
         return this;
@@ -366,13 +378,44 @@ public class CodegenConfigurator {
         Validate.notEmpty(generatorName, "generator name must be specified");
         Validate.notEmpty(inputSpec, "input spec must be specified");
 
+        if (generatorSettingsBuilder.additionalProperties() != null && generatorSettingsBuilder.additionalProperties().containsKey("packageName")) {
+            // if packageName is passed as an additional property warn them
+            if (fromFile) {
+                LOGGER.warn("Deprecated additionalProperties arg: packageName should be passed in at the root level of the config file from now on");
+            } else {
+                LOGGER.warn("Deprecated --additional-properties command line arg: packageName should be passed in using --package-name from now on");
+            }
+            String packageName = (String) generatorSettingsBuilder.additionalProperties().get("packageName");
+            generatorSettingsBuilder.withPackageName(packageName);
+        }
+        if (generatorSettingsBuilder.additionalProperties() != null && generatorSettingsBuilder.additionalProperties().containsKey("artifactId")) {
+            // if artifactId is passed as an additional property warn them
+            if (fromFile) {
+                LOGGER.warn("Deprecated additionalProperties arg: artifactId should be passed in at the root level of the config file from now on");
+            } else {
+                LOGGER.warn("Deprecated --additional-properties command line arg: artifactId should be passed in using --artifact-id from now on");
+            }
+            String artifactId = (String) generatorSettingsBuilder.additionalProperties().get("artifactId");
+            generatorSettingsBuilder.withArtifactId(artifactId);
+        }
+        if (generatorSettingsBuilder.additionalProperties() != null && generatorSettingsBuilder.additionalProperties().containsKey("hideGenerationTimestamp")) {
+            // if hideGenerationTimestamp is passed as an additional property warn them
+            if (fromFile) {
+                LOGGER.warn("Deprecated additionalProperties arg: hideGenerationTimestamp should be passed in at the root level of the config file from now on");
+            } else {
+                LOGGER.warn("Deprecated --additional-properties command line arg: hideGenerationTimestamp should be passed in using --hide-generation-timestamp from now on");
+            }
+            Object value = generatorSettingsBuilder.additionalProperties().get("hideGenerationTimestamp");
+            Boolean hideGenerationTimestamp = null;
+            if (value instanceof String) {
+                hideGenerationTimestamp = Boolean.valueOf((String) value);
+            } else if (value instanceof Boolean) {
+                hideGenerationTimestamp = (Boolean) value;
+            }
+            workflowSettingsBuilder.withHideGenerationTimestamp(hideGenerationTimestamp);
+        }
         GeneratorSettings generatorSettings = generatorSettingsBuilder.build();
-        Generator config = GeneratorLoader.forName(generatorSettings.getGeneratorName());
-        if (isEmpty(templatingEngineName)) {
-            // if templatingEngineName is empty check the config for a default
-            String defaultTemplatingEngine = config.defaultTemplatingEngine();
-            workflowSettingsBuilder.withTemplatingEngineName(defaultTemplatingEngine);
-        } else {
+        if (!isEmpty(templatingEngineName)) {
             workflowSettingsBuilder.withTemplatingEngineName(templatingEngineName);
         }
 
@@ -463,6 +506,10 @@ public class CodegenConfigurator {
         return new Context<>(specification, generatorSettings, workflowSettings);
     }
 
+    public Map<String, Object> getAdditionalProperties() {
+        return additionalProperties;
+    }
+
     public ClientOptInput toClientOptInput() {
         Context<?> context = toContext();
         WorkflowSettings workflowSettings = context.getWorkflowSettings();
@@ -470,29 +517,7 @@ public class CodegenConfigurator {
 
         // We load the config via generatorSettings.getGeneratorName() because this is guaranteed to be set
         // regardless of entrypoint (CLI sets properties on this type, config deserialization sets on generatorSettings).
-        Generator config = GeneratorLoader.forName(generatorSettings.getGeneratorName());
-
-        // TODO: Work toward Generator having a "WorkflowSettings" property, or better a "Workflow" object which itself has a "WorkflowSettings" property.
-        config.setInputSpec(workflowSettings.getInputSpec());
-        config.setOutputDir(workflowSettings.getOutputDir());
-        config.setSkipOverwrite(workflowSettings.isSkipOverwrite());
-        config.setIgnoreFilePathOverride(workflowSettings.getIgnoreFileOverride());
-        config.setRemoveOperationIdPrefix(workflowSettings.isRemoveOperationIdPrefix());
-        config.setSkipOperationExample(workflowSettings.isSkipOperationExample());
-        config.setEnablePostProcessFile(workflowSettings.isEnablePostProcessFile());
-        config.setEnableMinimalUpdate(workflowSettings.isEnableMinimalUpdate());
-        config.setStrictSpecBehavior(workflowSettings.isStrictSpecBehavior());
-        config.setTemplateEngineName(workflowSettings.getTemplatingEngineName());
-        config.additionalProperties().put(CodegenConstants.TEMPLATING_ENGINE, workflowSettings.getTemplatingEngineName());
-
-        // TODO: Work toward Generator having a "GeneratorSettings" property.
-        config.additionalProperties().putAll(generatorSettings.getAdditionalProperties());
-
-        // any other additional properties?
-        String templateDir = workflowSettings.getTemplateDir();
-        if (templateDir != null) {
-            config.additionalProperties().put(CodegenConstants.TEMPLATE_DIR, workflowSettings.getTemplateDir());
-        }
+        Generator config = GeneratorLoader.getGenerator(generatorSettings.getGeneratorName(), generatorSettings, workflowSettings);
 
         return new ClientOptInput(
                 (OpenAPI)context.getSpecDocument(),
