@@ -383,6 +383,10 @@ public final class GeneratorSettings implements Serializable {
         private String releaseNote;
         private String httpUserAgent;
 
+        public Map<String, Object> additionalProperties() {
+            return additionalProperties;
+        }
+
         /**
          * Instantiates a new Builder.
          */

@@ -74,14 +74,6 @@ public class DynamicSettings {
         for (Map.Entry<String, Object> entry : dynamicProperties.entrySet()) {
             builder.withAdditionalProperty(entry.getKey(), entry.getValue());
         }
-        if (generatorSettings.getArtifactId() == null && generatorSettings.getAdditionalProperties().containsKey("artifactId")) {
-            LOGGER.warn("Deprecated additionalProperties arg: artifactId should be passed in at the root level of the config file from now on");
-            builder.withArtifactId((String) generatorSettings.getAdditionalProperties().get("artifactId"));
-        }
-        if (generatorSettings.getPackageName() == null && generatorSettings.getAdditionalProperties().containsKey("packageName")) {
-            LOGGER.warn("Deprecated additionalProperties arg: packageName should be passed in at the root level of the config file from now on");
-            builder.withPackageName((String) generatorSettings.getAdditionalProperties().get("packageName"));
-        }
         return builder.build();
     }
 
@@ -93,11 +85,6 @@ public class DynamicSettings {
     public WorkflowSettings getWorkflowSettings() {
         excludeSettingsFromDynamicProperties();
         WorkflowSettings.Builder builder = WorkflowSettings.newBuilder(workflowSettings);
-        if (generatorSettings.getAdditionalProperties().containsKey("hideGenerationTimestamp")) {
-            LOGGER.warn("Deprecated additionalProperties arg: hideGenerationTimestamp should be passed in at the root level of the config file from now on");
-            Boolean hideGenerationTimestamp = Boolean.valueOf((String) generatorSettings.getAdditionalProperties().get("hideGenerationTimestamp"));
-            builder.withHideGenerationTimestamp(hideGenerationTimestamp);
-        }
         return builder.build();
     }
 

@@ -68,6 +68,7 @@ public class CodegenConfigurator {
     private String auth;
 
     private List<TemplateDefinition> userDefinedTemplates = new ArrayList<>();
+    private boolean fromFile = false;
 
     public CodegenConfigurator() {
 
@@ -104,6 +105,7 @@ public class CodegenConfigurator {
                 configurator.userDefinedTemplates.addAll(userDefinedTemplateSettings);
             }
 
+            configurator.fromFile = true;
             return configurator;
         }
         return null;
@@ -376,6 +378,36 @@ public class CodegenConfigurator {
         Validate.notEmpty(generatorName, "generator name must be specified");
         Validate.notEmpty(inputSpec, "input spec must be specified");
 
+        if (generatorSettingsBuilder.additionalProperties() != null && generatorSettingsBuilder.additionalProperties().containsKey("packageName")) {
+            // if packageName is passed as an additional property warn them
+            if (fromFile) {
+                LOGGER.warn("Deprecated additionalProperties arg: packageName should be passed in at the root level of the config file from now on");
+            } else {
+                LOGGER.warn("Deprecated --additional-properties command line arg: packageName should be passed in using --package-name from now on");
+            }
+            String packageName = (String) generatorSettingsBuilder.additionalProperties().get("packageName");
+            generatorSettingsBuilder.withPackageName(packageName);
+        }
+        if (generatorSettingsBuilder.additionalProperties() != null && generatorSettingsBuilder.additionalProperties().containsKey("artifactId")) {
+            // if artifactId is passed as an additional property warn them
+            if (fromFile) {
+                LOGGER.warn("Deprecated additionalProperties arg: artifactId should be passed in at the root level of the config file from now on");
+            } else {
+                LOGGER.warn("Deprecated --additional-properties command line arg: artifactId should be passed in using --artifact-id from now on");
+            }
+            String artifactId = (String) generatorSettingsBuilder.additionalProperties().get("artifactId");
+            generatorSettingsBuilder.withArtifactId(artifactId);
+        }
+        if (generatorSettingsBuilder.additionalProperties() != null && generatorSettingsBuilder.additionalProperties().containsKey("hideGenerationTimestamp")) {
+            // if hideGenerationTimestamp is passed as an additional property warn them
+            if (fromFile) {
+                LOGGER.warn("Deprecated additionalProperties arg: hideGenerationTimestamp should be passed in at the root level of the config file from now on");
+            } else {
+                LOGGER.warn("Deprecated --additional-properties command line arg: hideGenerationTimestamp should be passed in using --hide-generation-timestamp from now on");
+            }
+            Boolean hideGenerationTimestamp = (Boolean) generatorSettingsBuilder.additionalProperties().get("hideGenerationTimestamp");
+            workflowSettingsBuilder.withHideGenerationTimestamp(hideGenerationTimestamp);
+        }
         GeneratorSettings generatorSettings = generatorSettingsBuilder.build();
         if (!isEmpty(templatingEngineName)) {
             workflowSettingsBuilder.withTemplatingEngineName(templatingEngineName);
