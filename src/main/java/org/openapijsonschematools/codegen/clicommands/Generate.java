@@ -177,6 +177,10 @@ public class Generate extends AbstractCommand {
             description = CodegenConstants.SKIP_OPERATION_EXAMPLE_DESC)
     private Boolean skipOperationExample;
 
+    @Option(name = {"--inst-allowed-for-float-double-formats"}, title = "allow int payloads when type is number and format is double/float",
+        description = CodegenConstants.INTS_ALLOWED_FOR_FLOAT_DOUBLE_FORMATS_DESC)
+    private Boolean intsAllowedForFloatDoubleFormats;
+
     @Option(name = {"--skip-validate-spec"},
             title = "skip spec validation",
             description = "Skips the default behavior of validating an input specification.")
@@ -325,6 +329,10 @@ public class Generate extends AbstractCommand {
 
         if (removeEnumValuePrefix != null) {
             configurator.setRemoveEnumValuePrefix(removeEnumValuePrefix);
+        }
+
+        if (intsAllowedForFloatDoubleFormats != null) {
+            configurator.setIntsAllowedForFloatDoubleFormats(intsAllowedForFloatDoubleFormats);
         }
 
         if (hideGenerationTimestamp != null) {

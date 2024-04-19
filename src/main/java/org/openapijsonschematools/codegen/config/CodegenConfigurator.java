@@ -326,6 +326,11 @@ public class CodegenConfigurator {
         return this;
     }
 
+    public CodegenConfigurator setIntsAllowedForFloatDoubleFormats(boolean intsAllowedForFloatDoubleFormats) {
+        workflowSettingsBuilder.withIntsAllowedForFloatDoubleFormats(intsAllowedForFloatDoubleFormats);
+        return this;
+    }
+
     public CodegenConfigurator setHideGenerationTimestamp(boolean hideGenerationTimestamp) {
         workflowSettingsBuilder.withHideGenerationTimestamp(hideGenerationTimestamp);
         return this;
