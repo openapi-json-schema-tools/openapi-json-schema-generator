@@ -405,7 +405,13 @@ public class CodegenConfigurator {
             } else {
                 LOGGER.warn("Deprecated --additional-properties command line arg: hideGenerationTimestamp should be passed in using --hide-generation-timestamp from now on");
             }
-            Boolean hideGenerationTimestamp = (Boolean) generatorSettingsBuilder.additionalProperties().get("hideGenerationTimestamp");
+            Object value = generatorSettingsBuilder.additionalProperties().get("hideGenerationTimestamp");
+            Boolean hideGenerationTimestamp = null;
+            if (value instanceof String) {
+                hideGenerationTimestamp = Boolean.valueOf((String) value);
+            } else if (value instanceof Boolean) {
+                hideGenerationTimestamp = (Boolean) value;
+            }
             workflowSettingsBuilder.withHideGenerationTimestamp(hideGenerationTimestamp);
         }
         GeneratorSettings generatorSettings = generatorSettingsBuilder.build();
