@@ -322,7 +322,11 @@ SYNOPSIS
                 [--skip-validate-spec] [--strict-spec <true/false strict behavior>]
                 [(-t <template directory> | --template-dir <template directory>)]
                 [(-v | --verbose)]
+```
+<details>
+<summary>generate OPTIONS</summary>
 
+```text
 OPTIONS
         -a <authorization>, --auth <authorization>
             adds authorization headers when fetching the OpenAPI definitions
@@ -456,6 +460,8 @@ OPTIONS
         -v, --verbose
             verbose mode
 ```
+
+</details>
 
 You can then use the auto-generated client. The README.md is a good starting point.
 
