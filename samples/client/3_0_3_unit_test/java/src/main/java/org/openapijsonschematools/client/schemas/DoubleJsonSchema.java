@@ -32,7 +32,12 @@ public class DoubleJsonSchema {
 
         protected DoubleJsonSchema1() {
             super(new JsonSchemaInfo()
-                    .type(Set.of(Double.class))
+                    .type(Set.of(
+                            Integer.class,
+                            Long.class,
+                            Float.class,
+                            Double.class
+                    ))
                     .format("double")
             );
         }
