@@ -263,7 +263,7 @@ java -jar target/openapi-json-schema-generator-cli.jar generate \
 
 To get a list of **general** options available, please run `java -jar target/openapi-json-schema-generator-cli.jar help generate`
 
-To get a list of PHP specified options (which can be passed to the generator with a config file via the `-c` option), please run `java -jar target/openapi-json-schema-generator-cli.jar config-help -g php`
+To get a list of python specified options (which can be passed to the generator with a config file via the `-c` option), please run `java -jar target/openapi-json-schema-generator-cli.jar config-help -g python`
 
 ## Usage
 
@@ -305,20 +305,20 @@ SYNOPSIS
                 [(-e <templating engine> | --engine <templating engine>)]
                 [--enable-post-process-file]
                 [(-g <generator name> | --generator-name <generator name>)]
-                [--generate-alias-as-model] [--git-host <git host>]
-                [--git-repo-id <git repo id>] [--git-user-id <git user id>]
-                [--global-property <global properties>...] [--group-id <group id>]
+                [--git-host <git host>] [--git-repo-id <git repo id>]
+                [--git-user-id <git user id>] [--global-property <global properties>...]
+                [--group-id <group id>] [--hide-generation-timestamp]
                 [--http-user-agent <http user agent>]
                 [(-i <spec file> | --input-spec <spec file>)]
                 [--ignore-file-override <ignore file override location>]
-                [--invoker-package <invoker package>]
-                [--log-to-stderr] [--minimal-update]
+                [--ints-allowed-for-float-double-formats]
+                [--invoker-package <invoker package>] [--minimal-update]
                 [--model-name-prefix <model name prefix>]
                 [--model-name-suffix <model name suffix>]
                 [(-o <output directory> | --output <output directory>)] [(-p <additional properties> | --additional-properties <additional properties>)...]
                 [--package-name <package name>] [--release-note <release note>]
-                [--remove-operation-id-prefix]
-                [(-s | --skip-overwrite)]
+                [--remove-enum-value-prefix] [--remove-operation-id-prefix]
+                [(-s | --skip-overwrite)] [--skip-operation-example]
                 [--skip-validate-spec] [--strict-spec <true/false strict behavior>]
                 [(-t <template directory> | --template-dir <template directory>)]
                 [(-v | --verbose)]
@@ -329,11 +329,132 @@ OPTIONS
             remotely. Pass in a URL-encoded string of name:header with a comma
             separating multiple values
 
-...... (results omitted)
+        --api-name-suffix <api name suffix>
+            Suffix that will be appended to all API names ('tags'). Default:
+            Api. e.g. Pet => PetApi. Note: Only ruby, python, jaxrs generators
+            support this feature at the moment.
+
+        --api-package <api package>
+            package for generated api classes
+
+        --artifact-id <artifact id>
+            artifactId in generated pom.xml. This also becomes part of the
+            generated library's filename
+
+        --artifact-version <artifact version>
+            artifact version in generated pom.xml. This also becomes part of the
+            generated library's filename
+
+        -c <configuration file>, --config <configuration file>
+            Path to configuration file. It can be JSON or YAML. If file is JSON,
+            the content should have the format {"optionKey":"optionValue",
+            "optionKey1":"optionValue1"...}. If file is YAML, the content should
+            have the format optionKey: optionValue. Supported options can be
+            different for each language. Run config-help -g {generator name}
+            command for language-specific config options.
+
+        --dry-run
+            Try things out and report on potential changes (without actually
+            making changes).
+
+        -e <templating engine>, --engine <templating engine>
+            templating engine: "handlebars"(default) or "mustache"
+
+        --enable-post-process-file
+            Enable post-processing file using environment variables.
+
+        -g <generator name>, --generator-name <generator name>
+            generator to use (see list command for list)
+
+        --git-host <git host>
+            Git host, e.g. gitlab.com.
+
+        --git-repo-id <git repo id>
+            Git repo ID, e.g. openapi-generator.
+
+        --git-user-id <git user id>
+            Git user ID, e.g. openapijsonschematools.
+
+        --global-property <global properties>
+            sets specified global properties (previously called 'system
+            properties') in the format of name=value,name=value (or multiple
+            options, each with name=value)
+
+        --group-id <group id>
+            groupId in generated pom.xml
+
+        --hide-generation-timestamp
+            Hides the generation timestamp when files are generated.
+
+        --http-user-agent <http user agent>
+            HTTP user agent, e.g. codegen_csharp_api_client, default to
+            'OpenAPI-Generator/{packageVersion}/{language}'
+
+        -i <spec file>, --input-spec <spec file>
+            location of the OpenAPI spec, as URL or file (required if not loaded
+            via config using -c)
+
+        --ignore-file-override <ignore file override location>
+            Specifies an override location for the .openapi-generator-ignore
+            file. Most useful on initial generation.
+
+        --ints-allowed-for-float-double-formats
+            Integers are allowed in for type: number format:float/double
+            payloads
+
+        --invoker-package <invoker package>
+            root package for generated code
+
+        --minimal-update
+            Only write output files that have changed.
+
+        --model-name-prefix <model name prefix>
+            Prefix that will be prepended to all model names.
+
+        --model-name-suffix <model name suffix>
+            Suffix that will be appended to all model names.
+
+        -o <output directory>, --output <output directory>
+            where to write the generated files (current dir by default)
+
+        -p <additional properties>, --additional-properties <additional
+        properties>
+            sets additional properties that can be referenced by the mustache
+            templates in the format of name=value,name=value. You can also have
+            multiple occurrences of this option.
+
+        --package-name <package name>
+            package for generated classes (where supported)
+
+        --release-note <release note>
+            Release note, default to 'Minor update'.
+
+        --remove-enum-value-prefix
+            Remove the common prefix of enum values
+
+        --remove-operation-id-prefix
+            Remove prefix of operationId, e.g. config_getId => getId
+
+        -s, --skip-overwrite
+            specifies if the existing files should be overwritten during the
+            generation.
+
+        --skip-operation-example
+            Skip examples defined in operations to avoid out of memory errors.
+
+        --skip-validate-spec
+            Skips the default behavior of validating an input specification.
+
+        --strict-spec <true/false strict behavior>
+            'MUST' and 'SHALL' wording in OpenAPI spec is strictly adhered to.
+            e.g. when false, no fixes will be applied to documents which pass
+            validation but don't follow the spec.
+
+        -t <template directory>, --template-dir <template directory>
+            folder containing the template files
 
         -v, --verbose
             verbose mode
-
 ```
 
 You can then use the auto-generated client. The README.md is a good starting point.
