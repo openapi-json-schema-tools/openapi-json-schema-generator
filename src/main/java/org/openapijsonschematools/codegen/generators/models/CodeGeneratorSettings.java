@@ -23,6 +23,7 @@ public class CodeGeneratorSettings {
     public final String inputSpecLocation;  // input spec's location, as URL or file
     public final boolean removeEnumValuePrefix;
     public final boolean hideGenerationTimestamp;
+    public final boolean intsAllowedForFloatDoubleFormats;
     public CodeGeneratorSettings(
         String apiPackage,
         String artifactId,
@@ -40,7 +41,8 @@ public class CodeGeneratorSettings {
         String templateEngineName,
         String inputSpecLocation,
         boolean removeEnumValuePrefix,
-        boolean hideGenerationTimestamp
+        boolean hideGenerationTimestamp,
+        boolean intsAllowedForFloatDoubleFormats
     ) {
         this.apiPackage = apiPackage;
         this.artifactId = artifactId;
@@ -59,6 +61,7 @@ public class CodeGeneratorSettings {
         this.inputSpecLocation = inputSpecLocation;
         this.removeEnumValuePrefix = removeEnumValuePrefix;
         this.hideGenerationTimestamp = hideGenerationTimestamp;
+        this.intsAllowedForFloatDoubleFormats = intsAllowedForFloatDoubleFormats;
     }
 
     public static CodeGeneratorSettings of(GeneratorSettings generatorSettings, WorkflowSettings workflowSettings, String embeddedTemplateDir, String packageNameDefault, String artifactIdDefault, String outputFolderDefault) {
@@ -79,6 +82,7 @@ public class CodeGeneratorSettings {
         String inputSpecLocation = workflowSettings != null ? workflowSettings.getInputSpec() : null;
         boolean removeEnumValuePrefix = workflowSettings != null ? workflowSettings.isRemoveEnumValuePrefix() : WorkflowSettings.DEFAULT_REMOVE_ENUM_VALUE_PREFIX;
         boolean hideGenerationTimestamp = workflowSettings != null ? workflowSettings.isHideGenerationTimestamp() : WorkflowSettings.DEFAULT_HIDE_GENERATION_TIMESTAMP;
+        boolean intsAllowedForFloatDoubleFormats = workflowSettings != null ? workflowSettings.isIntsAllowedForFloatDoubleFormats() : WorkflowSettings.DEFAULT_INTS_ALLOWED_FOR_FLOAT_DOUBLE_FORMATS;
         return new CodeGeneratorSettings(
             apiPackage,
             artifactId,
@@ -96,7 +100,8 @@ public class CodeGeneratorSettings {
             templateEnginName,
             inputSpecLocation,
             removeEnumValuePrefix,
-            hideGenerationTimestamp
+            hideGenerationTimestamp,
+            intsAllowedForFloatDoubleFormats
         );
     }
 }
