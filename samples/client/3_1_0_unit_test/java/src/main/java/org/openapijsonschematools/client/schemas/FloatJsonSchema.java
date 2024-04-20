@@ -34,7 +34,7 @@ public class FloatJsonSchema {
             super(new JsonSchemaInfo()
                     .type(Set.of(
                             Integer.class,
-                            Float.class,
+                            Float.class
                     ))
                     .format("float")
             );

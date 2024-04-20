@@ -35,7 +35,7 @@ public class FloatJsonSchema {
         {{#if generatorSettings.intsAllowedForFloatDoubleFormats}}
                     .type(Set.of(
                             Integer.class,
-                            Float.class,
+                            Float.class
                     ))
         {{else}}
                     .type(Set.of(Float.class))
