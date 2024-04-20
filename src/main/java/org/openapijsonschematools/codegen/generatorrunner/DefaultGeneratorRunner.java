@@ -1343,6 +1343,7 @@ public class DefaultGeneratorRunner implements GeneratorRunner {
             CodegenList<CodegenSecurityRequirementObject> security) {
 
         Map<String, Object> bundle = new HashMap<>(generator.additionalProperties());
+        bundle.put("generatorSettings", generator.generatorSettings());
         bundle.put("apiPackage", generator.generatorSettings().apiPackage);
 
         URL url = URLPathUtils.getServerURL(openAPI, null);

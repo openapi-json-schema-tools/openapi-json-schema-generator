@@ -122,13 +122,13 @@ class Int64Schema(IntSchema):
 
 @dataclasses.dataclass(frozen=True)
 class Float32Schema(NumberSchema):
-    types: typing.FrozenSet[typing.Type] = frozenset({float})
+    types: typing.FrozenSet[typing.Type] = frozenset({int, float})
     format: str = 'float'
 
 
 @dataclasses.dataclass(frozen=True)
 class Float64Schema(NumberSchema):
-    types: typing.FrozenSet[typing.Type] = frozenset({float})
+    types: typing.FrozenSet[typing.Type] = frozenset({int, float})
     format: str = 'double'
 
 
