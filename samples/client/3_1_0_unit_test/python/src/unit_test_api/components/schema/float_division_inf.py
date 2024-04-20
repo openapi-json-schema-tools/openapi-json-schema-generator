@@ -23,6 +23,7 @@ class FloatDivisionInf(
     """
     types: typing.FrozenSet[typing.Type] = frozenset({
         int,
+        float,
     })
     format: str = 'int'
     multiple_of: typing.Union[int, float] = 0.123456789

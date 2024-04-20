@@ -18,6 +18,7 @@ class Integer(
 ):
     types: typing.FrozenSet[typing.Type] = frozenset({
         int,
+        float,
     })
     format: str = 'int'
     inclusive_maximum: typing.Union[int, float] = 100
@@ -30,6 +31,7 @@ class Int32(
 ):
     types: typing.FrozenSet[typing.Type] = frozenset({
         int,
+        float,
     })
     format: str = 'int32'
     inclusive_maximum: typing.Union[int, float] = 200

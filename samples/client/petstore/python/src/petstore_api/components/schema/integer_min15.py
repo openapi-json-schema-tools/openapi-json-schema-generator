@@ -23,6 +23,7 @@ class IntegerMin15(
     """
     types: typing.FrozenSet[typing.Type] = frozenset({
         int,
+        float,
     })
     format: str = 'int64'
     inclusive_minimum: typing.Union[int, float] = 15

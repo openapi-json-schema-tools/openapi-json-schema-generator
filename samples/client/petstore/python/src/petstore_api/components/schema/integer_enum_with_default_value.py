@@ -38,6 +38,7 @@ class IntegerEnumWithDefaultValue(
     """
     types: typing.FrozenSet[typing.Type] = frozenset({
         int,
+        float,
     })
     format: str = 'int'
     enum_value_to_name: typing.Mapping[typing.Union[int, float, str, schemas.Bool, None], str] = dataclasses.field(
