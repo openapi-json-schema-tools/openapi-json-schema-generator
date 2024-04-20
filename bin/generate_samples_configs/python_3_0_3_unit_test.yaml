@@ -1,5 +1,6 @@
 generatorName: python
 outputDir: samples/client/3_0_3_unit_test/python
 inputSpec: src/test/resources/3_0/unit_test_spec/3_0_3_unit_test_spec.yaml
+intsAllowedForFloatDoubleFormats: true
 additionalProperties:
   packageName: unit_test_api
