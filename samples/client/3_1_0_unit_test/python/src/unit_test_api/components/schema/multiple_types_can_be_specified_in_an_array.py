@@ -23,6 +23,7 @@ class MultipleTypesCanBeSpecifiedInAnArray(
     """
     types: typing.FrozenSet[typing.Type] = frozenset({
         int,
+        float,
         str,
     })
     format: str = 'int'

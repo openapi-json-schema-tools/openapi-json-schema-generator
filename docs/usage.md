@@ -11,10 +11,10 @@ This page demonstrates navigating the options via CLI. Commands are presented he
 The `help` option lists all commands available to the CLI.
 
 ```text
-openapi-generator-cli help
-usage: openapi-generator-cli <command> [<args>]
+openapi-json-schema-generator-cli help
+usage: openapi-json-schema-generator-cli <command> [<args>]
 
-The most commonly used openapi-generator-cli commands are:
+The most commonly used openapi-json-schema-generator-cli commands are:
     author        Utilities for authoring generators or customizing templates.
     batch         Generate code in batch via external configs.
     config-help   Config help for chosen lang
@@ -25,7 +25,7 @@ The most commonly used openapi-generator-cli commands are:
     validate      Validate specification
     version       Show version information used in tooling
 
-See 'openapi-generator-cli help <command>' for more information on a specific
+See 'openapi-json-schema-generator-cli help <command>' for more information on a specific
 command.
 ```
 
@@ -35,10 +35,10 @@ The version command provides version information, returning either the version b
 
 ```text
 NAME
-        openapi-generator-cli version - Show version information used in tooling
+        openapi-json-schema-generator-cli version - Show version information used in tooling
 
 SYNOPSIS
-        openapi-generator-cli version [--full] [--sha]
+        openapi-json-schema-generator-cli version [--full] [--sha]
 
 OPTIONS
         --full
@@ -53,12 +53,12 @@ OPTIONS
 The `list` command outputs a formatted list of every available generator. Pass the `-s/--short` option if you would like a CSV output for easy parsing.
 
 ```text
-openapi-generator-cli help list
+openapi-json-schema-generator-cli help list
 NAME
-        openapi-generator-cli list - Lists the available generators
+        openapi-json-schema-generator-cli list - Lists the available generators
 
 SYNOPSIS
-        openapi-generator-cli list [(-i <include> | --include <include>)]
+        openapi-json-schema-generator-cli list [(-i <include> | --include <include>)]
                 [(-s | --short)]
 
 OPTIONS
@@ -74,7 +74,7 @@ OPTIONS
 Example:
 
 ```bash
-openapi-generator-cli list -s | tr ',' '\n'
+openapi-json-schema-generator-cli list -s | tr ',' '\n'
 ```
 
 For the full list of generators, refer to the [Generators List](./generators.md).
@@ -84,12 +84,12 @@ For the full list of generators, refer to the [Generators List](./generators.md)
 The `config-help` option provides details about 
 
 ```text
-openapi-generator-cli help config-help
+openapi-json-schema-generator-cli help config-help
 NAME
-        openapi-generator-cli config-help - Config help for chosen lang
+        openapi-json-schema-generator-cli config-help - Config help for chosen lang
 
 SYNOPSIS
-        openapi-generator-cli config-help
+        openapi-json-schema-generator-cli config-help
                 [(-f <output format> | --format <output format>)] [--feature-set]
                 [--full-details]
                 [(-g <generator name> | --generator-name <generator name>)]
@@ -140,7 +140,7 @@ You may pass any generator name (see [list](#list) command) to `-g`, and options
 Example:
 
 ```bash
-openapi-generator-cli config-help -g go
+openapi-json-schema-generator-cli config-help -g go
 ```
 
 Outputs:
@@ -168,14 +168,14 @@ To pass these go client generator-specific options to the `generate` command for
 The `meta` command creates a new Java class and template files, used for creating your own custom templates.
 
 ```text
-openapi-generator-cli help meta
+openapi-json-schema-generator-cli help meta
 NAME
-        openapi-generator-cli meta - MetaGenerator. Generator for creating a new
+        openapi-json-schema-generator-cli meta - MetaGenerator. Generator for creating a new
         template set and configuration for Codegen. The output will be based on
         the language you specify, and includes default templates to include.
 
 SYNOPSIS
-        openapi-generator-cli meta [(-l <language> | --language <language>)]
+        openapi-json-schema-generator-cli meta [(-l <language> | --language <language>)]
                 [(-n <name> | --name <name>)]
                 [(-o <output directory> | --output <output directory>)]
                 [(-p <package> | --package <package>)] [(-t <type> | --type <type>)]
@@ -205,12 +205,12 @@ For an in-depth example of using the `meta` command, see [Customization](./custo
 The `validate` command allows you to validate an input specification, optionally providing recommendations for error fixes or other improvements (if available).
 
 ```text
-openapi-generator-cli help validate
+openapi-json-schema-generator-cli help validate
 NAME
-        openapi-generator-cli validate - Validate specification
+        openapi-json-schema-generator-cli validate - Validate specification
 
 SYNOPSIS
-        openapi-generator-cli validate
+        openapi-json-schema-generator-cli validate
                 (-i <spec file> | --input-spec <spec file>) [--recommend]
 
 OPTIONS
@@ -233,13 +233,13 @@ The `generate` command is the workhorse of the generator toolset. As such, it ha
 
 
 ```text
-openapi-generator-cli help generate
+openapi-json-schema-generator-cli help generate
 NAME
-        openapi-generator-cli generate - Generate code with the specified
+        openapi-json-schema-generator-cli generate - Generate code with the specified
         generator.
 
 SYNOPSIS
-        openapi-generator-cli generate
+        openapi-json-schema-generator-cli generate
                 [(-a <authorization> | --auth <authorization>)]
                 [--api-name-suffix <api name suffix>] [--api-package <api package>]
                 [--artifact-id <artifact id>] [--artifact-version <artifact version>]
@@ -247,24 +247,24 @@ SYNOPSIS
                 [(-e <templating engine> | --engine <templating engine>)]
                 [--enable-post-process-file]
                 [(-g <generator name> | --generator-name <generator name>)]
-                [--generate-alias-as-model] [--git-host <git host>]
-                [--git-repo-id <git repo id>] [--git-user-id <git user id>]
-                [--global-property <global properties>...] [--group-id <group id>]
+                [--git-host <git host>] [--git-repo-id <git repo id>]
+                [--git-user-id <git user id>] [--global-property <global properties>...]
+                [--group-id <group id>] [--hide-generation-timestamp]
                 [--http-user-agent <http user agent>]
                 [(-i <spec file> | --input-spec <spec file>)]
                 [--ignore-file-override <ignore file override location>]
-                [--invoker-package <invoker package>]
-                [--log-to-stderr] [--minimal-update]
+                [--ints-allowed-for-float-double-formats]
+                [--invoker-package <invoker package>] [--minimal-update]
                 [--model-name-prefix <model name prefix>]
                 [--model-name-suffix <model name suffix>]
                 [(-o <output directory> | --output <output directory>)] [(-p <additional properties> | --additional-properties <additional properties>)...]
                 [--package-name <package name>] [--release-note <release note>]
-                [--remove-operation-id-prefix]
-                [(-s | --skip-overwrite)]
-                [--skip-operation-example] [--skip-validate-spec]
-                [--strict-spec <true/false strict behavior>]
+                [--remove-enum-value-prefix] [--remove-operation-id-prefix]
+                [(-s | --skip-overwrite)] [--skip-operation-example]
+                [--skip-validate-spec] [--strict-spec <true/false strict behavior>]
                 [(-t <template directory> | --template-dir <template directory>)]
                 [(-v | --verbose)]
+
 ```
 
 <details>
@@ -306,21 +306,13 @@ OPTIONS
             making changes).
 
         -e <templating engine>, --engine <templating engine>
-            templating engine: "mustache" (default) or "handlebars" (beta)
+            templating engine: "handlebars"(default) or "mustache"
 
         --enable-post-process-file
             Enable post-processing file using environment variables.
 
         -g <generator name>, --generator-name <generator name>
             generator to use (see list command for list)
-
-        --generate-alias-as-model
-            Generate model implementation for aliases to map and array schemas.
-            An 'alias' is an array, map, or list which is defined inline in a
-            OpenAPI document and becomes a model in the generated code. A 'map'
-            schema is an object that can have undeclared properties, i.e. the
-            'additionalproperties' attribute is set on that object. An 'array'
-            schema is a list of sub schemas in a OAS document
 
         --git-host <git host>
             Git host, e.g. gitlab.com.
@@ -339,6 +331,9 @@ OPTIONS
         --group-id <group id>
             groupId in generated pom.xml
 
+        --hide-generation-timestamp
+            Hides the generation timestamp when files are generated.
+
         --http-user-agent <http user agent>
             HTTP user agent, e.g. codegen_csharp_api_client, default to
             'OpenAPI-Generator/{packageVersion}/{language}'
@@ -351,14 +346,12 @@ OPTIONS
             Specifies an override location for the .openapi-generator-ignore
             file. Most useful on initial generation.
 
+        --ints-allowed-for-float-double-formats
+            Integers are allowed in for type: number format:float/double
+            payloads
+
         --invoker-package <invoker package>
             root package for generated code
-
-        --log-to-stderr
-            write all log messages (not just errors) to STDOUT. Useful for
-            piping the JSON output of debug options (e.g. `--global-property
-            debugOperations`) to an external parser directly while testing a
-            generator.
 
         --minimal-update
             Only write output files that have changed.
@@ -383,6 +376,9 @@ OPTIONS
 
         --release-note <release note>
             Release note, default to 'Minor update'.
+
+        --remove-enum-value-prefix
+            Remove the common prefix of enum values
 
         --remove-operation-id-prefix
             Remove prefix of operationId, e.g. config_getId => getId
@@ -429,7 +425,7 @@ The following examples use [petstore.yaml](https://raw.githubusercontent.com/ope
 Generator-specific options should be passed as `--additional-properties`:
 
 ```bash
-openapi-generator-cli generate -g go --additional-properties=prependFormOrBodyParameters=true \
+openapi-json-schema-generator-cli generate -g go --additional-properties=prependFormOrBodyParameters=true \
     -o out -i petstore.yaml
 ```
 
@@ -466,7 +462,7 @@ For example, one of our typescript samples has the following configuration file:
 These settings can be passed via `-c filename`. Here, we've saved the above as `config.json`:
 
 ```bash
-openapi-generator-cli generate -i petstore.yaml -g typescript-fetch -o out \
+openapi-json-schema-generator-cli generate -i petstore.yaml -g typescript-fetch -o out \
     -c config.json
 ```
 
@@ -484,7 +480,7 @@ The settings are passed exactly the same as for `config.json`. The most importan
 The name of the file should be `config.yml` or `config.yaml` (in our example it will be `config.yaml`.
 
 ```bash
-openapi-generator-cli generate -i petstore.yaml -g typescript-fetch -o out \
+openapi-json-schema-generator-cli generate -i petstore.yaml -g typescript-fetch -o out \
     -c config.yaml
 ```
 
@@ -497,13 +493,13 @@ The `batch` command allows you to move all CLI arguments supported by the `gener
 modified by `--includes-base-dir`. Starting with 5.0.0, the `!batch` command supports multiple `!include` properties, either sequential or nested. In order to support multiple `!include` properties in a JSON file, the property name can have a suffix, e.g. `!include1`, `!include2`, etc. The suffix have no meaning other than providing unique property names.
 
 ```text
-openapi-generator-cli help batch
+openapi-json-schema-generator-cli help batch
 NAME
-        openapi-generator-cli batch - Generate code in batch via external
+        openapi-json-schema-generator-cli batch - Generate code in batch via external
         configs.
 
 SYNOPSIS
-        openapi-generator-cli batch [--clean] [--fail-fast]
+        openapi-json-schema-generator-cli batch [--clean] [--fail-fast]
                 [--includes-base-dir <includes>] [(-r <threads> | --threads <threads>)]
                 [--root-dir <root>] [--timeout <timeout>] [(-v | --verbose)] [--]
                 <configs>...
@@ -569,7 +565,7 @@ additionalProperties:
 EOF
 
 # Generate them
-openapi-generator-cli batch *.yaml
+openapi-json-schema-generator-cli batch *.yaml
 ```
 
 ## author
@@ -577,14 +573,14 @@ openapi-generator-cli batch *.yaml
 This command group contains utilities for authoring generators or customizing templates.
 
 ```text
-openapi-generator-cli help author
+openapi-json-schema-generator-cli help author
 NAME
-        openapi-generator-cli author - Utilities for authoring generators or
+        openapi-json-schema-generator-cli author - Utilities for authoring generators or
         customizing templates.
 
 SYNOPSIS
-        openapi-generator-cli author
-        openapi-generator-cli author template 
+        openapi-json-schema-generator-cli author
+        openapi-json-schema-generator-cli author template 
                 [(-v | --verbose)]
                 [(-o <output directory> | --output <output directory>)]
                 (-g <generator name> | --generator-name <generator name>)
@@ -616,13 +612,13 @@ COMMANDS
 This command allows user to extract templates from the CLI jar which simplifies customization efforts.
 
 ```text
-openapi-generator-cli help author template
+openapi-json-schema-generator-cli help author template
 NAME
-        openapi-generator-cli author template - Retrieve templates for local
+        openapi-json-schema-generator-cli author template - Retrieve templates for local
         modification
 
 SYNOPSIS
-        openapi-generator-cli author template
+        openapi-json-schema-generator-cli author template
                 (-g <generator name> | --generator-name <generator name>)
                 [(-o <output directory> | --output <output directory>)]
                 [(-v | --verbose)]
@@ -643,11 +639,11 @@ Example:
 Extract Java templates, limiting to the `webclient` library.
 
 ```bash
-openapi-generator-cli author template -g java
+openapi-json-schema-generator-cli author template -g java
 ```
 
 Extract all Java templates:
 
 ```bash
-openapi-generator-cli author template -g java
+openapi-json-schema-generator-cli author template -g java
 ```

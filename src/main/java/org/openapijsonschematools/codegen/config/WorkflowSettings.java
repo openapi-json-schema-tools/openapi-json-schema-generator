@@ -49,6 +49,7 @@ public class WorkflowSettings {
     public static final String DEFAULT_TEMPLATING_ENGINE_NAME = "handlebars";
 
     public static final boolean DEFAULT_HIDE_GENERATION_TIMESTAMP = true;
+    public static final boolean DEFAULT_INTS_ALLOWED_FOR_FLOAT_DOUBLE_FORMATS = false; // TODO in version 5.0.0 release change this to true
     public static final Map<String, String> DEFAULT_GLOBAL_PROPERTIES = Collections.unmodifiableMap(new HashMap<>());
 
     private String inputSpec;
@@ -68,6 +69,7 @@ public class WorkflowSettings {
     private Map<String, ?> globalProperties = DEFAULT_GLOBAL_PROPERTIES;
     private boolean removeEnumValuePrefix = DEFAULT_REMOVE_ENUM_VALUE_PREFIX;
     private Boolean hideGenerationTimestamp = DEFAULT_HIDE_GENERATION_TIMESTAMP;
+    private Boolean intsAllowedForFloatDoubleFormats = DEFAULT_INTS_ALLOWED_FOR_FLOAT_DOUBLE_FORMATS;
 
     private WorkflowSettings(Builder builder) {
         this.inputSpec = builder.inputSpec;
@@ -87,6 +89,7 @@ public class WorkflowSettings {
         this.globalProperties = Collections.unmodifiableMap(builder.globalProperties);
         this.removeEnumValuePrefix = builder.removeEnumValuePrefix;
         this.hideGenerationTimestamp = builder.hideGenerationTimestamp;
+        this.intsAllowedForFloatDoubleFormats = builder.intsAllowedForFloatDoubleFormats;
     }
 
     /**
@@ -121,6 +124,7 @@ public class WorkflowSettings {
         builder.globalProperties = new HashMap<>(copy.getGlobalProperties());
         builder.removeEnumValuePrefix = copy.isRemoveEnumValuePrefix();
         builder.hideGenerationTimestamp = copy.isHideGenerationTimestamp();
+        builder.intsAllowedForFloatDoubleFormats = copy.isIntsAllowedForFloatDoubleFormats();
 
         // force builder "with" methods to invoke side effects
         builder.withTemplateDir(copy.getTemplateDir());
@@ -180,6 +184,9 @@ public class WorkflowSettings {
     }
 
     public boolean isHideGenerationTimestamp() { return hideGenerationTimestamp; }
+
+    public boolean isIntsAllowedForFloatDoubleFormats() { return intsAllowedForFloatDoubleFormats; }
+
     /**
      * Indicates whether or not to skip examples defined in the operation.
      *
@@ -314,7 +321,8 @@ public class WorkflowSettings {
         private String templateDir;
         private String templatingEngineName = DEFAULT_TEMPLATING_ENGINE_NAME;
         private String ignoreFileOverride;
-        private boolean hideGenerationTimestamp = DEFAULT_HIDE_GENERATION_TIMESTAMP;
+        private Boolean hideGenerationTimestamp = DEFAULT_HIDE_GENERATION_TIMESTAMP;
+        private Boolean intsAllowedForFloatDoubleFormats = DEFAULT_INTS_ALLOWED_FOR_FLOAT_DOUBLE_FORMATS;
 
         // NOTE: All collections must be mutable in the builder, and copied to a new immutable collection in .build()
         private Map<String, String> globalProperties = new HashMap<>();
@@ -322,6 +330,12 @@ public class WorkflowSettings {
         private Builder() {
         }
 
+        public Builder withIntsAllowedForFloatDoubleFormats(Boolean intsAllowedForFloatDoubleFormats) {
+            if (intsAllowedForFloatDoubleFormats != null) {
+                this.intsAllowedForFloatDoubleFormats = intsAllowedForFloatDoubleFormats;
+            }
+            return this;
+        }
 
         /**
          * Sets the {@code inputSpec} and returns a reference to this Builder so that the methods can be chained together.

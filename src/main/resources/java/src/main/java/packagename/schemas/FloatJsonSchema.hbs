@@ -32,7 +32,14 @@ public class FloatJsonSchema {
 
         protected FloatJsonSchema1() {
             super(new JsonSchemaInfo()
+        {{#if generatorSettings.intsAllowedForFloatDoubleFormats}}
+                    .type(Set.of(
+                            Integer.class,
+                            Float.class
+                    ))
+        {{else}}
                     .type(Set.of(Float.class))
+        {{/if}}
                     .format("float")
             );
         }

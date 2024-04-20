@@ -368,6 +368,7 @@ public class DefaultGeneratorRunner implements GeneratorRunner {
         templateData.putAll(generator.additionalProperties());
         String packageName = generator.generatorSettings().packageName;
         templateData.put("packageName", packageName);
+        templateData.put("generatorSettings", generator.generatorSettings());
         try {
             File written = processTemplateToFile(templateData, templateName, outputFilename, shouldGenerate, skippedByOption);
             if (written != null) {
@@ -877,6 +878,7 @@ public class DefaultGeneratorRunner implements GeneratorRunner {
             HashMap<String, Object> templateData = new HashMap<>();
             templateData.putAll(generator.additionalProperties());
             templateData.put("packageName", generator.generatorSettings().packageName);
+            templateData.put("generatorSettings", generator.generatorSettings());
             templateData.put("modelPackage", generator.modelPackage());
             if (templateInfo != null && !templateInfo.isEmpty()) {
                 templateData.putAll(templateInfo);
@@ -908,6 +910,7 @@ public class DefaultGeneratorRunner implements GeneratorRunner {
             HashMap<String, Object> templateData = new HashMap<>();
             templateData.putAll(generator.additionalProperties());
             templateData.put("packageName", generator.generatorSettings().packageName);
+            templateData.put("generatorSettings", generator.generatorSettings());
             templateData.put("modelPackage", generator.modelPackage());
             if (templateInfo != null && !templateInfo.isEmpty()) {
                 templateData.putAll(templateInfo);
@@ -944,6 +947,7 @@ public class DefaultGeneratorRunner implements GeneratorRunner {
             HashMap<String, Object> templateData = new HashMap<>();
             templateData.putAll(generator.additionalProperties());
             templateData.put("packageName", generator.generatorSettings().packageName);
+            templateData.put("generatorSettings", generator.generatorSettings());
             templateData.put("modelPackage", generator.modelPackage());
             if (templateInfo != null && !templateInfo.isEmpty()) {
                 templateData.putAll(templateInfo);
@@ -1339,6 +1343,7 @@ public class DefaultGeneratorRunner implements GeneratorRunner {
             CodegenList<CodegenSecurityRequirementObject> security) {
 
         Map<String, Object> bundle = new HashMap<>(generator.additionalProperties());
+        bundle.put("generatorSettings", generator.generatorSettings());
         bundle.put("apiPackage", generator.generatorSettings().apiPackage);
 
         URL url = URLPathUtils.getServerURL(openAPI, null);

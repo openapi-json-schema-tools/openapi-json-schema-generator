@@ -18,6 +18,7 @@ class Items(
 ):
     types: typing.FrozenSet[typing.Type] = frozenset({
         int,
+        float,
     })
     format: str = 'int64'
     inclusive_maximum: typing.Union[int, float] = 7

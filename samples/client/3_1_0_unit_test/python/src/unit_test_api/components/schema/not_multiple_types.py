@@ -18,6 +18,7 @@ class _Not(
 ):
     types: typing.FrozenSet[typing.Type] = frozenset({
         int,
+        float,
         schemas.Bool,
     })
     format: str = 'int'

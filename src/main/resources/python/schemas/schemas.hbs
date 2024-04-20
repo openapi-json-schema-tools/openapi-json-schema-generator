@@ -117,13 +117,21 @@ class Int64Schema(IntSchema):
 
 @dataclasses.dataclass(frozen=True)
 class Float32Schema(NumberSchema):
+{{#if generatorSettings.intsAllowedForFloatDoubleFormats}}
+    types: typing.FrozenSet[typing.Type] = frozenset({int, float})
+{{else}}
     types: typing.FrozenSet[typing.Type] = frozenset({float})
+{{/if}}
     format: str = 'float'
 
 
 @dataclasses.dataclass(frozen=True)
 class Float64Schema(NumberSchema):
+{{#if generatorSettings.intsAllowedForFloatDoubleFormats}}
+    types: typing.FrozenSet[typing.Type] = frozenset({int, float})
+{{else}}
     types: typing.FrozenSet[typing.Type] = frozenset({float})
+{{/if}}
     format: str = 'double'
 
 

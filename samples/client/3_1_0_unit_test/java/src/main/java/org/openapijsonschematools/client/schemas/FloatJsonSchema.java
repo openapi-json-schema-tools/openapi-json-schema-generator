@@ -32,7 +32,10 @@ public class FloatJsonSchema {
 
         protected FloatJsonSchema1() {
             super(new JsonSchemaInfo()
-                    .type(Set.of(Float.class))
+                    .type(Set.of(
+                            Integer.class,
+                            Float.class
+                    ))
                     .format("float")
             );
         }

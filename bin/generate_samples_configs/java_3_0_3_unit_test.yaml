@@ -1,6 +1,7 @@
 generatorName: java
 outputDir: samples/client/3_0_3_unit_test/java
 inputSpec: src/test/resources/3_0/unit_test_spec/3_0_3_unit_test_spec_nopaths.yaml
+intsAllowedForFloatDoubleFormats: true
 additionalProperties:
   artifactId: unit-test-api
   hideGenerationTimestamp: "true"

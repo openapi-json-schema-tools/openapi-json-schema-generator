@@ -55,6 +55,7 @@ class IntegerProp(
     types: typing.FrozenSet[typing.Type] = frozenset({
         type(None),
         int,
+        float,
     })
     format: str = 'int'
 
