@@ -32,7 +32,16 @@ public class DoubleJsonSchema {
 
         protected DoubleJsonSchema1() {
             super(new JsonSchemaInfo()
+        {{#if generatorSettings.intsAllowedForFloatDoubleFormats}}
+                    .type(Set.of(
+                            Integer.class,
+                            Long.class,
+                            Float.class,
+                            Double.class
+                    ))
+        {{else}}
                     .type(Set.of(Double.class))
+        {{/if}}
                     .format("double")
             );
         }
