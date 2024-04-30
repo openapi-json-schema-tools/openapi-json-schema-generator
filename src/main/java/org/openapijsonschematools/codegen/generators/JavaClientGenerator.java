@@ -119,7 +119,7 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
         cliOptions.add(new CliOption(CodegenConstants.SOURCE_FOLDER, CodegenConstants.SOURCE_FOLDER_DESC).defaultValue(this.getSourceFolder()));
         CliOption buildTool = CliOption.newString(CodegenConstants.BUILD_TOOL, CodegenConstants.BUILD_TOOL_DESC);
         Map<String, String> buildToolOptions = Map.of(
-            "maven", "Use maven (default)",
+            "maven", "Use maven",
             "gradle", "Use gradle"
         );
         buildTool.setEnum(buildToolOptions);
