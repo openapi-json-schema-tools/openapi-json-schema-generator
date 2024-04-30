@@ -117,7 +117,14 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
         cliOptions.add(new CliOption(CodegenConstants.LICENSE_NAME, CodegenConstants.LICENSE_NAME_DESC).defaultValue(this.getLicenseName()));
         cliOptions.add(new CliOption(CodegenConstants.LICENSE_URL, CodegenConstants.LICENSE_URL_DESC).defaultValue(this.getLicenseUrl()));
         cliOptions.add(new CliOption(CodegenConstants.SOURCE_FOLDER, CodegenConstants.SOURCE_FOLDER_DESC).defaultValue(this.getSourceFolder()));
-
+        CliOption buildTool = CliOption.newString(CodegenConstants.BUILD_TOOL, CodegenConstants.BUILD_TOOL_DESC);
+        Map<String, String> buildToolOptions = Map.of(
+            "maven", "Use maven (default)",
+            "gradle", "Use gradle"
+        );
+        buildTool.setEnum(buildToolOptions);
+        buildTool.setDefault("maven");
+        cliOptions.add(buildTool);
         cliOptions.add(CliOption.newString(CodegenConstants.PARENT_GROUP_ID, CodegenConstants.PARENT_GROUP_ID_DESC));
         cliOptions.add(CliOption.newString(CodegenConstants.PARENT_ARTIFACT_ID, CodegenConstants.PARENT_ARTIFACT_ID_DESC));
         cliOptions.add(CliOption.newString(CodegenConstants.PARENT_VERSION, CodegenConstants.PARENT_VERSION_DESC));
