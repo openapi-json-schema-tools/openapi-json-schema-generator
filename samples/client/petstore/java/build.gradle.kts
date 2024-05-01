@@ -48,6 +48,10 @@ publishing {
     }
 }
 
+tasks.wrapper {
+    gradleVersion = "8.7"
+}
+
 tasks.withType<JavaCompile>() {
     options.encoding = "UTF-8"
 }

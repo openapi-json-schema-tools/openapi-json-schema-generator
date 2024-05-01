@@ -2,3 +2,8 @@ build/
 .gradle/
 .idea/
 target/
+
+# gradle wrapper
+gradlew
+gradlew.bat
+gradle/
