@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="org.openapijsonschematools.client.header.SchemaHeaderTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2024-05-01T00:14:31" hostname="Justins-MacBook-Air.local" time="0.233">
+  <properties/>
+  <testcase name="testSerialization" classname="org.openapijsonschematools.client.header.SchemaHeaderTest" time="0.168"/>
+  <testcase name="testDeserialization" classname="org.openapijsonschematools.client.header.SchemaHeaderTest" time="0.061"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

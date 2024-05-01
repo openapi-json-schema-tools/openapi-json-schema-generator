@@ -95,6 +95,15 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
             "openapi-java-client",
             "generated-code" + File.separator + "java"
         );
+        String mavenBuildTool = "maven";
+        String buildToolValue = (String) generatorSettings.getAdditionalProperties().getOrDefault(CodegenConstants.BUILD_TOOL, mavenBuildTool);
+        additionalProperties.put(CodegenConstants.BUILD_TOOL, buildToolValue);
+        String gradleBuildTool = "gradle";
+        if (buildToolValue.equals(mavenBuildTool)) {
+            supportingFiles.add(new SupportingFile("pom.hbs", "", "pom.xml").doNotOverwrite());
+        } else if (buildToolValue.equals(gradleBuildTool)) {
+            supportingFiles.add(new SupportingFile("build.gradle.hbs", "", "build.gradle.kt").doNotOverwrite());
+        }
         if (this.outputTestFolder.isEmpty()) {
             setOutputTestFolder(this.generatorSettings.outputFolder);
         }
@@ -119,11 +128,11 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
         cliOptions.add(new CliOption(CodegenConstants.SOURCE_FOLDER, CodegenConstants.SOURCE_FOLDER_DESC).defaultValue(this.getSourceFolder()));
         CliOption buildTool = CliOption.newString(CodegenConstants.BUILD_TOOL, CodegenConstants.BUILD_TOOL_DESC);
         Map<String, String> buildToolOptions = Map.of(
-            "maven", "Use maven",
-            "gradle", "Use gradle"
+            mavenBuildTool, "Use maven",
+            gradleBuildTool, "Use gradle"
         );
         buildTool.setEnum(buildToolOptions);
-        buildTool.setDefault("maven");
+        buildTool.setDefault(mavenBuildTool);
         cliOptions.add(buildTool);
         cliOptions.add(CliOption.newString(CodegenConstants.PARENT_GROUP_ID, CodegenConstants.PARENT_GROUP_ID_DESC));
         cliOptions.add(CliOption.newString(CodegenConstants.PARENT_ARTIFACT_ID, CodegenConstants.PARENT_ARTIFACT_ID_DESC));
@@ -1064,7 +1073,6 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
         authFolder = (sourceFolder + '/' + invokerPackage + ".auth").replace(".", "/");
 
         //Common files
-        supportingFiles.add(new SupportingFile("pom.hbs", "", "pom.xml").doNotOverwrite());
         supportingFiles.add(new SupportingFile("README.hbs", "", "README.md").doNotOverwrite());
     }
 

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="org.openapijsonschematools.client.parameter.SchemaNonQueryParameterTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2024-05-01T00:14:31" hostname="Justins-MacBook-Air.local" time="0.064">
+  <properties/>
+  <testcase name="testPathLabelSerialization" classname="org.openapijsonschematools.client.parameter.SchemaNonQueryParameterTest" time="0.005"/>
+  <testcase name="testPathMatrixSerialization" classname="org.openapijsonschematools.client.parameter.SchemaNonQueryParameterTest" time="0.007"/>
+  <testcase name="testHeaderSerialization" classname="org.openapijsonschematools.client.parameter.SchemaNonQueryParameterTest" time="0.014"/>
+  <testcase name="testCookieSerialization" classname="org.openapijsonschematools.client.parameter.SchemaNonQueryParameterTest" time="0.017"/>
+  <testcase name="testPathSerialization" classname="org.openapijsonschematools.client.parameter.SchemaNonQueryParameterTest" time="0.011"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

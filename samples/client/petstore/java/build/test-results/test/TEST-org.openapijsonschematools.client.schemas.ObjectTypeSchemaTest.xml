@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="org.openapijsonschematools.client.schemas.ObjectTypeSchemaTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2024-05-01T00:14:32" hostname="Justins-MacBook-Air.local" time="0.041">
+  <properties/>
+  <testcase name="testValidateObjectWithPropsSchema" classname="org.openapijsonschematools.client.schemas.ObjectTypeSchemaTest" time="0.011"/>
+  <testcase name="testExceptionThrownForInvalidType" classname="org.openapijsonschematools.client.schemas.ObjectTypeSchemaTest" time="0.002"/>
+  <testcase name="testValidateObjectWithAddpropsSchema" classname="org.openapijsonschematools.client.schemas.ObjectTypeSchemaTest" time="0.009"/>
+  <testcase name="testValidateObjectWithPropsAndAddpropsSchema" classname="org.openapijsonschematools.client.schemas.ObjectTypeSchemaTest" time="0.007"/>
+  <testcase name="testValidateObjectWithOutputTypeSchema" classname="org.openapijsonschematools.client.schemas.ObjectTypeSchemaTest" time="0.009"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

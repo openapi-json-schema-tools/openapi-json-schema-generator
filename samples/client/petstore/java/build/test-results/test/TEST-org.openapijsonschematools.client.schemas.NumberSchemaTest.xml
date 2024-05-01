@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="org.openapijsonschematools.client.schemas.NumberSchemaTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2024-05-01T00:14:32" hostname="Justins-MacBook-Air.local" time="0.012">
+  <properties/>
+  <testcase name="testValidateDouble" classname="org.openapijsonschematools.client.schemas.NumberSchemaTest" time="0.004"/>
+  <testcase name="testExceptionThrownForInvalidType" classname="org.openapijsonschematools.client.schemas.NumberSchemaTest" time="0.003"/>
+  <testcase name="testValidateFloat" classname="org.openapijsonschematools.client.schemas.NumberSchemaTest" time="0.001"/>
+  <testcase name="testValidateInteger" classname="org.openapijsonschematools.client.schemas.NumberSchemaTest" time="0.002"/>
+  <testcase name="testValidateLong" classname="org.openapijsonschematools.client.schemas.NumberSchemaTest" time="0.0"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

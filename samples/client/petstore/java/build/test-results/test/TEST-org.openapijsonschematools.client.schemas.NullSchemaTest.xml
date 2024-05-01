@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="org.openapijsonschematools.client.schemas.NullSchemaTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2024-05-01T00:14:32" hostname="Justins-MacBook-Air.local" time="0.007">
+  <properties/>
+  <testcase name="testExceptionThrownForInvalidType" classname="org.openapijsonschematools.client.schemas.NullSchemaTest" time="0.003"/>
+  <testcase name="testValidateNull" classname="org.openapijsonschematools.client.schemas.NullSchemaTest" time="0.004"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
