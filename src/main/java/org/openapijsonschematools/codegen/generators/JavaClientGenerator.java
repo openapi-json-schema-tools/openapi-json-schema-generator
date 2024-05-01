@@ -107,7 +107,10 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
         if (this.outputTestFolder.isEmpty()) {
             setOutputTestFolder(this.generatorSettings.outputFolder);
         }
+        // Common files
+        supportingFiles.add(new SupportingFile("README.hbs", "", "README.md").doNotOverwrite());
         supportingFiles.add(new SupportingFile("gitignore.hbs", "", "gitignore"));
+
         headersSchemaFragment = "HeadersSchema";
         supportsInheritance = true;
 
@@ -1072,9 +1075,6 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
         super.processOpts();
 
         authFolder = (sourceFolder + '/' + invokerPackage + ".auth").replace(".", "/");
-
-        //Common files
-        supportingFiles.add(new SupportingFile("README.hbs", "", "README.md").doNotOverwrite());
     }
 
     @Override
