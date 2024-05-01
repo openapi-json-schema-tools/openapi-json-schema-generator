@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlagsTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2024-05-01T00:14:30" hostname="Justins-MacBook-Air.local" time="0.03">
-  <properties/>
-  <testcase name="testGetEnabledKeywords" classname="org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlagsTest" time="0.019"/>
-  <testcase name="testGetNoEnabledKeywords" classname="org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlagsTest" time="0.006"/>
-  <system-out><![CDATA[]]></system-out>
-  <system-err><![CDATA[]]></system-err>
-</testsuite>

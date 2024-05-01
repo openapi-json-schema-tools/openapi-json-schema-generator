@@ -107,6 +107,7 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
         if (this.outputTestFolder.isEmpty()) {
             setOutputTestFolder(this.generatorSettings.outputFolder);
         }
+        supportingFiles.add(new SupportingFile("gitignore.hbs", "", "gitignore"));
         headersSchemaFragment = "HeadersSchema";
         supportsInheritance = true;
 

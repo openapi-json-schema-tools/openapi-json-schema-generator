@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="org.openapijsonschematools.client.schemas.validation.CustomIsoparserTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2024-05-01T00:14:32" hostname="Justins-MacBook-Air.local" time="0.02">
-  <properties/>
-  <testcase name="testParseIsodatetime" classname="org.openapijsonschematools.client.schemas.validation.CustomIsoparserTest" time="0.019"/>
-  <testcase name="testParseIsodate" classname="org.openapijsonschematools.client.schemas.validation.CustomIsoparserTest" time="0.001"/>
-  <system-out><![CDATA[]]></system-out>
-  <system-err><![CDATA[]]></system-err>
-</testsuite>
