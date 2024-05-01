@@ -167,11 +167,11 @@ public class SchemaHeaderTest {
         Assert.assertEquals(expected, deserializedHelloWorld);
 
         header = getHeader(ListJsonSchema.ListJsonSchema1.getInstance());
-        var deserializedColorsList = header.deserialize(List.of("blue", "black", "brown"), false, configuration);
-        if (deserializedColorsList == null) {
+        var deserializedList = header.deserialize(List.of("blue", "black", "brown"), false, configuration);
+        if (deserializedList == null) {
             throw new RuntimeException("invalid value");
         }
         expected = List.of("blue", "black", "brown");
-        Assert.assertEquals(expected, deserializedColorsList);
+        Assert.assertEquals(expected, deserializedList);
     }
 }

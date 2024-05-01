@@ -28,7 +28,7 @@ configure<CheckerFrameworkExtension> {
 
 group = "org.openapijsonschematools"
 version = "1.0.0"
-description = "petstore"
+description = "OpenAPI Java"
 java.sourceCompatibility = JavaVersion.VERSION_17
 
 val testsJar by tasks.registering(Jar::class) {

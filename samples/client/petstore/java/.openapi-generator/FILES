@@ -1,4 +1,5 @@
 README.md
+build.gradle.kt
 docs/RootServerInfo.md
 docs/apis/paths/Anotherfakedummy.md
 docs/apis/paths/Commonparamsubdir.md
@@ -751,7 +752,8 @@ docs/servers/RootServer1.md
 docs/servers/RootServer2.md
 docs/servers/rootserver0/RootServer0Variables.md
 docs/servers/rootserver1/RootServer1Variables.md
-pom.xml
+gitignore
+settings.gradle.kt
 src/main/java/org/openapijsonschematools/client/RootServerInfo.java
 src/main/java/org/openapijsonschematools/client/apiclient/ApiClient.java
 src/main/java/org/openapijsonschematools/client/apis/paths/Anotherfakedummy.java

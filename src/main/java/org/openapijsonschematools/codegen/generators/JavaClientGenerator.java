@@ -102,7 +102,8 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
         if (buildToolValue.equals(mavenBuildTool)) {
             supportingFiles.add(new SupportingFile("pom.hbs", "", "pom.xml").doNotOverwrite());
         } else if (buildToolValue.equals(gradleBuildTool)) {
-            supportingFiles.add(new SupportingFile("build.gradle.hbs", "", "build.gradle.kt").doNotOverwrite());
+            supportingFiles.add(new SupportingFile("build.gradle.hbs", "", "build.gradle.kts").doNotOverwrite());
+            supportingFiles.add(new SupportingFile("settings.gradle.hbs", "", "settings.gradle.kts").doNotOverwrite());
         }
         if (this.outputTestFolder.isEmpty()) {
             setOutputTestFolder(this.generatorSettings.outputFolder);
