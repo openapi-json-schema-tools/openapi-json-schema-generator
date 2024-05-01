@@ -15,7 +15,7 @@ public class AuthApplier {
         String resourcePath,
         String method,
         HttpRequest.BodyPublisher bodyPublisher,
-        Map<String, String> queryMap,
+        @Nullable Map<String, String> queryMap,
         ApiConfiguration apiConfiguration
     ) {
         if (securityRequirementObject == null) {

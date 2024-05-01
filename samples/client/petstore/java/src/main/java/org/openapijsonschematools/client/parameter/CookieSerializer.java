@@ -16,7 +16,7 @@ public abstract class CookieSerializer {
 
     public String serialize(Map<String, ?> inData) throws NotImplementedException {
         String result = "";
-        Map<String, ?> sortedData = new TreeMap<>(inData);
+        Map<String, @Nullable Object> sortedData = new TreeMap<>(inData);
         for (Map.Entry<String, ?> entry: sortedData.entrySet()) {
             String mapKey = entry.getKey();
             @Nullable Parameter parameter = parameters.get(mapKey);
