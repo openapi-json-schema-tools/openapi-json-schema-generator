@@ -110,7 +110,7 @@ public class JavaClientGenerator extends DefaultGenerator implements Generator {
         }
         // Common files
         supportingFiles.add(new SupportingFile("README.hbs", "", "README.md").doNotOverwrite());
-        supportingFiles.add(new SupportingFile("gitignore.hbs", "", "gitignore"));
+        supportingFiles.add(new SupportingFile("gitignore.hbs", "", ".gitignore"));
 
         headersSchemaFragment = "HeadersSchema";
         supportsInheritance = true;
