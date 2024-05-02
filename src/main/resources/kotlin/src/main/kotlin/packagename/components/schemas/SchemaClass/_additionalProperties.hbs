@@ -1,0 +1,17 @@
+{{#if forDocs}}
+    {{#with additionalProperties}}
+        {{#if refInfo.refClass}}
+            {{#if refInfo.refModule}}
+additionalProperties = [{{refInfo.refModule}}.{{refInfo.refClass}}.class]({{docRoot}}{{refInfo.ref.pathFromDocRoot}}.md#{{refInfo.ref.jsonPathPiece.kebabCase}})
+            {{~else}}
+additionalProperties = [{{refInfo.refClass}}.class](#{{refInfo.ref.jsonPathPiece.kebabCase}})
+            {{~/if}}
+        {{else}}
+additionalProperties = [{{jsonPathPiece.pascalCase}}.class](#{{jsonPathPiece.kebabCase}})
+        {{~/if}}
+    {{~/with}}
+{{else}}
+    {{#with additionalProperties}}
+.additionalProperties({{#if refInfo.refClass}}{{#if refInfo.refModule}}{{refInfo.refModule}}.{{/if}}{{refInfo.refClass}}{{else}}{{jsonPathPiece.pascalCase}}{{/if}}.class)
+    {{/with}}
+{{/if}}

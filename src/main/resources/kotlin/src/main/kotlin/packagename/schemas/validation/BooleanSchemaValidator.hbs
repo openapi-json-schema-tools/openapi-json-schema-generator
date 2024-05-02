@@ -1,0 +1,9 @@
+package {{{packageName}}}.schemas.validation;
+
+import {{{packageName}}}.configurations.SchemaConfiguration;
+import {{{packageName}}}.exceptions.ValidationException;
+
+public interface BooleanSchemaValidator<T> {
+    boolean validate(boolean arg, SchemaConfiguration configuration) throws ValidationException;
+    T validateAndBox(boolean arg, SchemaConfiguration configuration) throws ValidationException;
+}

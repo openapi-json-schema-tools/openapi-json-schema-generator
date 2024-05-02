@@ -1,0 +1,78 @@
+{{#if requiredProperties}}
+    {{#each requiredProperties}}
+        {{#if @key.isValid}}
+        {{#with this}}
+            {{#if refInfo.refClass}}
+
+public {{> src/main/kotlin/packagename/components/schemas/types/schema_output_type fullRefModule="" }} {{{@key.original}}}() {
+    {{> src/main/kotlin/packagename/components/schemas/_objectOutputGetProperty required=true }}
+}
+            {{else}}
+                {{#if jsonPathPiece}}
+
+public {{> src/main/kotlin/packagename/components/schemas/types/schema_output_type fullRefModule=null }} {{{@key.original}}}() {
+    {{> src/main/kotlin/packagename/components/schemas/_objectOutputGetProperty required=true }}
+}
+                {{else}}
+                    {{! for when additionalProperties is unset, use OUTPUT_BASE_TYPES }}
+
+public @Nullable Object {{@key.original}}() {
+    {{> src/main/kotlin/packagename/components/schemas/_objectOutputGetProperty required=true }}
+}
+                {{/if}}
+            {{/if}}
+        {{/with}}
+        {{/if}}
+    {{/each}}
+{{/if}}
+{{#if optionalProperties}}
+    {{#each optionalProperties}}
+        {{#if @key.isValid}}
+        {{#with this}}
+
+public {{> src/main/kotlin/packagename/components/schemas/types/schema_output_type }} {{{@key.original}}}() throws UnsetPropertyException {
+    {{> src/main/kotlin/packagename/components/schemas/_objectOutputGetProperty required=false }}
+}
+        {{/with}}
+        {{/if}}
+    {{/each}}
+{{/if}}
+{{#eq additionalProperties null }}
+
+public @Nullable Object getAdditionalProperty(String name) throws UnsetPropertyException, InvalidAdditionalPropertyException {
+    {{#or optionalProperties requiredProperties}}
+    throwIfKeyKnown(name, requiredKeys, optionalKeys);
+    {{/or}}
+    throwIfKeyNotPresent(name);
+    return get(name);
+}
+{{else}}
+    {{#with additionalProperties}}
+        {{#unless isBooleanSchemaFalse}}
+
+public {{> src/main/kotlin/packagename/components/schemas/types/schema_output_type }} getAdditionalProperty(String name) throws UnsetPropertyException{{#or ../optionalProperties ../requiredProperties}}, InvalidAdditionalPropertyException{{/or}} {
+            {{#or ../optionalProperties ../requiredProperties}}
+    throwIfKeyKnown(name, requiredKeys, optionalKeys);
+            {{/or}}
+            {{#and ../../mapValueSchema (eq typeSchema ../../mapValueSchema.typeSchema) }}
+                {{#and (neq types null) (eq types.size 1) (contains types "boolean") }}
+    throwIfKeyNotPresent(name);
+    Boolean value = get(name);
+    if (value == null) {
+        throw new RuntimeException("Value may not be null");
+    }
+    return (boolean) value;
+                {{else}}
+    return getOrThrow(name);
+                {{/and}}
+            {{else}}
+    var value = getOrThrow(name);
+    if (!({{#contains types "null" }}value == null || {{/contains}}value instanceof {{> src/main/kotlin/packagename/components/schemas/types/schema_output_type fullRefModule="" forceNull=true noAnnotations=true }})) {
+        throw new RuntimeException("Invalid value stored for " + name);
+    }
+    return ({{> src/main/kotlin/packagename/components/schemas/types/schema_output_type fullRefModule="" }}) value;
+            {{/and}}
+}
+        {{/unless}}
+    {{/with}}
+{{/eq}}

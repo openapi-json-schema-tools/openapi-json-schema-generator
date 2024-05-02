@@ -1,0 +1,150 @@
+{{#with response}}
+package {{packageName}}.{{subpackage}};
+
+{{#if refInfo}}
+    {{#neq subpackage refInfo.ref.subpackage}}
+import {{packageName}}.{{refInfo.ref.subpackage}}.{{refInfo.refModule}};
+    {{/neq}}
+
+public class {{jsonPathPiece.pascalCase}} extends {{refInfo.refModule}} {
+    public static class {{jsonPathPiece.pascalCase}}1 extends {{refInfo.refModule}}1 {}
+}
+{{else}}
+import {{packageName}}.configurations.SchemaConfiguration;
+import {{packageName}}.response.ResponseDeserializer;
+import {{packageName}}.response.DeserializedHttpResponse;
+import {{packageName}}.exceptions.ApiException;
+import {{packageName}}.exceptions.ValidationException;
+import {{packageName}}.exceptions.NotImplementedException;
+    {{#if hasContentSchema}}
+import {{packageName}}.mediatype.MediaType;
+    {{else}}
+import {{packageName}}.schemas.validation.MapUtils;
+    {{/if}}
+    {{#each content}}
+        {{#with schema}}
+import {{{packageName}}}.{{subpackage}}.{{containerJsonPathPiece.pascalCase}};
+        {{/with}}
+    {{/each}}
+    {{#with headersObjectSchema}}
+import {{{packageName}}}.{{subpackage}}.{{containerJsonPathPiece.pascalCase}};
+    {{/with}}
+    {{#if headers}}
+import {{{packageName}}}.{{headers.subpackage}}.{{headers.jsonPathPiece.pascalCase}};
+    {{/if}}
+
+    {{#if content}}
+import java.util.AbstractMap;
+    {{/if}}
+import java.util.Map;
+import java.net.http.HttpResponse;
+import java.net.http.HttpHeaders;
+
+public class {{jsonPathPiece.pascalCase}} {
+    {{#if hasContentSchema}}
+    public sealed interface SealedMediaType permits {{#each content}}{{@key.pascalCase}}MediaType{{#unless @last}}, {{/unless}}{{/each}} {}
+        {{#each content}}
+
+    public record {{@key.pascalCase}}MediaType({{#with this}}{{#with schema}}{{containerJsonPathPiece.pascalCase}}.{{jsonPathPiece.pascalCase}} schema{{/with}}{{/with}}) implements SealedMediaType, MediaType<{{#with this}}{{#with schema}}{{containerJsonPathPiece.pascalCase}}.{{jsonPathPiece.pascalCase}}, Nothing?{{/with}}{{/with}}> {
+        public {{@key.pascalCase}}MediaType() {
+            this({{#with this}}{{#with schema}}{{containerJsonPathPiece.pascalCase}}.{{jsonPathPiece.pascalCase}}.getInstance(){{/with}}{{/with}});
+        }
+        @Override
+        public Nothing? encoding() {
+            return null;
+        }
+    }
+        {{/each}}
+    public sealed interface SealedResponseBody permits {{#each content}}{{@key.pascalCase}}ResponseBody{{#unless @last}}, {{/unless}}{{/each}} {}
+        {{#each content}}
+    public record {{@key.pascalCase}}ResponseBody({{#with this}}{{#with schema}}{{containerJsonPathPiece.pascalCase}}.{{#with getSelfOrDeepestRef}}{{> src/main/kotlin/packagename/components/schemas/_sealedClassName }}{{/with}}{{/with}}{{/with}} body) implements SealedResponseBody { }
+        {{/each}}
+    {{/if}}
+
+    public static class {{jsonPathPiece.pascalCase}}1 extends ResponseDeserializer<{{#if hasContentSchema}}SealedResponseBody{{else}}Nothing?{{/if}}, {{#with headersObjectSchema}}{{containerJsonPathPiece.pascalCase}}.{{mapOutputJsonPathPiece.pascalCase}}{{else}}Nothing?{{/with}}, {{#if hasContentSchema}}SealedMediaType{{else}}Nothing?{{/if}}> {
+        public {{jsonPathPiece.pascalCase}}1() {
+            super(
+        {{#if hasContentSchema}}
+                Map.ofEntries(
+            {{#each content}}
+                    new AbstractMap.SimpleEntry<>("{{{@key.original}}}", new {{@key.pascalCase}}MediaType()){{#unless @last}},{{/unless}}
+            {{/each}}
+                )
+        {{else}}
+                MapUtils.makeMap(
+            {{#each content}}
+                    new AbstractMap.SimpleEntry<String, Nothing?>("{{{@key.original}}}", null){{#unless @last}},{{/unless}}
+            {{/each}}
+                )
+        {{/if}}
+            );
+        }
+
+        {{#if hasContentSchema}}
+        @Override
+        protected SealedResponseBody getBody(String contentType, SealedMediaType mediaType, byte[] body, SchemaConfiguration configuration) throws ValidationException, NotImplementedException {
+            {{#eq content.size 1}}
+                {{#each content}}
+            {{@key.pascalCase}}MediaType thisMediaType = ({{@key.pascalCase}}MediaType) mediaType;
+            var deserializedBody = deserializeBody(contentType, body, thisMediaType.schema(), configuration);
+            return new {{@key.pascalCase}}ResponseBody(deserializedBody);
+                {{/each}}
+            {{else}}
+                {{#each content}}
+                    {{#if @first}}
+            if (mediaType instanceof {{@key.pascalCase}}MediaType thisMediaType) {
+                    {{else}}
+                        {{#if @last}}
+            } else {
+                {{@key.pascalCase}}MediaType thisMediaType = ({{@key.pascalCase}}MediaType) mediaType;
+                        {{else}}
+            } else if (mediaType instanceof {{@key.pascalCase}}MediaType thisMediaType) {
+                        {{/if}}
+                    {{/if}}
+                var deserializedBody = deserializeBody(contentType, body, thisMediaType.schema(), configuration);
+                return new {{@key.pascalCase}}ResponseBody(deserializedBody);
+                {{/each}}
+            }
+            {{/eq}}
+        }
+        {{else}}
+        @Override
+        protected Nothing? getBody(String contentType, Nothing? mediaType, byte[] body, SchemaConfiguration configuration) {
+            return null;
+        }
+        {{/if}}
+
+        @Override
+        protected {{#with headersObjectSchema}}{{containerJsonPathPiece.pascalCase}}.{{mapOutputJsonPathPiece.pascalCase}}{{else}}Nothing?{{/with}} getHeaders(HttpHeaders headers, SchemaConfiguration configuration){{#if headers}} throws ValidationException, NotImplementedException{{/if}} {
+        {{#if headers}}
+            return new {{headers.jsonPathPiece.pascalCase}}().deserialize(headers, configuration);
+        {{else}}
+            return null;
+        {{/if}}
+        }
+    }
+
+    {{#if hasContentSchema}}
+    @SuppressWarnings("serial")
+    public static class ResponseApiException extends ApiException {
+        public DeserializedHttpResponse<SealedResponseBody, Nothing?> deserializedResponse;
+
+        public ResponseApiException(String s, HttpResponse<byte[]> response, DeserializedHttpResponse<SealedResponseBody, Nothing?> deserializedResponse) {
+            super(s, response);
+            this.deserializedResponse = deserializedResponse;
+        }
+    }
+    {{else}}
+    @SuppressWarnings("serial")
+    public static class ResponseApiException extends ApiException {
+        public DeserializedHttpResponse<Nothing?, Nothing?> deserializedResponse;
+
+        public ResponseApiException(String s, HttpResponse<byte[]> response, DeserializedHttpResponse<Nothing?, Nothing?> deserializedResponse) {
+            super(s, response);
+            this.deserializedResponse = deserializedResponse;
+        }
+    }
+    {{/if}}
+}
+{{/if}}
+{{/with}}

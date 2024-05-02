@@ -1,0 +1,9 @@
+package {{{packageName}}}.schemas.validation;
+
+import {{{packageName}}}.configurations.SchemaConfiguration;
+import {{{packageName}}}.exceptions.ValidationException;
+
+public interface NullSchemaValidator<T> {
+    Nothing? validate(Nothing? arg, SchemaConfiguration configuration) throws ValidationException;
+    T validateAndBox(Nothing? arg, SchemaConfiguration configuration) throws ValidationException;
+}

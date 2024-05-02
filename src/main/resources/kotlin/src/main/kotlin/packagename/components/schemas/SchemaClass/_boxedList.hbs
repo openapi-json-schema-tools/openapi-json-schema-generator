@@ -1,0 +1,27 @@
+{{#if forDocs}}
+{{> src/main/kotlin/packagename/components/_helper_header_from_identifier_pieces headerSize=(join headerSize "#" "") identifierPieces=(append identifierPieces (join jsonPathPiece.pascalCase "BoxedList" "")) }}
+public record {{jsonPathPiece.pascalCase}}BoxedList<br>
+implements [{{jsonPathPiece.pascalCase}}Boxed](#{{> src/main/kotlin/packagename/components/_helper_anchor_id identifierPieces=(append identifierPieces (join jsonPathPiece.kebabCase "boxed" "")) }})
+
+record that stores validated List payloads, sealed permits implementation
+
+{{headerSize}}## Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| {{jsonPathPiece.pascalCase}}BoxedList({{#if arrayOutputJsonPathPiece}}[{{arrayOutputJsonPathPiece.pascalCase}}](#{{> src/main/kotlin/packagename/components/_helper_anchor_id identifierPieces=(append identifierPieces arrayOutputJsonPathPiece) }}){{else}}FrozenList<@Nullable Object>{{/if}} data)<br>Creates an instance, private visibility |
+
+{{headerSize}}## Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| {{#if arrayOutputJsonPathPiece}}[{{arrayOutputJsonPathPiece.pascalCase}}](#{{> src/main/kotlin/packagename/components/_helper_anchor_id identifierPieces=(append identifierPieces arrayOutputJsonPathPiece) }}){{else}}FrozenList<@Nullable Object>{{/if}} | data()<br>validated payload |
+| @Nullable Object | getData()<br>validated payload |
+
+{{else}}
+public record {{jsonPathPiece.pascalCase}}BoxedList({{#if arrayOutputJsonPathPiece}}{{arrayOutputJsonPathPiece.pascalCase}}{{else}}FrozenList<@Nullable Object>{{/if}} data) implements {{jsonPathPiece.pascalCase}}Boxed {
+    @Override
+    public @Nullable Object getData() {
+        return data;
+    }
+}
+
+{{/if}}

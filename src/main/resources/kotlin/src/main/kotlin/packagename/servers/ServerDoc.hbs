@@ -1,0 +1,45 @@
+{{#with server}}
+    {{#if rootServer}}
+{{packageName}}.servers.{{jsonPathPiece.snakeCase}}
+    {{/if}}
+    {{#eq identifierPieces.size 0}}
+{{> src/main/kotlin/packagename/components/_helper_header_from_identifier_pieces identifierPieces=(append identifierPieces "Server" jsonPathPiece) }}
+    {{else}}
+{{headerSize}} {{jsonPathPiece.pascalCase}}
+    {{/eq}}
+public class {{jsonPathPiece.pascalCase}}
+
+A class that stores a server url
+    {{#if description}}
+
+{{headerSize}}# Description
+{{description.originalWithBr}}
+    {{/if}}
+    {{#if refInfo}}
+
+| Ref Class | Description |
+| --------- | ----------- |
+| [{{refInfo.refClass}}](../../servers/{{refInfo.refModule}}.{{refInfo.refClass}}.md#) |{{#with getDeepestRef}}{{#if description}} {{description.originalWithBr}}{{/if}}{{/with}} |
+    {{else}}
+
+{{headerSize}}## Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| {{jsonPathPiece.pascalCase}}()<br>Creates a server{{#if variables}} using default values for variables{{/if}} |
+{{#if variables}}
+| {{jsonPathPiece.pascalCase}}({{#with variables}}[{{containerJsonPathPiece.pascalCase}}.{{mapOutputJsonPathPiece.pascalCase}}]({{docRoot}}{{pathFromDocRoot}}.md#{{mapOutputJsonPathPiece.kebabCase}}) variables{{/with}})<br>Creates a server using input values for variables |
+{{/if}}
+
+{{headerSize}}## Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | --------------------- |
+| String            | url = "{{{url}}}"     |
+{{#with variables}}
+| [{{containerJsonPathPiece.pascalCase}}.{{mapOutputJsonPathPiece.pascalCase}}]({{docRoot}}{{pathFromDocRoot}}.md#{{mapOutputJsonPathPiece.kebabCase}}) | variables |
+{{/with}}
+    {{/if}}
+    {{#if rootServer}}
+
+[[Back to top]](#top) {{> _helper_footer_links readmePath="../../" serversLink=true}}
+    {{/if}}
+{{/with}}

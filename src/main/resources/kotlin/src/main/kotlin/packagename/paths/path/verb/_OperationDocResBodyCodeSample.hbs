@@ -1,0 +1,21 @@
+{{#eq content.size 1}}
+    {{#each content}}
+{{../jsonPathPiece.pascalCase}}.{{@key.pascalCase}}ResponseBody deserializedBody = ({{../jsonPathPiece.pascalCase}}.{{@key.pascalCase}}ResponseBody) castResponse.body;
+// handle deserialized body here
+    {{/each}}
+{{else}}
+    {{#each content}}
+        {{#if @first}}
+if (castResponse.body instanceof {{../jsonPathPiece.pascalCase}}.{{@key.pascalCase}}ResponseBody deserializedBody) {
+        {{else}}
+            {{#if @last}}
+} else {
+    {{../jsonPathPiece.pascalCase}}.{{@key.pascalCase}}ResponseBody deserializedBody = ({{../jsonPathPiece.pascalCase}}.{{@key.pascalCase}}ResponseBody) castResponse.body;
+            {{else}}
+} else if (castResponse.body instanceof {{../jsonPathPiece.pascalCase}}.{{@key.pascalCase}}ResponseBody deserializedBody) {
+            {{/if}}
+        {{/if}}
+    // handle deserialized body here
+    {{/each}}
+}
+{{/eq}}

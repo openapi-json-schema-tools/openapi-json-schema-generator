@@ -1,0 +1,31 @@
+{{#if required}}
+    {{#and ../../mapValueSchema (eq typeSchema ../../mapValueSchema.typeSchema) }}
+        {{#contains ../../mapValueSchema "null"}}
+return get("{{{@key.original}}}");
+        {{else}}
+try {
+    return getOrThrow("version");
+} catch (UnsetPropertyException e) {
+    throw new RuntimeException(e);
+}
+        {{/contains}}
+    {{else}}
+{{#with ../../mapValueSchema}}{{> src/main/kotlin/packagename/components/schemas/types/schema_output_type fullRefModule="" }}{{/with}} value = get("{{{@key.original}}}");
+if (!({{#contains types "null" }}value == null || {{/contains}}value instanceof {{> src/main/kotlin/packagename/components/schemas/types/schema_output_type fullRefModule="" forceNull=true noAnnotations=true }})) {
+    throw new RuntimeException("Invalid value stored for {{{@key.original}}}");
+}
+return ({{> src/main/kotlin/packagename/components/schemas/types/schema_output_type fullRefModule="" }}) value;
+    {{/and}}
+{{else}}
+    {{#and ../../mapValueSchema (eq typeSchema ../../mapValueSchema.typeSchema) }}
+return getOrThrow("{{{@key.original}}}");
+    {{else}}
+String key = "{{{@key.original}}}";
+throwIfKeyNotPresent(key);
+{{#with ../../mapValueSchema}}{{> src/main/kotlin/packagename/components/schemas/types/schema_output_type fullRefModule="" }}{{/with}} value = get(key);
+if (!({{#contains types "null" }}value == null || {{/contains}}value instanceof {{> src/main/kotlin/packagename/components/schemas/types/schema_output_type fullRefModule="" forceNull=true noAnnotations=true }})) {
+    throw new RuntimeException("Invalid value stored for {{{@key.original}}}");
+}
+return ({{> src/main/kotlin/packagename/components/schemas/types/schema_output_type fullRefModule="" }}) value;
+    {{/and}}
+{{/if}}

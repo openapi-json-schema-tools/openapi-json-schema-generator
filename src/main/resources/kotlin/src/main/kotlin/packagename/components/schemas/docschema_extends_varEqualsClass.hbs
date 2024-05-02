@@ -1,0 +1,88 @@
+{{#or isBooleanSchemaTrue isBooleanSchemaFalse}}
+    {{#if isBooleanSchemaTrue}}
+extends AnyTypeJsonSchema.AnyTypeJsonSchema1
+    {{else}}
+extends NotAnyTypeJsonSchema.NotAnyTypeJsonSchema1
+    {{/if}}
+{{else}}
+    {{#if refInfo.refClass}}
+        {{#if refInfo.refModule}}
+extends [{{refInfo.refModule}}.{{refInfo.refClass}}]({{docRoot}}{{#with refInfo.ref}}{{pathFromDocRoot}}.md#{{jsonPathPiece.kebabCase}}{{/with}})
+        {{else}}
+extends [{{refInfo.refClass}}](#{{refInfo.ref.jsonPathPiece.kebabCase}})
+        {{/if}}
+    {{else}}
+        {{#eq types null}}
+extends AnyTypeJsonSchema.AnyTypeJsonSchema1
+        {{else}}
+            {{#each types}}
+                {{#eq this "null"}}
+extends NullJsonSchema.NullJsonSchema1
+                {{/eq}}
+                {{#eq this "object"}}
+extends MapJsonSchema.MapJsonSchema1
+                {{/eq}}
+                {{#eq this "array"}}
+extends ListJsonSchema.ListJsonSchema1
+                {{/eq}}
+                {{#eq this "boolean"}}
+extends BooleanJsonSchema.BooleanJsonSchema1
+                {{/eq}}
+                {{#eq this "string"}}
+                    {{#eq ../format "date"}}
+extends DateJsonSchema.DateJsonSchema1
+                    {{/eq}}
+                    {{#eq ../format "date-time"}}
+extends DateTimeJsonSchema.DateTimeJsonSchema1
+                    {{/eq}}
+                    {{#eq ../format "uuid"}}
+extends UuidJsonSchema.UuidJsonSchema1
+                    {{/eq}}
+                    {{#eq ../format "number"}}
+extends DecimalJsonSchema.DecimalJsonSchema1
+                    {{/eq}}
+                    {{#eq ../format "binary"}}
+extends JsonSchema
+                    {{/eq}}
+                    {{#neq ../format "date"}}
+                        {{#neq ../format "date-time"}}
+                            {{#neq ../format "uuid"}}
+                                {{#neq ../format "number"}}
+                                    {{#neq ../format "binary"}}
+extends StringJsonSchema.StringJsonSchema1
+                                    {{/neq}}
+                                {{/neq}}
+                            {{/neq}}
+                        {{/neq}}
+                    {{/neq}}
+                {{/eq}}
+                {{#eq this "integer"}}
+                    {{#eq ../format "int32"}}
+extends Int32JsonSchema.Int32JsonSchema1
+                    {{/eq}}
+                    {{#eq ../format "int64"}}
+extends Int64JsonSchema.Int64JsonSchema1
+                    {{/eq}}
+                    {{#neq ../format "int32"}}
+                        {{#neq ../format "int64"}}
+extends IntJsonSchema.IntJsonSchema1
+                        {{/neq}}
+                    {{/neq}}
+                {{/eq}}
+                {{#eq this "number"}}
+                    {{#eq ../format null}}
+extends NumberJsonSchema.NumberJsonSchema1
+                    {{else}}
+                        {{#eq ../format "float"}}
+extends FloatJsonSchema.FloatJsonSchema1
+                        {{else}}
+                            {{#eq ../format "double"}}
+extends DoubleJsonSchema.DoubleJsonSchema1
+                            {{/eq}}
+                        {{/eq}}
+                    {{/eq}}
+                {{/eq}}
+            {{/each}}
+        {{/eq}}
+    {{/if}}
+{{/or}}

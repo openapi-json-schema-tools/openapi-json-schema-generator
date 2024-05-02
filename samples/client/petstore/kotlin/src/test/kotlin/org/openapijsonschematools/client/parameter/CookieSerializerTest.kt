@@ -1,0 +1,45 @@
+package org.openapijsonschematools.client.parameter;
+
+import org.junit.Assert;
+import org.junit.Test;
+import org.openapijsonschematools.client.exceptions.NotImplementedException;
+import org.openapijsonschematools.client.schemas.AnyTypeJsonSchema;
+
+import java.util.AbstractMap;
+import java.util.Map;
+
+public class CookieSerializerTest {
+    public static class Parameter1 extends SchemaParameter {
+        public Parameter1() {
+            super("param1", ParameterInType.COOKIE, true, null, null, null, AnyTypeJsonSchema.AnyTypeJsonSchema1.getInstance());
+        }
+    }
+
+    public static class Parameter2 extends SchemaParameter {
+        public Parameter2() {
+            super("param2", ParameterInType.COOKIE, true, null, null, null, AnyTypeJsonSchema.AnyTypeJsonSchema1.getInstance());
+        }
+    }
+
+    public static class CookieParametersSerializer extends CookieSerializer {
+        protected CookieParametersSerializer() {
+            super(
+                    Map.ofEntries(
+                            new AbstractMap.SimpleEntry<>("param1", new Parameter1()),
+                            new AbstractMap.SimpleEntry<>("param2", new Parameter2())
+                    )
+            );
+        }
+    }
+
+    @Test
+    public void testSerialization() throws NotImplementedException {
+        Map<String, ?> inData = Map.ofEntries(
+                new AbstractMap.SimpleEntry<>("param1", "a"),
+                new AbstractMap.SimpleEntry<>("param2", 3.14d)
+        );
+        String cookie = new CookieParametersSerializer().serialize(inData);
+        String expectedCookie = "param1=a; param2=3.14";
+        Assert.assertEquals(expectedCookie, cookie);
+    }
+}

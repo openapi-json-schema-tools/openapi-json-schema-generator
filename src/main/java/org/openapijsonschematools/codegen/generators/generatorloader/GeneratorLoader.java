@@ -21,6 +21,7 @@ import org.openapijsonschematools.codegen.config.GeneratorSettings;
 import org.openapijsonschematools.codegen.config.WorkflowSettings;
 import org.openapijsonschematools.codegen.generators.Generator;
 import org.openapijsonschematools.codegen.generators.JavaClientGenerator;
+import org.openapijsonschematools.codegen.generators.KotlinClientGenerator;
 import org.openapijsonschematools.codegen.generators.PythonClientGenerator;
 
 import java.lang.reflect.Constructor;
@@ -36,7 +37,8 @@ import java.util.Set;
 public class GeneratorLoader {
     private static final Map<String, Class<? extends Generator>> generatorNameToGenerator = Map.ofEntries(
         new AbstractMap.SimpleEntry<>(JavaClientGenerator.generatorMetadata.getName(), JavaClientGenerator.class),
-        new AbstractMap.SimpleEntry<>(PythonClientGenerator.generatorMetadata.getName(), PythonClientGenerator.class)
+        new AbstractMap.SimpleEntry<>(PythonClientGenerator.generatorMetadata.getName(), PythonClientGenerator.class),
+        new AbstractMap.SimpleEntry<>(KotlinClientGenerator.generatorMetadata.getName(), KotlinClientGenerator.class)
     );
 
     public static Generator getGenerator(String name, GeneratorSettings generatorSettings, WorkflowSettings workflowSettings) {

@@ -1,0 +1,9 @@
+package {{{packageName}}}.schemas.validation;
+
+import {{{packageName}}}.configurations.SchemaConfiguration;
+import {{{packageName}}}.exceptions.ValidationException;
+
+public interface StringSchemaValidator<T> {
+    String validate(String arg, SchemaConfiguration configuration) throws ValidationException;
+    T validateAndBox(String arg, SchemaConfiguration configuration) throws ValidationException;
+}

@@ -1,0 +1,18 @@
+package {{packageName}}.apis.tags;
+
+import {{packageName}}.apiclient.ApiClient;
+import {{packageName}}.configurations.ApiConfiguration;
+import {{packageName}}.configurations.SchemaConfiguration;
+{{#each operations}}
+import {{packageName}}.{{subpackage}}.{{jsonPathPiece.pascalCase}};
+{{/each}}
+
+public class {{tag.className}} extends ApiClient implements
+{{#each operations}}
+    {{jsonPathPiece.pascalCase}}.{{operationId.pascalCase}}Operation{{#unless @last}},{{/unless}}
+{{/each}}
+{
+    public {{tag.className}}(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration) {
+        super(apiConfiguration, schemaConfiguration);
+    }
+}

@@ -1,0 +1,5 @@
+default T {{methodName}}({{jsonPathPiece.pascalCase}} security{{@index}}) {
+    var instance = getInstance();
+    instance.put(SecurityIndex.SECURITY_{{@index}}, security{{@index}});
+    return {{getBuilderMethod}}(instance);
+}

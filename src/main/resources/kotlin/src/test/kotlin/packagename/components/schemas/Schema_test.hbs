@@ -1,0 +1,56 @@
+package {{{packageName}}}.components.schemas;
+
+import org.junit.Assert;
+import org.junit.Test;
+import {{{packageName}}}.configurations.JsonSchemaKeywordFlags;
+import {{{packageName}}}.configurations.SchemaConfiguration;
+import {{{packageName}}}.exceptions.ValidationException;
+import {{{packageName}}}.schemas.validation.MapUtils;
+import org.checkerframework.checker.nullness.qual.Nullable;
+
+import java.util.Arrays;
+import java.util.List;
+import java.util.Map;
+import java.util.AbstractMap;
+
+{{#with schema}}
+public class {{containerJsonPathPiece.pascalCase}}Test {
+    static final SchemaConfiguration configuration = new SchemaConfiguration(new JsonSchemaKeywordFlags.Builder().format().build());
+{{#each testCases}}
+    {{#with this }}
+
+    @Test
+    public void test{{@key}}{{#if valid}}Passes() throws ValidationException{{else}}Fails(){{/if}} {
+        // {{description.codeEscaped}}
+        final var schema = {{containerJsonPathPiece.pascalCase}}.{{jsonPathPiece.pascalCase}}.getInstance();
+        {{#if valid}}
+        schema.validate(
+            {{#with data}}
+                {{#and (eq type "array") ../arrayInputJsonPathPiece }}
+            new {{../containerJsonPathPiece.pascalCase}}.{{../arrayInputJsonPathPiece.pascalCase}}()
+                {{> src/main/kotlin/packagename/components/schemas/helpers/payload_renderer constructor=true endChar="" }}
+            .build(),
+                {{else}}
+            {{> src/main/kotlin/packagename/components/schemas/helpers/payload_renderer endChar="," }}
+                {{/and}}
+            {{/with}}
+            configuration
+        );
+        {{else}}
+        try {
+            schema.validate(
+                {{#with data}}
+                {{> src/main/kotlin/packagename/components/schemas/helpers/payload_renderer endChar="," }}
+                {{/with}}
+                configuration
+            );
+            throw new RuntimeException("A different exception must be thrown");
+        } catch (ValidationException ignored) {
+            ;
+        }
+        {{/if}}
+    }
+    {{/with}}
+{{/each}}
+{{/with}}
+}

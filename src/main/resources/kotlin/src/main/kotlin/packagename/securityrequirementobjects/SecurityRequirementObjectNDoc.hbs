@@ -1,0 +1,19 @@
+{{headerSize}} {{securityRequirementObject.jsonPathPiece.pascalCase}}
+{{securityRequirementObject.jsonPathPiece.pascalCase}}.java
+
+public class {{securityRequirementObject.jsonPathPiece.pascalCase}}
+{{#if securityRequirementObject.isEmpty }}
+extends EmptySecurityRequirementObject
+{{else}}
+extends SecurityRequirementObject
+{{/if}}
+
+{{headerSize}}## Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| {{securityRequirementObject.jsonPathPiece.pascalCase}}()<br>Creates an instance |
+
+{{headerSize}}## Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | --------------------- |
+| Map<Class<? extends SecurityScheme>, List<String>> | securitySchemeToScopes = Map.ofEntries({{#each securityRequirementObject}}<br>&nbsp;&nbsp;&nbsp;&nbsp;new AbstractMap.SimpleEntry<Class<? extends SecurityScheme>, List<String>>(<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[{{refInfo.refClass}}.class]({{docRoot}}{{refInfo.ref.pathFromDocRoot}}.md),<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;List.of({{#each scopeNames}}"{{.}}"{{#unless @last}}, {{/unless}}{{/each}})<br>&nbsp;&nbsp;&nbsp;&nbsp;){{#unless @last}},{{/unless}}{{/each}}) |

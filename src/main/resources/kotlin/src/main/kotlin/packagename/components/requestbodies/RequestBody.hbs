@@ -1,0 +1,92 @@
+{{#with requestBody}}
+package {{packageName}}.{{subpackage}};
+
+{{#if refInfo}}
+    {{#neq subpackage refInfo.ref.subpackage}}
+import {{packageName}}.{{refInfo.ref.subpackage}}.{{refInfo.refModule}};
+    {{/neq}}
+
+public class {{jsonPathPiece.pascalCase}} extends {{refInfo.refModule}} {
+    public static class {{jsonPathPiece.pascalCase}}1 extends {{refInfo.refModule}}1 {}
+}
+{{else}}
+import {{packageName}}.exceptions.NotImplementedException;
+import {{packageName}}.requestbody.RequestBodySerializer;
+import {{packageName}}.requestbody.GenericRequestBody;
+import {{packageName}}.requestbody.SerializedRequestBody;
+import {{packageName}}.mediatype.MediaType;
+    {{#each content}}
+        {{#with schema}}
+import {{{packageName}}}.{{subpackage}}.{{containerJsonPathPiece.pascalCase}};
+        {{/with}}
+    {{/each}}
+
+import java.util.AbstractMap;
+import java.util.Map;
+
+public class {{jsonPathPiece.pascalCase}} {
+    {{#if content}}
+    public sealed interface SealedMediaType permits {{#each content}}{{@key.pascalCase}}MediaType{{#unless @last}}, {{/unless}}{{/each}} {}
+    {{/if}}
+    {{#each content}}
+
+    public record {{@key.pascalCase}}MediaType({{#with this}}{{#with schema}}{{containerJsonPathPiece.pascalCase}}.{{jsonPathPiece.pascalCase}} schema{{/with}}{{/with}}) implements SealedMediaType, MediaType<{{#with this}}{{#with schema}}{{containerJsonPathPiece.pascalCase}}.{{jsonPathPiece.pascalCase}}{{/with}}{{/with}}, Nothing?> {
+        public {{@key.pascalCase}}MediaType() {
+            this({{#with this}}{{#with schema}}{{containerJsonPathPiece.pascalCase}}.{{jsonPathPiece.pascalCase}}.getInstance(){{/with}}{{/with}});
+        }
+        @Override
+        public Nothing? encoding() {
+            return null;
+        }
+    }
+    {{/each}}
+
+    public static class {{jsonPathPiece.pascalCase}}1 extends RequestBodySerializer<SealedRequestBody, SealedMediaType> {
+        public {{jsonPathPiece.pascalCase}}1() {
+            super(
+                Map.ofEntries(
+        {{#each content}}
+                    new AbstractMap.SimpleEntry<>("{{{@key.original}}}", new {{@key.pascalCase}}MediaType()){{#unless @last}},{{/unless}}
+        {{/each}}
+                ),
+                {{#if required}}true{{else}}false{{/if}}
+            );
+        }
+
+        public SerializedRequestBody serialize(SealedRequestBody requestBody) throws NotImplementedException  {
+    {{#eq content.size 1}}
+        {{#each content}}
+            {{@key.pascalCase}}RequestBody requestBody{{@index}} = ({{@key.pascalCase}}RequestBody) requestBody;
+            return serialize(requestBody{{@index}}.contentType(), requestBody{{@index}}.body().getData());
+        {{/each}}
+    {{else}}
+        {{#each content}}
+            {{#if @first}}
+            if (requestBody instanceof {{@key.pascalCase}}RequestBody requestBody{{@index}}) {
+            {{else}}
+                {{#if @last}}
+            } else  {
+                {{@key.pascalCase}}RequestBody requestBody{{@index}} = ({{@key.pascalCase}}RequestBody) requestBody;
+                {{else}}
+            } else if (requestBody instanceof {{@key.pascalCase}}RequestBody requestBody{{@index}}) {
+                {{/if}}
+            {{/if}}
+                return serialize(requestBody{{@index}}.contentType(), requestBody{{@index}}.body().getData());
+        {{/each}}
+            }
+    {{/eq}}
+        }
+    }
+
+    public sealed interface SealedRequestBody permits {{#each content}}{{@key.pascalCase}}RequestBody{{#unless @last}}, {{/unless}}{{/each}} {}
+    {{#each content}}
+    public record {{@key.pascalCase}}RequestBody({{#with this}}{{#with schema}}{{containerJsonPathPiece.pascalCase}}.{{#with getSelfOrDeepestRef}}{{> src/main/kotlin/packagename/components/schemas/_sealedClassName }}{{/with}}{{/with}}{{/with}} body) implements SealedRequestBody, GenericRequestBody<{{#with this}}{{#with schema}}{{containerJsonPathPiece.pascalCase}}.{{#with getSelfOrDeepestRef}}{{> src/main/kotlin/packagename/components/schemas/_sealedClassName }}{{/with}}{{/with}}{{/with}}> {
+        @Override
+        public String contentType() {
+            return "{{{@key.original}}}";
+        }
+    }
+    {{/each}}
+}
+{{/if}}
+{{/with}}

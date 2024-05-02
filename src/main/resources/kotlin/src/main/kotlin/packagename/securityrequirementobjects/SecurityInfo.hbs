@@ -1,0 +1,50 @@
+{{#if security.subpackage}}
+package {{{packageName}}}.{{security.subpackage}};
+{{else}}
+package {{{packageName}}};
+{{/if}}
+
+{{#each security}}
+import {{{packageName}}}.{{subpackage}}.{{jsonPathPiece.pascalCase}};
+{{/each}}
+import {{{packageName}}}.securityrequirementobjects.SecurityRequirementObject;
+import {{{packageName}}}.securityrequirementobjects.SecurityRequirementObjectProvider;
+
+public class {{security.jsonPathPiece.pascalCase}} {
+    public static class {{security.jsonPathPiece.pascalCase}}1 implements SecurityRequirementObjectProvider<SecurityIndex> {
+{{#each security}}
+        public final {{jsonPathPiece.pascalCase}} security{{@index}};
+{{/each}}
+
+        public {{security.jsonPathPiece.pascalCase}}1() {
+{{#each security}}
+            security{{@index}} = new {{jsonPathPiece.pascalCase}}();
+{{/each}}
+        }
+
+        @Override
+        public SecurityRequirementObject getSecurityRequirementObject(SecurityIndex securityIndex) {
+    {{#eq security.size 1}}
+            return security0;
+    {{else}}
+            switch (securityIndex) {
+        {{#each security}}
+            {{#if @last}}
+                default:
+                    return security{{@index}};
+            {{else}}
+                case SECURITY_{{@index}}:
+                    return security{{@index}};
+            {{/if}}
+        {{/each}}
+            }
+    {{/eq}}
+        }
+    }
+
+    public enum SecurityIndex {
+        {{#each security}}
+        SECURITY_{{@index}}{{#unless @last}},{{/unless}}
+        {{/each}}
+    }
+}

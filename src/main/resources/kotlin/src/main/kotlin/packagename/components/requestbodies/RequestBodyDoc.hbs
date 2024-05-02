@@ -1,0 +1,133 @@
+{{#with requestBody}}
+{{#eq identifierPieces.size 0}}
+{{> src/main/kotlin/packagename/components/_helper_header_from_identifier_pieces identifierPieces=(append identifierPieces jsonPathPiece) }}
+{{else}}
+{{> src/main/kotlin/packagename/components/_helper_header_from_identifier_pieces }}
+{{/eq}}
+{{#if componentModule}}
+{{jsonPathPiece.pascalCase}}.java
+{{/if}}
+
+{{#if refInfo}}
+public class {{jsonPathPiece.pascalCase}} extends [{{refInfo.refClass}}]({{docRoot}}{{refInfo.ref.pathFromDocRoot}}.md)
+
+A class (extended from the $ref class) that contains necessary nested request body classes
+- a class that extends RequestBodySerializer and is used to serialize input SealedRequestBody instances
+
+{{headerSize}}# Nested Class Summary
+| Modifier and Type | Class and Description |
+| ----------------- | --------------------- |
+| static class | [{{jsonPathPiece.pascalCase}}.{{jsonPathPiece.pascalCase}}1](#{{> src/main/kotlin/packagename/components/_helper_anchor_id identifierPieces=(append identifierPieces (join jsonPathPiece.kebabCase "1" "")) }})<br> class that serializes request bodies |
+
+{{> src/main/kotlin/packagename/components/_helper_header_from_identifier_pieces headerSize=(join headerSize "#" "") identifierPieces=(append identifierPieces (join jsonPathPiece.pascalCase "1" "")) }}
+public static class {{jsonPathPiece.pascalCase}}1 extends [{{refInfo.refClass}}1]({{docRoot}}{{refInfo.ref.pathFromDocRoot}}.md#{{refInfo.ref.jsonPathPiece.kebabCase}}1)<br>
+
+a class that serializes SealedRequestBody request bodies, extended from the $ref class
+
+{{else}}
+public class {{jsonPathPiece.pascalCase}}
+
+A class that contains necessary nested request body classes
+- SealedMediaType, a sealed interface which contains all the schema/encoding info for each contentType
+- records which implement SealedMediaType, the concrete media types
+- a class that extends RequestBodySerializer and is used to serialize input SealedRequestBody instances
+- SealedRequestBody, a sealed interface which contains all the contentType/schema input types
+- records which implement SealedRequestBody, the concrete request body types
+
+{{headerSize}}# Nested Class Summary
+| Modifier and Type | Class and Description |
+| ----------------- | --------------------- |
+| sealed interface | [{{jsonPathPiece.pascalCase}}.SealedMediaType](#{{> src/main/kotlin/packagename/components/_helper_anchor_id identifierPieces=(append identifierPieces "sealedmediatype") }})<br>media type sealed interface |
+{{#each content}}
+| record | [{{jsonPathPiece.pascalCase}}.{{@key.pascalCase}}MediaType](#{{@key.kebabCase}}mediatype)<br>record storing schema + encoding for a specific contentType |
+{{/each}}
+| static class | [{{jsonPathPiece.pascalCase}}.{{jsonPathPiece.pascalCase}}1](#{{> src/main/kotlin/packagename/components/_helper_anchor_id identifierPieces=(append identifierPieces (join jsonPathPiece.kebabCase "1" "")) }})<br>class that serializes request bodies |
+| sealed interface | [{{jsonPathPiece.pascalCase}}.SealedRequestBody](#{{> src/main/kotlin/packagename/components/_helper_anchor_id identifierPieces=(append identifierPieces "sealedrequestbody") }})<br>request body sealed interface |
+{{#each content}}
+| record | [{{jsonPathPiece.pascalCase}}.{{@key.pascalCase}}RequestBody](#{{@key.kebabCase}}requestbody)<br>implements sealed interface to store request body input |
+{{/each}}
+
+{{> src/main/kotlin/packagename/components/_helper_header_from_identifier_pieces headerSize=(join headerSize "#" "") identifierPieces=(append identifierPieces "SealedMediaType") }}
+public sealed interface SealedMediaType<br>
+permits<br>
+{{#each content}}
+[{{@key.pascalCase}}MediaType](#{{@key.kebabCase}}mediatype){{#unless @last}},{{/unless}}
+{{/each}}
+
+sealed interface that stores schema and encoding info
+
+{{#each content}}
+
+{{> src/main/kotlin/packagename/components/_helper_header_from_identifier_pieces headerSize=(join headerSize "#" "") identifierPieces=(append identifierPieces (join @key.pascalCase "MediaType" "")) }}
+public record {{@key.pascalCase}}MediaType<br>
+implements [SealedMediaType](#sealedmediatype), MediaType<{{#with this}}{{#with schema}}[{{containerJsonPathPiece.pascalCase}}.{{jsonPathPiece.pascalCase}}]({{docRoot}}{{pathFromDocRoot}}.md#{{jsonPathPiece.kebabCase}}){{/with}}{{/with}}, Nothing?>
+
+class storing schema info for a specific contentType
+
+{{headerSize}}## Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| {{@key.pascalCase}}MediaType()<br>Creates an instance |
+
+{{headerSize}}## Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| {{#with this}}{{#with schema}}[{{containerJsonPathPiece.pascalCase}}.{{jsonPathPiece.pascalCase}}]({{docRoot}}{{pathFromDocRoot}}.md#{{jsonPathPiece.kebabCase}}){{/with}}{{/with}} | schema()<br>the schema for this MediaType |
+| Nothing? | encoding()<br>the encoding info |
+{{/each}}
+
+{{> src/main/kotlin/packagename/components/_helper_header_from_identifier_pieces headerSize=(join headerSize "#" "") identifierPieces=(append identifierPieces (join jsonPathPiece.pascalCase "1" "")) }}
+public static class {{jsonPathPiece.pascalCase}}1<br>
+
+a class that serializes SealedRequestBody request bodies
+
+{{headerSize}}## Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| {{jsonPathPiece.pascalCase}}1()<br>Creates an instance |
+
+{{headerSize}}## Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | --------------------- |
+| boolean | required = {{#if required}}true{{else}}false{{/if}}<br>whether the request body is required |
+| Map<String, [SealedMediaType](#sealedmediatype)> | content =  Map.ofEntries(<br>{{#each content}}&nbsp;&nbsp;&nbsp;&nbsp;new AbstractMap.SimpleEntry<>("{{{@key.original}}}", new [{{@key.pascalCase}}MediaType](#{{@key.kebabCase}}mediatype)()){{#unless @last}},{{/unless}}<br>{{/each}})<br>the contentType to schema info |
+
+{{headerSize}}## Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| SerializedRequestBody | serialize([SealedRequestBody](#sealedrequestbody) requestBody)<br>called by endpoint when creating request body bytes |
+
+{{> src/main/kotlin/packagename/components/_helper_header_from_identifier_pieces headerSize=(join headerSize "#" "") identifierPieces=(append identifierPieces "SealedRequestBody") }}
+public sealed interface SealedRequestBody<br>
+permits<br>
+{{#each content}}
+[{{@key.pascalCase}}RequestBody](#{{@key.kebabCase}}requestbody){{#unless @last}},{{/unless}}
+{{/each}}
+
+sealed interface that stores request contentType + validated schema data
+
+{{#each content}}
+{{> src/main/kotlin/packagename/components/_helper_header_from_identifier_pieces headerSize=(join headerSize "#" "") identifierPieces=(append identifierPieces (join @key.pascalCase "RequestBody" "")) }}
+public record {{@key.pascalCase}}RequestBody<br>
+implements [SealedRequestBody](#sealedrequestbody),<br>
+GenericRequestBody<{{#with this}}{{#with schema}}{{containerJsonPathPiece.pascalCase}}.{{#with getSelfOrDeepestRef}}{{> src/main/kotlin/packagename/components/schemas/_sealedClassName forDocs=true }}{{/with}}{{/with}}{{/with}}><br>
+
+A record class to store request body input for contentType="{{{@key.original}}}"
+
+{{headerSize}}## Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| {{@key.pascalCase}}RequestBody({{#with this}}{{#with schema}}{{containerJsonPathPiece.pascalCase}}.{{#with getSelfOrDeepestRef}}{{> src/main/kotlin/packagename/components/schemas/_sealedClassName forDocs=true }}{{/with}}{{/with}}{{/with}} body)<br>Creates an instance |
+
+{{headerSize}}## Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| String | contentType()<br>always returns "{{{@key.original}}}" |
+| {{#with this}}{{#with schema}}{{containerJsonPathPiece.pascalCase}}.{{#with getSelfOrDeepestRef}}{{> src/main/kotlin/packagename/components/schemas/_sealedClassName forDocs=true }}{{/with}}{{/with}}{{/with}} | body()<br>returns the body passed in in the constructor |
+{{/each}}
+{{/if}}
+{{#if componentModule}}
+
+[[Back to top]](#top) {{> _helper_footer_links readmePath="../../../" requestBodiesLink=true}}
+{{/if}}
+{{/with}}

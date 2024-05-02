@@ -1,0 +1,29 @@
+{{#if forDocs}}
+anyOf = List.of(<br>
+    {{~#each anyOf}}
+        {{#if refInfo.refClass}}
+            {{#if refInfo.refModule}}
+&nbsp;&nbsp;&nbsp;&nbsp;[{{refInfo.refModule}}.{{refInfo.refClass}}.class]({{docRoot}}{{refInfo.ref.pathFromDocRoot}}.md#{{refInfo.ref.jsonPathPiece.kebabCase}}){{#unless @last}},{{/unless}}<br>
+            {{~else}}
+&nbsp;&nbsp;&nbsp;&nbsp;[{{refInfo.refClass}}.class](#{{refInfo.ref.jsonPathPiece.kebabCase}}){{#unless @last}},{{/unless}}<br>
+            {{~/if}}
+        {{else}}
+&nbsp;&nbsp;&nbsp;&nbsp;[{{jsonPathPiece.pascalCase}}.class](#{{jsonPathPiece.kebabCase}}){{#unless @last}},{{/unless}}<br>
+        {{~/if}}
+    {{/each}}
+)<br>
+{{~else}}
+.anyOf(List.of(
+    {{#each anyOf}}
+        {{#if refInfo.refClass}}
+            {{#if refInfo.refModule}}
+    {{refInfo.refModule}}.{{refInfo.refClass}}.class{{#unless @last}},{{/unless}}
+            {{else}}
+    {{refInfo.refClass}}.class{{#unless @last}},{{/unless}}
+            {{/if}}
+        {{else}}
+    {{jsonPathPiece.pascalCase}}.class{{#unless @last}},{{/unless}}
+        {{/if}}
+    {{/each}}
+))
+{{/if}}

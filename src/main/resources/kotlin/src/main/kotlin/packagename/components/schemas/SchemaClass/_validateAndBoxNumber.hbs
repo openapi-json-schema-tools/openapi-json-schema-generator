@@ -1,0 +1,4 @@
+@Override
+public {{jsonPathPiece.pascalCase}}BoxedNumber validateAndBox(Number arg, SchemaConfiguration configuration) throws ValidationException {
+    return new {{jsonPathPiece.pascalCase}}BoxedNumber(validate(arg, configuration));
+}

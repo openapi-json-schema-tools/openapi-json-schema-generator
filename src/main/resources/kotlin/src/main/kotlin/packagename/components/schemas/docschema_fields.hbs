@@ -1,0 +1,58 @@
+{{#or isBooleanSchemaFalse isBooleanSchemaTrue}}
+{{else}}
+    {{#eq types null }}
+        {{#if isSimpleAnyType }}
+        {{else}}
+{{> src/main/kotlin/packagename/components/schemas/docschema_fields_field }}
+        {{/if}}
+    {{else}}
+        {{! types exist }}
+        {{#eq types.size 1}}
+            {{! one type }}
+            {{#each types}}
+                {{#eq this "object"}}
+                    {{#if isSimpleObject }}
+                    {{else}}
+{{> src/main/kotlin/packagename/components/schemas/docschema_fields_field }}
+                    {{/if}}
+                {{else}}
+                    {{#eq this "array"}}
+                        {{#if isSimpleArray }}
+                        {{else}}
+{{> src/main/kotlin/packagename/components/schemas/docschema_fields_field }}
+                        {{/if}}
+                    {{else}}
+                        {{#eq this "boolean"}}
+                            {{#if isSimpleBoolean }}
+                            {{else}}
+{{> src/main/kotlin/packagename/components/schemas/docschema_fields_field }}
+                            {{/if}}
+                        {{else}}
+                            {{#or (eq this "number") (eq this "integer") }}
+                                {{#or isSimpleInteger isSimpleNumber }}
+                                {{else}}
+{{> src/main/kotlin/packagename/components/schemas/docschema_fields_field }}
+                                {{/or}}
+                            {{else}}
+                                {{#eq this "string"}}
+                                    {{#if isSimpleString}}
+                                    {{else}}
+{{> src/main/kotlin/packagename/components/schemas/docschema_fields_field }}
+                                    {{/if}}
+                                {{else}}
+                                    {{#if isSimpleNull }}
+                                    {{else}}
+{{> src/main/kotlin/packagename/components/schemas/docschema_fields_field }}
+                                    {{/if}}
+                                {{/eq}}
+                            {{/or}}
+                        {{/eq}}
+                    {{/eq}}
+                {{/eq}}
+            {{/each}}
+        {{else}}
+            {{! multiple types }}
+{{> src/main/kotlin/packagename/components/schemas/docschema_fields_field }}
+        {{/eq}}
+    {{/eq}}
+{{/or}}

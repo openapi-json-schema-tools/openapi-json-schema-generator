@@ -1,0 +1,39 @@
+{{#if listItemSchema}}
+
+public static class {{arrayInputJsonPathPiece.pascalCase}} {
+    // class to build List<{{#with listItemSchema}}{{> src/main/kotlin/packagename/components/schemas/types/schema_input_type sourceJsonPath=../jsonPath forceNull=true noExtends=true }}{{/with}}>
+    private final List<{{#with listItemSchema}}{{> src/main/kotlin/packagename/components/schemas/types/schema_input_type sourceJsonPath=../jsonPath forceNull=true noExtends=true }}{{/with}}> list;
+
+    public {{arrayInputJsonPathPiece.pascalCase}}() {
+        list = new ArrayList<>();
+    }
+
+    public {{arrayInputJsonPathPiece.pascalCase}}(List<{{#with listItemSchema}}{{> src/main/kotlin/packagename/components/schemas/types/schema_input_type sourceJsonPath=../jsonPath forceNull=true noExtends=true }}{{/with}}> list) {
+        this.list = list;
+    }
+    {{#with listItemSchema}}
+        {{#if refInfo }}
+            {{#if refInfo.refModule}}
+                {{#with getDeepestRef }}
+    {{> src/main/kotlin/packagename/components/schemas/_arrayInputAddItem builderClass=../../arrayInputJsonPathPiece.pascalCase useContainer=true }}
+                {{/with}}
+            {{else}}
+                {{! self reference} }}
+
+    public {{../arrayInputJsonPathPiece.pascalCase}} add(List<?> item) {
+        list.add(item);
+        return this;
+    }
+            {{/if}}
+        {{else}}
+    {{> src/main/kotlin/packagename/components/schemas/_arrayInputAddItem builderClass=../arrayInputJsonPathPiece.pascalCase }}
+        {{/if}}
+    {{else}}
+    {{! todo handle this, 3.1.0 document use-case }}
+    {{/with}}
+
+    public List<{{#with listItemSchema}}{{> src/main/kotlin/packagename/components/schemas/types/schema_input_type sourceJsonPath=../jsonPath forceNull=true noExtends=true }}{{/with}}> build() {
+        return list;
+    }
+}
+{{/if}}

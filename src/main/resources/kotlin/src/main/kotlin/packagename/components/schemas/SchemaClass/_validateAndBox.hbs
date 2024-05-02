@@ -1,0 +1,99 @@
+{{#if types}}
+    {{#each types}}
+        {{#eq this "null"}}
+{{> src/main/kotlin/packagename/components/schemas/SchemaClass/_validateAndBoxVoid }}
+        {{/eq}}
+        {{#eq this "boolean"}}
+{{> src/main/kotlin/packagename/components/schemas/SchemaClass/_validateAndBoxBoolean }}
+        {{/eq}}
+        {{#and (eq this "string") (neq ../format "binary") }}
+{{> src/main/kotlin/packagename/components/schemas/SchemaClass/_validateAndBoxString }}
+        {{/and}}
+        {{#or (eq this "number") (eq this "integer")}}
+{{> src/main/kotlin/packagename/components/schemas/SchemaClass/_validateAndBoxNumber }}
+        {{/or}}
+        {{#eq this "array"}}
+{{> src/main/kotlin/packagename/components/schemas/SchemaClass/_validateAndBoxList }}
+        {{/eq}}
+        {{#eq this "object"}}
+{{> src/main/kotlin/packagename/components/schemas/SchemaClass/_validateAndBoxMap }}
+        {{/eq}}
+    {{/each}}
+@Override
+public {{jsonPathPiece.pascalCase}}Boxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException {
+    {{#each types}}
+        {{#if @first}}
+            {{#eq this "null"}}
+    if (arg == null) {
+        Nothing? castArg = (Nothing?) arg;
+            {{/eq}}
+            {{#eq this "boolean"}}
+    if (arg instanceof Boolean booleanArg) {
+        boolean castArg = booleanArg;
+            {{/eq}}
+            {{#and (eq this "string") (neq ../format "binary") }}
+    if (arg instanceof String castArg) {
+            {{/and}}
+            {{#or (eq this "number") (eq this "integer")}}
+    if (arg instanceof Number castArg) {
+            {{/or}}
+            {{#eq this "array"}}
+    if (arg instanceof List<?> castArg) {
+            {{/eq}}
+            {{#eq this "object"}}
+    if (arg instanceof Map<?, ?> castArg) {
+            {{/eq}}
+        {{else}}
+            {{#eq this "null"}}
+    } else if (arg == null) {
+        Nothing? castArg = (Nothing?) arg;
+            {{/eq}}
+            {{#eq this "boolean"}}
+    } else if (arg instanceof Boolean booleanArg) {
+        boolean castArg = booleanArg;
+            {{/eq}}
+            {{#and (eq this "string") (neq ../format "binary") }}
+    } else if (arg instanceof String castArg) {
+            {{/and}}
+            {{#or (eq this "number") (eq this "integer")}}
+    } else if (arg instanceof Number castArg) {
+            {{/or}}
+            {{#eq this "array"}}
+    } else if (arg instanceof List<?> castArg) {
+            {{/eq}}
+            {{#eq this "object"}}
+    } else if (arg instanceof Map<?, ?> castArg) {
+            {{/eq}}
+        {{/if}}
+        return validateAndBox(castArg, configuration);
+    {{/each}}
+    }
+    throw new ValidationException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
+}
+{{else}}
+{{> src/main/kotlin/packagename/components/schemas/SchemaClass/_validateAndBoxVoid }}
+{{> src/main/kotlin/packagename/components/schemas/SchemaClass/_validateAndBoxBoolean }}
+{{> src/main/kotlin/packagename/components/schemas/SchemaClass/_validateAndBoxNumber }}
+{{> src/main/kotlin/packagename/components/schemas/SchemaClass/_validateAndBoxString }}
+{{> src/main/kotlin/packagename/components/schemas/SchemaClass/_validateAndBoxList }}
+{{> src/main/kotlin/packagename/components/schemas/SchemaClass/_validateAndBoxMap }}
+@Override
+public {{jsonPathPiece.pascalCase}}Boxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException {
+    if (arg == null) {
+        Nothing? castArg = (Nothing?) arg;
+        return validateAndBox(castArg, configuration);
+    } else if (arg instanceof Boolean booleanArg) {
+        boolean castArg = booleanArg;
+        return validateAndBox(castArg, configuration);
+    } else if (arg instanceof String castArg) {
+        return validateAndBox(castArg, configuration);
+    } else if (arg instanceof Number castArg) {
+        return validateAndBox(castArg, configuration);
+    } else if (arg instanceof List<?> castArg) {
+        return validateAndBox(castArg, configuration);
+    } else if (arg instanceof Map<?, ?> castArg) {
+        return validateAndBox(castArg, configuration);
+    }
+    throw new ValidationException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
+}
+{{/if}}

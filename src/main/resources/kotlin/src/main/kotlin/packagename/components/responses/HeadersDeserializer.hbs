@@ -1,0 +1,24 @@
+package {{packageName}}.{{headers.subpackage}};
+
+import {{packageName}}.response.HeadersDeserializer;
+{{#each headers}}
+import {{packageName}}.{{subpackage}}.{{jsonPathPiece.pascalCase}};
+{{/each}}
+
+import java.util.Map;
+import java.util.AbstractMap;
+
+public class {{headers.jsonPathPiece.pascalCase}} extends HeadersDeserializer<{{#with headersObjectSchema}}{{containerJsonPathPiece.pascalCase}}.{{mapOutputJsonPathPiece.pascalCase}}{{/with}}> {
+    public {{headers.jsonPathPiece.pascalCase}}() {
+        super(
+            Map.ofEntries(
+{{#each headers}}
+                new AbstractMap.SimpleEntry<>("{{{@key}}}", new {{jsonPathPiece.pascalCase}}.{{jsonPathPiece.pascalCase}}1()){{#unless @last}},{{/unless}}
+{{/each}}
+            ),
+{{#with headersObjectSchema}}
+            {{containerJsonPathPiece.pascalCase}}.{{jsonPathPiece.pascalCase}}.getInstance()
+{{/with}}
+        );
+    }
+}

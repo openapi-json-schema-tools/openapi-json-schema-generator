@@ -1,0 +1,138 @@
+{{#with enumInfo}}
+    {{#each typeToValues}}
+
+        {{#eq @key "null"}}
+public enum Null{{../jsonPathPiece.pascalCase}} implements NullValueMethod {
+        {{else}}
+            {{#eq @key "boolean"}}
+public enum Boolean{{../jsonPathPiece.pascalCase}} implements BooleanValueMethod {
+            {{else}}
+                {{#eq @key "string"}}
+public enum String{{../jsonPathPiece.pascalCase}} implements StringValueMethod {
+                {{else}}
+                    {{#eq @key "Integer"}}
+public enum Integer{{../jsonPathPiece.pascalCase}} implements IntegerValueMethod {
+                    {{else}}
+                        {{#eq @key "Long"}}
+public enum Long{{../jsonPathPiece.pascalCase}} implements LongValueMethod {
+                        {{else}}
+                            {{#eq @key "Float"}}
+public enum Float{{../jsonPathPiece.pascalCase}} implements FloatValueMethod {
+                            {{else}}
+                                {{#eq @key "Double"}}
+public enum Double{{../jsonPathPiece.pascalCase}} implements DoubleValueMethod {
+                                {{/eq}}
+                            {{/eq}}
+                        {{/eq}}
+                    {{/eq}}
+                {{/eq}}
+            {{/eq}}
+        {{/eq}}
+        {{#each this}}
+            {{#eq ../@key "null"}}
+    {{this}}(null){{#unless @last}},{{else}};{{/unless}}
+            {{else}}
+                {{#eq ../@key "boolean"}}
+    {{this}}({{@key.value}}){{#unless @last}},{{else}};{{/unless}}
+                {{else}}
+                    {{#eq ../@key "string"}}
+    {{this}}("{{{@key.value}}}"){{#unless @last}},{{else}};{{/unless}}
+                    {{else}}
+                        {{#eq ../@key "Integer"}}
+    {{this}}({{@key.value}}){{#unless @last}},{{else}};{{/unless}}
+                        {{else}}
+                            {{#eq ../@key "Long"}}
+    {{this}}({{@key.value}}L){{#unless @last}},{{else}};{{/unless}}
+                            {{else}}
+                                {{#eq ../@key "Float"}}
+    {{this}}({{@key.value}}f){{#unless @last}},{{else}};{{/unless}}
+                                {{else}}
+                                    {{#eq ../@key "Double"}}
+    {{this}}({{@key.value}}d){{#unless @last}},{{else}};{{/unless}}
+                                    {{/eq}}
+                                {{/eq}}
+                            {{/eq}}
+                        {{/eq}}
+                    {{/eq}}
+                {{/eq}}
+            {{/eq}}
+        {{/each}}
+        {{#eq @key "null"}}
+    private final Nothing? value;
+
+    Null{{../jsonPathPiece.pascalCase}}(Nothing? value) {
+        this.value = value;
+    }
+    public Nothing? value() {
+        return this.value;
+    }
+        {{else}}
+            {{#eq @key "boolean"}}
+    private final boolean value;
+
+    Boolean{{../jsonPathPiece.pascalCase}}(boolean value) {
+        this.value = value;
+    }
+    public boolean value() {
+        return this.value;
+    }
+            {{else}}
+                {{#eq @key "string"}}
+    private final String value;
+
+    String{{../jsonPathPiece.pascalCase}}(String value) {
+        this.value = value;
+    }
+    public String value() {
+        return this.value;
+    }
+                {{else}}
+                    {{#eq @key "Integer"}}
+    private final int value;
+
+    Integer{{../jsonPathPiece.pascalCase}}(int value) {
+        this.value = value;
+    }
+    public int value() {
+        return this.value;
+    }
+                    {{else}}
+                        {{#eq @key "Long"}}
+    private final long value;
+
+    Long{{../jsonPathPiece.pascalCase}}(long value) {
+        this.value = value;
+    }
+    public long value() {
+        return this.value;
+    }
+                        {{else}}
+                            {{#eq @key "Float"}}
+    private final float value;
+
+    Float{{../jsonPathPiece.pascalCase}}(float value) {
+        this.value = value;
+    }
+    public float value() {
+        return this.value;
+    }
+                            {{else}}
+                                {{#eq @key "Double"}}
+    private final double value;
+
+    Double{{../jsonPathPiece.pascalCase}}(double value) {
+        this.value = value;
+    }
+    public double value() {
+        return this.value;
+    }
+                                {{/eq}}
+                            {{/eq}}
+                        {{/eq}}
+                    {{/eq}}
+                {{/eq}}
+            {{/eq}}
+        {{/eq}}
+}
+    {{/each}}
+{{/with}}

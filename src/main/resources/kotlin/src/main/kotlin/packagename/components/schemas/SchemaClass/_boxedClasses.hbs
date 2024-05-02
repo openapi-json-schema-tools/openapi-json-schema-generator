@@ -1,0 +1,31 @@
+{{#if types}}
+{{> src/main/kotlin/packagename/components/schemas/SchemaClass/_boxedClass }}
+    {{#each types}}
+        {{#eq this "null"}}
+{{> src/main/kotlin/packagename/components/schemas/SchemaClass/_boxedVoid }}
+        {{/eq}}
+        {{#eq this "boolean"}}
+{{> src/main/kotlin/packagename/components/schemas/SchemaClass/_boxedBoolean }}
+        {{/eq}}
+        {{#and (eq this "string") (neq ../format "binary") }}
+{{> src/main/kotlin/packagename/components/schemas/SchemaClass/_boxedString }}
+        {{/and}}
+        {{#or (eq this "number") (eq this "integer")}}
+{{> src/main/kotlin/packagename/components/schemas/SchemaClass/_boxedNumber }}
+        {{/or}}
+        {{#eq this "array"}}
+{{> src/main/kotlin/packagename/components/schemas/SchemaClass/_boxedList }}
+        {{/eq}}
+        {{#eq this "object"}}
+{{> src/main/kotlin/packagename/components/schemas/SchemaClass/_boxedMap }}
+        {{/eq}}
+    {{/each}}
+{{else}}
+{{> src/main/kotlin/packagename/components/schemas/SchemaClass/_boxedClass }}
+{{> src/main/kotlin/packagename/components/schemas/SchemaClass/_boxedVoid }}
+{{> src/main/kotlin/packagename/components/schemas/SchemaClass/_boxedBoolean }}
+{{> src/main/kotlin/packagename/components/schemas/SchemaClass/_boxedNumber }}
+{{> src/main/kotlin/packagename/components/schemas/SchemaClass/_boxedString }}
+{{> src/main/kotlin/packagename/components/schemas/SchemaClass/_boxedList }}
+{{> src/main/kotlin/packagename/components/schemas/SchemaClass/_boxedMap }}
+{{/if}}

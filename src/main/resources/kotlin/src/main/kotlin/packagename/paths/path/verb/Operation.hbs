@@ -1,0 +1,391 @@
+{{#with operation}}
+package {{packageName}}.{{subpackage}};
+
+import org.checkerframework.checker.nullness.qual.Nullable;
+    {{#each builders}}
+        {{#or @first @last}}
+            {{#each keyToBuilder}}
+                {{#with property}}
+                    {{#if containerJsonPathPiece}}
+import {{packageName}}.{{subpackage}}.{{containerJsonPathPiece.pascalCase}};
+                    {{else}}
+                        {{#if this.jsonPathPiece}}
+                            {{#if subpackage}}
+import {{packageName}}.{{subpackage}}.{{jsonPathPiece.pascalCase}};
+                            {{else}}
+import {{packageName}}.{{jsonPathPiece.pascalCase}};
+                            {{/if}}
+                        {{/if}}
+                    {{/if}}
+                {{/with}}
+            {{/each}}
+        {{/or}}
+    {{/each}}
+    {{#with parametersInfo}}
+import {{packageName}}.{{subpackage}}.{{jsonPathPiece.pascalCase}};
+    {{/with}}
+    {{#with responses}}
+import {{packageName}}.{{subpackage}}.{{jsonPathPiece.pascalCase}};
+    {{/with}}
+import {{packageName}}.apiclient.ApiClient;
+import {{packageName}}.configurations.ApiConfiguration;
+import {{packageName}}.configurations.SchemaConfiguration;
+import {{packageName}}.exceptions.ValidationException;
+import {{packageName}}.exceptions.NotImplementedException;
+import {{packageName}}.exceptions.ApiException;
+import {{packageName}}.restclient.RestClient;
+    {{#if requestBody}}
+import {{packageName}}.requestbody.SerializedRequestBody;
+    {{/if}}
+    {{#with ../pathItem}}
+import {{packageName}}.{{subpackage}}.{{jsonPathPiece.pascalCase}};
+    {{/with}}
+    {{#each builders}}
+        {{#if @first}}
+            {{#each keyToBuilder}}
+                {{#eq @key.camelCase "securityIndex"}}
+import {{packageName}}.securityrequirementobjects.SecurityRequirementObject;
+import {{packageName}}.securityrequirementobjects.AuthApplier;
+                {{/eq}}
+            {{/each}}
+        {{/if}}
+    {{/each}}
+
+import java.io.IOException;
+    {{#if requestBody}}
+import java.util.ArrayList;
+    {{/if}}
+import java.net.http.HttpClient;
+import java.net.http.HttpRequest;
+import java.time.Duration;
+import java.util.List;
+import java.util.Map;
+
+public class {{jsonPathPiece.pascalCase}} {
+    private static class {{method.pascalCase}}Provider{{#each builders}}{{#if @first}}{{#each keyToBuilder}}{{#eq @key.camelCase "securityIndex"}} extends AuthApplier{{/eq}}{{/each}}{{/if}}{{/each}} {
+        private static final String method = "{{jsonPathPiece.original}}";
+
+        public static {{#if nonErrorResponses }}{{#with responses}}{{jsonPathPiece.pascalCase}}.EndpointResponse{{/with}}{{else}}Nothing?{{/if}} {{method.camelCase}}(
+            {{method.pascalCase}}Request request,
+            ApiConfiguration apiConfiguration,
+            SchemaConfiguration schemaConfiguration,
+            HttpClient client
+        ) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
+            Map<String, List<String>> headers = apiConfiguration.getDefaultHeaders();
+            {{#with requestBody}}
+
+                {{#if getSelfOrDeepestRef.required }}
+            SerializedRequestBody serializedRequestBody = new {{jsonPathPiece.pascalCase}}.{{jsonPathPiece.pascalCase}}1().serialize(
+                request.requestBody
+            );
+            var contentTypeHeaderValues = headers.getOrDefault("Content-Type", new ArrayList<>());
+            contentTypeHeaderValues.add(serializedRequestBody.contentType);
+            HttpRequest.BodyPublisher bodyPublisher = serializedRequestBody.bodyPublisher;
+                {{else}}
+            @Nullable SerializedRequestBody serializedRequestBody;
+            HttpRequest.BodyPublisher bodyPublisher = HttpRequest.BodyPublishers.noBody();
+            if (request.requestBody != null) {
+                serializedRequestBody = new {{jsonPathPiece.pascalCase}}.{{jsonPathPiece.pascalCase}}1().serialize(
+                    request.requestBody
+                );
+                var contentTypeHeaderValues = headers.getOrDefault("Content-Type", new ArrayList<>());
+                contentTypeHeaderValues.add(serializedRequestBody.contentType);
+                bodyPublisher = serializedRequestBody.bodyPublisher;
+            }
+                {{/if}}
+            {{else}}
+            HttpRequest.BodyPublisher bodyPublisher = HttpRequest.BodyPublishers.noBody();
+            {{/with}}
+            {{#with parametersInfo}}
+                {{#if headerParametersSchema}}
+
+                    {{#if headerParametersSchema.requiredProperties}}
+            var headersSerializer = new {{jsonPathPiece.pascalCase}}.HeaderParametersSerializer();
+            Map<String, List<String>> serializedHeaders = headersSerializer.serialize(request.headerParameters);
+            headers.putAll(serializedHeaders);
+                    {{else}}
+            if (request.headerParameters != null) {
+                var headersSerializer = new {{jsonPathPiece.pascalCase}}.HeaderParametersSerializer();
+                Map<String, List<String>> serializedHeaders = headersSerializer.serialize(request.headerParameters);
+                headers.putAll(serializedHeaders);
+            }
+                    {{/if}}
+                {{/if}}
+                {{#if cookieParametersSchema}}
+
+                    {{#if cookieParametersSchema.requiredProperties}}
+            var cookieSerializer = new {{jsonPathPiece.pascalCase}}.CookieParametersSerializer();
+            String serializedCookie = cookieSerializer.serialize(request.cookieParameters);
+            var cookieHeaderValues = headers.getOrDefault("Cookie", new ArrayList<>());
+            cookieHeaderValues.add(serializedCookie);
+                    {{else}}
+            if (request.cookieParameters != null) {
+                var cookieSerializer = new {{jsonPathPiece.pascalCase}}.CookieParametersSerializer();
+                String serializedCookie = cookieSerializer.serialize(request.cookieParameters);
+                var cookieHeaderValues = headers.getOrDefault("Cookie", new ArrayList<>());
+                cookieHeaderValues.add(serializedCookie);
+            }
+                    {{/if}}
+                {{/if}}
+                {{#if pathParametersSchema}}
+
+                    {{! path parameters are always required }}
+            var pathSerializer = new {{jsonPathPiece.pascalCase}}.PathParametersSerializer();
+            String updatedPath = pathSerializer.serialize(request.pathParameters, {{#with ../pathItem}}{{jsonPathPiece.pascalCase}}.{{/with}}path);
+                {{/if}}
+                {{#if queryParametersSchema}}
+
+                    {{#if queryParametersSchema.requiredProperties}}
+            var querySerializer = new {{jsonPathPiece.pascalCase}}.QueryParametersSerializer();
+            @Nullable Map<String, String> queryMap = querySerializer.getQueryMap(request.queryParameters);
+                    {{else}}
+            var querySerializer = new {{jsonPathPiece.pascalCase}}.QueryParametersSerializer();
+            @Nullable Map<String, String> queryMap = null;
+            if (request.queryParameters != null) {
+                queryMap = querySerializer.getQueryMap(request.queryParameters);
+            }
+                    {{/if}}
+                {{else}}
+            // TODO set this to a map if there is a query security scheme
+            @Nullable Map<String, String> queryMap = null;
+                {{/if}}
+            {{else}}
+            // TODO set this to a map if there is a query security scheme
+            @Nullable Map<String, String> queryMap = null;
+            {{/with}}
+            String host = apiConfiguration.getServer(request.serverIndex).url();
+            {{#each builders}}
+                {{#if @first}}
+                    {{#each keyToBuilder}}
+                        {{#eq @key.camelCase "securityIndex"}}
+            SecurityRequirementObject securityRequirementObject = apiConfiguration.getSecurityRequirementObject(request.securityIndex);
+            updateParamsForAuth(
+                securityRequirementObject,
+                headers,
+                {{#and parametersInfo parametersInfo.pathParametersSchema}}updatedPath{{else}}{{#with ../pathItem}}{{jsonPathPiece.pascalCase}}.{{/with}}path{{/and}},
+                method,
+                bodyPublisher,
+                queryMap,
+                apiConfiguration
+            );
+                        {{/eq}}
+                    {{/each}}
+                {{/if}}
+            {{/each}}
+
+            String url = host + {{#and parametersInfo parametersInfo.pathParametersSchema}}updatedPath{{else}}{{#with ../pathItem}}{{jsonPathPiece.pascalCase}}.{{/with}}path{{/and}};
+            {{#if queryParametersSchema }}
+            if (queryMap != null) {
+                url = url + querySerializer.serialize(queryMap);
+            }
+            {{/if}}
+            var httpRequest = RestClient.getRequest(
+                url,
+                method,
+                bodyPublisher,
+                headers,
+                request.timeout
+            );
+            var response = RestClient.getResponse(httpRequest, client);
+            {{#if nonErrorResponses }}
+            var responsesDeserializer = new {{#with responses}}{{jsonPathPiece.pascalCase}}.{{jsonPathPiece.pascalCase}}1{{/with}}();
+            return responsesDeserializer.deserialize(response, schemaConfiguration);
+            {{else}}
+            return (Nothing?) null;
+            {{/if}}
+        }
+    }
+
+    public interface {{method.pascalCase}}Operation {
+        ApiConfiguration getApiConfiguration();
+        SchemaConfiguration getSchemaConfiguration();
+        HttpClient getClient();
+        default {{#if nonErrorResponses }}{{#with responses}}{{jsonPathPiece.pascalCase}}.EndpointResponse{{/with}}{{else}}Nothing?{{/if}} {{jsonPathPiece.camelCase}}({{method.pascalCase}}Request request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
+            return {{method.pascalCase}}Provider.{{method.camelCase}}(request, getApiConfiguration(), getSchemaConfiguration(), getClient());
+        }
+    }
+    {{#neq method.pascalCase operationId.pascalCase}}
+
+    public interface {{operationId.pascalCase}}Operation {
+        ApiConfiguration getApiConfiguration();
+        SchemaConfiguration getSchemaConfiguration();
+        HttpClient getClient();
+        default {{#if nonErrorResponses }}{{#with responses}}{{jsonPathPiece.pascalCase}}.EndpointResponse{{/with}}{{else}}Nothing?{{/if}} {{operationId.camelCase}}({{method.pascalCase}}Request request) throws IOException, InterruptedException, ValidationException, NotImplementedException, ApiException {
+            return {{method.pascalCase}}Provider.{{jsonPathPiece.camelCase}}(request, getApiConfiguration(), getSchemaConfiguration(), getClient());
+        }
+    }
+    {{/neq}}
+
+    public static class {{method.pascalCase}} extends ApiClient implements {{method.pascalCase}}Operation {
+        public {{method.pascalCase}}(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration) {
+            super(apiConfiguration, schemaConfiguration);
+        }
+    }
+    {{#eq builders.size 1}}
+
+    public static class {{method.pascalCase}}Request {
+        {{#each builders}}
+            {{#each keyToBuilder}}
+                {{#with property}}
+                    {{#if containerJsonPathPiece}}
+        public {{containerJsonPathPiece.pascalCase}}.@Nullable {{operationInputClassName.pascalCase}} {{@key.camelCase}};
+                    {{else}}
+                        {{#if this.jsonPathPiece}}
+        public {{jsonPathPiece.pascalCase}}.@Nullable {{operationInputClassName.pascalCase}} {{@key.camelCase}};
+                        {{else}}
+        public @Nullable {{operationInputClassName.pascalCase}} {{@key.camelCase}};
+                        {{/if}}
+                    {{/if}}
+                {{/with}}
+            {{/each}}
+        {{/each}}
+    }
+    {{else}}
+
+    public static class {{method.pascalCase}}Request {
+        {{#each (reverse builders)}}
+            {{#or @first @last}}
+                {{#each keyToBuilder}}
+                    {{#with property}}
+                        {{#if containerJsonPathPiece}}
+        public {{containerJsonPathPiece.pascalCase}}.{{#if ../../@last}}@Nullable {{/if}}{{operationInputClassName.pascalCase}} {{@key.camelCase}};
+                        {{else}}
+                            {{#if this.jsonPathPiece}}
+        public {{jsonPathPiece.pascalCase}}.{{#if ../../@last}}@Nullable {{/if}}{{operationInputClassName.pascalCase}} {{@key.camelCase}};
+                            {{else}}
+        public {{#if ../../@last}}@Nullable {{/if}}{{operationInputClassName.pascalCase}} {{@key.camelCase}};
+                            {{/if}}
+                        {{/if}}
+                    {{/with}}
+                {{/each}}
+            {{/or}}
+        {{/each}}
+
+        public {{method.pascalCase}}Request(
+        {{#each (reverse builders)}}
+            {{#or @first @last}}
+                {{#each keyToBuilder}}
+                    {{#with property}}
+                        {{#if containerJsonPathPiece}}
+            {{containerJsonPathPiece.pascalCase}}.{{#if ../../@last}}@Nullable {{/if}}{{operationInputClassName.pascalCase}} {{@key.camelCase}}{{#and ../../@last ../@last}}{{else}},{{/and}}
+                        {{else}}
+                            {{#if this.jsonPathPiece}}
+            {{jsonPathPiece.pascalCase}}.{{#if ../../@last}}@Nullable {{/if}}{{operationInputClassName.pascalCase}} {{@key.camelCase}}{{#and ../../@last ../@last}}{{else}},{{/and}}
+                            {{else}}
+            {{#if ../../@last}}@Nullable {{/if}}{{operationInputClassName.pascalCase}} {{@key.camelCase}}{{#and ../../@last ../@last}}{{else}},{{/and}}
+                            {{/if}}
+                        {{/if}}
+                    {{/with}}
+                {{/each}}
+            {{/or}}
+        {{/each}}
+        ) {
+        {{#each (reverse builders)}}
+            {{#or @first @last}}
+                {{#each keyToBuilder}}
+            this.{{@key.camelCase}} = {{@key.camelCase}};
+                {{/each}}
+            {{/or}}
+        {{/each}}
+        }
+    }
+
+    public static class {{method.pascalCase}}NullableRequest {
+        {{#each (reverse builders)}}
+            {{#or @first @last}}
+                {{#each keyToBuilder}}
+                    {{#with property}}
+                        {{#if containerJsonPathPiece}}
+        public {{containerJsonPathPiece.pascalCase}}.@Nullable {{operationInputClassName.pascalCase}} {{@key.camelCase}};
+                        {{else}}
+                            {{#if this.jsonPathPiece}}
+        public {{jsonPathPiece.pascalCase}}.@Nullable {{operationInputClassName.pascalCase}} {{@key.camelCase}};
+                            {{else}}
+        public @Nullable {{operationInputClassName.pascalCase}} {{@key.camelCase}};
+                            {{/if}}
+                        {{/if}}
+                    {{/with}}
+                {{/each}}
+            {{/or}}
+        {{/each}}
+    }
+    {{/eq}}
+    {{#each builders}}
+        {{#or @first @last}}
+            {{#each keyToBuilder}}
+
+    public interface SetterFor{{@key.pascalCase}} <T> {
+        {{../../method.pascalCase}}{{#gt ../../builders.size 1}}Nullable{{/gt}}Request getInstance();
+        T getBuilderAfter{{@key.pascalCase}}({{../../method.pascalCase}}{{#gt ../../builders.size 1}}Nullable{{/gt}}Request instance);
+        default T {{@key.camelCase}}({{#with property}}{{#if containerJsonPathPiece}}{{containerJsonPathPiece.pascalCase}}.{{else}}{{#if this.jsonPathPiece}}{{jsonPathPiece.pascalCase}}.{{/if}}{{/if}}{{operationInputClassName.pascalCase}}{{/with}} {{@key.camelCase}}) {
+            var instance = getInstance();
+            instance.{{@key.camelCase}} = {{@key.camelCase}};
+            return getBuilderAfter{{@key.pascalCase}}(instance);
+        }
+    }
+            {{/each}}
+        {{/or}}
+    {{/each}}
+
+    {{#each builders}}
+    public static class {{className.pascalCase}}{{#if keyToBuilder}} implements {{/if}}{{#each keyToBuilder}}SetterFor{{@key.pascalCase}}<{{builder.className.pascalCase}}>{{#unless @last}}, {{/unless}}{{/each}} {
+        private final {{../method.pascalCase}}{{#gt ../builders.size 1}}Nullable{{/gt}}Request instance;
+
+        {{#if @last }}
+        public {{className.pascalCase}}() {
+            this.instance = new {{../method.pascalCase}}{{#gt ../builders.size 1}}Nullable{{/gt}}Request();
+        }
+        {{else}}
+        public {{className.pascalCase}}({{../method.pascalCase}}{{#gt ../builders.size 1}}Nullable{{/gt}}Request instance) {
+            this.instance = instance;
+        }
+        {{/if}}
+        {{#if @first}}
+
+        public {{../method.pascalCase}}Request build() {
+        {{#gt ../builders.size 1}}
+            {{#each builders}}
+                {{#if @last}}
+                    {{#each keyToBuilder}}
+            var {{@key.camelCase}} = instance.{{@key.camelCase}};
+            if ({{@key.camelCase}} == null) {
+                throw new RuntimeException("invalid null value for required parameter");
+            }
+                    {{/each}}
+                {{/if}}
+            {{/each}}
+            return new {{../method.pascalCase}}Request(
+            {{#each (reverse builders)}}
+                {{#or @first @last}}
+                    {{#each keyToBuilder}}
+                {{#if ../@last}}instance.{{/if}}{{@key.camelCase}}{{#and ../@last @last}}{{else}},{{/and}}
+                    {{/each}}
+                {{/or}}
+            {{/each}}
+            );
+        {{else}}
+            return instance;
+        {{/gt}}
+        }
+        {{/if}}
+        {{#if keyToBuilder}}
+
+        public {{../method.pascalCase}}{{#gt ../builders.size 1}}Nullable{{/gt}}Request getInstance() {
+            return instance;
+        }
+        {{/if}}
+        {{#each keyToBuilder}}
+
+        public {{builder.className.pascalCase}} getBuilderAfter{{@key.pascalCase}}({{../method.pascalCase}}{{#gt ../builders.size 1}}Nullable{{/gt}}Request instance) {
+            {{#eq builder ../this}}
+                {{! property in final builder }}
+            return this;
+            {{else}}
+            return new {{builder.className.pascalCase}}(instance);
+            {{/eq}}
+        }
+        {{/each}}
+    }
+    {{/each}}
+}
+{{/with}}

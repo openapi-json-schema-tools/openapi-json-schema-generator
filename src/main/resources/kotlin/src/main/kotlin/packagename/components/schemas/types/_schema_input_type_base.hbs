@@ -1,0 +1,126 @@
+{{#if types}}
+    {{#eq types.size 1}}
+        {{#each types}}
+            {{#eq this "boolean"}}
+                {{#if forceNull}}
+Boolean
+                {{~else}}
+boolean
+                {{~/if}}
+            {{else}}
+                {{#eq this "null"}}
+Nothing?
+                {{~else}}
+                    {{#eq this "string"}}
+                        {{#eq format "binary"}}
+{{! todo binary types}}
+String
+                        {{~else}}
+String
+                        {{~/eq}}
+                    {{else}}
+                        {{#eq this "number"}}
+Number
+                        {{~else}}
+                            {{#eq this "integer"}}
+Number
+                            {{~else}}
+                                {{#eq this "array"}}
+                                    {{#eq ../jsonPath sourceJsonPath}}
+List<?>
+                                    {{~else}}
+                                        {{#with items}}
+List<{{> src/main/kotlin/packagename/components/schemas/types/schema_input_type }}>
+                                        {{~else}}
+List<{{#unless noExtends}}? extends {{/unless}}@Nullable Object>
+                                        {{~/with}}
+                                    {{/eq}}
+                                {{else}}
+                                    {{#eq this "object"}}
+                                        {{#eq ../jsonPath sourceJsonPath}}
+Map<String, ?>
+                                        {{~else}}
+                                            {{#with mapValueSchema}}
+Map<String, {{> src/main/kotlin/packagename/components/schemas/types/schema_input_type }}>
+                                            {{~else}}
+Map<String, {{#unless noExtends}}? extends {{/unless}}@Nullable Object>
+                                            {{~/with}}
+                                        {{/eq}}
+                                    {{/eq}}
+                                {{/eq}}
+                            {{/eq}}
+                        {{/eq}}
+                    {{/eq}}
+                {{/eq}}
+            {{/eq}}
+        {{/each}}
+    {{else}}
+        {{#eq types.size 2}}
+            {{#contains types "null"}}
+                {{! nullable types }}
+                {{#each types}}
+                    {{#eq this "boolean"}}
+{{#unless noExtends}}? extends {{/unless}}@Nullable Boolean
+                    {{~else}}
+                        {{#eq this "string"}}
+                            {{#eq format "binary"}}
+{{! todo binary types}}
+{{#unless noExtends}}? extends {{/unless}}@Nullable String
+                            {{~else}}
+{{#unless noExtends}}? extends {{/unless}}@Nullable String
+                            {{~/eq}}
+                        {{else}}
+                            {{#eq this "number"}}
+{{#unless noExtends}}? extends {{/unless}}@Nullable Number
+                            {{~else}}
+                                {{#eq this "integer"}}
+{{#unless noExtends}}? extends {{/unless}}@Nullable Number
+                                {{~else}}
+                                    {{#eq this "array"}}
+                                        {{#eq ../jsonPath sourceJsonPath}}
+{{#unless noExtends}}? extends {{/unless}}@Nullable List
+                                        {{~else}}
+                                            {{#with items}}
+{{#unless noExtends}}? extends {{/unless}}@Nullable List<{{> src/main/kotlin/packagename/components/schemas/types/schema_input_type }}>
+                                            {{~else}}
+{{#unless noExtends}}? extends {{/unless}}@Nullable List<@Nullable Object>
+                                            {{~/with}}
+                                        {{/eq}}
+                                    {{else}}
+                                        {{#eq this "object"}}
+                                            {{#eq ../jsonPath sourceJsonPath}}
+{{#unless noExtends}}? extends {{/unless}}@Nullable Map
+                                            {{~else}}
+                                                {{#with mapValueSchema}}
+{{#unless noExtends}}? extends {{/unless}}@Nullable Map<String, {{> src/main/kotlin/packagename/components/schemas/types/schema_input_type }}>
+                                                {{~else}}
+{{#unless noExtends}}? extends {{/unless}}@Nullable Map<String, @Nullable Object>
+                                                {{~/with}}
+                                            {{/eq}}
+                                        {{/eq}}
+                                    {{/eq}}
+                                {{/eq}}
+                            {{/eq}}
+                        {{/eq}}
+                    {{/eq}}
+                {{/each}}
+            {{else}}
+                {{! none of the types are null }}
+                {{#and (contains types "integer") (contains types "number") }}
+Number
+                {{~else}}
+Object
+                {{~/and}}
+            {{/contains}}
+        {{else}}
+            {{! 3 or more types }}
+            {{#contains types "null"}}
+{{#unless noExtends}}? extends {{/unless}}@Nullable Object
+            {{~else}}
+Object
+            {{~/contains}}
+        {{/eq}}
+    {{/eq}}
+{{else}}
+{{#unless noExtends}}? extends {{/unless}}@Nullable Object
+{{~/if}}

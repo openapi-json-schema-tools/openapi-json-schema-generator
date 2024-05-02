@@ -1,0 +1,108 @@
+{{#each requiredProperties}}
+
+public interface SetterFor{{@key.pascalCase}} <T> {
+    Map<String, {{#with ../mapValueSchema}}{{> src/main/kotlin/packagename/components/schemas/types/schema_input_type sourceJsonPath=../../jsonPath forceNull=true noExtends=true }}{{else}}@Nullable Object{{/with}}> getInstance();
+    T getBuilderAfter{{@key.pascalCase}}(Map<String, {{#with ../mapValueSchema}}{{> src/main/kotlin/packagename/components/schemas/types/schema_input_type sourceJsonPath=../../jsonPath forceNull=true noExtends=true }}{{else}}@Nullable Object{{/with}}> instance);
+    {{#if @key.isValid}}
+    {{> src/main/kotlin/packagename/components/schemas/_objectInputSetter methodName=@key.original getBuilderMethod=(join "getBuilderAfter" @key.pascalCase "") key=@key.original }}
+    {{else}}
+    {{> src/main/kotlin/packagename/components/schemas/_objectInputSetter methodName=@key.camelCase getBuilderMethod=(join "getBuilderAfter" @key.pascalCase "") key=@key.original }}
+    {{/if}}
+}
+{{/each}}
+{{#each optionalProperties}}
+
+public interface SetterFor{{@key.pascalCase}} <T> {
+    Map<String, {{#with ../mapValueSchema}}{{> src/main/kotlin/packagename/components/schemas/types/schema_input_type sourceJsonPath=../../jsonPath forceNull=true noExtends=true }}{{else}}@Nullable Object{{/with}}> getInstance();
+    T getBuilderAfter{{@key.pascalCase}}(Map<String, {{#with ../mapValueSchema}}{{> src/main/kotlin/packagename/components/schemas/types/schema_input_type sourceJsonPath=../../jsonPath forceNull=true noExtends=true }}{{else}}@Nullable Object{{/with}}> instance);
+    {{#if @key.isValid}}
+    {{> src/main/kotlin/packagename/components/schemas/_objectInputSetter methodName=@key.original getBuilderMethod=(join "getBuilderAfter" @key.pascalCase "") key=@key.original }}
+    {{else}}
+    {{> src/main/kotlin/packagename/components/schemas/_objectInputSetter methodName=@key.camelCase getBuilderMethod=(join "getBuilderAfter" @key.pascalCase "") key=@key.original }}
+    {{/if}}
+}
+{{/each}}
+{{#with additionalProperties }}
+    {{#eq isBooleanSchemaFalse false}}
+
+public interface SetterFor{{jsonPathPiece.pascalCase}}<T> {
+    Set<String> getKnownKeys();
+    Map<String, {{#with ../mapValueSchema}}{{> src/main/kotlin/packagename/components/schemas/types/schema_input_type sourceJsonPath=../../jsonPath forceNull=true noExtends=true }}{{else}}@Nullable Object{{/with}}> getInstance();
+    T getBuilderAfterAdditionalProperty(Map<String, {{#with ../mapValueSchema}}{{> src/main/kotlin/packagename/components/schemas/types/schema_input_type sourceJsonPath=../../jsonPath forceNull=true noExtends=true }}{{else}}@Nullable Object{{/with}}> instance);
+    {{> src/main/kotlin/packagename/components/schemas/_objectInputAddPropSetter methodName="additionalProperty" getBuilderMethod="getBuilderAfterAdditionalProperty" }}
+}
+    {{/eq}}
+{{/with}}
+{{#each mapBuilders}}
+
+public static class {{className.pascalCase}}{{#and @first (eq ../additionalProperties null) }} extends UnsetAddPropsSetter<{{className.pascalCase}}>{{/and}} implements {{#if @first}}GenericBuilder<Map<String, {{#with mapValueSchema}}{{> src/main/kotlin/packagename/components/schemas/types/schema_input_type sourceJsonPath=../../jsonPath forceNull=true noExtends=true }}{{else}}@Nullable Object{{/with}}>>{{#if ../optionalProperties}}, {{/if}}{{/if}}{{#each keyToBuilder}}SetterFor{{@key.pascalCase}}<{{builder.className.pascalCase}}>{{#unless @last}}, {{/unless}}{{/each}}{{#and @first ../additionalProperties (eq ../additionalProperties.isBooleanSchemaFalse false) }}, SetterFor{{../additionalProperties.jsonPathPiece.pascalCase}}<{{className.pascalCase}}>{{/and}} {
+    private final Map<String, {{#with mapValueSchema}}{{> src/main/kotlin/packagename/components/schemas/types/schema_input_type sourceJsonPath=../../jsonPath forceNull=true noExtends=true }}{{else}}@Nullable Object{{/with}}> instance;
+    {{#if @first}}
+        {{#and (eq ../requiredProperties null) (eq ../optionalProperties null) }}
+    private static final Set<String> knownKeys = Set.of();
+        {{else}}
+            {{#eq ../optionalProperties null }}
+    private static final Set<String> knownKeys = Set.of(
+        {{#each ../requiredProperties}}
+        "{{{@key.original}}}"{{#unless @last}},{{/unless}}
+        {{/each}}
+    );
+            {{else}}
+                {{#eq ../requiredProperties null }}
+    private static final Set<String> knownKeys = Set.of(
+        {{#each ../optionalProperties}}
+        "{{{@key.original}}}"{{#unless @last}},{{/unless}}
+        {{/each}}
+    );
+                {{else}}
+    private static final Set<String> knownKeys = Set.of(
+        {{#each ../requiredProperties}}
+        "{{{@key.original}}}",
+        {{/each}}
+        {{#each ../optionalProperties}}
+        "{{{@key.original}}}"{{#unless @last}},{{/unless}}
+        {{/each}}
+    );
+                {{/eq}}
+            {{/eq}}
+        {{/and}}
+    public Set<String> getKnownKeys() {
+        return knownKeys;
+    }
+    {{/if}}
+    {{#if @last }}
+    public {{className.pascalCase}}() {
+        this.instance = new LinkedHashMap<>();
+    }
+    {{else}}
+    public {{className.pascalCase}}(Map<String, {{#with mapValueSchema}}{{> src/main/kotlin/packagename/components/schemas/types/schema_input_type sourceJsonPath=../../jsonPath forceNull=true noExtends=true }}{{else}}@Nullable Object{{/with}}> instance) {
+        this.instance = instance;
+    }
+    {{/if}}
+    {{#if @first}}
+    public Map<String, {{#with mapValueSchema}}{{> src/main/kotlin/packagename/components/schemas/types/schema_input_type sourceJsonPath=../../jsonPath forceNull=true noExtends=true }}{{else}}@Nullable Object{{/with}}> build() {
+        return instance;
+    }
+    {{/if}}
+    {{#or (eq keyToBuilder.isEmpty false) (and @first ../additionalProperties (eq ../additionalProperties.isBooleanSchemaFalse false)) (and @first (eq ../additionalProperties null)) }}
+    public Map<String, {{#with mapValueSchema}}{{> src/main/kotlin/packagename/components/schemas/types/schema_input_type sourceJsonPath=../../jsonPath forceNull=true noExtends=true }}{{else}}@Nullable Object{{/with}}> getInstance() {
+        return instance;
+    }
+    {{/or}}
+    {{#each keyToBuilder}}
+    public {{builder.className.pascalCase}} getBuilderAfter{{@key.pascalCase}}(Map<String, {{#with ../mapValueSchema}}{{> src/main/kotlin/packagename/components/schemas/types/schema_input_type sourceJsonPath=../../jsonPath forceNull=true noExtends=true }}{{else}}@Nullable Object{{/with}}> instance) {
+        {{#eq builder ../this}}
+            {{! property in final builder }}
+        return this;
+        {{else}}
+        return new {{builder.className.pascalCase}}(instance);
+        {{/eq}}
+    }
+    {{/each}}
+    {{#and @first (or (and ../additionalProperties (eq ../additionalProperties.isBooleanSchemaFalse false)) (eq ../additionalProperties null)) }}
+    public {{className.pascalCase}} getBuilderAfterAdditionalProperty(Map<String, {{#with ../mapValueSchema}}{{> src/main/kotlin/packagename/components/schemas/types/schema_input_type sourceJsonPath=../../jsonPath forceNull=true noExtends=true }}{{else}}@Nullable Object{{/with}}> instance) {
+        return this;
+    }
+    {{/and}}
+}
+{{/each}}

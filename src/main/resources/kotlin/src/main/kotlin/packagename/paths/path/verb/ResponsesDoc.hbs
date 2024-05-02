@@ -1,0 +1,41 @@
+{{headerSize}} {{responses.jsonPathPiece.pascalCase}}
+
+public class {{responses.jsonPathPiece.pascalCase}}
+
+A class that contains necessary responses classes
+    {{#if nonErrorResponses}}
+- a sealed interface, EndpointResponse, that stores endpoint responses
+- records for each endpoint response
+    {{/if}}
+
+{{headerSize}}# Nested Class Summary
+| Modifier and Type | Class and Description |
+| ----------------- | --------------------- |
+{{#if nonErrorResponses}}
+| sealed interface | [EndpointResponse](#endpointresponse)<br> stores the endpoint responses |
+    {{#each nonErrorResponses}}
+| record | [Endpoint{{jsonPathPiece.pascalCase}}](#endpoint{{jsonPathPiece.kebabCase}})<br> the response for {{jsonPathPiece.original}} |
+    {{/each}}
+{{/if}}
+{{#if nonErrorResponses}}
+
+{{headerSize}}# EndpointResponse
+public sealed interface EndpointResponse permits<br>
+    {{#each nonErrorResponses}}
+[Endpoint{{jsonPathPiece.pascalCase}}](#endpoint{{jsonPathPiece.kebabCase}}){{#unless @last}},{{/unless}}
+    {{/each}}
+
+a sealed interface that stores endpoint responses
+{{/if}}
+{{#each nonErrorResponses}}
+
+{{headerSize}}# Endpoint{{jsonPathPiece.pascalCase}}
+public record Endpoint{{jsonPathPiece.pascalCase}}(
+    HttpResponse<byte[]> response,
+    {{#if hasContentSchema}}[{{jsonPathPiece.pascalCase}}.SealedResponseBody]({{docRoot}}{{pathFromDocRoot}}.md#sealedresponsebody){{else}}Nothing?{{/if}} body,
+    {{#with getSelfOrDeepestRef}}{{#with headersObjectSchema}}[{{containerJsonPathPiece.pascalCase}}.{{mapOutputJsonPathPiece.pascalCase}}]({{docRoot}}{{pathFromDocRoot}}.md#{{mapOutputJsonPathPiece.kebabCase}}){{else}}Nothing?{{/with}}{{/with}} headers
+) implements EndpointResponse, ApiResponse<{{#if hasContentSchema}}{{jsonPathPiece.pascalCase}}.SealedResponseBody{{else}}Nothing?{{/if}}, {{#with getSelfOrDeepestRef}}{{#with headersObjectSchema}}{{containerJsonPathPiece.pascalCase}}.{{mapOutputJsonPathPiece.pascalCase}}{{else}}Nothing?{{/with}}{{/with}}><br>
+
+a class that stores an endpoint response
+{{/each}}
+

@@ -1,0 +1,108 @@
+
+
+{{#or isBooleanSchemaTrue isBooleanSchemaFalse}}
+    {{#if isBooleanSchemaTrue}}
+public static class {{../jsonPathPiece.pascalCase}} extends AnyTypeJsonSchema.AnyTypeJsonSchema1 {
+    {{else}}
+public static class {{jsonPathPiece.pascalCase}} extends NotAnyTypeJsonSchema.NotAnyTypeJsonSchema1 {
+    // NotAnyTypeSchema
+    {{/if}}
+{{else}}
+    {{#if refInfo.refClass}}
+        {{#if simpleRef}}
+            {{#if refInfo.refModule}}
+                {{#with getDeepestRef}}
+public static class {{../jsonPathPiece.pascalCase}} extends {{jsonPathPiece.pascalCase}} {
+                {{/with}}
+            {{else}}
+                {{#with refInfo.ref}}
+public class {{../jsonPathPiece.pascalCase}} extends {{jsonPathPiece.pascalCase}} {}
+                {{/with}}
+            {{/if}}
+        {{else}}
+// when is this case used?
+        {{/if}}
+    {{else}}
+        {{#eq types null}}
+public static class {{../jsonPathPiece.pascalCase}} extends AnyTypeJsonSchema.AnyTypeJsonSchema1 {
+        {{else}}
+            {{#each types}}
+                {{#eq this "null"}}
+public static class {{../jsonPathPiece.pascalCase}} extends NullJsonSchema.NullJsonSchema1 {
+                {{/eq}}
+                {{#eq this "object"}}
+public static class {{../jsonPathPiece.pascalCase}} extends MapJsonSchema.MapJsonSchema1 {
+                {{/eq}}
+                {{#eq this "array"}}
+public static class {{../jsonPathPiece.pascalCase}} extends ListJsonSchema.ListJsonSchema1 {
+                {{/eq}}
+                {{#eq this "boolean"}}
+public static class {{../jsonPathPiece.pascalCase}} extends BooleanJsonSchema.BooleanJsonSchema1 {
+                {{/eq}}
+                {{#eq this "string"}}
+                    {{#eq ../format "date"}}
+public static class {{../jsonPathPiece.pascalCase}} extends DateJsonSchema.DateJsonSchema1 {
+                    {{/eq}}
+                    {{#eq ../format "date-time"}}
+public static class {{../jsonPathPiece.pascalCase}} extends DateTimeJsonSchema.DateTimeJsonSchema1 {
+                    {{/eq}}
+                    {{#eq ../format "uuid"}}
+public static class {{../jsonPathPiece.pascalCase}} extends UuidJsonSchema.UuidJsonSchema1 {
+                    {{/eq}}
+                    {{#eq ../format "number"}}
+public static class {{../jsonPathPiece.pascalCase}} extends DecimalJsonSchema.DecimalJsonSchema1 {
+                    {{/eq}}
+                    {{#eq ../format "binary"}}
+public static class {{jsonPathPiece.pascalCase}} extends StringJsonSchema.StringJsonSchema1 {
+    // BinarySchema
+                    {{/eq}}
+                    {{#neq ../format "date"}}
+                        {{#neq ../format "date-time"}}
+                            {{#neq ../format "uuid"}}
+                                {{#neq ../format "number"}}
+                                    {{#neq ../format "binary"}}
+public static class {{../jsonPathPiece.pascalCase}} extends StringJsonSchema.StringJsonSchema1 {
+                                    {{/neq}}
+                                {{/neq}}
+                            {{/neq}}
+                        {{/neq}}
+                    {{/neq}}
+                {{/eq}}
+                {{#eq this "integer"}}
+                    {{#eq ../format "int32"}}
+public static class {{../jsonPathPiece.pascalCase}} extends Int32JsonSchema.Int32JsonSchema1 {
+                    {{/eq}}
+                    {{#eq ../format "int64"}}
+public static class {{../jsonPathPiece.pascalCase}} extends Int64JsonSchema.Int64JsonSchema1 {
+                    {{/eq}}
+                    {{#neq ../format "int32"}}
+                        {{#neq ../format "int64"}}
+public static class {{../jsonPathPiece.pascalCase}} extends IntJsonSchema.IntJsonSchema1 {
+                        {{/neq}}
+                    {{/neq}}
+                {{/eq}}
+                {{#eq this "number"}}
+                    {{#eq ../format null}}
+public static class {{../jsonPathPiece.pascalCase}} extends NumberJsonSchema.NumberJsonSchema1 {
+                    {{else}}
+                        {{#eq ../format "float"}}
+public static class {{../jsonPathPiece.pascalCase}} extends FloatJsonSchema.FloatJsonSchema1 {
+                        {{else}}
+                            {{#eq ../format "double"}}
+public static class {{../jsonPathPiece.pascalCase}} extends DoubleJsonSchema.DoubleJsonSchema1 {
+                            {{/eq}}
+                        {{/eq}}
+                    {{/eq}}
+                {{/eq}}
+            {{/each}}
+        {{/eq}}
+    {{/if}}
+{{/or}}
+    private static @Nullable {{jsonPathPiece.pascalCase}} instance = null;
+    public static {{jsonPathPiece.pascalCase}} getInstance() {
+        if (instance == null) {
+            instance = new {{jsonPathPiece.pascalCase}}();
+        }
+        return instance;
+    }
+}

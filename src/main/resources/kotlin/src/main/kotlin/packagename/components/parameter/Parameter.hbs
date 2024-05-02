@@ -1,0 +1,78 @@
+{{#with parameter}}
+package {{packageName}}.{{subpackage}};
+
+{{#if refInfo}}
+    {{#neq subpackage refInfo.ref.subpackage}}
+    {{! must be in different packages }}
+        {{#neq jsonPathPiece.pascalCase refInfo.ref.jsonPathPiece.pascalCase}}
+        {{! class names must differ }}
+import {{packageName}}.{{refInfo.ref.subpackage}}.{{refInfo.refModule}};
+        {{/neq}}
+    {{/neq}}
+{{#neq jsonPathPiece.pascalCase refInfo.ref.jsonPathPiece.pascalCase}}
+
+public class {{jsonPathPiece.pascalCase}} extends {{refInfo.refModule}} {
+    public static class {{jsonPathPiece.pascalCase}}1 extends {{refInfo.refModule}}1 {}
+}
+{{else}}
+public class {{jsonPathPiece.pascalCase}} extends {{packageName}}.{{refInfo.ref.subpackage}}.{{refInfo.refModule}} {}
+{{/neq}}
+{{else}}
+    {{#neq style null}}
+import {{packageName}}.parameter.ParameterStyle;
+    {{/neq}}
+import {{packageName}}.parameter.ParameterInType;
+    {{#if schema}}
+import {{packageName}}.parameter.SchemaParameter;
+        {{#with schema}}
+import {{{packageName}}}.{{subpackage}}.{{containerJsonPathPiece.pascalCase}};
+        {{/with}}
+    {{/if}}
+    {{#if content}}
+import {{packageName}}.parameter.ContentParameter;
+import {{packageName}}.mediatype.MediaType;
+        {{#each content}}
+            {{#with schema}}
+import {{{packageName}}}.{{subpackage}}.{{containerJsonPathPiece.pascalCase}};
+            {{/with}}
+        {{/each}}
+
+import java.util.AbstractMap;
+    {{/if}}
+
+public class {{jsonPathPiece.pascalCase}} {
+    {{#each content}}
+
+    public record {{@key.pascalCase}}MediaType({{#with this}}{{#with schema}}{{containerJsonPathPiece.pascalCase}}.{{jsonPathPiece.pascalCase}} schema{{/with}}{{/with}}) implements MediaType<{{#with this}}{{#with schema}}{{containerJsonPathPiece.pascalCase}}.{{jsonPathPiece.pascalCase}}{{/with}}{{/with}}, Nothing?> {
+        public {{@key.pascalCase}}MediaType() {
+            this({{#with this}}{{#with schema}}{{containerJsonPathPiece.pascalCase}}.{{jsonPathPiece.pascalCase}}.getInstance(){{/with}}{{/with}});
+        }
+        @Override
+        public Nothing? encoding() {
+            return null;
+        }
+    }
+    {{/each}}
+
+    public static class {{jsonPathPiece.pascalCase}}1 extends {{#if schema}}Schema{{else}}Content{{/if}}Parameter {
+        public {{jsonPathPiece.pascalCase}}1() {
+            super(
+                "{{{name}}}",
+                ParameterInType.{{#eq in "query"}}QUERY{{else}}{{#eq in "path"}}PATH{{else}}{{#eq in "header"}}HEADER{{else}}{{#eq in "cookie"}}COOKIE{{/eq}}{{/eq}}{{/eq}}{{/eq}},
+                {{#eq required null}}false{{else}}{{required}}{{/eq}},
+                {{#eq style null}}null{{else}}ParameterStyle.{{#eq style "matrix"}}MATRIX{{else}}{{#eq style "label"}}LABEL{{else}}{{#eq style "form"}}FORM{{else}}{{#eq style "simple"}}SIMPLE{{else}}{{#eq style "spaceDelimited"}}SPACE_DELIMITED{{else}}{{#eq style "pipeDelimited"}}PIPE_DELIMITED{{else}}{{#eq style "deepObject"}}DEEP_OBJECT{{/eq}}{{/eq}}{{/eq}}{{/eq}}{{/eq}}{{/eq}}{{/eq}}{{/eq}},
+                {{#eq explode null}}null{{else}}{{explode}}{{/eq}},
+                {{#eq allowReserved null}}false{{else}}{{allowReserved}}{{/eq}},
+    {{#if schema}}
+                {{#with schema}}{{containerJsonPathPiece.pascalCase}}.{{jsonPathPiece.pascalCase}}.getInstance(){{/with}}
+    {{else}}
+        {{#each content}}
+                new AbstractMap.SimpleEntry<>("{{{@key.original}}}", new {{@key.pascalCase}}MediaType())
+        {{/each}}
+    {{/if}}
+            );
+        }
+    }
+}
+{{/if}}
+{{/with}}

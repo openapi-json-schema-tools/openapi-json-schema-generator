@@ -1,0 +1,18 @@
+package {{packageName}}.apis.paths;
+
+import {{packageName}}.apiclient.ApiClient;
+import {{packageName}}.configurations.ApiConfiguration;
+import {{packageName}}.configurations.SchemaConfiguration;
+{{#each pathItem.operations}}
+import {{packageName}}.{{subpackage}}.{{jsonPathPiece.pascalCase}};
+{{/each}}
+
+public class {{pathItem.jsonPathPiece.pascalCase}} extends ApiClient implements
+{{#each pathItem.operations}}
+    {{jsonPathPiece.pascalCase}}.{{method.pascalCase}}Operation{{#unless @last}},{{/unless}}
+{{/each}}
+{
+    public {{pathItem.jsonPathPiece.pascalCase}}(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration) {
+        super(apiConfiguration, schemaConfiguration);
+    }
+}
