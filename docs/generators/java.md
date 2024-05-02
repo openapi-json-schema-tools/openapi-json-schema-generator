@@ -23,6 +23,7 @@ These options may be applied as additional-properties (cli) or configOptions (pl
 |artifactDescription|artifact description in generated pom.xml| |OpenAPI Java|
 |artifactUrl|artifact URL in generated pom.xml| |https://github.com/openapi-json-schema-tools/openapi-json-schema-generator|
 |artifactVersion|artifact version in generated pom.xml. This also becomes part of the generated library's filename| |1.0.0|
+|buildTool|the build automation tool used in generated code|<dl><dt>**maven**</dt><dd>Use maven</dd><dt>**gradle**</dt><dd>Use gradle</dd></dl>|maven|
 |developerEmail|developer email in generated pom.xml| |team@openapijsonschematools.org|
 |developerName|developer name in generated pom.xml| |OpenAPI-Generator Contributors|
 |developerOrganization|developer organization in generated pom.xml| |OpenAPITools.org|

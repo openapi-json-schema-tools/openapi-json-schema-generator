@@ -89,11 +89,12 @@ public class GeneratorLoader {
     }
 
     public static List<Generator> getAll() {
-        List<Generator> genrators = new ArrayList<Generator>();
+        GeneratorSettings generatorSettings = new GeneratorSettings();
+        List<Generator> generators = new ArrayList<Generator>();
         for (String generatorName: generatorNameToGenerator.keySet()) {
-            Generator generator = getGenerator(generatorName, null, null);
-            genrators.add(generator);
+            Generator generator = getGenerator(generatorName, generatorSettings, null);
+            generators.add(generator);
         }
-        return genrators;
+        return generators;
     }
 }

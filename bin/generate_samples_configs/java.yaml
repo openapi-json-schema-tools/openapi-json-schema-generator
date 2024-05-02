@@ -4,3 +4,4 @@ inputSpec: src/test/resources/3_0/python/petstore_customized.yaml
 additionalProperties:
   artifactId: petstore
   hideGenerationTimestamp: "true"
+  buildTool: gradle

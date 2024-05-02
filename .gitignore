@@ -49,7 +49,6 @@ test-output/
 #Java/Android
 **/.gradle
 
-
 # Python
 *.pyc
 __pycache__
