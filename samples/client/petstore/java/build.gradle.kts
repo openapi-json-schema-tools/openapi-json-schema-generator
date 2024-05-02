@@ -29,7 +29,6 @@ configure<CheckerFrameworkExtension> {
 group = "org.openapijsonschematools"
 version = "1.0.0"
 description = "OpenAPI Java"
-java.sourceCompatibility = JavaVersion.VERSION_17
 
 val testsJar by tasks.registering(Jar::class) {
     archiveClassifier = "tests"
@@ -37,6 +36,9 @@ val testsJar by tasks.registering(Jar::class) {
 }
 
 java {
+    toolchain {
+        languageVersion.set(JavaLanguageVersion.of(17))
+    }
     withSourcesJar()
     withJavadocJar()
 }

@@ -29,6 +29,8 @@ elif [ "$JOB_ID" = "testJava17ClientSamples" ]; then
   echo "Running job $JOB_ID ..."
   java -version
   mvn -version
+  gradle --version
+
   cat ./.circleci/testJava17ClientSamples.sh | parallel
 
 else

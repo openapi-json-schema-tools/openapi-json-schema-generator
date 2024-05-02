@@ -29,7 +29,6 @@ configure<CheckerFrameworkExtension> {
 group = "{{groupId}}"
 version = "{{artifactVersion}}"
 description = "{{artifactDescription}}"
-java.sourceCompatibility = JavaVersion.VERSION_17
 
 val testsJar by tasks.registering(Jar::class) {
     archiveClassifier = "tests"
@@ -37,6 +36,9 @@ val testsJar by tasks.registering(Jar::class) {
 }
 
 java {
+    toolchain {
+        languageVersion.set(JavaLanguageVersion.of(17))
+    }
     withSourcesJar()
     withJavadocJar()
 }
