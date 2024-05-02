@@ -1,3 +1,4 @@
+.gitignore
 README.md
 docs/RootServerInfo.md
 docs/components/schemas/AdditionalpropertiesAllowsASchemaWhichShouldValidate.md

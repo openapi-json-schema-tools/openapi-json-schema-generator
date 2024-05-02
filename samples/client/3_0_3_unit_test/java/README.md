@@ -41,19 +41,6 @@ Add this dependency to your project's POM:
 </dependency>
 ```
 
-### Others
-
-At first generate the JAR by executing:
-
-```shell
-mvn clean package
-```
-
-Then manually install the following JARs:
-
-- `target/unit-test-api-0.0.1.jar`
-- `target/lib/*.jar`
-
 
 ## Usage Notes
 ### Validation, Immutability, and Data Type

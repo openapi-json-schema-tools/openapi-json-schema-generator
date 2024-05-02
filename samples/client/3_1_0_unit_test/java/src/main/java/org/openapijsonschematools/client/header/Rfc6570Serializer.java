@@ -27,7 +27,11 @@ public class Rfc6570Serializer {
                     .replace("%7E", "~");
             // This could be done faster with more hand-crafted code.
         } catch (UnsupportedEncodingException wow) {
-            throw new NotImplementedException(wow.getMessage());
+            @Nullable String msg = wow.getMessage();
+            if (msg == null) {
+                throw new NotImplementedException("UnsupportedEncodingException thrown");
+            }
+            throw new NotImplementedException(msg);
         }
     }
 

@@ -34,7 +34,7 @@ public class SchemaHeaderTest {
         mapPayload.put("R", 100);
         mapPayload.put("G", 200);
         mapPayload.put("B", 150);
-        var testCases = List.of(
+        List<ParamTestCase> testCases = List.of(
                 new ParamTestCase(
                         null,
                         Map.of("color", List.of(""))
@@ -135,28 +135,43 @@ public class SchemaHeaderTest {
         assertNull(deserialized);
 
         header = getHeader(NumberJsonSchema.NumberJsonSchema1.getInstance());
-        deserialized = header.deserialize(List.of("1"), false, configuration);
+        var deserializedOne = header.deserialize(List.of("1"), false, configuration);
+        if (deserializedOne == null) {
+            throw new RuntimeException("invalid value");
+        }
         @Nullable Object expected = 1L;
-        Assert.assertEquals(expected, deserialized);
+        Assert.assertEquals(expected, deserializedOne);
 
         header = getHeader(NumberJsonSchema.NumberJsonSchema1.getInstance());
-        deserialized = header.deserialize(List.of("3.14"), false, configuration);
+        var deserialized314 = header.deserialize(List.of("3.14"), false, configuration);
+        if (deserialized314 == null) {
+            throw new RuntimeException("invalid value");
+        }
         expected = 3.14d;
-        Assert.assertEquals(expected, deserialized);
+        Assert.assertEquals(expected, deserialized314);
 
         header = getHeader(StringJsonSchema.StringJsonSchema1.getInstance());
-        deserialized = header.deserialize(List.of("blue"), false, configuration);
+        var deserializedBlue = header.deserialize(List.of("blue"), false, configuration);
+        if (deserializedBlue == null) {
+            throw new RuntimeException("invalid value");
+        }
         expected = "blue";
-        Assert.assertEquals(expected, deserialized);
+        Assert.assertEquals(expected, deserializedBlue);
 
         header = getHeader(StringJsonSchema.StringJsonSchema1.getInstance());
-        deserialized = header.deserialize(List.of("hello world"), false, configuration);
+        var deserializedHelloWorld = header.deserialize(List.of("hello world"), false, configuration);
+        if (deserializedHelloWorld == null) {
+            throw new RuntimeException("invalid value");
+        }
         expected = "hello world";
-        Assert.assertEquals(expected, deserialized);
+        Assert.assertEquals(expected, deserializedHelloWorld);
 
         header = getHeader(ListJsonSchema.ListJsonSchema1.getInstance());
-        deserialized = header.deserialize(List.of("blue", "black", "brown"), false, configuration);
+        var deserializedList = header.deserialize(List.of("blue", "black", "brown"), false, configuration);
+        if (deserializedList == null) {
+            throw new RuntimeException("invalid value");
+        }
         expected = List.of("blue", "black", "brown");
-        Assert.assertEquals(expected, deserialized);
+        Assert.assertEquals(expected, deserializedList);
     }
 }

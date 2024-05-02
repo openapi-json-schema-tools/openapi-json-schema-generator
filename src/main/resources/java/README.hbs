@@ -16,12 +16,13 @@ For more information, please visit [{{{infoUrl}}}]({{{infoUrl}}})
 ## Requirements
 
 1. Java {{generatorLanguageVersion}}
-2. Maven
+2. {{#eq buildTool "maven"}}Maven{{else}}Gradle{{/eq}}
 
 ## Installation
 
 To install the API client library to your local Maven repository, simply execute:
 
+{{#eq buildTool "maven"}}
 ```shell
 mvn clean install
 ```
@@ -47,19 +48,28 @@ Add this dependency to your project's POM:
 </dependency>
 ```
 
-### Others
-
-At first generate the JAR by executing:
-
+{{else}}
 ```shell
-mvn clean package
+gradle wrapper
+gradlew clean build
 ```
 
-Then manually install the following JARs:
+### Gradle users
 
-- `target/{{{artifactId}}}-{{{artifactVersion}}}.jar`
-- `target/lib/*.jar`
+Add this dependency to your project's build file:
 
+```
+repositories {
+    mavenCentral()     // Needed if the '{{{artifactId}}}' jar has been published to maven centra
+    mavenLocal()       // Needed if the '{{{artifactId}}}' jar has been published to the local maven repo
+}
+
+dependencies {
+     implementation "{{{groupId}}}:{{{artifactId}}}:{{{artifactVersion}}}"
+}
+```
+
+{{/eq}}
 
 ## Usage Notes
 ### Validation, Immutability, and Data Type
