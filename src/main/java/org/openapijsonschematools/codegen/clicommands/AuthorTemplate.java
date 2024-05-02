@@ -3,6 +3,7 @@ package org.openapijsonschematools.codegen.clicommands;
 import io.airlift.airline.Command;
 import io.airlift.airline.Option;
 import org.apache.commons.lang3.StringUtils;
+import org.openapijsonschematools.codegen.config.GeneratorSettings;
 import org.openapijsonschematools.codegen.generators.Generator;
 import org.openapijsonschematools.codegen.generators.generatorloader.GeneratorLoader;
 import org.slf4j.Logger;
@@ -40,7 +41,7 @@ public class AuthorTemplate extends AbstractCommand {
 
     @Override
     void execute() {
-        Generator config = GeneratorLoader.getGenerator(generatorName, null, null);
+        Generator config = GeneratorLoader.getGenerator(generatorName, new GeneratorSettings(), null);
         String templateDirectory = config.generatorSettings().embeddedTemplateDir;
 
         log("Requesting '{}' from embedded resource directory '{}'", generatorName, templateDirectory);
