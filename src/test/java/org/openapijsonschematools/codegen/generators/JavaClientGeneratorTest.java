@@ -22,6 +22,7 @@ import io.swagger.v3.oas.models.media.ArraySchema;
 import io.swagger.v3.oas.models.media.Schema;
 import io.swagger.v3.oas.models.parameters.Parameter;
 import org.openapijsonschematools.codegen.TestUtils;
+import org.openapijsonschematools.codegen.config.GeneratorSettings;
 import org.openapijsonschematools.codegen.generators.openapimodels.CodegenParameter;
 import org.openapijsonschematools.codegen.generators.openapimodels.CodegenSchema;
 import org.openapijsonschematools.codegen.generators.openapimodels.EnumValue;
@@ -33,7 +34,7 @@ import java.util.Map;
 
 public class JavaClientGeneratorTest {
 
-    private final JavaClientGenerator generator = new JavaClientGenerator(null, null);
+    private final JavaClientGenerator generator = new JavaClientGenerator(new GeneratorSettings(), null);
 
     @Test
     void inlineEnum() {
@@ -135,7 +136,7 @@ public class JavaClientGeneratorTest {
     @Test
     public void testEnumNames() {
         OpenAPI openAPI = TestUtils.parseFlattenSpec("src/test/resources/3_0/70_schema_enum_names.yaml");
-        var javaGenerator = new JavaClientGenerator(null, null);
+        var javaGenerator = new JavaClientGenerator(new GeneratorSettings(), null);
         javaGenerator.setOpenAPI(openAPI);
 
         String modelName = "StringEnum";
