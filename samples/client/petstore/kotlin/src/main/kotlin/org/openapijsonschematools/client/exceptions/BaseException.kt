@@ -1,8 +1,3 @@
-package org.openapijsonschematools.client.exceptions;
+package org.openapijsonschematools.client.exceptions
 
-@SuppressWarnings("serial")
-public class BaseException extends Exception {
-    public BaseException(String s) {
-        super(s);
-    }
-}
+open class BaseException(s: String?) : Exception(s)

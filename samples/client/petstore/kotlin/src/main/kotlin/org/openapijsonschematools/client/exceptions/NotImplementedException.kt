@@ -1,8 +1,3 @@
-package org.openapijsonschematools.client.exceptions;
+package org.openapijsonschematools.client.exceptions
 
-@SuppressWarnings("serial")
-public class NotImplementedException extends BaseException {
-    public NotImplementedException(String s) {
-        super(s);
-    }
-}
+class NotImplementedException(s: String?) : BaseException(s) 

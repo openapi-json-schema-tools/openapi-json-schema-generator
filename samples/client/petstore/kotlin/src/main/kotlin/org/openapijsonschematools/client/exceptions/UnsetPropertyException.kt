@@ -1,8 +1,3 @@
-package org.openapijsonschematools.client.exceptions;
+package org.openapijsonschematools.client.exceptions
 
-@SuppressWarnings("serial")
-public class UnsetPropertyException extends BaseException {
-    public UnsetPropertyException(String s) {
-        super(s);
-    }
-}
+class UnsetPropertyException(s: String?) : BaseException(s) 
