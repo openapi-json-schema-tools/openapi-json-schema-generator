@@ -1,294 +1,406 @@
 package {{{packageName}}}.configurations;
 
-import java.util.LinkedHashSet;
+data class JsonSchemaKeywordFlags(
+    val additionalProperties: Boolean,
+    val allOf: Boolean,
+    val anyOf: Boolean,
+    val const_: Boolean,
+    val contains: Boolean,
+    val dependentRequired: Boolean,
+    val dependentSchemas: Boolean,
+    val discriminator: Boolean,
+    val else_: Boolean,
+    val enum_: Boolean,
+    val exclusiveMaximum: Boolean,
+    val exclusiveMinimum: Boolean,
+    val format: Boolean,
+    val if_: Boolean,
+    val maximum: Boolean,
+    val minimum: Boolean,
+    val items: Boolean,
+    val maxContains: Boolean,
+    val maxItems: Boolean,
+    val maxLength: Boolean,
+    val maxProperties: Boolean,
+    val minContains: Boolean,
+    val minItems: Boolean,
+    val minLength: Boolean,
+    val minProperties: Boolean,
+    val multipleOf: Boolean,
+    val not: Boolean,
+    val oneOf: Boolean,
+    val pattern: Boolean,
+    val patternProperties: Boolean,
+    val prefixItems: Boolean,
+    val properties: Boolean,
+    val propertyNames: Boolean,
+    val required: Boolean,
+    val then: Boolean,
+    val type: Boolean,
+    val uniqueItems: Boolean,
+    val unevaluatedItems: Boolean,
+    val unevaluatedProperties: Boolean
+) {
+    val keywords: LinkedHashSet<String>
+        get() {
+            val enabledKeywords = LinkedHashSet<String>()
+            if (additionalProperties) {
+                enabledKeywords.add("additionalProperties")
+            }
+            if (allOf) {
+                enabledKeywords.add("allOf")
+            }
+            if (anyOf) {
+                enabledKeywords.add("anyOf")
+            }
+            if (const_) {
+                enabledKeywords.add("const")
+            }
+            if (contains) {
+                enabledKeywords.add("contains")
+            }
+            if (dependentRequired) {
+                enabledKeywords.add("dependentRequired")
+            }
+            if (dependentSchemas) {
+                enabledKeywords.add("dependentSchemas")
+            }
+            if (discriminator) {
+                enabledKeywords.add("discriminator")
+            }
+            if (else_) {
+                enabledKeywords.add("else_")
+            }
+            if (enum_) {
+                enabledKeywords.add("enum_")
+            }
+            if (exclusiveMaximum) {
+                enabledKeywords.add("exclusiveMaximum")
+            }
+            if (exclusiveMinimum) {
+                enabledKeywords.add("exclusiveMinimum")
+            }
+            if (format) {
+                enabledKeywords.add("format")
+            }
+            if (if_) {
+                enabledKeywords.add("if_")
+            }
+            if (maximum) {
+                enabledKeywords.add("maximum")
+            }
+            if (minimum) {
+                enabledKeywords.add("minimum")
+            }
+            if (items) {
+                enabledKeywords.add("items")
+            }
+            if (maxContains) {
+                enabledKeywords.add("maxContains")
+            }
+            if (maxItems) {
+                enabledKeywords.add("maxItems")
+            }
+            if (maxLength) {
+                enabledKeywords.add("maxLength")
+            }
+            if (maxProperties) {
+                enabledKeywords.add("maxProperties")
+            }
+            if (minContains) {
+                enabledKeywords.add("minContains")
+            }
+            if (minItems) {
+                enabledKeywords.add("minItems")
+            }
+            if (minLength) {
+                enabledKeywords.add("minLength")
+            }
+            if (minProperties) {
+                enabledKeywords.add("minProperties")
+            }
+            if (multipleOf) {
+                enabledKeywords.add("multipleOf")
+            }
+            if (not) {
+                enabledKeywords.add("not")
+            }
+            if (oneOf) {
+                enabledKeywords.add("oneOf")
+            }
+            if (pattern) {
+                enabledKeywords.add("pattern")
+            }
+            if (patternProperties) {
+                enabledKeywords.add("patternProperties")
+            }
+            if (prefixItems) {
+                enabledKeywords.add("prefixItems")
+            }
+            if (properties) {
+                enabledKeywords.add("properties")
+            }
+            if (propertyNames) {
+                enabledKeywords.add("propertyNames")
+            }
+            if (required) {
+                enabledKeywords.add("required")
+            }
+            if (then) {
+                enabledKeywords.add("then")
+            }
+            if (type) {
+                enabledKeywords.add("type")
+            }
+            if (uniqueItems) {
+                enabledKeywords.add("uniqueItems")
+            }
+            if (unevaluatedItems) {
+                enabledKeywords.add("unevaluatedItems")
+            }
+            if (unevaluatedProperties) {
+                enabledKeywords.add("unevaluatedProperties")
+            }
+            return enabledKeywords
+        }
 
-public record JsonSchemaKeywordFlags(
-        boolean additionalProperties,
-        boolean allOf,
-        boolean anyOf,
-        boolean const_,
-        boolean contains,
-        boolean dependentRequired,
-        boolean dependentSchemas,
-        boolean discriminator,
-        boolean else_,
-        boolean enum_,
-        boolean exclusiveMaximum,
-        boolean exclusiveMinimum,
-        boolean format,
-        boolean if_,
-        boolean maximum,
-        boolean minimum,
-        boolean items,
-        boolean maxContains,
-        boolean maxItems,
-        boolean maxLength,
-        boolean maxProperties,
-        boolean minContains,
-        boolean minItems,
-        boolean minLength,
-        boolean minProperties,
-        boolean multipleOf,
-        boolean not,
-        boolean oneOf,
-        boolean pattern,
-        boolean patternProperties,
-        boolean prefixItems,
-        boolean properties,
-        boolean propertyNames,
-        boolean required,
-        boolean then,
-        boolean type,
-        boolean uniqueItems,
-        boolean unevaluatedItems,
-        boolean unevaluatedProperties
-    ) {
+    class Builder {
+        private var additionalProperties = false
+        private var allOf = false
+        private var anyOf = false
+        private var const_ = false
+        private var contains = false
+        private var dependentRequired = false
+        private var dependentSchemas = false
+        private var discriminator = false
+        private var else_ = false
+        private var enum_ = false
+        private var exclusiveMaximum = false
+        private var exclusiveMinimum = false
+        private var format = false
+        private var if_ = false
+        private var maximum = false
+        private var minimum = false
+        private var items = false
+        private var maxContains = false
+        private var maxItems = false
+        private var maxLength = false
+        private var maxProperties = false
+        private var minContains = false
+        private var minItems = false
+        private var minLength = false
+        private var minProperties = false
+        private var multipleOf = false
+        private var not = false
+        private var oneOf = false
+        private var pattern = false
+        private var patternProperties = false
+        private var prefixItems = false
+        private var properties = false
+        private var propertyNames = false
+        private var required = false
+        private var then = false
+        private var type = false
+        private var uniqueItems = false
+        private var unevaluatedItems = false
+        private var unevaluatedProperties = false
+        fun additionalProperties(): Builder {
+            additionalProperties = true
+            return this
+        }
 
-    public LinkedHashSet<String> getKeywords() {
-        LinkedHashSet<String> enabledKeywords = new LinkedHashSet<>();
-        if (additionalProperties) { enabledKeywords.add("additionalProperties"); }
-        if (allOf) { enabledKeywords.add("allOf"); }
-        if (anyOf) { enabledKeywords.add("anyOf"); }
-        if (const_) { enabledKeywords.add("const"); }
-        if (contains) { enabledKeywords.add("contains"); }
-        if (dependentRequired) { enabledKeywords.add("dependentRequired"); }
-        if (dependentSchemas) { enabledKeywords.add("dependentSchemas"); }
-        if (discriminator) { enabledKeywords.add("discriminator"); }
-        if (else_) { enabledKeywords.add("else_"); }
-        if (enum_) { enabledKeywords.add("enum_"); }
-        if (exclusiveMaximum) { enabledKeywords.add("exclusiveMaximum"); }
-        if (exclusiveMinimum) { enabledKeywords.add("exclusiveMinimum"); }
-        if (format) { enabledKeywords.add("format"); }
-        if (if_) { enabledKeywords.add("if_"); }
-        if (maximum) { enabledKeywords.add("maximum"); }
-        if (minimum) { enabledKeywords.add("minimum"); }
-        if (items) { enabledKeywords.add("items"); }
-        if (maxContains) { enabledKeywords.add("maxContains"); }
-        if (maxItems) { enabledKeywords.add("maxItems"); }
-        if (maxLength) { enabledKeywords.add("maxLength"); }
-        if (maxProperties) { enabledKeywords.add("maxProperties"); }
-        if (minContains) { enabledKeywords.add("minContains"); }
-        if (minItems) { enabledKeywords.add("minItems"); }
-        if (minLength) { enabledKeywords.add("minLength"); }
-        if (minProperties) { enabledKeywords.add("minProperties"); }
-        if (multipleOf) { enabledKeywords.add("multipleOf"); }
-        if (not) { enabledKeywords.add("not"); }
-        if (oneOf) { enabledKeywords.add("oneOf"); }
-        if (pattern) { enabledKeywords.add("pattern"); }
-        if (patternProperties) { enabledKeywords.add("patternProperties"); }
-        if (prefixItems) { enabledKeywords.add("prefixItems"); }
-        if (properties) { enabledKeywords.add("properties"); }
-        if (propertyNames) { enabledKeywords.add("propertyNames"); }
-        if (required) { enabledKeywords.add("required"); }
-        if (then) { enabledKeywords.add("then"); }
-        if (type) { enabledKeywords.add("type"); }
-        if (uniqueItems) { enabledKeywords.add("uniqueItems"); }
-        if (unevaluatedItems) { enabledKeywords.add("unevaluatedItems"); }
-        if (unevaluatedProperties) { enabledKeywords.add("unevaluatedProperties"); }
-        return enabledKeywords;
-    }
+        fun allOf(): Builder {
+            allOf = true
+            return this
+        }
 
-    public static class Builder {
-        private boolean additionalProperties;
-        private boolean allOf;
-        private boolean anyOf;
-        private boolean const_;
-        private boolean contains;
-        private boolean dependentRequired;
-        private boolean dependentSchemas;
-        private boolean discriminator;
-        private boolean else_;
-        private boolean enum_;
-        private boolean exclusiveMaximum;
-        private boolean exclusiveMinimum;
-        private boolean format;
-        private boolean if_;
-        private boolean maximum;
-        private boolean minimum;
-        private boolean items;
-        private boolean maxContains;
-        private boolean maxItems;
-        private boolean maxLength;
-        private boolean maxProperties;
-        private boolean minContains;
-        private boolean minItems;
-        private boolean minLength;
-        private boolean minProperties;
-        private boolean multipleOf;
-        private boolean not;
-        private boolean oneOf;
-        private boolean pattern;
-        private boolean patternProperties;
-        private boolean prefixItems;
-        private boolean properties;
-        private boolean propertyNames;
-        private boolean required;
-        private boolean then;
-        private boolean type;
-        private boolean uniqueItems;
-        private boolean unevaluatedItems;
-        private boolean unevaluatedProperties;
+        fun anyOf(): Builder {
+            anyOf = true
+            return this
+        }
 
-        public Builder() {}
+        fun const_(): Builder {
+            const_ = true
+            return this
+        }
 
-        public Builder additionalProperties() {
-            additionalProperties = true;
-            return this;
+        fun contains(): Builder {
+            contains = true
+            return this
         }
-        public Builder allOf() {
-            allOf = true;
-            return this;
+
+        fun dependentRequired(): Builder {
+            dependentRequired = true
+            return this
         }
-        public Builder anyOf() {
-            anyOf = true;
-            return this;
+
+        fun dependentSchemas(): Builder {
+            dependentSchemas = true
+            return this
         }
-        public Builder const_() {
-            const_ = true;
-            return this;
+
+        fun discriminator(): Builder {
+            discriminator = true
+            return this
         }
-        public Builder contains() {
-            contains = true;
-            return this;
+
+        fun else_(): Builder {
+            else_ = true
+            return this
         }
-        public Builder dependentRequired() {
-            dependentRequired = true;
-            return this;
+
+        fun enum_(): Builder {
+            enum_ = true
+            return this
         }
-        public Builder dependentSchemas() {
-            dependentSchemas = true;
-            return this;
+
+        fun exclusiveMaximum(): Builder {
+            exclusiveMaximum = true
+            return this
         }
-        public Builder discriminator() {
-            discriminator = true;
-            return this;
+
+        fun exclusiveMinimum(): Builder {
+            exclusiveMinimum = true
+            return this
         }
-        public Builder else_() {
-            else_ = true;
-            return this;
+
+        fun format(): Builder {
+            format = true
+            return this
         }
-        public Builder enum_() {
-            enum_ = true;
-            return this;
+
+        fun if_(): Builder {
+            if_ = true
+            return this
         }
-        public Builder exclusiveMaximum() {
-            exclusiveMaximum = true;
-            return this;
+
+        fun maximum(): Builder {
+            maximum = true
+            return this
         }
-        public Builder exclusiveMinimum() {
-            exclusiveMinimum = true;
-            return this;
+
+        fun minimum(): Builder {
+            minimum = true
+            return this
         }
-        public Builder format() {
-            format = true;
-            return this;
+
+        fun items(): Builder {
+            items = true
+            return this
         }
-        public Builder if_() {
-            if_ = true;
-            return this;
+
+        fun maxContains(): Builder {
+            maxContains = true
+            return this
         }
-        public Builder maximum() {
-            maximum = true;
-            return this;
+
+        fun maxItems(): Builder {
+            maxItems = true
+            return this
         }
-        public Builder minimum() {
-            minimum = true;
-            return this;
+
+        fun maxLength(): Builder {
+            maxLength = true
+            return this
         }
-        public Builder items() {
-            items = true;
-            return this;
+
+        fun maxProperties(): Builder {
+            maxProperties = true
+            return this
         }
-        public Builder maxContains() {
-            maxContains = true;
-            return this;
+
+        fun minContains(): Builder {
+            minContains = true
+            return this
         }
-        public Builder maxItems() {
-            maxItems = true;
-            return this;
+
+        fun minItems(): Builder {
+            minItems = true
+            return this
         }
-        public Builder maxLength() {
-            maxLength = true;
-            return this;
+
+        fun minLength(): Builder {
+            minLength = true
+            return this
         }
-        public Builder maxProperties() {
-            maxProperties = true;
-            return this;
+
+        fun minProperties(): Builder {
+            minProperties = true
+            return this
         }
-        public Builder minContains() {
-            minContains = true;
-            return this;
+
+        fun multipleOf(): Builder {
+            multipleOf = true
+            return this
         }
-        public Builder minItems() {
-            minItems = true;
-            return this;
+
+        operator fun not(): Builder {
+            not = true
+            return this
         }
-        public Builder minLength() {
-            minLength = true;
-            return this;
+
+        fun oneOf(): Builder {
+            oneOf = true
+            return this
         }
-        public Builder minProperties() {
-            minProperties = true;
-            return this;
+
+        fun pattern(): Builder {
+            pattern = true
+            return this
         }
-        public Builder multipleOf() {
-            multipleOf = true;
-            return this;
+
+        fun patternProperties(): Builder {
+            patternProperties = true
+            return this
         }
-        public Builder not() {
-            not = true;
-            return this;
+
+        fun prefixItems(): Builder {
+            prefixItems = true
+            return this
         }
-        public Builder oneOf() {
-            oneOf = true;
-            return this;
+
+        fun properties(): Builder {
+            properties = true
+            return this
         }
-        public Builder pattern() {
-            pattern = true;
-            return this;
+
+        fun propertyNames(): Builder {
+            propertyNames = true
+            return this
         }
-        public Builder patternProperties() {
-            patternProperties = true;
-            return this;
+
+        fun required(): Builder {
+            required = true
+            return this
         }
-        public Builder prefixItems() {
-            prefixItems = true;
-            return this;
+
+        fun then(): Builder {
+            then = true
+            return this
         }
-        public Builder properties() {
-            properties = true;
-            return this;
+
+        fun type(): Builder {
+            type = true
+            return this
         }
-        public Builder propertyNames() {
-            propertyNames = true;
-            return this;
+
+        fun uniqueItems(): Builder {
+            uniqueItems = true
+            return this
         }
-        public Builder required() {
-            required = true;
-            return this;
+
+        fun unevaluatedItems(): Builder {
+            unevaluatedItems = true
+            return this
         }
-        public Builder then() {
-            then = true;
-            return this;
+
+        fun unevaluatedProperties(): Builder {
+            unevaluatedProperties = true
+            return this
         }
-        public Builder type() {
-            type = true;
-            return this;
-        }
-        public Builder uniqueItems() {
-            uniqueItems = true;
-            return this;
-        }
-        public Builder unevaluatedItems() {
-            unevaluatedItems = true;
-            return this;
-        }
-        public Builder unevaluatedProperties() {
-            unevaluatedProperties = true;
-            return this;
-        }
-        public JsonSchemaKeywordFlags build() {
-            return new JsonSchemaKeywordFlags(
+
+        fun build(): JsonSchemaKeywordFlags {
+            return JsonSchemaKeywordFlags(
                 additionalProperties,
                 allOf,
                 anyOf,
@@ -328,7 +440,7 @@ public record JsonSchemaKeywordFlags(
                 uniqueItems,
                 unevaluatedItems,
                 unevaluatedProperties
-            );
+            )
         }
     }
 }

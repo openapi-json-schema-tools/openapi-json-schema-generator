@@ -1,4 +1,3 @@
 package {{{packageName}}}.configurations;
 
-public record SchemaConfiguration(JsonSchemaKeywordFlags disabledKeywordFlags) {
-}
+data class SchemaConfiguration(val disabledKeywordFlags: JsonSchemaKeywordFlags)

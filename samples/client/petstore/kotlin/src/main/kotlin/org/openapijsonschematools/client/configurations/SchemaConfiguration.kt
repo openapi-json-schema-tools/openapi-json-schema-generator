@@ -1,4 +1,4 @@
-package org.openapijsonschematools.client.configurations;
+package org.openapijsonschematools.client.configurations
 
-public record SchemaConfiguration(JsonSchemaKeywordFlags disabledKeywordFlags) {
-}
+
+data class SchemaConfiguration(val disabledKeywordFlags: JsonSchemaKeywordFlags) 
