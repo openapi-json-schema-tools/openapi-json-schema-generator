@@ -1,348 +1,447 @@
 package {{{packageName}}}.schemas.validation;
 
-import org.checkerframework.checker.nullness.qual.Nullable;
 import {{{packageName}}}.configurations.SchemaConfiguration;
 import {{{packageName}}}.exceptions.ValidationException;
 
-import java.math.BigDecimal;
-import java.time.LocalDate;
-import java.time.ZonedDateTime;
-import java.util.ArrayList;
-import java.util.LinkedHashMap;
-import java.util.LinkedHashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
-import java.util.UUID;
-import java.util.regex.Pattern;
+import java.math.BigDecimal
+import java.time.LocalDate
+import java.time.ZonedDateTime
+import java.util.regex.Pattern
+import java.util.UUID
 
-public abstract class JsonSchema<T> {
-    public final @Nullable Set<Class<?>> type;
-    public final @Nullable String format;
-    public final @Nullable Class<? extends JsonSchema<?>> items;
-    public final @Nullable Map<String, Class<? extends JsonSchema<?>>> properties;
-    public final @Nullable Set<String> required;
-    public final @Nullable Number exclusiveMaximum;
-    public final @Nullable Number exclusiveMinimum;
-    public final @Nullable Integer maxItems;
-    public final @Nullable Integer minItems;
-    public final @Nullable Integer maxLength;
-    public final @Nullable Integer minLength;
-    public final @Nullable Integer maxProperties;
-    public final @Nullable Integer minProperties;
-    public final @Nullable Number maximum;
-    public final @Nullable Number minimum;
-    public final @Nullable BigDecimal multipleOf;
-    public final @Nullable Class<? extends JsonSchema<?>> additionalProperties;
-    public final @Nullable List<Class<? extends JsonSchema<?>>> allOf;
-    public final @Nullable List<Class<? extends JsonSchema<?>>> anyOf;
-    public final @Nullable List<Class<? extends JsonSchema<?>>> oneOf;
-    public final @Nullable Class<? extends JsonSchema<?>> not;
-    public final @Nullable Boolean uniqueItems;
-    public final @Nullable Set<@Nullable Object> enumValues;
-    public final @Nullable Pattern pattern;
-    public final @Nullable Object defaultValue;
-    public final boolean defaultValueSet;
-    public final @Nullable Object constValue;
-    public final boolean constValueSet;
-    public final @Nullable Class<? extends JsonSchema<?>> contains;
-    public final @Nullable Integer maxContains;
-    public final @Nullable Integer minContains;
-    public final @Nullable Class<? extends JsonSchema<?>> propertyNames;
-    public final @Nullable Map<String, Set<String>> dependentRequired;
-    public final @Nullable Map<String, Class<? extends JsonSchema<?>>> dependentSchemas;
-    public final @Nullable Map<Pattern, Class<? extends JsonSchema<?>>> patternProperties;
-    public final @Nullable List<Class<? extends JsonSchema<?>>> prefixItems;
-    public final @Nullable Class<? extends JsonSchema<?>> ifSchema;
-    public final @Nullable Class<? extends JsonSchema<?>> then;
-    public final @Nullable Class<? extends JsonSchema<?>> elseSchema;
-    public final @Nullable Class<? extends JsonSchema<?>> unevaluatedItems;
-    public final @Nullable Class<? extends JsonSchema<?>> unevaluatedProperties;
-    private final LinkedHashMap<String, KeywordValidator> keywordToValidator;
+abstract class JsonSchema<T> protected constructor(jsonSchemaInfo: JsonSchemaInfo) {
+    val type: Set<Class<*>>?
+    val format: String?
+    val items: Class<out JsonSchema<*>?>?
+    val properties: Map<String, Class<out JsonSchema<*>?>>?
+    val required: Set<String>?
+    val exclusiveMaximum: Number?
+    val exclusiveMinimum: Number?
+    val maxItems: Int?
+    val minItems: Int?
+    val maxLength: Int?
+    val minLength: Int?
+    val maxProperties: Int?
+    val minProperties: Int?
+    val maximum: Number?
+    val minimum: Number?
+    val multipleOf: BigDecimal?
+    val additionalProperties: Class<out JsonSchema<*>?>?
+    val allOf: List<Class<out JsonSchema<*>?>>?
+    val anyOf: List<Class<out JsonSchema<*>?>>?
+    val oneOf: List<Class<out JsonSchema<*>?>>?
+    val not: Class<out JsonSchema<*>?>?
+    val uniqueItems: Boolean?
+    val enumValues: Set<Any>?
+    val pattern: Pattern?
+    val defaultValue: Any?
+    val defaultValueSet: Boolean
+    val constValue: Any?
+    val constValueSet: Boolean
+    val contains: Class<out JsonSchema<*>?>?
+    val maxContains: Int?
+    val minContains: Int?
+    val propertyNames: Class<out JsonSchema<*>?>?
+    val dependentRequired: Map<String, Set<String>>?
+    val dependentSchemas: Map<String, Class<out JsonSchema<*>?>>?
+    val patternProperties: Map<Pattern, Class<out JsonSchema<*>?>>?
+    val prefixItems: List<Class<out JsonSchema<*>?>>?
+    val ifSchema: Class<out JsonSchema<*>?>?
+    val then: Class<out JsonSchema<*>?>?
+    val elseSchema: Class<out JsonSchema<*>?>?
+    val unevaluatedItems: Class<out JsonSchema<*>?>?
+    val unevaluatedProperties: Class<out JsonSchema<*>?>?
+    private val keywordToValidator: LinkedHashMap<String, KeywordValidator>
 
-    protected JsonSchema(JsonSchemaInfo jsonSchemaInfo) {
-        LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>();
-        this.type = jsonSchemaInfo.type;
-        if (this.type != null) {
-            keywordToValidator.put("type", new TypeValidator());
+    init {
+        val keywordToValidator = LinkedHashMap<String, KeywordValidator>()
+        type = jsonSchemaInfo.type
+        if (type != null) {
+            keywordToValidator["type"] = TypeValidator()
         }
-        this.format = jsonSchemaInfo.format;
-        if (this.format != null) {
-            keywordToValidator.put("format", new FormatValidator());
+        format = jsonSchemaInfo.format
+        if (format != null) {
+            keywordToValidator["format"] = FormatValidator()
         }
-        this.items = jsonSchemaInfo.items;
-        if (this.items != null) {
-            keywordToValidator.put("items", new ItemsValidator());
+        items = jsonSchemaInfo.items
+        if (items != null) {
+            keywordToValidator["items"] = ItemsValidator()
         }
-        this.properties = jsonSchemaInfo.properties;
-        if (this.properties != null) {
-            keywordToValidator.put("properties", new PropertiesValidator());
+        properties = jsonSchemaInfo.properties
+        if (properties != null) {
+            keywordToValidator["properties"] = PropertiesValidator()
         }
-        this.required = jsonSchemaInfo.required;
-        if (this.required != null) {
-            keywordToValidator.put("required", new RequiredValidator());
+        required = jsonSchemaInfo.required
+        if (required != null) {
+            keywordToValidator["required"] = RequiredValidator()
         }
-        this.exclusiveMaximum = jsonSchemaInfo.exclusiveMaximum;
-        if (this.exclusiveMaximum != null) {
-            keywordToValidator.put("exclusiveMaximum", new ExclusiveMaximumValidator());
+        exclusiveMaximum = jsonSchemaInfo.exclusiveMaximum
+        if (exclusiveMaximum != null) {
+            keywordToValidator["exclusiveMaximum"] = ExclusiveMaximumValidator()
         }
-        this.exclusiveMinimum = jsonSchemaInfo.exclusiveMinimum;
-        if (this.exclusiveMinimum != null) {
-            keywordToValidator.put("exclusiveMinimum", new ExclusiveMinimumValidator());
+        exclusiveMinimum = jsonSchemaInfo.exclusiveMinimum
+        if (exclusiveMinimum != null) {
+            keywordToValidator["exclusiveMinimum"] = ExclusiveMinimumValidator()
         }
-        this.maxItems = jsonSchemaInfo.maxItems;
-        if (this.maxItems != null) {
-            keywordToValidator.put("maxItems", new MaxItemsValidator());
+        maxItems = jsonSchemaInfo.maxItems
+        if (maxItems != null) {
+            keywordToValidator["maxItems"] = MaxItemsValidator()
         }
-        this.minItems = jsonSchemaInfo.minItems;
-        if (this.minItems != null) {
-            keywordToValidator.put("minItems", new MinItemsValidator());
+        minItems = jsonSchemaInfo.minItems
+        if (minItems != null) {
+            keywordToValidator["minItems"] = MinItemsValidator()
         }
-        this.maxLength = jsonSchemaInfo.maxLength;
-        if (this.maxLength != null) {
-            keywordToValidator.put("maxLength", new MaxLengthValidator());
+        maxLength = jsonSchemaInfo.maxLength
+        if (maxLength != null) {
+            keywordToValidator["maxLength"] = MaxLengthValidator()
         }
-        this.minLength = jsonSchemaInfo.minLength;
-        if (this.minLength != null) {
-            keywordToValidator.put("minLength", new MinLengthValidator());
+        minLength = jsonSchemaInfo.minLength
+        if (minLength != null) {
+            keywordToValidator["minLength"] = MinLengthValidator()
         }
-        this.maxProperties = jsonSchemaInfo.maxProperties;
-        if (this.maxProperties != null) {
-            keywordToValidator.put("maxProperties", new MaxPropertiesValidator());
+        maxProperties = jsonSchemaInfo.maxProperties
+        if (maxProperties != null) {
+            keywordToValidator["maxProperties"] = MaxPropertiesValidator()
         }
-        this.minProperties = jsonSchemaInfo.minProperties;
-        if (this.minProperties != null) {
-            keywordToValidator.put("minProperties", new MinPropertiesValidator());
+        minProperties = jsonSchemaInfo.minProperties
+        if (minProperties != null) {
+            keywordToValidator["minProperties"] = MinPropertiesValidator()
         }
-        this.maximum = jsonSchemaInfo.maximum;
-        if (this.maximum != null) {
-            keywordToValidator.put("maximum", new MaximumValidator());
+        maximum = jsonSchemaInfo.maximum
+        if (maximum != null) {
+            keywordToValidator["maximum"] = MaximumValidator()
         }
-        this.minimum = jsonSchemaInfo.minimum;
-        if (this.minimum != null) {
-            keywordToValidator.put("minimum", new MinimumValidator());
+        minimum = jsonSchemaInfo.minimum
+        if (minimum != null) {
+            keywordToValidator["minimum"] = MinimumValidator()
         }
-        this.multipleOf = jsonSchemaInfo.multipleOf;
-        if (this.multipleOf != null) {
-            keywordToValidator.put("multipleOf", new MultipleOfValidator());
+        multipleOf = jsonSchemaInfo.multipleOf
+        if (multipleOf != null) {
+            keywordToValidator["multipleOf"] = MultipleOfValidator()
         }
-        this.additionalProperties = jsonSchemaInfo.additionalProperties;
-        if (this.additionalProperties != null) {
-            keywordToValidator.put("additionalProperties", new AdditionalPropertiesValidator());
+        additionalProperties = jsonSchemaInfo.additionalProperties
+        if (additionalProperties != null) {
+            keywordToValidator["additionalProperties"] = AdditionalPropertiesValidator()
         }
-        this.allOf = jsonSchemaInfo.allOf;
-        if (this.allOf != null) {
-            keywordToValidator.put("allOf", new AllOfValidator());
+        allOf = jsonSchemaInfo.allOf
+        if (allOf != null) {
+            keywordToValidator["allOf"] = AllOfValidator()
         }
-        this.anyOf = jsonSchemaInfo.anyOf;
-        if (this.anyOf != null) {
-            keywordToValidator.put("anyOf", new AnyOfValidator());
+        anyOf = jsonSchemaInfo.anyOf
+        if (anyOf != null) {
+            keywordToValidator["anyOf"] = AnyOfValidator()
         }
-        this.oneOf = jsonSchemaInfo.oneOf;
-        if (this.oneOf != null) {
-            keywordToValidator.put("oneOf", new OneOfValidator());
+        oneOf = jsonSchemaInfo.oneOf
+        if (oneOf != null) {
+            keywordToValidator["oneOf"] = OneOfValidator()
         }
-        this.not = jsonSchemaInfo.not;
-        if (this.not != null) {
-            keywordToValidator.put("not", new NotValidator());
+        not = jsonSchemaInfo.not
+        if (not != null) {
+            keywordToValidator["not"] = NotValidator()
         }
-        this.uniqueItems = jsonSchemaInfo.uniqueItems;
-        if (this.uniqueItems != null) {
-            keywordToValidator.put("uniqueItems", new UniqueItemsValidator());
+        uniqueItems = jsonSchemaInfo.uniqueItems
+        if (uniqueItems != null) {
+            keywordToValidator["uniqueItems"] = UniqueItemsValidator()
         }
-        this.enumValues = jsonSchemaInfo.enumValues;
-        if (this.enumValues != null) {
-            keywordToValidator.put("enum", new EnumValidator());
+        enumValues = jsonSchemaInfo.enumValues
+        if (enumValues != null) {
+            keywordToValidator["enum"] = EnumValidator()
         }
-        this.pattern = jsonSchemaInfo.pattern;
-        if (this.pattern != null) {
-            keywordToValidator.put("pattern", new PatternValidator());
+        pattern = jsonSchemaInfo.pattern
+        if (pattern != null) {
+            keywordToValidator["pattern"] = PatternValidator()
         }
-        this.defaultValue = jsonSchemaInfo.defaultValue;
-        this.defaultValueSet = jsonSchemaInfo.defaultValueSet;
-        this.constValue = jsonSchemaInfo.constValue;
-        this.constValueSet = jsonSchemaInfo.constValueSet;
-        if (this.constValueSet) {
-            keywordToValidator.put("const", new ConstValidator());
+        defaultValue = jsonSchemaInfo.defaultValue
+        defaultValueSet = jsonSchemaInfo.defaultValueSet
+        constValue = jsonSchemaInfo.constValue
+        constValueSet = jsonSchemaInfo.constValueSet
+        if (constValueSet) {
+            keywordToValidator["const"] = ConstValidator()
         }
-        this.contains = jsonSchemaInfo.contains;
-        if (this.contains != null) {
-            keywordToValidator.put("contains", new ContainsValidator());
+        contains = jsonSchemaInfo.contains
+        if (contains != null) {
+            keywordToValidator["contains"] = ContainsValidator()
         }
-        this.maxContains = jsonSchemaInfo.maxContains;
-        if (this.maxContains != null) {
-            keywordToValidator.put("maxContains", new MaxContainsValidator());
+        maxContains = jsonSchemaInfo.maxContains
+        if (maxContains != null) {
+            keywordToValidator["maxContains"] = MaxContainsValidator()
         }
-        this.minContains = jsonSchemaInfo.minContains;
-        if (this.minContains != null) {
-            keywordToValidator.put("minContains", new MinContainsValidator());
+        minContains = jsonSchemaInfo.minContains
+        if (minContains != null) {
+            keywordToValidator["minContains"] = MinContainsValidator()
         }
-        this.propertyNames = jsonSchemaInfo.propertyNames;
-        if (this.propertyNames != null) {
-            keywordToValidator.put("propertyNames", new PropertyNamesValidator());
+        propertyNames = jsonSchemaInfo.propertyNames
+        if (propertyNames != null) {
+            keywordToValidator["propertyNames"] = PropertyNamesValidator()
         }
-        this.dependentRequired = jsonSchemaInfo.dependentRequired;
-        if (this.dependentRequired != null) {
-            keywordToValidator.put("dependentRequired", new DependentRequiredValidator());
+        dependentRequired = jsonSchemaInfo.dependentRequired
+        if (dependentRequired != null) {
+            keywordToValidator["dependentRequired"] = DependentRequiredValidator()
         }
-        this.dependentSchemas = jsonSchemaInfo.dependentSchemas;
-        if (this.dependentSchemas != null) {
-            keywordToValidator.put("dependentSchemas", new DependentSchemasValidator());
+        dependentSchemas = jsonSchemaInfo.dependentSchemas
+        if (dependentSchemas != null) {
+            keywordToValidator["dependentSchemas"] = DependentSchemasValidator()
         }
-        this.patternProperties = jsonSchemaInfo.patternProperties;
-        if (this.patternProperties != null) {
-            keywordToValidator.put("patternProperties", new PatternPropertiesValidator());
+        patternProperties = jsonSchemaInfo.patternProperties
+        if (patternProperties != null) {
+            keywordToValidator["patternProperties"] = PatternPropertiesValidator()
         }
-        this.prefixItems = jsonSchemaInfo.prefixItems;
-        if (this.prefixItems != null) {
-            keywordToValidator.put("prefixItems", new PrefixItemsValidator());
+        prefixItems = jsonSchemaInfo.prefixItems
+        if (prefixItems != null) {
+            keywordToValidator["prefixItems"] = PrefixItemsValidator()
         }
-        this.ifSchema = jsonSchemaInfo.ifSchema;
-        if (this.ifSchema != null) {
-            keywordToValidator.put("if", new IfValidator());
+        ifSchema = jsonSchemaInfo.ifSchema
+        if (ifSchema != null) {
+            keywordToValidator["if"] = IfValidator()
         }
-        this.then = jsonSchemaInfo.then;
-        if (this.then != null) {
-            keywordToValidator.put("then", new ThenValidator());
+        then = jsonSchemaInfo.then
+        if (then != null) {
+            keywordToValidator["then"] = ThenValidator()
         }
-        this.elseSchema = jsonSchemaInfo.elseSchema;
-        if (this.elseSchema != null) {
-            keywordToValidator.put("else", new ElseValidator());
+        elseSchema = jsonSchemaInfo.elseSchema
+        if (elseSchema != null) {
+            keywordToValidator["else"] = ElseValidator()
         }
-        this.unevaluatedItems = jsonSchemaInfo.unevaluatedItems;
-        if (this.unevaluatedItems != null) {
-            keywordToValidator.put("unevaluatedItems", new UnevaluatedItemsValidator());
+        unevaluatedItems = jsonSchemaInfo.unevaluatedItems
+        if (unevaluatedItems != null) {
+            keywordToValidator["unevaluatedItems"] = UnevaluatedItemsValidator()
         }
-        this.unevaluatedProperties = jsonSchemaInfo.unevaluatedProperties;
-        if (this.unevaluatedProperties != null) {
-            keywordToValidator.put("unevaluatedProperties", new UnevaluatedPropertiesValidator());
+        unevaluatedProperties = jsonSchemaInfo.unevaluatedProperties
+        if (unevaluatedProperties != null) {
+            keywordToValidator["unevaluatedProperties"] = UnevaluatedPropertiesValidator()
         }
-        this.keywordToValidator = keywordToValidator;
+        this.keywordToValidator = keywordToValidator
     }
 
-    public abstract @Nullable Object getNewInstance(@Nullable Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas);
-    public abstract @Nullable Object validate(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException;
-    public abstract T validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException;
-
-    private List<PathToSchemasMap> getContainsPathToSchemas(
-            @Nullable Object arg,
-            ValidationMetadata validationMetadata
-    ) {
-        if (!(arg instanceof List<?> listArg) || contains == null) {
-            return new ArrayList<>();
+    abstract fun getNewInstance(arg: Any?, pathToItem: List<Any?>?, pathToSchemas: PathToSchemasMap?): Any?
+    @Throws(ValidationException::class)
+    abstract fun validate(arg: Any?, configuration: SchemaConfiguration?): Any?
+    @Throws(ValidationException::class)
+    abstract fun validateAndBox(arg: Any?, configuration: SchemaConfiguration?): T
+    private fun getContainsPathToSchemas(
+        arg: Any?,
+        validationMetadata: ValidationMetadata
+    ): List<PathToSchemasMap>? {
+        if (arg !is List<*> || contains == null) {
+            return ArrayList()
         }
-        JsonSchema<?> containsSchema = JsonSchemaFactory.getInstance(contains);
-        @Nullable List<PathToSchemasMap> containsPathToSchemas = new ArrayList<>();
-        for(int i = 0; i < listArg.size(); i++) {
-            PathToSchemasMap thesePathToSchemas = new PathToSchemasMap();
-            List<Object> itemPathToItem = new ArrayList<>(validationMetadata.pathToItem());
-            itemPathToItem.add(i);
-            ValidationMetadata itemValidationMetadata = new ValidationMetadata(
-                    itemPathToItem,
-                    validationMetadata.configuration(),
-                    validationMetadata.validatedPathToSchemas(),
-                    validationMetadata.seenClasses()
-            );
+        val containsSchema: JsonSchema<*> = JsonSchemaFactory.getInstance(contains)
+        val containsPathToSchemas: MutableList<PathToSchemasMap> = ArrayList()
+        for (i in arg.indices) {
+            val thesePathToSchemas = PathToSchemasMap()
+            val itemPathToItem: MutableList<Any> = ArrayList<Any>(validationMetadata.pathToItem)
+            itemPathToItem.add(i)
+            val itemValidationMetadata = ValidationMetadata(
+                itemPathToItem,
+                validationMetadata.configuration,
+                validationMetadata.validatedPathToSchemas,
+                validationMetadata.seenClasses
+            )
             if (itemValidationMetadata.validationRanEarlier(containsSchema)) {
                 // todo add_deeper_validated_schemas
-                containsPathToSchemas.add(thesePathToSchemas);
-                continue;
+                containsPathToSchemas.add(thesePathToSchemas)
+                continue
             }
-
             try {
-                PathToSchemasMap otherPathToSchemas = JsonSchema.validate(
-                        containsSchema, listArg.get(i), itemValidationMetadata);
-                containsPathToSchemas.add(otherPathToSchemas);
-            } catch (ValidationException ignored) {}
+                val otherPathToSchemas = validate(
+                    containsSchema, arg[i], itemValidationMetadata
+                )
+                containsPathToSchemas.add(otherPathToSchemas)
+            } catch (ignored: ValidationException) {
+            }
         }
-        return containsPathToSchemas;
+        return containsPathToSchemas
     }
 
-    private PathToSchemasMap getPatternPropertiesPathToSchemas(
-            @Nullable Object arg,
-            ValidationMetadata validationMetadata
-    ) throws ValidationException {
-        if (!(arg instanceof Map<?, ?> mapArg) || patternProperties == null) {
-            return new PathToSchemasMap();
+    @Throws(ValidationException::class)
+    private fun getPatternPropertiesPathToSchemas(
+        arg: Any?,
+        validationMetadata: ValidationMetadata
+    ): PathToSchemasMap {
+        if (arg !is Map<*, *> || patternProperties == null) {
+            return PathToSchemasMap()
         }
-        PathToSchemasMap pathToSchemas = new PathToSchemasMap();
-        for (Map.Entry<?, ?> entry: mapArg.entrySet()) {
-            Object entryKey = entry.getKey();
-            if (!(entryKey instanceof String key)) {
-                throw new ValidationException("Invalid non-string type for map key");
-            }
-            List<Object> propPathToItem = new ArrayList<>(validationMetadata.pathToItem());
-            propPathToItem.add(key);
-            ValidationMetadata propValidationMetadata = new ValidationMetadata(
-                    propPathToItem,
-                    validationMetadata.configuration(),
-                    validationMetadata.validatedPathToSchemas(),
-                    validationMetadata.seenClasses()
-            );
-            for (Map.Entry<Pattern, Class<? extends JsonSchema<?>>> patternPropEntry: patternProperties.entrySet()) {
-                if (!patternPropEntry.getKey().matcher(key).find()) {
-                    continue;
+        val pathToSchemas = PathToSchemasMap()
+        for ((key, value) in arg) {
+            val entryKey = key!! as? String
+                ?: throw ValidationException("Invalid non-string type for map key")
+            val propPathToItem: MutableList<Any> = ArrayList<Any?>(validationMetadata.pathToItem())
+            propPathToItem.add(entryKey)
+            val propValidationMetadata = ValidationMetadata(
+                propPathToItem,
+                validationMetadata.configuration,
+                validationMetadata.validatedPathToSchemas,
+                validationMetadata.seenClasses
+            )
+            for ((key1, patternPropClass) in patternProperties) {
+                if (!key1.matcher(entryKey).find()) {
+                    continue
                 }
-
-                Class<? extends JsonSchema<?>> patternPropClass = patternPropEntry.getValue();
-                JsonSchema<?> patternPropSchema = JsonSchemaFactory.getInstance(patternPropClass);
-                PathToSchemasMap otherPathToSchemas = JsonSchema.validate(patternPropSchema, entry.getValue(), propValidationMetadata);
-                pathToSchemas.update(otherPathToSchemas);
+                val patternPropSchema: JsonSchema<*> = JsonSchemaFactory.getInstance(patternPropClass)
+                val otherPathToSchemas = validate(patternPropSchema, value, propValidationMetadata)
+                pathToSchemas.update(otherPathToSchemas)
             }
         }
-        return pathToSchemas;
+        return pathToSchemas
     }
 
-    private PathToSchemasMap getIfPathToSchemas(
-            @Nullable Object arg,
-            ValidationMetadata validationMetadata
-    ) {
+    private fun getIfPathToSchemas(
+        arg: Any?,
+        validationMetadata: ValidationMetadata
+    ): PathToSchemasMap {
         if (ifSchema == null) {
-            return new PathToSchemasMap();
+            return PathToSchemasMap()
         }
-        JsonSchema<?> ifSchemaInstance = JsonSchemaFactory.getInstance(ifSchema);
-        PathToSchemasMap pathToSchemas = new PathToSchemasMap();
+        val ifSchemaInstance: JsonSchema<*> = JsonSchemaFactory.getInstance(ifSchema)
+        val pathToSchemas = PathToSchemasMap()
         try {
-            var otherPathToSchemas = JsonSchema.validate(ifSchemaInstance, arg, validationMetadata);
-            pathToSchemas.update(otherPathToSchemas);
-        } catch (ValidationException ignored) {}
-        return pathToSchemas;
+            val otherPathToSchemas = validate(ifSchemaInstance, arg, validationMetadata)
+            pathToSchemas.update(otherPathToSchemas)
+        } catch (ignored: ValidationException) {
+        }
+        return pathToSchemas
     }
 
-    public static PathToSchemasMap validate(
-            JsonSchema<?> jsonSchema,
-            @Nullable Object arg,
-            ValidationMetadata validationMetadata
-    ) throws ValidationException {
-        LinkedHashSet<String> disabledKeywords = validationMetadata.configuration().disabledKeywordFlags().getKeywords();
-        PathToSchemasMap pathToSchemas = new PathToSchemasMap();
-        LinkedHashMap<String, KeywordValidator> thisKeywordToValidator = jsonSchema.keywordToValidator;
-        @Nullable List<PathToSchemasMap> containsPathToSchemas = null;
-        if (thisKeywordToValidator.containsKey("contains")) {
-            containsPathToSchemas = jsonSchema.getContainsPathToSchemas(arg, validationMetadata);
+    protected fun castToAllowedTypes(arg: String, pathToItem: List<Any?>?, pathSet: MutableSet<List<Any?>?>): String {
+        pathSet.add(pathToItem)
+        return arg
+    }
+
+    protected fun castToAllowedTypes(arg: Boolean, pathToItem: List<Any?>?, pathSet: MutableSet<List<Any?>?>): Boolean {
+        pathSet.add(pathToItem)
+        return arg
+    }
+
+    protected fun castToAllowedTypes(arg: Number, pathToItem: List<Any?>?, pathSet: MutableSet<List<Any?>?>): Number {
+        pathSet.add(pathToItem)
+        return arg
+    }
+
+    protected fun castToAllowedTypes(arg: Void?, pathToItem: List<Any?>?, pathSet: MutableSet<List<Any?>?>): Void? {
+        pathSet.add(pathToItem)
+        return arg
+    }
+
+    @Throws(ValidationException::class)
+    protected fun castToAllowedTypes(arg: List<*>, pathToItem: List<Any?>?, pathSet: MutableSet<List<Any?>?>): List<*> {
+        pathSet.add(pathToItem)
+        val argFixed: MutableList<Any?> = ArrayList()
+        var i = 0
+        for (item in arg) {
+            val newPathToItem: MutableList<Any?> = ArrayList(pathToItem)
+            newPathToItem.add(i)
+            val fixedVal = castToAllowedObjectTypes(item, newPathToItem, pathSet)
+            argFixed.add(fixedVal)
+            i += 1
         }
-        @Nullable PathToSchemasMap patternPropertiesPathToSchemas = null;
-        if (thisKeywordToValidator.containsKey("patternProperties")) {
-            patternPropertiesPathToSchemas = jsonSchema.getPatternPropertiesPathToSchemas(arg, validationMetadata);
+        return argFixed
+    }
+
+    @Throws(ValidationException::class)
+    protected fun castToAllowedTypes(
+        arg: Map<*, *>,
+        pathToItem: List<Any?>?,
+        pathSet: MutableSet<List<Any?>?>
+    ): Map<*, *> {
+        pathSet.add(pathToItem)
+        val argFixed = LinkedHashMap<String, Any?>()
+        for ((entryKey, value) in arg) {
+            if (entryKey !is String) {
+                throw ValidationException("Invalid non-string key value")
+            }
+            val `val` = value!!
+            val newPathToItem: MutableList<Any?> = ArrayList(pathToItem)
+            newPathToItem.add(entryKey)
+            val fixedVal = castToAllowedObjectTypes(`val`, newPathToItem, pathSet)
+            argFixed[entryKey] = fixedVal
         }
-        @Nullable PathToSchemasMap ifPathToSchemas = null;
-        if (thisKeywordToValidator.containsKey("if")) {
-            ifPathToSchemas = jsonSchema.getIfPathToSchemas(arg, validationMetadata);
+        return argFixed
+    }
+
+    @Throws(ValidationException::class)
+    private fun castToAllowedObjectTypes(arg: Any?, pathToItem: List<Any?>, pathSet: MutableSet<List<Any?>?>): Any? {
+        return if (arg == null) {
+            castToAllowedTypes(null as Void?, pathToItem, pathSet)
+        } else if (arg is String) {
+            castToAllowedTypes(arg, pathToItem, pathSet)
+        } else if (arg is Map<*, *>) {
+            pathSet.add(pathToItem)
+            castToAllowedTypes(arg, pathToItem, pathSet)
+        } else if (arg is Boolean) {
+            castToAllowedTypes(arg, pathToItem, pathSet)
+        } else if (arg is Int) {
+            castToAllowedTypes(arg as Number, pathToItem, pathSet)
+        } else if (arg is Long) {
+            castToAllowedTypes(arg as Number, pathToItem, pathSet)
+        } else if (arg is Float) {
+            castToAllowedTypes(arg as Number, pathToItem, pathSet)
+        } else if (arg is Double) {
+            castToAllowedTypes(arg as Number, pathToItem, pathSet)
+        } else if (arg is List<*>) {
+            castToAllowedTypes(arg, pathToItem, pathSet)
+        } else if (arg is ZonedDateTime) {
+            castToAllowedTypes(arg.toString(), pathToItem, pathSet)
+        } else if (arg is LocalDate) {
+            castToAllowedTypes(arg.toString(), pathToItem, pathSet)
+        } else if (arg is UUID) {
+            castToAllowedTypes(arg.toString(), pathToItem, pathSet)
+        } else {
+            val argClass: Class<*> = arg.javaClass
+            throw ValidationException("Invalid type passed in for input=$arg type=$argClass")
         }
-        @Nullable PathToSchemasMap knownPathToSchemas = null;
-        for (Map.Entry<String, KeywordValidator> entry: thisKeywordToValidator.entrySet()) {
-            String jsonKeyword = entry.getKey();
-            if (disabledKeywords.contains(jsonKeyword)) {
-                boolean typeIntegerUseCase = jsonKeyword.equals("format") && "int".equals(jsonSchema.format);
-                if (!typeIntegerUseCase) {
-                    continue;
+    }
+
+    fun getNewInstance(arg: Void, pathToItem: List<Any?>?, pathToSchemas: PathToSchemasMap?): Void {
+        return arg
+    }
+
+    fun getNewInstance(arg: Boolean, pathToItem: List<Any?>?, pathToSchemas: PathToSchemasMap?): Boolean {
+        return arg
+    }
+
+    fun getNewInstance(arg: Number, pathToItem: List<Any?>?, pathToSchemas: PathToSchemasMap?): Number {
+        return arg
+    }
+
+    fun getNewInstance(arg: String, pathToItem: List<Any?>?, pathToSchemas: PathToSchemasMap?): String {
+        return arg
+    }
+
+    companion object {
+        @Throws(ValidationException::class)
+        fun validate(
+            jsonSchema: JsonSchema<*>,
+            arg: Any?,
+            validationMetadata: ValidationMetadata
+        ): PathToSchemasMap {
+            val disabledKeywords: LinkedHashSet<String> =
+                validationMetadata.configuration.disabledKeywordFlags.getKeywords()
+            val pathToSchemas = PathToSchemasMap()
+            val thisKeywordToValidator = jsonSchema.keywordToValidator
+            var containsPathToSchemas: List<PathToSchemasMap>? = null
+            if (thisKeywordToValidator.containsKey("contains")) {
+                containsPathToSchemas = jsonSchema.getContainsPathToSchemas(arg, validationMetadata)
+            }
+            var patternPropertiesPathToSchemas: PathToSchemasMap? = null
+            if (thisKeywordToValidator.containsKey("patternProperties")) {
+                patternPropertiesPathToSchemas = jsonSchema.getPatternPropertiesPathToSchemas(arg, validationMetadata)
+            }
+            var ifPathToSchemas: PathToSchemasMap? = null
+            if (thisKeywordToValidator.containsKey("if")) {
+                ifPathToSchemas = jsonSchema.getIfPathToSchemas(arg, validationMetadata)
+            }
+            var knownPathToSchemas: PathToSchemasMap? = null
+            for ((jsonKeyword, validator) in thisKeywordToValidator) {
+                if (disabledKeywords.contains(jsonKeyword)) {
+                    val typeIntegerUseCase = jsonKeyword == "format" && "int" == jsonSchema.format
+                    if (!typeIntegerUseCase) {
+                        continue
+                    }
                 }
-            }
-            if ("unevaluatedItems".equals(jsonKeyword) || "unevaluatedProperties".equals(jsonKeyword)) {
-                knownPathToSchemas = pathToSchemas;
-            }
-            KeywordValidator validator = entry.getValue();
-            ValidationData data = new ValidationData(
+                if ("unevaluatedItems" == jsonKeyword || "unevaluatedProperties" == jsonKeyword) {
+                    knownPathToSchemas = pathToSchemas
+                }
+                val data = ValidationData(
                     jsonSchema,
                     arg,
                     validationMetadata,
@@ -350,150 +449,54 @@ public abstract class JsonSchema<T> {
                     patternPropertiesPathToSchemas,
                     ifPathToSchemas,
                     knownPathToSchemas
-            );
-            @Nullable PathToSchemasMap otherPathToSchemas = validator.validate(data);
-            if (otherPathToSchemas == null) {
-                continue;
+                )
+                val otherPathToSchemas = validator.validate(data) ?: continue
+                pathToSchemas.update(otherPathToSchemas)
             }
-            pathToSchemas.update(otherPathToSchemas);
-        }
-        List<Object> pathToItem = validationMetadata.pathToItem();
-        if (!pathToSchemas.containsKey(pathToItem)) {
-            pathToSchemas.put(validationMetadata.pathToItem(), new LinkedHashMap<>());
-        }
-        @Nullable LinkedHashMap<JsonSchema<?>, Void> schemas = pathToSchemas.get(pathToItem);
-        if (schemas != null) {
-            schemas.put(jsonSchema, null);
-        }
-        return pathToSchemas;
-    }
-
-    protected String castToAllowedTypes(String arg, List<Object> pathToItem, Set<List<Object>> pathSet) {
-        pathSet.add(pathToItem);
-        return arg;
-    }
-
-    protected Boolean castToAllowedTypes(Boolean arg, List<Object> pathToItem, Set<List<Object>> pathSet) {
-        pathSet.add(pathToItem);
-        return arg;
-    }
-
-    protected Number castToAllowedTypes(Number arg, List<Object> pathToItem, Set<List<Object>> pathSet) {
-        pathSet.add(pathToItem);
-        return arg;
-    }
-
-    protected Void castToAllowedTypes(Void arg, List<Object> pathToItem, Set<List<Object>> pathSet) {
-        pathSet.add(pathToItem);
-        return arg;
-    }
-
-    protected List<?> castToAllowedTypes(List<?> arg, List<Object> pathToItem, Set<List<Object>> pathSet) throws ValidationException {
-        pathSet.add(pathToItem);
-        List<@Nullable Object> argFixed = new ArrayList<>();
-        int i =0;
-        for (Object item: arg) {
-            List<Object> newPathToItem = new ArrayList<>(pathToItem);
-            newPathToItem.add(i);
-            Object fixedVal = castToAllowedObjectTypes(item, newPathToItem, pathSet);
-            argFixed.add(fixedVal);
-            i += 1;
-        }
-        return argFixed;
-    }
-
-    protected Map<?, ?> castToAllowedTypes(Map<?, ?> arg, List<Object> pathToItem, Set<List<Object>> pathSet) throws ValidationException {
-        pathSet.add(pathToItem);
-        LinkedHashMap<String, @Nullable Object> argFixed = new LinkedHashMap<>();
-        for (Map.Entry<?, ?> entry:  arg.entrySet()) {
-            @Nullable Object entryKey = entry.getKey();
-            if (!(entryKey instanceof String key)) {
-                throw new ValidationException("Invalid non-string key value");
+            val pathToItem: List<Any> = validationMetadata.pathToItem
+            if (!pathToSchemas.containsKey(pathToItem)) {
+                pathToSchemas[validationMetadata.pathToItem] = LinkedHashMap<Any, Any>()
             }
-            Object val = entry.getValue();
-            List<Object> newPathToItem = new ArrayList<>(pathToItem);
-            newPathToItem.add(key);
-            Object fixedVal = castToAllowedObjectTypes(val, newPathToItem, pathSet);
-            argFixed.put(key, fixedVal);
-        }
-        return argFixed;
-    }
-
-    private @Nullable Object castToAllowedObjectTypes(@Nullable Object arg, List<Object> pathToItem, Set<List<Object>> pathSet) throws ValidationException {
-        if (arg == null) {
-            return castToAllowedTypes((Void) null, pathToItem, pathSet);
-        } else if (arg instanceof String) {
-            return castToAllowedTypes((String) arg, pathToItem, pathSet);
-        } else if (arg instanceof Map) {
-            pathSet.add(pathToItem);
-            return castToAllowedTypes((Map<?, ?>) arg, pathToItem, pathSet);
-        } else if (arg instanceof Boolean) {
-            return castToAllowedTypes((Boolean) arg, pathToItem, pathSet);
-        } else if (arg instanceof Integer) {
-            return castToAllowedTypes((Number) arg, pathToItem, pathSet);
-        } else if (arg instanceof Long) {
-            return castToAllowedTypes((Number) arg, pathToItem, pathSet);
-        } else if (arg instanceof Float) {
-            return castToAllowedTypes((Number) arg, pathToItem, pathSet);
-        } else if (arg instanceof Double) {
-            return castToAllowedTypes((Number) arg, pathToItem, pathSet);
-        } else if (arg instanceof List) {
-            return castToAllowedTypes((List<?>) arg, pathToItem, pathSet);
-        } else if (arg instanceof ZonedDateTime) {
-            return castToAllowedTypes(arg.toString(), pathToItem, pathSet);
-        } else if (arg instanceof LocalDate) {
-            return castToAllowedTypes(arg.toString(), pathToItem, pathSet);
-        } else if (arg instanceof UUID) {
-            return castToAllowedTypes(arg.toString(), pathToItem, pathSet);
-        } else {
-            Class<?> argClass = arg.getClass();
-            throw new ValidationException("Invalid type passed in for input="+arg+" type="+argClass);
-        }
-    }
-
-    public Void getNewInstance(Void arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
-        return arg;
-    }
-
-    public boolean getNewInstance(boolean arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
-        return arg;
-    }
-
-    public Number getNewInstance(Number arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
-        return arg;
-    }
-
-    public String getNewInstance(String arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
-        return arg;
-    }
-
-    protected static PathToSchemasMap getPathToSchemas(JsonSchema<?> jsonSchema, @Nullable Object arg, ValidationMetadata validationMetadata, Set<List<Object>> pathSet) throws ValidationException {
-        PathToSchemasMap pathToSchemasMap = new PathToSchemasMap();
-        // todo add check of validationMetadata.validationRanEarlier(this)
-        PathToSchemasMap otherPathToSchemas = validate(jsonSchema, arg, validationMetadata);
-        pathToSchemasMap.update(otherPathToSchemas);
-        for (var schemas: pathToSchemasMap.values()) {
-            JsonSchema<?> firstSchema = schemas.entrySet().iterator().next().getKey();
-            schemas.clear();
-            schemas.put(firstSchema, null);
-        }
-        pathSet.removeAll(pathToSchemasMap.keySet());
-        if (!pathSet.isEmpty()) {
-            LinkedHashMap<JsonSchema<?>, Void> unsetAnyTypeSchema = new LinkedHashMap<>();
-            unsetAnyTypeSchema.put(UnsetAnyTypeJsonSchema.UnsetAnyTypeJsonSchema1.getInstance(), null);
-            for (List<Object> pathToItem: pathSet) {
-                pathToSchemasMap.put(pathToItem, unsetAnyTypeSchema);
+            val schemas: LinkedHashMap<JsonSchema<*>?, Void?>? = pathToSchemas[pathToItem]
+            if (schemas != null) {
+                schemas[jsonSchema] = null
             }
+            return pathToSchemas
         }
-        return pathToSchemasMap;
-    }
 
-    public static String getClass(@Nullable Object arg) {
-        if (arg == null) {
-            return Void.class.getSimpleName();
-        } else {
-            return arg.getClass().getSimpleName();
+        @Throws(ValidationException::class)
+        protected fun getPathToSchemas(
+            jsonSchema: JsonSchema<*>,
+            arg: Any?,
+            validationMetadata: ValidationMetadata,
+            pathSet: Set<List<Any?>>
+        ): PathToSchemasMap {
+            val pathToSchemasMap = PathToSchemasMap()
+            // todo add check of validationMetadata.validationRanEarlier(this)
+            val otherPathToSchemas = validate(jsonSchema, arg, validationMetadata)
+            pathToSchemasMap.update(otherPathToSchemas)
+            for (schemas in pathToSchemasMap.values) {
+                val firstSchema: JsonSchema<*> = schemas!!.entries.iterator().next().getKey()
+                schemas.clear()
+                schemas[firstSchema] = null
+            }
+            pathSet.removeAll(pathToSchemasMap.keys)
+            if (!pathSet.isEmpty()) {
+                val unsetAnyTypeSchema = LinkedHashMap<JsonSchema<*>, Void?>()
+                unsetAnyTypeSchema[UnsetAnyTypeJsonSchema.UnsetAnyTypeJsonSchema1.getInstance()] = null
+                for (pathToItem in pathSet) {
+                    pathToSchemasMap[pathToItem] = unsetAnyTypeSchema
+                }
+            }
+            return pathToSchemasMap
         }
+
+        fun getClass(arg: Any?): String {
+            return if (arg == null) {
+                Void::class.java.getSimpleName()
+            } else {
+                arg.javaClass.getSimpleName()
+            }
+        } // todo add bytes and FileIO
     }
-    // todo add bytes and FileIO
 }

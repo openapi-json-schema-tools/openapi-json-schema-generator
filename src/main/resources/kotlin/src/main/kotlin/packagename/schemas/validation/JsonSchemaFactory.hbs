@@ -1,32 +1,29 @@
 package {{{packageName}}}.schemas.validation;
 
-import org.checkerframework.checker.nullness.qual.NonNull;
-import org.checkerframework.checker.nullness.qual.Nullable;
-
 import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
-import java.util.HashMap;
-import java.util.Map;
 
+object JsonSchemaFactory {
+    private var classToInstance: MutableMap<Class<out JsonSchema<*>>, JsonSchema<*>> = HashMap()
 
-public class JsonSchemaFactory {
-    static Map<Class<? extends JsonSchema<?>>, JsonSchema<?>> classToInstance = new HashMap<>();
-
-    public static <V extends JsonSchema<?>> V getInstance(Class<V> schemaCls) {
-        @Nullable JsonSchema<?> cacheInst = classToInstance.get(schemaCls);
-        if (cacheInst != null) {
-            assert schemaCls.isInstance(cacheInst);
-            return schemaCls.cast(cacheInst);
+    fun <V : JsonSchema<*>> getInstance(schemaCls: Class<V>): V {
+        val cacheInst: JsonSchema<*>? = classToInstance[schemaCls]
+        cacheInst?.let {
+            assert(schemaCls.isInstance(it))
+            return schemaCls.cast(it)
         }
         try {
-            Method method = schemaCls.getMethod("getInstance");
-            @SuppressWarnings("nullness") @NonNull Object obj = method.invoke(null);
-            assert schemaCls.isInstance(obj);
-            V inst = schemaCls.cast(obj);
-            classToInstance.put(schemaCls, inst);
-            return inst;
-        } catch (NoSuchMethodException | IllegalAccessException | InvocationTargetException e) {
-            throw new RuntimeException(e);
+            val method = schemaCls.getMethod("getInstance")
+            val obj = method.invoke(null)
+            assert(schemaCls.isInstance(obj))
+            val inst = schemaCls.cast(obj)
+            classToInstance[schemaCls] = inst
+            return inst
+        } catch (e: NoSuchMethodException) {
+            throw RuntimeException(e)
+        } catch (e: IllegalAccessException) {
+            throw RuntimeException(e)
+        } catch (e: InvocationTargetException) {
+            throw RuntimeException(e)
         }
     }
 }
