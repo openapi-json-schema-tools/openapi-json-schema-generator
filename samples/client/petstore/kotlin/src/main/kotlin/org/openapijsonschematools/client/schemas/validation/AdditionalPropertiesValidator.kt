@@ -1,6 +1,6 @@
-package {{{packageName}}}.schemas.validation;
+package org.openapijsonschematools.client.schemas.validation
 
-import {{{packageName}}}.exceptions.ValidationException;
+import org.openapijsonschematools.client.exceptions.ValidationException
 
 class AdditionalPropertiesValidator : KeywordValidator {
     @Throws(ValidationException::class)

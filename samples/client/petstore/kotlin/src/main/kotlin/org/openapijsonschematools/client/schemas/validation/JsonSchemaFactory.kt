@@ -5,7 +5,7 @@ import java.lang.reflect.InvocationTargetException
 object JsonSchemaFactory {
     private var classToInstance: MutableMap<Class<out JsonSchema<*>>, JsonSchema<*>> = HashMap()
 
-    fun <V : JsonSchema<*>> getInstance(schemaCls: Class<V>): V {
+    fun <V : JsonSchema<*>> getInstance(schemaCls: Class<out V>): V {
         val cacheInst: JsonSchema<*>? = classToInstance[schemaCls]
         cacheInst?.let {
             assert(schemaCls.isInstance(it))
