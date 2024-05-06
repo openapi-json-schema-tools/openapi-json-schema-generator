@@ -1,26 +1,18 @@
-package org.openapijsonschematools.client.schemas.validation;
+package org.openapijsonschematools.client.schemas.validation
 
-import org.checkerframework.checker.nullness.qual.Nullable;
-import org.openapijsonschematools.client.configurations.SchemaConfiguration;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
+import org.openapijsonschematools.client.configurations.SchemaConfiguration
 
-public record ValidationMetadata(
-        List<Object> pathToItem,
-        SchemaConfiguration configuration,
-        PathToSchemasMap validatedPathToSchemas,
-        Set<Class<?>> seenClasses
+data class ValidationMetadata(
+    val pathToItem: List<Any>,
+    val configuration: SchemaConfiguration,
+    val validatedPathToSchemas: PathToSchemasMap,
+    val seenClasses: Set<Class<*>>
 ) {
-
-    public boolean validationRanEarlier(JsonSchema<?> schema) {
-        @Nullable Map<JsonSchema<?>, Nothing?> validatedSchemas = validatedPathToSchemas.get(pathToItem);
+    fun validationRanEarlier(schema: JsonSchema<*>): Boolean {
+        val validatedSchemas: Map<JsonSchema<*>?, Nothing?>? = validatedPathToSchemas[pathToItem]
         if (validatedSchemas != null && validatedSchemas.containsKey(schema)) {
-            return true;
+            return true
         }
-        if (seenClasses.contains(schema)) {
-            return true;
-        }
-        return false;
+        return seenClasses.contains(schema.javaClass)
     }
 }

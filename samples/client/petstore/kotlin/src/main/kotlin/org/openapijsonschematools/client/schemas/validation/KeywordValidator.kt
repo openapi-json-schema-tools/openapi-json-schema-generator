@@ -1,11 +1,10 @@
-package org.openapijsonschematools.client.schemas.validation;
+package org.openapijsonschematools.client.schemas.validation
 
-import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.checkerframework.checker.nullness.qual.Nullable;
+import org.openapijsonschematools.client.exceptions.ValidationException
 
-@FunctionalInterface
-public interface KeywordValidator {
-    @Nullable PathToSchemasMap validate(
-        ValidationData data
-    ) throws ValidationException;
+fun interface KeywordValidator {
+    @Throws(ValidationException::class)
+    fun validate(
+        data: ValidationData?
+    ): PathToSchemasMap?
 }

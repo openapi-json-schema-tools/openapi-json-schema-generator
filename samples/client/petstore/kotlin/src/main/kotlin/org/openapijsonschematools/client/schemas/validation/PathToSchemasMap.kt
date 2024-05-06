@@ -1,20 +1,12 @@
-package org.openapijsonschematools.client.schemas.validation;
+package org.openapijsonschematools.client.schemas.validation
 
-import java.util.LinkedHashMap;
-import java.util.List;
-import java.util.Map;
-
-@SuppressWarnings("serial")
-public class PathToSchemasMap extends LinkedHashMap<List<Object>, LinkedHashMap<JsonSchema<?>, Nothing?>> {
-
-    public void update(PathToSchemasMap other) {
-        for (Map.Entry<List<Object>, LinkedHashMap<JsonSchema<?>, Nothing?>> entry: other.entrySet()) {
-            List<Object> pathToItem = entry.getKey();
-            LinkedHashMap<JsonSchema<?>, Nothing?> otherSchemas = entry.getValue();
+class PathToSchemasMap : LinkedHashMap<List<Any?>?, LinkedHashMap<JsonSchema<*>?, Nothing?>?>() {
+    fun update(other: PathToSchemasMap) {
+        for ((pathToItem, otherSchemas) in other) {
             if (containsKey(pathToItem)) {
-                get(pathToItem).putAll(otherSchemas);
+                get(pathToItem)!!.putAll(otherSchemas!!)
             } else {
-                put(pathToItem, otherSchemas);
+                put(pathToItem, otherSchemas)
             }
         }
     }
