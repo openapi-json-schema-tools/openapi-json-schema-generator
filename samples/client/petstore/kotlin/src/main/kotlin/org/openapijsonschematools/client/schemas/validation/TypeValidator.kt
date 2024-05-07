@@ -1,34 +1,34 @@
-package org.openapijsonschematools.client.schemas.validation;
+package org.openapijsonschematools.client.schemas.validation
 
-import org.checkerframework.checker.nullness.qual.Nullable;
-import org.openapijsonschematools.client.exceptions.ValidationException;
+import org.openapijsonschematools.client.exceptions.ValidationException
 
-import java.util.List;
-import java.util.Map;
+class TypeValidator : KeywordValidator {
+    @Throws(ValidationException::class)
+    override fun validate(
+        data: ValidationData
+    ): PathToSchemasMap? {
+        if (data.schema.type == null) {
+            return null
+        }
+        val argClass = when (data.arg) {
+            null -> {
+                Void::class.java
+            }
+            is List<*> -> {
+                MutableList::class.java
+            }
 
-public class TypeValidator implements KeywordValidator {
-    @Override
-    public @Nullable PathToSchemasMap validate(
-        ValidationData data
-    ) throws ValidationException {
-        var type = data.schema().type;
-        if (type == null) {
-            return null;
+            is Map<*, *> -> {
+                MutableMap::class.java
+            }
+
+            else -> {
+                data.arg.javaClass
+            }
         }
-        Class<?> argClass;
-        var arg = data.arg();
-        if (arg == null) {
-            argClass = Nothing?.class;
-        } else if (arg instanceof List) {
-            argClass = List.class;
-        } else if (arg instanceof Map) {
-            argClass = Map.class;
-        } else {
-            argClass = arg.getClass();
+        if (!data.schema.type.contains(argClass)) {
+            throw ValidationException("invalid type")
         }
-        if (!type.contains(argClass)) {
-            throw new ValidationException("invalid type");
-        }
-        return null;
+        return null
     }
 }
