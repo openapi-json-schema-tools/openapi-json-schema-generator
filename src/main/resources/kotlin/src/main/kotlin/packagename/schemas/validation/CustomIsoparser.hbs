@@ -3,14 +3,14 @@ package {{{packageName}}}.schemas.validation;
 import java.time.ZonedDateTime;
 import java.time.LocalDate;
 
-public final class CustomIsoparser {
+class CustomIsoparser {
+    companion object {
+        fun parseIsodatetime(dateTime: String): ZonedDateTime {
+            return ZonedDateTime.parse(dateTime)
+        }
 
-    public ZonedDateTime parseIsodatetime(String dateTime) {
-        return ZonedDateTime.parse(dateTime);
+        fun parseIsodate(date: String): LocalDate {
+            return LocalDate.parse(date)
+        }
     }
-
-    public LocalDate parseIsodate(String date) {
-        return LocalDate.parse(date);
-    }
-
 }
