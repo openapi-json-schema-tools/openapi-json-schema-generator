@@ -9,42 +9,42 @@ import java.time.ZonedDateTime
 import java.util.UUID
 
 class UnsetAnyTypeJsonSchema {
-    interface UnsetAnyTypeJsonSchema1Boxed {
-        val data: Any?
+    sealed interface UnsetAnyTypeJsonSchema1Boxed {
+        fun getData(): Any?
     }
 
-    data class UnsetAnyTypeJsonSchema1BoxedVoid(override val data: Nothing?) : UnsetAnyTypeJsonSchema1Boxed {
-        fun getData(): Any? {
+    data class UnsetAnyTypeJsonSchema1BoxedVoid(val data: Nothing?) : UnsetAnyTypeJsonSchema1Boxed {
+        override fun getData(): Any? {
             return data
         }
     }
 
-    data class UnsetAnyTypeJsonSchema1BoxedBoolean(override val data: Boolean) : UnsetAnyTypeJsonSchema1Boxed {
-        fun getData(): Any? {
+    data class UnsetAnyTypeJsonSchema1BoxedBoolean(val data: Boolean) : UnsetAnyTypeJsonSchema1Boxed {
+        override fun getData(): Boolean {
             return data
         }
     }
 
-    data class UnsetAnyTypeJsonSchema1BoxedNumber(override val data: Number?) : UnsetAnyTypeJsonSchema1Boxed {
-        fun getData(): Any? {
+    data class UnsetAnyTypeJsonSchema1BoxedNumber(val data: Number) : UnsetAnyTypeJsonSchema1Boxed {
+        override fun getData(): Number {
             return data
         }
     }
 
-    data class UnsetAnyTypeJsonSchema1BoxedString(override val data: String?) : UnsetAnyTypeJsonSchema1Boxed {
-        fun getData(): Any? {
+    data class UnsetAnyTypeJsonSchema1BoxedString(val data: String) : UnsetAnyTypeJsonSchema1Boxed {
+        override fun getData(): String {
             return data
         }
     }
 
-    data class UnsetAnyTypeJsonSchema1BoxedList(override val data: FrozenList<Any>) : UnsetAnyTypeJsonSchema1Boxed {
-        fun getData(): Any? {
+    data class UnsetAnyTypeJsonSchema1BoxedList(val data: FrozenList<Any?>) : UnsetAnyTypeJsonSchema1Boxed {
+        override fun getData(): FrozenList<Any?> {
             return data
         }
     }
 
-    data class UnsetAnyTypeJsonSchema1BoxedMap(override val data: FrozenMap<Any>) : UnsetAnyTypeJsonSchema1Boxed {
-        fun getData(): Any? {
+    data class UnsetAnyTypeJsonSchema1BoxedMap(val data: FrozenMap<Any?>) : UnsetAnyTypeJsonSchema1Boxed {
+        override fun getData(): FrozenMap<Any?> {
             return data
         }
     }
@@ -83,7 +83,7 @@ class UnsetAnyTypeJsonSchema {
         }
 
         @Throws(ValidationException::class)
-        fun validate(arg: Number, configuration: SchemaConfiguration?): Number? {
+        fun validate(arg: Number, configuration: SchemaConfiguration?): Number {
             val pathSet: MutableSet<List<Any>> = HashSet()
             val pathToItem = listOf<Any>("args[0]")
             val castArg: Number = castToAllowedTypes(arg, pathToItem, pathSet)
@@ -129,21 +129,21 @@ class UnsetAnyTypeJsonSchema {
         }
 
         @Throws(ValidationException::class)
-        fun validate(arg: LocalDate, configuration: SchemaConfiguration?): String? {
+        fun validate(arg: LocalDate, configuration: SchemaConfiguration?): String {
             return validate(arg.toString(), configuration)
         }
 
         @Throws(ValidationException::class)
-        fun validate(arg: ZonedDateTime, configuration: SchemaConfiguration?): String? {
+        fun validate(arg: ZonedDateTime, configuration: SchemaConfiguration?): String {
             return validate(arg.toString(), configuration)
         }
 
         @Throws(ValidationException::class)
-        fun validate(arg: UUID, configuration: SchemaConfiguration?): String? {
+        fun validate(arg: UUID, configuration: SchemaConfiguration?): String {
             return validate(arg.toString(), configuration)
         }
 
-        fun getNewInstance(arg: List<*>, pathToItem: List<Any>, pathToSchemas: PathToSchemasMap): FrozenList<Any> {
+        fun getNewInstance(arg: List<*>, pathToItem: List<Any>, pathToSchemas: PathToSchemasMap): FrozenList<Any?> {
             val items: MutableList<Any?> = ArrayList()
             var i = 0
             for (item in arg) {
@@ -160,7 +160,7 @@ class UnsetAnyTypeJsonSchema {
         }
 
         @Throws(ValidationException::class)
-        fun validate(arg: List<*>, configuration: SchemaConfiguration?): FrozenList<Any> {
+        fun validate(arg: List<*>, configuration: SchemaConfiguration?): FrozenList<Any?> {
             val pathSet: MutableSet<List<Any>> = HashSet()
             val pathToItem = listOf<Any>("args[0]")
             val castArg: List<*> = castToAllowedTypes(arg, pathToItem, pathSet)
@@ -172,7 +172,7 @@ class UnsetAnyTypeJsonSchema {
             return getNewInstance(castArg, validationMetadata.pathToItem, pathToSchemasMap)
         }
 
-        fun getNewInstance(arg: Map<*, *>, pathToItem: List<Any>, pathToSchemas: PathToSchemasMap): FrozenMap<Any> {
+        fun getNewInstance(arg: Map<*, *>, pathToItem: List<Any>, pathToSchemas: PathToSchemasMap): FrozenMap<Any?> {
             val properties = LinkedHashMap<String, Any?>()
             for ((entryKey, value1) in arg) {
                 if (entryKey !is String) {
@@ -191,7 +191,7 @@ class UnsetAnyTypeJsonSchema {
         }
 
         @Throws(ValidationException::class)
-        fun validate(arg: Map<*, *>, configuration: SchemaConfiguration?): FrozenMap<Any> {
+        fun validate(arg: Map<*, *>, configuration: SchemaConfiguration?): FrozenMap<Any?> {
             val pathSet: MutableSet<List<Any>> = HashSet()
             val pathToItem = listOf<Any>("args[0]")
             val castArg: Map<*, *> = castToAllowedTypes(arg, pathToItem, pathSet)
