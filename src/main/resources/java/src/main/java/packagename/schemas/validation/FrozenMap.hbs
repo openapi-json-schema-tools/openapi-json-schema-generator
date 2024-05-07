@@ -1,7 +1,15 @@
 package {{{packageName}}}.schemas.validation;
 
+import org.checkerframework.checker.nullness.qual.KeyFor;
 import {{{packageName}}}.exceptions.UnsetPropertyException;
 import {{{packageName}}}.exceptions.InvalidAdditionalPropertyException;
+
+import java.util.AbstractMap;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Map;
+import java.util.Set;
+import java.util.stream.Collectors;
 
 public class FrozenMap<V> extends AbstractMap<String, V> {
     /*
