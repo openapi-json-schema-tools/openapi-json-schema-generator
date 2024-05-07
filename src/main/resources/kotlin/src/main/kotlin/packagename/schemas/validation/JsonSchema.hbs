@@ -213,7 +213,7 @@ abstract class JsonSchema<T> protected constructor(jsonSchemaInfo: JsonSchemaInf
         this.keywordToValidator = keywordToValidator
     }
 
-    abstract fun getNewInstance(arg: Any?, pathToItem: List<Any?>?, pathToSchemas: PathToSchemasMap?): Any?
+    abstract fun getNewInstance(arg: Any?, pathToItem: List<Any>, pathToSchemas: PathToSchemasMap): Any?
     @Throws(ValidationException::class)
     abstract fun validate(arg: Any?, configuration: SchemaConfiguration?): Any?
     @Throws(ValidationException::class)
@@ -302,28 +302,28 @@ abstract class JsonSchema<T> protected constructor(jsonSchemaInfo: JsonSchemaInf
         return pathToSchemas
     }
 
-    protected fun castToAllowedTypes(arg: String, pathToItem: List<Any?>?, pathSet: MutableSet<List<Any?>?>): String {
+    protected fun castToAllowedTypes(arg: String, pathToItem: List<Any>, pathSet: MutableSet<List<Any>>): String {
         pathSet.add(pathToItem)
         return arg
     }
 
-    protected fun castToAllowedTypes(arg: Boolean, pathToItem: List<Any?>?, pathSet: MutableSet<List<Any?>?>): Boolean {
+    protected fun castToAllowedTypes(arg: Boolean, pathToItem: List<Any>, pathSet: MutableSet<List<Any>>): Boolean {
         pathSet.add(pathToItem)
         return arg
     }
 
-    protected fun castToAllowedTypes(arg: Number, pathToItem: List<Any?>?, pathSet: MutableSet<List<Any?>?>): Number {
+    protected fun castToAllowedTypes(arg: Number, pathToItem: List<Any>, pathSet: MutableSet<List<Any>>): Number {
         pathSet.add(pathToItem)
         return arg
     }
 
-    protected fun castToAllowedTypes(arg: Void?, pathToItem: List<Any?>?, pathSet: MutableSet<List<Any?>?>): Void? {
+    protected fun castToAllowedTypes(arg: Nothing?, pathToItem: List<Any>, pathSet: MutableSet<List<Any>>): Nothing? {
         pathSet.add(pathToItem)
         return arg
     }
 
     @Throws(ValidationException::class)
-    protected fun castToAllowedTypes(arg: List<*>, pathToItem: List<Any?>?, pathSet: MutableSet<List<Any?>?>): List<*> {
+    protected fun castToAllowedTypes(arg: List<*>, pathToItem: List<Any>, pathSet: MutableSet<List<Any>>): List<*> {
         pathSet.add(pathToItem)
         val argFixed: MutableList<Any?> = ArrayList()
         var i = 0
@@ -340,8 +340,8 @@ abstract class JsonSchema<T> protected constructor(jsonSchemaInfo: JsonSchemaInf
     @Throws(ValidationException::class)
     protected fun castToAllowedTypes(
         arg: Map<*, *>,
-        pathToItem: List<Any?>?,
-        pathSet: MutableSet<List<Any?>?>
+        pathToItem: List<Any>,
+        pathSet: MutableSet<List<Any>>
     ): Map<*, *> {
         pathSet.add(pathToItem)
         val argFixed = LinkedHashMap<String, Any?>()
@@ -359,7 +359,7 @@ abstract class JsonSchema<T> protected constructor(jsonSchemaInfo: JsonSchemaInf
     }
 
     @Throws(ValidationException::class)
-    private fun castToAllowedObjectTypes(arg: Any?, pathToItem: List<Any?>, pathSet: MutableSet<List<Any?>?>): Any? {
+    private fun castToAllowedObjectTypes(arg: Any?, pathToItem: List<Any?>, pathSet: MutableSet<List<Any>>): Any? {
         return if (arg == null) {
             castToAllowedTypes(null as Void?, pathToItem, pathSet)
         } else if (arg is String) {
@@ -391,19 +391,19 @@ abstract class JsonSchema<T> protected constructor(jsonSchemaInfo: JsonSchemaInf
         }
     }
 
-    fun getNewInstance(arg: Void, pathToItem: List<Any?>?, pathToSchemas: PathToSchemasMap?): Void {
+    fun getNewInstance(arg: Nothing?, pathToItem: List<Any>, pathToSchemas: PathToSchemasMap): Nothing? {
         return arg
     }
 
-    fun getNewInstance(arg: Boolean, pathToItem: List<Any?>?, pathToSchemas: PathToSchemasMap?): Boolean {
+    fun getNewInstance(arg: Boolean, pathToItem: List<Any>, pathToSchemas: PathToSchemasMap): Boolean {
         return arg
     }
 
-    fun getNewInstance(arg: Number, pathToItem: List<Any?>?, pathToSchemas: PathToSchemasMap?): Number {
+    fun getNewInstance(arg: Number, pathToItem: List<Any>, pathToSchemas: PathToSchemasMap): Number {
         return arg
     }
 
-    fun getNewInstance(arg: String, pathToItem: List<Any?>?, pathToSchemas: PathToSchemasMap?): String {
+    fun getNewInstance(arg: String, pathToItem: List<Any>, pathToSchemas: PathToSchemasMap): String {
         return arg
     }
 
@@ -464,12 +464,13 @@ abstract class JsonSchema<T> protected constructor(jsonSchemaInfo: JsonSchemaInf
             return pathToSchemas
         }
 
+        @JvmStatic
         @Throws(ValidationException::class)
         protected fun getPathToSchemas(
             jsonSchema: JsonSchema<*>,
             arg: Any?,
             validationMetadata: ValidationMetadata,
-            pathSet: Set<List<Any?>>
+            pathSet: Set<List<Any>>
         ): PathToSchemasMap {
             val pathToSchemasMap = PathToSchemasMap()
             // todo add check of validationMetadata.validationRanEarlier(this)
