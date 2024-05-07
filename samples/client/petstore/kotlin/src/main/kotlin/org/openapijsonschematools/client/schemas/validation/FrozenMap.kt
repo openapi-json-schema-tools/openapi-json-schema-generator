@@ -1,54 +1,43 @@
-package org.openapijsonschematools.client.schemas.validation;
+package org.openapijsonschematools.client.schemas.validation
 
-import org.checkerframework.checker.nullness.qual.KeyFor;
-import org.openapijsonschematools.client.exceptions.UnsetPropertyException;
-import org.openapijsonschematools.client.exceptions.InvalidAdditionalPropertyException;
+import org.openapijsonschematools.client.exceptions.InvalidAdditionalPropertyException
+import org.openapijsonschematools.client.exceptions.UnsetPropertyException
 
-import java.util.AbstractMap;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Set;
-import java.util.stream.Collectors;
-
-public class FrozenMap<V> extends AbstractMap<String, V> {
+open class FrozenMap<V>(m: Map<String, V>) : AbstractMap<String, V>() {
     /*
     A frozen Map
     Once schema validation has been run, written accessor methods return values of the correct type
     If values were mutable, the types in those methods would not agree with returned values
      */
-    private final Map<String, V> map;
-    public FrozenMap(Map<String, ? extends V> m) {
+    private val map: Map<String, V>
 
-        super();
-        map = new HashMap<>(m);
+    init {
+        map = HashMap(m)
     }
 
-    protected V getOrThrow(String key) throws UnsetPropertyException {
+    @Throws(UnsetPropertyException::class)
+    protected fun getOrThrow(key: String): V? {
         if (containsKey(key)) {
-            return get(key);
+            return get(key)
         }
-        throw new UnsetPropertyException(key+" is unset");
+        throw UnsetPropertyException("$key is unset")
     }
 
-    protected void throwIfKeyNotPresent(String key) throws UnsetPropertyException {
+    @Throws(UnsetPropertyException::class)
+    protected fun throwIfKeyNotPresent(key: String) {
         if (!containsKey(key)) {
-            throw new UnsetPropertyException(key+" is unset");
+            throw UnsetPropertyException("$key is unset")
         }
     }
 
-    protected void throwIfKeyKnown(String key, Set<String> requiredKeys, Set<String> optionalKeys) throws InvalidAdditionalPropertyException {
-        Set<String> knownKeys = new HashSet<>();
-        knownKeys.addAll(requiredKeys);
-        knownKeys.addAll(optionalKeys);
-        MapUtils.throwIfKeyKnown(key, knownKeys, false);
+    @Throws(InvalidAdditionalPropertyException::class)
+    protected fun throwIfKeyKnown(key: String?, requiredKeys: Set<String>?, optionalKeys: Set<String>?) {
+        val knownKeys: MutableSet<String> = HashSet()
+        knownKeys.addAll(requiredKeys!!)
+        knownKeys.addAll(optionalKeys!!)
+        MapUtils.throwIfKeyKnown(key, knownKeys, false)
     }
 
-    @Override
-    public Set<Entry<@KeyFor("this") String, V>> entrySet() {
-        return  map.entrySet().stream()
-                .map(x -> new AbstractMap.SimpleEntry<>(x.getKey(), x.getValue()))
-                .collect(Collectors.toSet());
-    }
+    override val entries: Set<Map.Entry<String, V>>
+        get() = map.entries
 }
-
