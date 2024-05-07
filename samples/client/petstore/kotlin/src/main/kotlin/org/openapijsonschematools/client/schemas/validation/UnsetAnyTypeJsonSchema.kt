@@ -6,6 +6,7 @@ import org.openapijsonschematools.client.exceptions.ValidationException
 
 import java.time.LocalDate
 import java.time.ZonedDateTime
+import java.util.UUID
 
 class UnsetAnyTypeJsonSchema {
     interface UnsetAnyTypeJsonSchema1Boxed {

@@ -359,9 +359,9 @@ abstract class JsonSchema<T> protected constructor(jsonSchemaInfo: JsonSchemaInf
     }
 
     @Throws(ValidationException::class)
-    private fun castToAllowedObjectTypes(arg: Any?, pathToItem: List<Any?>, pathSet: MutableSet<List<Any>>): Any? {
+    private fun castToAllowedObjectTypes(arg: Any?, pathToItem: List<Any>, pathSet: MutableSet<List<Any>>): Any? {
         return if (arg == null) {
-            castToAllowedTypes(null as Void?, pathToItem, pathSet)
+            castToAllowedTypes(arg, pathToItem, pathSet)
         } else if (arg is String) {
             castToAllowedTypes(arg, pathToItem, pathSet)
         } else if (arg is Map<*, *>) {
@@ -481,7 +481,7 @@ abstract class JsonSchema<T> protected constructor(jsonSchemaInfo: JsonSchemaInf
                 schemas.clear()
                 schemas[firstSchema] = null
             }
-            var mutPathSet: MutableSet<List<Any?>> = pathSet.toMutableSet()
+            var mutPathSet: MutableSet<List<Any>> = pathSet.toMutableSet()
             mutPathSet.removeAll(pathToSchemasMap.keys)
             if (!mutPathSet.isEmpty()) {
                 val unsetAnyTypeSchema = LinkedHashMap<JsonSchema<*>, Nothing?>()
