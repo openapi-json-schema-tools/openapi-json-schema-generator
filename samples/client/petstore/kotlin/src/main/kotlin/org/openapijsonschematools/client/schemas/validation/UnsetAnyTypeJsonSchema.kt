@@ -313,14 +313,13 @@ class UnsetAnyTypeJsonSchema {
         }
 
         companion object {
-            var instance: UnsetAnyTypeJsonSchema1? = null
-                get() {
-                    if (field == null) {
-                        field = UnsetAnyTypeJsonSchema1()
-                    }
-                    return field
+            @Volatile
+            private var instance: UnsetAnyTypeJsonSchema1? = null
+
+            fun getInstance() =
+                instance ?: synchronized(this) {
+                    instance ?: UnsetAnyTypeJsonSchema1().also { instance = it }
                 }
-                private set
         }
     }
 }
