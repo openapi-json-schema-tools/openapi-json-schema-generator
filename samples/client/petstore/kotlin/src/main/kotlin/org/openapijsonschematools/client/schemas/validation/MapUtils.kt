@@ -1,12 +1,8 @@
-package org.openapijsonschematools.client.schemas.validation;
+package org.openapijsonschematools.client.schemas.validation
 
-import org.openapijsonschematools.client.exceptions.InvalidAdditionalPropertyException;
+import org.openapijsonschematools.client.exceptions.InvalidAdditionalPropertyException
 
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Set;
-
-public class MapUtils {
+object MapUtils {
     /**
      * A builder for maps that allows in null values
      * Schema tests + doc code samples need it
@@ -14,24 +10,24 @@ public class MapUtils {
      * @return the output map
      * @param <K> key type
      * @param <V> value type
-     */
+    </V></K> */
     @SafeVarargs
-    @SuppressWarnings("varargs")
-    public static <K, V> Map<K, V> makeMap(Map.Entry<K, V>... entries) {
-        Map<K, V> map = new HashMap<>();
-        for (Map.Entry<K, V> entry : entries) {
-            map.put(entry.getKey(), entry.getValue());
+    fun <K, V> makeMap(vararg entries: Map.Entry<K, V>): Map<K, V> {
+        val map: MutableMap<K, V> = HashMap()
+        for ((key, value) in entries) {
+            map[key] = value
         }
-        return map;
+        return map
     }
 
-    public static void throwIfKeyKnown(String key, Set<String> knownKeys, boolean setting) throws InvalidAdditionalPropertyException {
+    @Throws(InvalidAdditionalPropertyException::class)
+    fun throwIfKeyKnown(key: String, knownKeys: Set<String>, setting: Boolean) {
         if (knownKeys.contains(key)) {
-            String verb = "getting";
+            var verb = "getting"
             if (setting) {
-                verb = "setting";
+                verb = "setting"
             }
-            throw new InvalidAdditionalPropertyException ("The known key " + key + " may not be passed in when "+verb+" an additional property");
+            throw InvalidAdditionalPropertyException("The known key $key may not be passed in when $verb an additional property")
         }
     }
 }

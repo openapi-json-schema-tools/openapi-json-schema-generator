@@ -3,41 +3,44 @@ package {{{packageName}}}.schemas.validation;
 import {{{packageName}}}.exceptions.UnsetPropertyException;
 import {{{packageName}}}.exceptions.InvalidAdditionalPropertyException;
 
-open class FrozenMap<V>(m: Map<String, V>) : AbstractMap<String, V>() {
+public class FrozenMap<V> extends AbstractMap<String, V> {
     /*
     A frozen Map
     Once schema validation has been run, written accessor methods return values of the correct type
     If values were mutable, the types in those methods would not agree with returned values
      */
-    private val map: Map<String, V>
+    private final Map<String, V> map;
+    public FrozenMap(Map<String, ? extends V> m) {
 
-    init {
-        map = HashMap(m)
+        super();
+        map = new HashMap<>(m);
     }
 
-    @Throws(UnsetPropertyException::class)
-    protected fun getOrThrow(key: String): V? {
+    protected V getOrThrow(String key) throws UnsetPropertyException {
         if (containsKey(key)) {
-            return get(key)
+            return get(key);
         }
-        throw UnsetPropertyException("$key is unset")
+        throw new UnsetPropertyException(key+" is unset");
     }
 
-    @Throws(UnsetPropertyException::class)
-    protected fun throwIfKeyNotPresent(key: String) {
+    protected void throwIfKeyNotPresent(String key) throws UnsetPropertyException {
         if (!containsKey(key)) {
-            throw UnsetPropertyException("$key is unset")
+            throw new UnsetPropertyException(key+" is unset");
         }
     }
 
-    @Throws(InvalidAdditionalPropertyException::class)
-    protected fun throwIfKeyKnown(key: String?, requiredKeys: Set<String>?, optionalKeys: Set<String>?) {
-        val knownKeys: MutableSet<String> = HashSet()
-        knownKeys.addAll(requiredKeys!!)
-        knownKeys.addAll(optionalKeys!!)
-        MapUtils.throwIfKeyKnown(key, knownKeys, false)
+    protected void throwIfKeyKnown(String key, Set<String> requiredKeys, Set<String> optionalKeys) throws InvalidAdditionalPropertyException {
+        Set<String> knownKeys = new HashSet<>();
+        knownKeys.addAll(requiredKeys);
+        knownKeys.addAll(optionalKeys);
+        MapUtils.throwIfKeyKnown(key, knownKeys, false);
     }
 
-    override val entries: Set<Map.Entry<String, V>>
-        get() = map.entries
+    @Override
+    public Set<Entry<@KeyFor("this") String, V>> entrySet() {
+        return  map.entrySet().stream()
+                .map(x -> new AbstractMap.SimpleEntry<>(x.getKey(), x.getValue()))
+                .collect(Collectors.toSet());
+    }
 }
+

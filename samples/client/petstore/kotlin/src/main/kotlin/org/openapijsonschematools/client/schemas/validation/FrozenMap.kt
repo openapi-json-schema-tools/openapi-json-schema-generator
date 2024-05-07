@@ -31,10 +31,10 @@ open class FrozenMap<V>(m: Map<String, V>) : AbstractMap<String, V>() {
     }
 
     @Throws(InvalidAdditionalPropertyException::class)
-    protected fun throwIfKeyKnown(key: String?, requiredKeys: Set<String>?, optionalKeys: Set<String>?) {
+    protected fun throwIfKeyKnown(key: String, requiredKeys: Set<String>, optionalKeys: Set<String>) {
         val knownKeys: MutableSet<String> = HashSet()
-        knownKeys.addAll(requiredKeys!!)
-        knownKeys.addAll(optionalKeys!!)
+        knownKeys.addAll(requiredKeys)
+        knownKeys.addAll(optionalKeys)
         MapUtils.throwIfKeyKnown(key, knownKeys, false)
     }
 
