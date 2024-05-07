@@ -1,9 +1,12 @@
-package org.openapijsonschematools.client.schemas.validation;
+package org.openapijsonschematools.client.schemas.validation
 
-import org.openapijsonschematools.client.configurations.SchemaConfiguration;
-import org.openapijsonschematools.client.exceptions.ValidationException;
+import org.openapijsonschematools.client.configurations.SchemaConfiguration
+import org.openapijsonschematools.client.exceptions.ValidationException
 
-public interface BooleanSchemaValidator<T> {
-    boolean validate(boolean arg, SchemaConfiguration configuration) throws ValidationException;
-    T validateAndBox(boolean arg, SchemaConfiguration configuration) throws ValidationException;
+interface BooleanSchemaValidator<T> {
+    @Throws(ValidationException::class)
+    fun validate(arg: Boolean, configuration: SchemaConfiguration?): Boolean
+
+    @Throws(ValidationException::class)
+    fun validateAndBox(arg: Boolean, configuration: SchemaConfiguration?): T
 }

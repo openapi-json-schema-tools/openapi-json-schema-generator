@@ -1,9 +1,12 @@
-package org.openapijsonschematools.client.schemas.validation;
+package org.openapijsonschematools.client.schemas.validation
 
-import org.openapijsonschematools.client.configurations.SchemaConfiguration;
-import org.openapijsonschematools.client.exceptions.ValidationException;
+import org.openapijsonschematools.client.configurations.SchemaConfiguration
+import org.openapijsonschematools.client.exceptions.ValidationException
 
-public interface NullSchemaValidator<T> {
-    Nothing? validate(Nothing? arg, SchemaConfiguration configuration) throws ValidationException;
-    T validateAndBox(Nothing? arg, SchemaConfiguration configuration) throws ValidationException;
+interface NullSchemaValidator<T> {
+    @Throws(ValidationException::class)
+    fun validate(arg: Nothing?, configuration: SchemaConfiguration?): Nothing?
+
+    @Throws(ValidationException::class)
+    fun validateAndBox(arg: Nothing?, configuration: SchemaConfiguration?): T
 }

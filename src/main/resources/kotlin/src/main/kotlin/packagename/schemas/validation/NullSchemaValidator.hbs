@@ -3,7 +3,10 @@ package {{{packageName}}}.schemas.validation;
 import {{{packageName}}}.configurations.SchemaConfiguration;
 import {{{packageName}}}.exceptions.ValidationException;
 
-public interface NullSchemaValidator<T> {
-    Nothing? validate(Nothing? arg, SchemaConfiguration configuration) throws ValidationException;
-    T validateAndBox(Nothing? arg, SchemaConfiguration configuration) throws ValidationException;
+interface NullSchemaValidator<T> {
+    @Throws(ValidationException::class)
+    fun validate(arg: Nothing?, configuration: SchemaConfiguration?): Nothing?
+
+    @Throws(ValidationException::class)
+    fun validateAndBox(arg: Nothing?, configuration: SchemaConfiguration?): T
 }

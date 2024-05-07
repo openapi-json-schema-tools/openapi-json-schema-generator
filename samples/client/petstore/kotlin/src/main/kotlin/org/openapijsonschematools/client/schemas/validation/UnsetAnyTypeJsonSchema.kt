@@ -49,15 +49,15 @@ class UnsetAnyTypeJsonSchema {
         }
     }
 
-    class UnsetAnyTypeJsonSchema1 private constructor() : JsonSchema<UnsetAnyTypeJsonSchema1Boxed?>(JsonSchemaInfo()),
-        NullSchemaValidator<UnsetAnyTypeJsonSchema1BoxedVoid?>,
-        BooleanSchemaValidator<UnsetAnyTypeJsonSchema1BoxedBoolean?>,
-        NumberSchemaValidator<UnsetAnyTypeJsonSchema1BoxedNumber?>,
-        StringSchemaValidator<UnsetAnyTypeJsonSchema1BoxedString?>,
-        ListSchemaValidator<FrozenList<Any?>?, UnsetAnyTypeJsonSchema1BoxedList?>,
-        MapSchemaValidator<FrozenMap<Any?>?, UnsetAnyTypeJsonSchema1BoxedMap?> {
+    class UnsetAnyTypeJsonSchema1 private constructor() : JsonSchema<UnsetAnyTypeJsonSchema1Boxed>(JsonSchemaInfo()),
+        NullSchemaValidator<UnsetAnyTypeJsonSchema1BoxedVoid>,
+        BooleanSchemaValidator<UnsetAnyTypeJsonSchema1BoxedBoolean>,
+        NumberSchemaValidator<UnsetAnyTypeJsonSchema1BoxedNumber>,
+        StringSchemaValidator<UnsetAnyTypeJsonSchema1BoxedString>,
+        ListSchemaValidator<FrozenList<Any?>, UnsetAnyTypeJsonSchema1BoxedList>,
+        MapSchemaValidator<FrozenMap<Any?>, UnsetAnyTypeJsonSchema1BoxedMap> {
         @Throws(ValidationException::class)
-        fun validate(arg: Nothing?, configuration: SchemaConfiguration?): Nothing? {
+        override fun validate(arg: Nothing?, configuration: SchemaConfiguration?): Nothing? {
             val pathSet: MutableSet<List<Any>> = HashSet()
             val pathToItem = listOf<Any>("args[0]")
             val castArg: Nothing? = castToAllowedTypes(arg, pathToItem, pathSet)
@@ -70,7 +70,7 @@ class UnsetAnyTypeJsonSchema {
         }
 
         @Throws(ValidationException::class)
-        fun validate(arg: Boolean, configuration: SchemaConfiguration?): Boolean {
+        override fun validate(arg: Boolean, configuration: SchemaConfiguration?): Boolean {
             val pathSet: MutableSet<List<Any>> = HashSet()
             val pathToItem = listOf<Any>("args[0]")
             val castArg: Boolean = castToAllowedTypes(arg, pathToItem, pathSet)
@@ -83,7 +83,7 @@ class UnsetAnyTypeJsonSchema {
         }
 
         @Throws(ValidationException::class)
-        fun validate(arg: Number, configuration: SchemaConfiguration?): Number {
+        override fun validate(arg: Number, configuration: SchemaConfiguration?): Number {
             val pathSet: MutableSet<List<Any>> = HashSet()
             val pathToItem = listOf<Any>("args[0]")
             val castArg: Number = castToAllowedTypes(arg, pathToItem, pathSet)
@@ -116,7 +116,7 @@ class UnsetAnyTypeJsonSchema {
         }
 
         @Throws(ValidationException::class)
-        fun validate(arg: String, configuration: SchemaConfiguration?): String {
+        override fun validate(arg: String, configuration: SchemaConfiguration?): String {
             val pathSet: MutableSet<List<Any>> = HashSet()
             val pathToItem = listOf<Any>("args[0]")
             val castArg: String = castToAllowedTypes(arg, pathToItem, pathSet)
@@ -143,7 +143,7 @@ class UnsetAnyTypeJsonSchema {
             return validate(arg.toString(), configuration)
         }
 
-        fun getNewInstance(arg: List<*>, pathToItem: List<Any>, pathToSchemas: PathToSchemasMap): FrozenList<Any?> {
+        override fun getNewInstance(arg: List<*>, pathToItem: List<Any>, pathToSchemas: PathToSchemasMap): FrozenList<Any?> {
             val items: MutableList<Any?> = ArrayList()
             var i = 0
             for (item in arg) {
@@ -160,7 +160,7 @@ class UnsetAnyTypeJsonSchema {
         }
 
         @Throws(ValidationException::class)
-        fun validate(arg: List<*>, configuration: SchemaConfiguration?): FrozenList<Any?> {
+        override fun validate(arg: List<*>, configuration: SchemaConfiguration?): FrozenList<Any?> {
             val pathSet: MutableSet<List<Any>> = HashSet()
             val pathToItem = listOf<Any>("args[0]")
             val castArg: List<*> = castToAllowedTypes(arg, pathToItem, pathSet)
@@ -172,7 +172,7 @@ class UnsetAnyTypeJsonSchema {
             return getNewInstance(castArg, validationMetadata.pathToItem, pathToSchemasMap)
         }
 
-        fun getNewInstance(arg: Map<*, *>, pathToItem: List<Any>, pathToSchemas: PathToSchemasMap): FrozenMap<Any?> {
+        override fun getNewInstance(arg: Map<*, *>, pathToItem: List<Any>, pathToSchemas: PathToSchemasMap): FrozenMap<Any?> {
             val properties = LinkedHashMap<String, Any?>()
             for ((entryKey, value1) in arg) {
                 if (entryKey !is String) {
@@ -191,7 +191,7 @@ class UnsetAnyTypeJsonSchema {
         }
 
         @Throws(ValidationException::class)
-        fun validate(arg: Map<*, *>, configuration: SchemaConfiguration?): FrozenMap<Any?> {
+        override fun validate(arg: Map<*, *>, configuration: SchemaConfiguration?): FrozenMap<Any?> {
             val pathSet: MutableSet<List<Any>> = HashSet()
             val pathToItem = listOf<Any>("args[0]")
             val castArg: Map<*, *> = castToAllowedTypes(arg, pathToItem, pathSet)
@@ -263,32 +263,32 @@ class UnsetAnyTypeJsonSchema {
         }
 
         @Throws(ValidationException::class)
-        fun validateAndBox(arg: Nothing?, configuration: SchemaConfiguration?): UnsetAnyTypeJsonSchema1BoxedVoid {
+        override fun validateAndBox(arg: Nothing?, configuration: SchemaConfiguration?): UnsetAnyTypeJsonSchema1BoxedVoid {
             return UnsetAnyTypeJsonSchema1BoxedVoid(validate(arg, configuration))
         }
 
         @Throws(ValidationException::class)
-        fun validateAndBox(arg: Boolean, configuration: SchemaConfiguration?): UnsetAnyTypeJsonSchema1BoxedBoolean {
+        override fun validateAndBox(arg: Boolean, configuration: SchemaConfiguration?): UnsetAnyTypeJsonSchema1BoxedBoolean {
             return UnsetAnyTypeJsonSchema1BoxedBoolean(validate(arg, configuration))
         }
 
         @Throws(ValidationException::class)
-        fun validateAndBox(arg: Number, configuration: SchemaConfiguration?): UnsetAnyTypeJsonSchema1BoxedNumber {
+        override fun validateAndBox(arg: Number, configuration: SchemaConfiguration?): UnsetAnyTypeJsonSchema1BoxedNumber {
             return UnsetAnyTypeJsonSchema1BoxedNumber(validate(arg, configuration))
         }
 
         @Throws(ValidationException::class)
-        fun validateAndBox(arg: String, configuration: SchemaConfiguration?): UnsetAnyTypeJsonSchema1BoxedString {
+        override fun validateAndBox(arg: String, configuration: SchemaConfiguration?): UnsetAnyTypeJsonSchema1BoxedString {
             return UnsetAnyTypeJsonSchema1BoxedString(validate(arg, configuration))
         }
 
         @Throws(ValidationException::class)
-        fun validateAndBox(arg: List<*>, configuration: SchemaConfiguration?): UnsetAnyTypeJsonSchema1BoxedList {
+        override fun validateAndBox(arg: List<*>, configuration: SchemaConfiguration?): UnsetAnyTypeJsonSchema1BoxedList {
             return UnsetAnyTypeJsonSchema1BoxedList(validate(arg, configuration))
         }
 
         @Throws(ValidationException::class)
-        fun validateAndBox(arg: Map<*, *>, configuration: SchemaConfiguration?): UnsetAnyTypeJsonSchema1BoxedMap {
+        override fun validateAndBox(arg: Map<*, *>, configuration: SchemaConfiguration?): UnsetAnyTypeJsonSchema1BoxedMap {
             return UnsetAnyTypeJsonSchema1BoxedMap(validate(arg, configuration))
         }
 

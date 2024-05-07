@@ -1,12 +1,15 @@
-package org.openapijsonschematools.client.schemas.validation;
+package org.openapijsonschematools.client.schemas.validation
 
-import org.openapijsonschematools.client.configurations.SchemaConfiguration;
-import org.openapijsonschematools.client.exceptions.ValidationException;
+import org.openapijsonschematools.client.configurations.SchemaConfiguration
+import org.openapijsonschematools.client.exceptions.ValidationException
 
-import java.util.List;
+interface ListSchemaValidator<OutType, BoxedType> {
+    @Throws(ValidationException::class)
+    fun getNewInstance(arg: List<*>, pathToItem: List<Any>, pathToSchemas: PathToSchemasMap): OutType
 
-public interface ListSchemaValidator <OutType, BoxedType> {
-    OutType getNewInstance(List<?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) throws ValidationException;
-    OutType validate(List<?> arg, SchemaConfiguration configuration) throws ValidationException;
-    BoxedType validateAndBox(List<?> arg, SchemaConfiguration configuration) throws ValidationException;
+    @Throws(ValidationException::class)
+    fun validate(arg: List<*>, configuration: SchemaConfiguration?): OutType
+
+    @Throws(ValidationException::class)
+    fun validateAndBox(arg: List<*>, configuration: SchemaConfiguration?): BoxedType
 }
