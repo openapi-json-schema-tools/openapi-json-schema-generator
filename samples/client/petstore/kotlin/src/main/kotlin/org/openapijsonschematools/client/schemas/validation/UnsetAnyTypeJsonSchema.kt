@@ -49,7 +49,7 @@ class UnsetAnyTypeJsonSchema {
         }
     }
 
-    class UnsetAnyTypeJsonSchema1 protected constructor() : JsonSchema<UnsetAnyTypeJsonSchema1Boxed?>(JsonSchemaInfo()),
+    class UnsetAnyTypeJsonSchema1 private constructor() : JsonSchema<UnsetAnyTypeJsonSchema1Boxed?>(JsonSchemaInfo()),
         NullSchemaValidator<UnsetAnyTypeJsonSchema1BoxedVoid?>,
         BooleanSchemaValidator<UnsetAnyTypeJsonSchema1BoxedBoolean?>,
         NumberSchemaValidator<UnsetAnyTypeJsonSchema1BoxedNumber?>,
@@ -61,14 +61,10 @@ class UnsetAnyTypeJsonSchema {
             val pathSet: MutableSet<List<Any>> = HashSet()
             val pathToItem = listOf<Any>("args[0]")
             val castArg: Nothing? = castToAllowedTypes(arg, pathToItem, pathSet)
-            val usedConfiguration = Objects.requireNonNullElseGet(configuration) {
-                SchemaConfiguration(
-                    JsonSchemaKeywordFlags.Builder().build()
-                )
-            }
+            val usedConfiguration = configuration ?: SchemaConfiguration(JsonSchemaKeywordFlags.Builder().build())
             val validatedPathToSchemas = PathToSchemasMap()
             val validationMetadata =
-                ValidationMetadata(pathToItem, usedConfiguration!!, validatedPathToSchemas, LinkedHashSet())
+                ValidationMetadata(pathToItem, usedConfiguration, validatedPathToSchemas, LinkedHashSet())
             val pathToSchemasMap = getPathToSchemas(this, castArg, validationMetadata, pathSet)
             return getNewInstance(castArg, validationMetadata.pathToItem, pathToSchemasMap)
         }
@@ -78,14 +74,10 @@ class UnsetAnyTypeJsonSchema {
             val pathSet: MutableSet<List<Any>> = HashSet()
             val pathToItem = listOf<Any>("args[0]")
             val castArg: Boolean = castToAllowedTypes(arg, pathToItem, pathSet)
-            val usedConfiguration = Objects.requireNonNullElseGet(configuration) {
-                SchemaConfiguration(
-                    JsonSchemaKeywordFlags.Builder().build()
-                )
-            }
+            val usedConfiguration = configuration ?: SchemaConfiguration(JsonSchemaKeywordFlags.Builder().build())
             val validatedPathToSchemas = PathToSchemasMap()
             val validationMetadata =
-                ValidationMetadata(pathToItem, usedConfiguration!!, validatedPathToSchemas, LinkedHashSet())
+                ValidationMetadata(pathToItem, usedConfiguration, validatedPathToSchemas, LinkedHashSet())
             val pathToSchemasMap = getPathToSchemas(this, castArg, validationMetadata, pathSet)
             return getNewInstance(castArg, validationMetadata.pathToItem, pathToSchemasMap)
         }
@@ -95,14 +87,10 @@ class UnsetAnyTypeJsonSchema {
             val pathSet: MutableSet<List<Any>> = HashSet()
             val pathToItem = listOf<Any>("args[0]")
             val castArg: Number = castToAllowedTypes(arg, pathToItem, pathSet)
-            val usedConfiguration = Objects.requireNonNullElseGet(configuration) {
-                SchemaConfiguration(
-                    JsonSchemaKeywordFlags.Builder().build()
-                )
-            }
+            val usedConfiguration = configuration ?: SchemaConfiguration(JsonSchemaKeywordFlags.Builder().build())
             val validatedPathToSchemas = PathToSchemasMap()
             val validationMetadata =
-                ValidationMetadata(pathToItem, usedConfiguration!!, validatedPathToSchemas, LinkedHashSet())
+                ValidationMetadata(pathToItem, usedConfiguration, validatedPathToSchemas, LinkedHashSet())
             val pathToSchemasMap = getPathToSchemas(this, castArg, validationMetadata, pathSet)
             return getNewInstance(castArg, validationMetadata.pathToItem, pathToSchemasMap)
         }
@@ -128,18 +116,14 @@ class UnsetAnyTypeJsonSchema {
         }
 
         @Throws(ValidationException::class)
-        fun validate(arg: String, configuration: SchemaConfiguration?): String? {
+        fun validate(arg: String, configuration: SchemaConfiguration?): String {
             val pathSet: MutableSet<List<Any>> = HashSet()
             val pathToItem = listOf<Any>("args[0]")
             val castArg: String = castToAllowedTypes(arg, pathToItem, pathSet)
-            val usedConfiguration = Objects.requireNonNullElseGet(configuration) {
-                SchemaConfiguration(
-                    JsonSchemaKeywordFlags.Builder().build()
-                )
-            }
+            val usedConfiguration = configuration ?: SchemaConfiguration(JsonSchemaKeywordFlags.Builder().build())
             val validatedPathToSchemas = PathToSchemasMap()
             val validationMetadata =
-                ValidationMetadata(pathToItem, usedConfiguration!!, validatedPathToSchemas, LinkedHashSet())
+                ValidationMetadata(pathToItem, usedConfiguration, validatedPathToSchemas, LinkedHashSet())
             val pathToSchemasMap = getPathToSchemas(this, castArg, validationMetadata, pathSet)
             return getNewInstance(castArg, validationMetadata.pathToItem, pathToSchemasMap)
         }
@@ -165,7 +149,7 @@ class UnsetAnyTypeJsonSchema {
             for (item in arg) {
                 val itemPathToItem: MutableList<Any> = ArrayList(pathToItem)
                 itemPathToItem.add(i)
-                val schemas = pathToSchemas.get(itemPathToItem)
+                val schemas = pathToSchemas[itemPathToItem]
                     ?: throw RuntimeException("Validation result is invalid, schemas must exist for a pathToItem")
                 val itemSchema = schemas.entries.iterator().next().key
                 val castItem = itemSchema.getNewInstance(item, itemPathToItem, pathToSchemas)
@@ -180,14 +164,10 @@ class UnsetAnyTypeJsonSchema {
             val pathSet: MutableSet<List<Any>> = HashSet()
             val pathToItem = listOf<Any>("args[0]")
             val castArg: List<*> = castToAllowedTypes(arg, pathToItem, pathSet)
-            val usedConfiguration = Objects.requireNonNullElseGet(configuration) {
-                SchemaConfiguration(
-                    JsonSchemaKeywordFlags.Builder().build()
-                )
-            }
+            val usedConfiguration = configuration ?: SchemaConfiguration(JsonSchemaKeywordFlags.Builder().build())
             val validatedPathToSchemas = PathToSchemasMap()
             val validationMetadata =
-                ValidationMetadata(pathToItem, usedConfiguration!!, validatedPathToSchemas, LinkedHashSet())
+                ValidationMetadata(pathToItem, usedConfiguration, validatedPathToSchemas, LinkedHashSet())
             val pathToSchemasMap = getPathToSchemas(this, castArg, validationMetadata, pathSet)
             return getNewInstance(castArg, validationMetadata.pathToItem, pathToSchemasMap)
         }
@@ -198,15 +178,14 @@ class UnsetAnyTypeJsonSchema {
                 if (entryKey !is String) {
                     throw RuntimeException("Invalid non-string key value")
                 }
-                val propertyName = entryKey
                 val propertyPathToItem: MutableList<Any> = ArrayList(pathToItem)
-                propertyPathToItem.add(propertyName)
+                propertyPathToItem.add(entryKey)
                 val value = value1!!
-                val schemas = pathToSchemas.get(propertyPathToItem)
+                val schemas = pathToSchemas[propertyPathToItem]
                     ?: throw RuntimeException("Validation result is invalid, schemas must exist for a pathToItem")
                 val propertySchema = schemas.entries.iterator().next().key
                 val castValue = propertySchema.getNewInstance(value, propertyPathToItem, pathToSchemas)
-                properties[propertyName] = castValue
+                properties[entryKey] = castValue
             }
             return FrozenMap(properties)
         }
@@ -216,51 +195,71 @@ class UnsetAnyTypeJsonSchema {
             val pathSet: MutableSet<List<Any>> = HashSet()
             val pathToItem = listOf<Any>("args[0]")
             val castArg: Map<*, *> = castToAllowedTypes(arg, pathToItem, pathSet)
-            val usedConfiguration = Objects.requireNonNullElseGet(configuration) {
-                SchemaConfiguration(
-                    JsonSchemaKeywordFlags.Builder().build()
-                )
-            }
+            val usedConfiguration = configuration ?: SchemaConfiguration(JsonSchemaKeywordFlags.Builder().build())
             val validatedPathToSchemas = PathToSchemasMap()
             val validationMetadata =
-                ValidationMetadata(pathToItem, usedConfiguration!!, validatedPathToSchemas, LinkedHashSet())
+                ValidationMetadata(pathToItem, usedConfiguration, validatedPathToSchemas, LinkedHashSet())
             val pathToSchemasMap = getPathToSchemas(this, castArg, validationMetadata, pathSet)
             return getNewInstance(castArg, validationMetadata.pathToItem, pathToSchemasMap)
         }
 
         override fun getNewInstance(arg: Any?, pathToItem: List<Any>, pathToSchemas: PathToSchemasMap): Any? {
-            if (arg == null) {
-                return getNewInstance(arg, pathToItem, pathToSchemas)
-            } else if (arg is Boolean) {
-                return getNewInstance(arg, pathToItem, pathToSchemas)
-            } else if (arg is Number) {
-                return getNewInstance(arg as Number?, pathToItem, pathToSchemas)
-            } else if (arg is String) {
-                return getNewInstance(arg as String?, pathToItem, pathToSchemas)
-            } else if (arg is List<*>) {
-                return getNewInstance(arg, pathToItem, pathToSchemas)
-            } else if (arg is Map<*, *>) {
-                return getNewInstance(arg, pathToItem, pathToSchemas)
+            when (arg) {
+                null -> {
+                    return getNewInstance(null, pathToItem, pathToSchemas)
+                }
+                is Boolean -> {
+                    return getNewInstance(arg, pathToItem, pathToSchemas)
+                }
+
+                is Number -> {
+                    return getNewInstance(arg, pathToItem, pathToSchemas)
+                }
+
+                is String -> {
+                    return getNewInstance(arg, pathToItem, pathToSchemas)
+                }
+
+                is List<*> -> {
+                    return getNewInstance(arg, pathToItem, pathToSchemas)
+                }
+
+                is Map<*, *> -> {
+                    return getNewInstance(arg, pathToItem, pathToSchemas)
+                }
+
+                else -> throw RuntimeException("Invalid input type=$javaClass. It can't be instantiated by this schema")
             }
-            throw RuntimeException("Invalid input type=$javaClass. It can't be instantiated by this schema")
         }
 
         @Throws(ValidationException::class)
         override fun validate(arg: Any?, configuration: SchemaConfiguration?): Any? {
-            if (arg == null) {
-                return validate(null as Nothing?, configuration)
-            } else if (arg is Boolean) {
-                return validate(arg, configuration)
-            } else if (arg is Number) {
-                return validate(arg as Number?, configuration)
-            } else if (arg is String) {
-                return validate(arg as String?, configuration)
-            } else if (arg is List<*>) {
-                return validate(arg as List<*>?, configuration)
-            } else if (arg is Map<*, *>) {
-                return validate(arg as Map<*, *>?, configuration)
+            when (arg) {
+                null -> {
+                    return validate(null, configuration)
+                }
+                is Boolean -> {
+                    return validate(arg, configuration)
+                }
+
+                is Number -> {
+                    return validate(arg, configuration)
+                }
+
+                is String -> {
+                    return validate(arg, configuration)
+                }
+
+                is List<*> -> {
+                    return validate(arg, configuration)
+                }
+
+                is Map<*, *> -> {
+                    return validate(arg, configuration)
+                }
+
+                else -> throw ValidationException("Invalid input type=$javaClass. It can't be validated by this schema")
             }
-            throw ValidationException("Invalid input type=$javaClass. It can't be validated by this schema")
         }
 
         @Throws(ValidationException::class)
@@ -295,21 +294,33 @@ class UnsetAnyTypeJsonSchema {
 
         @Throws(ValidationException::class)
         override fun validateAndBox(arg: Any?, configuration: SchemaConfiguration?): UnsetAnyTypeJsonSchema1Boxed {
-            if (arg == null) {
-                return validateAndBox(arg, configuration)
-            } else if (arg is Boolean) {
-                val castArg: Boolean = arg
-                return validateAndBox(castArg, configuration)
-            } else if (arg is String) {
-                return validateAndBox(arg, configuration)
-            } else if (arg is Number) {
-                return validateAndBox(arg, configuration)
-            } else if (arg is List<*>) {
-                return validateAndBox(arg, configuration)
-            } else if (arg is Map<*, *>) {
-                return validateAndBox(arg, configuration)
+            when (arg) {
+                null -> {
+                    return validateAndBox(null, configuration)
+                }
+                is Boolean -> {
+                    val castArg: Boolean = arg
+                    return validateAndBox(castArg, configuration)
+                }
+
+                is String -> {
+                    return validateAndBox(arg, configuration)
+                }
+
+                is Number -> {
+                    return validateAndBox(arg, configuration)
+                }
+
+                is List<*> -> {
+                    return validateAndBox(arg, configuration)
+                }
+
+                is Map<*, *> -> {
+                    return validateAndBox(arg, configuration)
+                }
+
+                else -> throw ValidationException("Invalid input type=$javaClass. It can't be validated by this schema")
             }
-            throw ValidationException("Invalid input type=$javaClass. It can't be validated by this schema")
         }
 
         companion object {
