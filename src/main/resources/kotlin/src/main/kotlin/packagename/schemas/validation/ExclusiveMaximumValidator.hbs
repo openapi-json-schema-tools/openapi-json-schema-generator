@@ -13,29 +13,30 @@ class ExclusiveMaximumValidator : KeywordValidator {
         }
         val msg =
             "Value " + data.arg + " is invalid because it is >= the exclusiveMaximum of " + exclusiveMaximum
-        if (data.arg is Int) {
-            if (data.arg.compareTo(exclusiveMaximum.toInt()) > -1) {
-                throw ValidationException(msg)
+        when (data.arg) {
+            is Int -> {
+                if (data.arg.compareTo(exclusiveMaximum.toInt()) > -1) {
+                    throw ValidationException(msg)
+                }
             }
-            return null
-        }
-        if (data.arg is Long) {
-            if (data.arg.compareTo(exclusiveMaximum.toLong()) > -1) {
-                throw ValidationException(msg)
+
+            is Long -> {
+                if (data.arg.compareTo(exclusiveMaximum.toLong()) > -1) {
+                    throw ValidationException(msg)
+                }
             }
-            return null
-        }
-        if (data.arg is Float) {
-            if (data.arg.compareTo(exclusiveMaximum.toFloat()) > -1) {
-                throw ValidationException(msg)
+
+            is Float -> {
+                if (data.arg.compareTo(exclusiveMaximum.toFloat()) > -1) {
+                    throw ValidationException(msg)
+                }
             }
-            return null
-        }
-        if (data.arg is Double) {
-            if (data.arg.compareTo(exclusiveMaximum.toDouble()) > -1) {
-                throw ValidationException(msg)
+
+            is Double -> {
+                if (data.arg.compareTo(exclusiveMaximum.toDouble()) > -1) {
+                    throw ValidationException(msg)
+                }
             }
-            return null
         }
         return null
     }

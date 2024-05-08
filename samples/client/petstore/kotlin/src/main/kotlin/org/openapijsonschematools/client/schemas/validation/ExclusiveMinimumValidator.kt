@@ -1,45 +1,43 @@
-package org.openapijsonschematools.client.schemas.validation;
+package org.openapijsonschematools.client.schemas.validation
 
-import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.checkerframework.checker.nullness.qual.Nullable;
+import org.openapijsonschematools.client.exceptions.ValidationException
 
-public class ExclusiveMinimumValidator implements KeywordValidator {
-    @Override
-    public @Nullable PathToSchemasMap validate(
-        ValidationData data
-    ) throws ValidationException {
-        var exclusiveMinimum = data.schema().exclusiveMinimum;
-        if (exclusiveMinimum == null) {
-            return null;
+class ExclusiveMinimumValidator : KeywordValidator {
+    @Throws(ValidationException::class)
+    override fun validate(
+        data: ValidationData
+    ): PathToSchemasMap? {
+        val exclusiveMinimum: Number = data.schema.exclusiveMinimum ?: return null
+        if (data.arg !is Number) {
+            return null
         }
-        if (!(data.arg() instanceof Number)) {
-            return null;
-        }
-        String msg = "Value " + data.arg() + " is invalid because it is <= the exclusiveMinimum of " + exclusiveMinimum;
-        if (data.arg() instanceof Integer intArg) {
-            if (intArg.compareTo(exclusiveMinimum.intValue()) < 1) {
-                throw new ValidationException(msg);
+        val msg =
+            "Value " + data.arg + " is invalid because it is <= the exclusiveMinimum of " + exclusiveMinimum
+        when (data.arg) {
+            is Int -> {
+                if (data.arg.compareTo(exclusiveMinimum.toInt()) < 1) {
+                    throw ValidationException(msg)
+                }
             }
-            return null;
-        }
-        if (data.arg() instanceof Long longArg) {
-            if (longArg.compareTo(exclusiveMinimum.longValue()) < 1) {
-                throw new ValidationException(msg);
+
+            is Long -> {
+                if (data.arg.compareTo(exclusiveMinimum.toLong()) < 1) {
+                    throw ValidationException(msg)
+                }
             }
-            return null;
-        }
-        if (data.arg() instanceof Float floatArg) {
-            if (floatArg.compareTo(exclusiveMinimum.floatValue()) < 1) {
-                throw new ValidationException(msg);
+
+            is Float -> {
+                if (data.arg.compareTo(exclusiveMinimum.toFloat()) < 1) {
+                    throw ValidationException(msg)
+                }
             }
-            return null;
-        }
-        if (data.arg() instanceof Double doubleArg) {
-            if (doubleArg.compareTo(exclusiveMinimum.doubleValue()) < 1) {
-                throw new ValidationException(msg);
+
+            is Double -> {
+                if (data.arg.compareTo(exclusiveMinimum.toDouble()) < 1) {
+                    throw ValidationException(msg)
+                }
             }
-            return null;
         }
-        return null;
+        return null
     }
 }
