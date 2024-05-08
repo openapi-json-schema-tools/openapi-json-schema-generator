@@ -1,21 +1,31 @@
-package org.openapijsonschematools.client.schemas.validation;
+package org.openapijsonschematools.client.schemas.validation
 
-import org.openapijsonschematools.client.exceptions.ValidationException;
+import org.openapijsonschematools.client.exceptions.ValidationException
+import java.math.BigDecimal
 
-import java.math.BigDecimal;
+abstract class BigDecimalValidator {
+    @Throws(ValidationException::class)
+    protected fun getBigDecimal(arg: Number): BigDecimal {
+        return when (arg) {
+            is Int -> {
+                BigDecimal(arg)
+            }
 
-public abstract class BigDecimalValidator {
-    protected BigDecimal getBigDecimal(Number arg) throws ValidationException {
-        if (arg instanceof Integer) {
-            return new BigDecimal((Integer) arg);
-        } else if (arg instanceof Long) {
-            return new BigDecimal((Long) arg);
-        } else if (arg instanceof Float) {
-            return new BigDecimal(Float.toString((Float) arg));
-        } else if (arg instanceof  Double) {
-            return new BigDecimal(Double.toString((Double) arg));
-        } else {
-            throw new ValidationException("Invalid type input for arg");
+            is Long -> {
+                BigDecimal(arg)
+            }
+
+            is Float -> {
+                BigDecimal(arg.toString())
+            }
+
+            is Double -> {
+                BigDecimal(arg.toString())
+            }
+
+            else -> {
+                throw ValidationException("Invalid type input for arg")
+            }
         }
     }
 }

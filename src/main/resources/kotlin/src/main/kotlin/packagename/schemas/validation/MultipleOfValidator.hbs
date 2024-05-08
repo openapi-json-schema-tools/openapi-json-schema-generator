@@ -1,27 +1,23 @@
 package {{{packageName}}}.schemas.validation;
 
 import {{{packageName}}}.exceptions.ValidationException;
-import org.checkerframework.checker.nullness.qual.Nullable;
 
 import java.math.BigDecimal;
 
-public class MultipleOfValidator extends BigDecimalValidator implements KeywordValidator {
-    @Override
-    public @Nullable PathToSchemasMap validate(
-        ValidationData data
-    ) throws ValidationException {
-        var multipleOf = data.schema().multipleOf;
-        if (multipleOf == null) {
-            return null;
+class MultipleOfValidator : BigDecimalValidator(), KeywordValidator {
+    @Throws(ValidationException::class)
+    override fun validate(
+        data: ValidationData
+    ): PathToSchemasMap? {
+        val multipleOf: BigDecimal = data.schema.multipleOf ?: return null
+        if (data.arg !is Number) {
+            return null
         }
-        if (!(data.arg() instanceof Number numberArg)) {
-            return null;
-        }
-        BigDecimal castArg = getBigDecimal(numberArg);
-        String msg = "Value " + numberArg + " is invalid because it is not a multiple of " + multipleOf;
+        val castArg: BigDecimal = getBigDecimal(data.arg)
+        val msg = "Value ${data.arg} is invalid because it is not a multiple of $multipleOf"
         if (castArg.remainder(multipleOf).compareTo(BigDecimal.ZERO) != 0) {
-            throw new ValidationException(msg);
+            throw ValidationException(msg)
         }
-        return null;
+        return null
     }
 }

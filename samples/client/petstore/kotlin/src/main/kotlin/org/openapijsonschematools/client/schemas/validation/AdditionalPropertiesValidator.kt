@@ -24,8 +24,7 @@ class AdditionalPropertiesValidator : KeywordValidator {
         val pathToSchemas = PathToSchemasMap()
         for (addPropName in presentAdditionalProperties) {
             val propValue: Any? = data.arg.get(addPropName)
-            val propPathToItem: MutableList<Any> = ArrayList(data.validationMetadata.pathToItem)
-            propPathToItem.add(addPropName)
+            val propPathToItem: List<Any> = data.validationMetadata.pathToItem + addPropName
             if (data.patternPropertiesPathToSchemas != null && data.patternPropertiesPathToSchemas
                     .containsKey(propPathToItem)
             ) {
