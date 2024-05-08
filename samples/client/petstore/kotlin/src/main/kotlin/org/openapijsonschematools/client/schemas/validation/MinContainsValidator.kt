@@ -1,31 +1,27 @@
-package org.openapijsonschematools.client.schemas.validation;
+package org.openapijsonschematools.client.schemas.validation
 
-import org.checkerframework.checker.nullness.qual.Nullable;
-import org.openapijsonschematools.client.exceptions.ValidationException;
+import org.openapijsonschematools.client.exceptions.ValidationException
 
-import java.util.List;
-
-public class MinContainsValidator implements KeywordValidator {
-    @Override
-    public @Nullable PathToSchemasMap validate(
-        ValidationData data
-    ) throws ValidationException {
-        var minContains = data.schema().minContains;
-        if (minContains == null) {
-            return null;
+class MinContainsValidator : KeywordValidator {
+    @Throws(ValidationException::class)
+    override fun validate(
+        data: ValidationData
+    ): PathToSchemasMap? {
+        val minContains: Int = data.schema.minContains ?: return null
+        if (data.arg !is List<*>) {
+            return null
         }
-        if (!(data.arg() instanceof List)) {
-            return null;
+        if (data.containsPathToSchemas == null) {
+            return null
         }
-        if (data.containsPathToSchemas() == null) {
-            return null;
+        if (data.containsPathToSchemas.size < minContains) {
+            throw ValidationException("""
+                |Validation failed for minContains keyword in class=${data.schema.javaClass} at
+                | pathToItem=${data.validationMetadata.pathToItem}.
+                | Too few items validated to the contains schema.
+                """.trimMargin()
+            )
         }
-        if (data.containsPathToSchemas().size() < minContains) {
-            throw new ValidationException(
-                "Validation failed for minContains keyword in class="+data.schema().getClass()+
-                " at pathToItem="+data.validationMetadata().pathToItem()+". Too few items validated to the contains schema."
-            );
-        }
-        return null;
+        return null
     }
 }
