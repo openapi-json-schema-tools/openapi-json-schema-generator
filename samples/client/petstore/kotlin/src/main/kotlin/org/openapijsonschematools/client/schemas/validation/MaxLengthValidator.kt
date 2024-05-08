@@ -1,24 +1,20 @@
-package org.openapijsonschematools.client.schemas.validation;
+package org.openapijsonschematools.client.schemas.validation
 
-import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.checkerframework.checker.nullness.qual.Nullable;
+import org.openapijsonschematools.client.exceptions.ValidationException
 
-public class MaxLengthValidator extends LengthValidator implements KeywordValidator {
-    @Override
-    public @Nullable PathToSchemasMap validate(
-        ValidationData data
-    ) throws ValidationException {
-        var maxLength = data.schema().maxLength;
-        if (maxLength == null) {
-            return null;
+class MaxLengthValidator : LengthValidator(), KeywordValidator {
+    @Throws(ValidationException::class)
+    override fun validate(
+        data: ValidationData
+    ): PathToSchemasMap? {
+        val maxLength: Int = data.schema.maxLength ?: return null
+        if (data.arg !is String) {
+            return null
         }
-        if (!(data.arg() instanceof String stringArg)) {
-            return null;
-        }
-        int length = getLength(stringArg);
+        val length: Int = getLength(data.arg)
         if (length > maxLength) {
-            throw new ValidationException("Value " + stringArg + " is invalid because has > the maxLength of " + maxLength);
+            throw ValidationException("Value ${data.arg} is invalid because has > the maxLength of $maxLength")
         }
-        return null;
+        return null
     }
 }
