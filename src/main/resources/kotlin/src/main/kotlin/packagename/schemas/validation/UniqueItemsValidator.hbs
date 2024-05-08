@@ -1,35 +1,27 @@
 package {{{packageName}}}.schemas.validation;
 
-import org.checkerframework.checker.nullness.qual.Nullable;
 import {{{packageName}}}.exceptions.ValidationException;
 
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
-
-public class UniqueItemsValidator implements KeywordValidator {
-    @Override
-    public @Nullable PathToSchemasMap validate(
-        ValidationData data
-    ) throws ValidationException {
-        var uniqueItems = data.schema().uniqueItems;
-        if (uniqueItems == null) {
-            return null;
-        }
-        if (!(data.arg() instanceof List<?> listArg)) {
-            return null;
+class UniqueItemsValidator : KeywordValidator {
+    @Throws(ValidationException::class)
+    override fun validate(
+        data: ValidationData
+    ): PathToSchemasMap? {
+        val uniqueItems: Boolean = data.schema.uniqueItems ?: return null
+        if (data.arg !is List<*>) {
+            return null
         }
         if (!uniqueItems) {
-            return null;
+            return null
         }
-        Set<@Nullable Object> seenItems = new HashSet<>();
-        for (@Nullable Object item: listArg) {
-            int startingSeenItemsSize = seenItems.size();
-            seenItems.add(item);
-            if (seenItems.size() == startingSeenItemsSize) {
-                throw new ValidationException("Invalid list value, list contains duplicate items when uniqueItems is true");
+        val seenItems: MutableSet<Any?> = HashSet()
+        for (item in data.arg) {
+            val startingSeenItemsSize = seenItems.size
+            seenItems.add(item)
+            if (seenItems.size == startingSeenItemsSize) {
+                throw ValidationException("Invalid list value, list contains duplicate items when uniqueItems is true")
             }
         }
-        return null;
+        return null
     }
 }
