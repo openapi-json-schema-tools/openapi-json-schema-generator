@@ -1,41 +1,32 @@
-package org.openapijsonschematools.client.schemas.validation;
+package org.openapijsonschematools.client.schemas.validation
 
-import org.checkerframework.checker.nullness.qual.Nullable;
-import org.openapijsonschematools.client.exceptions.ValidationException;
+import org.openapijsonschematools.client.exceptions.ValidationException
+import org.openapijsonschematools.client.schemas.validation.JsonSchemaFactory.getInstance
 
-import java.util.LinkedHashSet;
-import java.util.Map;
-import java.util.Set;
-
-public class DependentSchemasValidator implements KeywordValidator {
-    @Override
-    public @Nullable PathToSchemasMap validate(
-        ValidationData data
-    ) throws ValidationException {
-        if (!(data.arg() instanceof Map<?, ?> mapArg)) {
-            return null;
+class DependentSchemasValidator : KeywordValidator {
+    @Throws(ValidationException::class)
+    override fun validate(
+        data: ValidationData
+    ): PathToSchemasMap? {
+        if (data.arg !is Map<*, *>) {
+            return null
         }
-        var dependentSchemas = data.schema().dependentSchemas;
-        if (dependentSchemas == null) {
-            return null;
-        }
-        PathToSchemasMap pathToSchemas = new PathToSchemasMap();
-        Set<String> presentProperties = new LinkedHashSet<>();
-        for (Object key: mapArg.keySet()) {
-            if (key instanceof String) {
-                presentProperties.add((String) key);
+        val dependentSchemas: Map<String, Class<out JsonSchema<*>>> = data.schema.dependentSchemas ?: return null
+        val pathToSchemas = PathToSchemasMap()
+        val presentProperties: MutableSet<String> = LinkedHashSet()
+        for (key in data.arg.keys) {
+            if (key is String) {
+                presentProperties.add(key)
             }
         }
-        for(Map.Entry<String, Class<? extends JsonSchema<?>>> entry: dependentSchemas.entrySet()) {
-            String propName = entry.getKey();
+        for ((propName, dependentSchemaClass) in dependentSchemas.entries) {
             if (!presentProperties.contains(propName)) {
-                continue;
+                continue
             }
-            Class<? extends JsonSchema<?>> dependentSchemaClass = entry.getValue();
-            JsonSchema<?> dependentSchema = JsonSchemaFactory.getInstance(dependentSchemaClass);
-            PathToSchemasMap otherPathToSchemas = JsonSchema.validate(dependentSchema, mapArg, data.validationMetadata());
-            pathToSchemas.update(otherPathToSchemas);
+            val dependentSchema = getInstance(dependentSchemaClass)
+            val otherPathToSchemas = JsonSchema.validate(dependentSchema, data.arg, data.validationMetadata)
+            pathToSchemas.update(otherPathToSchemas)
         }
-        return pathToSchemas;
+        return pathToSchemas
     }
 }

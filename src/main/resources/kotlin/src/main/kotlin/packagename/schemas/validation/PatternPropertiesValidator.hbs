@@ -1,21 +1,15 @@
 package {{{packageName}}}.schemas.validation;
 
-import org.checkerframework.checker.nullness.qual.Nullable;
-
-import java.util.Map;
-
-public class PatternPropertiesValidator implements KeywordValidator {
-    @Override
-    public @Nullable PathToSchemasMap validate(
-        ValidationData data
-    ) {
-        var patternProperties = data.schema().patternProperties;
-        if (patternProperties == null) {
-            return null;
+class PatternPropertiesValidator : KeywordValidator {
+    override fun validate(
+        data: ValidationData
+    ): PathToSchemasMap?
+    {
+        if (data.schema.patternProperties == null) {
+            return null
         }
-        if (!(data.arg() instanceof Map<?, ?>)) {
-            return null;
-        }
-        return data.patternPropertiesPathToSchemas();
+        return if (data.arg !is Map<*, *>) {
+            null
+        } else data.patternPropertiesPathToSchemas
     }
 }
