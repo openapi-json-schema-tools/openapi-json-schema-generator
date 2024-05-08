@@ -1,23 +1,20 @@
-package org.openapijsonschematools.client.schemas.validation;
+package org.openapijsonschematools.client.schemas.validation
 
-import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.checkerframework.checker.nullness.qual.Nullable;
+import org.openapijsonschematools.client.exceptions.ValidationException
+import java.util.regex.Pattern
 
-public class PatternValidator implements KeywordValidator {
-    @Override
-    public @Nullable PathToSchemasMap validate(
-        ValidationData data
-    ) throws ValidationException {
-        var pattern = data.schema().pattern;
-        if (pattern == null) {
-            return null;
+class PatternValidator : KeywordValidator {
+    @Throws(ValidationException::class)
+    override fun validate(
+        data: ValidationData
+    ): PathToSchemasMap? {
+        val pattern: Pattern = data.schema.pattern ?: return null
+        if (data.arg !is String) {
+            return null
         }
-        if (!(data.arg() instanceof String stringArg)) {
-            return null;
+        if (!pattern.matcher(data.arg).find()) {
+            throw ValidationException("Invalid value ${data.arg} did not find a match for pattern $pattern")
         }
-        if (!pattern.matcher(stringArg).find()) {
-            throw new ValidationException("Invalid value "+stringArg+" did not find a match for pattern "+pattern);
-        }
-        return null;
+        return null
     }
 }
