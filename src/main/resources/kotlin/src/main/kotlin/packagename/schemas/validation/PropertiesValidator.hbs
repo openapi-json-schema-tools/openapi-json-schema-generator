@@ -1,56 +1,44 @@
 package {{{packageName}}}.schemas.validation;
 
-import org.checkerframework.checker.nullness.qual.Nullable;
 import {{{packageName}}}.exceptions.ValidationException;
 
-import java.util.ArrayList;
-import java.util.LinkedHashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
-
-public class PropertiesValidator implements KeywordValidator {
-    @Override
-    public @Nullable PathToSchemasMap validate(
-        ValidationData data
-    ) throws ValidationException {
-        var properties = data.schema().properties;
-        if (properties == null) {
-            return null;
+class PropertiesValidator : KeywordValidator {
+    @Throws(ValidationException::class)
+    override fun validate(
+        data: ValidationData
+    ): PathToSchemasMap? {
+        val properties: Map<String, Class<out JsonSchema<*>>> = data.schema.properties ?: return null
+        if (data.arg !is Map<*, *>) {
+            return null
         }
-        if (!(data.arg() instanceof Map<?, ?> mapArg)) {
-            return null;
-        }
-        PathToSchemasMap pathToSchemas = new PathToSchemasMap();
-        Set<String> presentProperties = new LinkedHashSet<>();
-        for (Object key: mapArg.keySet()) {
-            if (key instanceof String) {
-                presentProperties.add((String) key);
+        val pathToSchemas = PathToSchemasMap()
+        val presentProperties: MutableSet<String> = LinkedHashSet()
+        for (key in data.arg.keys) {
+            if (key is String) {
+                presentProperties.add(key)
             }
         }
-        for(Map.Entry<String, Class<? extends JsonSchema<?>>> entry: properties.entrySet()) {
-            String propName = entry.getKey();
+        for ((propName, propClass) in properties.entries) {
             if (!presentProperties.contains(propName)) {
-                continue;
+                continue
             }
-            @Nullable Object propValue = mapArg.get(propName);
-            List<Object> propPathToItem = new ArrayList<>(data.validationMetadata().pathToItem());
-            propPathToItem.add(propName);
-            ValidationMetadata propValidationMetadata = new ValidationMetadata(
-                    propPathToItem,
-                    data.validationMetadata().configuration(),
-                    data.validationMetadata().validatedPathToSchemas(),
-                    data.validationMetadata().seenClasses()
-            );
-            Class<? extends JsonSchema<?>> propClass = entry.getValue();
-            JsonSchema<?> propSchema = JsonSchemaFactory.getInstance(propClass);
+            val propValue: Any? = data.arg[propName]
+            val propPathToItem: MutableList<Any> = ArrayList(data.validationMetadata.pathToItem)
+            propPathToItem.add(propName)
+            val propValidationMetadata = ValidationMetadata(
+                propPathToItem,
+                data.validationMetadata.configuration,
+                data.validationMetadata.validatedPathToSchemas,
+                data.validationMetadata.seenClasses
+            )
+            val propSchema = JsonSchemaFactory.getInstance(propClass)
             if (propValidationMetadata.validationRanEarlier(propSchema)) {
                 // todo add_deeper_validated_schemas
-                continue;
+                continue
             }
-            PathToSchemasMap otherPathToSchemas = JsonSchema.validate(propSchema, propValue, propValidationMetadata);
-            pathToSchemas.update(otherPathToSchemas);
+            val otherPathToSchemas = JsonSchema.validate(propSchema, propValue, propValidationMetadata)
+            pathToSchemas.update(otherPathToSchemas)
         }
-        return pathToSchemas;
+        return pathToSchemas
     }
 }
