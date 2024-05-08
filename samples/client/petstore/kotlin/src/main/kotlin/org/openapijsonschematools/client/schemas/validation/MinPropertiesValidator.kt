@@ -1,25 +1,19 @@
-package org.openapijsonschematools.client.schemas.validation;
+package org.openapijsonschematools.client.schemas.validation
 
-import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.checkerframework.checker.nullness.qual.Nullable;
+import org.openapijsonschematools.client.exceptions.ValidationException
 
-import java.util.Map;
-
-public class MinPropertiesValidator implements KeywordValidator {
-    @Override
-    public @Nullable PathToSchemasMap validate(
-        ValidationData data
-    ) throws ValidationException {
-        var minProperties = data.schema().minProperties;
-        if (minProperties == null) {
-            return null;
+class MinPropertiesValidator : KeywordValidator {
+    @Throws(ValidationException::class)
+    override fun validate(
+        data: ValidationData
+    ): PathToSchemasMap? {
+        val minProperties: Int = data.schema.minProperties ?: return null
+        if (data.arg !is Map<*, *>) {
+            return null
         }
-        if (!(data.arg() instanceof Map<?, ?> mapArg)) {
-            return null;
+        if (data.arg.size < minProperties) {
+            throw ValidationException("Value ${data.arg} is invalid because has < the minProperties of $minProperties")
         }
-        if (mapArg.size() < minProperties) {
-            throw new ValidationException("Value " + mapArg + " is invalid because has < the minProperties of " + minProperties);
-        }
-        return null;
+        return null
     }
 }

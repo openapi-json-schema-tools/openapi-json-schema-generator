@@ -1,25 +1,19 @@
-package org.openapijsonschematools.client.schemas.validation;
+package org.openapijsonschematools.client.schemas.validation
 
-import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.checkerframework.checker.nullness.qual.Nullable;
+import org.openapijsonschematools.client.exceptions.ValidationException
 
-import java.util.Map;
-
-public class MaxPropertiesValidator implements KeywordValidator {
-    @Override
-    public @Nullable PathToSchemasMap validate(
-        ValidationData data
-    ) throws ValidationException {
-        var maxProperties = data.schema().maxProperties;
-        if (maxProperties == null) {
-            return null;
+class MaxPropertiesValidator : KeywordValidator {
+    @Throws(ValidationException::class)
+    override fun validate(
+        data: ValidationData
+    ): PathToSchemasMap? {
+        val maxProperties: Int = data.schema.maxProperties ?: return null
+        if (data.arg !is Map<*, *>) {
+            return null
         }
-        if (!(data.arg() instanceof Map<?, ?> mapArg)) {
-            return null;
+        if (data.arg.size > maxProperties) {
+            throw ValidationException("Value ${data.arg} is invalid because has > the maxProperties of $maxProperties")
         }
-        if (mapArg.size() > maxProperties) {
-            throw new ValidationException("Value " + mapArg + " is invalid because has > the maxProperties of " + maxProperties);
-        }
-        return null;
+        return null
     }
 }
