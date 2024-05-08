@@ -221,7 +221,7 @@ abstract class JsonSchema<T> protected constructor(jsonSchemaInfo: JsonSchemaInf
     private fun getContainsPathToSchemas(
         arg: Any?,
         validationMetadata: ValidationMetadata
-    ): List<PathToSchemasMap>? {
+    ): List<PathToSchemasMap> {
         if (arg !is List<*> || contains == null) {
             return ArrayList()
         }
@@ -229,8 +229,7 @@ abstract class JsonSchema<T> protected constructor(jsonSchemaInfo: JsonSchemaInf
         val containsPathToSchemas: MutableList<PathToSchemasMap> = ArrayList()
         for (i in arg.indices) {
             val thesePathToSchemas = PathToSchemasMap()
-            val itemPathToItem: MutableList<Any> = ArrayList<Any>(validationMetadata.pathToItem)
-            itemPathToItem.add(i)
+            val itemPathToItem: List<Any> = validationMetadata.pathToItem + i
             val itemValidationMetadata = ValidationMetadata(
                 itemPathToItem,
                 validationMetadata.configuration,
@@ -265,8 +264,7 @@ abstract class JsonSchema<T> protected constructor(jsonSchemaInfo: JsonSchemaInf
         for ((key, value) in arg) {
             val entryKey = key!! as? String
                 ?: throw ValidationException("Invalid non-string type for map key")
-            val propPathToItem: MutableList<Any> = ArrayList<Any?>(validationMetadata.pathToItem())
-            propPathToItem.add(entryKey)
+            val propPathToItem: List<Any> = validationMetadata.pathToItem + entryKey
             val propValidationMetadata = ValidationMetadata(
                 propPathToItem,
                 validationMetadata.configuration,
@@ -328,8 +326,7 @@ abstract class JsonSchema<T> protected constructor(jsonSchemaInfo: JsonSchemaInf
         val argFixed: MutableList<Any?> = ArrayList()
         var i = 0
         for (item in arg) {
-            val newPathToItem: MutableList<Any?> = ArrayList(pathToItem)
-            newPathToItem.add(i)
+            val newPathToItem: List<Any> = pathToItem + i
             val fixedVal = castToAllowedObjectTypes(item, newPathToItem, pathSet)
             argFixed.add(fixedVal)
             i += 1
@@ -349,10 +346,8 @@ abstract class JsonSchema<T> protected constructor(jsonSchemaInfo: JsonSchemaInf
             if (entryKey !is String) {
                 throw ValidationException("Invalid non-string key value")
             }
-            val `val` = value!!
-            val newPathToItem: MutableList<Any?> = ArrayList(pathToItem)
-            newPathToItem.add(entryKey)
-            val fixedVal = castToAllowedObjectTypes(`val`, newPathToItem, pathSet)
+            val newPathToItem: List<Any> = pathToItem + entryKey
+            val fixedVal = castToAllowedObjectTypes(value, newPathToItem, pathSet)
             argFixed[entryKey] = fixedVal
         }
         return argFixed
@@ -360,34 +355,47 @@ abstract class JsonSchema<T> protected constructor(jsonSchemaInfo: JsonSchemaInf
 
     @Throws(ValidationException::class)
     private fun castToAllowedObjectTypes(arg: Any?, pathToItem: List<Any>, pathSet: MutableSet<List<Any>>): Any? {
-        return if (arg == null) {
-            castToAllowedTypes(arg, pathToItem, pathSet)
-        } else if (arg is String) {
-            castToAllowedTypes(arg, pathToItem, pathSet)
-        } else if (arg is Map<*, *>) {
-            pathSet.add(pathToItem)
-            castToAllowedTypes(arg, pathToItem, pathSet)
-        } else if (arg is Boolean) {
-            castToAllowedTypes(arg, pathToItem, pathSet)
-        } else if (arg is Int) {
-            castToAllowedTypes(arg as Number, pathToItem, pathSet)
-        } else if (arg is Long) {
-            castToAllowedTypes(arg as Number, pathToItem, pathSet)
-        } else if (arg is Float) {
-            castToAllowedTypes(arg as Number, pathToItem, pathSet)
-        } else if (arg is Double) {
-            castToAllowedTypes(arg as Number, pathToItem, pathSet)
-        } else if (arg is List<*>) {
-            castToAllowedTypes(arg, pathToItem, pathSet)
-        } else if (arg is ZonedDateTime) {
-            castToAllowedTypes(arg.toString(), pathToItem, pathSet)
-        } else if (arg is LocalDate) {
-            castToAllowedTypes(arg.toString(), pathToItem, pathSet)
-        } else if (arg is UUID) {
-            castToAllowedTypes(arg.toString(), pathToItem, pathSet)
-        } else {
-            val argClass: Class<*> = arg.javaClass
-            throw ValidationException("Invalid type passed in for input=$arg type=$argClass")
+        return when (arg) {
+            null -> {
+                castToAllowedTypes(null, pathToItem, pathSet)
+            }
+            is String -> {
+                castToAllowedTypes(arg, pathToItem, pathSet)
+            }
+
+            is Map<*, *> -> {
+                pathSet.add(pathToItem)
+                castToAllowedTypes(arg, pathToItem, pathSet)
+            }
+
+            is Boolean -> {
+                castToAllowedTypes(arg, pathToItem, pathSet)
+            }
+
+            is Number -> {
+                castToAllowedTypes(arg, pathToItem, pathSet)
+            }
+
+            is List<*> -> {
+                castToAllowedTypes(arg, pathToItem, pathSet)
+            }
+
+            is ZonedDateTime -> {
+                castToAllowedTypes(arg.toString(), pathToItem, pathSet)
+            }
+
+            is LocalDate -> {
+                castToAllowedTypes(arg.toString(), pathToItem, pathSet)
+            }
+
+            is UUID -> {
+                castToAllowedTypes(arg.toString(), pathToItem, pathSet)
+            }
+
+            else -> {
+                val argClass = arg.javaClass
+                throw ValidationException("Invalid type passed in for input=$arg type=$argClass")
+            }
         }
     }
 
@@ -455,7 +463,7 @@ abstract class JsonSchema<T> protected constructor(jsonSchemaInfo: JsonSchemaInf
             }
             val pathToItem: List<Any> = validationMetadata.pathToItem
             if (!pathToSchemas.containsKey(pathToItem)) {
-                pathToSchemas[validationMetadata.pathToItem] = LinkedHashMap<Any, Any>()
+                pathToSchemas[validationMetadata.pathToItem] = LinkedHashMap()
             }
             val schemas: LinkedHashMap<JsonSchema<*>, Nothing?>? = pathToSchemas[pathToItem]
             if (schemas != null) {
@@ -477,13 +485,13 @@ abstract class JsonSchema<T> protected constructor(jsonSchemaInfo: JsonSchemaInf
             val otherPathToSchemas = validate(jsonSchema, arg, validationMetadata)
             pathToSchemasMap.update(otherPathToSchemas)
             for (schemas in pathToSchemasMap.values) {
-                val firstSchema: JsonSchema<*> = schemas!!.entries.iterator().next().key!!
+                val firstSchema: JsonSchema<*> = schemas.entries.iterator().next().key
                 schemas.clear()
                 schemas[firstSchema] = null
             }
-            var mutPathSet: MutableSet<List<Any>> = pathSet.toMutableSet()
+            val mutPathSet: MutableSet<List<Any>> = pathSet.toMutableSet()
             mutPathSet.removeAll(pathToSchemasMap.keys)
-            if (!mutPathSet.isEmpty()) {
+            if (mutPathSet.isNotEmpty()) {
                 val unsetAnyTypeSchema = LinkedHashMap<JsonSchema<*>, Nothing?>()
                 unsetAnyTypeSchema[UnsetAnyTypeJsonSchema.UnsetAnyTypeJsonSchema1.getInstance()] = null
                 for (pathToItem in mutPathSet) {
