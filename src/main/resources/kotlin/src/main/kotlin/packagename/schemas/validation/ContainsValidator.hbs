@@ -1,30 +1,27 @@
 package {{{packageName}}}.schemas.validation;
 
-import org.checkerframework.checker.nullness.qual.Nullable;
 import {{{packageName}}}.exceptions.ValidationException;
 
-import java.util.List;
-
-public class ContainsValidator implements KeywordValidator {
-    @Override
-    public @Nullable PathToSchemasMap validate(
-        ValidationData data
-    ) throws ValidationException {
-        if (!(data.arg() instanceof List)) {
-            return null;
+class ContainsValidator : KeywordValidator {
+    @Throws(ValidationException::class)
+    override fun validate(
+        data: ValidationData
+    ): PathToSchemasMap? {
+        if (data.arg !is List<*>) {
+            return null
         }
-        var containsPathToSchemas = data.containsPathToSchemas();
-        if (containsPathToSchemas == null || containsPathToSchemas.isEmpty()) {
-            throw new ValidationException(
-                "Validation failed for contains keyword in class="+data.schema().getClass()
-                + " at pathToItem="+data.validationMetadata().pathToItem()+". No "
+        val containsPathToSchemas: List<PathToSchemasMap>? = data.containsPathToSchemas
+        if (containsPathToSchemas.isNullOrEmpty()) {
+            throw ValidationException(
+                "Validation failed for contains keyword in class=${data.schema.javaClass}"
+                + " at pathToItem=${data.validationMetadata.pathToItem}. No "
                 + "items validated to the contains schema."
-            );
+            )
         }
-        PathToSchemasMap pathToSchemas = new PathToSchemasMap();
-        for (PathToSchemasMap otherPathToSchema: containsPathToSchemas) {
-            pathToSchemas.update(otherPathToSchema);
+        val pathToSchemas = PathToSchemasMap()
+        for (otherPathToSchema in containsPathToSchemas) {
+            pathToSchemas.update(otherPathToSchema)
         }
-        return pathToSchemas;
+        return pathToSchemas
     }
 }

@@ -1,33 +1,30 @@
-package org.openapijsonschematools.client.schemas.validation;
+package org.openapijsonschematools.client.schemas.validation
 
-import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.checkerframework.checker.nullness.qual.Nullable;
+import org.openapijsonschematools.client.exceptions.ValidationException
+import java.math.BigDecimal
 
-import java.math.BigDecimal;
-import java.util.Objects;
-
-public class ConstValidator extends BigDecimalValidator implements KeywordValidator {
-    @Override
-    public @Nullable PathToSchemasMap validate(
-        ValidationData data
-    ) throws ValidationException {
-        if (!data.schema().constValueSet) {
-            return null;
+class ConstValidator : BigDecimalValidator(), KeywordValidator {
+    @Throws(ValidationException::class)
+    override fun validate(
+        data: ValidationData
+    ): PathToSchemasMap? {
+        if (!data.schema.constValueSet) {
+            return null
         }
-        var constValue = data.schema().constValue;
-        if (data.arg() instanceof Number numberArg) {
-            BigDecimal castArg = getBigDecimal(numberArg);
-            if (Objects.equals(castArg, constValue)) {
-                return null;
+        val constValue: Any? = data.schema.constValue
+        if (data.arg is Number) {
+            val castArg = getBigDecimal(data.arg)
+            if (castArg == constValue) {
+                return null
             }
-            if (constValue instanceof BigDecimal && ((BigDecimal) constValue).compareTo(castArg) == 0) {
-                return null;
+            if (constValue is BigDecimal && constValue.compareTo(castArg) == 0) {
+                return null
             }
         } else {
-            if (Objects.equals(data.arg(), constValue)) {
-                return null;
+            if (data.arg == constValue) {
+                return null
             }
         }
-        throw new ValidationException("Invalid value "+data.arg()+" was not equal to const "+constValue);
+        throw ValidationException("Invalid value " + data.arg + " was not equal to const " + constValue)
     }
 }
