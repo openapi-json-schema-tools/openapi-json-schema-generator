@@ -1,45 +1,42 @@
-package org.openapijsonschematools.client.schemas.validation;
+package org.openapijsonschematools.client.schemas.validation
 
-import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.checkerframework.checker.nullness.qual.Nullable;
+import org.openapijsonschematools.client.exceptions.ValidationException
 
-public class ExclusiveMaximumValidator implements KeywordValidator {
-    @Override
-    public @Nullable PathToSchemasMap validate(
-        ValidationData data
-    ) throws ValidationException {
-        var exclusiveMaximum = data.schema().exclusiveMaximum;
-        if (exclusiveMaximum == null) {
-            return null;
+class ExclusiveMaximumValidator : KeywordValidator {
+    @Throws(ValidationException::class)
+    override fun validate(
+        data: ValidationData
+    ): PathToSchemasMap? {
+        val exclusiveMaximum: Number = data.schema.exclusiveMaximum ?: return null
+        if (data.arg !is Number) {
+            return null
         }
-        if (!(data.arg() instanceof Number)) {
-            return null;
-        }
-        String msg = "Value " + data.arg() + " is invalid because it is >= the exclusiveMaximum of " + exclusiveMaximum;
-        if (data.arg() instanceof Integer intArg) {
-            if (intArg.compareTo(exclusiveMaximum.intValue()) > -1) {
-                throw new ValidationException(msg);
+        val msg =
+            "Value " + data.arg + " is invalid because it is >= the exclusiveMaximum of " + exclusiveMaximum
+        if (data.arg is Int) {
+            if (data.arg.compareTo(exclusiveMaximum.toInt()) > -1) {
+                throw ValidationException(msg)
             }
-            return null;
+            return null
         }
-        if (data.arg() instanceof Long longArg) {
-            if (longArg.compareTo(exclusiveMaximum.longValue()) > -1) {
-                throw new ValidationException(msg);
+        if (data.arg is Long) {
+            if (data.arg.compareTo(exclusiveMaximum.toLong()) > -1) {
+                throw ValidationException(msg)
             }
-            return null;
+            return null
         }
-        if (data.arg() instanceof Float floatArg) {
-            if (floatArg.compareTo(exclusiveMaximum.floatValue()) > -1) {
-                throw new ValidationException(msg);
+        if (data.arg is Float) {
+            if (data.arg.compareTo(exclusiveMaximum.toFloat()) > -1) {
+                throw ValidationException(msg)
             }
-            return null;
+            return null
         }
-        if (data.arg() instanceof Double doubleArg) {
-            if (doubleArg.compareTo(exclusiveMaximum.doubleValue()) > -1) {
-                throw new ValidationException(msg);
+        if (data.arg is Double) {
+            if (data.arg.compareTo(exclusiveMaximum.toDouble()) > -1) {
+                throw ValidationException(msg)
             }
-            return null;
+            return null
         }
-        return null;
+        return null
     }
 }
