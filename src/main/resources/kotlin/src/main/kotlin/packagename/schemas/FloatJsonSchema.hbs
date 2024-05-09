@@ -22,7 +22,14 @@ class FloatJsonSchema {
 
     class FloatJsonSchema1 private constructor() : JsonSchema<FloatJsonSchema1Boxed>(
         JsonSchemaInfo()
+        {{#if generatorSettings.intsAllowedForFloatDoubleFormats}}
+            .type(setOf(
+                    Integer::class.java,
+                    Float::class.java
+            ))
+        {{else}}
             .type(setOf(Float::class.java))
+        {{/if}}
             .format("float")
     ), NumberSchemaValidator<FloatJsonSchema1BoxedNumber> {
         @Throws(ValidationException::class)
