@@ -1,94 +1,87 @@
-package org.openapijsonschematools.client.schemas;
+package org.openapijsonschematools.client.schemas
 
-import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
-import org.openapijsonschematools.client.configurations.SchemaConfiguration;
-import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.schemas.validation.JsonSchema;
-import org.openapijsonschematools.client.schemas.validation.JsonSchemaInfo;
-import org.openapijsonschematools.client.schemas.validation.PathToSchemasMap;
-import org.openapijsonschematools.client.schemas.validation.StringSchemaValidator;
-import org.openapijsonschematools.client.schemas.validation.ValidationMetadata;
-import org.checkerframework.checker.nullness.qual.Nullable;
+import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags
+import org.openapijsonschematools.client.configurations.SchemaConfiguration
+import org.openapijsonschematools.client.exceptions.ValidationException
+import org.openapijsonschematools.client.schemas.validation.JsonSchema
+import org.openapijsonschematools.client.schemas.validation.JsonSchemaInfo
+import org.openapijsonschematools.client.schemas.validation.PathToSchemasMap
+import org.openapijsonschematools.client.schemas.validation.StringSchemaValidator
+import org.openapijsonschematools.client.schemas.validation.ValidationMetadata
 
-import java.time.ZonedDateTime;
-import java.util.HashSet;
-import java.util.LinkedHashSet;
-import java.util.List;
-import java.util.Objects;
-import java.util.Set;
+import java.time.ZonedDateTime
 
-public class DateTimeJsonSchema {
-    public sealed interface DateTimeJsonSchema1Boxed permits DateTimeJsonSchema1BoxedString {
-        @Nullable Object getData();
+class DateTimeJsonSchema {
+    sealed interface DateTimeJsonSchema1Boxed {
+        fun getData(): Any?
     }
-    public record DateTimeJsonSchema1BoxedString(String data) implements DateTimeJsonSchema1Boxed {
-        @Override
-        public @Nullable Object getData() {
-            return data;
+
+    data class DateTimeJsonSchema1BoxedString(val data: String) : DateTimeJsonSchema1Boxed {
+        override fun getData(): String {
+            return data
         }
     }
 
-    public static class DateTimeJsonSchema1 extends JsonSchema<DateTimeJsonSchema1Boxed> implements StringSchemaValidator<DateTimeJsonSchema1BoxedString> {
-        private static @Nullable DateTimeJsonSchema1 instance = null;
-
-        protected DateTimeJsonSchema1() {
-            super(new JsonSchemaInfo()
-                    .type(Set.of(String.class))
-                    .format("date-time")
-            );
+    class DateTimeJsonSchema1 private constructor() : JsonSchema<DateTimeJsonSchema1Boxed>(
+        JsonSchemaInfo()
+            .type(setOf(String::class.java))
+            .format("date-time")
+    ), StringSchemaValidator<DateTimeJsonSchema1BoxedString> {
+        @Throws(ValidationException::class)
+        override fun validate(arg: String, configuration: SchemaConfiguration?): String {
+            val pathSet: MutableSet<List<Any>> = HashSet()
+            val pathToItem = listOf<Any>("args[0")
+            val castArg: String = castToAllowedTypes(arg, pathToItem, pathSet)
+            val usedConfiguration = configuration ?: SchemaConfiguration(JsonSchemaKeywordFlags.Builder().build())
+            val validationMetadata =
+                ValidationMetadata(pathToItem, usedConfiguration, PathToSchemasMap(), LinkedHashSet())
+            val pathToSchemasMap = getPathToSchemas(this, castArg, validationMetadata, pathSet)
+            return getNewInstance(castArg, validationMetadata.pathToItem, pathToSchemasMap)
         }
 
-        public static DateTimeJsonSchema1 getInstance() {
-            if (instance == null) {
-                instance = new DateTimeJsonSchema1();
+        @Throws(ValidationException::class)
+        fun validate(arg: ZonedDateTime, configuration: SchemaConfiguration?): String {
+            return validate(arg.toString(), configuration)
+        }
+
+        override fun getNewInstance(arg: Any?, pathToItem: List<Any>, pathToSchemas: PathToSchemasMap): Any? {
+            if (arg is String) {
+                return getNewInstance(arg as String?, pathToItem, pathToSchemas)
             }
-            return instance;
+            throw RuntimeException("Invalid input type=$javaClass. It can't be instantiated by this schema")
         }
 
-        @Override
-        public String validate(String arg, SchemaConfiguration configuration) throws ValidationException {
-            Set<List<Object>> pathSet = new HashSet<>();
-            List<Object> pathToItem = List.of("args[0");
-            String castArg = castToAllowedTypes(arg, pathToItem, pathSet);
-            SchemaConfiguration usedConfiguration = Objects.requireNonNullElseGet(configuration, () -> new SchemaConfiguration(new JsonSchemaKeywordFlags.Builder().build()));
-            ValidationMetadata validationMetadata = new ValidationMetadata(pathToItem, usedConfiguration, new PathToSchemasMap(), new LinkedHashSet<>());
-            PathToSchemasMap pathToSchemasMap = getPathToSchemas(this, castArg, validationMetadata, pathSet);
-            return getNewInstance(castArg, validationMetadata.pathToItem(), pathToSchemasMap);
-        }
-
-        public String validate(ZonedDateTime arg, SchemaConfiguration configuration) throws ValidationException {
-            return validate(arg.toString(), configuration);
-        }
-
-        @Override
-        public @Nullable Object getNewInstance(@Nullable Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
-            if (arg instanceof String) {
-                return getNewInstance((String) arg, pathToItem, pathToSchemas);
+        @Throws(ValidationException::class)
+        override fun validate(arg: Any?, configuration: SchemaConfiguration?): String {
+            if (arg is String) {
+                return validate(arg, configuration)
+            } else if (arg is ZonedDateTime) {
+                return validate(arg, configuration)
             }
-            throw new RuntimeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
+            throw ValidationException("Invalid input type=$javaClass. It can't be validated by this schema")
         }
 
-        @Override
-        public @Nullable Object validate(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException {
-            if (arg instanceof String) {
-                return validate((String) arg, configuration);
-            } else if (arg instanceof ZonedDateTime) {
-                return validate((ZonedDateTime) arg, configuration);
+        @Throws(ValidationException::class)
+        override fun validateAndBox(arg: String, configuration: SchemaConfiguration?): DateTimeJsonSchema1BoxedString {
+            return DateTimeJsonSchema1BoxedString(validate(arg, configuration))
+        }
+
+        @Throws(ValidationException::class)
+        override fun validateAndBox(arg: Any?, configuration: SchemaConfiguration?): DateTimeJsonSchema1Boxed {
+            if (arg is String) {
+                return validateAndBox(arg, configuration)
             }
-            throw new ValidationException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
+            throw ValidationException("Invalid input type=$javaClass. It can't be validated by this schema")
         }
 
-        @Override
-        public DateTimeJsonSchema1BoxedString validateAndBox(String arg, SchemaConfiguration configuration) throws ValidationException {
-            return new DateTimeJsonSchema1BoxedString(validate(arg, configuration));
-        }
+        companion object {
+            @Volatile
+            private var instance: DateTimeJsonSchema1? = null
 
-        @Override
-        public DateTimeJsonSchema1Boxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException {
-            if (arg instanceof String castArg) {
-                return validateAndBox(castArg, configuration);
-            }
-            throw new ValidationException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
+            fun getInstance() =
+                instance ?: synchronized(this) {
+                    instance ?: DateTimeJsonSchema1().also { instance = it }
+                }
         }
     }
 }
