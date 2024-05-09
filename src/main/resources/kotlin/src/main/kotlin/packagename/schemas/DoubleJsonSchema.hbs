@@ -8,93 +8,76 @@ import {{{packageName}}}.schemas.validation.JsonSchemaInfo;
 import {{{packageName}}}.schemas.validation.PathToSchemasMap;
 import {{{packageName}}}.schemas.validation.NumberSchemaValidator;
 import {{{packageName}}}.schemas.validation.ValidationMetadata;
-import org.checkerframework.checker.nullness.qual.Nullable;
 
-import java.util.HashSet;
-import java.util.LinkedHashSet;
-import java.util.List;
-import java.util.Objects;
-import java.util.Set;
-
-public class DoubleJsonSchema {
-    public sealed interface DoubleJsonSchema1Boxed permits DoubleJsonSchema1BoxedNumber {
-        @Nullable Object getData();
+class DoubleJsonSchema {
+    sealed interface DoubleJsonSchema1Boxed {
+        fun getData(): Any?
     }
-    public record DoubleJsonSchema1BoxedNumber(Number data) implements DoubleJsonSchema1Boxed {
-        @Override
-        public @Nullable Object getData() {
-            return data;
+
+    data class DoubleJsonSchema1BoxedNumber(val data: Number) : DoubleJsonSchema1Boxed {
+        override fun getData(): Number {
+            return data
         }
     }
 
-    public static class DoubleJsonSchema1 extends JsonSchema<DoubleJsonSchema1Boxed> implements NumberSchemaValidator<DoubleJsonSchema1BoxedNumber> {
-        private static @Nullable DoubleJsonSchema1 instance = null;
-
-        protected DoubleJsonSchema1() {
-            super(new JsonSchemaInfo()
-        {{#if generatorSettings.intsAllowedForFloatDoubleFormats}}
-                    .type(Set.of(
-                            Integer.class,
-                            Long.class,
-                            Float.class,
-                            Double.class
-                    ))
-        {{else}}
-                    .type(Set.of(Double.class))
-        {{/if}}
-                    .format("double")
-            );
+    class DoubleJsonSchema1 private constructor() : JsonSchema<DoubleJsonSchema1Boxed>(
+        JsonSchemaInfo()
+            .type(setOf(Double::class.java))
+            .format("double")
+    ), NumberSchemaValidator<DoubleJsonSchema1BoxedNumber> {
+        @Throws(ValidationException::class)
+        override fun validate(arg: Number, configuration: SchemaConfiguration?): Number {
+            val pathSet: MutableSet<List<Any>> = HashSet()
+            val pathToItem = listOf<Any>("args[0")
+            val castArg: Number = castToAllowedTypes(arg, pathToItem, pathSet)
+            val usedConfiguration = configuration ?: SchemaConfiguration(JsonSchemaKeywordFlags.Builder().build())
+            val validationMetadata =
+                ValidationMetadata(pathToItem, usedConfiguration, PathToSchemasMap(), LinkedHashSet())
+            val pathToSchemasMap = getPathToSchemas(this, castArg, validationMetadata, pathSet)
+            return getNewInstance(castArg, validationMetadata.pathToItem, pathToSchemasMap)
         }
 
-        public static DoubleJsonSchema1 getInstance() {
-            if (instance == null) {
-                instance = new DoubleJsonSchema1();
+        @Throws(ValidationException::class)
+        fun validate(arg: Double, configuration: SchemaConfiguration?): Double {
+            return validate(arg as Number, configuration) as Double
+        }
+
+        override fun getNewInstance(arg: Any?, pathToItem: List<Any>, pathToSchemas: PathToSchemasMap): Any? {
+            if (arg is Number) {
+                return getNewInstance(arg as Number?, pathToItem, pathToSchemas)
             }
-            return instance;
+            throw RuntimeException("Invalid input type=$javaClass. It can't be instantiated by this schema")
         }
 
-        @Override
-        public Number validate(Number arg, SchemaConfiguration configuration) throws ValidationException {
-            Set<List<Object>> pathSet = new HashSet<>();
-            List<Object> pathToItem = List.of("args[0");
-            Number castArg = castToAllowedTypes(arg, pathToItem, pathSet);
-            SchemaConfiguration usedConfiguration = Objects.requireNonNullElseGet(configuration, () -> new SchemaConfiguration(new JsonSchemaKeywordFlags.Builder().build()));
-            ValidationMetadata validationMetadata = new ValidationMetadata(pathToItem, usedConfiguration, new PathToSchemasMap(), new LinkedHashSet<>());
-            PathToSchemasMap pathToSchemasMap = getPathToSchemas(this, castArg, validationMetadata, pathSet);
-            return getNewInstance(castArg, validationMetadata.pathToItem(), pathToSchemasMap);
-        }
-
-        public double validate(double arg, SchemaConfiguration configuration) throws ValidationException {
-            return (double) validate((Number) arg, configuration);
-        }
-
-        @Override
-        public @Nullable Object getNewInstance(@Nullable Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
-            if (arg instanceof Number) {
-                return getNewInstance((Number) arg, pathToItem, pathToSchemas);
+        @Throws(ValidationException::class)
+        override fun validate(arg: Any?, configuration: SchemaConfiguration?): Number {
+            if (arg is Number) {
+                return validate(arg, configuration)
             }
-            throw new RuntimeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
+            throw ValidationException("Invalid input type=$javaClass. It can't be validated by this schema")
         }
 
-        @Override
-        public @Nullable Object validate(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException {
-            if (arg instanceof Number) {
-                return validate((Number) arg, configuration);
+        @Throws(ValidationException::class)
+        override fun validateAndBox(arg: Number, configuration: SchemaConfiguration?): DoubleJsonSchema1BoxedNumber {
+            return DoubleJsonSchema1BoxedNumber(validate(arg, configuration))
+        }
+
+        @Throws(ValidationException::class)
+        override fun validateAndBox(arg: Any?, configuration: SchemaConfiguration?): DoubleJsonSchema1Boxed {
+            if (arg is Number) {
+                return validateAndBox(arg, configuration)
             }
-            throw new ValidationException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
+            throw ValidationException("Invalid input type=$javaClass. It can't be validated by this schema")
         }
 
-        @Override
-        public DoubleJsonSchema1BoxedNumber validateAndBox(Number arg, SchemaConfiguration configuration) throws ValidationException {
-            return new DoubleJsonSchema1BoxedNumber(validate(arg, configuration));
-        }
+        companion object {
+            @Volatile
+            private var instance: DoubleJsonSchema1? = null
 
-        @Override
-        public DoubleJsonSchema1Boxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException {
-            if (arg instanceof Number castArg) {
-                return validateAndBox(castArg, configuration);
-            }
-            throw new ValidationException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
+            fun getInstance() =
+                instance ?: synchronized(this) {
+                    instance ?: DoubleJsonSchema1().also { instance = it }
+                }
         }
     }
 }
