@@ -8,87 +8,84 @@ import {{{packageName}}}.schemas.validation.JsonSchemaInfo;
 import {{{packageName}}}.schemas.validation.PathToSchemasMap;
 import {{{packageName}}}.schemas.validation.StringSchemaValidator;
 import {{{packageName}}}.schemas.validation.ValidationMetadata;
-import org.checkerframework.checker.nullness.qual.Nullable;
 
 import java.time.LocalDate;
-import java.util.HashSet;
-import java.util.LinkedHashSet;
-import java.util.List;
-import java.util.Objects;
-import java.util.Set;
 
-public class DateJsonSchema {
-    public sealed interface DateJsonSchema1Boxed permits DateJsonSchema1BoxedString {
-        @Nullable Object getData();
+class DateJsonSchema {
+    sealed interface DateJsonSchema1Boxed {
+        fun getData(): Any?
     }
-    public record DateJsonSchema1BoxedString(String data) implements DateJsonSchema1Boxed {
-        @Override
-        public @Nullable Object getData() {
-            return data;
+
+    data class DateJsonSchema1BoxedString(val data: String) : DateJsonSchema1Boxed {
+        override fun getData(): String {
+            return data
         }
     }
 
-    public static class DateJsonSchema1 extends JsonSchema<DateJsonSchema1Boxed> implements StringSchemaValidator<DateJsonSchema1BoxedString> {
-        private static @Nullable DateJsonSchema1 instance = null;
-
-        protected DateJsonSchema1() {
-            super(new JsonSchemaInfo()
-                    .type(Set.of(String.class))
-                    .format("date")
-            );
-        }
-
-        public static DateJsonSchema1 getInstance() {
-            if (instance == null) {
-                instance = new DateJsonSchema1();
+    class DateJsonSchema1 private constructor() : JsonSchema<DateJsonSchema1Boxed>(
+        JsonSchemaInfo()
+            .type(setOf(String::class.java))
+            .format("date")
+    ), StringSchemaValidator<DateJsonSchema1BoxedString> {
+        @Throws(ValidationException::class)
+        override fun validate(arg: String, configuration: SchemaConfiguration?): String {
+            val pathSet: Set<List<Any>> = HashSet()
+            val pathToItem = listOf<Any>("args[0")
+            val castArg: String = castToAllowedTypes(arg, pathToItem, pathSet)
+            val usedConfiguration = Objects.requireNonNullElseGet(configuration) {
+                SchemaConfiguration(
+                    JsonSchemaKeywordFlags.Builder().build()
+                )
             }
-            return instance;
+            val validationMetadata =
+                ValidationMetadata(pathToItem, usedConfiguration!!, PathToSchemasMap(), LinkedHashSet())
+            val pathToSchemasMap = getPathToSchemas(this, castArg, validationMetadata, pathSet)
+            return getNewInstance(castArg, validationMetadata.pathToItem(), pathToSchemasMap)
         }
 
-        @Override
-        public String validate(String arg, SchemaConfiguration configuration) throws ValidationException {
-            Set<List<Object>> pathSet = new HashSet<>();
-            List<Object> pathToItem = List.of("args[0");
-            String castArg = castToAllowedTypes(arg, pathToItem, pathSet);
-            SchemaConfiguration usedConfiguration = Objects.requireNonNullElseGet(configuration, () -> new SchemaConfiguration(new JsonSchemaKeywordFlags.Builder().build()));
-            ValidationMetadata validationMetadata = new ValidationMetadata(pathToItem, usedConfiguration, new PathToSchemasMap(), new LinkedHashSet<>());
-            PathToSchemasMap pathToSchemasMap = getPathToSchemas(this, castArg, validationMetadata, pathSet);
-            return getNewInstance(castArg, validationMetadata.pathToItem(), pathToSchemasMap);
+        @Throws(ValidationException::class)
+        fun validate(arg: LocalDate, configuration: SchemaConfiguration?): String {
+            return validate(arg.toString(), configuration)
         }
 
-        public String validate(LocalDate arg, SchemaConfiguration configuration) throws ValidationException {
-            return validate(arg.toString(), configuration);
-        }
-
-        @Override
-        public @Nullable Object getNewInstance(@Nullable Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
-            if (arg instanceof String) {
-                return getNewInstance((String) arg, pathToItem, pathToSchemas);
+        override fun getNewInstance(arg: Any?, pathToItem: List<Any>, pathToSchemas: PathToSchemasMap): Any? {
+            if (arg is String) {
+                return getNewInstance(arg as String?, pathToItem, pathToSchemas)
             }
-            throw new RuntimeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
+            throw RuntimeException("Invalid input type=$javaClass. It can't be instantiated by this schema")
         }
 
-        @Override
-        public @Nullable Object validate(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException {
-            if (arg instanceof String) {
-                return validate((String) arg, configuration);
-            } else if (arg instanceof LocalDate) {
-                return validate((LocalDate) arg, configuration);
+        @Throws(ValidationException::class)
+        override fun validate(arg: Any?, configuration: SchemaConfiguration?): String {
+            if (arg is String) {
+                return validate(arg, configuration)
+            } else if (arg is LocalDate) {
+                return validate(arg, configuration)
             }
-            throw new ValidationException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
+            throw ValidationException("Invalid input type=$javaClass. It can't be validated by this schema")
         }
 
-        @Override
-        public DateJsonSchema1BoxedString validateAndBox(String arg, SchemaConfiguration configuration) throws ValidationException {
-            return new DateJsonSchema1BoxedString(validate(arg, configuration));
+        @Throws(ValidationException::class)
+        override fun validateAndBox(arg: String, configuration: SchemaConfiguration?): DateJsonSchema1BoxedString {
+            return DateJsonSchema1BoxedString(validate(arg, configuration))
         }
 
-        @Override
-        public DateJsonSchema1Boxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException {
-            if (arg instanceof String castArg) {
-                return validateAndBox(castArg, configuration);
+        @Throws(ValidationException::class)
+        override fun validateAndBox(arg: Any?, configuration: SchemaConfiguration?): DateJsonSchema1Boxed {
+            if (arg is String) {
+                return validateAndBox(arg, configuration)
             }
-            throw new ValidationException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
+            throw ValidationException("Invalid input type=$javaClass. It can't be validated by this schema")
+        }
+
+        companion object {
+            @Volatile
+            private var instance: DateJsonSchema1? = null
+
+            fun getInstance() =
+                instance ?: synchronized(this) {
+                    instance ?: DateJsonSchema1().also { instance = it }
+                }
         }
     }
 }

@@ -20,7 +20,7 @@ class NumberJsonSchema {
         }
     }
 
-    class NumberJsonSchema1 private constructor() : JsonSchema<NumberJsonSchema1Boxed?>(
+    class NumberJsonSchema1 private constructor() : JsonSchema<NumberJsonSchema1Boxed>(
         JsonSchemaInfo()
             .type(
                 setOf(
@@ -30,7 +30,7 @@ class NumberJsonSchema {
                     Double::class.java
                 )
             )
-    ), NumberSchemaValidator<NumberJsonSchema1BoxedNumber?> {
+    ), NumberSchemaValidator<NumberJsonSchema1BoxedNumber> {
         @Throws(ValidationException::class)
         override fun validate(arg: Number, configuration: SchemaConfiguration?): Number {
             val pathSet: MutableSet<List<Any>> = HashSet()
