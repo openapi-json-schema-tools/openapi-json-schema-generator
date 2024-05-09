@@ -1,87 +1,77 @@
-package org.openapijsonschematools.client.schemas;
+package org.openapijsonschematools.client.schemas
 
-import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
-import org.openapijsonschematools.client.configurations.SchemaConfiguration;
-import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.schemas.validation.JsonSchema;
-import org.openapijsonschematools.client.schemas.validation.JsonSchemaInfo;
-import org.openapijsonschematools.client.schemas.validation.PathToSchemasMap;
-import org.openapijsonschematools.client.schemas.validation.NullSchemaValidator;
-import org.openapijsonschematools.client.schemas.validation.ValidationMetadata;
-import org.checkerframework.checker.nullness.qual.Nullable;
+import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags
+import org.openapijsonschematools.client.configurations.SchemaConfiguration
+import org.openapijsonschematools.client.exceptions.ValidationException
+import org.openapijsonschematools.client.schemas.validation.JsonSchema
+import org.openapijsonschematools.client.schemas.validation.JsonSchemaInfo
+import org.openapijsonschematools.client.schemas.validation.NullSchemaValidator
+import org.openapijsonschematools.client.schemas.validation.PathToSchemasMap
+import org.openapijsonschematools.client.schemas.validation.ValidationMetadata
 
-import java.util.HashSet;
-import java.util.LinkedHashSet;
-import java.util.List;
-import java.util.Objects;
-import java.util.Set;
-
-public class NullJsonSchema {
-    public sealed interface NullJsonSchema1Boxed permits NullJsonSchema1BoxedVoid {
-        @Nullable Object getData();
+class NullJsonSchema {
+    sealed interface NullJsonSchema1Boxed {
+        fun getData(): Any?
     }
-    public record NullJsonSchema1BoxedVoid(Nothing? data) implements NullJsonSchema1Boxed {
-        @Override
-        public @Nullable Object getData() {
-            return data;
+
+    data class NullJsonSchema1BoxedVoid(val data: Nothing?) : NullJsonSchema1Boxed {
+        override fun getData(): Any? {
+            return data
         }
     }
 
-    public static class NullJsonSchema1 extends JsonSchema<NullJsonSchema1Boxed> implements NullSchemaValidator<NullJsonSchema1BoxedVoid> {
-        private static @Nullable NullJsonSchema1 instance = null;
-
-        protected NullJsonSchema1() {
-            super(new JsonSchemaInfo()
-                    .type(Set.of(Nothing?.class))
-            );
+    class NullJsonSchema1 private constructor() : JsonSchema<NullJsonSchema1Boxed>(
+        JsonSchemaInfo()
+            .type(setOf(Void::class.java))
+    ), NullSchemaValidator<NullJsonSchema1BoxedVoid> {
+        @Throws(ValidationException::class)
+        override fun validate(arg: Nothing?, configuration: SchemaConfiguration?): Nothing? {
+            val pathSet: MutableSet<List<Any>> = HashSet()
+            val pathToItem = listOf<Any>("args[0")
+            val castArg: Nothing? = castToAllowedTypes(arg, pathToItem, pathSet)
+            val usedConfiguration = configuration ?: SchemaConfiguration(JsonSchemaKeywordFlags.Builder().build())
+            val validationMetadata =
+                ValidationMetadata(pathToItem, usedConfiguration, PathToSchemasMap(), LinkedHashSet())
+            val pathToSchemasMap = getPathToSchemas(this, castArg, validationMetadata, pathSet)
+            return getNewInstance(castArg, validationMetadata.pathToItem, pathToSchemasMap)
         }
 
-        public static NullJsonSchema1 getInstance() {
-            if (instance == null) {
-                instance = new NullJsonSchema1();
-            }
-            return instance;
-        }
-
-        @Override
-        public Nothing? validate(Nothing? arg, SchemaConfiguration configuration) throws ValidationException {
-            Set<List<Object>> pathSet = new HashSet<>();
-            List<Object> pathToItem = List.of("args[0");
-            Nothing? castArg = castToAllowedTypes(arg, pathToItem, pathSet);
-            SchemaConfiguration usedConfiguration = Objects.requireNonNullElseGet(configuration, () -> new SchemaConfiguration(new JsonSchemaKeywordFlags.Builder().build()));
-            ValidationMetadata validationMetadata = new ValidationMetadata(pathToItem, usedConfiguration, new PathToSchemasMap(), new LinkedHashSet<>());
-            PathToSchemasMap pathToSchemasMap = getPathToSchemas(this, castArg, validationMetadata, pathSet);
-            return getNewInstance(castArg, validationMetadata.pathToItem(), pathToSchemasMap);
-        }
-
-        @Override
-        public @Nullable Object getNewInstance(@Nullable Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+        override fun getNewInstance(arg: Any?, pathToItem: List<Any>, pathToSchemas: PathToSchemasMap): Any? {
             if (arg == null) {
-                return getNewInstance((Nothing?) null, pathToItem, pathToSchemas);
+                return getNewInstance(null, pathToItem, pathToSchemas)
             }
-            throw new RuntimeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
+            throw RuntimeException("Invalid input type=$javaClass. It can't be instantiated by this schema")
         }
 
-        @Override
-        public @Nullable Object validate(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException {
+        @Throws(ValidationException::class)
+        override fun validate(arg: Any?, configuration: SchemaConfiguration?): Any? {
             if (arg == null) {
-                return validate((Nothing?) null, configuration);
+                return validate(null, configuration)
             }
-            throw new ValidationException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
+            throw ValidationException("Invalid input type=$javaClass. It can't be validated by this schema")
         }
 
-        @Override
-        public NullJsonSchema1BoxedVoid validateAndBox(Nothing? arg, SchemaConfiguration configuration) throws ValidationException {
-            return new NullJsonSchema1BoxedVoid(validate(arg, configuration));
+        @Throws(ValidationException::class)
+        override fun validateAndBox(arg: Nothing?, configuration: SchemaConfiguration?): NullJsonSchema1BoxedVoid {
+            return NullJsonSchema1BoxedVoid(validate(arg, configuration))
         }
 
-        @Override
-        public NullJsonSchema1Boxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException {
+        @Throws(ValidationException::class)
+        override fun validateAndBox(arg: Any?, configuration: SchemaConfiguration?): NullJsonSchema1Boxed {
             if (arg == null) {
-                Nothing? castArg = (Nothing?) arg;
-                return validateAndBox(castArg, configuration);
+                return validateAndBox(null, configuration)
             }
-            throw new ValidationException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
+            throw ValidationException("Invalid input type=$javaClass. It can't be validated by this schema")
+        }
+
+        companion object {
+            @Volatile
+            private var instance: NullJsonSchema1? = null
+
+            fun getInstance() =
+                instance ?: synchronized(this) {
+                    instance ?: NullJsonSchema1().also { instance = it }
+                }
         }
     }
 }

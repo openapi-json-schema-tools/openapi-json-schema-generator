@@ -20,10 +20,10 @@ class BooleanJsonSchema {
         }
     }
 
-    class BooleanJsonSchema1 private constructor() : JsonSchema<BooleanJsonSchema1Boxed?>(
+    class BooleanJsonSchema1 private constructor() : JsonSchema<BooleanJsonSchema1Boxed>(
         JsonSchemaInfo()
             .type(setOf(Boolean::class.java))
-    ), BooleanSchemaValidator<BooleanJsonSchema1BoxedBoolean?> {
+    ), BooleanSchemaValidator<BooleanJsonSchema1BoxedBoolean> {
         @Throws(ValidationException::class)
         override fun validate(arg: Boolean, configuration: SchemaConfiguration?): Boolean {
             val pathSet: MutableSet<List<Any>> = HashSet()
