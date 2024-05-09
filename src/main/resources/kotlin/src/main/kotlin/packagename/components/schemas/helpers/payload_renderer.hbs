@@ -21,9 +21,9 @@
             {{/or}}
         {{/each}}
     {{else}}
-MapUtils.makeMap(
+mapOf{{#eq value.size 0}}<Any?, Any?>{{/eq}}(
         {{#each value}}
-    new AbstractMap.SimpleEntry<String, {{#with ../schema.mapValueSchema}}{{> src/main/kotlin/packagename/components/schemas/types/schema_input_type forceNull=true noExtends=true }}{{/with}}>(
+    Pair(
             {{#if @key.original }}
         "{{{@key.original}}}",
             {{else}}
@@ -49,7 +49,7 @@ MapUtils.makeMap(
             {{/or}}
         {{/each}}
     {{else}}
-Arrays.asList(
+listOf{{#eq value.size 0}}<Any?>{{/eq}}(
         {{#eq value.size 1}}
             {{#each value}}
                 {{! list with single null needs to describe the item as (Nothing?) }}
@@ -75,7 +75,7 @@ Arrays.asList(
 {{value}}f{{endChar}}
         {{else}}
             {{#eq javaType "Double"}}
-{{value}}d{{endChar}}
+{{value}}{{endChar}}
             {{else}}
 {{value}}{{endChar}}{{! Integer }}
             {{/eq}}
@@ -89,7 +89,7 @@ Arrays.asList(
 {{value}}{{endChar}}
 {{/eq}}
 {{#eq type "null"}}
-{{#unless noVoid}}(Nothing?) {{/unless}}null{{endChar}}
+null{{endChar}}
 {{/eq}}
 {{#eq type "string"}}
 "{{{value}}}"{{endChar}}

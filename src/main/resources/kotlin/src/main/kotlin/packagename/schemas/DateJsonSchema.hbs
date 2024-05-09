@@ -1,46 +1,42 @@
-package {{{packageName}}}.schemas;
+package {{{packageName}}}.schemas
 
-import {{{packageName}}}.configurations.JsonSchemaKeywordFlags;
-import {{{packageName}}}.configurations.SchemaConfiguration;
-import {{{packageName}}}.exceptions.ValidationException;
-import {{{packageName}}}.schemas.validation.JsonSchema;
-import {{{packageName}}}.schemas.validation.JsonSchemaInfo;
-import {{{packageName}}}.schemas.validation.PathToSchemasMap;
-import {{{packageName}}}.schemas.validation.StringSchemaValidator;
-import {{{packageName}}}.schemas.validation.ValidationMetadata;
+import {{{packageName}}}.configurations.JsonSchemaKeywordFlags
+import {{{packageName}}}.configurations.SchemaConfiguration
+import {{{packageName}}}.exceptions.ValidationException
+import {{{packageName}}}.schemas.validation.JsonSchema
+import {{{packageName}}}.schemas.validation.JsonSchemaInfo
+import {{{packageName}}}.schemas.validation.PathToSchemasMap
+import {{{packageName}}}.schemas.validation.StringSchemaValidator
+import {{{packageName}}}.schemas.validation.ValidationMetadata
 
-import java.time.LocalDate;
+import java.time.LocalDate
 
-class DateJsonSchema {
+open class DateJsonSchema {
     sealed interface DateJsonSchema1Boxed {
         fun getData(): Any?
     }
 
     data class DateJsonSchema1BoxedString(val data: String) : DateJsonSchema1Boxed {
-        override fun getData(): String {
+        override fun getData(): Any? {
             return data
         }
     }
 
-    class DateJsonSchema1 private constructor() : JsonSchema<DateJsonSchema1Boxed>(
+    open class DateJsonSchema1 protected constructor() : JsonSchema<DateJsonSchema1Boxed>(
         JsonSchemaInfo()
             .type(setOf(String::class.java))
             .format("date")
     ), StringSchemaValidator<DateJsonSchema1BoxedString> {
         @Throws(ValidationException::class)
         override fun validate(arg: String, configuration: SchemaConfiguration?): String {
-            val pathSet: Set<List<Any>> = HashSet()
+            val pathSet: MutableSet<List<Any>> = HashSet()
             val pathToItem = listOf<Any>("args[0")
             val castArg: String = castToAllowedTypes(arg, pathToItem, pathSet)
-            val usedConfiguration = Objects.requireNonNullElseGet(configuration) {
-                SchemaConfiguration(
-                    JsonSchemaKeywordFlags.Builder().build()
-                )
-            }
+            val usedConfiguration = configuration ?: SchemaConfiguration(JsonSchemaKeywordFlags.Builder().build())
             val validationMetadata =
-                ValidationMetadata(pathToItem, usedConfiguration!!, PathToSchemasMap(), LinkedHashSet())
+                ValidationMetadata(pathToItem, usedConfiguration, PathToSchemasMap(), LinkedHashSet())
             val pathToSchemasMap = getPathToSchemas(this, castArg, validationMetadata, pathSet)
-            return getNewInstance(castArg, validationMetadata.pathToItem(), pathToSchemasMap)
+            return getNewInstance(castArg, validationMetadata.pathToItem, pathToSchemasMap)
         }
 
         @Throws(ValidationException::class)
@@ -50,7 +46,7 @@ class DateJsonSchema {
 
         override fun getNewInstance(arg: Any?, pathToItem: List<Any>, pathToSchemas: PathToSchemasMap): Any? {
             if (arg is String) {
-                return getNewInstance(arg as String?, pathToItem, pathToSchemas)
+                return getNewInstance(arg, pathToItem, pathToSchemas)
             }
             throw RuntimeException("Invalid input type=$javaClass. It can't be instantiated by this schema")
         }

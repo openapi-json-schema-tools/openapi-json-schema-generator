@@ -1,114 +1,114 @@
 {{#eq types null}}
-| String | validate(String arg, SchemaConfiguration configuration) |
+| String | validate(arg: String, configuration: SchemaConfiguration) |
     {{#and enumInfo enumInfo.typeToValues.string}}
-| String | validate([String{{enumInfo.jsonPathPiece.pascalCase}}](#string{{enumInfo.jsonPathPiece.kebabCase}}) arg, SchemaConfiguration configuration) |
+| String | validate(arg: [String{{enumInfo.jsonPathPiece.pascalCase}}](#string{{enumInfo.jsonPathPiece.kebabCase}}), configuration: SchemaConfiguration) |
     {{/and}}
-| Nothing? | validate(Nothing? arg, SchemaConfiguration configuration) |
+| Nothing? | validate(arg: Nothing?, configuration: SchemaConfiguration) |
     {{#and enumInfo enumInfo.typeToValues.null}}
-| Nothing? | validate([Null{{enumInfo.jsonPathPiece.pascalCase}}](#null{{enumInfo.jsonPathPiece.kebabCase}}) arg, SchemaConfiguration configuration) |
+| Nothing? | validate(arg: [Null{{enumInfo.jsonPathPiece.pascalCase}}](#null{{enumInfo.jsonPathPiece.kebabCase}}), configuration: SchemaConfiguration) |
     {{/and}}
-| int | validate(int arg, SchemaConfiguration configuration) |
-| long | validate(long arg, SchemaConfiguration configuration) |
-| float | validate(float arg, SchemaConfiguration configuration) |
-| double | validate(double arg, SchemaConfiguration configuration) |
-| Number | validate(Number arg, SchemaConfiguration configuration) |
-| boolean | validate(boolean arg, SchemaConfiguration configuration) |
+| int | validate(arg: int, configuration: SchemaConfiguration) |
+| long | validate(arg: long, configuration: SchemaConfiguration) |
+| float | validate(arg: float, configuration: SchemaConfiguration) |
+| double | validate(arg: double, configuration: SchemaConfiguration) |
+| Number | validate(arg: Number, configuration: SchemaConfiguration) |
+| boolean | validate(arg: boolean, configuration: SchemaConfiguration) |
     {{#and enumInfo enumInfo.typeToValues.boolean}}
-| boolean | validate([Boolean{{enumInfo.jsonPathPiece.pascalCase}}](#boolean{{enumInfo.jsonPathPiece.kebabCase}}) arg, SchemaConfiguration configuration) |
+| boolean | validate(arg: [Boolean{{enumInfo.jsonPathPiece.pascalCase}}](#boolean{{enumInfo.jsonPathPiece.kebabCase}}), configuration: SchemaConfiguration) |
     {{/and}}
     {{#if mapOutputJsonPathPiece }}
-| [{{mapOutputJsonPathPiece.pascalCase}}](#{{> src/main/kotlin/packagename/components/_helper_anchor_id identifierPieces=(append identifierPieces mapOutputJsonPathPiece) }}) | validate([Map&lt;?, ?&gt;](#{{> src/main/kotlin/packagename/components/_helper_anchor_id identifierPieces=(append identifierPieces mapInputJsonPathPiece) }}) arg, SchemaConfiguration configuration) |
+| [{{mapOutputJsonPathPiece.pascalCase}}](#{{> src/main/kotlin/packagename/components/_helper_anchor_id identifierPieces=(append identifierPieces mapOutputJsonPathPiece) }}) | validate(arg: [Map&lt;?, ?&gt;](#{{> src/main/kotlin/packagename/components/_helper_anchor_id identifierPieces=(append identifierPieces mapInputJsonPathPiece) }}), configuration: SchemaConfiguration) |
     {{else}}
-| FrozenMap<@Nullable Object> | validate(Map&lt;?, ?&gt; arg, SchemaConfiguration configuration) |
+| FrozenMap<Any?> | validate(arg: Map&lt;?, ?&gt;, configuration: SchemaConfiguration) |
     {{/if}}
     {{#if arrayOutputJsonPathPiece}}
-| [{{arrayOutputJsonPathPiece.pascalCase}}](#{{> src/main/kotlin/packagename/components/_helper_anchor_id identifierPieces=(append identifierPieces arrayOutputJsonPathPiece) }}) | validate([List<?>](#{{> src/main/kotlin/packagename/components/_helper_anchor_id identifierPieces=(append identifierPieces arrayInputJsonPathPiece) }}) arg, SchemaConfiguration configuration) |
+| [{{arrayOutputJsonPathPiece.pascalCase}}](#{{> src/main/kotlin/packagename/components/_helper_anchor_id identifierPieces=(append identifierPieces arrayOutputJsonPathPiece) }}) | validate(arg: [List<*>](#{{> src/main/kotlin/packagename/components/_helper_anchor_id identifierPieces=(append identifierPieces arrayInputJsonPathPiece) }}), configuration: SchemaConfiguration) |
     {{else}}
-| FrozenList<@Nullable Object> | validate(List<?> arg, SchemaConfiguration configuration) |
+| FrozenList<Any?> | validate(arg: List<*>, configuration: SchemaConfiguration) |
     {{/if}}
-| [{{jsonPathPiece.pascalCase}}BoxedString](#{{> src/main/kotlin/packagename/components/_helper_anchor_id identifierPieces=(append identifierPieces (join jsonPathPiece.kebabCase "boxedstring" ""))}}) | validateAndBox(String arg, SchemaConfiguration configuration) |
-| [{{jsonPathPiece.pascalCase}}BoxedVoid](#{{> src/main/kotlin/packagename/components/_helper_anchor_id identifierPieces=(append identifierPieces (join jsonPathPiece.kebabCase "boxedvoid" ""))}}) | validateAndBox(Nothing? arg, SchemaConfiguration configuration) |
-| [{{jsonPathPiece.pascalCase}}BoxedNumber](#{{> src/main/kotlin/packagename/components/_helper_anchor_id identifierPieces=(append identifierPieces (join jsonPathPiece.kebabCase "boxednumber" ""))}}) | validateAndBox(Number arg, SchemaConfiguration configuration) |
-| [{{jsonPathPiece.pascalCase}}BoxedBoolean](#{{> src/main/kotlin/packagename/components/_helper_anchor_id identifierPieces=(append identifierPieces (join jsonPathPiece.kebabCase "boxedboolean" ""))}}) | validateAndBox(boolean arg, SchemaConfiguration configuration) |
-| [{{jsonPathPiece.pascalCase}}BoxedMap](#{{> src/main/kotlin/packagename/components/_helper_anchor_id identifierPieces=(append identifierPieces (join jsonPathPiece.kebabCase "boxedmap" ""))}}) | validateAndBox({{#if mapInputJsonPathPiece}}[Map&lt;?, ?&gt;](#{{> src/main/kotlin/packagename/components/_helper_anchor_id identifierPieces=(append identifierPieces mapInputJsonPathPiece) }}){{else}}Map&lt;?, ?&gt;{{/if}} arg, SchemaConfiguration configuration) |
-| [{{jsonPathPiece.pascalCase}}BoxedList](#{{> src/main/kotlin/packagename/components/_helper_anchor_id identifierPieces=(append identifierPieces (join jsonPathPiece.kebabCase "boxedlist" ""))}}) | validateAndBox({{#if arrayInputJsonPathPiece}}[List<?>](#{{> src/main/kotlin/packagename/components/_helper_anchor_id identifierPieces=(append identifierPieces arrayInputJsonPathPiece) }}){{else}}List<?>{{/if}} arg, SchemaConfiguration configuration) |
+| [{{jsonPathPiece.pascalCase}}BoxedString](#{{> src/main/kotlin/packagename/components/_helper_anchor_id identifierPieces=(append identifierPieces (join jsonPathPiece.kebabCase "boxedstring" ""))}}) | validateAndBox(String, configuration: SchemaConfiguration) |
+| [{{jsonPathPiece.pascalCase}}BoxedVoid](#{{> src/main/kotlin/packagename/components/_helper_anchor_id identifierPieces=(append identifierPieces (join jsonPathPiece.kebabCase "boxedvoid" ""))}}) | validateAndBox(Nothing?, configuration: SchemaConfiguration) |
+| [{{jsonPathPiece.pascalCase}}BoxedNumber](#{{> src/main/kotlin/packagename/components/_helper_anchor_id identifierPieces=(append identifierPieces (join jsonPathPiece.kebabCase "boxednumber" ""))}}) | validateAndBox(Number, configuration: SchemaConfiguration) |
+| [{{jsonPathPiece.pascalCase}}BoxedBoolean](#{{> src/main/kotlin/packagename/components/_helper_anchor_id identifierPieces=(append identifierPieces (join jsonPathPiece.kebabCase "boxedboolean" ""))}}) | validateAndBox(boolean, configuration: SchemaConfiguration) |
+| [{{jsonPathPiece.pascalCase}}BoxedMap](#{{> src/main/kotlin/packagename/components/_helper_anchor_id identifierPieces=(append identifierPieces (join jsonPathPiece.kebabCase "boxedmap" ""))}}) | validateAndBox({{#if mapInputJsonPathPiece}}[Map&lt;?, ?&gt;](#{{> src/main/kotlin/packagename/components/_helper_anchor_id identifierPieces=(append identifierPieces mapInputJsonPathPiece) }}){{else}}Map&lt;?, ?&gt;{{/if}}, configuration: SchemaConfiguration) |
+| [{{jsonPathPiece.pascalCase}}BoxedList](#{{> src/main/kotlin/packagename/components/_helper_anchor_id identifierPieces=(append identifierPieces (join jsonPathPiece.kebabCase "boxedlist" ""))}}) | validateAndBox({{#if arrayInputJsonPathPiece}}[List<*>](#{{> src/main/kotlin/packagename/components/_helper_anchor_id identifierPieces=(append identifierPieces arrayInputJsonPathPiece) }}){{else}}List<*>{{/if}}, configuration: SchemaConfiguration) |
 {{else}}
     {{#each types}}
         {{#eq this "boolean"}}
-| boolean | validate(boolean arg, SchemaConfiguration configuration) |
+| boolean | validate(arg: boolean, configuration: SchemaConfiguration) |
             {{#and ../enumInfo enumInfo.typeToValues.boolean}}
-| boolean | validate([Boolean{{../enumInfo.jsonPathPiece.pascalCase}}](#boolean{{../enumInfo.jsonPathPiece.kebabCase}}) arg, SchemaConfiguration configuration) |
+| boolean | validate(arg: [Boolean{{../enumInfo.jsonPathPiece.pascalCase}}](#boolean{{../enumInfo.jsonPathPiece.kebabCase}}), configuration: SchemaConfiguration) |
             {{/and}}
-| [{{jsonPathPiece.pascalCase}}BoxedBoolean](#{{> src/main/kotlin/packagename/components/_helper_anchor_id identifierPieces=(append identifierPieces (join jsonPathPiece.kebabCase "boxedboolean" ""))}}) | validateAndBox(boolean arg, SchemaConfiguration configuration) |
+| [{{jsonPathPiece.pascalCase}}BoxedBoolean](#{{> src/main/kotlin/packagename/components/_helper_anchor_id identifierPieces=(append identifierPieces (join jsonPathPiece.kebabCase "boxedboolean" ""))}}) | validateAndBox(boolean, configuration: SchemaConfiguration) |
         {{else}}
             {{#eq this "null"}}
-| Nothing? | validate(Nothing? arg, SchemaConfiguration configuration) |
+| Nothing? | validate(arg: Nothing?, configuration: SchemaConfiguration) |
                 {{#and ../enumInfo ../enumInfo.typeToValues.null}}
-| Nothing? | validate([Null{{../enumInfo.jsonPathPiece.pascalCase}}](#null{{../enumInfo.jsonPathPiece.kebabCase}}) arg, SchemaConfiguration configuration) |
+| Nothing? | validate(arg: [Null{{../enumInfo.jsonPathPiece.pascalCase}}](#null{{../enumInfo.jsonPathPiece.kebabCase}}), configuration: SchemaConfiguration) |
                 {{/and}}
-| [{{jsonPathPiece.pascalCase}}BoxedVoid](#{{> src/main/kotlin/packagename/components/_helper_anchor_id identifierPieces=(append identifierPieces (join jsonPathPiece.kebabCase "boxedvoid" ""))}}) | validateAndBox(Nothing? arg, SchemaConfiguration configuration) |
+| [{{jsonPathPiece.pascalCase}}BoxedVoid](#{{> src/main/kotlin/packagename/components/_helper_anchor_id identifierPieces=(append identifierPieces (join jsonPathPiece.kebabCase "boxedvoid" ""))}}) | validateAndBox(Nothing?, configuration: SchemaConfiguration) |
             {{else}}
                 {{#eq this "string"}}
                     {{#eq format "binary"}}
 {{! todo binary types}}
-| BinaryString | validate(BinaryString arg, SchemaConfiguration configuration) |
+| BinaryString | validate(arg: BinaryString, configuration: SchemaConfiguration) |
                     {{else}}
-| String | validate(String arg, SchemaConfiguration configuration) |
+| String | validate(arg: String, configuration: SchemaConfiguration) |
                         {{#and ../enumInfo ../enumInfo.typeToValues.string}}
-| String | validate([String{{../enumInfo.jsonPathPiece.pascalCase}}](#string{{../enumInfo.jsonPathPiece.kebabCase}}) arg, SchemaConfiguration configuration) |
+| String | validate(arg: [String{{../enumInfo.jsonPathPiece.pascalCase}}](#string{{../enumInfo.jsonPathPiece.kebabCase}}), configuration: SchemaConfiguration) |
                         {{/and}}
-| [{{jsonPathPiece.pascalCase}}BoxedString](#{{> src/main/kotlin/packagename/components/_helper_anchor_id identifierPieces=(append identifierPieces (join jsonPathPiece.kebabCase "boxedstring" ""))}}) | validateAndBox(String arg, SchemaConfiguration configuration) |
+| [{{jsonPathPiece.pascalCase}}BoxedString](#{{> src/main/kotlin/packagename/components/_helper_anchor_id identifierPieces=(append identifierPieces (join jsonPathPiece.kebabCase "boxedstring" ""))}}) | validateAndBox(String, configuration: SchemaConfiguration) |
                     {{/eq}}
                 {{else}}
                     {{#eq this "number"}}
                         {{#eq ../format null}}
-| Number | validate(Number arg, SchemaConfiguration configuration) |
+| Number | validate(arg: Number, configuration: SchemaConfiguration) |
                         {{else}}
                             {{#eq ../format "float"}}
-| float | validate(float arg, SchemaConfiguration configuration) |
+| float | validate(arg: float, configuration: SchemaConfiguration) |
                             {{else}}
                                 {{#eq ../format "double"}}
-| double | validate(double arg, SchemaConfiguration configuration) |
+| double | validate(arg: double, configuration: SchemaConfiguration) |
                                 {{else}}
                                     {{#eq ../format "int32"}}
-| int | validate(int arg, SchemaConfiguration configuration) |
+| int | validate(arg: int, configuration: SchemaConfiguration) |
                                     {{else}}
                                         {{#eq ../format "int64"}}
-| long | validate(long arg, SchemaConfiguration configuration) |
+| long | validate(arg: long, configuration: SchemaConfiguration) |
                                         {{/eq}}
                                     {{/eq}}
                                 {{/eq}}
                             {{/eq}}
                         {{/eq}}
-| [{{jsonPathPiece.pascalCase}}BoxedNumber](#{{> src/main/kotlin/packagename/components/_helper_anchor_id identifierPieces=(append identifierPieces (join jsonPathPiece.kebabCase "boxednumber" ""))}}) | validateAndBox(Number arg, SchemaConfiguration configuration) |
+| [{{jsonPathPiece.pascalCase}}BoxedNumber](#{{> src/main/kotlin/packagename/components/_helper_anchor_id identifierPieces=(append identifierPieces (join jsonPathPiece.kebabCase "boxednumber" ""))}}) | validateAndBox(Number, configuration: SchemaConfiguration) |
                     {{else}}
                         {{#eq this "integer"}}
                             {{#eq ../format null}}
-| long | validate(long arg, SchemaConfiguration configuration) |
+| long | validate(arg: long, configuration: SchemaConfiguration) |
                             {{else}}
                                 {{#eq ../format "int32"}}
-| int | validate(int arg, SchemaConfiguration configuration) |
+| int | validate(arg: int, configuration: SchemaConfiguration) |
                                 {{else}}
-| long | validate(long arg, SchemaConfiguration configuration) |
+| long | validate(arg: long, configuration: SchemaConfiguration) |
                                 {{/eq}}
                             {{/eq}}
-| [{{jsonPathPiece.pascalCase}}BoxedNumber](#{{> src/main/kotlin/packagename/components/_helper_anchor_id identifierPieces=(append identifierPieces (join jsonPathPiece.kebabCase "boxednumber" ""))}}) | validateAndBox(Number arg, SchemaConfiguration configuration) |
+| [{{jsonPathPiece.pascalCase}}BoxedNumber](#{{> src/main/kotlin/packagename/components/_helper_anchor_id identifierPieces=(append identifierPieces (join jsonPathPiece.kebabCase "boxednumber" ""))}}) | validateAndBox(Number, configuration: SchemaConfiguration) |
                         {{else}}
                             {{#eq this "array"}}
                                 {{#if ../arrayOutputJsonPathPiece}}
-| [{{../arrayOutputJsonPathPiece.pascalCase}}](#{{> src/main/kotlin/packagename/components/_helper_anchor_id identifierPieces=(append identifierPieces ../arrayOutputJsonPathPiece) }}) | validate([List<?>](#{{> src/main/kotlin/packagename/components/_helper_anchor_id identifierPieces=(append identifierPieces arrayInputJsonPathPiece) }}) arg, SchemaConfiguration configuration) |
+| [{{../arrayOutputJsonPathPiece.pascalCase}}](#{{> src/main/kotlin/packagename/components/_helper_anchor_id identifierPieces=(append identifierPieces ../arrayOutputJsonPathPiece) }}) | validate(arg: [List<*>](#{{> src/main/kotlin/packagename/components/_helper_anchor_id identifierPieces=(append identifierPieces arrayInputJsonPathPiece) }}), configuration: SchemaConfiguration) |
                                 {{else}}
-| FrozenList<@Nullable Object> | validate(List<?> arg, SchemaConfiguration configuration) |
+| FrozenList<Any?> | validate(arg: List<*>, configuration: SchemaConfiguration) |
                                 {{/if}}
-| [{{jsonPathPiece.pascalCase}}BoxedList](#{{> src/main/kotlin/packagename/components/_helper_anchor_id identifierPieces=(append identifierPieces (join jsonPathPiece.kebabCase "boxedlist" ""))}}) | validateAndBox({{#if arrayInputJsonPathPiece}}[List<?>](#{{> src/main/kotlin/packagename/components/_helper_anchor_id identifierPieces=(append identifierPieces arrayInputJsonPathPiece) }}){{else}}List<?>{{/if}} arg, SchemaConfiguration configuration) |
+| [{{jsonPathPiece.pascalCase}}BoxedList](#{{> src/main/kotlin/packagename/components/_helper_anchor_id identifierPieces=(append identifierPieces (join jsonPathPiece.kebabCase "boxedlist" ""))}}) | validateAndBox({{#if arrayInputJsonPathPiece}}[List<*>](#{{> src/main/kotlin/packagename/components/_helper_anchor_id identifierPieces=(append identifierPieces arrayInputJsonPathPiece) }}){{else}}List<*>{{/if}}, configuration: SchemaConfiguration) |
                             {{else}}
                                 {{#eq this "object"}}
                                     {{#if ../mapOutputJsonPathPiece}}
-| [{{../mapOutputJsonPathPiece.pascalCase}}](#{{> src/main/kotlin/packagename/components/_helper_anchor_id identifierPieces=(append identifierPieces ../mapOutputJsonPathPiece) }}) | validate([Map&lt;?, ?&gt;](#{{> src/main/kotlin/packagename/components/_helper_anchor_id identifierPieces=(append identifierPieces ../mapInputJsonPathPiece) }}) arg, SchemaConfiguration configuration) |
+| [{{../mapOutputJsonPathPiece.pascalCase}}](#{{> src/main/kotlin/packagename/components/_helper_anchor_id identifierPieces=(append identifierPieces ../mapOutputJsonPathPiece) }}) | validate(arg: [Map&lt;?, ?&gt;](#{{> src/main/kotlin/packagename/components/_helper_anchor_id identifierPieces=(append identifierPieces ../mapInputJsonPathPiece) }}), configuration: SchemaConfiguration) |
                                     {{else}}
-| FrozenMap<String, @Nullable Object> | validate(Map&lt;?, ?&gt; arg, SchemaConfiguration configuration) |
+| FrozenMap<String, Any?> | validate(arg: Map&lt;?, ?&gt;, configuration: SchemaConfiguration) |
                                     {{/if}}
-| [{{jsonPathPiece.pascalCase}}BoxedMap](#{{> src/main/kotlin/packagename/components/_helper_anchor_id identifierPieces=(append identifierPieces (join jsonPathPiece.kebabCase "boxedmap" ""))}}) | validateAndBox({{#if mapInputJsonPathPiece}}[Map&lt;?, ?&gt;](#{{> src/main/kotlin/packagename/components/_helper_anchor_id identifierPieces=(append identifierPieces mapInputJsonPathPiece) }}){{else}}Map&lt;?, ?&gt;{{/if}} arg, SchemaConfiguration configuration) |
+| [{{jsonPathPiece.pascalCase}}BoxedMap](#{{> src/main/kotlin/packagename/components/_helper_anchor_id identifierPieces=(append identifierPieces (join jsonPathPiece.kebabCase "boxedmap" ""))}}) | validateAndBox({{#if mapInputJsonPathPiece}}[Map&lt;?, ?&gt;](#{{> src/main/kotlin/packagename/components/_helper_anchor_id identifierPieces=(append identifierPieces mapInputJsonPathPiece) }}){{else}}Map&lt;?, ?&gt;{{/if}}, configuration: SchemaConfiguration) |
                                 {{/eq}}
                             {{/eq}}
                         {{/eq}}
@@ -118,5 +118,5 @@
         {{/eq}}
     {{/each}}
 {{/eq}}
-| [{{jsonPathPiece.pascalCase}}Boxed](#{{> src/main/kotlin/packagename/components/_helper_anchor_id identifierPieces=(append identifierPieces (join jsonPathPiece.kebabCase "boxed" ""))}}) | validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) |
-| @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+| [{{jsonPathPiece.pascalCase}}Boxed](#{{> src/main/kotlin/packagename/components/_helper_anchor_id identifierPieces=(append identifierPieces (join jsonPathPiece.kebabCase "boxed" ""))}}) | validateAndBox(Any?, configuration: SchemaConfiguration) |
+| Any? | validate(arg: Any?, configuration: SchemaConfiguration) |

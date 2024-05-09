@@ -1,4 +1,4 @@
-@Override
-public {{jsonPathPiece.pascalCase}}BoxedVoid validateAndBox(Nothing? arg, SchemaConfiguration configuration) throws ValidationException {
-    return new {{jsonPathPiece.pascalCase}}BoxedVoid(validate(arg, configuration));
+@Throws(ValidationException::class)
+override fun validateAndBox(arg: Nothing?, configuration: SchemaConfiguration?): {{jsonPathPiece.pascalCase}}BoxedVoid {
+    return {{jsonPathPiece.pascalCase}}BoxedVoid(validate(arg, configuration))
 }

@@ -280,7 +280,7 @@ public class DefaultGenerator implements Generator {
     Supporting files are those which aren't models, APIs, or docs.
     These get a different map of data bound to the templates. Supporting files are written once.
     */
-    protected List<SupportingFile> supportingFiles = new ArrayList<>();
+    protected Set<SupportingFile> supportingFiles = new LinkedHashSet<>();
     protected List<CliOption> cliOptions = new ArrayList<>();
     protected String removeOperationIdPrefixDelimiter = "_";
     protected int removeOperationIdPrefixCount = 1;
@@ -663,7 +663,7 @@ public class DefaultGenerator implements Generator {
     }
 
     @Override
-    public List<SupportingFile> supportingFiles() {
+    public Set<SupportingFile> supportingFiles() {
         return supportingFiles;
     }
 

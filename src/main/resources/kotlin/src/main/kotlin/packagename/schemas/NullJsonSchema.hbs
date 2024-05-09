@@ -1,15 +1,15 @@
-package {{{packageName}}}.schemas;
+package {{{packageName}}}.schemas
 
-import {{{packageName}}}.configurations.JsonSchemaKeywordFlags;
-import {{{packageName}}}.configurations.SchemaConfiguration;
-import {{{packageName}}}.exceptions.ValidationException;
-import {{{packageName}}}.schemas.validation.JsonSchema;
-import {{{packageName}}}.schemas.validation.JsonSchemaInfo;
-import {{{packageName}}}.schemas.validation.PathToSchemasMap;
-import {{{packageName}}}.schemas.validation.NullSchemaValidator;
-import {{{packageName}}}.schemas.validation.ValidationMetadata;
+import {{{packageName}}}.configurations.JsonSchemaKeywordFlags
+import {{{packageName}}}.configurations.SchemaConfiguration
+import {{{packageName}}}.exceptions.ValidationException
+import {{{packageName}}}.schemas.validation.JsonSchema
+import {{{packageName}}}.schemas.validation.JsonSchemaInfo
+import {{{packageName}}}.schemas.validation.PathToSchemasMap
+import {{{packageName}}}.schemas.validation.NullSchemaValidator
+import {{{packageName}}}.schemas.validation.ValidationMetadata
 
-class NullJsonSchema {
+open class NullJsonSchema {
     sealed interface NullJsonSchema1Boxed {
         fun getData(): Any?
     }
@@ -20,7 +20,7 @@ class NullJsonSchema {
         }
     }
 
-    class NullJsonSchema1 private constructor() : JsonSchema<NullJsonSchema1Boxed>(
+    open class NullJsonSchema1 protected constructor() : JsonSchema<NullJsonSchema1Boxed>(
         JsonSchemaInfo()
             .type(setOf(Void::class.java))
     ), NullSchemaValidator<NullJsonSchema1BoxedVoid> {

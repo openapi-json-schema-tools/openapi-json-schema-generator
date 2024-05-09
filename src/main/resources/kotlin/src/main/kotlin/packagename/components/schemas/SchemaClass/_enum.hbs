@@ -1,5 +1,5 @@
 {{#if forDocs}}
-enumValues = SetMaker.makeSet(<br>
+enumValues = setOf(<br>
     {{~#each enumInfo.valueToName}}
     {{#with @key}}
         {{#eq type "string"}}
@@ -15,7 +15,7 @@ enumValues = SetMaker.makeSet(<br>
     {{/each}}
 )<br>
 {{~else}}
-.enumValues(SetMaker.makeSet(
+.enumValues(setOf(
     {{#each enumInfo.valueToName}}
     {{#with @key}}
         {{#eq type "string"}}
@@ -27,7 +27,7 @@ enumValues = SetMaker.makeSet(<br>
                 {{#eq type "boolean"}}
     {{value}}{{#unless @last}},{{/unless}}
                 {{else}}
-    new BigDecimal("{{value.toString}}"){{#unless @last}},{{/unless}}
+    BigDecimal("{{value.toString}}"){{#unless @last}},{{/unless}}
                 {{/eq}}
             {{/eq}}
         {{/eq}}

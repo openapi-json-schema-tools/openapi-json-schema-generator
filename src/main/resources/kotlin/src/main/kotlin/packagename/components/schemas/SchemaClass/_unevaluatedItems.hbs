@@ -2,16 +2,16 @@
     {{#with unevaluatedItems}}
         {{#if refInfo.refClass}}
             {{#if refInfo.refModule}}
-unevaluatedItems = [{{refInfo.refModule}}.{{refInfo.refClass}}.class]({{docRoot}}{{refInfo.ref.pathFromDocRoot}}.md#{{refInfo.ref.jsonPathPiece.kebabCase}})
+unevaluatedItems = [{{refInfo.refModule}}.{{refInfo.refClass}}::class.java]({{docRoot}}{{refInfo.ref.pathFromDocRoot}}.md#{{refInfo.ref.jsonPathPiece.kebabCase}})
             {{~else}}
-unevaluatedItems = [{{refInfo.refClass}}.class](#{{refInfo.ref.jsonPathPiece.kebabCase}})
+unevaluatedItems = [{{refInfo.refClass}}::class.java](#{{refInfo.ref.jsonPathPiece.kebabCase}})
             {{~/if}}
         {{else}}
-unevaluatedItems = [{{jsonPathPiece.pascalCase}}.class](#{{jsonPathPiece.kebabCase}})
+unevaluatedItems = [{{jsonPathPiece.pascalCase}}::class.java](#{{jsonPathPiece.kebabCase}})
         {{~/if}}
     {{/with}}
 {{else}}
     {{#with unevaluatedItems}}
-.unevaluatedItems({{#if refInfo.refClass}}{{#if refInfo.refModule}}{{refInfo.refModule}}.{{/if}}{{refInfo.refClass}}{{else}}{{jsonPathPiece.pascalCase}}{{/if}}.class)
+.unevaluatedItems({{#if refInfo.refClass}}{{#if refInfo.refModule}}{{refInfo.refModule}}.{{/if}}{{refInfo.refClass}}{{else}}{{jsonPathPiece.pascalCase}}{{/if}}::class.java)
     {{/with}}
 {{/if}}

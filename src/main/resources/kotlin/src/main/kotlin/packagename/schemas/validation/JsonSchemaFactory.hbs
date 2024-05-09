@@ -1,6 +1,6 @@
-package {{{packageName}}}.schemas.validation;
+package {{{packageName}}}.schemas.validation
 
-import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.InvocationTargetException
 
 object JsonSchemaFactory {
     private var classToInstance: MutableMap<Class<out JsonSchema<*>>, JsonSchema<*>> = HashMap()
@@ -12,8 +12,9 @@ object JsonSchemaFactory {
             return schemaCls.cast(it)
         }
         try {
-            val method = schemaCls.getMethod("getInstance")
-            val obj = method.invoke(null)
+            val companion = schemaCls.declaredClasses[0]
+            val method = companion.getMethod("getInstance")
+            val obj = method.invoke(companion.kotlin.objectInstance)
             assert(schemaCls.isInstance(obj))
             val inst = schemaCls.cast(obj)
             classToInstance[schemaCls] = inst

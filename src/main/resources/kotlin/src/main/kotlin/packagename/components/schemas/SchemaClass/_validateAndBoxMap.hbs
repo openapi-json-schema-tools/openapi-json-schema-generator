@@ -1,4 +1,4 @@
-@Override
-public {{jsonPathPiece.pascalCase}}BoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException {
-    return new {{jsonPathPiece.pascalCase}}BoxedMap(validate(arg, configuration));
+@Throws(ValidationException::class)
+override fun validateAndBox(arg: Map<*, *>, configuration: SchemaConfiguration?): {{jsonPathPiece.pascalCase}}BoxedMap {
+    return {{jsonPathPiece.pascalCase}}BoxedMap(validate(arg, configuration))
 }

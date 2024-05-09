@@ -1,41 +1,46 @@
-package {{{packageName}}}.schemas;
+package {{{packageName}}}.schemas
 
-import org.junit.Assert;
-import org.junit.Test;
-import {{{packageName}}}.configurations.JsonSchemaKeywordFlags;
-import {{{packageName}}}.configurations.SchemaConfiguration;
-import {{{packageName}}}.exceptions.ValidationException;
-import {{{packageName}}}.schemas.validation.JsonSchema;
-import {{{packageName}}}.schemas.validation.PathToSchemasMap;
-import {{{packageName}}}.schemas.validation.ValidationMetadata;
+import {{{packageName}}}.configurations.JsonSchemaKeywordFlags
+import {{{packageName}}}.configurations.SchemaConfiguration
+import {{{packageName}}}.exceptions.ValidationException
+import {{{packageName}}}.schemas.validation.JsonSchema
+import {{{packageName}}}.schemas.validation.PathToSchemasMap
+import {{{packageName}}}.schemas.validation.ValidationMetadata
 
-import java.util.LinkedHashSet;
-import java.util.List;
+import kotlin.Throws
+import kotlin.test.Test
+import kotlin.test.assertFailsWith
+import kotlin.test.assertNull
 
-public class NullSchemaTest {
-    static final SchemaConfiguration configuration = new SchemaConfiguration(new JsonSchemaKeywordFlags.Builder().build());
-    static final NullJsonSchema.NullJsonSchema1 nullJsonSchema = NullJsonSchema.NullJsonSchema1.getInstance();
-    static final ValidationMetadata validationMetadata = new ValidationMetadata(
-            List.of("args[0"),
-            configuration,
-            new PathToSchemasMap(),
-            new LinkedHashSet<>()
-    );
-
-
+class NullSchemaTest {
     @Test
-    @SuppressWarnings("nullness")
-    public void testValidateNull() throws ValidationException {
-        Nothing? validatedValue = nullJsonSchema.validate(null, configuration);
-        Assert.assertNull(validatedValue);
+    @Throws(ValidationException::class)
+    fun testValidateNull() {
+        val validatedValue: Nothing? = nullJsonSchema.validate(null, configuration)
+        assertNull(validatedValue)
     }
 
     @Test
-    public void testExceptionThrownForInvalidType() {
-        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
-                nullJsonSchema,
-                Boolean.TRUE,
-                validationMetadata
-        ));
+    fun testExceptionThrownForInvalidType() {
+        assertFailsWith<ValidationException>(
+            block = {
+                JsonSchema.validate(
+                    nullJsonSchema,
+                    true,
+                    validationMetadata
+                )
+            }
+        )
+    }
+
+    companion object {
+        val configuration = SchemaConfiguration(JsonSchemaKeywordFlags.Builder().build())
+        val nullJsonSchema = NullJsonSchema.NullJsonSchema1.getInstance()
+        val validationMetadata = ValidationMetadata(
+            listOf("args[0"),
+            configuration,
+            PathToSchemasMap(),
+            LinkedHashSet()
+        )
     }
 }

@@ -1,13 +1,13 @@
 {{#or isBooleanSchemaFalse isBooleanSchemaTrue}}
     {{#if isBooleanSchemaTrue}}
-{{containerJsonPathPiece.pascalCase}} extends AnyTypeJsonSchema
+{{containerJsonPathPiece.pascalCase}}: AnyTypeJsonSchema()
     {{~else}}
-{{containerJsonPathPiece.pascalCase}} extends NotAnyTypeJsonSchema
+{{containerJsonPathPiece.pascalCase}}: NotAnyTypeJsonSchema()
     {{~/if}}
 {{else}}
     {{#eq types null }}
         {{#if isSimpleAnyType }}
-{{containerJsonPathPiece.pascalCase}} extends AnyTypeJsonSchema
+{{containerJsonPathPiece.pascalCase}}: AnyTypeJsonSchema()
         {{~else}}
 {{containerJsonPathPiece.pascalCase}}
         {{~/if}}
@@ -18,21 +18,21 @@
             {{#each types}}
                 {{#eq this "object"}}
                     {{#if isSimpleObject }}
-{{containerJsonPathPiece.pascalCase}} extends MapJsonSchema
+{{containerJsonPathPiece.pascalCase}}: MapJsonSchema()
                     {{~else}}
 {{containerJsonPathPiece.pascalCase}}
                     {{~/if}}
                 {{else}}
                     {{#eq this "array"}}
                         {{#if isSimpleArray }}
-{{containerJsonPathPiece.pascalCase}} extends ListJsonSchema
+{{containerJsonPathPiece.pascalCase}}: ListJsonSchema()
                         {{~else}}
 {{containerJsonPathPiece.pascalCase}}
                         {{~/if}}
                     {{else}}
                         {{#eq this "boolean"}}
                             {{#if isSimpleBoolean }}
-{{containerJsonPathPiece.pascalCase}} extends BooleanJsonSchema
+{{containerJsonPathPiece.pascalCase}}: BooleanJsonSchema()
                             {{~else}}
 {{containerJsonPathPiece.pascalCase}}
                             {{~/if}}
@@ -41,16 +41,16 @@
                                 {{#or isSimpleInteger isSimpleNumber }}
                                     {{#if isSimpleInteger}}
                                         {{#eq ../format "int32"}}
-{{containerJsonPathPiece.pascalCase}} extends Int32JsonSchema
+{{containerJsonPathPiece.pascalCase}}: Int32JsonSchema()
                                         {{~else}}
                                             {{#eq ../format "int64"}}
-{{containerJsonPathPiece.pascalCase}} extends Int64JsonSchema
+{{containerJsonPathPiece.pascalCase}}: Int64JsonSchema()
                                             {{~else}}
-{{containerJsonPathPiece.pascalCase}} extends IntJsonSchema
+{{containerJsonPathPiece.pascalCase}}: IntJsonSchema()
                                             {{~/eq}}
                                         {{/eq}}
                                     {{~else}}
-{{containerJsonPathPiece.pascalCase}} extends NumberJsonSchema
+{{containerJsonPathPiece.pascalCase}}: NumberJsonSchema()
                                     {{~/if}}
                                 {{else}}
 {{containerJsonPathPiece.pascalCase}}
@@ -59,18 +59,18 @@
                                 {{#eq this "string"}}
                                     {{#if isSimpleString}}
                                         {{#eq ../format "date"}}
-{{containerJsonPathPiece.pascalCase}} extends DateJsonSchema
+{{containerJsonPathPiece.pascalCase}}: DateJsonSchema()
                                         {{~else}}
                                             {{#eq ../format "date-time"}}
-{{containerJsonPathPiece.pascalCase}} extends DateTimeJsonSchema
+{{containerJsonPathPiece.pascalCase}}: DateTimeJsonSchema()
                                             {{~else}}
                                                 {{#eq ../format "number"}}
-{{containerJsonPathPiece.pascalCase}} extends DecimalJsonSchema
+{{containerJsonPathPiece.pascalCase}}: DecimalJsonSchema()
                                                 {{~else}}
                                                     {{#eq ../format "uuid"}}
-{{containerJsonPathPiece.pascalCase}} extends UuidJsonSchema
+{{containerJsonPathPiece.pascalCase}}: UuidJsonSchema()
                                                     {{~else}}
-{{containerJsonPathPiece.pascalCase}} extends StringJsonSchema
+{{containerJsonPathPiece.pascalCase}}: StringJsonSchema()
                                                     {{~/eq}}
                                                 {{/eq}}
                                             {{/eq}}
@@ -80,7 +80,7 @@
                                     {{~/if}}
                                 {{else}}
                                     {{#if isSimpleNull }}
-{{containerJsonPathPiece.pascalCase}} extends NullJsonSchema
+{{containerJsonPathPiece.pascalCase}}: NullJsonSchema()
                                     {{~else}}
 {{containerJsonPathPiece.pascalCase}}
                                     {{~/if}}

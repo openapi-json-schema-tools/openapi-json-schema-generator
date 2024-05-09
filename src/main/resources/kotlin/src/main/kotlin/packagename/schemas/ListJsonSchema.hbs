@@ -1,27 +1,27 @@
-package {{{packageName}}}.schemas;
+package {{{packageName}}}.schemas
 
-import {{{packageName}}}.configurations.JsonSchemaKeywordFlags;
-import {{{packageName}}}.exceptions.ValidationException;
-import {{{packageName}}}.schemas.validation.FrozenList;
-import {{{packageName}}}.schemas.validation.JsonSchema;
-import {{{packageName}}}.schemas.validation.JsonSchemaInfo;
-import {{{packageName}}}.configurations.SchemaConfiguration;
-import {{{packageName}}}.schemas.validation.PathToSchemasMap;
-import {{{packageName}}}.schemas.validation.ListSchemaValidator;
-import {{{packageName}}}.schemas.validation.ValidationMetadata;
+import {{{packageName}}}.configurations.JsonSchemaKeywordFlags
+import {{{packageName}}}.exceptions.ValidationException
+import {{{packageName}}}.schemas.validation.FrozenList
+import {{{packageName}}}.schemas.validation.JsonSchema
+import {{{packageName}}}.schemas.validation.JsonSchemaInfo
+import {{{packageName}}}.configurations.SchemaConfiguration
+import {{{packageName}}}.schemas.validation.PathToSchemasMap
+import {{{packageName}}}.schemas.validation.ListSchemaValidator
+import {{{packageName}}}.schemas.validation.ValidationMetadata
 
-class ListJsonSchema {
+open class ListJsonSchema {
     sealed interface ListJsonSchema1Boxed {
         fun getData(): Any?
     }
 
     data class ListJsonSchema1BoxedList(val data: FrozenList<Any?>) : ListJsonSchema1Boxed {
-        override fun getData(): FrozenList<Any?> {
+        override fun getData(): Any? {
             return data
         }
     }
 
-    class ListJsonSchema1 private constructor() : JsonSchema<ListJsonSchema1Boxed>(
+    open class ListJsonSchema1 protected constructor() : JsonSchema<ListJsonSchema1Boxed>(
         JsonSchemaInfo()
             .type(setOf(List::class.java))
     ), ListSchemaValidator<FrozenList<Any?>, ListJsonSchema1BoxedList> {
@@ -67,7 +67,7 @@ class ListJsonSchema {
         @Throws(ValidationException::class)
         override fun validate(arg: Any?, configuration: SchemaConfiguration?): Any? {
             if (arg is List<*>) {
-                return validate(arg as List<*>?, configuration)
+                return validate(arg, configuration)
             }
             throw ValidationException("Invalid input type=$javaClass. It can't be instantiated by this schema")
         }

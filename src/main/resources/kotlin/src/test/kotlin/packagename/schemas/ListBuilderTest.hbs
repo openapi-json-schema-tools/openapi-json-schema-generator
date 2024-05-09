@@ -1,61 +1,55 @@
-package {{{packageName}}}.schemas;
+package {{{packageName}}}.schemas
 
-import org.checkerframework.checker.nullness.qual.Nullable;
-import org.junit.Assert;
-import org.junit.Test;
+import kotlin.test.Test
+import kotlin.test.assertEquals
 
-import java.util.ArrayList;
-import java.util.List;
-
-public class ListBuilderTest {
-    public static class NullableListWithNullableItemsListBuilder {
+class ListBuilderTest {
+    class NullableListWithNullableItemsListBuilder {
         // class to build List<@Nullable List<Number>>
-        private final List<@Nullable List<Number>> list;
+        private val list: MutableList<List<Number>?>
 
-        public NullableListWithNullableItemsListBuilder() {
-            list = new ArrayList<>();
+        constructor() {
+            list = ArrayList()
         }
 
-        public NullableListWithNullableItemsListBuilder(List<@Nullable List<Number>> list) {
-            this.list = list;
+        constructor(list: MutableList<List<Number>?>) {
+            this.list = list
         }
 
-        public NullableListWithNullableItemsListBuilder add(Nothing? item) {
-            list.add(null);
-            return this;
+        fun add(item: Nothing?): NullableListWithNullableItemsListBuilder {
+            list.add(item)
+            return this
         }
 
-        public NullableListWithNullableItemsListBuilder add(List<Number> item) {
-            list.add(item);
-            return this;
+        fun add(item: List<Number>): NullableListWithNullableItemsListBuilder {
+            list.add(item)
+            return this
         }
 
-        public List<@Nullable List<Number>> build() {
-            return list;
+        fun build(): List<List<Number>?> {
+            return list
         }
     }
 
     @Test
-    public void testSucceedsWithNullInput() {
-        List<@Nullable List<Number>> inList = new ArrayList<>();
-        inList.add(null);
-        var builder = new NullableListWithNullableItemsListBuilder(inList);
-        Assert.assertEquals(inList, builder.build());
-
-        builder = new NullableListWithNullableItemsListBuilder();
-        builder.add((Nothing?) null);
-        Assert.assertEquals(inList, builder.build());
+    fun testSucceedsWithNullInput() {
+        val inList: MutableList<List<Number>?> = ArrayList()
+        inList.add(null)
+        var builder = NullableListWithNullableItemsListBuilder(inList)
+        assertEquals(inList, builder.build())
+        builder = NullableListWithNullableItemsListBuilder()
+        builder.add(null)
+        assertEquals(inList, builder.build())
     }
 
     @Test
-    public void testSucceedsWithNonNullInput() {
-        List<@Nullable List<Number>> inList = new ArrayList<>();
-        inList.add(List.of(1));
-        var builder = new NullableListWithNullableItemsListBuilder(inList);
-        Assert.assertEquals(inList, builder.build());
-
-        builder = new NullableListWithNullableItemsListBuilder();
-        builder.add(List.of(1));
-        Assert.assertEquals(inList, builder.build());
+    fun testSucceedsWithNonNullInput() {
+        val inList: MutableList<List<Number>?> = ArrayList()
+        inList.add(listOf<Number>(1))
+        var builder = NullableListWithNullableItemsListBuilder(inList)
+        assertEquals(inList, builder.build())
+        builder = NullableListWithNullableItemsListBuilder()
+        builder.add(listOf<Number>(1))
+        assertEquals(inList, builder.build())
     }
 }

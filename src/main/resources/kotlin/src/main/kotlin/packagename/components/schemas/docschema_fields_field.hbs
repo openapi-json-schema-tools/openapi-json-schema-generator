@@ -65,13 +65,13 @@
 | Boolean | {{> src/main/kotlin/packagename/components/schemas/SchemaClass/_uniqueItems }} |
 {{/neq}}
 {{#if enumInfo}}
-| Set<Object> | {{> src/main/kotlin/packagename/components/schemas/SchemaClass/_enum }} |
+| Set<Any> | {{> src/main/kotlin/packagename/components/schemas/SchemaClass/_enum }} |
 {{/if}}
 {{#if patternInfo}}
 | Pattern | {{> src/main/kotlin/packagename/components/schemas/SchemaClass/_pattern }} |
 {{/if}}
 {{#if defaultValue}}
-| @Nullable Object | {{> src/main/kotlin/packagename/components/schemas/SchemaClass/_default }} |
+| Any? | {{> src/main/kotlin/packagename/components/schemas/SchemaClass/_default }} |
 {{/if}}
 {{#if contains}}
 | Class<? extends JsonSchema> | {{> src/main/kotlin/packagename/components/schemas/SchemaClass/_contains }} |
@@ -107,7 +107,7 @@
 | Class<? extends JsonSchema> | {{> src/main/kotlin/packagename/components/schemas/SchemaClass/_else }} |
 {{/if}}
 {{#if constInfo}}
-| @Nullable Object | {{> src/main/kotlin/packagename/components/schemas/SchemaClass/_const }} |
+| Any? | {{> src/main/kotlin/packagename/components/schemas/SchemaClass/_const }} |
 {{/if}}
 {{#if unevaluatedItems}}
 | Class<? extends JsonSchema> | {{> src/main/kotlin/packagename/components/schemas/SchemaClass/_unevaluatedItems }} |

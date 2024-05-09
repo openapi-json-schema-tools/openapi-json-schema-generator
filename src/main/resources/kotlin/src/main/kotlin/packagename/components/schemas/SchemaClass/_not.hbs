@@ -2,16 +2,16 @@
     {{#with not}}
         {{#if refInfo.refClass}}
             {{#if refInfo.refModule}}
-not = [{{refInfo.refModule}}.{{refInfo.refClass}}.class]({{docRoot}}{{refInfo.ref.pathFromDocRoot}}.md#{{refInfo.ref.jsonPathPiece.kebabCase}})
+not = [{{refInfo.refModule}}.{{refInfo.refClass}}::class.java]({{docRoot}}{{refInfo.ref.pathFromDocRoot}}.md#{{refInfo.ref.jsonPathPiece.kebabCase}})
             {{~else}}
-not = [{{refInfo.refClass}}.class](#{{refInfo.ref.jsonPathPiece.kebabCase}})
+not = [{{refInfo.refClass}}::class.java](#{{refInfo.ref.jsonPathPiece.kebabCase}})
             {{~/if}}
         {{else}}
-not = [{{jsonPathPiece.pascalCase}}.class](#{{jsonPathPiece.kebabCase}})
+not = [{{jsonPathPiece.pascalCase}}::class.java](#{{jsonPathPiece.kebabCase}})
         {{~/if}}
     {{~/with}}
 {{else}}
     {{#with not}}
-.not({{#if refInfo.refClass}}{{#if refInfo.refModule}}{{refInfo.refModule}}.{{/if}}{{refInfo.refClass}}{{else}}{{jsonPathPiece.pascalCase}}{{/if}}.class)
+.not({{#if refInfo.refClass}}{{#if refInfo.refModule}}{{refInfo.refModule}}.{{/if}}{{refInfo.refClass}}{{else}}{{jsonPathPiece.pascalCase}}{{/if}}::class.java)
     {{/with}}
 {{/if}}

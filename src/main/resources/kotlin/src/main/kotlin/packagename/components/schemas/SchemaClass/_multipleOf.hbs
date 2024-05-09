@@ -1,5 +1,5 @@
 {{#if forDocs}}
-multipleOf = new BigDecimal("{{multipleOf.toString}}")
+multipleOf = BigDecimal("{{multipleOf.toString}}")
 {{~else}}
-.multipleOf(new BigDecimal("{{multipleOf.toString}}"))
+.multipleOf(BigDecimal("{{multipleOf.toString}}"))
 {{/if}}

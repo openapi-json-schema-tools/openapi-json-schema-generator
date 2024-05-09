@@ -1,45 +1,53 @@
-package {{{packageName}}}.schemas;
+package {{{packageName}}}.schemas
 
-import org.junit.Assert;
-import org.junit.Test;
-import {{{packageName}}}.configurations.JsonSchemaKeywordFlags;
-import {{{packageName}}}.configurations.SchemaConfiguration;
-import {{{packageName}}}.exceptions.ValidationException;
-import {{{packageName}}}.schemas.validation.JsonSchema;
-import {{{packageName}}}.schemas.validation.PathToSchemasMap;
-import {{{packageName}}}.schemas.validation.ValidationMetadata;
+import {{{packageName}}}.configurations.JsonSchemaKeywordFlags
+import {{{packageName}}}.configurations.SchemaConfiguration
+import {{{packageName}}}.exceptions.ValidationException
+import {{{packageName}}}.schemas.validation.JsonSchema
+import {{{packageName}}}.schemas.validation.PathToSchemasMap
+import {{{packageName}}}.schemas.validation.ValidationMetadata
 
-import java.util.LinkedHashSet;
-import java.util.List;
+import kotlin.test.Test
+import kotlin.test.assertFailsWith
+import kotlin.test.assertFalse
+import kotlin.test.assertTrue
 
-public class BooleanSchemaTest {
-    static final SchemaConfiguration configuration = new SchemaConfiguration(new JsonSchemaKeywordFlags.Builder().build());
-    static final BooleanJsonSchema.BooleanJsonSchema1 booleanJsonSchema = BooleanJsonSchema.BooleanJsonSchema1.getInstance();
-    static final ValidationMetadata validationMetadata = new ValidationMetadata(
-            List.of("args[0"),
+class BooleanSchemaTest {
+    @Test
+    @Throws(ValidationException::class)
+    fun testValidateTrue() {
+        val validatedValue = booleanJsonSchema.validate(true, configuration)
+        assertTrue(validatedValue)
+    }
+
+    @Test
+    @Throws(ValidationException::class)
+    fun testValidateFalse() {
+        val validatedValue = booleanJsonSchema.validate(false, configuration)
+        assertFalse(validatedValue)
+    }
+
+    @Test
+    fun testExceptionThrownForInvalidType() {
+        assertFailsWith<ValidationException>(
+            block = {
+                JsonSchema.validate(
+                    booleanJsonSchema,
+                    null,
+                    validationMetadata
+                )
+            }
+        )
+    }
+
+    companion object {
+        val configuration = SchemaConfiguration(JsonSchemaKeywordFlags.Builder().build())
+        val booleanJsonSchema = BooleanJsonSchema.BooleanJsonSchema1.getInstance()
+        val validationMetadata = ValidationMetadata(
+            listOf("args[0"),
             configuration,
-            new PathToSchemasMap(),
-            new LinkedHashSet<>()
-    );
-    
-    @Test
-    public void testValidateTrue() throws ValidationException {
-        boolean validatedValue = booleanJsonSchema.validate(true, configuration);
-        Assert.assertTrue(validatedValue);
-    }
-
-    @Test
-    public void testValidateFalse() throws ValidationException {
-        boolean validatedValue = booleanJsonSchema.validate(false, configuration);
-        Assert.assertFalse(validatedValue);
-    }
-
-    @Test
-    public void testExceptionThrownForInvalidType() {
-        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
-                booleanJsonSchema,
-                null,
-                validationMetadata
-        ));
+            PathToSchemasMap(),
+            LinkedHashSet()
+        )
     }
 }

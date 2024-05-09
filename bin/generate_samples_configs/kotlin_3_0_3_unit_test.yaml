@@ -1,0 +1,6 @@
+generatorName: kotlin
+outputDir: samples/client/3_0_3_unit_test/kotlin
+inputSpec: src/test/resources/3_0/unit_test_spec/3_0_3_unit_test_spec_nopaths.yaml
+intsAllowedForFloatDoubleFormats: true
+artifactId: unit-test-api
+hideGenerationTimestamp: true

@@ -7,7 +7,7 @@
 {{#if componentModule}}
 {{moduleLocation}}.java
 {{/if}}
-public class {{containerJsonPathPiece.pascalCase}}<br>
+class {{containerJsonPathPiece.pascalCase}}<br>
 {{#if refInfo}}
 extends [{{refInfo.refClass}}]({{docRoot}}{{#with refInfo.ref}}{{pathFromDocRoot}}.md#{{containerJsonPathPiece.kebabCase}}{{/with}})
 {{/if}}
@@ -122,7 +122,7 @@ A class that contains necessary nested
 {{> src/main/kotlin/packagename/components/schemas/SchemaClass/_boxedClasses forDocs=true }}
         {{/eq}}
 {{> src/main/kotlin/packagename/components/_helper_header_from_identifier_pieces headerSize=(join headerSize "#" "") identifierPieces=(append identifierPieces jsonPathPiece) }}
-public static class {{jsonPathPiece.pascalCase}}<br>
+class {{jsonPathPiece.pascalCase}}<br>
 {{> src/main/kotlin/packagename/components/schemas/docschema_extends }}
 
 A schema class that validates payloads
@@ -169,15 +169,15 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(new Jso
         {{#eq instanceType "propertiesOutputType"}}
 
 {{> src/main/kotlin/packagename/components/_helper_header_from_identifier_pieces headerSize=(join headerSize "#" "") identifierPieces=(append identifierPieces mapOutputJsonPathPiece) }}
-public static class {{mapOutputJsonPathPiece.pascalCase}}<br>
-extends FrozenMap<String, {{#with mapValueSchema}}{{> src/main/kotlin/packagename/components/schemas/types/schema_output_type forceNull=true }}{{else}}Object{{/with}}>
+class {{mapOutputJsonPathPiece.pascalCase}}<br>
+extends FrozenMap<String, {{#with mapValueSchema}}{{> src/main/kotlin/packagename/components/schemas/types/schema_output_type forceNull=true }}{{else}}Any{{/with}}>
 
 A class to store validated Map payloads
 
 {{headerSize}}## Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [{{mapOutputJsonPathPiece.pascalCase}}](#{{> src/main/kotlin/packagename/components/_helper_anchor_id identifierPieces=(append identifierPieces mapOutputJsonPathPiece) }}) | of([Map<String, {{#with mapValueSchema}}{{> src/main/kotlin/packagename/components/schemas/types/schema_input_type sourceJsonPath=../jsonPath forceNull=true }}{{else}}Object{{/with}}>](#{{> src/main/kotlin/packagename/components/_helper_anchor_id identifierPieces=(append identifierPieces mapInputJsonPathPiece) }}) arg, SchemaConfiguration configuration) |
+| static [{{mapOutputJsonPathPiece.pascalCase}}](#{{> src/main/kotlin/packagename/components/_helper_anchor_id identifierPieces=(append identifierPieces mapOutputJsonPathPiece) }}) | of([Map<String, {{#with mapValueSchema}}{{> src/main/kotlin/packagename/components/schemas/types/schema_input_type sourceJsonPath=../jsonPath forceNull=true }}{{else}}Any{{/with}}>](#{{> src/main/kotlin/packagename/components/_helper_anchor_id identifierPieces=(append identifierPieces mapInputJsonPathPiece) }}) arg, SchemaConfiguration configuration) |
             {{#each requiredProperties}}
                 {{#if @key.isValid}}
 | {{> src/main/kotlin/packagename/components/schemas/types/schema_output_type sourceJsonPath=../jsonPath useLink=true }} | {{@key.original}}()<br>{{> src/main/kotlin/packagename/components/schemas/helpers/notes_msg defaultUser="server" }} |
@@ -189,25 +189,25 @@ A class to store validated Map payloads
                 {{/if}}
             {{/each}}
             {{#or (and requiredProperties requiredProperties.hasInvalidKey) (and optionalProperties optionalProperties.hasInvalidKey) }}
-| {{#with mapValueSchema}}{{> src/main/kotlin/packagename/components/schemas/types/schema_output_type sourceJsonPath=../jsonPath useLink=true }}{{else}}Object{{/with}} | get(String key)<br>This schema has invalid Kotlin names so this method must be used when you access {{#each requiredProperties}}{{#unless @key.isValid}}instance["{{@key.original}}"], {{/unless}}{{/each}}{{#each optionalProperties}}{{#unless @key.isValid}}instance["{{@key.original}}"], {{/unless}}{{/each}} |
+| {{#with mapValueSchema}}{{> src/main/kotlin/packagename/components/schemas/types/schema_output_type sourceJsonPath=../jsonPath useLink=true }}{{else}}Any{{/with}} | get(String key)<br>This schema has invalid Kotlin names so this method must be used when you access {{#each requiredProperties}}{{#unless @key.isValid}}instance["{{@key.original}}"], {{/unless}}{{/each}}{{#each optionalProperties}}{{#unless @key.isValid}}instance["{{@key.original}}"], {{/unless}}{{/each}} |
             {{/or}}
             {{#with additionalProperties}}
                 {{#unless isBooleanSchemaFalse}}
                     {{#if isBooleanSchemaTrue}}
-| @Nullable Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
+| Any? | getAdditionalProperty(String name)<br>provides type safety for additional properties |
                 {{else}}
 | {{> src/main/kotlin/packagename/components/schemas/types/schema_output_type sourceJsonPath=../jsonPath useLink=true }} | getAdditionalProperty(String name)<br>provides type safety for additional properties |
                     {{/if}}
                 {{/unless}}
             {{else}}
-| @Nullable Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
+| Any? | getAdditionalProperty(String name)<br>provides type safety for additional properties |
             {{/with}}
         {{else}}
             {{#eq instanceType "arrayOutputType"}}
 
 {{> src/main/kotlin/packagename/components/_helper_header_from_identifier_pieces headerSize=(join headerSize "#" "") identifierPieces=(append identifierPieces arrayOutputJsonPathPiece) }}
-public class {{arrayOutputJsonPathPiece.pascalCase}}<br>
-extends `FrozenList<{{#with listItemSchema}}{{> src/main/kotlin/packagename/components/schemas/types/schema_output_type forceNull=true }}{{else}}Object{{/with}}>`
+class {{arrayOutputJsonPathPiece.pascalCase}}<br>
+extends `FrozenList<{{#with listItemSchema}}{{> src/main/kotlin/packagename/components/schemas/types/schema_output_type forceNull=true }}{{else}}Any{{/with}}>`
 
 A class to store validated List payloads
 

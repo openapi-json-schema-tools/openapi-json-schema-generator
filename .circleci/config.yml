@@ -12,10 +12,7 @@ commands: # a reusable command with parameters
       # In many cases you can simplify this from what is generated here.
       # 'See docs on artifact collection here https://circleci.com/docs/2.0/artifacts/'
       - run: mkdir -p $CIRCLE_ARTIFACTS $CIRCLE_TEST_REPORTS
-      # This is based on your 1.0 configuration file or project settings
-      - run:
-          command: java -version
-      # Test
+      # Show jobId
       - run:
           name: "Setup custom environment variables"
           command: echo 'export CIRCLE_JOB_ID="<<parameters.jobId>>"' >> $BASH_ENV
@@ -137,6 +134,24 @@ jobs:
           key: javaClientMavenCache
           paths:
             - ~/.m2
+  testKotlinClientSamples:
+    docker:
+      - image: cimg/openjdk:17.0.9
+    working_directory: ~/OpenAPITools/openapi-json-schema-generator
+    shell: /bin/bash --login
+    environment:
+      CIRCLE_ARTIFACTS: /tmp/circleci-artifacts
+      CIRCLE_TEST_REPORTS: /tmp/circleci-test-results
+    steps:
+      - restore_cache:
+          keys:
+            - kotlinClientGradleCache
+      - command_build_and_test:
+          jobId: "testKotlinClientSamples"
+      - save_cache:
+          key: kotlinClientGradleCache
+          paths:
+            - ~/build
 workflows:
   version: 2
   build:
@@ -146,3 +161,4 @@ workflows:
       - testPython38ClientSamples
       - testPython39ClientSamples
       - testJava17ClientSamples
+      - testKotlinClientSamples

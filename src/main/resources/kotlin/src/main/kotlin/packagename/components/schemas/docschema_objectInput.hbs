@@ -1,11 +1,11 @@
 {{#each mapBuilders}}
 
 {{> src/main/kotlin/packagename/components/_helper_header_from_identifier_pieces headerSize=(join headerSize "#" "") identifierPieces=(append identifierPieces className) }}
-public class {{className.pascalCase}}<br>
+class {{className.pascalCase}}<br>
     {{#if ../mapValueSchema}}
 builder for `Map<String, {{#with ../mapValueSchema}}{{> src/main/kotlin/packagename/components/schemas/types/schema_input_type sourceJsonPath=../jsonPath forceNull=true noExtends=true }}{{/with}}>`
     {{else}}
-builder for `Map<String, @Nullable Object>`
+builder for `Map<String, Any?>`
     {{/if}}
 
 A class that builds the Map input type
@@ -16,14 +16,14 @@ A class that builds the Map input type
     {{#if @last }}
 | {{className.pascalCase}}()<br>Creates a builder that contains an empty map |
     {{else}}
-| {{className.pascalCase}}(Map<String, {{#with mapValueSchema}}{{> src/main/kotlin/packagename/components/schemas/types/schema_input_type sourceJsonPath=../../jsonPath forceNull=true noExtends=true }}{{else}}@Nullable Object{{/with}}> instance)<br>Creates a builder that contains the passed instance |
+| {{className.pascalCase}}(Map<String, {{#with mapValueSchema}}{{> src/main/kotlin/packagename/components/schemas/types/schema_input_type sourceJsonPath=../../jsonPath forceNull=true noExtends=true }}{{else}}Any?{{/with}}> instance)<br>Creates a builder that contains the passed instance |
     {{/if}}
 
 {{headerSize}}## Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
     {{#if @first}}
-| Map<String, {{#with mapValueSchema}}{{> src/main/kotlin/packagename/components/schemas/types/schema_input_type sourceJsonPath=../../jsonPath forceNull=true noExtends=true }}{{else}}@Nullable Object{{/with}}> | build()<br>Returns map input that should be used with Schema.validate |
+| Map<String, {{#with mapValueSchema}}{{> src/main/kotlin/packagename/components/schemas/types/schema_input_type sourceJsonPath=../../jsonPath forceNull=true noExtends=true }}{{else}}Any?{{/with}}> | build()<br>Returns map input that should be used with Schema.validate |
     {{/if}}
     {{#each keyToBuilder}}
         {{#with property }}

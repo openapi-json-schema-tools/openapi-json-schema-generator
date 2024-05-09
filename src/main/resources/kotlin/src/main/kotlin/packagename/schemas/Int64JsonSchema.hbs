@@ -1,26 +1,26 @@
-package {{{packageName}}}.schemas;
+package {{{packageName}}}.schemas
 
-import {{{packageName}}}.configurations.JsonSchemaKeywordFlags;
-import {{{packageName}}}.exceptions.ValidationException;
-import {{{packageName}}}.schemas.validation.JsonSchema;
-import {{{packageName}}}.schemas.validation.JsonSchemaInfo;
-import {{{packageName}}}.configurations.SchemaConfiguration;
-import {{{packageName}}}.schemas.validation.PathToSchemasMap;
-import {{{packageName}}}.schemas.validation.NumberSchemaValidator;
-import {{{packageName}}}.schemas.validation.ValidationMetadata;
+import {{{packageName}}}.configurations.JsonSchemaKeywordFlags
+import {{{packageName}}}.exceptions.ValidationException
+import {{{packageName}}}.schemas.validation.JsonSchema
+import {{{packageName}}}.schemas.validation.JsonSchemaInfo
+import {{{packageName}}}.configurations.SchemaConfiguration
+import {{{packageName}}}.schemas.validation.PathToSchemasMap
+import {{{packageName}}}.schemas.validation.NumberSchemaValidator
+import {{{packageName}}}.schemas.validation.ValidationMetadata
 
-class Int64JsonSchema {
+open class Int64JsonSchema {
     sealed interface Int64JsonSchema1Boxed {
         fun getData(): Any?
     }
 
     data class Int64JsonSchema1BoxedNumber(val data: Number) : Int64JsonSchema1Boxed {
-        override fun getData(): Number {
+        override fun getData(): Any? {
             return data
         }
     }
 
-    class Int64JsonSchema1 private constructor() : JsonSchema<Int64JsonSchema1Boxed>(
+    open class Int64JsonSchema1 protected constructor() : JsonSchema<Int64JsonSchema1Boxed>(
         JsonSchemaInfo()
             .type(
                 setOf(
@@ -66,7 +66,7 @@ class Int64JsonSchema {
 
         override fun getNewInstance(arg: Any?, pathToItem: List<Any>, pathToSchemas: PathToSchemasMap): Any? {
             if (arg is Number) {
-                return getNewInstance(arg as Number?, pathToItem, pathToSchemas)
+                return getNewInstance(arg, pathToItem, pathToSchemas)
             }
             throw RuntimeException("Invalid input type=$javaClass. It can't be instantiated by this schema")
         }

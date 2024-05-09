@@ -1,8 +1,8 @@
-package {{{packageName}}}.schemas.validation;
+package {{{packageName}}}.schemas.validation
 
-import {{{packageName}}}.configurations.JsonSchemaKeywordFlags;
-import {{{packageName}}}.configurations.SchemaConfiguration;
-import {{{packageName}}}.exceptions.ValidationException;
+import {{{packageName}}}.configurations.JsonSchemaKeywordFlags
+import {{{packageName}}}.configurations.SchemaConfiguration
+import {{{packageName}}}.exceptions.ValidationException
 
 import java.time.LocalDate
 import java.time.ZonedDateTime
@@ -20,31 +20,31 @@ class UnsetAnyTypeJsonSchema {
     }
 
     data class UnsetAnyTypeJsonSchema1BoxedBoolean(val data: Boolean) : UnsetAnyTypeJsonSchema1Boxed {
-        override fun getData(): Boolean {
+        override fun getData(): Any? {
             return data
         }
     }
 
     data class UnsetAnyTypeJsonSchema1BoxedNumber(val data: Number) : UnsetAnyTypeJsonSchema1Boxed {
-        override fun getData(): Number {
+        override fun getData(): Any? {
             return data
         }
     }
 
     data class UnsetAnyTypeJsonSchema1BoxedString(val data: String) : UnsetAnyTypeJsonSchema1Boxed {
-        override fun getData(): String {
+        override fun getData(): Any? {
             return data
         }
     }
 
     data class UnsetAnyTypeJsonSchema1BoxedList(val data: FrozenList<Any?>) : UnsetAnyTypeJsonSchema1Boxed {
-        override fun getData(): FrozenList<Any?> {
+        override fun getData(): Any? {
             return data
         }
     }
 
     data class UnsetAnyTypeJsonSchema1BoxedMap(val data: FrozenMap<Any?>) : UnsetAnyTypeJsonSchema1Boxed {
-        override fun getData(): FrozenMap<Any?> {
+        override fun getData(): Any? {
             return data
         }
     }

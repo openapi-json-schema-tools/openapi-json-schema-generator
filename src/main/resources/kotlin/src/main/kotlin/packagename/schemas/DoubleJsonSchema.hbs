@@ -1,30 +1,30 @@
-package {{{packageName}}}.schemas;
+package {{{packageName}}}.schemas
 
-import {{{packageName}}}.configurations.JsonSchemaKeywordFlags;
-import {{{packageName}}}.configurations.SchemaConfiguration;
-import {{{packageName}}}.exceptions.ValidationException;
-import {{{packageName}}}.schemas.validation.JsonSchema;
-import {{{packageName}}}.schemas.validation.JsonSchemaInfo;
-import {{{packageName}}}.schemas.validation.PathToSchemasMap;
-import {{{packageName}}}.schemas.validation.NumberSchemaValidator;
-import {{{packageName}}}.schemas.validation.ValidationMetadata;
+import {{{packageName}}}.configurations.JsonSchemaKeywordFlags
+import {{{packageName}}}.configurations.SchemaConfiguration
+import {{{packageName}}}.exceptions.ValidationException
+import {{{packageName}}}.schemas.validation.JsonSchema
+import {{{packageName}}}.schemas.validation.JsonSchemaInfo
+import {{{packageName}}}.schemas.validation.PathToSchemasMap
+import {{{packageName}}}.schemas.validation.NumberSchemaValidator
+import {{{packageName}}}.schemas.validation.ValidationMetadata
 
-class DoubleJsonSchema {
+open class DoubleJsonSchema {
     sealed interface DoubleJsonSchema1Boxed {
         fun getData(): Any?
     }
 
     data class DoubleJsonSchema1BoxedNumber(val data: Number) : DoubleJsonSchema1Boxed {
-        override fun getData(): Number {
+        override fun getData(): Any? {
             return data
         }
     }
 
-    class DoubleJsonSchema1 private constructor() : JsonSchema<DoubleJsonSchema1Boxed>(
+    open class DoubleJsonSchema1 protected constructor() : JsonSchema<DoubleJsonSchema1Boxed>(
         JsonSchemaInfo()
         {{#if generatorSettings.intsAllowedForFloatDoubleFormats}}
             .type(setOf(
-                    Integer::class.java,
+                    Int::class.java,
                     Long::class.java,
                     Float::class.java,
                     Double::class.java
@@ -53,7 +53,7 @@ class DoubleJsonSchema {
 
         override fun getNewInstance(arg: Any?, pathToItem: List<Any>, pathToSchemas: PathToSchemasMap): Any? {
             if (arg is Number) {
-                return getNewInstance(arg as Number?, pathToItem, pathToSchemas)
+                return getNewInstance(arg, pathToItem, pathToSchemas)
             }
             throw RuntimeException("Invalid input type=$javaClass. It can't be instantiated by this schema")
         }

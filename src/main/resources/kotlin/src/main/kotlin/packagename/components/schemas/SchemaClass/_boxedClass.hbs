@@ -1,6 +1,6 @@
 {{#if forDocs}}
 {{> src/main/kotlin/packagename/components/_helper_header_from_identifier_pieces headerSize=(join headerSize "#" "") identifierPieces=(append identifierPieces (join jsonPathPiece.pascalCase "Boxed" "")) }}
-public sealed interface {{jsonPathPiece.pascalCase}}Boxed<br>
+sealed interface {{jsonPathPiece.pascalCase}}Boxed<br>
 permits<br>
 {{#each types}}
     {{#eq this "null"}}
@@ -32,8 +32,8 @@ permits<br>
 sealed interface that stores validated payloads using boxed classes
 
 {{else}}
-public sealed interface {{jsonPathPiece.pascalCase}}Boxed permits {{#each types}}{{jsonPathPiece.pascalCase}}Boxed{{#eq this "null"}}Nothing?{{/eq}}{{#eq this "boolean"}}Boolean{{/eq}}{{#or (eq this "number") (eq this "integer")}}Number{{/or}}{{#and (eq this "string") (neq ../format "binary") }}String{{/and}}{{#eq this "array"}}List{{/eq}}{{#eq this "object"}}Map{{/eq}}{{#unless @last}}, {{/unless}}{{else}}{{jsonPathPiece.pascalCase}}BoxedVoid, {{jsonPathPiece.pascalCase}}BoxedBoolean, {{jsonPathPiece.pascalCase}}BoxedNumber, {{jsonPathPiece.pascalCase}}BoxedString, {{jsonPathPiece.pascalCase}}BoxedList, {{jsonPathPiece.pascalCase}}BoxedMap{{/each}} {
-    @Nullable Object getData();
+sealed interface {{jsonPathPiece.pascalCase}}Boxed {
+    fun getData(): Any?
 }
 
 {{/if}}

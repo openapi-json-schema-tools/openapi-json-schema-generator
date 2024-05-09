@@ -1,6 +1,8 @@
-package {{{packageName}}}.schemas.validation;
+package {{{packageName}}}.schemas.validation
 
-import {{{packageName}}}.exceptions.ValidationException;
+import {{{packageName}}}.exceptions.ValidationException
+
+import java.util.regex.Pattern
 
 class PatternValidator : KeywordValidator {
     @Throws(ValidationException::class)

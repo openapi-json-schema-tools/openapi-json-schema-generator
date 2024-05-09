@@ -1,7 +1,8 @@
-package {{{packageName}}}.schemas.validation;
+package {{{packageName}}}.schemas.validation
 
-import {{{packageName}}}.exceptions.ValidationException;
+import {{{packageName}}}.exceptions.ValidationException
 
-public interface DefaultValueMethod<T> {
-    T defaultValue() throws ValidationException;
+interface DefaultValueMethod<T> {
+    @Throws(ValidationException::class)
+    fun defaultValue(): T
 }

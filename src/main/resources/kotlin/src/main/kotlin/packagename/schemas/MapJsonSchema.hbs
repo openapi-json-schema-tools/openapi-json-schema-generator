@@ -1,27 +1,27 @@
-package {{{packageName}}}.schemas;
+package {{{packageName}}}.schemas
 
-import {{{packageName}}}.configurations.JsonSchemaKeywordFlags;
-import {{{packageName}}}.exceptions.ValidationException;
-import {{{packageName}}}.schemas.validation.FrozenMap;
-import {{{packageName}}}.schemas.validation.JsonSchema;
-import {{{packageName}}}.schemas.validation.JsonSchemaInfo;
-import {{{packageName}}}.configurations.SchemaConfiguration;
-import {{{packageName}}}.schemas.validation.PathToSchemasMap;
-import {{{packageName}}}.schemas.validation.MapSchemaValidator;
-import {{{packageName}}}.schemas.validation.ValidationMetadata;
+import {{{packageName}}}.configurations.JsonSchemaKeywordFlags
+import {{{packageName}}}.exceptions.ValidationException
+import {{{packageName}}}.schemas.validation.FrozenMap
+import {{{packageName}}}.schemas.validation.JsonSchema
+import {{{packageName}}}.schemas.validation.JsonSchemaInfo
+import {{{packageName}}}.configurations.SchemaConfiguration
+import {{{packageName}}}.schemas.validation.PathToSchemasMap
+import {{{packageName}}}.schemas.validation.MapSchemaValidator
+import {{{packageName}}}.schemas.validation.ValidationMetadata
 
-class MapJsonSchema {
+open class MapJsonSchema {
     sealed interface MapJsonSchema1Boxed {
         fun getData(): Any?
     }
 
     data class MapJsonSchema1BoxedMap(val data: FrozenMap<Any?>) : MapJsonSchema1Boxed {
-        override fun getData(): FrozenMap<Any?> {
+        override fun getData(): Any? {
             return data
         }
     }
 
-    class MapJsonSchema1 private constructor() : JsonSchema<MapJsonSchema1Boxed>(
+    open class MapJsonSchema1 protected constructor() : JsonSchema<MapJsonSchema1Boxed>(
         JsonSchemaInfo()
             .type(setOf(Map::class.java))
     ), MapSchemaValidator<FrozenMap<Any?>, MapJsonSchema1BoxedMap> {
@@ -58,8 +58,8 @@ class MapJsonSchema {
         }
 
         override fun getNewInstance(arg: Any?, pathToItem: List<Any>, pathToSchemas: PathToSchemasMap): FrozenMap<Any?> {
-            if (arg is FrozenMap<*>) {
-                return getNewInstance(arg as Map<*, *>, pathToItem, pathToSchemas)
+            if (arg is Map<*, *>) {
+                return getNewInstance(arg, pathToItem, pathToSchemas)
             }
             throw RuntimeException("Invalid input type=$javaClass. It can't be instantiated by this schema")
         }
@@ -67,7 +67,7 @@ class MapJsonSchema {
         @Throws(ValidationException::class)
         override fun validate(arg: Any?, configuration: SchemaConfiguration?): Any? {
             if (arg is Map<*, *>) {
-                return validate(arg as Map<*, *>?, configuration)
+                return validate(arg, configuration)
             }
             throw ValidationException("Invalid input type=$javaClass. It can't be validated by this schema")
         }

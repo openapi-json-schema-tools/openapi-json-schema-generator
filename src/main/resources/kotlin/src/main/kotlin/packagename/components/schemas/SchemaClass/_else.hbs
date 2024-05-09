@@ -2,16 +2,16 @@
     {{#with else_}}
         {{#if refInfo.refClass}}
             {{#if refInfo.refModule}}
-elseSchema = [{{refInfo.refModule}}.{{refInfo.refClass}}.class]({{docRoot}}{{refInfo.ref.pathFromDocRoot}}.md#{{refInfo.ref.jsonPathPiece.kebabCase}})
+elseSchema = [{{refInfo.refModule}}.{{refInfo.refClass}}::class.java]({{docRoot}}{{refInfo.ref.pathFromDocRoot}}.md#{{refInfo.ref.jsonPathPiece.kebabCase}})
             {{~else}}
-elseSchema = [{{refInfo.refClass}}.class](#{{refInfo.ref.jsonPathPiece.kebabCase}})
+elseSchema = [{{refInfo.refClass}}::class.java](#{{refInfo.ref.jsonPathPiece.kebabCase}})
             {{~/if}}
         {{else}}
-elseSchema = [{{jsonPathPiece.pascalCase}}.class](#{{jsonPathPiece.kebabCase}})
+elseSchema = [{{jsonPathPiece.pascalCase}}::class.java](#{{jsonPathPiece.kebabCase}})
         {{~/if}}
     {{~/with}}
 {{else}}
     {{#with else_}}
-.elseSchema({{#if refInfo.refClass}}{{#if refInfo.refModule}}{{refInfo.refModule}}.{{/if}}{{refInfo.refClass}}{{else}}{{jsonPathPiece.pascalCase}}{{/if}}.class)
+.elseSchema({{#if refInfo.refClass}}{{#if refInfo.refModule}}{{refInfo.refModule}}.{{/if}}{{refInfo.refClass}}{{else}}{{jsonPathPiece.pascalCase}}{{/if}}::class.java)
     {{/with}}
 {{/if}}

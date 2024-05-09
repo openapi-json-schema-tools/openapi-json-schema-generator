@@ -1,49 +1,67 @@
-package {{{packageName}}}.schemas;
+package {{{packageName}}}.schemas
 
-import org.junit.Assert;
-import org.junit.Test;
-import {{{packageName}}}.configurations.JsonSchemaKeywordFlags;
-import {{{packageName}}}.configurations.SchemaConfiguration;
-import {{{packageName}}}.exceptions.ValidationException;
-import {{{packageName}}}.schemas.validation.JsonSchema;
-import {{{packageName}}}.schemas.validation.PathToSchemasMap;
-import {{{packageName}}}.schemas.validation.ValidationMetadata;
+import {{{packageName}}}.configurations.JsonSchemaKeywordFlags
+import {{{packageName}}}.configurations.SchemaConfiguration
+import {{{packageName}}}.exceptions.ValidationException
+import {{{packageName}}}.schemas.validation.JsonSchema
+import {{{packageName}}}.schemas.validation.PathToSchemasMap
+import {{{packageName}}}.schemas.validation.ValidationMetadata
+import {{{packageName}}}.schemas.validation.JsonSchemaFactory
 
-import java.util.LinkedHashSet;
-import java.util.List;
+import kotlin.test.Test
+import kotlin.test.assertEquals
+import kotlin.test.assertFailsWith
 
-public class RefBooleanSchemaTest {
-    public static class RefBooleanSchema {
-        public static class RefBooleanSchema1 extends BooleanJsonSchema.BooleanJsonSchema1 {}
+class RefBooleanSchemaTest {
+    class RefBooleanSchema {
+        class RefBooleanSchema1 : BooleanJsonSchema.BooleanJsonSchema1() {
+            companion object {
+                @Volatile
+                private var instance: RefBooleanSchema1? = null
+
+                fun getInstance() =
+                    instance ?: synchronized(this) {
+                        instance ?: RefBooleanSchema1().also { instance = it }
+                    }
+            }
+        }
     }
 
-    static final SchemaConfiguration configuration = new SchemaConfiguration(new JsonSchemaKeywordFlags.Builder().build());
-    static final BooleanJsonSchema.BooleanJsonSchema1 refBooleanJsonSchema = RefBooleanSchema.RefBooleanSchema1.getInstance();
-    static final ValidationMetadata validationMetadata = new ValidationMetadata(
-            List.of("args[0"),
+    @Test
+    @Throws(ValidationException::class)
+    fun testValidateTrue() {
+        val validatedValue = refBooleanJsonSchema.validate(true, configuration)
+        assertEquals(validatedValue, true)
+    }
+
+    @Test
+    @Throws(ValidationException::class)
+    fun testValidateFalse() {
+        val validatedValue = refBooleanJsonSchema.validate(false, configuration)
+        assertEquals(validatedValue, false)
+    }
+
+    @Test
+    fun testExceptionThrownForInvalidType() {
+        assertFailsWith<ValidationException>(
+            block = {
+                JsonSchema.validate(
+                    refBooleanJsonSchema,
+                    null,
+                    validationMetadata
+                )
+            }
+        )
+    }
+
+    companion object {
+        val configuration = SchemaConfiguration(JsonSchemaKeywordFlags.Builder().build())
+        val refBooleanJsonSchema = JsonSchemaFactory.getInstance(RefBooleanSchema.RefBooleanSchema1::class.java)
+        val validationMetadata = ValidationMetadata(
+            listOf("args[0"),
             configuration,
-            new PathToSchemasMap(),
-            new LinkedHashSet<>()
-    );
-    
-    @Test
-    public void testValidateTrue() throws ValidationException {
-        Boolean validatedValue = refBooleanJsonSchema.validate(true, configuration);
-        Assert.assertEquals(validatedValue, Boolean.TRUE);
-    }
-
-    @Test
-    public void testValidateFalse() throws ValidationException {
-        Boolean validatedValue = refBooleanJsonSchema.validate(false, configuration);
-        Assert.assertEquals(validatedValue, Boolean.FALSE);
-    }
-
-    @Test
-    public void testExceptionThrownForInvalidType() {
-        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
-                refBooleanJsonSchema,
-                null,
-                validationMetadata
-        ));
+            PathToSchemasMap(),
+            LinkedHashSet()
+        )
     }
 }

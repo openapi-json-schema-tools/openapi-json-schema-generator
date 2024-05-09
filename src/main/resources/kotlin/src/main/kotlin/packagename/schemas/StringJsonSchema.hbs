@@ -1,30 +1,30 @@
-package {{{packageName}}}.schemas;
+package {{{packageName}}}.schemas
 
-import {{{packageName}}}.configurations.JsonSchemaKeywordFlags;
-import {{{packageName}}}.configurations.SchemaConfiguration;
-import {{{packageName}}}.exceptions.ValidationException;
-import {{{packageName}}}.schemas.validation.JsonSchema;
-import {{{packageName}}}.schemas.validation.JsonSchemaInfo;
-import {{{packageName}}}.schemas.validation.PathToSchemasMap;
-import {{{packageName}}}.schemas.validation.StringSchemaValidator;
-import {{{packageName}}}.schemas.validation.ValidationMetadata;
+import {{{packageName}}}.configurations.JsonSchemaKeywordFlags
+import {{{packageName}}}.configurations.SchemaConfiguration
+import {{{packageName}}}.exceptions.ValidationException
+import {{{packageName}}}.schemas.validation.JsonSchema
+import {{{packageName}}}.schemas.validation.JsonSchemaInfo
+import {{{packageName}}}.schemas.validation.PathToSchemasMap
+import {{{packageName}}}.schemas.validation.StringSchemaValidator
+import {{{packageName}}}.schemas.validation.ValidationMetadata
 
 import java.time.LocalDate
 import java.time.ZonedDateTime
 import java.util.UUID
 
-class StringJsonSchema {
+open class StringJsonSchema {
     interface StringJsonSchema1Boxed {
         fun getData(): Any?
     }
 
     data class StringJsonSchema1BoxedString(val data: String) : StringJsonSchema1Boxed {
-        override fun getData(): String {
+        override fun getData(): Any? {
             return data
         }
     }
 
-    class StringJsonSchema1 private constructor() : JsonSchema<StringJsonSchema1Boxed?>(
+    open class StringJsonSchema1 protected constructor() : JsonSchema<StringJsonSchema1Boxed?>(
         JsonSchemaInfo()
             .type(setOf(String::class.java))
     ), StringSchemaValidator<StringJsonSchema1BoxedString?> {
@@ -57,7 +57,7 @@ class StringJsonSchema {
 
         override fun getNewInstance(arg: Any?, pathToItem: List<Any>, pathToSchemas: PathToSchemasMap): Any? {
             if (arg is String) {
-                return getNewInstance(arg as String?, pathToItem, pathToSchemas)
+                return getNewInstance(arg, pathToItem, pathToSchemas)
             }
             throw RuntimeException("Invalid input type=$javaClass. It can't be instantiated by this schema")
         }

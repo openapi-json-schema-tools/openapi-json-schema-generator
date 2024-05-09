@@ -1,89 +1,89 @@
 {{#each types}}
     {{#eq this "null"}}
         {{#if forDocs }}
-| {{builderClass}} | add(Nothing? item) |
+| {{builderClass}} | add(item: Nothing?) |
         {{else}}
 
-public {{builderClass}} add(Nothing? item) {
-    list.add(null);
-    return this;
+fun add(item: Nothing?): {{builderClass}} {
+    list.add(null)
+    return this
 }
         {{/if}}
     {{else}}
         {{#eq this "boolean"}}
             {{#if forDocs }}
-| {{builderClass}} | add(boolean item) |
+| {{builderClass}} | add(item: Boolean) |
             {{else}}
 
-public {{builderClass}} add(boolean item) {
-    list.add(item);
-    return this;
+fun add(item: Boolean): {{builderClass}} {
+    list.add(item)
+    return this
 }
             {{/if}}
         {{else}}
             {{#eq this "string"}}
                 {{#if forDocs }}
-| {{builderClass}} | add(String item) |
+| {{builderClass}} | add(item: String) |
                 {{else}}
 
-public {{builderClass}} add(String item) {
-    list.add(item);
-    return this;
+fun add(item: String): {{builderClass}} {
+    list.add(item)
+    return this
 }
                 {{/if}}
             {{else}}
                 {{#or (eq this "integer") (eq this "number") }}
                     {{#if forDocs }}
-| {{builderClass}} | add(int item) |
-| {{builderClass}} | add(float item) |
+| {{builderClass}} | add(item: Int) |
+| {{builderClass}} | add(item: Float) |
                         {{#neq ../format "int32"}}
-| {{builderClass}} | add(long item) |
-| {{builderClass}} | add(double item) |
+| {{builderClass}} | add(item: Long) |
+| {{builderClass}} | add(item: Double) |
                         {{/neq}}
                     {{else}}
 
-public {{builderClass}} add(int item) {
-    list.add(item);
-    return this;
+fun add(item: Int): {{builderClass}} {
+    list.add(item)
+    return this
 }
 
-public {{builderClass}} add(float item) {
-    list.add(item);
-    return this;
+fun add(item: Float): {{builderClass}} {
+    list.add(item)
+    return this
 }
                         {{#neq ../format "int32"}}
 
-public {{builderClass}} add(long item) {
-    list.add(item);
-    return this;
+fun add(item: Long): {{builderClass}} {
+    list.add(item)
+    return this
 }
 
-public {{builderClass}} add(double item) {
-    list.add(item);
-    return this;
+fun add(item: Double): {{builderClass}} {
+    list.add(item)
+    return this
 }
                         {{/neq}}
                     {{/if}}
                 {{else}}
                     {{#eq this "array"}}
                         {{#if forDocs }}
-| {{builderClass}} | add(List<{{#with listItemSchema}}{{> src/main/kotlin/packagename/components/schemas/types/schema_input_type sourceJsonPath=../jsonPath forceNull=true noExtends=true }}{{else}}@Nullable Object{{/with}}> item) |
+| {{builderClass}} | add(item: List<{{#with listItemSchema}}{{> src/main/kotlin/packagename/components/schemas/types/schema_input_type sourceJsonPath=../jsonPath forceNull=true noExtends=true }}{{else}}Any?{{/with}}>) |
                         {{else}}
 
-public {{builderClass}} add(List<{{#with listItemSchema}}{{> src/main/kotlin/packagename/components/schemas/types/schema_input_type sourceJsonPath=../jsonPath forceNull=true noExtends=true }}{{else}}@Nullable Object{{/with}}> item) {
-    list.add(item);
-    return this;
+fun add(item: List<{{#with listItemSchema}}{{> src/main/kotlin/packagename/components/schemas/types/schema_input_type sourceJsonPath=../jsonPath forceNull=true noExtends=true }}{{else}}Any?{{/with}}>): {{builderClass}} {
+    list.add(item)
+    return this
 }
                         {{/if}}
                     {{else}}
                         {{#eq this "object"}}
                             {{#if forDocs }}
-| {{builderClass}} | add(Map<String, {{#with mapValueSchema}}{{> src/main/kotlin/packagename/components/schemas/types/schema_input_type sourceJsonPath=../jsonPath forceNull=true noExtends=true }}{{else}}@Nullable Object{{/with}}> item) |
+| {{builderClass}} | add(item: Map<String, {{#with mapValueSchema}}{{> src/main/kotlin/packagename/components/schemas/types/schema_input_type sourceJsonPath=../jsonPath forceNull=true noExtends=true }}{{else}}Any?{{/with}}>) |
                             {{else}}
 
-public {{builderClass}} add(Map<String, {{#with mapValueSchema}}{{> src/main/kotlin/packagename/components/schemas/types/schema_input_type sourceJsonPath=../jsonPath forceNull=true noExtends=true }}{{else}}@Nullable Object{{/with}}> item) {
-    list.add(item);
-    return this;
+fun add(item: Map<String, {{#with mapValueSchema}}{{> src/main/kotlin/packagename/components/schemas/types/schema_input_type sourceJsonPath=../jsonPath forceNull=true noExtends=true }}{{else}}Any?{{/with}}>): {{builderClass}} {
+    list.add(item)
+    return this
 }
                             {{/if}}
                         {{/eq}}
@@ -95,60 +95,60 @@ public {{builderClass}} add(Map<String, {{#with mapValueSchema}}{{> src/main/kot
 {{else}}
     {{! no type defined }}
     {{#if forDocs }}
-| {{builderClass}} | add(Nothing? item) |
-| {{builderClass}} | add(boolean item) |
-| {{builderClass}} | add(String item) |
-| {{builderClass}} | add(int item) |
-| {{builderClass}} | add(float item) |
-| {{builderClass}} | add(long item) |
-| {{builderClass}} | add(double item) |
-| {{builderClass}} | add(List<?> item) |
-| {{builderClass}} | add(Map<String, ?> item) |
+| {{builderClass}} | add(item: Nothing?) |
+| {{builderClass}} | add(item: Boolean) |
+| {{builderClass}} | add(item: String) |
+| {{builderClass}} | add(item: Int) |
+| {{builderClass}} | add(item: Float) |
+| {{builderClass}} | add(item: Long) |
+| {{builderClass}} | add(item: Double) |
+| {{builderClass}} | add(item: List<Any?>) |
+| {{builderClass}} | add(item: Map<String, Any?>) |
     {{else}}
 
-public {{builderClass}} add(Nothing? item) {
-    list.add(null);
-    return this;
+fun add(item: Nothing?): {{builderClass}} {
+    list.add(null)
+    return this
 }
 
-public {{builderClass}} add(boolean item) {
-    list.add(item);
-    return this;
+fun add(item: Boolean): {{builderClass}} {
+    list.add(item)
+    return this
 }
 
-public {{builderClass}} add(String item) {
-    list.add(item);
-    return this;
+fun add(item: String): {{builderClass}} {
+    list.add(item)
+    return this
 }
 
-public {{builderClass}} add(int item) {
-    list.add(item);
-    return this;
+fun add(item: Int): {{builderClass}} {
+    list.add(item)
+    return this
 }
 
-public {{builderClass}} add(float item) {
-    list.add(item);
-    return this;
+fun add(item: Float): {{builderClass}} {
+    list.add(item)
+    return this
 }
 
-public {{builderClass}} add(long item) {
-    list.add(item);
-    return this;
+fun add(item: Long): {{builderClass}} {
+    list.add(item)
+    return this
 }
 
-public {{builderClass}} add(double item) {
-    list.add(item);
-    return this;
+fun add(item: Double): {{builderClass}} {
+    list.add(item)
+    return this
 }
 
-public {{builderClass}} add(List<?> item) {
-    list.add(item);
-    return this;
+fun add(item: List<*>): {{builderClass}} {
+    list.add(item)
+    return this
 }
 
-public {{builderClass}} add(Map<String, ?> item) {
-    list.add(item);
-    return this;
+fun add(item: Map<String, Any?>): {{builderClass}} {
+    list.add(item)
+    return this
 }
     {{/if}}
 {{/each}}
@@ -157,105 +157,105 @@ public {{builderClass}} add(Map<String, ?> item) {
         {{#eq @key "null"}}
             {{#if forDocs }}
                 {{#if useContainer }}
-| {{builderClass}} | add([{{../../containerJsonPathPiece.pascalCase}}.Null{{../jsonPathPiece.pascalCase}}]({{docRoot}}{{pathFromDocRoot}}.md#null{{../jsonPathPiece.kebabCase}}) item) |
+| {{builderClass}} | add(item: [{{../../containerJsonPathPiece.pascalCase}}.Null{{../jsonPathPiece.pascalCase}}]({{docRoot}}{{pathFromDocRoot}}.md#null{{../jsonPathPiece.kebabCase}})) |
                 {{else}}
-| {{builderClass}} | add([Null{{../jsonPathPiece.pascalCase}}](#null{{../jsonPathPiece.kebabCase}}) item) |
+| {{builderClass}} | add(item: [Null{{../jsonPathPiece.pascalCase}}](#null{{../jsonPathPiece.kebabCase}})) |
                 {{/if}}
             {{else}}
 
-public {{builderClass}} add({{#if useContainer}}{{../../containerJsonPathPiece.pascalCase}}.{{/if}}Null{{../jsonPathPiece.pascalCase}} item) {
-    list.add(null);
-    return this;
+fun add(item: {{#if useContainer}}{{../../containerJsonPathPiece.pascalCase}}.{{/if}}Null{{../jsonPathPiece.pascalCase}}): {{builderClass}} {
+    list.add(null)
+    return this
 }
             {{/if}}
         {{else}}
             {{#eq @key "boolean"}}
                 {{#if forDocs }}
                     {{#if useContainer }}
-| {{builderClass}} | add([{{../../containerJsonPathPiece.pascalCase}}.Boolean{{../jsonPathPiece.pascalCase}}]({{docRoot}}{{pathFromDocRoot}}.md#boolean{{../jsonPathPiece.kebabCase}}) item) |
+| {{builderClass}} | add(item: [{{../../containerJsonPathPiece.pascalCase}}.Boolean{{../jsonPathPiece.pascalCase}}]({{docRoot}}{{pathFromDocRoot}}.md#boolean{{../jsonPathPiece.kebabCase}})) |
                     {{else}}
-| {{builderClass}} | add([Boolean{{../jsonPathPiece.pascalCase}}](#boolean{{../jsonPathPiece.kebabCase}}) item) |
+| {{builderClass}} | add(item: [Boolean{{../jsonPathPiece.pascalCase}}](#boolean{{../jsonPathPiece.kebabCase}})) |
                     {{/if}}
                 {{else}}
 
-public {{builderClass}} add({{#if useContainer}}{{../../containerJsonPathPiece.pascalCase}}.{{/if}}Boolean{{../jsonPathPiece.pascalCase}} item) {
-    list.add(item.value());
-    return this;
+fun add(item: {{#if useContainer}}{{../../containerJsonPathPiece.pascalCase}}.{{/if}}Boolean{{../jsonPathPiece.pascalCase}}): {{builderClass}} {
+    list.add(item.value())
+    return this
 }
                 {{/if}}
             {{else}}
                 {{#eq @key "string"}}
                     {{#if forDocs }}
                         {{#if useContainer }}
-| {{builderClass}} | add([{{../../containerJsonPathPiece.pascalCase}}.String{{../jsonPathPiece.pascalCase}}]({{docRoot}}{{pathFromDocRoot}}.md#string{{../jsonPathPiece.kebabCase}}) item) |
+| {{builderClass}} | add(item: [{{../../containerJsonPathPiece.pascalCase}}.String{{../jsonPathPiece.pascalCase}}]({{docRoot}}{{pathFromDocRoot}}.md#string{{../jsonPathPiece.kebabCase}})) |
                         {{else}}
-| {{builderClass}} | add([String{{../jsonPathPiece.pascalCase}}](#string{{../jsonPathPiece.kebabCase}}) item) |
+| {{builderClass}} | add(item: [String{{../jsonPathPiece.pascalCase}}](#string{{../jsonPathPiece.kebabCase}})) |
                         {{/if}}
                     {{else}}
 
-public {{builderClass}} add({{#if useContainer}}{{../../containerJsonPathPiece.pascalCase}}.{{/if}}String{{../jsonPathPiece.pascalCase}} item) {
-    list.add(item.value());
-    return this;
+fun add(item: {{#if useContainer}}{{../../containerJsonPathPiece.pascalCase}}.{{/if}}String{{../jsonPathPiece.pascalCase}}): {{builderClass}} {
+    list.add(item.value())
+    return this
 }
                     {{/if}}
                 {{else}}
                     {{#eq @key "Integer"}}
                         {{#if forDocs }}
                             {{#if useContainer }}
-| {{builderClass}} | add([{{../../containerJsonPathPiece.pascalCase}}.Integer{{../jsonPathPiece.pascalCase}}]({{docRoot}}{{pathFromDocRoot}}.md#integer{{../jsonPathPiece.kebabCase}}) item) |
+| {{builderClass}} | add(item: [{{../../containerJsonPathPiece.pascalCase}}.Integer{{../jsonPathPiece.pascalCase}}]({{docRoot}}{{pathFromDocRoot}}.md#integer{{../jsonPathPiece.kebabCase}})) |
                             {{else}}
-| {{builderClass}} | add([Integer{{../jsonPathPiece.pascalCase}}](#integer{{../jsonPathPiece.kebabCase}}) item) |
+| {{builderClass}} | add(item: [Integer{{../jsonPathPiece.pascalCase}}](#integer{{../jsonPathPiece.kebabCase}})) |
                             {{/if}}
                         {{else}}
 
-public {{builderClass}} add({{#if useContainer}}{{../../containerJsonPathPiece.pascalCase}}.{{/if}}Integer{{../jsonPathPiece.pascalCase}} item) {
-    list.add(item.value());
-    return this;
+fun add(item: {{#if useContainer}}{{../../containerJsonPathPiece.pascalCase}}.{{/if}}Integer{{../jsonPathPiece.pascalCase}}): {{builderClass}} {
+    list.add(item.value())
+    return this
 }
                         {{/if}}
                     {{else}}
                         {{#eq @key "Long"}}
                             {{#if forDocs }}
                                 {{#if useContainer }}
-| {{builderClass}} | add([{{../../containerJsonPathPiece.pascalCase}}.Long{{../jsonPathPiece.pascalCase}}]({{docRoot}}{{pathFromDocRoot}}.md#long{{../jsonPathPiece.kebabCase}}) item) |
+| {{builderClass}} | add(item: [{{../../containerJsonPathPiece.pascalCase}}.Long{{../jsonPathPiece.pascalCase}}]({{docRoot}}{{pathFromDocRoot}}.md#long{{../jsonPathPiece.kebabCase}})) |
                                 {{else}}
-| {{builderClass}} | add([Long{{../jsonPathPiece.pascalCase}}](#long{{../jsonPathPiece.kebabCase}}) item) |
+| {{builderClass}} | add(item: [Long{{../jsonPathPiece.pascalCase}}](#long{{../jsonPathPiece.kebabCase}})) |
                                 {{/if}}
                             {{else}}
 
-public {{builderClass}} add({{#if useContainer}}{{../../containerJsonPathPiece.pascalCase}}.{{/if}}Long{{../jsonPathPiece.pascalCase}} item) {
-    list.add(item.value());
-    return this;
+fun add(item: {{#if useContainer}}{{../../containerJsonPathPiece.pascalCase}}.{{/if}}Long{{../jsonPathPiece.pascalCase}}): {{builderClass}} {
+    list.add(item.value())
+    return this
 }
                             {{/if}}
                         {{else}}
                             {{#eq @key "Float"}}
                                 {{#if forDocs }}
                                     {{#if useContainer }}
-| {{builderClass}} | add([{{../../containerJsonPathPiece.pascalCase}}.Float{{../jsonPathPiece.pascalCase}}]({{docRoot}}{{pathFromDocRoot}}.md#float{{../jsonPathPiece.kebabCase}}) item) |
+| {{builderClass}} | add(item: [{{../../containerJsonPathPiece.pascalCase}}.Float{{../jsonPathPiece.pascalCase}}]({{docRoot}}{{pathFromDocRoot}}.md#float{{../jsonPathPiece.kebabCase}})) |
                                     {{else}}
-| {{builderClass}} | add([Float{{../jsonPathPiece.pascalCase}}](#float{{../jsonPathPiece.kebabCase}}) item) |
+| {{builderClass}} | add(item: [Float{{../jsonPathPiece.pascalCase}}](#float{{../jsonPathPiece.kebabCase}})) |
                                     {{/if}}
                                 {{else}}
 
-public {{builderClass}} add({{#if useContainer}}{{../../containerJsonPathPiece.pascalCase}}.{{/if}}Float{{../jsonPathPiece.pascalCase}} item) {
-    list.add(item.value());
-    return this;
+fun add(item: {{#if useContainer}}{{../../containerJsonPathPiece.pascalCase}}.{{/if}}Float{{../jsonPathPiece.pascalCase}}): {{builderClass}} {
+    list.add(item.value())
+    return this
 }
                                 {{/if}}
                             {{else}}
                                 {{#eq @key "Double"}}
                                     {{#if forDocs }}
                                         {{#if useContainer }}
-| {{builderClass}} | add([{{../../containerJsonPathPiece.pascalCase}}.Double{{../jsonPathPiece.pascalCase}}]({{docRoot}}{{pathFromDocRoot}}.md#double{{../jsonPathPiece.kebabCase}}) item) |
+| {{builderClass}} | add(item: [{{../../containerJsonPathPiece.pascalCase}}.Double{{../jsonPathPiece.pascalCase}}]({{docRoot}}{{pathFromDocRoot}}.md#double{{../jsonPathPiece.kebabCase}})) |
                                         {{else}}
-| {{builderClass}} | add([Double{{../jsonPathPiece.pascalCase}}](#double{{../jsonPathPiece.kebabCase}}) item) |
+| {{builderClass}} | add(item: [Double{{../jsonPathPiece.pascalCase}}](#double{{../jsonPathPiece.kebabCase}})) |
                                         {{/if}}
                                     {{else}}
 
-public {{builderClass}} add({{#if useContainer}}{{../../containerJsonPathPiece.pascalCase}}.{{/if}}Double{{../jsonPathPiece.pascalCase}} item) {
-    list.add(item.value());
-    return this;
+fun add(item: {{#if useContainer}}{{../../containerJsonPathPiece.pascalCase}}.{{/if}}Double{{../jsonPathPiece.pascalCase}}): {{builderClass}} {
+    list.add(item.value())
+    return this
 }
                                     {{/if}}
                                 {{/eq}}

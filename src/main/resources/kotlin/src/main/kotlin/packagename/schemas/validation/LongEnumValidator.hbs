@@ -1,8 +1,9 @@
-package {{{packageName}}}.schemas.validation;
+package {{{packageName}}}.schemas.validation
 
-import {{{packageName}}}.configurations.SchemaConfiguration;
-import {{{packageName}}}.exceptions.ValidationException;
+import {{{packageName}}}.configurations.SchemaConfiguration
+import {{{packageName}}}.exceptions.ValidationException
 
-public interface LongEnumValidator <EnumType extends LongValueMethod> {
-    long validate(EnumType arg, SchemaConfiguration configuration) throws ValidationException;
+interface LongEnumValidator<EnumType : LongValueMethod> {
+    @Throws(ValidationException::class)
+    fun validate(arg: EnumType, configuration: SchemaConfiguration?): Long
 }

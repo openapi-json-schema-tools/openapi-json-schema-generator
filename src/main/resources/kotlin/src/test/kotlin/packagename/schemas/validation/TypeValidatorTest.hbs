@@ -1,56 +1,54 @@
-package {{{packageName}}}.schemas.validation;
+package {{{packageName}}}.schemas.validation
 
-import org.checkerframework.checker.nullness.qual.Nullable;
-import org.junit.Assert;
-import org.junit.Test;
-import {{{packageName}}}.configurations.JsonSchemaKeywordFlags;
-import {{{packageName}}}.configurations.SchemaConfiguration;
-import {{{packageName}}}.exceptions.ValidationException;
-import {{{packageName}}}.schemas.StringJsonSchema;
+import {{{packageName}}}.configurations.JsonSchemaKeywordFlags
+import {{{packageName}}}.configurations.SchemaConfiguration
+import {{{packageName}}}.exceptions.ValidationException
+import {{{packageName}}}.schemas.StringJsonSchema
 
-import java.util.ArrayList;
-import java.util.LinkedHashSet;
+import kotlin.test.Test
+import kotlin.test.assertFailsWith
+import kotlin.test.assertNull
 
-public class TypeValidatorTest {
-    @SuppressWarnings("nullness")
-    private void assertNull(@Nullable Object object) {
-        Assert.assertNull(object);
+class TypeValidatorTest {
+    @Test
+    @Throws(ValidationException::class)
+    fun testValidateSucceeds() {
+        val validator = TypeValidator()
+        val validationMetadata = ValidationMetadata(
+            ArrayList(),
+            SchemaConfiguration(JsonSchemaKeywordFlags.Builder().build()),
+            PathToSchemasMap(),
+            LinkedHashSet()
+        )
+        val pathToSchemasMap = validator.validate(
+            ValidationData(
+                StringJsonSchema.StringJsonSchema1.getInstance(),
+                "hi",
+                validationMetadata
+            )
+        )
+        assertNull(pathToSchemasMap)
     }
 
     @Test
-    public void testValidateSucceeds() throws ValidationException {
-        final TypeValidator validator = new TypeValidator();
-        ValidationMetadata validationMetadata = new ValidationMetadata(
-                new ArrayList<>(),
-                new SchemaConfiguration(new JsonSchemaKeywordFlags.Builder().build()),
-                new PathToSchemasMap(),
-                new LinkedHashSet<>()
-        );
-        @Nullable PathToSchemasMap pathToSchemasMap = validator.validate(
-                new ValidationData(
-                    StringJsonSchema.StringJsonSchema1.getInstance(),
-                    "hi",
-                    validationMetadata
+    fun testValidateFailsIntIsNotString() {
+        val validator = TypeValidator()
+        val validationMetadata = ValidationMetadata(
+            ArrayList(),
+            SchemaConfiguration(JsonSchemaKeywordFlags.Builder().build()),
+            PathToSchemasMap(),
+            LinkedHashSet()
+        )
+        assertFailsWith<ValidationException>(
+            block = {
+                validator.validate(
+                    ValidationData(
+                        StringJsonSchema.StringJsonSchema1.getInstance(),
+                        1,
+                        validationMetadata
+                    )
                 )
-        );
-        assertNull(pathToSchemasMap);
-    }
-
-    @Test
-    public void testValidateFailsIntIsNotString() {
-        final TypeValidator validator = new TypeValidator();
-        ValidationMetadata validationMetadata = new ValidationMetadata(
-                new ArrayList<>(),
-                new SchemaConfiguration(new JsonSchemaKeywordFlags.Builder().build()),
-                new PathToSchemasMap(),
-                new LinkedHashSet<>()
-        );
-        Assert.assertThrows(ValidationException.class, () -> validator.validate(
-                new ValidationData(
-                    StringJsonSchema.StringJsonSchema1.getInstance(),
-                    1,
-                    validationMetadata
-                )
-        ));
+            }
+        )
     }
 }

@@ -1,26 +1,26 @@
-package {{{packageName}}}.schemas;
+package {{{packageName}}}.schemas
 
-import {{{packageName}}}.configurations.JsonSchemaKeywordFlags;
-import {{{packageName}}}.configurations.SchemaConfiguration;
-import {{{packageName}}}.exceptions.ValidationException;
-import {{{packageName}}}.schemas.validation.JsonSchema;
-import {{{packageName}}}.schemas.validation.JsonSchemaInfo;
-import {{{packageName}}}.schemas.validation.PathToSchemasMap;
-import {{{packageName}}}.schemas.validation.BooleanSchemaValidator;
-import {{{packageName}}}.schemas.validation.ValidationMetadata;
+import {{{packageName}}}.configurations.JsonSchemaKeywordFlags
+import {{{packageName}}}.configurations.SchemaConfiguration
+import {{{packageName}}}.exceptions.ValidationException
+import {{{packageName}}}.schemas.validation.JsonSchema
+import {{{packageName}}}.schemas.validation.JsonSchemaInfo
+import {{{packageName}}}.schemas.validation.PathToSchemasMap
+import {{{packageName}}}.schemas.validation.BooleanSchemaValidator
+import {{{packageName}}}.schemas.validation.ValidationMetadata
 
-class BooleanJsonSchema {
+open class BooleanJsonSchema {
     sealed interface BooleanJsonSchema1Boxed {
         fun getData(): Any?
     }
 
     data class BooleanJsonSchema1BoxedBoolean(val data: Boolean) : BooleanJsonSchema1Boxed {
-        override fun getData(): Boolean {
+        override fun getData(): Any? {
             return data
         }
     }
 
-    class BooleanJsonSchema1 private constructor() : JsonSchema<BooleanJsonSchema1Boxed>(
+    open class BooleanJsonSchema1 protected constructor() : JsonSchema<BooleanJsonSchema1Boxed>(
         JsonSchemaInfo()
             .type(setOf(Boolean::class.java))
     ), BooleanSchemaValidator<BooleanJsonSchema1BoxedBoolean> {

@@ -1,7 +1,7 @@
-package {{{packageName}}}.schemas.validation;
+package {{{packageName}}}.schemas.validation
 
-import {{{packageName}}}.configurations.SchemaConfiguration;
-import {{{packageName}}}.exceptions.ValidationException;
+import {{{packageName}}}.configurations.SchemaConfiguration
+import {{{packageName}}}.exceptions.ValidationException
 
 import java.math.BigDecimal
 import java.time.LocalDate
@@ -399,19 +399,19 @@ abstract class JsonSchema<T> protected constructor(jsonSchemaInfo: JsonSchemaInf
         }
     }
 
-    fun getNewInstance(arg: Nothing?, pathToItem: List<Any>, pathToSchemas: PathToSchemasMap): Nothing? {
+    protected fun getNewInstance(arg: Nothing?, pathToItem: List<Any>, pathToSchemas: PathToSchemasMap): Nothing? {
         return arg
     }
 
-    fun getNewInstance(arg: Boolean, pathToItem: List<Any>, pathToSchemas: PathToSchemasMap): Boolean {
+    protected fun getNewInstance(arg: Boolean, pathToItem: List<Any>, pathToSchemas: PathToSchemasMap): Boolean {
         return arg
     }
 
-    fun getNewInstance(arg: Number, pathToItem: List<Any>, pathToSchemas: PathToSchemasMap): Number {
+    protected fun getNewInstance(arg: Number, pathToItem: List<Any>, pathToSchemas: PathToSchemasMap): Number {
         return arg
     }
 
-    fun getNewInstance(arg: String, pathToItem: List<Any>, pathToSchemas: PathToSchemasMap): String {
+    protected fun getNewInstance(arg: String, pathToItem: List<Any>, pathToSchemas: PathToSchemasMap): String {
         return arg
     }
 

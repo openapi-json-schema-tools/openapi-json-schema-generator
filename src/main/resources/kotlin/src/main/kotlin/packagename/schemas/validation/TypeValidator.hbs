@@ -1,6 +1,6 @@
-package {{{packageName}}}.schemas.validation;
+package {{{packageName}}}.schemas.validation
 
-import {{{packageName}}}.exceptions.ValidationException;
+import {{{packageName}}}.exceptions.ValidationException
 
 class TypeValidator : KeywordValidator {
     @Throws(ValidationException::class)
@@ -15,11 +15,28 @@ class TypeValidator : KeywordValidator {
                 Void::class.java
             }
             is List<*> -> {
-                MutableList::class.java
+                List::class.java
             }
 
             is Map<*, *> -> {
-                MutableMap::class.java
+                Map::class.java
+            }
+
+            is Boolean -> {
+                Boolean::class.java
+            }
+
+            is Int -> {
+                Int::class.java
+            }
+            is Long -> {
+                Long::class.java
+            }
+            is Double -> {
+                Double::class.java
+            }
+            is Float -> {
+                Float::class.java
             }
 
             else -> {

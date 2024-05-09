@@ -2,12 +2,8 @@
     {{#eq types.size 1}}
         {{#each types}}
             {{#eq this "boolean"}}
-                {{#if forceNull}}
 Boolean
-                {{~else}}
-boolean
-                {{~/if}}
-            {{else}}
+            {{~else}}
                 {{#eq this "null"}}
 Nothing?
                 {{~else}}
@@ -41,7 +37,7 @@ Number
                                             {{~/if}}
                                         {{/if}}
                                     {{else}}
-FrozenList<?>
+FrozenList<Any?>
                                     {{~/if}}
                                 {{else}}
                                     {{#eq this "object"}}
@@ -60,7 +56,7 @@ FrozenList<?>
                                                 {{~/if}}
                                             {{/if}}
                                         {{~else}}
-FrozenMap<?>
+FrozenMap<Any?>
                                         {{~/if}}
                                     {{/eq}}
                                 {{/eq}}
@@ -76,21 +72,21 @@ FrozenMap<?>
                 {{! nullable types }}
                 {{#each types}}
                     {{#eq this "boolean"}}
-{{#unless noAnnotations}}@Nullable {{/unless}}Boolean
+Boolean{{#unless noAnnotations}}?{{/unless}}
                     {{~else}}
                         {{#eq this "string"}}
                             {{#eq format "binary"}}
 {{! todo binary types}}
-{{#unless noAnnotations}}@Nullable {{/unless}}String
+String{{#unless noAnnotations}}?{{/unless}}
                             {{~else}}
-{{#unless noAnnotations}}@Nullable {{/unless}}String
+String{{#unless noAnnotations}}?{{/unless}}
                             {{~/eq}}
                         {{else}}
                             {{#eq this "number"}}
-{{#unless noAnnotations}}@Nullable {{/unless}}Number
+Number{{#unless noAnnotations}}?{{/unless}}
                             {{~else}}
                                 {{#eq this "integer"}}
-{{#unless noAnnotations}}@Nullable {{/unless}}Number
+Number{{#unless noAnnotations}}?{{/unless}}
                                 {{~else}}
                                     {{#eq this "array"}}
                                         {{#if arrayOutputJsonPathPiece}}
@@ -102,13 +98,13 @@ FrozenMap<?>
                                                 {{~/if}}
                                             {{else}}
                                                 {{#if fullRefModule}}
-{{#unless noAnnotations}}@Nullable {{/unless}}{{fullRefModule}}.{{arrayOutputJsonPathPiece.pascalCase}}
+{{fullRefModule}}.{{arrayOutputJsonPathPiece.pascalCase}}{{#unless noAnnotations}}?{{/unless}}
                                                 {{~else}}
-{{#unless noAnnotations}}@Nullable {{/unless}}{{arrayOutputJsonPathPiece.pascalCase}}
+{{arrayOutputJsonPathPiece.pascalCase}}{{#unless noAnnotations}}?{{/unless}}
                                                 {{~/if}}
                                             {{/if}}
                                         {{else}}
-{{#unless noAnnotations}}@Nullable {{/unless}}FrozenList<?>
+FrozenList<Any?>{{#unless noAnnotations}}?{{/unless}}
                                         {{~/if}}
                                     {{else}}
                                         {{#eq this "object"}}
@@ -121,13 +117,13 @@ FrozenMap<?>
                                                     {{~/if}}
                                                 {{else}}
                                                     {{#if fullRefModule}}
-{{#unless noAnnotations}}@Nullable {{/unless}}{{fullRefModule}}.{{mapOutputJsonPathPiece.pascalCase}}
+{{fullRefModule}}.{{mapOutputJsonPathPiece.pascalCase}}{{#unless noAnnotations}}?{{/unless}}
                                                     {{~else}}
-{{#unless noAnnotations}}@Nullable {{/unless}}{{mapOutputJsonPathPiece.pascalCase}}
+{{mapOutputJsonPathPiece.pascalCase}}{{#unless noAnnotations}}?{{/unless}}
                                                     {{~/if}}
                                                 {{/if}}
                                             {{~else}}
-{{#unless noAnnotations}}@Nullable {{/unless}}FrozenMap<?>
+FrozenMap<Any?>{{#unless noAnnotations}}?{{/unless}}
                                             {{~/if}}
                                         {{/eq}}
                                     {{/eq}}
@@ -141,18 +137,18 @@ FrozenMap<?>
                 {{#and (contains types "integer") (contains types "number") }}
 Number
                 {{~else}}
-Object
+Any
                 {{~/and}}
             {{/contains}}
         {{else}}
             {{! 3 or more types }}
             {{#contains types "null"}}
-{{#unless noAnnotations}}@Nullable {{/unless}}Object
+Any{{#unless noAnnotations}}?{{/unless}}
             {{~else}}
-Object
+Any
             {{~/contains}}
         {{/eq}}
     {{/eq}}
 {{else}}
-{{#unless noAnnotations}}@Nullable {{/unless}}Object
+Any{{#unless noAnnotations}}?{{/unless}}
 {{~/if}}

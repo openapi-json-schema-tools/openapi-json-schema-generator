@@ -2,9 +2,9 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>{{groupId}}</groupId>
-    <artifactId>{{artifactId}}</artifactId>
+    <artifactId>{{generatorSettings.artifactId}}</artifactId>
     <packaging>jar</packaging>
-    <name>{{artifactId}}</name>
+    <name>{{generatorSettings.artifactId}}</name>
     <version>{{artifactVersion}}</version>
     <url>{{artifactUrl}}</url>
     <description>{{artifactDescription}}</description>
@@ -237,7 +237,7 @@
         </dependency>
     </dependencies>
     <properties>
-        <maven.compiler.release>17</maven.compiler.release>
+        <maven.compiler.release>{{generatorMetadata.languageVersion}}</maven.compiler.release>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <checker-version>3.42.0</checker-version>
         <maven-plugin-version>1.0.0</maven-plugin-version>

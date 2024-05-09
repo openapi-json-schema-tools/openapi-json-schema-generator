@@ -2,113 +2,109 @@
     {{#each types}}
         {{#eq this "null"}}
 
-@Override
-public Nothing? validate(Nothing? arg, SchemaConfiguration configuration) throws ValidationException {
-    Set<List<Object>> pathSet = new HashSet<>();
-    List<Object> pathToItem = List.of("args[0");
-    Nothing? castArg = castToAllowedTypes(arg, pathToItem, pathSet);
-    SchemaConfiguration usedConfiguration = Objects.requireNonNullElseGet(configuration, () -> new SchemaConfiguration(new JsonSchemaKeywordFlags.Builder().build()));
-    ValidationMetadata validationMetadata = new ValidationMetadata(pathToItem, usedConfiguration, new PathToSchemasMap(), new LinkedHashSet<>());
-    getPathToSchemas(this, castArg, validationMetadata, pathSet);
-    return castArg;
+@Throws(ValidationException::class)
+override fun validate(arg: Nothing?, configuration: SchemaConfiguration?): Nothing? {
+    val pathSet: MutableSet<List<Any>> = HashSet()
+    val pathToItem = listOf<Any>("args[0")
+    val castArg = castToAllowedTypes(arg, pathToItem, pathSet)
+    val usedConfiguration = configuration ?: SchemaConfiguration(JsonSchemaKeywordFlags.Builder().build())
+    val validationMetadata = ValidationMetadata(pathToItem, usedConfiguration, PathToSchemasMap(), LinkedHashSet())
+    getPathToSchemas(this, castArg, validationMetadata, pathSet)
+    return castArg
 }
         {{/eq}}
         {{#eq this "object"}}
 
-public {{#if ../mapOutputJsonPathPiece}}{{../mapOutputJsonPathPiece.pascalCase}}{{else}}FrozenMap<@Nullable Object>{{/if}} getNewInstance(Map<?, ?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
-    LinkedHashMap<String, {{#with ../mapValueSchema}}{{> src/main/kotlin/packagename/components/schemas/types/schema_output_type sourceJsonPath=../jsonPath forceNull=true }}{{else}}@Nullable Object{{/with}}> properties = new LinkedHashMap<>();
-    for(Map.Entry<?, ?> entry: arg.entrySet()) {
-        @Nullable Object entryKey = entry.getKey();
-        if (!(entryKey instanceof String)) {
-            throw new RuntimeException("Invalid non-string key value");
+override fun getNewInstance(arg: Map<*, *>, pathToItem: List<Any>, pathToSchemas: PathToSchemasMap): {{#if ../mapOutputJsonPathPiece}}{{../mapOutputJsonPathPiece.pascalCase}}{{else}}FrozenMap<Any?>{{/if}} {
+    val properties: LinkedHashMap<String, {{#with ../mapValueSchema}}{{> src/main/kotlin/packagename/components/schemas/types/schema_output_type sourceJsonPath=../jsonPath forceNull=true }}{{else}}Any?{{/with}}> = LinkedHashMap()
+    for((entryKey, value) in arg) {
+        if (!(entryKey is String)) {
+            throw RuntimeException("Invalid non-string key value")
         }
-        String propertyName = (String) entryKey;
-        List<Object> propertyPathToItem = new ArrayList<>(pathToItem);
-        propertyPathToItem.add(propertyName);
-        Object value = entry.getValue();
-        LinkedHashMap<JsonSchema<?>, Nothing?> schemas = pathToSchemas.get(propertyPathToItem);
+        val propertyPathToItem: List<Any> = pathToItem + entryKey
+        val schemas: LinkedHashMap<JsonSchema<*>, Nothing?>? = pathToSchemas.get(propertyPathToItem)
         if (schemas == null) {
-            throw new RuntimeException("Validation result is invalid, schemas must exist for a pathToItem");
+            throw RuntimeException("Validation result is invalid, schemas must exist for a pathToItem")
         }
-        JsonSchema<?> propertySchema = schemas.entrySet().iterator().next().getKey();
-        @Nullable Object propertyInstance = propertySchema.getNewInstance(value, propertyPathToItem, pathToSchemas);
+        val propertySchema: JsonSchema<*> = schemas.entries.iterator().next().key
+        val propertyInstance: Any? = propertySchema.getNewInstance(value, propertyPathToItem, pathToSchemas)
         {{#if ../mapValueSchema}}
             {{#if ../mapValueSchema.isNullableObject }}
-        properties.put(propertyName, propertyInstance);
+        properties[entryKey] = propertyInstance
             {{else}}
-        if (!({{#contains ../mapValueSchema.types "null" }}propertyInstance == null || {{/contains}}propertyInstance instanceof {{#with ../mapValueSchema}}{{> src/main/kotlin/packagename/components/schemas/types/schema_output_type sourceJsonPath=../jsonPath forceNull=true noAnnotations=true }}{{else}}Object{{/with}})) {
-            throw new RuntimeException("Invalid instantiated value");
+        if (!({{#contains ../mapValueSchema.types "null" }}propertyInstance == null || {{/contains}}propertyInstance is {{#with ../mapValueSchema}}{{> src/main/kotlin/packagename/components/schemas/types/schema_output_type sourceJsonPath=../jsonPath forceNull=true noAnnotations=true }}{{else}}Any{{/with}})) {
+            throw RuntimeException("Invalid instantiated value")
         }
-        properties.put(propertyName, ({{#with ../mapValueSchema}}{{> src/main/kotlin/packagename/components/schemas/types/schema_output_type sourceJsonPath=../jsonPath forceNull=true }}{{else}}@Nullable Object{{/with}}) propertyInstance);
+        properties[entryKey] = propertyInstance
             {{/if}}
         {{else}}
-        properties.put(propertyName, propertyInstance);
+        properties[entryKey] = propertyInstance
         {{/if}}
     }
-    FrozenMap<{{#with ../mapValueSchema}}{{> src/main/kotlin/packagename/components/schemas/types/schema_output_type sourceJsonPath=../jsonPath forceNull=true }}{{else}}@Nullable Object{{/with}}> castProperties = new FrozenMap<>(properties);
+    val castProperties: FrozenMap<{{#with ../mapValueSchema}}{{> src/main/kotlin/packagename/components/schemas/types/schema_output_type sourceJsonPath=../jsonPath forceNull=true }}{{else}}Any?{{/with}}> = FrozenMap(properties)
             {{#if ../mapOutputJsonPathPiece}}
-    return new {{mapOutputJsonPathPiece.pascalCase}}(castProperties);
+    return {{mapOutputJsonPathPiece.pascalCase}}(castProperties)
             {{else}}
-    return castProperties;
+    return castProperties
             {{/if}}
 }
 
-public {{#if ../mapOutputJsonPathPiece}}{{../mapOutputJsonPathPiece.pascalCase}}{{else}}FrozenMap<@Nullable Object>{{/if}} validate(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException {
-    Set<List<Object>> pathSet = new HashSet<>();
-    List<Object> pathToItem = List.of("args[0");
-    Map<?, ?> castArg = castToAllowedTypes(arg, pathToItem, pathSet);
-    SchemaConfiguration usedConfiguration = Objects.requireNonNullElseGet(configuration, () -> new SchemaConfiguration(new JsonSchemaKeywordFlags.Builder().build()));
-    ValidationMetadata validationMetadata = new ValidationMetadata(pathToItem, usedConfiguration, new PathToSchemasMap(), new LinkedHashSet<>());
-    PathToSchemasMap pathToSchemasMap = getPathToSchemas(this, castArg, validationMetadata, pathSet);
-    return getNewInstance(castArg, validationMetadata.pathToItem(), pathToSchemasMap);
+@Throws(ValidationException::class)
+override fun validate(arg: Map<*, *>, configuration: SchemaConfiguration?): {{#if ../mapOutputJsonPathPiece}}{{../mapOutputJsonPathPiece.pascalCase}}{{else}}FrozenMap<Any?>{{/if}} {
+    val pathSet: MutableSet<List<Any>> = HashSet()
+    val pathToItem = listOf<Any>("args[0")
+    val castArg = castToAllowedTypes(arg, pathToItem, pathSet)
+    val usedConfiguration = configuration ?: SchemaConfiguration(JsonSchemaKeywordFlags.Builder().build())
+    val validationMetadata = ValidationMetadata(pathToItem, usedConfiguration, PathToSchemasMap(), LinkedHashSet())
+    val pathToSchemasMap = getPathToSchemas(this, castArg, validationMetadata, pathSet)
+    return getNewInstance(castArg, validationMetadata.pathToItem, pathToSchemasMap)
 }
 
         {{/eq}}
         {{#eq this "array"}}
 
-@Override
-public {{#if ../arrayOutputJsonPathPiece}}{{../arrayOutputJsonPathPiece.pascalCase}}{{else}}FrozenList<{{#with ../listItemSchema}}{{> src/main/kotlin/packagename/components/schemas/types/schema_output_type sourceJsonPath=../jsonPath forceNull=true }}{{else}}@Nullable Object{{/with}}>{{/if}} getNewInstance(List<?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
-    List<{{#with ../listItemSchema}}{{> src/main/kotlin/packagename/components/schemas/types/schema_output_type sourceJsonPath=../jsonPath forceNull=true }}{{else}}@Nullable Object{{/with}}> items = new ArrayList<>();
-    int i = 0;
-    for (Object item: arg) {
-        List<Object> itemPathToItem = new ArrayList<>(pathToItem);
-        itemPathToItem.add(i);
-        LinkedHashMap<JsonSchema<?>, Nothing?> schemas = pathToSchemas.get(itemPathToItem);
+override fun getNewInstance(arg: List<*>, pathToItem: List<Any>, pathToSchemas: PathToSchemasMap): {{#if ../arrayOutputJsonPathPiece}}{{../arrayOutputJsonPathPiece.pascalCase}}{{else}}FrozenList<{{#with ../listItemSchema}}{{> src/main/kotlin/packagename/components/schemas/types/schema_output_type sourceJsonPath=../jsonPath forceNull=true }}{{else}}Any?{{/with}}>{{/if}} {
+    val items: MutableList<{{#with ../listItemSchema}}{{> src/main/kotlin/packagename/components/schemas/types/schema_output_type sourceJsonPath=../jsonPath forceNull=true }}{{else}}Any?{{/with}}> = ArrayList()
+    var i: Int = 0
+    for (item: Any? in arg) {
+        val itemPathToItem: List<Any> = pathToItem + i
+        val schemas: LinkedHashMap<JsonSchema<*>, Nothing?>? = pathToSchemas.get(itemPathToItem)
         if (schemas == null) {
-            throw new RuntimeException("Validation result is invalid, schemas must exist for a pathToItem");
+            throw RuntimeException("Validation result is invalid, schemas must exist for a pathToItem")
         }
-        JsonSchema<?> itemSchema = schemas.entrySet().iterator().next().getKey();
-        @Nullable Object itemInstance = itemSchema.getNewInstance(item, itemPathToItem, pathToSchemas);
+        val itemSchema: JsonSchema<*> = schemas.entries.iterator().next().key
+        val itemInstance: Any? = itemSchema.getNewInstance(item, itemPathToItem, pathToSchemas)
         {{#if ../listItemSchema}}
             {{#if ../listItemSchema.isNullableObject }}
-        items.add(itemInstance);
+        items.add(itemInstance)
             {{else}}
-        if (!({{#contains ../listItemSchema.types "null" }}itemInstance == null || {{/contains}}itemInstance instanceof {{#with ../listItemSchema}}{{> src/main/kotlin/packagename/components/schemas/types/schema_output_type sourceJsonPath=../jsonPath forceNull=true noAnnotations=true }}{{else}}Object{{/with}})) {
-            throw new RuntimeException("Invalid instantiated value");
+        if (!({{#contains ../listItemSchema.types "null" }}itemInstance == null || {{/contains}}itemInstance is {{#with ../listItemSchema}}{{> src/main/kotlin/packagename/components/schemas/types/schema_output_type sourceJsonPath=../jsonPath forceNull=true noAnnotations=true }}{{else}}Any{{/with}})) {
+            throw RuntimeException("Invalid instantiated value")
         }
-        items.add(({{#with ../listItemSchema}}{{> src/main/kotlin/packagename/components/schemas/types/schema_output_type sourceJsonPath=../jsonPath forceNull=true }}{{else}}@Nullable Object{{/with}}) itemInstance);
+        items.add(itemInstance)
             {{/if}}
         {{else}}
-        items.add(itemInstance);
+        items.add(itemInstance)
         {{/if}}
-        i += 1;
+        i += 1
     }
-    FrozenList<{{#with listItemSchema}}{{> src/main/kotlin/packagename/components/schemas/types/schema_output_type sourceJsonPath=../jsonPath forceNull=true }}{{else}}@Nullable Object{{/with}}> newInstanceItems = new FrozenList<>(items);
+    val newInstanceItems: FrozenList<{{#with listItemSchema}}{{> src/main/kotlin/packagename/components/schemas/types/schema_output_type sourceJsonPath=../jsonPath forceNull=true }}{{else}}Any?{{/with}}> = FrozenList(items)
             {{#if ../arrayOutputJsonPathPiece}}
-    return new {{../arrayOutputJsonPathPiece.pascalCase}}(newInstanceItems);
+    return {{../arrayOutputJsonPathPiece.pascalCase}}(newInstanceItems)
             {{else}}
-    return newInstanceItems;
+    return newInstanceItems
             {{/if}}
 }
 
-public {{#if ../arrayOutputJsonPathPiece}}{{../arrayOutputJsonPathPiece.pascalCase}}{{else}}FrozenList<{{#with ../listItemSchema}}{{> src/main/kotlin/packagename/components/schemas/types/schema_output_type sourceJsonPath=../jsonPath forceNull=true }}{{else}}@Nullable Object{{/with}}>{{/if}} validate(List<?> arg, SchemaConfiguration configuration) throws ValidationException {
-    Set<List<Object>> pathSet = new HashSet<>();
-    List<Object> pathToItem = List.of("args[0");
-    List<?> castArg = castToAllowedTypes(arg, pathToItem, pathSet);
-    SchemaConfiguration usedConfiguration = Objects.requireNonNullElseGet(configuration, () -> new SchemaConfiguration(new JsonSchemaKeywordFlags.Builder().build()));
-    ValidationMetadata validationMetadata = new ValidationMetadata(pathToItem, usedConfiguration, new PathToSchemasMap(), new LinkedHashSet<>());
-    PathToSchemasMap pathToSchemasMap = getPathToSchemas(this, castArg, validationMetadata, pathSet);
-    return getNewInstance(castArg, validationMetadata.pathToItem(), pathToSchemasMap);
+@Throws(ValidationException::class)
+override fun validate(arg: List<*>, configuration: SchemaConfiguration?): {{#if ../arrayOutputJsonPathPiece}}{{../arrayOutputJsonPathPiece.pascalCase}}{{else}}FrozenList<{{#with ../listItemSchema}}{{> src/main/kotlin/packagename/components/schemas/types/schema_output_type sourceJsonPath=../jsonPath forceNull=true }}{{else}}Any?{{/with}}>{{/if}} {
+    val pathSet: MutableSet<List<Any>> = HashSet()
+    val pathToItem = listOf<Any>("args[0")
+    val castArg = castToAllowedTypes(arg, pathToItem, pathSet)
+    val usedConfiguration = configuration ?: SchemaConfiguration(JsonSchemaKeywordFlags.Builder().build())
+    val validationMetadata = ValidationMetadata(pathToItem, usedConfiguration, PathToSchemasMap(), LinkedHashSet())
+    val pathToSchemasMap = getPathToSchemas(this, castArg, validationMetadata, pathSet)
+    return getNewInstance(castArg, validationMetadata.pathToItem, pathToSchemasMap)
 }
         {{/eq}}
         {{#eq this "string" }}
@@ -117,113 +113,129 @@ public {{#if ../arrayOutputJsonPathPiece}}{{../arrayOutputJsonPathPiece.pascalCa
 // bytes,
             {{else}}
 
-@Override
-public String validate(String arg, SchemaConfiguration configuration) throws ValidationException {
-    Set<List<Object>> pathSet = new HashSet<>();
-    List<Object> pathToItem = List.of("args[0");
-    String castArg = castToAllowedTypes(arg, pathToItem, pathSet);
-    SchemaConfiguration usedConfiguration = Objects.requireNonNullElseGet(configuration, () -> new SchemaConfiguration(new JsonSchemaKeywordFlags.Builder().build()));
-    ValidationMetadata validationMetadata = new ValidationMetadata(pathToItem, usedConfiguration, new PathToSchemasMap(), new LinkedHashSet<>());
-    getPathToSchemas(this, castArg, validationMetadata, pathSet);
-    return castArg;
+@Throws(ValidationException::class)
+override fun validate(arg: String, configuration: SchemaConfiguration?): String {
+    val pathSet: MutableSet<List<Any>> = HashSet()
+    val pathToItem = listOf<Any>("args[0")
+    val castArg = castToAllowedTypes(arg, pathToItem, pathSet)
+    val usedConfiguration = configuration ?: SchemaConfiguration(JsonSchemaKeywordFlags.Builder().build())
+    val validationMetadata = ValidationMetadata(pathToItem, usedConfiguration, PathToSchemasMap(), LinkedHashSet())
+    getPathToSchemas(this, castArg, validationMetadata, pathSet)
+    return castArg
 }
             {{/eq}}
         {{/eq}}
         {{#eq this "integer"}}
 
-@Override
-public Number validate(Number arg, SchemaConfiguration configuration) throws ValidationException {
-    Set<List<Object>> pathSet = new HashSet<>();
-    List<Object> pathToItem = List.of("args[0");
-    Number castArg = castToAllowedTypes(arg, pathToItem, pathSet);
-    SchemaConfiguration usedConfiguration = Objects.requireNonNullElseGet(configuration, () -> new SchemaConfiguration(new JsonSchemaKeywordFlags.Builder().build()));
-    ValidationMetadata validationMetadata = new ValidationMetadata(pathToItem, usedConfiguration, new PathToSchemasMap(), new LinkedHashSet<>());
-    getPathToSchemas(this, castArg, validationMetadata, pathSet);
-    return castArg;
+@Throws(ValidationException::class)
+override fun validate(arg: Number, configuration: SchemaConfiguration?): Number {
+    val pathSet: MutableSet<List<Any>> = HashSet()
+    val pathToItem = listOf<Any>("args[0")
+    val castArg = castToAllowedTypes(arg, pathToItem, pathSet)
+    val usedConfiguration = configuration ?: SchemaConfiguration(JsonSchemaKeywordFlags.Builder().build())
+    val validationMetadata = ValidationMetadata(pathToItem, usedConfiguration, PathToSchemasMap(), LinkedHashSet())
+    getPathToSchemas(this, castArg, validationMetadata, pathSet)
+    return castArg
 }
 
-public int validate(int arg, SchemaConfiguration configuration) throws ValidationException {
-    return (int) validate((Number) arg, configuration);
+@Throws(ValidationException::class)
+fun validate(arg: Int, configuration: SchemaConfiguration?): Int {
+    return validate(arg as Number, configuration) as Int
 }
 
-public float validate(float arg, SchemaConfiguration configuration) throws ValidationException {
-    return (float) validate((Number) arg, configuration);
+@Throws(ValidationException::class)
+fun validate(arg: Float, configuration: SchemaConfiguration?): Float {
+    return validate(arg as Number, configuration) as Float
 }
             {{#neq ../format "int32"}}
 
-public long validate(long arg, SchemaConfiguration configuration) throws ValidationException {
-    return (long) validate((Number) arg, configuration);
+@Throws(ValidationException::class)
+fun validate(arg: Long, configuration: SchemaConfiguration?): Long {
+    return validate(arg as Number, configuration) as Long
 }
 
-public double validate(double arg, SchemaConfiguration configuration) throws ValidationException {
-    return (double) validate((Number) arg, configuration);
+@Throws(ValidationException::class)
+fun validate(arg: Double, configuration: SchemaConfiguration?): Double {
+    return validate(arg as Number, configuration) as Double
 }
             {{/neq}}
         {{/eq}}
         {{#eq this "number"}}
 
-@Override
-public Number validate(Number arg, SchemaConfiguration configuration) throws ValidationException {
-    Set<List<Object>> pathSet = new HashSet<>();
-    List<Object> pathToItem = List.of("args[0");
-    Number castArg = castToAllowedTypes(arg, pathToItem, pathSet);
-    SchemaConfiguration usedConfiguration = Objects.requireNonNullElseGet(configuration, () -> new SchemaConfiguration(new JsonSchemaKeywordFlags.Builder().build()));
-    ValidationMetadata validationMetadata = new ValidationMetadata(pathToItem, usedConfiguration, new PathToSchemasMap(), new LinkedHashSet<>());
-    PathToSchemasMap pathToSchemasMap = getPathToSchemas(this, castArg, validationMetadata, pathSet);
-    return castArg;
+@Throws(ValidationException::class)
+override fun validate(arg: Number, configuration: SchemaConfiguration?): Number {
+    val pathSet: MutableSet<List<Any>> = HashSet()
+    val pathToItem = listOf<Any>("args[0")
+    val castArg = castToAllowedTypes(arg, pathToItem, pathSet)
+    val usedConfiguration = configuration ?: SchemaConfiguration(JsonSchemaKeywordFlags.Builder().build())
+    val validationMetadata = ValidationMetadata(pathToItem, usedConfiguration, PathToSchemasMap(), LinkedHashSet())
+    val pathToSchemasMap = getPathToSchemas(this, castArg, validationMetadata, pathSet)
+    return castArg
 }
             {{#eq ../format null}}
 
-public int validate(int arg, SchemaConfiguration configuration) throws ValidationException {
-    return (int) validate((Number) arg, configuration);
+@Throws(ValidationException::class)
+fun validate(arg: Int, configuration: SchemaConfiguration?): Int {
+    return validate(arg as Number, configuration) as Int
 }
 
-public long validate(long arg, SchemaConfiguration configuration) throws ValidationException {
-    return (long) validate((Number) arg, configuration);
+@Throws(ValidationException::class)
+fun validate(arg: Long, configuration: SchemaConfiguration?): Long {
+    return validate(arg as Number, configuration) as Long
 }
 
-public float validate(float arg, SchemaConfiguration configuration) throws ValidationException {
-    return (float) validate((Number) arg, configuration);
+@Throws(ValidationException::class)
+fun validate(arg: Float, configuration: SchemaConfiguration?): Float {
+    return validate(arg as Number, configuration) as Float
 }
 
-public double validate(double arg, SchemaConfiguration configuration) throws ValidationException {
-    return (double) validate((Number) arg, configuration);
+@Throws(ValidationException::class)
+fun validate(arg: Double, configuration: SchemaConfiguration?): Double {
+    return validate(arg as Number, configuration) as Double
 }
             {{else}}
                 {{#eq ../format "int32"}}
-public int validate(int arg, SchemaConfiguration configuration) throws ValidationException {
-    return (int) validate((Number) arg, configuration);
+@Throws(ValidationException::class)
+fun validate(arg: Int, configuration: SchemaConfiguration?): Int {
+    return validate(arg as Number, configuration) as Int
 }
 
-public float validate(float arg, SchemaConfiguration configuration) throws ValidationException {
-    return (float) validate((Number) arg, configuration);
+@Throws(ValidationException::class)
+fun validate(arg: Float, configuration: SchemaConfiguration?): Float {
+    return validate(arg as Number, configuration) as Float
 }
                 {{else}}
                     {{#eq ../format "int64"}}
-public int validate(int arg, SchemaConfiguration configuration) throws ValidationException {
-    return (int) validate((Number) arg, configuration);
+@Throws(ValidationException::class)
+fun validate(arg: Int, configuration: SchemaConfiguration?): Int {
+    return validate(arg as Number, configuration) as Int
 }
 
-public float validate(float arg, SchemaConfiguration configuration) throws ValidationException {
-    return (float) validate((Number) arg, configuration);
+@Throws(ValidationException::class)
+fun validate(arg: Long, configuration: SchemaConfiguration?): Long {
+    return validate(arg as Number, configuration) as Long
 }
 
-public long validate(long arg, SchemaConfiguration configuration) throws ValidationException {
-    return (long) validate((Number) arg, configuration);
+@Throws(ValidationException::class)
+fun validate(arg: Float, configuration: SchemaConfiguration?): Float {
+    return validate(arg as Number, configuration) as Float
 }
 
-public double validate(double arg, SchemaConfiguration configuration) throws ValidationException {
-    return (double) validate((Number) arg, configuration);
+@Throws(ValidationException::class)
+fun validate(arg: Double, configuration: SchemaConfiguration?): Double {
+    return validate(arg as Number, configuration) as Double
 }
                     {{else}}
                         {{#eq ../format "float"}}
-public float validate(float arg, SchemaConfiguration configuration) throws ValidationException {
-    return (float) validate((Number) arg, configuration);
+@Throws(ValidationException::class)
+fun validate(arg: Float, configuration: SchemaConfiguration?): Float {
+    return validate(arg as Number, configuration) as Float
 }
                         {{else}}
                             {{#eq ../format "double"}}
-public double validate(double arg, SchemaConfiguration configuration) throws ValidationException {
-    return (double) validate((Number) arg, configuration);
+@Throws(ValidationException::class)
+fun validate(arg: Double, configuration: SchemaConfiguration?): Double {
+    return validate(arg as Number, configuration) as Double
 }
                             {{/eq}}
                         {{/eq}}
@@ -233,268 +245,269 @@ public double validate(double arg, SchemaConfiguration configuration) throws Val
         {{/eq}}
         {{#eq this "boolean"}}
 
-@Override
-public boolean validate(boolean arg, SchemaConfiguration configuration) throws ValidationException {
-    Set<List<Object>> pathSet = new HashSet<>();
-    List<Object> pathToItem = List.of("args[0");
-    boolean castArg = castToAllowedTypes(arg, pathToItem, pathSet);
-    SchemaConfiguration usedConfiguration = Objects.requireNonNullElseGet(configuration, () -> new SchemaConfiguration(new JsonSchemaKeywordFlags.Builder().build()));
-    ValidationMetadata validationMetadata = new ValidationMetadata(pathToItem, usedConfiguration, new PathToSchemasMap(), new LinkedHashSet<>());
-    getPathToSchemas(this, castArg, validationMetadata, pathSet);
-    return castArg;
+@Throws(ValidationException::class)
+override fun validate(arg: Boolean, configuration: SchemaConfiguration?): Boolean {
+    val pathSet: MutableSet<List<Any>> = HashSet()
+    val pathToItem = listOf<Any>("args[0")
+    val castArg = castToAllowedTypes(arg, pathToItem, pathSet)
+    val usedConfiguration = configuration ?: SchemaConfiguration(JsonSchemaKeywordFlags.Builder().build())
+    val validationMetadata = ValidationMetadata(pathToItem, usedConfiguration, PathToSchemasMap(), LinkedHashSet())
+    getPathToSchemas(this, castArg, validationMetadata, pathSet)
+    return castArg
 }
         {{/eq}}
     {{/each}}
 {{else}}
 
-@Override
-public Nothing? validate(Nothing? arg, SchemaConfiguration configuration) throws ValidationException {
-    Set<List<Object>> pathSet = new HashSet<>();
-    List<Object> pathToItem = List.of("args[0]");
-    Nothing? castArg = castToAllowedTypes(arg, pathToItem, pathSet);
-    SchemaConfiguration usedConfiguration = Objects.requireNonNullElseGet(configuration, () -> new SchemaConfiguration(new JsonSchemaKeywordFlags.Builder().build()));
-    PathToSchemasMap validatedPathToSchemas = new PathToSchemasMap();
-    ValidationMetadata validationMetadata = new ValidationMetadata(pathToItem, usedConfiguration, validatedPathToSchemas, new LinkedHashSet<>());
-    getPathToSchemas(this, castArg, validationMetadata, pathSet);
-    return castArg;
+@Throws(ValidationException::class)
+override fun validate(arg: Nothing?, configuration: SchemaConfiguration?): Nothing? {
+    val pathSet: MutableSet<List<Any>> = HashSet()
+    val pathToItem = listOf<Any>("args[0")
+    val castArg = castToAllowedTypes(arg, pathToItem, pathSet)
+    val usedConfiguration = configuration ?: SchemaConfiguration(JsonSchemaKeywordFlags.Builder().build())
+    val validatedPathToSchemas = PathToSchemasMap()
+    val validationMetadata = ValidationMetadata(pathToItem, usedConfiguration, validatedPathToSchemas, LinkedHashSet())
+    getPathToSchemas(this, castArg, validationMetadata, pathSet)
+    return castArg
 }
 
-@Override
-public boolean validate(boolean arg, SchemaConfiguration configuration) throws ValidationException {
-    Set<List<Object>> pathSet = new HashSet<>();
-    List<Object> pathToItem = List.of("args[0]");
-    boolean castArg = castToAllowedTypes(arg, pathToItem, pathSet);
-    SchemaConfiguration usedConfiguration = Objects.requireNonNullElseGet(configuration, () -> new SchemaConfiguration(new JsonSchemaKeywordFlags.Builder().build()));
-    PathToSchemasMap validatedPathToSchemas = new PathToSchemasMap();
-    ValidationMetadata validationMetadata = new ValidationMetadata(pathToItem, usedConfiguration, validatedPathToSchemas, new LinkedHashSet<>());
-    getPathToSchemas(this, castArg, validationMetadata, pathSet);
-    return castArg;
+@Throws(ValidationException::class)
+override fun validate(arg: Boolean, configuration: SchemaConfiguration?): Boolean {
+    val pathSet: MutableSet<List<Any>> = HashSet()
+    val pathToItem = listOf<Any>("args[0")
+    val castArg = castToAllowedTypes(arg, pathToItem, pathSet)
+    val usedConfiguration = configuration ?: SchemaConfiguration(JsonSchemaKeywordFlags.Builder().build())
+    val validatedPathToSchemas = PathToSchemasMap()
+    val validationMetadata = ValidationMetadata(pathToItem, usedConfiguration, validatedPathToSchemas, LinkedHashSet())
+    getPathToSchemas(this, castArg, validationMetadata, pathSet)
+    return castArg
 }
 
-@Override
-public Number validate(Number arg, SchemaConfiguration configuration) throws ValidationException {
-    Set<List<Object>> pathSet = new HashSet<>();
-    List<Object> pathToItem = List.of("args[0]");
-    Number castArg = castToAllowedTypes(arg, pathToItem, pathSet);
-    SchemaConfiguration usedConfiguration = Objects.requireNonNullElseGet(configuration, () -> new SchemaConfiguration(new JsonSchemaKeywordFlags.Builder().build()));
-    PathToSchemasMap validatedPathToSchemas = new PathToSchemasMap();
-    ValidationMetadata validationMetadata = new ValidationMetadata(pathToItem, usedConfiguration, validatedPathToSchemas, new LinkedHashSet<>());
-    getPathToSchemas(this, castArg, validationMetadata, pathSet);
-    return castArg;
+@Throws(ValidationException::class)
+override fun validate(arg: Number, configuration: SchemaConfiguration?): Number {
+    val pathSet: MutableSet<List<Any>> = HashSet()
+    val pathToItem = listOf<Any>("args[0")
+    val castArg = castToAllowedTypes(arg, pathToItem, pathSet)
+    val usedConfiguration = configuration ?: SchemaConfiguration(JsonSchemaKeywordFlags.Builder().build())
+    val validatedPathToSchemas = PathToSchemasMap()
+    val validationMetadata = ValidationMetadata(pathToItem, usedConfiguration, validatedPathToSchemas, LinkedHashSet())
+    getPathToSchemas(this, castArg, validationMetadata, pathSet)
+    return castArg
 }
 
-public int validate(int arg, SchemaConfiguration configuration) throws ValidationException {
-    return (int) validate((Number) arg, configuration);
+@Throws(ValidationException::class)
+fun validate(arg: Int, configuration: SchemaConfiguration?): Int {
+    return validate(arg as Number, configuration) as Int
 }
 
-public long validate(long arg, SchemaConfiguration configuration) throws ValidationException {
-    return (long) validate((Number) arg, configuration);
+@Throws(ValidationException::class)
+fun validate(arg: Long, configuration: SchemaConfiguration?): Long {
+    return validate(arg as Number, configuration) as Long
 }
 
-public float validate(float arg, SchemaConfiguration configuration) throws ValidationException {
-    return (float) validate((Number) arg, configuration);
+@Throws(ValidationException::class)
+fun validate(arg: Float, configuration: SchemaConfiguration?): Float {
+    return validate(arg as Number, configuration) as Float
 }
 
-public double validate(double arg, SchemaConfiguration configuration) throws ValidationException {
-    return (double) validate((Number) arg, configuration);
+@Throws(ValidationException::class)
+fun validate(arg: Double, configuration: SchemaConfiguration?): Double {
+    return validate(arg as Number, configuration) as Double
 }
 
-@Override
-public String validate(String arg, SchemaConfiguration configuration) throws ValidationException {
-    Set<List<Object>> pathSet = new HashSet<>();
-    List<Object> pathToItem = List.of("args[0]");
-    String castArg = castToAllowedTypes(arg, pathToItem, pathSet);
-    SchemaConfiguration usedConfiguration = Objects.requireNonNullElseGet(configuration, () -> new SchemaConfiguration(new JsonSchemaKeywordFlags.Builder().build()));
-    PathToSchemasMap validatedPathToSchemas = new PathToSchemasMap();
-    ValidationMetadata validationMetadata = new ValidationMetadata(pathToItem, usedConfiguration, validatedPathToSchemas, new LinkedHashSet<>());
-    getPathToSchemas(this, castArg, validationMetadata, pathSet);
-    return castArg;
+@Throws(ValidationException::class)
+override fun validate(arg: String, configuration: SchemaConfiguration?): String {
+    val pathSet: MutableSet<List<Any>> = HashSet()
+    val pathToItem = listOf<Any>("args[0")
+    val castArg = castToAllowedTypes(arg, pathToItem, pathSet)
+    val usedConfiguration = configuration ?: SchemaConfiguration(JsonSchemaKeywordFlags.Builder().build())
+    val validatedPathToSchemas = PathToSchemasMap()
+    val validationMetadata = ValidationMetadata(pathToItem, usedConfiguration, validatedPathToSchemas, LinkedHashSet())
+    getPathToSchemas(this, castArg, validationMetadata, pathSet)
+    return castArg
 }
 
-public String validate(LocalDate arg, SchemaConfiguration configuration) throws ValidationException {
-    return validate(arg.toString(), configuration);
+@Throws(ValidationException::class)
+fun validate(arg: LocalDate, configuration: SchemaConfiguration?): String {
+    return validate(arg.toString(), configuration)
 }
 
-public String validate(ZonedDateTime arg, SchemaConfiguration configuration) throws ValidationException {
-    return validate(arg.toString(), configuration);
+@Throws(ValidationException::class)
+fun validate(arg: ZonedDateTime, configuration: SchemaConfiguration?): String {
+    return validate(arg.toString(), configuration)
 }
 
-public String validate(UUID arg, SchemaConfiguration configuration) throws ValidationException {
-    return validate(arg.toString(), configuration);
+@Throws(ValidationException::class)
+fun validate(arg: UUID, configuration: SchemaConfiguration?): String {
+    return validate(arg.toString(), configuration)
 }
 
-@Override
-public {{#if arrayOutputJsonPathPiece}}{{arrayOutputJsonPathPiece.pascalCase}}{{else}}FrozenList<{{#with listItemSchema}}{{> src/main/kotlin/packagename/components/schemas/types/schema_output_type sourceJsonPath=../jsonPath forceNull=true }}{{else}}@Nullable Object{{/with}}>{{/if}} getNewInstance(List<?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
-    List<{{#with listItemSchema}}{{> src/main/kotlin/packagename/components/schemas/types/schema_output_type sourceJsonPath=../jsonPath forceNull=true }}{{else}}@Nullable Object{{/with}}> items = new ArrayList<>();
-    int i = 0;
-    for (Object item: arg) {
-        List<Object> itemPathToItem = new ArrayList<>(pathToItem);
-        itemPathToItem.add(i);
-        LinkedHashMap<JsonSchema<?>, Nothing?> schemas = pathToSchemas.get(itemPathToItem);
+override fun getNewInstance(arg: List<*>, pathToItem: List<Any>, pathToSchemas: PathToSchemasMap): {{#if arrayOutputJsonPathPiece}}{{arrayOutputJsonPathPiece.pascalCase}}{{else}}FrozenList<{{#with listItemSchema}}{{> src/main/kotlin/packagename/components/schemas/types/schema_output_type sourceJsonPath=../jsonPath forceNull=true }}{{else}}Any?{{/with}}>{{/if}} {
+    val items: MutableList<{{#with listItemSchema}}{{> src/main/kotlin/packagename/components/schemas/types/schema_output_type sourceJsonPath=../jsonPath forceNull=true }}{{else}}Any?{{/with}}> = ArrayList()
+    var i: Int = 0
+    for (item: Any? in arg) {
+        val itemPathToItem = pathToItem + i
+        val schemas: LinkedHashMap<JsonSchema<*>, Nothing?>? = pathToSchemas.get(itemPathToItem)
         if (schemas == null) {
-            throw new RuntimeException("Validation result is invalid, schemas must exist for a pathToItem");
+            throw RuntimeException("Validation result is invalid, schemas must exist for a pathToItem")
         }
-        JsonSchema<?> itemSchema = schemas.entrySet().iterator().next().getKey();
-        @Nullable Object itemInstance = itemSchema.getNewInstance(item, itemPathToItem, pathToSchemas);
+        val itemSchema: JsonSchema<*> = schemas.entries.iterator().next().key
+        val itemInstance: Any? = itemSchema.getNewInstance(item, itemPathToItem, pathToSchemas)
         {{#if listItemSchema}}
             {{#if listItemSchema.isNullableObject }}
-        items.add(itemInstance);
+        items.add(itemInstance)
             {{else}}
-        if (!({{#contains listItemSchema.types "null" }}itemInstance == null || {{/contains}}itemInstance instanceof {{#with listItemSchema}}{{> src/main/kotlin/packagename/components/schemas/types/schema_output_type sourceJsonPath=../jsonPath forceNull=true noAnnotations=true }}{{else}}Object{{/with}})) {
-            throw new RuntimeException("Invalid instantiated value");
+        if (!({{#contains listItemSchema.types "null" }}itemInstance == null || {{/contains}}itemInstance is {{#with listItemSchema}}{{> src/main/kotlin/packagename/components/schemas/types/schema_output_type sourceJsonPath=../jsonPath forceNull=true noAnnotations=true }}{{else}}Any{{/with}})) {
+            throw RuntimeException("Invalid instantiated value")
         }
-        items.add(({{#with listItemSchema}}{{> src/main/kotlin/packagename/components/schemas/types/schema_output_type sourceJsonPath=../jsonPath forceNull=true }}{{else}}@Nullable Object{{/with}}) itemInstance);
+        items.add(itemInstance)
             {{/if}}
         {{else}}
-        items.add(itemInstance);
+        items.add(itemInstance)
         {{/if}}
-        i += 1;
+        i += 1
     }
-    FrozenList<{{#with listItemSchema}}{{> src/main/kotlin/packagename/components/schemas/types/schema_output_type sourceJsonPath=../jsonPath forceNull=true }}{{else}}@Nullable Object{{/with}}> newInstanceItems = new FrozenList<>(items);
+    val newInstanceItems: FrozenList<{{#with listItemSchema}}{{> src/main/kotlin/packagename/components/schemas/types/schema_output_type sourceJsonPath=../jsonPath forceNull=true }}{{else}}Any?{{/with}}> = FrozenList(items)
             {{#if arrayOutputJsonPathPiece}}
-    return new {{arrayOutputJsonPathPiece.pascalCase}}(newInstanceItems);
+    return {{arrayOutputJsonPathPiece.pascalCase}}(newInstanceItems)
             {{else}}
-    return newInstanceItems;
+    return newInstanceItems
             {{/if}}
 }
 
-public {{#if arrayOutputJsonPathPiece}}{{arrayOutputJsonPathPiece.pascalCase}}{{else}}FrozenList<{{#with ../listItemSchema}}{{> src/main/kotlin/packagename/components/schemas/types/schema_output_type sourceJsonPath=../jsonPath forceNull=true }}{{else}}@Nullable Object{{/with}}>{{/if}} validate(List<?> arg, SchemaConfiguration configuration) throws ValidationException {
-    Set<List<Object>> pathSet = new HashSet<>();
-    List<Object> pathToItem = List.of("args[0");
-    List<?> castArg = castToAllowedTypes(arg, pathToItem, pathSet);
-    SchemaConfiguration usedConfiguration = Objects.requireNonNullElseGet(configuration, () -> new SchemaConfiguration(new JsonSchemaKeywordFlags.Builder().build()));
-    ValidationMetadata validationMetadata = new ValidationMetadata(pathToItem, usedConfiguration, new PathToSchemasMap(), new LinkedHashSet<>());
-    PathToSchemasMap pathToSchemasMap = getPathToSchemas(this, castArg, validationMetadata, pathSet);
-    return getNewInstance(castArg, validationMetadata.pathToItem(), pathToSchemasMap);
+@Throws(ValidationException::class)
+override fun validate(arg: List<*>, configuration: SchemaConfiguration?): {{#if arrayOutputJsonPathPiece}}{{arrayOutputJsonPathPiece.pascalCase}}{{else}}FrozenList<{{#with ../listItemSchema}}{{> src/main/kotlin/packagename/components/schemas/types/schema_output_type sourceJsonPath=../jsonPath forceNull=true }}{{else}}Any?{{/with}}>{{/if}} {
+    val pathSet: MutableSet<List<Any>> = HashSet()
+    val pathToItem = listOf<Any>("args[0")
+    val castArg = castToAllowedTypes(arg, pathToItem, pathSet)
+    val usedConfiguration = configuration ?: SchemaConfiguration(JsonSchemaKeywordFlags.Builder().build())
+    val validationMetadata = ValidationMetadata(pathToItem, usedConfiguration, PathToSchemasMap(), LinkedHashSet())
+    val pathToSchemasMap = getPathToSchemas(this, castArg, validationMetadata, pathSet)
+    return getNewInstance(castArg, validationMetadata.pathToItem, pathToSchemasMap)
 }
 
-@Override
-public {{#if mapOutputJsonPathPiece}}{{mapOutputJsonPathPiece.pascalCase}}{{else}}FrozenMap<{{#with mapValueSchema}}{{> src/main/kotlin/packagename/components/schemas/types/schema_output_type sourceJsonPath=../jsonPath forceNull=true }}{{else}}@Nullable Object{{/with}}>{{/if}} getNewInstance(Map<?, ?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
-    LinkedHashMap<String, {{#with mapValueSchema}}{{> src/main/kotlin/packagename/components/schemas/types/schema_output_type sourceJsonPath=../jsonPath forceNull=true }}{{else}}@Nullable Object{{/with}}> properties = new LinkedHashMap<>();
-    for(Map.Entry<?, ?> entry: arg.entrySet()) {
-        @Nullable Object entryKey = entry.getKey();
-        if (!(entryKey instanceof String)) {
-            throw new RuntimeException("Invalid non-string key value");
+override fun getNewInstance(arg: Map<*, *>, pathToItem: List<Any>, pathToSchemas: PathToSchemasMap): {{#if mapOutputJsonPathPiece}}{{mapOutputJsonPathPiece.pascalCase}}{{else}}FrozenMap<{{#with mapValueSchema}}{{> src/main/kotlin/packagename/components/schemas/types/schema_output_type sourceJsonPath=../jsonPath forceNull=true }}{{else}}Any?{{/with}}>{{/if}} {
+    val properties: LinkedHashMap<String, {{#with mapValueSchema}}{{> src/main/kotlin/packagename/components/schemas/types/schema_output_type sourceJsonPath=../jsonPath forceNull=true }}{{else}}Any?{{/with}}> = LinkedHashMap()
+    for((propertyName, value) in arg) {
+        if (!(propertyName is String)) {
+            throw RuntimeException("Invalid non-string key value")
         }
-        String propertyName = (String) entryKey;
-        List<Object> propertyPathToItem = new ArrayList<>(pathToItem);
-        propertyPathToItem.add(propertyName);
-        Object value = entry.getValue();
-        LinkedHashMap<JsonSchema<?>, Nothing?> schemas = pathToSchemas.get(propertyPathToItem);
+        val propertyPathToItem: List<Any> = pathToItem + propertyName
+        val schemas: LinkedHashMap<JsonSchema<*>, Nothing?>? = pathToSchemas.get(propertyPathToItem)
         if (schemas == null) {
-            throw new RuntimeException("Validation result is invalid, schemas must exist for a pathToItem");
+            throw RuntimeException("Validation result is invalid, schemas must exist for a pathToItem")
         }
-        JsonSchema<?> propertySchema = schemas.entrySet().iterator().next().getKey();
-        @Nullable Object propertyInstance = propertySchema.getNewInstance(value, propertyPathToItem, pathToSchemas);
+        val propertySchema: JsonSchema<*> = schemas.entries.iterator().next().key
+        val propertyInstance: Any? = propertySchema.getNewInstance(value, propertyPathToItem, pathToSchemas)
         {{#if mapValueSchema}}
             {{#if mapValueSchema.isNullableObject }}
-        properties.put(propertyName, propertyInstance);
+        properties[propertyName] = propertyInstance
             {{else}}
-        if (!({{#contains mapValueSchema.types "null" }}propertyInstance == null || {{/contains}}propertyInstance instanceof {{#with mapValueSchema}}{{> src/main/kotlin/packagename/components/schemas/types/schema_output_type sourceJsonPath=../jsonPath forceNull=true noAnnotations=true }}{{else}}Object{{/with}})) {
-            throw new RuntimeException("Invalid instantiated value");
+        if (!({{#contains mapValueSchema.types "null" }}propertyInstance == null || {{/contains}}propertyInstance is {{#with mapValueSchema}}{{> src/main/kotlin/packagename/components/schemas/types/schema_output_type sourceJsonPath=../jsonPath forceNull=true noAnnotations=true }}{{else}}Any{{/with}})) {
+            throw RuntimeException("Invalid instantiated value")
         }
-        properties.put(propertyName, ({{#with mapValueSchema}}{{> src/main/kotlin/packagename/components/schemas/types/schema_output_type sourceJsonPath=../jsonPath forceNull=true }}{{else}}@Nullable Object{{/with}}) propertyInstance);
+        properties[propertyName] = propertyInstance
             {{/if}}
         {{else}}
-        properties.put(propertyName, propertyInstance);
+        properties[propertyName] = propertyInstance
         {{/if}}
     }
-    FrozenMap<{{#with mapValueSchema}}{{> src/main/kotlin/packagename/components/schemas/types/schema_output_type sourceJsonPath=../jsonPath forceNull=true }}{{else}}@Nullable Object{{/with}}> castProperties = new FrozenMap<>(properties);
+    val castProperties: FrozenMap<{{#with mapValueSchema}}{{> src/main/kotlin/packagename/components/schemas/types/schema_output_type sourceJsonPath=../jsonPath forceNull=true }}{{else}}Any?{{/with}}> = FrozenMap(properties)
             {{#if ../mapOutputJsonPathPiece}}
-    return new {{mapOutputJsonPathPiece.pascalCase}}(castProperties);
+    return {{mapOutputJsonPathPiece.pascalCase}}(castProperties)
             {{else}}
-    return castProperties;
+    return castProperties
             {{/if}}
 }
 
-public {{#if mapOutputJsonPathPiece}}{{mapOutputJsonPathPiece.pascalCase}}{{else}}FrozenMap<{{#with mapValueSchema}}{{> src/main/kotlin/packagename/components/schemas/types/schema_output_type sourceJsonPath=../jsonPath forceNull=true }}{{else}}? extends @Nullable Object{{/with}}>{{/if}} validate(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException {
-    Set<List<Object>> pathSet = new HashSet<>();
-    List<Object> pathToItem = List.of("args[0]");
-    Map<?, ?> castArg = castToAllowedTypes(arg, pathToItem, pathSet);
-    SchemaConfiguration usedConfiguration = Objects.requireNonNullElseGet(configuration, () -> new SchemaConfiguration(new JsonSchemaKeywordFlags.Builder().build()));
-    PathToSchemasMap validatedPathToSchemas = new PathToSchemasMap();
-    ValidationMetadata validationMetadata = new ValidationMetadata(pathToItem, usedConfiguration, validatedPathToSchemas, new LinkedHashSet<>());
-    PathToSchemasMap pathToSchemasMap = getPathToSchemas(this, castArg, validationMetadata, pathSet);
-    return getNewInstance(castArg, validationMetadata.pathToItem(), pathToSchemasMap);
+@Throws(ValidationException::class)
+override fun validate(arg: Map<*, *>, configuration: SchemaConfiguration?): {{#if mapOutputJsonPathPiece}}{{mapOutputJsonPathPiece.pascalCase}}{{else}}FrozenMap<{{#with mapValueSchema}}{{> src/main/kotlin/packagename/components/schemas/types/schema_output_type sourceJsonPath=../jsonPath forceNull=true }}{{else}}? out Any?{{/with}}>{{/if}} {
+    val pathSet: MutableSet<List<Any>> = HashSet()
+    val pathToItem = listOf<Any>("args[0")
+    val castArg = castToAllowedTypes(arg, pathToItem, pathSet)
+    val usedConfiguration = configuration ?: SchemaConfiguration(JsonSchemaKeywordFlags.Builder().build())
+    val validatedPathToSchemas = PathToSchemasMap()
+    val validationMetadata = ValidationMetadata(pathToItem, usedConfiguration, validatedPathToSchemas, LinkedHashSet())
+    val pathToSchemasMap = getPathToSchemas(this, castArg, validationMetadata, pathSet)
+    return getNewInstance(castArg, validationMetadata.pathToItem, pathToSchemasMap)
 }
 {{/if}}
     {{#and enumInfo enumInfo.typeToValues.null}}
 
-@Override
-public Nothing? validate(Null{{enumInfo.jsonPathPiece.pascalCase}} arg,SchemaConfiguration configuration) throws ValidationException {
-    return validate(arg.value(), configuration);
+@Throws(ValidationException::class)
+override fun validate(arg: Null{{enumInfo.jsonPathPiece.pascalCase}}, configuration: SchemaConfiguration?): Nothing? {
+    return validate(arg.value(), configuration)
 }
     {{/and}}
     {{#and enumInfo enumInfo.typeToValues.boolean}}
 
-@Override
-public boolean validate(Boolean{{enumInfo.jsonPathPiece.pascalCase}} arg,SchemaConfiguration configuration) throws ValidationException {
-    return validate(arg.value(), configuration);
+@Throws(ValidationException::class)
+override fun validate(arg: Boolean{{enumInfo.jsonPathPiece.pascalCase}}, configuration: SchemaConfiguration?): Boolean {
+    return validate(arg.value(), configuration)
 }
     {{/and}}
     {{#and enumInfo enumInfo.typeToValues.string}}
 
-@Override
-public String validate(String{{enumInfo.jsonPathPiece.pascalCase}} arg,SchemaConfiguration configuration) throws ValidationException {
-    return validate(arg.value(), configuration);
+@Throws(ValidationException::class)
+override fun validate(arg: String{{enumInfo.jsonPathPiece.pascalCase}}, configuration: SchemaConfiguration?): String {
+    return validate(arg.value(), configuration)
 }
     {{/and}}
     {{#and enumInfo enumInfo.typeToValues.Integer}}
 
-@Override
-public int validate(Integer{{enumInfo.jsonPathPiece.pascalCase}} arg,SchemaConfiguration configuration) throws ValidationException {
-    return (int) validate((Number) arg.value(), configuration);
+@Throws(ValidationException::class)
+override fun validate(arg: Integer{{enumInfo.jsonPathPiece.pascalCase}}, configuration: SchemaConfiguration?): Int {
+    return validate(arg.value() as Number, configuration) as Int
 }
     {{/and}}
     {{#and enumInfo enumInfo.typeToValues.Long}}
 
-@Override
-public long validate(Long{{enumInfo.jsonPathPiece.pascalCase}} arg,SchemaConfiguration configuration) throws ValidationException {
-    return (long) validate((Number) arg.value(), configuration);
+@Throws(ValidationException::class)
+override fun validate(arg: Long{{enumInfo.jsonPathPiece.pascalCase}}, configuration: SchemaConfiguration?): Long {
+    return validate(arg.value() as Number, configuration) as Long
 }
     {{/and}}
     {{#and enumInfo enumInfo.typeToValues.Float}}
 
-@Override
-public float validate(Float{{enumInfo.jsonPathPiece.pascalCase}} arg,SchemaConfiguration configuration) throws ValidationException {
-    return (float) validate((Number) arg.value(), configuration);
+@Throws(ValidationException::class)
+override fun validate(arg: Float{{enumInfo.jsonPathPiece.pascalCase}}, configuration: SchemaConfiguration?): Float {
+    return validate(arg.value() as Number, configuration) as Float
 }
     {{/and}}
     {{#and enumInfo enumInfo.typeToValues.Double}}
 
-@Override
-public double validate(Double{{enumInfo.jsonPathPiece.pascalCase}} arg,SchemaConfiguration configuration) throws ValidationException {
-    return (double) validate((Number) arg.value(), configuration);
+@Throws(ValidationException::class)
+override fun validate(arg: Double{{enumInfo.jsonPathPiece.pascalCase}}, configuration: SchemaConfiguration?): Double {
+    return validate(arg.value() as Number, configuration) as Double
 }
     {{/and}}
 
-@Override
-public @Nullable Object validate(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException {
+@Throws(ValidationException::class)
+override fun validate(arg: Any?, configuration: SchemaConfiguration?): Any? {
 {{#if types}}
     {{#each types}}
         {{#if @first}}
-    if (arg {{#eq this "null"}}== null{{/eq}}{{#eq this "boolean"}}instanceof Boolean{{/eq}}{{#or (eq this "integer") (eq this "number")}}instanceof Number{{/or}}{{#eq this "string" }}instanceof String{{/eq}}{{#eq this "array"}}instanceof List{{/eq}}{{#eq this "object"}}instanceof Map{{/eq}}) {
+    if (arg {{#eq this "null"}}== null{{/eq}}{{#eq this "boolean"}}is Boolean{{/eq}}{{#or (eq this "integer") (eq this "number")}}is Number{{/or}}{{#eq this "string" }}is String{{/eq}}{{#eq this "array"}}is List<*>{{/eq}}{{#eq this "object"}}is Map<*, *>{{/eq}}) {
         {{else}}
-    } else if (arg {{#eq this "null"}}== null{{/eq}}{{#eq this "boolean"}}instanceof Boolean{{/eq}}{{#or (eq this "integer") (eq this "number")}}instanceof Number{{/or}}{{#eq this "string" }}instanceof String{{/eq}}{{#eq this "array"}}instanceof List{{/eq}}{{#eq this "object"}}instanceof Map{{/eq}}) {
+    } else if (arg {{#eq this "null"}}== null{{/eq}}{{#eq this "boolean"}}is Boolean{{/eq}}{{#or (eq this "integer") (eq this "number")}}is Number{{/or}}{{#eq this "string" }}is String{{/eq}}{{#eq this "array"}}is List<*>{{/eq}}{{#eq this "object"}}is Map<*, *>{{/eq}}) {
         {{/if}}
         {{#eq this "null"}}
-        return validate((Nothing?) null, configuration);
+        return validate(null, configuration)
         {{/eq}}
         {{#eq this "boolean"}}
-        boolean boolArg = (Boolean) arg;
-        return validate(boolArg, configuration);
+        return validate(arg, configuration)
         {{/eq}}
         {{#or (eq this "integer") (eq this "number")}}
-        return validate((Number) arg, configuration);
+        return validate(arg, configuration)
         {{/or}}
         {{#eq this "string" }}
-        return validate((String) arg, configuration);
+        return validate(arg, configuration)
         {{/eq}}
         {{#eq this "array"}}
-        return validate((List<?>) arg, configuration);
+        return validate(arg, configuration)
         {{/eq}}
         {{#eq this "object"}}
-        return validate((Map<?, ?>) arg, configuration);
+        return validate(arg, configuration)
         {{/eq}}
         {{#if @last}}
     }
@@ -502,19 +515,18 @@ public @Nullable Object validate(@Nullable Object arg, SchemaConfiguration confi
     {{/each}}
 {{else}}
     if (arg == null) {
-        return validate((Nothing?) null, configuration);
-    } else if (arg instanceof Boolean) {
-        boolean boolArg = (Boolean) arg;
-        return validate(boolArg, configuration);
-    } else if (arg instanceof Number) {
-        return validate((Number) arg, configuration);
-    } else if (arg instanceof String) {
-        return validate((String) arg, configuration);
-    } else if (arg instanceof List) {
-        return validate((List<?>) arg, configuration);
-    } else if (arg instanceof Map) {
-        return validate((Map<?, ?>) arg, configuration);
+        return validate(null, configuration)
+    } else if (arg is Boolean) {
+        return validate(arg, configuration)
+    } else if (arg is Number) {
+        return validate(arg, configuration)
+    } else if (arg is String) {
+        return validate(arg, configuration)
+    } else if (arg is List<*>) {
+        return validate(arg, configuration)
+    } else if (arg is Map<*, *>) {
+        return validate(arg, configuration)
     }
 {{/if}}
-    throw new ValidationException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
+    throw ValidationException("Invalid input type="+getClass(arg)+". It can't be validated by this schema")
 }

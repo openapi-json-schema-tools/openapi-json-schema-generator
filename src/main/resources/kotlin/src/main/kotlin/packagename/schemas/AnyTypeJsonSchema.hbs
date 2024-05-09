@@ -1,26 +1,26 @@
-package {{{packageName}}}.schemas;
+package {{{packageName}}}.schemas
 
-import {{{packageName}}}.configurations.JsonSchemaKeywordFlags;
-import {{{packageName}}}.configurations.SchemaConfiguration;
-import {{{packageName}}}.exceptions.ValidationException;
-import {{{packageName}}}.schemas.validation.FrozenList;
-import {{{packageName}}}.schemas.validation.FrozenMap;
-import {{{packageName}}}.schemas.validation.JsonSchema;
-import {{{packageName}}}.schemas.validation.JsonSchemaInfo;
-import {{{packageName}}}.schemas.validation.PathToSchemasMap;
-import {{{packageName}}}.schemas.validation.NullSchemaValidator;
-import {{{packageName}}}.schemas.validation.BooleanSchemaValidator;
-import {{{packageName}}}.schemas.validation.NumberSchemaValidator;
-import {{{packageName}}}.schemas.validation.StringSchemaValidator;
-import {{{packageName}}}.schemas.validation.ListSchemaValidator;
-import {{{packageName}}}.schemas.validation.MapSchemaValidator;
-import {{{packageName}}}.schemas.validation.ValidationMetadata;
+import {{{packageName}}}.configurations.JsonSchemaKeywordFlags
+import {{{packageName}}}.configurations.SchemaConfiguration
+import {{{packageName}}}.exceptions.ValidationException
+import {{{packageName}}}.schemas.validation.FrozenList
+import {{{packageName}}}.schemas.validation.FrozenMap
+import {{{packageName}}}.schemas.validation.JsonSchema
+import {{{packageName}}}.schemas.validation.JsonSchemaInfo
+import {{{packageName}}}.schemas.validation.PathToSchemasMap
+import {{{packageName}}}.schemas.validation.NullSchemaValidator
+import {{{packageName}}}.schemas.validation.BooleanSchemaValidator
+import {{{packageName}}}.schemas.validation.NumberSchemaValidator
+import {{{packageName}}}.schemas.validation.StringSchemaValidator
+import {{{packageName}}}.schemas.validation.ListSchemaValidator
+import {{{packageName}}}.schemas.validation.MapSchemaValidator
+import {{{packageName}}}.schemas.validation.ValidationMetadata
 
 import java.time.LocalDate
 import java.time.ZonedDateTime
 import java.util.UUID
 
-class AnyTypeJsonSchema {
+open class AnyTypeJsonSchema {
     sealed interface AnyTypeJsonSchema1Boxed {
         fun getData(): Any?
     }
@@ -34,21 +34,21 @@ class AnyTypeJsonSchema {
 
 
     data class AnyTypeJsonSchema1BoxedBoolean(val data: Boolean) : AnyTypeJsonSchema1Boxed {
-        override fun getData(): Boolean {
+        override fun getData(): Any? {
             return data
         }
     }
 
 
     data class AnyTypeJsonSchema1BoxedNumber(val data: Number) : AnyTypeJsonSchema1Boxed {
-        override fun getData(): Number {
+        override fun getData(): Any? {
             return data
         }
     }
 
 
     data class AnyTypeJsonSchema1BoxedString(val data: String) : AnyTypeJsonSchema1Boxed {
-        override fun getData(): String {
+        override fun getData(): Any? {
             return data
         }
 
@@ -56,19 +56,19 @@ class AnyTypeJsonSchema {
 
 
     data class AnyTypeJsonSchema1BoxedList(val data: FrozenList<Any?>) : AnyTypeJsonSchema1Boxed {
-        override fun getData(): FrozenList<Any?> {
+        override fun getData(): Any? {
             return data
         }
     }
 
 
     data class AnyTypeJsonSchema1BoxedMap(val data: FrozenMap<Any?>) : AnyTypeJsonSchema1Boxed {
-        override fun getData(): FrozenMap<Any?> {
+        override fun getData(): Any? {
             return data
         }
     }
 
-    class AnyTypeJsonSchema1 private constructor() : JsonSchema<AnyTypeJsonSchema1Boxed>(JsonSchemaInfo()),
+    open class AnyTypeJsonSchema1 protected constructor() : JsonSchema<AnyTypeJsonSchema1Boxed>(JsonSchemaInfo()),
         NullSchemaValidator<AnyTypeJsonSchema1BoxedVoid>, BooleanSchemaValidator<AnyTypeJsonSchema1BoxedBoolean>,
         NumberSchemaValidator<AnyTypeJsonSchema1BoxedNumber>, StringSchemaValidator<AnyTypeJsonSchema1BoxedString>,
         ListSchemaValidator<FrozenList<Any?>, AnyTypeJsonSchema1BoxedList>,
@@ -235,11 +235,11 @@ class AnyTypeJsonSchema {
                 }
 
                 is Number -> {
-                    return getNewInstance(arg as Number?, pathToItem, pathToSchemas)
+                    return getNewInstance(arg, pathToItem, pathToSchemas)
                 }
 
                 is String -> {
-                    return getNewInstance(arg as String?, pathToItem, pathToSchemas)
+                    return getNewInstance(arg, pathToItem, pathToSchemas)
                 }
 
                 is List<*> -> {
@@ -273,11 +273,11 @@ class AnyTypeJsonSchema {
                 }
 
                 is List<*> -> {
-                    return validate(arg as List<*>?, configuration)
+                    return validate(arg, configuration)
                 }
 
                 is Map<*, *> -> {
-                    return validate(arg as Map<*, *>?, configuration)
+                    return validate(arg, configuration)
                 }
 
                 else -> throw ValidationException("Invalid input type=$javaClass. It can't be validated by this schema")

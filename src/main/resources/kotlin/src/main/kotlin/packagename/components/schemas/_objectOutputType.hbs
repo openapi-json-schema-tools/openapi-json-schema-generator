@@ -1,51 +1,48 @@
 
 
 {{#if mapValueSchema}}
-public static class {{mapOutputJsonPathPiece.pascalCase}} extends FrozenMap<{{#with mapValueSchema}}{{> src/main/kotlin/packagename/components/schemas/types/schema_output_type forceNull=true }}{{/with}}> {
-    protected {{mapOutputJsonPathPiece.pascalCase}}(FrozenMap<{{#with mapValueSchema}}{{> src/main/kotlin/packagename/components/schemas/types/schema_output_type forceNull=true }}{{/with}}> m) {
-        super(m);
-    }
+class {{mapOutputJsonPathPiece.pascalCase}}(m: FrozenMap<{{#with mapValueSchema}}{{> src/main/kotlin/packagename/components/schemas/types/schema_output_type forceNull=true }}{{/with}}>) : FrozenMap<{{#with mapValueSchema}}{{> src/main/kotlin/packagename/components/schemas/types/schema_output_type forceNull=true }}{{/with}}>(m) {
 {{else}}
-public static class {{mapOutputJsonPathPiece.pascalCase}} extends FrozenMap<@Nullable Object> {
-    protected {{mapOutputJsonPathPiece.pascalCase}}(FrozenMap<@Nullable Object> m) {
-        super(m);
-    }
+class {{mapOutputJsonPathPiece.pascalCase}}(m: FrozenMap<Any?>): FrozenMap<Any?>(m) {
 {{/if}}
+    companion object {
     {{#if requiredProperties}}
-    public static final Set<String> requiredKeys = Set.of(
-        {{#each requiredProperties}}
-        "{{{@key.original}}}"{{#unless @last}},{{/unless}}
-        {{/each}}
-    );
+        val requiredKeys: Set<String> = setOf(
+            {{#each requiredProperties}}
+            "{{{@key.original}}}"{{#unless @last}},{{/unless}}
+            {{/each}}
+        )
     {{else}}
-    public static final Set<String> requiredKeys = Set.of();
+        val requiredKeys: Set<String> = setOf()
     {{/if}}
     {{#if optionalProperties}}
-    public static final Set<String> optionalKeys = Set.of(
+        val optionalKeys: Set<String> = setOf(
         {{#each optionalProperties}}
-        "{{{@key.original}}}"{{#unless @last}},{{/unless}}
+            "{{{@key.original}}}"{{#unless @last}},{{/unless}}
         {{/each}}
-    );
+        )
     {{else}}
-    public static final Set<String> optionalKeys = Set.of();
+        val optionalKeys: Set<String> = setOf()
     {{/if}}
     {{#eq optionalProperties null}}
         {{#eq requiredProperties null}}
             {{#if additionalProperties}}
                 {{#if additionalProperties.isBooleanSchemaFalse}}
-    // map with no key value pairs
+        // map with no key value pairs
                 {{/if}}
             {{/if}}
         {{/eq}}
     {{/eq}}
+        @Throws(ValidationException::class)
         {{#if mapValueSchema}}
-    public static {{mapOutputJsonPathPiece.pascalCase}} of(Map<String, {{#with mapValueSchema}}{{> src/main/kotlin/packagename/components/schemas/types/schema_input_type sourceJsonPath=../jsonPath forceNull=true }}{{/with}}> arg, SchemaConfiguration configuration) throws ValidationException {
-        return {{jsonPathPiece.pascalCase}}.getInstance().validate(arg, configuration);
-    }
+        fun of(arg: Map<String, {{#with mapValueSchema}}{{> src/main/kotlin/packagename/components/schemas/types/schema_input_type sourceJsonPath=../jsonPath forceNull=true }}{{/with}}>, configuration: SchemaConfiguration): {{mapOutputJsonPathPiece.pascalCase}} {
+            return {{jsonPathPiece.pascalCase}}.getInstance().validate(arg, configuration)
+        }
         {{else}}
-    public static {{mapOutputJsonPathPiece.pascalCase}} of(Map<String, @Nullable Object> arg, SchemaConfiguration configuration) throws ValidationException {
-        return {{jsonPathPiece.pascalCase}}.getInstance().validate(arg, configuration);
-    }
+        fun of(arg: Map<String, Any?>, configuration: SchemaConfiguration): {{mapOutputJsonPathPiece.pascalCase}} {
+            return {{jsonPathPiece.pascalCase}}.getInstance().validate(arg, configuration)
+        }
         {{/if}}
+    }
     {{> src/main/kotlin/packagename/components/schemas/_objectOutputProperties }}
 }

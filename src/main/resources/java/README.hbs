@@ -1,4 +1,4 @@
-# {{artifactId}}
+# {{generatorSettings.artifactId}}
 {{#if appDescription}}
 {{appDescription.original}}
 {{/if}}
@@ -42,7 +42,7 @@ Add this dependency to your project's POM:
 ```xml
 <dependency>
   <groupId>{{{groupId}}}</groupId>
-  <artifactId>{{{artifactId}}}</artifactId>
+  <artifactId>{{{generatorSettings.artifactId}}}</artifactId>
   <version>{{{artifactVersion}}}</version>
   <scope>compile</scope>
 </dependency>
@@ -60,12 +60,12 @@ Add this dependency to your project's build file:
 
 ```
 repositories {
-    mavenCentral()     // Needed if the '{{{artifactId}}}' jar has been published to maven centra
-    mavenLocal()       // Needed if the '{{{artifactId}}}' jar has been published to the local maven repo
+    mavenCentral()     // Needed if the '{{{generatorSettings.artifactId}}}' jar has been published to maven centra
+    mavenLocal()       // Needed if the '{{{generatorSettings.artifactId}}}' jar has been published to the local maven repo
 }
 
 dependencies {
-     implementation "{{{groupId}}}:{{{artifactId}}}:{{{artifactVersion}}}"
+     implementation "{{{groupId}}}:{{{generatorSettings.artifactId}}}:{{{artifactVersion}}}"
 }
 ```
 

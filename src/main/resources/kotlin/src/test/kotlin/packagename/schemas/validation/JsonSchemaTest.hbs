@@ -1,80 +1,71 @@
-package {{{packageName}}}.schemas.validation;
+package {{{packageName}}}.schemas.validation
 
-import org.checkerframework.checker.nullness.qual.Nullable;
-import org.junit.Assert;
-import org.junit.Test;
-import {{{packageName}}}.configurations.JsonSchemaKeywordFlags;
-import {{{packageName}}}.configurations.SchemaConfiguration;
-import {{{packageName}}}.exceptions.ValidationException;
+import {{{packageName}}}.configurations.JsonSchemaKeywordFlags
+import {{{packageName}}}.configurations.SchemaConfiguration
+import {{{packageName}}}.exceptions.ValidationException
 
-import java.util.LinkedHashMap;
-import java.util.LinkedHashSet;
-import java.util.List;
-import java.util.Set;
+import kotlin.test.Test
+import kotlin.test.assertEquals
 
-sealed interface SomeSchemaBoxed permits SomeSchemaBoxedString {}
-record SomeSchemaBoxedString() implements SomeSchemaBoxed {}
-
-public class JsonSchemaTest {
-    sealed interface SomeSchemaBoxed permits SomeSchemaBoxedString {}
-    record SomeSchemaBoxedString() implements SomeSchemaBoxed {}
-
-    static class SomeSchema extends JsonSchema<SomeSchemaBoxed> {
-        private static @Nullable SomeSchema instance = null;
-        protected SomeSchema() {
-            super(new JsonSchemaInfo()
-                    .type(Set.of(String.class))
-            );
-        }
-
-        public static SomeSchema getInstance() {
-            if (instance == null) {
-                instance = new SomeSchema();
+class JsonSchemaTest {
+    internal sealed interface SomeSchemaBoxed
+    internal class SomeSchemaBoxedString : SomeSchemaBoxed
+    internal class SomeSchema private constructor() : JsonSchema<SomeSchemaBoxed>(
+        JsonSchemaInfo()
+            .type(setOf(String::class.java))
+    ) {
+        override fun getNewInstance(arg: Any?, pathToItem: List<Any>, pathToSchemas: PathToSchemasMap): Any? {
+            if (arg is String) {
+                return arg
             }
-            return instance;
+            throw RuntimeException("Invalid input type=$javaClass. It can't be instantiated by this schema")
         }
 
-        @Override
-        public Object getNewInstance(@Nullable Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
-            if (arg instanceof String) {
-                return arg;
+        @Throws(ValidationException::class)
+        override fun validate(arg: Any?, configuration: SchemaConfiguration?): Any? {
+            if (arg is String) {
+                return arg
             }
-            throw new RuntimeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
+            throw ValidationException("Invalid input type=$javaClass. It can't be validated by this schema")
         }
 
-        @Override
-        public @Nullable Object validate(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException {
-            if (arg instanceof String) {
-                return arg;
-            }
-            throw new ValidationException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
+        @Throws(ValidationException::class)
+        override fun validateAndBox(arg: Any?, configuration: SchemaConfiguration?): SomeSchemaBoxed {
+            return SomeSchemaBoxedString()
         }
 
-        @Override
-        public SomeSchemaBoxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException {
-            return new SomeSchemaBoxedString();
+        companion object {
+            var instance: SomeSchema? = null
+                get() {
+                    if (field == null) {
+                        field = SomeSchema()
+                    }
+                    return field
+                }
+                private set
         }
     }
 
     @Test
-    public void testValidateSucceeds() throws ValidationException {
-        List<Object> pathToItem = List.of("args[0]");
-        ValidationMetadata validationMetadata = new ValidationMetadata(
-                pathToItem,
-                new SchemaConfiguration(new JsonSchemaKeywordFlags.Builder().build()),
-                new PathToSchemasMap(),
-                new LinkedHashSet<>()
-        );
-        SomeSchema schema = JsonSchemaFactory.getInstance(SomeSchema.class);
-        PathToSchemasMap pathToSchemas = JsonSchema.validate(
-                schema,
-                "hi",
-                validationMetadata
-        );
-        PathToSchemasMap expectedPathToSchemas = new PathToSchemasMap();
-        LinkedHashMap<JsonSchema<?>, Nothing?> validatedClasses = new LinkedHashMap<>();
-        validatedClasses.put(schema, null);
-        expectedPathToSchemas.put(pathToItem, validatedClasses);
-        Assert.assertEquals(pathToSchemas, expectedPathToSchemas);
+    @Throws(ValidationException::class)
+    fun testValidateSucceeds() {
+        val pathToItem = listOf<Any>("args[0]")
+        val validationMetadata = ValidationMetadata(
+            pathToItem,
+            SchemaConfiguration(JsonSchemaKeywordFlags.Builder().build()),
+            PathToSchemasMap(),
+            LinkedHashSet()
+        )
+        val schema = JsonSchemaFactory.getInstance(SomeSchema::class.java)
+        val pathToSchemas = JsonSchema.validate(
+            schema,
+            "hi",
+            validationMetadata
+        )
+        val expectedPathToSchemas = PathToSchemasMap()
+        val validatedClasses = LinkedHashMap<JsonSchema<*>, Nothing?>()
+        validatedClasses[schema] = null
+        expectedPathToSchemas[pathToItem] = validatedClasses
+        assertEquals(pathToSchemas, expectedPathToSchemas)
     }
 }

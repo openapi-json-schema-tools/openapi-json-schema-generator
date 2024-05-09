@@ -1,538 +1,569 @@
-package {{{packageName}}}.schemas;
+package {{{packageName}}}.schemas
 
-import org.checkerframework.checker.nullness.qual.Nullable;
-import org.junit.Assert;
-import org.junit.Test;
-import {{{packageName}}}.configurations.JsonSchemaKeywordFlags;
-import {{{packageName}}}.configurations.SchemaConfiguration;
-import {{{packageName}}}.exceptions.ValidationException;
-import {{{packageName}}}.schemas.validation.JsonSchema;
-import {{{packageName}}}.schemas.validation.JsonSchemaInfo;
-import {{{packageName}}}.schemas.validation.FrozenMap;
-import {{{packageName}}}.schemas.validation.PathToSchemasMap;
-import {{{packageName}}}.schemas.validation.PropertyEntry;
-import {{{packageName}}}.schemas.validation.MapSchemaValidator;
-import {{{packageName}}}.schemas.validation.ValidationMetadata;
+import {{{packageName}}}.configurations.JsonSchemaKeywordFlags
+import {{{packageName}}}.configurations.SchemaConfiguration
+import {{{packageName}}}.exceptions.ValidationException
+import {{{packageName}}}.schemas.validation.JsonSchema
+import {{{packageName}}}.schemas.validation.JsonSchemaInfo
+import {{{packageName}}}.schemas.validation.FrozenMap
+import {{{packageName}}}.schemas.validation.PathToSchemasMap
+import {{{packageName}}}.schemas.validation.MapSchemaValidator
+import {{{packageName}}}.schemas.validation.ValidationMetadata
 
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.LinkedHashMap;
-import java.util.LinkedHashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Objects;
-import java.util.Set;
+import kotlin.test.Test
+import kotlin.test.assertEquals
+import kotlin.test.assertFailsWith
 
-public class ObjectTypeSchemaTest {
-    static final SchemaConfiguration configuration = new SchemaConfiguration(new JsonSchemaKeywordFlags.Builder().build());
-    static final ValidationMetadata validationMetadata = new ValidationMetadata(
-            List.of("args[0"),
-            configuration,
-            new PathToSchemasMap(),
-            new LinkedHashSet<>()
-    );
+class ObjectTypeSchemaTest {
+    interface ObjectWithPropsSchemaBoxed
 
-    public sealed interface ObjectWithPropsSchemaBoxed permits ObjectWithPropsSchemaBoxedMap {
-    }
-    public record ObjectWithPropsSchemaBoxedMap(FrozenMap<@Nullable Object> data) implements ObjectWithPropsSchemaBoxed {
-    }
-    public static class ObjectWithPropsSchema extends JsonSchema<ObjectWithPropsSchemaBoxed> implements MapSchemaValidator<FrozenMap<@Nullable Object>, ObjectWithPropsSchemaBoxedMap> {
-        private static @Nullable ObjectWithPropsSchema instance = null;
-        private ObjectWithPropsSchema() {
-            super(new JsonSchemaInfo()
-                .type(Set.of(Map.class))
-                .properties(Map.ofEntries(
-                        new PropertyEntry("someString", StringJsonSchema.StringJsonSchema1.class)
-                ))
-            );
-
-        }
-
-        public static ObjectWithPropsSchema getInstance() {
-            if (instance == null) {
-                instance = new ObjectWithPropsSchema();
-            }
-            return instance;
-        }
-
-        @Override
-        public FrozenMap<@Nullable Object> getNewInstance(Map<?, ?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
-            LinkedHashMap<String, @Nullable Object> properties = new LinkedHashMap<>();
-            for(Map.Entry<?, ?> entry: arg.entrySet()) {
-                @Nullable Object entryKey = entry.getKey();
-                if (!(entryKey instanceof String)) {
-                    throw new RuntimeException("Invalid non-string key value");
+    data class ObjectWithPropsSchemaBoxedMap(val data: FrozenMap<Any?>) : ObjectWithPropsSchemaBoxed
+    class ObjectWithPropsSchema private constructor() : JsonSchema<ObjectWithPropsSchemaBoxed>(
+        JsonSchemaInfo()
+            .type(setOf(Map::class.java))
+            .properties(
+                mapOf(
+                    "someString" to StringJsonSchema.StringJsonSchema1::class.java
+                )
+            )
+    ), MapSchemaValidator<FrozenMap<Any?>, ObjectWithPropsSchemaBoxedMap> {
+        override fun getNewInstance(
+            arg: Map<*, *>,
+            pathToItem: List<Any>,
+            pathToSchemas: PathToSchemasMap
+        ): FrozenMap<Any?> {
+            val properties = LinkedHashMap<String, Any?>()
+            for ((entryKey, value1) in arg) {
+                if (entryKey !is String) {
+                    throw RuntimeException("Invalid non-string key value")
                 }
-                String propertyName = (String) entryKey;
-                List<Object> propertyPathToItem = new ArrayList<>(pathToItem);
-                propertyPathToItem.add(propertyName);
-                Object value = entry.getValue();
-                LinkedHashMap<JsonSchema<?>, Nothing?> schemas = pathToSchemas.get(propertyPathToItem);
-                if (schemas == null) {
-                    throw new RuntimeException("Validation result is invalid, schemas must exist for a pathToItem");
+                val propertyPathToItem: MutableList<Any> = ArrayList(pathToItem)
+                propertyPathToItem.add(entryKey)
+                val value = value1!!
+                val schemas = pathToSchemas[propertyPathToItem]
+                    ?: throw RuntimeException("Validation result is invalid, schemas must exist for a pathToItem")
+                val propertySchema = schemas.entries.iterator().next().key
+                val castValue = propertySchema.getNewInstance(value, propertyPathToItem, pathToSchemas)
+                properties[entryKey] = castValue
+            }
+            return FrozenMap(properties)
+        }
+
+        @Throws(ValidationException::class)
+        override fun validate(arg: Map<*, *>, configuration: SchemaConfiguration?): FrozenMap<Any?> {
+            val pathSet: MutableSet<List<Any>> = HashSet()
+            val pathToItem = listOf<Any>("args[0")
+            val castArg: Map<*, *> = castToAllowedTypes(arg, pathToItem, pathSet)
+            val usedConfiguration = configuration ?: SchemaConfiguration(JsonSchemaKeywordFlags.Builder().build())
+            val validationMetadata =
+                ValidationMetadata(pathToItem, usedConfiguration, PathToSchemasMap(), LinkedHashSet())
+            val pathToSchemasMap = getPathToSchemas(this, castArg, validationMetadata, pathSet)
+            return getNewInstance(castArg, validationMetadata.pathToItem, pathToSchemasMap)
+        }
+
+        @Throws(ValidationException::class)
+        override fun validateAndBox(
+            arg: Map<*, *>,
+            configuration: SchemaConfiguration?
+        ): ObjectWithPropsSchemaBoxedMap {
+            return ObjectWithPropsSchemaBoxedMap(validate(arg, configuration))
+        }
+
+        override fun getNewInstance(arg: Any?, pathToItem: List<Any>, pathToSchemas: PathToSchemasMap): Any? {
+            if (arg is Map<*, *>) {
+                return getNewInstance(arg, pathToItem, pathToSchemas)
+            }
+            throw RuntimeException("Invalid input type=$javaClass. It can't be instantiated by this schema")
+        }
+
+        @Throws(ValidationException::class)
+        override fun validate(arg: Any?, configuration: SchemaConfiguration?): Any? {
+            if (arg is Map<*, *>) {
+                return validate(arg, configuration)
+            }
+            throw ValidationException("Invalid input type=$javaClass. It can't be validated by this schema")
+        }
+
+        @Throws(ValidationException::class)
+        override fun validateAndBox(arg: Any?, configuration: SchemaConfiguration?): ObjectWithPropsSchemaBoxed {
+            if (arg is Map<*, *>) {
+                return ObjectWithPropsSchemaBoxedMap(
+                    validate(arg, configuration)
+                )
+            }
+            throw ValidationException("Invalid input type=$javaClass. It can't be validated by this schema")
+        }
+
+        companion object {
+            @Volatile
+            private var instance: ObjectWithPropsSchema? = null
+
+            fun getInstance() =
+                instance ?: synchronized(this) {
+                    instance ?: ObjectWithPropsSchema().also { instance = it }
                 }
-                JsonSchema<?> propertySchema = schemas.entrySet().iterator().next().getKey();
-                @Nullable Object castValue = propertySchema.getNewInstance(value, propertyPathToItem, pathToSchemas);
-                properties.put(propertyName, castValue);
-            }
-            return new FrozenMap<>(properties);
-        }
-
-        public FrozenMap<@Nullable Object> validate(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException {
-            Set<List<Object>> pathSet = new HashSet<>();
-            List<Object> pathToItem = List.of("args[0");
-            Map<?, ?> castArg = castToAllowedTypes(arg, pathToItem, pathSet);
-            SchemaConfiguration usedConfiguration = Objects.requireNonNullElseGet(configuration, () -> new SchemaConfiguration(new JsonSchemaKeywordFlags.Builder().build()));
-            ValidationMetadata validationMetadata = new ValidationMetadata(pathToItem, usedConfiguration, new PathToSchemasMap(), new LinkedHashSet<>());
-            PathToSchemasMap pathToSchemasMap = getPathToSchemas(this, castArg, validationMetadata, pathSet);
-            return getNewInstance(castArg, validationMetadata.pathToItem(), pathToSchemasMap);
-        }
-
-        @Override
-        public ObjectWithPropsSchemaBoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException {
-            return new ObjectWithPropsSchemaBoxedMap(validate(arg, configuration));
-        }
-
-        @Override
-        public Object getNewInstance(@Nullable Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
-            if (arg instanceof Map) {
-                return getNewInstance((Map<?, ?>) arg, pathToItem, pathToSchemas);
-            }
-            throw new RuntimeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
-        }
-
-        @Override
-        public @Nullable Object validate(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException {
-            if (arg instanceof Map) {
-                return validate((Map<?, ?>) arg, configuration);
-            }
-            throw new ValidationException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
-        }
-
-        @Override
-        public ObjectWithPropsSchemaBoxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException {
-            if (arg instanceof Map<?, ?> mapArg) {
-                return new ObjectWithPropsSchemaBoxedMap(validate(mapArg, configuration));
-            }
-            throw new ValidationException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
         }
     }
 
-    public sealed interface ObjectWithAddpropsSchemaBoxed permits ObjectWithAddpropsSchemaBoxedMap {
-    }
-    public record ObjectWithAddpropsSchemaBoxedMap(FrozenMap<String> data) implements ObjectWithAddpropsSchemaBoxed {
-    }
+    interface ObjectWithAddpropsSchemaBoxed
 
-    public static class ObjectWithAddpropsSchema extends JsonSchema<ObjectWithAddpropsSchemaBoxed> implements MapSchemaValidator<FrozenMap<String>, ObjectWithAddpropsSchemaBoxedMap> {
-        private static @Nullable ObjectWithAddpropsSchema instance = null;
-        private ObjectWithAddpropsSchema() {
-            super(new JsonSchemaInfo()
-                .type(Set.of(Map.class))
-                .additionalProperties(StringJsonSchema.StringJsonSchema1.class)
-            );
-        }
+    data class ObjectWithAddpropsSchemaBoxedMap(val data: FrozenMap<String>) : ObjectWithAddpropsSchemaBoxed {}
 
-        public static ObjectWithAddpropsSchema getInstance() {
-            if (instance == null) {
-                instance = new ObjectWithAddpropsSchema();
-            }
-            return instance;
-        }
-
-        @Override
-        public FrozenMap<String> getNewInstance(Map<?, ?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
-            LinkedHashMap<String, String> properties = new LinkedHashMap<>();
-            for(Map.Entry<?, ?> entry: arg.entrySet()) {
-                @Nullable Object entryKey = entry.getKey();
-                if (!(entryKey instanceof String)) {
-                    throw new RuntimeException("Invalid non-string key value");
+    class ObjectWithAddpropsSchema private constructor() : JsonSchema<ObjectWithAddpropsSchemaBoxed>(
+        JsonSchemaInfo()
+            .type(setOf(Map::class.java))
+            .additionalProperties(StringJsonSchema.StringJsonSchema1::class.java)
+    ), MapSchemaValidator<FrozenMap<String>, ObjectWithAddpropsSchemaBoxedMap> {
+        override fun getNewInstance(
+            arg: Map<*, *>,
+            pathToItem: List<Any>,
+            pathToSchemas: PathToSchemasMap
+        ): FrozenMap<String> {
+            val properties = LinkedHashMap<String, String>()
+            for ((entryKey, value1) in arg) {
+                if (entryKey !is String) {
+                    throw RuntimeException("Invalid non-string key value")
                 }
-                String propertyName = (String) entryKey;
-                List<Object> propertyPathToItem = new ArrayList<>(pathToItem);
-                propertyPathToItem.add(propertyName);
-                Object value = entry.getValue();
-                LinkedHashMap<JsonSchema<?>, Nothing?> schemas = pathToSchemas.get(propertyPathToItem);
-                if (schemas == null) {
-                    throw new RuntimeException("Validation result is invalid, schemas must exist for a pathToItem");
+                val propertyPathToItem: MutableList<Any> = ArrayList(pathToItem)
+                propertyPathToItem.add(entryKey)
+                val value = value1!!
+                val schemas = pathToSchemas[propertyPathToItem]
+                    ?: throw RuntimeException("Validation result is invalid, schemas must exist for a pathToItem")
+                val propertySchema = schemas.entries.iterator().next().key
+                val castValue = propertySchema.getNewInstance(value, propertyPathToItem, pathToSchemas) as? String
+                    ?: throw RuntimeException("Invalid type for property value")
+                properties[entryKey] = castValue
+            }
+            return FrozenMap(properties)
+        }
+
+        @Throws(ValidationException::class)
+        override fun validate(arg: Map<*, *>, configuration: SchemaConfiguration?): FrozenMap<String> {
+            val pathSet: MutableSet<List<Any>> = HashSet()
+            val pathToItem = listOf<Any>("args[0")
+            val castArg: Map<*, *> = castToAllowedTypes(arg, pathToItem, pathSet)
+            val usedConfiguration = configuration ?: SchemaConfiguration(JsonSchemaKeywordFlags.Builder().build())
+            val validationMetadata =
+                ValidationMetadata(pathToItem, usedConfiguration, PathToSchemasMap(), LinkedHashSet())
+            val pathToSchemasMap = getPathToSchemas(this, castArg, validationMetadata, pathSet)
+            return getNewInstance(castArg, validationMetadata.pathToItem, pathToSchemasMap)
+        }
+
+        @Throws(ValidationException::class)
+        override fun validateAndBox(
+            arg: Map<*, *>,
+            configuration: SchemaConfiguration?
+        ): ObjectWithAddpropsSchemaBoxedMap {
+            return ObjectWithAddpropsSchemaBoxedMap(validate(arg, configuration))
+        }
+
+        @Throws(ValidationException::class)
+        override fun validate(arg: Any?, configuration: SchemaConfiguration?): Any? {
+            if (arg is Map<*, *>) {
+                return validate(arg, configuration)
+            }
+            throw ValidationException("Invalid input type=$javaClass. It can't be validated by this schema")
+        }
+
+        @Throws(ValidationException::class)
+        override fun validateAndBox(arg: Any?, configuration: SchemaConfiguration?): ObjectWithAddpropsSchemaBoxed {
+            if (arg is Map<*, *>) {
+                return ObjectWithAddpropsSchemaBoxedMap(validate(arg, configuration))
+            }
+            throw ValidationException("Invalid input type=$javaClass. It can't be validated by this schema")
+        }
+
+        override fun getNewInstance(arg: Any?, pathToItem: List<Any>, pathToSchemas: PathToSchemasMap): Any? {
+            if (arg is Map<*, *>) {
+                return getNewInstance(arg, pathToItem, pathToSchemas)
+            }
+            throw RuntimeException("Invalid input type=$javaClass. It can't be instantiated by this schema")
+        }
+
+        companion object {
+            @Volatile
+            private var instance: ObjectWithAddpropsSchema? = null
+
+            fun getInstance() =
+                instance ?: synchronized(this) {
+                    instance ?: ObjectWithAddpropsSchema().also { instance = it }
                 }
-                JsonSchema<?> propertySchema = schemas.entrySet().iterator().next().getKey();
-                @Nullable Object castValue = propertySchema.getNewInstance(value, propertyPathToItem, pathToSchemas);
-                if (!(castValue instanceof String)) {
-                    throw new RuntimeException("Invalid type for property value");
+        }
+    }
+
+    interface ObjectWithPropsAndAddpropsSchemaBoxed
+
+    data class ObjectWithPropsAndAddpropsSchemaBoxedMap(val data: FrozenMap<Any?>) :
+        ObjectWithPropsAndAddpropsSchemaBoxed {
+    }
+
+    class ObjectWithPropsAndAddpropsSchema private constructor() : JsonSchema<ObjectWithPropsAndAddpropsSchemaBoxed>(
+        JsonSchemaInfo()
+            .type(setOf(Map::class.java))
+            .properties(
+                mapOf(
+                    "someString" to StringJsonSchema.StringJsonSchema1::class.java
+                )
+            )
+            .additionalProperties(BooleanJsonSchema.BooleanJsonSchema1::class.java)
+    ), MapSchemaValidator<FrozenMap<Any?>, ObjectWithPropsAndAddpropsSchemaBoxedMap> {
+        override fun getNewInstance(
+            arg: Map<*, *>,
+            pathToItem: List<Any>,
+            pathToSchemas: PathToSchemasMap
+        ): FrozenMap<Any?> {
+            val properties = LinkedHashMap<String, Any?>()
+            for ((entryKey, value1) in arg) {
+                if (entryKey !is String) {
+                    throw RuntimeException("Invalid non-string key value")
                 }
-                properties.put(propertyName, (String) castValue);
+                val propertyPathToItem: MutableList<Any> = ArrayList(pathToItem)
+                propertyPathToItem.add(entryKey)
+                val value = value1!!
+                val schemas = pathToSchemas[propertyPathToItem]
+                    ?: throw RuntimeException("Validation result is invalid, schemas must exist for a pathToItem")
+                val propertySchema = schemas.entries.iterator().next().key
+                val castValue = propertySchema.getNewInstance(value, propertyPathToItem, pathToSchemas)
+                properties[entryKey] = castValue
             }
-            return new FrozenMap<>(properties);
+            return FrozenMap(properties)
         }
 
-        public FrozenMap<String> validate(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException {
-            Set<List<Object>> pathSet = new HashSet<>();
-            List<Object> pathToItem = List.of("args[0");
-            Map<?, ?> castArg = castToAllowedTypes(arg, pathToItem, pathSet);
-            SchemaConfiguration usedConfiguration = Objects.requireNonNullElseGet(configuration, () -> new SchemaConfiguration(new JsonSchemaKeywordFlags.Builder().build()));
-            ValidationMetadata validationMetadata = new ValidationMetadata(pathToItem, usedConfiguration, new PathToSchemasMap(), new LinkedHashSet<>());
-            PathToSchemasMap pathToSchemasMap = getPathToSchemas(this, castArg, validationMetadata, pathSet);
-            return getNewInstance(castArg, validationMetadata.pathToItem(), pathToSchemasMap);
+        @Throws(ValidationException::class)
+        override fun validate(arg: Map<*, *>, configuration: SchemaConfiguration?): FrozenMap<Any?> {
+            val pathSet: MutableSet<List<Any>> = HashSet()
+            val pathToItem = listOf<Any>("args[0")
+            val castArg: Map<*, *> = castToAllowedTypes(arg, pathToItem, pathSet)
+            val usedConfiguration = configuration ?: SchemaConfiguration(JsonSchemaKeywordFlags.Builder().build())
+            val validationMetadata =
+                ValidationMetadata(pathToItem, usedConfiguration, PathToSchemasMap(), LinkedHashSet())
+            val pathToSchemasMap = getPathToSchemas(this, castArg, validationMetadata, pathSet)
+            return getNewInstance(castArg, validationMetadata.pathToItem, pathToSchemasMap)
         }
 
-        @Override
-        public ObjectWithAddpropsSchemaBoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException {
-            return new ObjectWithAddpropsSchemaBoxedMap(validate(arg, configuration));
+        @Throws(ValidationException::class)
+        override fun validateAndBox(
+            arg: Map<*, *>,
+            configuration: SchemaConfiguration?
+        ): ObjectWithPropsAndAddpropsSchemaBoxedMap {
+            return ObjectWithPropsAndAddpropsSchemaBoxedMap(validate(arg, configuration))
         }
 
-        @Override
-        public @Nullable Object validate(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException {
-            if (arg instanceof Map) {
-                return validate((Map<?, ?>) arg, configuration);
+        @Throws(ValidationException::class)
+        override fun validate(arg: Any?, configuration: SchemaConfiguration?): Any? {
+            if (arg is Map<*, *>) {
+                return validate(arg, configuration)
             }
-            throw new ValidationException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
+            throw ValidationException("Invalid input type=$javaClass. It can't be validated by this schema")
         }
 
-        @Override
-        public ObjectWithAddpropsSchemaBoxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException {
-            if (arg instanceof Map<?, ?> mapArg) {
-                return new ObjectWithAddpropsSchemaBoxedMap(validate(mapArg, configuration));
+        @Throws(ValidationException::class)
+        override fun validateAndBox(
+            arg: Any?,
+            configuration: SchemaConfiguration?
+        ): ObjectWithPropsAndAddpropsSchemaBoxed {
+            if (arg is Map<*, *>) {
+                return ObjectWithPropsAndAddpropsSchemaBoxedMap(validate(arg, configuration))
             }
-            throw new ValidationException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
+            throw ValidationException("Invalid input type=$javaClass. It can't be validated by this schema")
         }
 
-        @Override
-        public Object getNewInstance(@Nullable Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
-            if (arg instanceof Map) {
-                return getNewInstance((Map<?, ?>) arg, pathToItem, pathToSchemas);
+        override fun getNewInstance(arg: Any?, pathToItem: List<Any>, pathToSchemas: PathToSchemasMap): Any? {
+            if (arg is Map<*, *>) {
+                return getNewInstance(arg, pathToItem, pathToSchemas)
             }
-            throw new RuntimeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
-        }
-    }
-
-    public sealed interface ObjectWithPropsAndAddpropsSchemaBoxed permits ObjectWithPropsAndAddpropsSchemaBoxedMap {
-    }
-    public record ObjectWithPropsAndAddpropsSchemaBoxedMap(FrozenMap<@Nullable Object> data) implements ObjectWithPropsAndAddpropsSchemaBoxed {
-    }
-    public static class ObjectWithPropsAndAddpropsSchema extends JsonSchema<ObjectWithPropsAndAddpropsSchemaBoxed> implements MapSchemaValidator<FrozenMap<@Nullable Object>, ObjectWithPropsAndAddpropsSchemaBoxedMap> {
-        private static @Nullable ObjectWithPropsAndAddpropsSchema instance = null;
-        private ObjectWithPropsAndAddpropsSchema() {
-            super(new JsonSchemaInfo()
-                .type(Set.of(Map.class))
-                .properties(Map.ofEntries(
-                        new PropertyEntry("someString", StringJsonSchema.StringJsonSchema1.class)
-                ))
-                .additionalProperties(BooleanJsonSchema.BooleanJsonSchema1.class)
-            );
+            throw RuntimeException("Invalid input type=$javaClass. It can't be instantiated by this schema")
         }
 
-        public static ObjectWithPropsAndAddpropsSchema getInstance() {
-            if (instance == null) {
-                instance = new ObjectWithPropsAndAddpropsSchema();
-            }
-            return instance;
-        }
+        companion object {
+            @Volatile
+            private var instance: ObjectWithPropsAndAddpropsSchema? = null
 
-        @Override
-        public FrozenMap<@Nullable Object> getNewInstance(Map<?, ?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
-            LinkedHashMap<String, @Nullable Object> properties = new LinkedHashMap<>();
-            for(Map.Entry<?, ?> entry: arg.entrySet()) {
-                @Nullable Object entryKey = entry.getKey();
-                if (!(entryKey instanceof String)) {
-                    throw new RuntimeException("Invalid non-string key value");
+            fun getInstance() =
+                instance ?: synchronized(this) {
+                    instance ?: ObjectWithPropsAndAddpropsSchema().also { instance = it }
                 }
-                String propertyName = (String) entryKey;
-                List<Object> propertyPathToItem = new ArrayList<>(pathToItem);
-                propertyPathToItem.add(propertyName);
-                Object value = entry.getValue();
-                LinkedHashMap<JsonSchema<?>, Nothing?> schemas = pathToSchemas.get(propertyPathToItem);
-                if (schemas == null) {
-                    throw new RuntimeException("Validation result is invalid, schemas must exist for a pathToItem");
+        }
+    }
+
+    class ObjectWithOutputTypeSchemaMap(m: FrozenMap<Any?>) : FrozenMap<Any?>(m) {
+        companion object {
+            @Throws(ValidationException::class)
+            fun of(arg: Map<String, Any?>, configuration: SchemaConfiguration?): ObjectWithOutputTypeSchemaMap {
+                return ObjectWithOutputTypeSchema.getInstance().validate(arg, configuration)
+            }
+        }
+    }
+
+    interface ObjectWithOutputTypeSchemaBoxed
+
+    data class ObjectWithOutputTypeSchemaBoxedMap(val data: ObjectWithOutputTypeSchemaMap) :
+        ObjectWithOutputTypeSchemaBoxed {
+    }
+
+    class ObjectWithOutputTypeSchema : JsonSchema<ObjectWithOutputTypeSchemaBoxed?>(
+        JsonSchemaInfo()
+            .type(setOf(Map::class.java))
+            .properties(
+                mapOf(
+                    "someString" to StringJsonSchema.StringJsonSchema1::class.java
+                )
+            )
+    ), MapSchemaValidator<ObjectWithOutputTypeSchemaMap?, ObjectWithOutputTypeSchemaBoxedMap?> {
+        override fun getNewInstance(
+            arg: Map<*, *>,
+            pathToItem: List<Any>,
+            pathToSchemas: PathToSchemasMap
+        ): ObjectWithOutputTypeSchemaMap {
+            val properties = LinkedHashMap<String, Any?>()
+            for ((entryKey, value1) in arg) {
+                if (entryKey !is String) {
+                    throw RuntimeException("Invalid non-string key value")
                 }
-                JsonSchema<?> propertySchema = schemas.entrySet().iterator().next().getKey();
-                @Nullable Object castValue = propertySchema.getNewInstance(value, propertyPathToItem, pathToSchemas);
-                properties.put(propertyName, castValue);
+                val propertyPathToItem: MutableList<Any> = ArrayList(pathToItem)
+                propertyPathToItem.add(entryKey)
+                val value = value1!!
+                val schemas = pathToSchemas[propertyPathToItem]
+                    ?: throw RuntimeException("Validation result is invalid, schemas must exist for a pathToItem")
+                val propertySchema = schemas.entries.iterator().next().key
+                val castValue = propertySchema.getNewInstance(value, propertyPathToItem, pathToSchemas)
+                properties[entryKey] = castValue
             }
-            return new FrozenMap<>(properties);
+            return ObjectWithOutputTypeSchemaMap(FrozenMap(properties))
         }
 
-        public FrozenMap<@Nullable Object> validate(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException {
-            Set<List<Object>> pathSet = new HashSet<>();
-            List<Object> pathToItem = List.of("args[0");
-            Map<?, ?> castArg = castToAllowedTypes(arg, pathToItem, pathSet);
-            SchemaConfiguration usedConfiguration = Objects.requireNonNullElseGet(configuration, () -> new SchemaConfiguration(new JsonSchemaKeywordFlags.Builder().build()));
-            ValidationMetadata validationMetadata = new ValidationMetadata(pathToItem, usedConfiguration, new PathToSchemasMap(), new LinkedHashSet<>());
-            PathToSchemasMap pathToSchemasMap = getPathToSchemas(this, castArg, validationMetadata, pathSet);
-            return getNewInstance(castArg, validationMetadata.pathToItem(), pathToSchemasMap);
+        @Throws(ValidationException::class)
+        override fun validate(arg: Map<*, *>, configuration: SchemaConfiguration?): ObjectWithOutputTypeSchemaMap {
+            val pathSet: MutableSet<List<Any>> = HashSet()
+            val pathToItem = listOf<Any>("args[0")
+            val castArg: Map<*, *> = castToAllowedTypes(arg, pathToItem, pathSet)
+            val usedConfiguration = configuration ?: SchemaConfiguration(JsonSchemaKeywordFlags.Builder().build())
+            val validationMetadata =
+                ValidationMetadata(pathToItem, usedConfiguration, PathToSchemasMap(), LinkedHashSet())
+            val pathToSchemasMap = getPathToSchemas(this, castArg, validationMetadata, pathSet)
+            return getNewInstance(castArg, validationMetadata.pathToItem, pathToSchemasMap)
         }
 
-        @Override
-        public ObjectWithPropsAndAddpropsSchemaBoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException {
-            return new ObjectWithPropsAndAddpropsSchemaBoxedMap(validate(arg, configuration));
+        @Throws(ValidationException::class)
+        override fun validateAndBox(
+            arg: Map<*, *>,
+            configuration: SchemaConfiguration?
+        ): ObjectWithOutputTypeSchemaBoxedMap {
+            return ObjectWithOutputTypeSchemaBoxedMap(validate(arg, configuration))
         }
 
-        @Override
-        public @Nullable Object validate(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException {
-            if (arg instanceof Map) {
-                return validate((Map<?, ?>) arg, configuration);
+        @Throws(ValidationException::class)
+        override fun validate(arg: Any?, configuration: SchemaConfiguration?): Any? {
+            if (arg is Map<*, *>) {
+                return validate(arg, configuration)
             }
-            throw new ValidationException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
+            throw ValidationException("Invalid input type=$javaClass. It can't be validated by this schema")
         }
 
-        @Override
-        public ObjectWithPropsAndAddpropsSchemaBoxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException {
-            if (arg instanceof Map<?, ?> mapArg) {
-                return new ObjectWithPropsAndAddpropsSchemaBoxedMap(validate(mapArg, configuration));
+        @Throws(ValidationException::class)
+        override fun validateAndBox(arg: Any?, configuration: SchemaConfiguration?): ObjectWithOutputTypeSchemaBoxed {
+            if (arg is Map<*, *>) {
+                return ObjectWithOutputTypeSchemaBoxedMap(validate(arg, configuration))
             }
-            throw new ValidationException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
+            throw ValidationException("Invalid input type=$javaClass. It can't be validated by this schema")
         }
 
-        @Override
-        public Object getNewInstance(@Nullable Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
-            if (arg instanceof Map) {
-                return getNewInstance((Map<?, ?>) arg, pathToItem, pathToSchemas);
+        override fun getNewInstance(arg: Any?, pathToItem: List<Any>, pathToSchemas: PathToSchemasMap): Any? {
+            if (arg is FrozenMap<*>) {
+                return getNewInstance(arg, pathToItem, pathToSchemas)
             }
-            throw new RuntimeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
-        }
-    }
-
-    public static class ObjectWithOutputTypeSchemaMap extends FrozenMap<@Nullable Object> {
-        protected ObjectWithOutputTypeSchemaMap(FrozenMap<@Nullable Object> m) {
-            super(m);
+            throw RuntimeException("Invalid input type=$javaClass. It can't be instantiated by this schema")
         }
 
-        public static ObjectWithOutputTypeSchemaMap of(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
-            return ObjectWithOutputTypeSchema.getInstance().validate(arg, configuration);
-        }
-    }
+        companion object {
+            @Volatile
+            private var instance: ObjectWithOutputTypeSchema? = null
 
-    public sealed interface ObjectWithOutputTypeSchemaBoxed permits ObjectWithOutputTypeSchemaBoxedMap {
-    }
-    public record ObjectWithOutputTypeSchemaBoxedMap(ObjectWithOutputTypeSchemaMap data) implements ObjectWithOutputTypeSchemaBoxed {
-    }
-    public static class ObjectWithOutputTypeSchema extends JsonSchema<ObjectWithOutputTypeSchemaBoxed> implements MapSchemaValidator<ObjectWithOutputTypeSchemaMap, ObjectWithOutputTypeSchemaBoxedMap> {
-        private static @Nullable ObjectWithOutputTypeSchema instance = null;
-        public ObjectWithOutputTypeSchema() {
-            super(new JsonSchemaInfo()
-                .type(Set.of(Map.class))
-                .properties(Map.ofEntries(
-                        new PropertyEntry("someString", StringJsonSchema.StringJsonSchema1.class)
-                ))
-            );
-        }
-
-        public static ObjectWithOutputTypeSchema getInstance() {
-            if (instance == null) {
-                instance = new ObjectWithOutputTypeSchema();
-            }
-            return instance;
-        }
-
-        @Override
-        public ObjectWithOutputTypeSchemaMap getNewInstance(Map<?, ?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
-            LinkedHashMap<String, @Nullable Object> properties = new LinkedHashMap<>();
-            for(Map.Entry<?, ?> entry: arg.entrySet()) {
-                @Nullable Object entryKey = entry.getKey();
-                if (!(entryKey instanceof String)) {
-                    throw new RuntimeException("Invalid non-string key value");
+            fun getInstance() =
+                instance ?: synchronized(this) {
+                    instance ?: ObjectWithOutputTypeSchema().also { instance = it }
                 }
-                String propertyName = (String) entryKey;
-                List<Object> propertyPathToItem = new ArrayList<>(pathToItem);
-                propertyPathToItem.add(propertyName);
-                Object value = entry.getValue();
-                LinkedHashMap<JsonSchema<?>, Nothing?> schemas = pathToSchemas.get(propertyPathToItem);
-                if (schemas == null) {
-                    throw new RuntimeException("Validation result is invalid, schemas must exist for a pathToItem");
-                }
-                JsonSchema<?> propertySchema = schemas.entrySet().iterator().next().getKey();
-                @Nullable Object castValue = propertySchema.getNewInstance(value, propertyPathToItem, pathToSchemas);
-                properties.put(propertyName, castValue);
-            }
-            return new ObjectWithOutputTypeSchemaMap(new FrozenMap<>(properties));
-        }
-
-        public ObjectWithOutputTypeSchemaMap validate(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException {
-            Set<List<Object>> pathSet = new HashSet<>();
-            List<Object> pathToItem = List.of("args[0");
-            Map<?, ?> castArg = castToAllowedTypes(arg, pathToItem, pathSet);
-            SchemaConfiguration usedConfiguration = Objects.requireNonNullElseGet(configuration, () -> new SchemaConfiguration(new JsonSchemaKeywordFlags.Builder().build()));
-            ValidationMetadata validationMetadata = new ValidationMetadata(pathToItem, usedConfiguration, new PathToSchemasMap(), new LinkedHashSet<>());
-            PathToSchemasMap pathToSchemasMap = getPathToSchemas(this, castArg, validationMetadata, pathSet);
-            return getNewInstance(castArg, validationMetadata.pathToItem(), pathToSchemasMap);
-        }
-
-        @Override
-        public ObjectWithOutputTypeSchemaBoxedMap validateAndBox(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException {
-            return new ObjectWithOutputTypeSchemaBoxedMap(validate(arg, configuration));
-        }
-
-        @Override
-        public @Nullable Object validate(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException {
-            if (arg instanceof Map) {
-                return validate((Map<?, ?>) arg, configuration);
-            }
-            throw new ValidationException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
-        }
-
-        @Override
-        public ObjectWithOutputTypeSchemaBoxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException {
-            if (arg instanceof Map<?, ?> mapArg) {
-                return new ObjectWithOutputTypeSchemaBoxedMap(validate(mapArg, configuration));
-            }
-            throw new ValidationException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
-        }
-
-        @Override
-        public Object getNewInstance(@Nullable Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
-            if (arg instanceof FrozenMap) {
-                return getNewInstance((Map<?, ?>) arg, pathToItem, pathToSchemas);
-            }
-            throw new RuntimeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
     }
 
     @Test
-    public void testExceptionThrownForInvalidType() {
-        ObjectWithPropsSchema schema = ObjectWithPropsSchema.getInstance();
-        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
-                schema,
-                null,
-                validationMetadata
-        ));
+    fun testExceptionThrownForInvalidType() {
+        val schema = ObjectWithPropsSchema.getInstance()
+        assertFailsWith<ValidationException>(
+            block = {
+                JsonSchema.validate(
+                    schema,
+                    null,
+                    validationMetadata
+                )
+            }
+        )
     }
 
     @Test
-    public void testValidateObjectWithPropsSchema() throws ValidationException {
-        ObjectWithPropsSchema schema = ObjectWithPropsSchema.getInstance();
+    @Throws(ValidationException::class)
+    fun testValidateObjectWithPropsSchema() {
+        val schema = ObjectWithPropsSchema.getInstance()
 
         // map with only property works
-        Map<String, Object> inMap = new LinkedHashMap<>();
-        inMap.put("someString", "abc");
-        FrozenMap<@Nullable Object> validatedValue = schema.validate(inMap, configuration);
-        LinkedHashMap<String, String> outMap = new LinkedHashMap<>();
-        outMap.put("someString", "abc");
-        Assert.assertEquals(validatedValue, outMap);
+        var inMap: Map<String, Any?> = mapOf("someString" to "abc")
+        var validatedValue = schema.validate(inMap, configuration)
+        var outMap: Map<String, Any?> = mapOf("someString" to "abc")
+        assertEquals(validatedValue, outMap)
 
         // map with additional unvalidated property works
-        inMap = new LinkedHashMap<>();
-        inMap.put("someString", "abc");
-        inMap.put("someOtherString", "def");
-        validatedValue = schema.validate(inMap, configuration);
-        outMap = new LinkedHashMap<>();
-        outMap.put("someString", "abc");
-        outMap.put("someOtherString", "def");
-        Assert.assertEquals(validatedValue, outMap);
+        inMap = mapOf(
+            "someString" to "abc",
+            "someOtherString" to "def"
+        )
+        validatedValue = schema.validate(inMap, configuration)
+        val outMap1: Map<String, Any?> = mapOf(
+            "someString" to "abc",
+            "someOtherString" to "def"
+        )
+        assertEquals(validatedValue, outMap1)
 
         // invalid prop type fails
-        inMap = new LinkedHashMap<>();
-        inMap.put("someString", 1);
-        Map<String, Object> finalInMap = inMap;
-        Assert.assertThrows(ValidationException.class, () -> schema.validate(
-                finalInMap, configuration
-        ));
+        val invalidMap = mapOf("someString" to 1)
+        assertFailsWith<ValidationException>(
+            block = {
+                schema.validate(
+                    invalidMap, configuration
+                )
+            }
+        )
     }
 
     @Test
-    public void testValidateObjectWithAddpropsSchema() throws ValidationException {
-        ObjectWithAddpropsSchema schema = ObjectWithAddpropsSchema.getInstance();
+    @Throws(ValidationException::class)
+    fun testValidateObjectWithAddpropsSchema() {
+        val schema = ObjectWithAddpropsSchema.getInstance()
 
         // map with only property works
-        Map<String, String> inMap = new LinkedHashMap<>();
-        inMap.put("someString", "abc");
-        FrozenMap<String> validatedValue = schema.validate(inMap, configuration);
-        LinkedHashMap<String, String> outMap = new LinkedHashMap<>();
-        outMap.put("someString", "abc");
-        Assert.assertEquals(validatedValue, outMap);
+        var inMap: MutableMap<String?, String?> = LinkedHashMap()
+        inMap["someString"] = "abc"
+        var validatedValue = schema.validate(inMap, configuration)
+        var outMap: Map<String, String> = mapOf("someString" to "abc")
+        assertEquals(validatedValue, outMap)
 
         // map with additional properties works
-        inMap = new LinkedHashMap<>();
-        inMap.put("someString", "abc");
-        inMap.put("someOtherString", "def");
-        validatedValue = schema.validate(inMap, configuration);
-        outMap = new LinkedHashMap<>();
-        outMap.put("someString", "abc");
-        outMap.put("someOtherString", "def");
-        Assert.assertEquals(validatedValue, outMap);
+        inMap = LinkedHashMap()
+        inMap["someString"] = "abc"
+        inMap["someOtherString"] = "def"
+        validatedValue = schema.validate(inMap, configuration)
+        outMap = mapOf(
+            "someString" to "abc",
+            "someOtherString" to "def"
+        )
+        assertEquals(validatedValue, outMap)
 
         // invalid addProp type fails
-        Map<String, Integer> invalidInput = Map.of("someString", 1);
-        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
-                schema,
-                invalidInput,
-                validationMetadata
-        ));
+        val invalidInput = java.util.Map.of("someString", 1)
+        assertFailsWith<ValidationException>(
+            block = {
+                JsonSchema.validate(
+                    schema,
+                    invalidInput,
+                    validationMetadata
+                )
+            }
+        )
     }
 
     @Test
-    public void testValidateObjectWithPropsAndAddpropsSchema() throws ValidationException {
-        ObjectWithPropsAndAddpropsSchema schema = ObjectWithPropsAndAddpropsSchema.getInstance();
+    @Throws(ValidationException::class)
+    fun testValidateObjectWithPropsAndAddpropsSchema() {
+        val schema = ObjectWithPropsAndAddpropsSchema.getInstance()
 
         // map with only property works
-        Map<String, Object> inMap = new LinkedHashMap<>();
-        inMap.put("someString", "abc");
-        FrozenMap<@Nullable Object> validatedValue = schema.validate(inMap, configuration);
-        LinkedHashMap<String, Object> outMap = new LinkedHashMap<>();
-        outMap.put("someString", "abc");
-        Assert.assertEquals(validatedValue, outMap);
+        var inMap: Map<String, Any?> = mapOf("someString" to "abc")
+        var validatedValue: Map<String, Any?> = schema.validate(inMap, configuration)
+        var outMap: Map<String, Any?> = mapOf("someString" to "abc")
+        assertEquals(validatedValue, outMap)
 
         // map with additional properties works
-        inMap = new LinkedHashMap<>();
-        inMap.put("someString", "abc");
-        inMap.put("someAddProp", true);
-        validatedValue = schema.validate(inMap, configuration);
-        outMap = new LinkedHashMap<>();
-        outMap.put("someString", "abc");
-        outMap.put("someAddProp", true);
-        Assert.assertEquals(validatedValue, outMap);
+        inMap = mapOf(
+            "someString" to "abc",
+            "someAddProp" to true
+        )
+        validatedValue = schema.validate(inMap, configuration)
+        val outMap1: Map<String, Any?> = mapOf(
+            "someString" to "abc",
+            "someAddProp" to true
+        )
+        assertEquals(validatedValue, outMap1)
 
         // invalid prop type fails
-        inMap = new LinkedHashMap<>();
-        inMap.put("someString", 1);
-        Map<String, Object> invalidPropMap = inMap;
-        Assert.assertThrows(ValidationException.class, () -> schema.validate(
-                invalidPropMap, configuration
-        ));
+        inMap = mapOf("someString" to 1)
+        val invalidPropMap: Map<String, Any?> = inMap
+        assertFailsWith<ValidationException>(
+            block = {
+                schema.validate(
+                    invalidPropMap, configuration
+                )
+            }
+        )
 
         // invalid addProp type fails
-        inMap = new LinkedHashMap<>();
-        inMap.put("someAddProp", 1);
-        Map<String, Object> invalidAddpropMap = inMap;
-        Assert.assertThrows(ValidationException.class, () -> schema.validate(
-                invalidAddpropMap, configuration
-        ));
+        inMap = LinkedHashMap()
+        inMap["someAddProp"] = 1
+        val invalidAddpropMap: Map<String, Any?> = inMap
+        assertFailsWith<ValidationException>(
+            block = {
+                schema.validate(
+                    invalidAddpropMap, configuration
+                )
+            }
+        )
     }
 
     @Test
-    public void testValidateObjectWithOutputTypeSchema() throws ValidationException {
-        ObjectWithOutputTypeSchema schema = ObjectWithOutputTypeSchema.getInstance();
+    @Throws(ValidationException::class)
+    fun testValidateObjectWithOutputTypeSchema() {
+        val schema = ObjectWithOutputTypeSchema.getInstance()
 
         // map with only property works
-        Map<String, Object> inMap = new LinkedHashMap<>();
-        inMap.put("someString", "abc");
-        ObjectWithOutputTypeSchemaMap validatedValue = schema.validate(inMap, configuration);
-        LinkedHashMap<String, String> outMap = new LinkedHashMap<>();
-        outMap.put("someString", "abc");
-        Assert.assertEquals(validatedValue, outMap);
+        var inMap: Map<String, Any?> = mapOf("someString" to "abc")
+        var validatedValue = schema.validate(inMap, configuration)
+        var outMap: Map<String, Any?> = mapOf("someString" to "abc")
+        assertEquals(validatedValue, outMap)
 
         // map with additional unvalidated property works
-        inMap = new LinkedHashMap<>();
-        inMap.put("someString", "abc");
-        inMap.put("someOtherString", "def");
-        validatedValue = schema.validate(inMap, configuration);
-        outMap = new LinkedHashMap<>();
-        outMap.put("someString", "abc");
-        outMap.put("someOtherString", "def");
-        Assert.assertEquals(validatedValue, outMap);
+        inMap = mapOf(
+            "someString" to "abc",
+            "someOtherString" to "def",
+        )
+        validatedValue = schema.validate(inMap, configuration)
+        val outMap1: Map<String, Any?> = mapOf(
+            "someString" to "abc",
+            "someOtherString" to "def",
+        )
+        assertEquals(validatedValue, outMap1)
 
         // invalid prop type fails
-        inMap = new LinkedHashMap<>();
-        inMap.put("someString", 1);
-        Map<String, Object> finalInMap = inMap;
-        Assert.assertThrows(ValidationException.class, () -> schema.validate(
-                finalInMap, configuration
-        ));
+        val invalidInMap = mapOf("someString" to 1)
+        assertFailsWith<ValidationException>(
+            block = {
+                schema.validate(
+                    invalidInMap, configuration
+                )
+            }
+        )
 
         // using output class directly works
-        inMap = new LinkedHashMap<>();
-        inMap.put("someString", "abc");
-        validatedValue = ObjectWithOutputTypeSchemaMap.of(inMap, configuration);
-        outMap = new LinkedHashMap<>();
-        outMap.put("someString", "abc");
-        Assert.assertEquals(validatedValue, outMap);
+        inMap = mapOf("someString" to "abc")
+        validatedValue = ObjectWithOutputTypeSchemaMap.of(inMap, configuration)
+        val outMap2: Map<String, Any?>  = mapOf("someString" to "abc")
+        assertEquals(validatedValue, outMap2)
+    }
+
+    companion object {
+        val configuration = SchemaConfiguration(JsonSchemaKeywordFlags.Builder().build())
+        val validationMetadata = ValidationMetadata(
+            listOf("args[0"),
+            configuration,
+            PathToSchemasMap(),
+            LinkedHashSet()
+        )
     }
 }

@@ -1,6 +1,6 @@
-package {{{packageName}}}.schemas.validation;
+package {{{packageName}}}.schemas.validation
 
-import {{{packageName}}}.exceptions.ValidationException;
+import {{{packageName}}}.exceptions.ValidationException
 
 class DependentSchemasValidator : KeywordValidator {
     @Throws(ValidationException::class)
@@ -22,7 +22,7 @@ class DependentSchemasValidator : KeywordValidator {
             if (!presentProperties.contains(propName)) {
                 continue
             }
-            val dependentSchema = getInstance(dependentSchemaClass)
+            val dependentSchema = JsonSchemaFactory.getInstance(dependentSchemaClass)
             val otherPathToSchemas = JsonSchema.validate(dependentSchema, data.arg, data.validationMetadata)
             pathToSchemas.update(otherPathToSchemas)
         }

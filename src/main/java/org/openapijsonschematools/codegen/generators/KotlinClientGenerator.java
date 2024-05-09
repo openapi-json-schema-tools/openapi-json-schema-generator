@@ -316,7 +316,7 @@ public class KotlinClientGenerator extends DefaultGenerator implements Generator
     public static final GeneratorMetadata generatorMetadata = GeneratorMetadata.newBuilder()
         .name("kotlin")
         .language(GeneratorLanguage.KOTLIN)
-        .languageVersion("17")
+        .languageVersion("1.9.23")
         .type(GeneratorType.CLIENT)
         .stability(Stability.EXPERIMENTAL)
         .featureSet(featureSet)
@@ -356,24 +356,82 @@ public class KotlinClientGenerator extends DefaultGenerator implements Generator
         .postGenerationMsg(defaultPostGenerationMsg)
         .reservedWords(
             getLowerCaseWords(
+                // includes reserved words at https://github.com/JetBrains/kotlin/blob/master/core/descriptors/src/org/jetbrains/kotlin/renderer/KeywordStringsGenerated.java
+                // and keywords from https://kotlinlang.org/docs/reference/keyword-reference.html
                 Arrays.asList(
-                    // used as internal variables, can collide with parameter names
-                    "localVarPath", "localVarQueryParams", "localVarCollectionQueryParams",
-                    "localVarHeaderParams", "localVarCookieParams", "localVarFormParams", "localVarPostBody",
-                    "localVarAccepts", "localVarAccept", "localVarContentTypes",
-                    "localVarContentType", "localVarAuthNames", "localReturnType",
-                    "ApiClient", "ApiException", "ApiResponse", "Configuration", "StringUtil",
-
-                    // language reserved words
-                    "abstract", "continue", "for", "new", "switch", "assert",
-                    "default", "if", "package", "synchronized", "boolean", "do", "goto", "private",
-                    "this", "break", "double", "implements", "protected", "throw", "byte", "else",
-                    "import", "public", "throws", "case", "enum", "instanceof", "return", "transient",
-                    "catch", "extends", "int", "short", "try", "char", "final", "interface", "static",
-                    "void", "class", "finally", "long", "strictfp", "volatile", "const", "float",
-                    "native", "super", "while", "null",
-                    // additional types
-                    "localdate", "zoneddatetime", "list", "map", "linkedhashset", "void", "string", "uuid", "number", "integer", "toString"
+                    "ApiResponse",
+                    "abstract",
+                    "actual",
+                    "annotation",
+                    "as",
+                    "break",
+                    "class",
+                    "companion",
+                    "const",
+                    "constructor",
+                    "continue",
+                    "contract",
+                    "crossinline",
+                    "data",
+                    "delegate",
+                    "do",
+                    "dynamic",
+                    "else",
+                    "enum",
+                    "expect",
+                    "external",
+                    "false",
+                    "field",
+                    "final",
+                    "finally",
+                    "for",
+                    "fun",
+                    "if",
+                    "import",
+                    "in",
+                    "infix",
+                    "init",
+                    "inline",
+                    "inner",
+                    "interface",
+                    "internal",
+                    "is",
+                    "it",
+                    "lateinit",
+                    "noinline",
+                    "null",
+                    "object",
+                    "open",
+                    "operator",
+                    "out",
+                    "override",
+                    "package",
+                    "param",
+                    "private",
+                    "property",
+                    "protected",
+                    "public",
+                    "receiver",
+                    "reified",
+                    "return",
+                    "sealed",
+                    "setparam",
+                    "super",
+                    "suspend",
+                    "tailrec",
+                    "this",
+                    "throw",
+                    "true",
+                    "try",
+                    "typealias",
+                    "typeof",
+                    "val",
+                    "value",
+                    "var",
+                    "vararg",
+                    "when",
+                    "where",
+                    "while"
                 )
             )
         )
@@ -382,23 +440,24 @@ public class KotlinClientGenerator extends DefaultGenerator implements Generator
                 new AbstractMap.SimpleEntry<>("object", "FrozenMap"),
                 new AbstractMap.SimpleEntry<>("array", "FrozenList"),
                 new AbstractMap.SimpleEntry<>("string", "String"),
-                new AbstractMap.SimpleEntry<>("number", "Number (int, long, float, double)"),
-                new AbstractMap.SimpleEntry<>("integer", "Number (int, long, float with integer values, double with integer values)"),
-                new AbstractMap.SimpleEntry<>("boolean", "boolean"),
-                new AbstractMap.SimpleEntry<>("null", "Void (null)")
+                new AbstractMap.SimpleEntry<>("number", "Number (Int, Long, Float, Double)"),
+                new AbstractMap.SimpleEntry<>("integer", "Number (Int, Long, Float with integer values, Double with integer values)"),
+                new AbstractMap.SimpleEntry<>("boolean", "Boolean"),
+                new AbstractMap.SimpleEntry<>("null", "Nothing? (null)")
             )
         )
         .languageSpecificPrimitives(
             Sets.newHashSet(
                 "String",
-                "boolean",
                 "Boolean",
                 "Double",
-                "Integer",
+                "Int",
                 "Long",
                 "Float",
-                "Object",
-                "byte[]"
+                "Map",
+                "List",
+                "Any",
+                "Nothing"
             )
         )
     .build();
@@ -591,7 +650,6 @@ public class KotlinClientGenerator extends DefaultGenerator implements Generator
         schemaSupportingFiles.add("NotAnyTypeJsonSchema");
         schemaSupportingFiles.add("NullJsonSchema");
         schemaSupportingFiles.add("NumberJsonSchema");
-        schemaSupportingFiles.add("SetMaker");
         schemaSupportingFiles.add("StringJsonSchema");
         schemaSupportingFiles.add("UnsetAddPropsSetter");
         schemaSupportingFiles.add("UuidJsonSchema");
@@ -683,7 +741,6 @@ public class KotlinClientGenerator extends DefaultGenerator implements Generator
         keywordValidatorFiles.add("PatternValidator");
         keywordValidatorFiles.add("PrefixItemsValidator");
         keywordValidatorFiles.add("PropertiesValidator");
-        keywordValidatorFiles.add("PropertyEntry");
         keywordValidatorFiles.add("PropertyNamesValidator");
         keywordValidatorFiles.add("RequiredValidator");
         keywordValidatorFiles.add("StringEnumValidator");
@@ -722,10 +779,8 @@ public class KotlinClientGenerator extends DefaultGenerator implements Generator
 
         // exceptions
         List<String> exceptionClasses = new ArrayList<>();
-        exceptionClasses.add("ApiException");
         exceptionClasses.add("BaseException");
         exceptionClasses.add("InvalidAdditionalPropertyException");
-        exceptionClasses.add("NotImplementedException");
         exceptionClasses.add("UnsetPropertyException");
         exceptionClasses.add("ValidationException");
         for (String exceptionClass: exceptionClasses) {
@@ -749,188 +804,6 @@ public class KotlinClientGenerator extends DefaultGenerator implements Generator
                 "src/main/kotlin/packagename/configurations/SchemaConfiguration.hbs",
                 packagePath() + File.separatorChar + "configurations",
                 "SchemaConfiguration.kt"));
-        supportingFiles.add(new SupportingFile(
-                "src/main/kotlin/packagename/configurations/ApiConfiguration.hbs",
-                packagePath() + File.separatorChar + "configurations",
-                "ApiConfiguration.kt"));
-        // requestbody
-        supportingFiles.add(new SupportingFile(
-                "src/main/kotlin/packagename/requestbody/GenericRequestBody.hbs",
-                packagePath() + File.separatorChar + "requestbody",
-                "GenericRequestBody.kt"));
-        supportingFiles.add(new SupportingFile(
-                "src/main/kotlin/packagename/requestbody/RequestBodySerializer.hbs",
-                packagePath() + File.separatorChar + "requestbody",
-                "RequestBodySerializer.kt"));
-        supportingFiles.add(new SupportingFile(
-                "src/main/kotlin/packagename/requestbody/SerializedRequestBody.hbs",
-                packagePath() + File.separatorChar + "requestbody",
-                "SerializedRequestBody.kt"));
-        supportingFiles.add(new SupportingFile(
-                "src/test/kotlin/packagename/requestbody/RequestBodySerializerTest.hbs",
-                testPackagePath() + File.separatorChar + "requestbody",
-                "RequestBodySerializerTest.kt"));
-        // mediatype
-        supportingFiles.add(new SupportingFile(
-                "src/main/kotlin/packagename/mediatype/MediaType.hbs",
-                packagePath() + File.separatorChar + "mediatype",
-                "MediaType.kt"));
-        supportingFiles.add(new SupportingFile(
-                "src/main/kotlin/packagename/mediatype/Encoding.hbs",
-                packagePath() + File.separatorChar + "mediatype",
-                "Encoding.kt"));
-        // contenttype
-        supportingFiles.add(new SupportingFile(
-                "src/main/kotlin/packagename/contenttype/ContentTypeDetector.hbs",
-                packagePath() + File.separatorChar + "contenttype",
-                "ContentTypeDetector.kt"));
-        supportingFiles.add(new SupportingFile(
-                "src/main/kotlin/packagename/contenttype/ContentTypeSerializer.hbs",
-                packagePath() + File.separatorChar + "contenttype",
-                "ContentTypeSerializer.kt"));
-        supportingFiles.add(new SupportingFile(
-                "src/main/kotlin/packagename/contenttype/ContentTypeDeserializer.hbs",
-                packagePath() + File.separatorChar + "contenttype",
-                "ContentTypeDeserializer.kt"));
-        // header
-        supportingFiles.add(new SupportingFile(
-                "src/main/kotlin/packagename/header/Header.hbs",
-                packagePath() + File.separatorChar + "header",
-                "Header.kt"));
-        supportingFiles.add(new SupportingFile(
-                "src/main/kotlin/packagename/header/HeaderBase.hbs",
-                packagePath() + File.separatorChar + "header",
-                "HeaderBase.kt"));
-        supportingFiles.add(new SupportingFile(
-                "src/main/kotlin/packagename/header/SchemaHeader.hbs",
-                packagePath() + File.separatorChar + "header",
-                "SchemaHeader.kt"));
-        supportingFiles.add(new SupportingFile(
-                "src/main/kotlin/packagename/header/ContentHeader.hbs",
-                packagePath() + File.separatorChar + "header",
-                "ContentHeader.kt"));
-        supportingFiles.add(new SupportingFile(
-                "src/main/kotlin/packagename/header/StyleSerializer.hbs",
-                packagePath() + File.separatorChar + "header",
-                "StyleSerializer.kt"));
-        supportingFiles.add(new SupportingFile(
-                "src/main/kotlin/packagename/header/Rfc6570Serializer.hbs",
-                packagePath() + File.separatorChar + "header",
-                "Rfc6570Serializer.kt"));
-        supportingFiles.add(new SupportingFile(
-                "src/main/kotlin/packagename/header/PrefixSeparatorIterator.hbs",
-                packagePath() + File.separatorChar + "header",
-                "PrefixSeparatorIterator.kt"));
-        supportingFiles.add(new SupportingFile(
-                "src/test/kotlin/packagename/header/SchemaHeaderTest.hbs",
-                testPackagePath() + File.separatorChar + "header",
-                "SchemaHeaderTest.kt"));
-        supportingFiles.add(new SupportingFile(
-                "src/test/kotlin/packagename/header/ContentHeaderTest.hbs",
-                testPackagePath() + File.separatorChar + "header",
-                "ContentHeaderTest.kt"));
-
-        // parameter
-        supportingFiles.add(new SupportingFile(
-                "src/main/kotlin/packagename/parameter/ContentParameter.hbs",
-                packagePath() + File.separatorChar + "parameter",
-                "ContentParameter.kt"));
-        supportingFiles.add(new SupportingFile(
-                "src/main/kotlin/packagename/parameter/CookieSerializer.hbs",
-                packagePath() + File.separatorChar + "parameter",
-                "CookieSerializer.kt"));
-        supportingFiles.add(new SupportingFile(
-                "src/main/kotlin/packagename/parameter/HeadersSerializer.hbs",
-                packagePath() + File.separatorChar + "parameter",
-                "HeadersSerializer.kt"));
-        supportingFiles.add(new SupportingFile(
-                "src/main/kotlin/packagename/parameter/Parameter.hbs",
-                packagePath() + File.separatorChar + "parameter",
-                "Parameter.kt"));
-        supportingFiles.add(new SupportingFile(
-                "src/main/kotlin/packagename/parameter/ParameterBase.hbs",
-                packagePath() + File.separatorChar + "parameter",
-                "ParameterBase.kt"));
-        supportingFiles.add(new SupportingFile(
-                "src/main/kotlin/packagename/parameter/ParameterInType.hbs",
-                packagePath() + File.separatorChar + "parameter",
-                "ParameterInType.kt"));
-        supportingFiles.add(new SupportingFile(
-                "src/main/kotlin/packagename/parameter/ParameterStyle.hbs",
-                packagePath() + File.separatorChar + "parameter",
-                "ParameterStyle.kt"));
-        supportingFiles.add(new SupportingFile(
-                "src/main/kotlin/packagename/parameter/PathSerializer.hbs",
-                packagePath() + File.separatorChar + "parameter",
-                "PathSerializer.kt"));
-        supportingFiles.add(new SupportingFile(
-                "src/main/kotlin/packagename/parameter/QuerySerializer.hbs",
-                packagePath() + File.separatorChar + "parameter",
-                "QuerySerializer.kt"));
-        supportingFiles.add(new SupportingFile(
-                "src/main/kotlin/packagename/parameter/SchemaParameter.hbs",
-                packagePath() + File.separatorChar + "parameter",
-                "SchemaParameter.kt"));
-        supportingFiles.add(new SupportingFile(
-                "src/test/kotlin/packagename/parameter/CookieSerializerTest.hbs",
-                testPackagePath() + File.separatorChar + "parameter",
-                "CookieSerializerTest.kt"));
-        supportingFiles.add(new SupportingFile(
-                "src/test/kotlin/packagename/parameter/HeadersSerializerTest.hbs",
-                testPackagePath() + File.separatorChar + "parameter",
-                "HeadersSerializerTest.kt"));
-        supportingFiles.add(new SupportingFile(
-                "src/test/kotlin/packagename/parameter/PathSerializerTest.hbs",
-                testPackagePath() + File.separatorChar + "parameter",
-                "PathSerializerTest.kt"));
-        supportingFiles.add(new SupportingFile(
-                "src/test/kotlin/packagename/parameter/QuerySerializerTest.hbs",
-                testPackagePath() + File.separatorChar + "parameter",
-                "QuerySerializerTest.kt"));
-        supportingFiles.add(new SupportingFile(
-                "src/test/kotlin/packagename/parameter/SchemaNonQueryParameterTest.hbs",
-                testPackagePath() + File.separatorChar + "parameter",
-                "SchemaNonQueryParameterTest.kt"));
-        supportingFiles.add(new SupportingFile(
-                "src/test/kotlin/packagename/parameter/SchemaQueryParameterTest.hbs",
-                testPackagePath() + File.separatorChar + "parameter",
-                "SchemaQueryParameterTest.kt"));
-        // apiclient
-        supportingFiles.add(new SupportingFile(
-            "src/main/kotlin/packagename/apiclient/ApiClient.hbs",
-            packagePath() + File.separatorChar + "apiclient",
-            "ApiClient.kt"));
-        // restclient
-        supportingFiles.add(new SupportingFile(
-            "src/main/kotlin/packagename/restclient/RestClient.hbs",
-            packagePath() + File.separatorChar + "restclient",
-            "RestClient.kt"));
-
-        // response
-        supportingFiles.add(new SupportingFile(
-                "src/main/kotlin/packagename/response/ApiResponse.hbs",
-                packagePath() + File.separatorChar + "response",
-                "ApiResponse.kt"));
-        supportingFiles.add(new SupportingFile(
-                "src/main/kotlin/packagename/response/DeserializedHttpResponse.hbs",
-                packagePath() + File.separatorChar + "response",
-                "DeserializedHttpResponse.kt"));
-        supportingFiles.add(new SupportingFile(
-                "src/main/kotlin/packagename/response/HeadersDeserializer.hbs",
-                packagePath() + File.separatorChar + "response",
-                "HeadersDeserializer.kt"));
-        supportingFiles.add(new SupportingFile(
-                "src/main/kotlin/packagename/response/ResponseDeserializer.hbs",
-                packagePath() + File.separatorChar + "response",
-                "ResponseDeserializer.kt"));
-        supportingFiles.add(new SupportingFile(
-                "src/main/kotlin/packagename/response/ResponsesDeserializer.hbs",
-                packagePath() + File.separatorChar + "response",
-                "ResponsesDeserializer.kt"));
-        supportingFiles.add(new SupportingFile(
-                "src/test/kotlin/packagename/response/ResponseDeserializerTest.hbs",
-                testPackagePath() + File.separatorChar + "response",
-                "ResponseDeserializerTest.kt"));
 
         // jsonPaths
         // requestbodies
@@ -1146,7 +1019,7 @@ public class KotlinClientGenerator extends DefaultGenerator implements Generator
         }
         String nullChar = "\0";
         if (stringValue.contains(nullChar)) {
-            stringValue = stringValue.replace(nullChar, "\\0");
+            stringValue = stringValue.replace(nullChar, "\\u0000");
         }
         String doubleQuoteChar = "\"";
         if (stringValue.contains(doubleQuoteChar)) {
@@ -1166,7 +1039,11 @@ public class KotlinClientGenerator extends DefaultGenerator implements Generator
         }
         String formFeed = "\f";
         if (stringValue.contains(formFeed)) {
-            stringValue = stringValue.replace(formFeed, "\\f");
+            stringValue = stringValue.replace(formFeed, "\\u000C");
+        }
+        String dollarSign = "$";
+        if (stringValue.contains(dollarSign)) {
+            stringValue = stringValue.replace(dollarSign, "\\$");
         }
         return stringValue;
     }
@@ -1462,22 +1339,17 @@ public class KotlinClientGenerator extends DefaultGenerator implements Generator
         }
         if (schema.types != null) {
             if (schema.types.contains("array")) {
-                imports.add("import java.util.List;");
-                imports.add("import "+ generatorSettings.packageName + ".schemas.validation.FrozenList;");
+                imports.add("import "+ generatorSettings.packageName + ".schemas.validation.FrozenList");
                 if (schema.items != null) {
                     imports.addAll(getDeeperImports(sourceJsonPath, schema.items));
                 }
             }
             if (schema.types.contains("object")) {
-                imports.add("import java.util.Map;");
-                imports.add("import "+ generatorSettings.packageName + ".schemas.validation.FrozenMap;");
+                imports.add("import "+ generatorSettings.packageName + ".schemas.validation.FrozenMap");
                 if (schema.mapValueSchema != null) {
                     imports.addAll(getDeeperImports(sourceJsonPath, schema.mapValueSchema));
                 }
             }
-        } else {
-            imports.add("import java.util.List;");
-            imports.add("import java.util.Map;");
         }
         return imports;
     }
@@ -1574,97 +1446,84 @@ public class KotlinClientGenerator extends DefaultGenerator implements Generator
         }
         if (schema.refInfo != null) {
             // todo remove this when ref is supported with adjacent properties
-            imports.add("import org.checkerframework.checker.nullness.qual.Nullable;");
             return imports;
         }
         if (schema.types != null) {
             if (schema.types.size() == 1) {
                 if (schema.types.contains("boolean")) {
                     if (schema.isSimpleBoolean()) {
-                        imports.add("import "+ generatorSettings.packageName + ".schemas.BooleanJsonSchema;");
-                        imports.add("import org.checkerframework.checker.nullness.qual.Nullable;");
+                        imports.add("import "+ generatorSettings.packageName + ".schemas.BooleanJsonSchema");
                     } else {
                         addCustomSchemaImports(imports, schema);
-                        imports.add("import java.util.Set;");
                         addBooleanSchemaImports(imports, schema);
                     }
                 } else if (schema.types.contains("null")) {
                     if (schema.isSimpleNull()) {
-                        imports.add("import "+generatorSettings.packageName + ".schemas.NullJsonSchema;");
-                        imports.add("import org.checkerframework.checker.nullness.qual.Nullable;");
+                        imports.add("import "+generatorSettings.packageName + ".schemas.NullJsonSchema");
                     } else {
                         addCustomSchemaImports(imports, schema);
-                        imports.add("import java.util.Set;");
                         addNullSchemaImports(imports, schema);
                     }
                 } else if (schema.types.contains("integer")) {
                     if (schema.isSimpleInteger()) {
-                        imports.add("import org.checkerframework.checker.nullness.qual.Nullable;");
                         if (schema.format == null || schema.format.equals("int")) {
-                            imports.add("import "+generatorSettings.packageName + ".schemas.IntJsonSchema;");
+                            imports.add("import "+generatorSettings.packageName + ".schemas.IntJsonSchema");
                         } else if (schema.format.equals("int32")) {
-                            imports.add("import "+generatorSettings.packageName + ".schemas.Int32JsonSchema;");
+                            imports.add("import "+generatorSettings.packageName + ".schemas.Int32JsonSchema");
                         } else if (schema.format.equals("int64")) {
-                            imports.add("import "+generatorSettings.packageName + ".schemas.Int64JsonSchema;");
+                            imports.add("import "+generatorSettings.packageName + ".schemas.Int64JsonSchema");
                         }
                     } else {
                         addCustomSchemaImports(imports, schema);
-                        imports.add("import java.util.Set;");
                         addNumberSchemaImports(imports, schema);
                     }
                 } else if (schema.types.contains("number")) {
                     if (schema.isSimpleNumber()) {
-                        imports.add("import org.checkerframework.checker.nullness.qual.Nullable;");
                         if (schema.format == null) {
-                            imports.add("import "+generatorSettings.packageName + ".schemas.NumberJsonSchema;");
+                            imports.add("import "+generatorSettings.packageName + ".schemas.NumberJsonSchema");
                         } else if (schema.format.equals("int32")) {
-                            imports.add("import "+generatorSettings.packageName + ".schemas.Int32JsonSchema;");
+                            imports.add("import "+generatorSettings.packageName + ".schemas.Int32JsonSchema");
                         } else if (schema.format.equals("int64")) {
-                            imports.add("import "+generatorSettings.packageName + ".schemas.Int64JsonSchema;");
+                            imports.add("import "+generatorSettings.packageName + ".schemas.Int64JsonSchema");
                         } else if (schema.format.equals("float")) {
-                            imports.add("import "+generatorSettings.packageName + ".schemas.FloatJsonSchema;");
+                            imports.add("import "+generatorSettings.packageName + ".schemas.FloatJsonSchema");
                         } else if (schema.format.equals("double")) {
-                            imports.add("import "+generatorSettings.packageName + ".schemas.DoubleJsonSchema;");
+                            imports.add("import "+generatorSettings.packageName + ".schemas.DoubleJsonSchema");
                         }
                     } else {
                         addCustomSchemaImports(imports, schema);
-                        imports.add("import java.util.Set;");
                         addNumberSchemaImports(imports, schema);
                     }
                 } else if (schema.types.contains("string")) {
                     if (schema.isSimpleString()) {
-                        imports.add("import org.checkerframework.checker.nullness.qual.Nullable;");
                         if (schema.format == null) {
-                            imports.add("import "+generatorSettings.packageName + ".schemas.StringJsonSchema;");
+                            imports.add("import "+generatorSettings.packageName + ".schemas.StringJsonSchema");
                         } else if (schema.format.equals("date")) {
-                            imports.add("import "+generatorSettings.packageName + ".schemas.DateJsonSchema;");
+                            imports.add("import "+generatorSettings.packageName + ".schemas.DateJsonSchema");
                         } else if (schema.format.equals("date-time")) {
-                            imports.add("import "+generatorSettings.packageName + ".schemas.DateTimeJsonSchema;");
+                            imports.add("import "+generatorSettings.packageName + ".schemas.DateTimeJsonSchema");
                         } else if (schema.format.equals("number")) {
-                            imports.add("import "+generatorSettings.packageName + ".schemas.DecimalJsonSchema;");
+                            imports.add("import "+generatorSettings.packageName + ".schemas.DecimalJsonSchema");
                         } else if (schema.format.equals("uuid")) {
-                            imports.add("import "+generatorSettings.packageName + ".schemas.UuidJsonSchema;");
+                            imports.add("import "+generatorSettings.packageName + ".schemas.UuidJsonSchema");
                         } else if (schema.format.equals("byte")) {
                             // todo implement this
-                            imports.add("import "+generatorSettings.packageName + ".schemas.StringJsonSchema;");
+                            imports.add("import "+generatorSettings.packageName + ".schemas.StringJsonSchema");
                         } else if (schema.format.equals("binary")) {
                             // todo implement this
-                            imports.add("import "+generatorSettings.packageName + ".schemas.StringJsonSchema;");
+                            imports.add("import "+generatorSettings.packageName + ".schemas.StringJsonSchema");
                         }
                     } else {
                         addCustomSchemaImports(imports, schema);
-                        imports.add("import java.util.Set;");
                         addStringSchemaImports(imports, schema);
                     }
                 } else if (schema.types.contains("object")) {
                     if (schema.isSimpleObject()) {
-                        imports.add("import org.checkerframework.checker.nullness.qual.Nullable;");
-                        imports.add("import "+generatorSettings.packageName + ".schemas.MapJsonSchema;");
+                        imports.add("import "+generatorSettings.packageName + ".schemas.MapJsonSchema");
                         // add this in case the 1 higher schema is an array of FrozenMap
-                        imports.add("import "+generatorSettings.packageName + ".schemas.validation.FrozenMap;");
+                        imports.add("import "+generatorSettings.packageName + ".schemas.validation.FrozenMap");
                     } else {
                         addCustomSchemaImports(imports, schema);
-                        imports.add("import java.util.Set;");
                         addMapSchemaImports(imports, schema);
                         if (schema.mapValueSchema != null) {
                             imports.addAll(getDeeperImports(sourceJsonPath, schema.mapValueSchema));
@@ -1672,13 +1531,11 @@ public class KotlinClientGenerator extends DefaultGenerator implements Generator
                     }
                 } else if (schema.types.contains("array")) {
                     if (schema.isSimpleArray()) {
-                        imports.add("import org.checkerframework.checker.nullness.qual.Nullable;");
-                        imports.add("import "+generatorSettings.packageName + ".schemas.ListJsonSchema;");
+                        imports.add("import "+generatorSettings.packageName + ".schemas.ListJsonSchema");
                         // add this in case the 1 higher schema is a map of FrozenList
-                        imports.add("import "+generatorSettings.packageName + ".schemas.validation.FrozenList;");
+                        imports.add("import "+generatorSettings.packageName + ".schemas.validation.FrozenList");
                     } else {
                         addCustomSchemaImports(imports, schema);
-                        imports.add("import java.util.Set;");
                         addListSchemaImports(imports, schema);
                         if (schema.items != null) {
                             imports.addAll(getDeeperImports(sourceJsonPath, schema.items));
@@ -1687,7 +1544,6 @@ public class KotlinClientGenerator extends DefaultGenerator implements Generator
                 }
             } else if (schema.types.size() > 1) {
                 addCustomSchemaImports(imports, schema);
-                imports.add("import java.util.Set;");
                 if (schema.types.contains("string")) {
                     addStringSchemaImports(imports, schema);
                 }
@@ -1716,37 +1572,27 @@ public class KotlinClientGenerator extends DefaultGenerator implements Generator
         } else {
             // no types
             if (schema.isBooleanSchemaTrue) {
-                imports.add("import org.checkerframework.checker.nullness.qual.Nullable;");
-                imports.add("import "+generatorSettings.packageName + ".schemas.AnyTypeJsonSchema;");
+                imports.add("import "+generatorSettings.packageName + ".schemas.AnyTypeJsonSchema");
             } else if (schema.isBooleanSchemaFalse) {
-                imports.add("import org.checkerframework.checker.nullness.qual.Nullable;");
-                imports.add("import "+generatorSettings.packageName + ".schemas.NotAnyTypeJsonSchema;");
+                imports.add("import "+generatorSettings.packageName + ".schemas.NotAnyTypeJsonSchema");
             } else if (schema.isSimpleAnyType()) {
-                imports.add("import org.checkerframework.checker.nullness.qual.Nullable;");
-                imports.add("import "+generatorSettings.packageName + ".schemas.AnyTypeJsonSchema;");
+                imports.add("import "+generatorSettings.packageName + ".schemas.AnyTypeJsonSchema");
                 // in case higher schema is ListBuilder add List + Map
             } else {
                 addCustomSchemaImports(imports, schema);
-                imports.add("import java.time.LocalDate;");
-                imports.add("import java.time.ZonedDateTime;");
-                imports.add("import java.util.UUID;");
-                imports.add("import "+generatorSettings.packageName + ".schemas.validation.FrozenList;");
-                imports.add("import java.util.List;");
-                imports.add("import "+generatorSettings.packageName + ".schemas.validation.FrozenMap;");
-                imports.add("import java.util.Map;");
-                imports.add("import "+generatorSettings.packageName + ".schemas.validation.NullSchemaValidator;");
-                imports.add("import "+generatorSettings.packageName + ".schemas.validation.BooleanSchemaValidator;");
-                imports.add("import "+generatorSettings.packageName + ".schemas.validation.NumberSchemaValidator;");
-                imports.add("import "+generatorSettings.packageName + ".schemas.validation.StringSchemaValidator;");
-                imports.add("import "+generatorSettings.packageName + ".schemas.validation.ListSchemaValidator;");
-                imports.add("import "+generatorSettings.packageName + ".schemas.validation.MapSchemaValidator;");
-                imports.add("import java.util.LinkedHashMap;");
-                imports.add("import java.util.ArrayList;"); // for validate
+                imports.add("import java.time.LocalDate");
+                imports.add("import java.time.ZonedDateTime");
+                imports.add("import java.util.UUID");
+                imports.add("import "+generatorSettings.packageName + ".schemas.validation.FrozenList");
+                imports.add("import "+generatorSettings.packageName + ".schemas.validation.FrozenMap");
+                imports.add("import "+generatorSettings.packageName + ".schemas.validation.NullSchemaValidator");
+                imports.add("import "+generatorSettings.packageName + ".schemas.validation.BooleanSchemaValidator");
+                imports.add("import "+generatorSettings.packageName + ".schemas.validation.NumberSchemaValidator");
+                imports.add("import "+generatorSettings.packageName + ".schemas.validation.StringSchemaValidator");
+                imports.add("import "+generatorSettings.packageName + ".schemas.validation.ListSchemaValidator");
+                imports.add("import "+generatorSettings.packageName + ".schemas.validation.MapSchemaValidator");
                 addPropertiesImports(schema, imports);
                 addRequiredValidator(schema, imports);
-                addAllOfValidator(schema, imports);
-                addAnyOfValidator(schema, imports);
-                addOneOfValidator(schema, imports);
                 addEnumValidator(schema, imports);
                 addConstImports(schema, imports);
                 addPatternValidator(schema, imports);
@@ -1754,7 +1600,6 @@ public class KotlinClientGenerator extends DefaultGenerator implements Generator
                 addAdditionalPropertiesImports(schema, imports);
                 addDefaultValueImport(schema, imports);
                 addDependentRequiredImports(schema, imports);
-                addDependentSchemasImports(schema, imports);
                 addPatternPropertiesImports(schema, imports);
                 if (schema.mapValueSchema != null) {
                     imports.addAll(getDeeperImports(sourceJsonPath, schema.mapValueSchema));
@@ -1763,8 +1608,8 @@ public class KotlinClientGenerator extends DefaultGenerator implements Generator
                     imports.addAll(getDeeperImports(sourceJsonPath, schema.items));
                 }
                 if (schema.additionalProperties == null || !schema.additionalProperties.isBooleanSchemaFalse) {
-                    imports.add("import "+generatorSettings.packageName + ".exceptions.UnsetPropertyException;");
-                    imports.add("import "+generatorSettings.packageName + ".exceptions.InvalidAdditionalPropertyException;");
+                    imports.add("import "+generatorSettings.packageName + ".exceptions.UnsetPropertyException");
+                    imports.add("import "+generatorSettings.packageName + ".exceptions.InvalidAdditionalPropertyException");
                 }
             }
         }
@@ -1773,51 +1618,50 @@ public class KotlinClientGenerator extends DefaultGenerator implements Generator
 
     private void addPatternValidator(CodegenSchema schema, Set<String> imports) {
         if (schema.patternInfo != null) {
-            imports.add("import java.util.regex.Pattern;");
+            imports.add("import java.util.regex.Pattern");
         }
     }
 
     private void addDefaultValueImport(CodegenSchema schema, Set<String> imports) {
         if (schema.defaultValue != null) {
-            imports.add("import "+generatorSettings.packageName + ".schemas.validation.DefaultValueMethod;");
+            imports.add("import "+generatorSettings.packageName + ".schemas.validation.DefaultValueMethod");
         }
     }
 
 
     private void addEnumValidator(CodegenSchema schema, Set<String> imports) {
         if (schema.enumInfo != null) {
-            imports.add("import "+generatorSettings.packageName + ".schemas.SetMaker;");
             if (schema.enumInfo.typeToValues.containsKey("null")) {
-                imports.add("import "+generatorSettings.packageName + ".schemas.validation.NullEnumValidator;");
-                imports.add("import "+generatorSettings.packageName + ".schemas.validation.NullValueMethod;");
+                imports.add("import "+generatorSettings.packageName + ".schemas.validation.NullEnumValidator");
+                imports.add("import "+generatorSettings.packageName + ".schemas.validation.NullValueMethod");
             }
             if (schema.enumInfo.typeToValues.containsKey("boolean")) {
-                imports.add("import "+generatorSettings.packageName + ".schemas.validation.BooleanEnumValidator;");
-                imports.add("import "+generatorSettings.packageName + ".schemas.validation.BooleanValueMethod;");
+                imports.add("import "+generatorSettings.packageName + ".schemas.validation.BooleanEnumValidator");
+                imports.add("import "+generatorSettings.packageName + ".schemas.validation.BooleanValueMethod");
             }
             if (schema.enumInfo.typeToValues.containsKey("string")) {
-                imports.add("import "+generatorSettings.packageName + ".schemas.validation.StringEnumValidator;");
-                imports.add("import "+generatorSettings.packageName + ".schemas.validation.StringValueMethod;");
+                imports.add("import "+generatorSettings.packageName + ".schemas.validation.StringEnumValidator");
+                imports.add("import "+generatorSettings.packageName + ".schemas.validation.StringValueMethod");
             }
             if (schema.enumInfo.typeToValues.containsKey("Integer")) {
-                imports.add("import java.math.BigDecimal;");
-                imports.add("import "+generatorSettings.packageName + ".schemas.validation.IntegerEnumValidator;");
-                imports.add("import "+generatorSettings.packageName + ".schemas.validation.IntegerValueMethod;");
+                imports.add("import java.math.BigDecimal");
+                imports.add("import "+generatorSettings.packageName + ".schemas.validation.IntegerEnumValidator");
+                imports.add("import "+generatorSettings.packageName + ".schemas.validation.IntegerValueMethod");
             }
             if (schema.enumInfo.typeToValues.containsKey("Long")) {
-                imports.add("import java.math.BigDecimal;");
-                imports.add("import "+generatorSettings.packageName + ".schemas.validation.LongEnumValidator;");
-                imports.add("import "+generatorSettings.packageName + ".schemas.validation.LongValueMethod;");
+                imports.add("import java.math.BigDecimal");
+                imports.add("import "+generatorSettings.packageName + ".schemas.validation.LongEnumValidator");
+                imports.add("import "+generatorSettings.packageName + ".schemas.validation.LongValueMethod");
             }
             if (schema.enumInfo.typeToValues.containsKey("Float")) {
-                imports.add("import java.math.BigDecimal;");
-                imports.add("import "+generatorSettings.packageName + ".schemas.validation.FloatEnumValidator;");
-                imports.add("import "+generatorSettings.packageName + ".schemas.validation.FloatValueMethod;");
+                imports.add("import java.math.BigDecimal");
+                imports.add("import "+generatorSettings.packageName + ".schemas.validation.FloatEnumValidator");
+                imports.add("import "+generatorSettings.packageName + ".schemas.validation.FloatValueMethod");
             }
             if (schema.enumInfo.typeToValues.containsKey("Double")) {
-                imports.add("import java.math.BigDecimal;");
-                imports.add("import "+generatorSettings.packageName + ".schemas.validation.DoubleEnumValidator;");
-                imports.add("import "+generatorSettings.packageName + ".schemas.validation.DoubleValueMethod;");
+                imports.add("import java.math.BigDecimal");
+                imports.add("import "+generatorSettings.packageName + ".schemas.validation.DoubleEnumValidator");
+                imports.add("import "+generatorSettings.packageName + ".schemas.validation.DoubleValueMethod");
             }
         }
     }
@@ -1825,187 +1669,128 @@ public class KotlinClientGenerator extends DefaultGenerator implements Generator
     private void addConstImports(CodegenSchema schema, Set<String> imports) {
         if (schema.constInfo != null) {
             if (schema.constInfo.typeToValues.containsKey("null")) {
-                imports.add("import "+generatorSettings.packageName + ".schemas.validation.NullEnumValidator;");
-                imports.add("import "+generatorSettings.packageName + ".schemas.validation.NullValueMethod;");
+                imports.add("import "+generatorSettings.packageName + ".schemas.validation.NullEnumValidator");
+                imports.add("import "+generatorSettings.packageName + ".schemas.validation.NullValueMethod");
             }
             if (schema.constInfo.typeToValues.containsKey("boolean")) {
-                imports.add("import "+generatorSettings.packageName + ".schemas.validation.BooleanEnumValidator;");
-                imports.add("import "+generatorSettings.packageName + ".schemas.validation.BooleanValueMethod;");
+                imports.add("import "+generatorSettings.packageName + ".schemas.validation.BooleanEnumValidator");
+                imports.add("import "+generatorSettings.packageName + ".schemas.validation.BooleanValueMethod");
             }
             if (schema.constInfo.typeToValues.containsKey("string")) {
-                imports.add("import "+generatorSettings.packageName + ".schemas.validation.StringEnumValidator;");
-                imports.add("import "+generatorSettings.packageName + ".schemas.validation.StringValueMethod;");
+                imports.add("import "+generatorSettings.packageName + ".schemas.validation.StringEnumValidator");
+                imports.add("import "+generatorSettings.packageName + ".schemas.validation.StringValueMethod");
             }
             if (schema.constInfo.typeToValues.containsKey("Integer")) {
-                imports.add("import java.math.BigDecimal;");
-                imports.add("import "+generatorSettings.packageName + ".schemas.validation.IntegerEnumValidator;");
-                imports.add("import "+generatorSettings.packageName + ".schemas.validation.IntegerValueMethod;");
+                imports.add("import java.math.BigDecimal");
+                imports.add("import "+generatorSettings.packageName + ".schemas.validation.IntegerEnumValidator");
+                imports.add("import "+generatorSettings.packageName + ".schemas.validation.IntegerValueMethod");
             }
             if (schema.constInfo.typeToValues.containsKey("Long")) {
-                imports.add("import java.math.BigDecimal;");
-                imports.add("import "+generatorSettings.packageName + ".schemas.validation.LongEnumValidator;");
-                imports.add("import "+generatorSettings.packageName + ".schemas.validation.LongValueMethod;");
+                imports.add("import java.math.BigDecimal");
+                imports.add("import "+generatorSettings.packageName + ".schemas.validation.LongEnumValidator");
+                imports.add("import "+generatorSettings.packageName + ".schemas.validation.LongValueMethod");
             }
             if (schema.constInfo.typeToValues.containsKey("Float")) {
-                imports.add("import java.math.BigDecimal;");
-                imports.add("import "+generatorSettings.packageName + ".schemas.validation.FloatEnumValidator;");
-                imports.add("import "+generatorSettings.packageName + ".schemas.validation.FloatValueMethod;");
+                imports.add("import java.math.BigDecimal");
+                imports.add("import "+generatorSettings.packageName + ".schemas.validation.FloatEnumValidator");
+                imports.add("import "+generatorSettings.packageName + ".schemas.validation.FloatValueMethod");
             }
             if (schema.constInfo.typeToValues.containsKey("Double")) {
-                imports.add("import java.math.BigDecimal;");
-                imports.add("import "+generatorSettings.packageName + ".schemas.validation.DoubleEnumValidator;");
-                imports.add("import "+generatorSettings.packageName + ".schemas.validation.DoubleValueMethod;");
+                imports.add("import java.math.BigDecimal");
+                imports.add("import "+generatorSettings.packageName + ".schemas.validation.DoubleEnumValidator");
+                imports.add("import "+generatorSettings.packageName + ".schemas.validation.DoubleValueMethod");
             }
         }
     }
 
     private void addPropertiesImports(CodegenSchema schema, Set<String> imports) {
         if (schema.properties != null) {
-            imports.add("import " + generatorSettings.packageName + ".schemas.validation.PropertyEntry;");
-            imports.add("import java.util.Map;");
-            imports.add("import java.util.Set;");
-            imports.add("import " + generatorSettings.packageName + ".exceptions.UnsetPropertyException;");
-            imports.add("import " + generatorSettings.packageName + ".schemas.GenericBuilder;");
+            imports.add("import " + generatorSettings.packageName + ".exceptions.UnsetPropertyException");
+            imports.add("import " + generatorSettings.packageName + ".schemas.GenericBuilder");
         }
     }
 
     private void addPatternPropertiesImports(CodegenSchema schema, Set<String> imports) {
         if (schema.patternProperties != null) {
-            imports.add("import java.util.AbstractMap;");
-            imports.add("import java.util.Map;");
-            imports.add("import java.util.regex.Pattern;");
-        }
-    }
-
-    private void addDependentSchemasImports(CodegenSchema schema, Set<String> imports) {
-        if (schema.dependentSchemas != null) {
-            imports.add("import " + generatorSettings.packageName + ".schemas.validation.PropertyEntry;");
-            imports.add("import java.util.Map;");
+            imports.add("import java.util.AbstractMap");
+            imports.add("import java.util.regex.Pattern");
         }
     }
 
     private void addDependentRequiredImports(CodegenSchema schema, Set<String> imports) {
         if (schema.dependentRequired != null) {
-            imports.add("import "+generatorSettings.packageName + ".schemas.validation.MapUtils;");
-            imports.add("import java.util.AbstractMap;");
-            imports.add("import "+generatorSettings.packageName + ".schemas.SetMaker;");
-        }
-    }
-
-    private void addAllOfValidator(CodegenSchema schema, Set<String> imports) {
-        if (schema.allOf != null) {
-            imports.add("import java.util.List;");
-        }
-    }
-
-    private void addAnyOfValidator(CodegenSchema schema, Set<String> imports) {
-        if (schema.anyOf != null) {
-            imports.add("import java.util.List;");
-        }
-    }
-
-    private void addOneOfValidator(CodegenSchema schema, Set<String> imports) {
-        if (schema.oneOf != null) {
-            imports.add("import java.util.List;");
+            imports.add("import "+generatorSettings.packageName + ".schemas.validation.MapUtils");
+            imports.add("import java.util.AbstractMap");
         }
     }
 
     private void addAdditionalPropertiesImports(CodegenSchema schema, Set<String> imports) {
         if (schema.additionalProperties == null || !schema.additionalProperties.isBooleanSchemaFalse) {
-            imports.add("import "+generatorSettings.packageName + ".exceptions.UnsetPropertyException;");
-            imports.add("import "+generatorSettings.packageName + ".exceptions.InvalidAdditionalPropertyException;");
+            imports.add("import "+generatorSettings.packageName + ".exceptions.UnsetPropertyException");
+            imports.add("import "+generatorSettings.packageName + ".exceptions.InvalidAdditionalPropertyException");
         }
         if (schema.additionalProperties != null) {
-            imports.add("import "+generatorSettings.packageName + ".schemas.GenericBuilder;");
-            imports.add("import "+generatorSettings.packageName + ".schemas.validation.MapUtils;");
+            imports.add("import "+generatorSettings.packageName + ".schemas.GenericBuilder");
+            imports.add("import "+generatorSettings.packageName + ".schemas.validation.MapUtils");
         } else {
-            imports.add("import "+generatorSettings.packageName + ".schemas.UnsetAddPropsSetter;");
+            imports.add("import "+generatorSettings.packageName + ".schemas.UnsetAddPropsSetter");
         }
     }
 
 
     private void addRequiredValidator(CodegenSchema schema, Set<String> imports) {
         if (schema.requiredProperties != null) {
-            imports.add("import java.util.Set;");
-            imports.add("import "+generatorSettings.packageName + ".schemas.GenericBuilder;");
+            imports.add("import "+generatorSettings.packageName + ".schemas.GenericBuilder");
         }
     }
 
     private void addMultipleOfValidator(CodegenSchema schema, Set<String> imports) {
         if (schema.multipleOf != null) {
-            imports.add("import java.math.BigDecimal;");
+            imports.add("import java.math.BigDecimal");
         }
     }
 
     private void addCustomSchemaImports(Set<String> imports, CodegenSchema schema) {
-        imports.add("import " + generatorSettings.packageName + ".schemas.validation.JsonSchema;");
-        imports.add("import " + generatorSettings.packageName + ".schemas.validation.JsonSchemaInfo;");
-        imports.add("import "+generatorSettings.packageName + ".configurations.SchemaConfiguration;");
-        imports.add("import "+generatorSettings.packageName + ".exceptions.ValidationException;");
-        imports.add("import java.util.Set;"); // for validate
-        imports.add("import java.util.HashSet;"); // for validate
-        imports.add("import java.util.Objects;"); // for validate
-        imports.add("import java.util.LinkedHashSet;"); // for validate
-        imports.add("import java.util.List;"); // for castToAllowedTypes
-        imports.add("import "+generatorSettings.packageName + ".schemas.validation.PathToSchemasMap;"); // for getNewInstance
-        imports.add("import "+generatorSettings.packageName + ".schemas.validation.ValidationMetadata;"); // for getNewInstance
-        imports.add("import "+generatorSettings.packageName + ".configurations.JsonSchemaKeywordFlags;"); // for getNewInstance
-        imports.add("import org.checkerframework.checker.nullness.qual.Nullable;");
+        imports.add("import " + generatorSettings.packageName + ".schemas.validation.JsonSchema");
+        imports.add("import " + generatorSettings.packageName + ".schemas.validation.JsonSchemaInfo");
+        imports.add("import "+generatorSettings.packageName + ".configurations.SchemaConfiguration");
+        imports.add("import "+generatorSettings.packageName + ".exceptions.ValidationException");
+        imports.add("import "+generatorSettings.packageName + ".schemas.validation.PathToSchemasMap"); // for getNewInstance
+        imports.add("import "+generatorSettings.packageName + ".schemas.validation.ValidationMetadata"); // for getNewInstance
+        imports.add("import "+generatorSettings.packageName + ".configurations.JsonSchemaKeywordFlags"); // for getNewInstance
     }
 
     private void addBooleanSchemaImports(Set<String> imports, CodegenSchema schema) {
-        imports.add("import " + generatorSettings.packageName + ".schemas.validation.BooleanSchemaValidator;");
-        addAllOfValidator(schema, imports);
-        addAnyOfValidator(schema, imports);
-        addOneOfValidator(schema, imports);
+        imports.add("import " + generatorSettings.packageName + ".schemas.validation.BooleanSchemaValidator");
         addEnumValidator(schema, imports);
         addDefaultValueImport(schema, imports);
         addConstImports(schema, imports);
     }
 
     private void addNullSchemaImports(Set<String> imports, CodegenSchema schema) {
-        imports.add("import " + generatorSettings.packageName + ".schemas.validation.NullSchemaValidator;");
-        addAllOfValidator(schema, imports);
-        addAnyOfValidator(schema, imports);
-        addOneOfValidator(schema, imports);
+        imports.add("import " + generatorSettings.packageName + ".schemas.validation.NullSchemaValidator");
         addEnumValidator(schema, imports);
         addDefaultValueImport(schema, imports);
         addConstImports(schema, imports);
     }
 
     private void addMapSchemaImports(Set<String> imports, CodegenSchema schema) {
-        imports.add("import " + generatorSettings.packageName + ".schemas.validation.MapSchemaValidator;");
-        imports.add("import "+generatorSettings.packageName + ".schemas.validation.FrozenMap;");
-        imports.add("import java.util.Map;");
-        imports.add("import java.util.ArrayList;"); // for castToAllowedTypes
-        imports.add("import java.util.LinkedHashMap;");
+        imports.add("import " + generatorSettings.packageName + ".schemas.validation.MapSchemaValidator");
+        imports.add("import "+generatorSettings.packageName + ".schemas.validation.FrozenMap");
         addRequiredValidator(schema, imports);
         addPropertiesImports(schema, imports);
-        addAllOfValidator(schema, imports);
-        addAnyOfValidator(schema, imports);
-        addOneOfValidator(schema, imports);
         addAdditionalPropertiesImports(schema, imports);
         addDependentRequiredImports(schema, imports);
-        addDependentSchemasImports(schema, imports);
         addPatternPropertiesImports(schema, imports);
     }
 
     private void addListSchemaImports(Set<String> imports, CodegenSchema schema) {
-        imports.add("import " + generatorSettings.packageName + ".schemas.validation.ListSchemaValidator;");
-        imports.add("import "+generatorSettings.packageName + ".schemas.validation.FrozenList;");
-        imports.add("import java.util.List;");
-        imports.add("import java.util.ArrayList;"); // for castToAllowedTypes
-        imports.add("import java.util.LinkedHashMap;");
-        addAllOfValidator(schema, imports);
-        addAnyOfValidator(schema, imports);
-        addOneOfValidator(schema, imports);
+        imports.add("import " + generatorSettings.packageName + ".schemas.validation.ListSchemaValidator");
+        imports.add("import "+generatorSettings.packageName + ".schemas.validation.FrozenList");
     }
 
     private void addNumberSchemaImports(Set<String> imports, CodegenSchema schema) {
-        imports.add("import " + generatorSettings.packageName + ".schemas.validation.NumberSchemaValidator;");
-        addAllOfValidator(schema, imports);
-        addAnyOfValidator(schema, imports);
-        addOneOfValidator(schema, imports);
+        imports.add("import " + generatorSettings.packageName + ".schemas.validation.NumberSchemaValidator");
         addEnumValidator(schema, imports);
         addMultipleOfValidator(schema, imports);
         addDefaultValueImport(schema, imports);
@@ -2016,20 +1801,17 @@ public class KotlinClientGenerator extends DefaultGenerator implements Generator
         if (schema.format != null) {
             switch (schema.format) {
                 case "date":
-                    imports.add("import java.time.LocalDate;");
+                    imports.add("import java.time.LocalDate");
                     break;
                 case "date-time":
-                    imports.add("import java.time.ZonedDateTime;");
+                    imports.add("import java.time.ZonedDateTime");
                     break;
                 case "uuid":
-                    imports.add("import java.util.UUID;");
+                    imports.add("import java.util.UUID");
                     break;
             }
         }
-        imports.add("import " + generatorSettings.packageName + ".schemas.validation.StringSchemaValidator;");
-        addAllOfValidator(schema, imports);
-        addAnyOfValidator(schema, imports);
-        addOneOfValidator(schema, imports);
+        imports.add("import " + generatorSettings.packageName + ".schemas.validation.StringSchemaValidator");
         addEnumValidator(schema, imports);
         addPatternValidator(schema, imports);
         addDefaultValueImport(schema, imports);
@@ -2042,20 +1824,20 @@ public class KotlinClientGenerator extends DefaultGenerator implements Generator
         String prefix = "import " + generatorSettings.packageName + ".components.";
         if (refInfo.ref instanceof CodegenSchema) {
             if (refInfo.refModuleAlias == null) {
-                return "import " + refInfo.refModuleLocation + "." + refInfo.refModule + ";";
+                return "import " + refInfo.refModuleLocation + "." + refInfo.refModule;
             } else {
-                return "import " + refInfo.refModuleLocation + " import " + refInfo.refModule + " as " + refInfo.refModuleAlias + ";";
+                return "import " + refInfo.refModuleLocation + " import " + refInfo.refModule + " as " + refInfo.refModuleAlias;
             }
         } else if (refInfo.ref instanceof CodegenRequestBody) {
-            return prefix + "requestbodies." + refInfo.refModule + ";";
+            return prefix + "requestbodies." + refInfo.refModule;
         } else if (refInfo.ref instanceof CodegenHeader) {
-            return prefix + "headers." + refInfo.refModule + ";";
+            return prefix + "headers." + refInfo.refModule;
         } else if (refInfo.ref instanceof CodegenResponse) {
-            return prefix + "responses." + refInfo.refModule + ";";
+            return prefix + "responses." + refInfo.refModule;
         } else if (refInfo.ref instanceof CodegenParameter) {
-            return prefix + "parameters." + refInfo.refModule + ";";
+            return prefix + "parameters." + refInfo.refModule;
         } else if (refInfo.ref instanceof CodegenSecurityScheme) {
-            return prefix + "securityschemes." + refInfo.refModule + ";";
+            return prefix + "securityschemes." + refInfo.refModule;
         }
         return null;
     }
@@ -2158,10 +1940,14 @@ public class KotlinClientGenerator extends DefaultGenerator implements Generator
         matcher = nonWordPattern.matcher(usedValue);
         while (matcher.find()) {
             if (matcher.start() == 0) {
-                // skip adding first because it was already added
-                continue;
+                // skip adding first because it was already added for length 1 only
+                if (matcher.group().length() == 1) {
+                    continue;
+                }
+                matchStartToGroup.add(new AbstractMap.SimpleEntry<>(1, matcher.group().substring(1)));
+            } else {
+                matchStartToGroup.add(new AbstractMap.SimpleEntry<>(matcher.start(), matcher.group()));
             }
-            matchStartToGroup.add(new AbstractMap.SimpleEntry<>(matcher.start(), matcher.group()));
         }
         char underscore = '_';
         while (!matchStartToGroup.isEmpty()) {
@@ -3063,148 +2849,406 @@ public class KotlinClientGenerator extends DefaultGenerator implements Generator
         super.setOpenAPI(openAPI);
         Components components = openAPI.getComponents();
         if (components != null && components.getSecuritySchemes() != null) {
-            supportingFiles.add(new SupportingFile(
+            addSupportingFiles(CodegenConstants.JSON_PATH_LOCATION_TYPE.SECURITY_SCHEMES);
+        }
+        List<Server> servers = openAPI.getServers();
+        if (servers != null && !servers.isEmpty()) {
+            addSupportingFiles(CodegenConstants.JSON_PATH_LOCATION_TYPE.SERVERS);
+        }
+        boolean pathsExist = openAPI.getPaths() != null && !openAPI.getPaths().isEmpty();
+        if (pathsExist) {
+            addSupportingFiles(CodegenConstants.JSON_PATH_LOCATION_TYPE.PATHS);
+        }
+        boolean componentResponsesExist = components != null && components.getResponses() != null && !components.getResponses().isEmpty();
+        if (componentResponsesExist || pathsExist) {
+            addSupportingFiles(CodegenConstants.JSON_PATH_LOCATION_TYPE.RESPONSES);
+        }
+        boolean componentRequestBodiesExist = components != null && components.getRequestBodies() != null && !components.getRequestBodies().isEmpty();
+        if (componentRequestBodiesExist || pathsExist) {
+            addSupportingFiles(CodegenConstants.JSON_PATH_LOCATION_TYPE.REQUEST_BODIES);
+        }
+        boolean componentParametersExist = components != null && components.getParameters() != null && !components.getParameters().isEmpty();
+        if (componentParametersExist || pathsExist) {
+            addSupportingFiles(CodegenConstants.JSON_PATH_LOCATION_TYPE.PARAMETERS);
+        }
+        boolean componentHeadersExist = components != null && components.getHeaders() != null && !components.getHeaders().isEmpty();
+        if (componentHeadersExist || pathsExist) {
+            addSupportingFiles(CodegenConstants.JSON_PATH_LOCATION_TYPE.HEADERS);
+        }
+        if (pathsExist || componentHeadersExist || componentParametersExist || componentRequestBodiesExist || componentResponsesExist) {
+            addSupportingFiles(CodegenConstants.JSON_PATH_LOCATION_TYPE.MEDIA_TYPE);
+            addSupportingFiles(CodegenConstants.JSON_PATH_LOCATION_TYPE.CONTENT_TYPE);
+        }
+    }
+
+    private void addSupportingFiles(CodegenConstants.JSON_PATH_LOCATION_TYPE locationType) {
+        switch (locationType) {
+            case SECURITY_SCHEMES:
+                supportingFiles.add(new SupportingFile(
+                    "src/main/kotlin/packagename/configurations/ApiConfiguration.hbs",
+                    packagePath() + File.separatorChar + "configurations",
+                    "ApiConfiguration.kt"));
+                supportingFiles.add(new SupportingFile(
                     "src/main/kotlin/packagename/securityrequirementobjects/SecurityRequirementObject.hbs",
                     packagePath() + File.separatorChar + "securityrequirementobjects",
                     "SecurityRequirementObject.kt"));
-            supportingFiles.add(new SupportingFile(
-                "src/main/kotlin/packagename/securityrequirementobjects/AuthApplier.hbs",
-                packagePath() + File.separatorChar + "securityrequirementobjects",
-                "AuthApplier.kt"));
-            supportingFiles.add(new SupportingFile(
+                supportingFiles.add(new SupportingFile(
+                    "src/main/kotlin/packagename/securityrequirementobjects/AuthApplier.hbs",
+                    packagePath() + File.separatorChar + "securityrequirementobjects",
+                    "AuthApplier.kt"));
+                supportingFiles.add(new SupportingFile(
                     "src/main/kotlin/packagename/securityrequirementobjects/EmptySecurityRequirementObject.hbs",
                     packagePath() + File.separatorChar + "securityrequirementobjects",
                     "EmptySecurityRequirementObject.kt"));
-            supportingFiles.add(new SupportingFile(
+                supportingFiles.add(new SupportingFile(
                     "src/main/kotlin/packagename/securityrequirementobjects/SecurityRequirementObjectProvider.hbs",
                     packagePath() + File.separatorChar + "securityrequirementobjects",
                     "SecurityRequirementObjectProvider.kt"));
-            supportingFiles.add(new SupportingFile(
+                supportingFiles.add(new SupportingFile(
                     "src/main/kotlin/packagename/securityschemes/SecurityScheme.hbs",
                     packagePath() + File.separatorChar + "securityschemes",
                     "SecurityScheme.kt"));
-            supportingFiles.add(new SupportingFile(
+                supportingFiles.add(new SupportingFile(
                     "src/main/kotlin/packagename/securityschemes/ApiKeyCookieSecurityScheme.hbs",
                     packagePath() + File.separatorChar + "securityschemes",
                     "ApiKeyCookieSecurityScheme.kt"));
-            supportingFiles.add(new SupportingFile(
+                supportingFiles.add(new SupportingFile(
                     "src/main/kotlin/packagename/securityschemes/ApiKeyHeaderSecurityScheme.hbs",
                     packagePath() + File.separatorChar + "securityschemes",
                     "ApiKeyHeaderSecurityScheme.kt"));
-            supportingFiles.add(new SupportingFile(
+                supportingFiles.add(new SupportingFile(
                     "src/main/kotlin/packagename/securityschemes/ApiKeyQuerySecurityScheme.hbs",
                     packagePath() + File.separatorChar + "securityschemes",
                     "ApiKeyQuerySecurityScheme.kt"));
-            supportingFiles.add(new SupportingFile(
+                supportingFiles.add(new SupportingFile(
                     "src/main/kotlin/packagename/securityschemes/HttpBasicSecurityScheme.hbs",
                     packagePath() + File.separatorChar + "securityschemes",
                     "HttpBasicSecurityScheme.kt"));
-            supportingFiles.add(new SupportingFile(
+                supportingFiles.add(new SupportingFile(
                     "src/main/kotlin/packagename/securityschemes/HttpBearerSecurityScheme.hbs",
                     packagePath() + File.separatorChar + "securityschemes",
                     "HttpBearerSecurityScheme.kt"));
-            supportingFiles.add(new SupportingFile(
+                supportingFiles.add(new SupportingFile(
                     "src/main/kotlin/packagename/securityschemes/HttpSignatureSecurityScheme.hbs",
                     packagePath() + File.separatorChar + "securityschemes",
                     "HttpSignatureSecurityScheme.kt"));
-            supportingFiles.add(new SupportingFile(
+                supportingFiles.add(new SupportingFile(
                     "src/main/kotlin/packagename/securityschemes/HttpDigestSecurityScheme.hbs",
                     packagePath() + File.separatorChar + "securityschemes",
                     "HttpDigestSecurityScheme.kt"));
-            supportingFiles.add(new SupportingFile(
+                supportingFiles.add(new SupportingFile(
                     "src/main/kotlin/packagename/securityschemes/MutualTlsSecurityScheme.hbs",
                     packagePath() + File.separatorChar + "securityschemes",
                     "MutualTlsSecurityScheme.kt"));
-            supportingFiles.add(new SupportingFile(
+                supportingFiles.add(new SupportingFile(
                     "src/main/kotlin/packagename/securityschemes/OAuth2SecurityScheme.hbs",
                     packagePath() + File.separatorChar + "securityschemes",
                     "OAuth2SecurityScheme.kt"));
-            supportingFiles.add(new SupportingFile(
+                supportingFiles.add(new SupportingFile(
                     "src/main/kotlin/packagename/securityschemes/OpenIdConnectSecurityScheme.hbs",
                     packagePath() + File.separatorChar + "securityschemes",
                     "OpenIdConnectSecurityScheme.kt"));
 
-            jsonPathTemplateFiles.put(
+                jsonPathTemplateFiles.put(
                     CodegenConstants.JSON_PATH_LOCATION_TYPE.SECURITY,
                     new HashMap<>() {{
                         put("src/main/kotlin/packagename/securityrequirementobjects/SecurityRequirementObjectN.hbs", ".kt");
                     }}
-            );
-            jsonPathDocTemplateFiles.put(
-                CodegenConstants.JSON_PATH_LOCATION_TYPE.SECURITY,
-                new HashMap<>() {{
-                    put("src/main/kotlin/packagename/securityrequirementobjects/SecurityRequirementObjectNDoc.hbs", ".md");
-                }}
-            );
-            jsonPathTemplateFiles.put(
+                );
+                jsonPathDocTemplateFiles.put(
+                    CodegenConstants.JSON_PATH_LOCATION_TYPE.SECURITY,
+                    new HashMap<>() {{
+                        put("src/main/kotlin/packagename/securityrequirementobjects/SecurityRequirementObjectNDoc.hbs", ".md");
+                    }}
+                );
+                jsonPathTemplateFiles.put(
                     CodegenConstants.JSON_PATH_LOCATION_TYPE.SECURITIES,
                     new HashMap<>() {{
                         put("src/main/kotlin/packagename/securityrequirementobjects/SecurityInfo.hbs", ".kt");
                     }}
-            );
-            jsonPathDocTemplateFiles.put(
-                CodegenConstants.JSON_PATH_LOCATION_TYPE.SECURITIES,
-                new HashMap<>() {{
-                    put("src/main/kotlin/packagename/securityrequirementobjects/SecurityInfoDoc.hbs", ".md");
-                }}
-            );
-            jsonPathTemplateFiles.put(
+                );
+                jsonPathDocTemplateFiles.put(
+                    CodegenConstants.JSON_PATH_LOCATION_TYPE.SECURITIES,
+                    new HashMap<>() {{
+                        put("src/main/kotlin/packagename/securityrequirementobjects/SecurityInfoDoc.hbs", ".md");
+                    }}
+                );
+                jsonPathTemplateFiles.put(
                     CodegenConstants.JSON_PATH_LOCATION_TYPE.SECURITY_SCHEME,
                     new HashMap<>() {{
                         put("src/main/kotlin/packagename/components/securityschemes/SecurityScheme.hbs", ".kt");
                     }}
-            );
-            jsonPathDocTemplateFiles.put(
+                );
+                jsonPathDocTemplateFiles.put(
                     CodegenConstants.JSON_PATH_LOCATION_TYPE.SECURITY_SCHEME,
                     new HashMap<>() {{
                         put("src/main/kotlin/packagename/components/securityschemes/SecurityScheme_doc.hbs", ".md");
                     }}
-            );
-        }
-        List<Server> servers = openAPI.getServers();
-        if (servers != null && !servers.isEmpty()) {
-            supportingFiles.add(new SupportingFile(
+                );
+                break;
+            case SERVERS:
+                supportingFiles.add(new SupportingFile(
                     "src/main/kotlin/packagename/servers/Server.hbs",
                     packagePath() + File.separatorChar + "servers",
                     "Server.kt"));
-            supportingFiles.add(new SupportingFile(
+                supportingFiles.add(new SupportingFile(
                     "src/main/kotlin/packagename/servers/ServerProvider.hbs",
                     packagePath() + File.separatorChar + "servers",
                     "ServerProvider.kt"));
 
-            supportingFiles.add(new SupportingFile(
+                supportingFiles.add(new SupportingFile(
                     "src/main/kotlin/packagename/servers/ServerWithoutVariables.hbs",
                     packagePath() + File.separatorChar + "servers",
                     "ServerWithoutVariables.kt"));
 
-            supportingFiles.add(new SupportingFile(
+                supportingFiles.add(new SupportingFile(
                     "src/main/kotlin/packagename/servers/ServerWithVariables.hbs",
                     packagePath() + File.separatorChar + "servers",
                     "ServerWithVariables.kt"));
-            jsonPathTemplateFiles.put(
+                jsonPathTemplateFiles.put(
                     CodegenConstants.JSON_PATH_LOCATION_TYPE.SERVER,
                     new HashMap<>() {{
                         put("src/main/kotlin/packagename/servers/ServerN.hbs", ".kt");
                     }}
-            );
-            jsonPathTemplateFiles.put(
+                );
+                jsonPathTemplateFiles.put(
                     CodegenConstants.JSON_PATH_LOCATION_TYPE.SERVERS,
                     new HashMap<>() {{
                         put("src/main/kotlin/packagename/servers/ServerInfo.hbs", ".kt");
                     }}
-            );
-            jsonPathDocTemplateFiles.put(
-                CodegenConstants.JSON_PATH_LOCATION_TYPE.SERVERS,
-                new HashMap<>() {{
-                    put("src/main/kotlin/packagename/servers/ServerInfoDoc.hbs", ".md");
-                }}
-            );
-            jsonPathDocTemplateFiles.put(
+                );
+                jsonPathDocTemplateFiles.put(
+                    CodegenConstants.JSON_PATH_LOCATION_TYPE.SERVERS,
+                    new HashMap<>() {{
+                        put("src/main/kotlin/packagename/servers/ServerInfoDoc.hbs", ".md");
+                    }}
+                );
+                jsonPathDocTemplateFiles.put(
                     CodegenConstants.JSON_PATH_LOCATION_TYPE.SERVER,
                     new HashMap<>() {{
                         put("src/main/kotlin/packagename/servers/ServerDoc.hbs", ".md");
                     }}
-            );
+                );
+                break;
+            case PATHS:
+                supportingFiles.add(new SupportingFile(
+                    "src/main/kotlin/packagename/exceptions/NotImplementedException.hbs",
+                    packagePath() + File.separatorChar + "exceptions",
+                    "NotImplementedException.kt"));
+                supportingFiles.add(new SupportingFile(
+                    "src/main/kotlin/packagename/exceptions/ApiException.hbs",
+                    packagePath() + File.separatorChar + "exceptions",
+                    "ApiException.kt"));
+                supportingFiles.add(new SupportingFile(
+                    "src/main/kotlin/packagename/configurations/ApiConfiguration.hbs",
+                    packagePath() + File.separatorChar + "configurations",
+                    "ApiConfiguration.kt"));
+                supportingFiles.add(new SupportingFile(
+                    "src/main/kotlin/packagename/apiclient/ApiClient.hbs",
+                    packagePath() + File.separatorChar + "apiclient",
+                    "ApiClient.kt"));
+                // restclient
+                supportingFiles.add(new SupportingFile(
+                    "src/main/kotlin/packagename/restclient/RestClient.hbs",
+                    packagePath() + File.separatorChar + "restclient",
+                    "RestClient.kt"));
+                break;
+            case RESPONSES:
+                supportingFiles.add(new SupportingFile(
+                    "src/main/kotlin/packagename/exceptions/NotImplementedException.hbs",
+                    packagePath() + File.separatorChar + "exceptions",
+                    "NotImplementedException.kt"));
+                supportingFiles.add(new SupportingFile(
+                    "src/main/kotlin/packagename/exceptions/ApiException.hbs",
+                    packagePath() + File.separatorChar + "exceptions",
+                    "ApiException.kt"));
+                supportingFiles.add(new SupportingFile(
+                    "src/main/kotlin/packagename/configurations/ApiConfiguration.hbs",
+                    packagePath() + File.separatorChar + "configurations",
+                    "ApiConfiguration.kt"));
+                supportingFiles.add(new SupportingFile(
+                    "src/main/kotlin/packagename/response/ApiResponse.hbs",
+                    packagePath() + File.separatorChar + "response",
+                    "ApiResponse.kt"));
+                supportingFiles.add(new SupportingFile(
+                    "src/main/kotlin/packagename/response/DeserializedHttpResponse.hbs",
+                    packagePath() + File.separatorChar + "response",
+                    "DeserializedHttpResponse.kt"));
+                supportingFiles.add(new SupportingFile(
+                    "src/main/kotlin/packagename/response/HeadersDeserializer.hbs",
+                    packagePath() + File.separatorChar + "response",
+                    "HeadersDeserializer.kt"));
+                supportingFiles.add(new SupportingFile(
+                    "src/main/kotlin/packagename/response/ResponseDeserializer.hbs",
+                    packagePath() + File.separatorChar + "response",
+                    "ResponseDeserializer.kt"));
+                supportingFiles.add(new SupportingFile(
+                    "src/main/kotlin/packagename/response/ResponsesDeserializer.hbs",
+                    packagePath() + File.separatorChar + "response",
+                    "ResponsesDeserializer.kt"));
+                supportingFiles.add(new SupportingFile(
+                    "src/test/kotlin/packagename/response/ResponseDeserializerTest.hbs",
+                    testPackagePath() + File.separatorChar + "response",
+                    "ResponseDeserializerTest.kt"));
+                break;
+            case REQUEST_BODIES:
+                supportingFiles.add(new SupportingFile(
+                    "src/main/kotlin/packagename/exceptions/NotImplementedException.hbs",
+                    packagePath() + File.separatorChar + "exceptions",
+                    "NotImplementedException.kt"));
+                supportingFiles.add(new SupportingFile(
+                    "src/main/kotlin/packagename/requestbody/GenericRequestBody.hbs",
+                    packagePath() + File.separatorChar + "requestbody",
+                    "GenericRequestBody.kt"));
+                supportingFiles.add(new SupportingFile(
+                    "src/main/kotlin/packagename/requestbody/RequestBodySerializer.hbs",
+                    packagePath() + File.separatorChar + "requestbody",
+                    "RequestBodySerializer.kt"));
+                supportingFiles.add(new SupportingFile(
+                    "src/main/kotlin/packagename/requestbody/SerializedRequestBody.hbs",
+                    packagePath() + File.separatorChar + "requestbody",
+                    "SerializedRequestBody.kt"));
+                supportingFiles.add(new SupportingFile(
+                    "src/test/kotlin/packagename/requestbody/RequestBodySerializerTest.hbs",
+                    testPackagePath() + File.separatorChar + "requestbody",
+                    "RequestBodySerializerTest.kt"));
+                break;
+            case CONTENT_TYPE:
+                supportingFiles.add(new SupportingFile(
+                    "src/main/kotlin/packagename/contenttype/ContentTypeDetector.hbs",
+                    packagePath() + File.separatorChar + "contenttype",
+                    "ContentTypeDetector.kt"));
+                supportingFiles.add(new SupportingFile(
+                    "src/main/kotlin/packagename/contenttype/ContentTypeSerializer.hbs",
+                    packagePath() + File.separatorChar + "contenttype",
+                    "ContentTypeSerializer.kt"));
+                supportingFiles.add(new SupportingFile(
+                    "src/main/kotlin/packagename/contenttype/ContentTypeDeserializer.hbs",
+                    packagePath() + File.separatorChar + "contenttype",
+                    "ContentTypeDeserializer.kt"));
+                break;
+            case MEDIA_TYPE:
+                supportingFiles.add(new SupportingFile(
+                    "src/main/kotlin/packagename/mediatype/MediaType.hbs",
+                    packagePath() + File.separatorChar + "mediatype",
+                    "MediaType.kt"));
+                supportingFiles.add(new SupportingFile(
+                    "src/main/kotlin/packagename/mediatype/Encoding.hbs",
+                    packagePath() + File.separatorChar + "mediatype",
+                    "Encoding.kt"));
+                break;
+            case HEADERS:
+                supportingFiles.add(new SupportingFile(
+                    "src/main/kotlin/packagename/exceptions/NotImplementedException.hbs",
+                    packagePath() + File.separatorChar + "exceptions",
+                    "NotImplementedException.kt"));
+                supportingFiles.add(new SupportingFile(
+                    "src/main/kotlin/packagename/header/Header.hbs",
+                    packagePath() + File.separatorChar + "header",
+                    "Header.kt"));
+                supportingFiles.add(new SupportingFile(
+                    "src/main/kotlin/packagename/header/HeaderBase.hbs",
+                    packagePath() + File.separatorChar + "header",
+                    "HeaderBase.kt"));
+                supportingFiles.add(new SupportingFile(
+                    "src/main/kotlin/packagename/header/SchemaHeader.hbs",
+                    packagePath() + File.separatorChar + "header",
+                    "SchemaHeader.kt"));
+                supportingFiles.add(new SupportingFile(
+                    "src/main/kotlin/packagename/header/ContentHeader.hbs",
+                    packagePath() + File.separatorChar + "header",
+                    "ContentHeader.kt"));
+                supportingFiles.add(new SupportingFile(
+                    "src/main/kotlin/packagename/header/StyleSerializer.hbs",
+                    packagePath() + File.separatorChar + "header",
+                    "StyleSerializer.kt"));
+                supportingFiles.add(new SupportingFile(
+                    "src/main/kotlin/packagename/header/Rfc6570Serializer.hbs",
+                    packagePath() + File.separatorChar + "header",
+                    "Rfc6570Serializer.kt"));
+                supportingFiles.add(new SupportingFile(
+                    "src/main/kotlin/packagename/header/PrefixSeparatorIterator.hbs",
+                    packagePath() + File.separatorChar + "header",
+                    "PrefixSeparatorIterator.kt"));
+                supportingFiles.add(new SupportingFile(
+                    "src/test/kotlin/packagename/header/SchemaHeaderTest.hbs",
+                    testPackagePath() + File.separatorChar + "header",
+                    "SchemaHeaderTest.kt"));
+                supportingFiles.add(new SupportingFile(
+                    "src/test/kotlin/packagename/header/ContentHeaderTest.hbs",
+                    testPackagePath() + File.separatorChar + "header",
+                    "ContentHeaderTest.kt"));
+                break;
+            case PARAMETERS:
+                supportingFiles.add(new SupportingFile(
+                    "src/main/kotlin/packagename/exceptions/NotImplementedException.hbs",
+                    packagePath() + File.separatorChar + "exceptions",
+                    "NotImplementedException.kt"));
+                supportingFiles.add(new SupportingFile(
+                    "src/main/kotlin/packagename/parameter/ContentParameter.hbs",
+                    packagePath() + File.separatorChar + "parameter",
+                    "ContentParameter.kt"));
+                supportingFiles.add(new SupportingFile(
+                    "src/main/kotlin/packagename/parameter/CookieSerializer.hbs",
+                    packagePath() + File.separatorChar + "parameter",
+                    "CookieSerializer.kt"));
+                supportingFiles.add(new SupportingFile(
+                    "src/main/kotlin/packagename/parameter/HeadersSerializer.hbs",
+                    packagePath() + File.separatorChar + "parameter",
+                    "HeadersSerializer.kt"));
+                supportingFiles.add(new SupportingFile(
+                    "src/main/kotlin/packagename/parameter/Parameter.hbs",
+                    packagePath() + File.separatorChar + "parameter",
+                    "Parameter.kt"));
+                supportingFiles.add(new SupportingFile(
+                    "src/main/kotlin/packagename/parameter/ParameterBase.hbs",
+                    packagePath() + File.separatorChar + "parameter",
+                    "ParameterBase.kt"));
+                supportingFiles.add(new SupportingFile(
+                    "src/main/kotlin/packagename/parameter/ParameterInType.hbs",
+                    packagePath() + File.separatorChar + "parameter",
+                    "ParameterInType.kt"));
+                supportingFiles.add(new SupportingFile(
+                    "src/main/kotlin/packagename/parameter/ParameterStyle.hbs",
+                    packagePath() + File.separatorChar + "parameter",
+                    "ParameterStyle.kt"));
+                supportingFiles.add(new SupportingFile(
+                    "src/main/kotlin/packagename/parameter/PathSerializer.hbs",
+                    packagePath() + File.separatorChar + "parameter",
+                    "PathSerializer.kt"));
+                supportingFiles.add(new SupportingFile(
+                    "src/main/kotlin/packagename/parameter/QuerySerializer.hbs",
+                    packagePath() + File.separatorChar + "parameter",
+                    "QuerySerializer.kt"));
+                supportingFiles.add(new SupportingFile(
+                    "src/main/kotlin/packagename/parameter/SchemaParameter.hbs",
+                    packagePath() + File.separatorChar + "parameter",
+                    "SchemaParameter.kt"));
+                supportingFiles.add(new SupportingFile(
+                    "src/test/kotlin/packagename/parameter/CookieSerializerTest.hbs",
+                    testPackagePath() + File.separatorChar + "parameter",
+                    "CookieSerializerTest.kt"));
+                supportingFiles.add(new SupportingFile(
+                    "src/test/kotlin/packagename/parameter/HeadersSerializerTest.hbs",
+                    testPackagePath() + File.separatorChar + "parameter",
+                    "HeadersSerializerTest.kt"));
+                supportingFiles.add(new SupportingFile(
+                    "src/test/kotlin/packagename/parameter/PathSerializerTest.hbs",
+                    testPackagePath() + File.separatorChar + "parameter",
+                    "PathSerializerTest.kt"));
+                supportingFiles.add(new SupportingFile(
+                    "src/test/kotlin/packagename/parameter/QuerySerializerTest.hbs",
+                    testPackagePath() + File.separatorChar + "parameter",
+                    "QuerySerializerTest.kt"));
+                supportingFiles.add(new SupportingFile(
+                    "src/test/kotlin/packagename/parameter/SchemaNonQueryParameterTest.hbs",
+                    testPackagePath() + File.separatorChar + "parameter",
+                    "SchemaNonQueryParameterTest.kt"));
+                supportingFiles.add(new SupportingFile(
+                    "src/test/kotlin/packagename/parameter/SchemaQueryParameterTest.hbs",
+                    testPackagePath() + File.separatorChar + "parameter",
+                    "SchemaQueryParameterTest.kt"));
+                break;
         }
     }
 

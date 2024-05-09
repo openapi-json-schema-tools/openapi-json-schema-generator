@@ -1,252 +1,251 @@
-package {{{packageName}}}.schemas;
+package {{{packageName}}}.schemas
 
-import org.checkerframework.checker.nullness.qual.Nullable;
-import org.junit.Assert;
-import org.junit.Test;
-import {{{packageName}}}.configurations.JsonSchemaKeywordFlags;
-import {{{packageName}}}.configurations.SchemaConfiguration;
-import {{{packageName}}}.exceptions.ValidationException;
-import {{{packageName}}}.schemas.validation.JsonSchema;
-import {{{packageName}}}.schemas.validation.JsonSchemaInfo;
-import {{{packageName}}}.schemas.validation.FrozenList;
-import {{{packageName}}}.schemas.validation.PathToSchemasMap;
-import {{{packageName}}}.schemas.validation.ListSchemaValidator;
-import {{{packageName}}}.schemas.validation.ValidationMetadata;
+import {{{packageName}}}.configurations.JsonSchemaKeywordFlags
+import {{{packageName}}}.configurations.SchemaConfiguration
+import {{{packageName}}}.exceptions.ValidationException
+import {{{packageName}}}.schemas.validation.JsonSchema
+import {{{packageName}}}.schemas.validation.JsonSchemaInfo
+import {{{packageName}}}.schemas.validation.FrozenList
+import {{{packageName}}}.schemas.validation.PathToSchemasMap
+import {{{packageName}}}.schemas.validation.ListSchemaValidator
+import {{{packageName}}}.schemas.validation.ValidationMetadata
 
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.LinkedHashMap;
-import java.util.LinkedHashSet;
-import java.util.List;
-import java.util.Objects;
-import java.util.Set;
+import kotlin.test.Test
+import kotlin.test.assertEquals
+import kotlin.test.assertFailsWith
 
-public class ArrayTypeSchemaTest {
-    static final SchemaConfiguration configuration = new SchemaConfiguration(new JsonSchemaKeywordFlags.Builder().build());
-    static final ValidationMetadata validationMetadata = new ValidationMetadata(
-            List.of("args[0"),
+class ArrayTypeSchemaTest {
+    sealed interface ArrayWithItemsSchemaBoxed
+
+    data class ArrayWithItemsSchemaBoxedList(val data: FrozenList<String>) : ArrayWithItemsSchemaBoxed
+    class ArrayWithItemsSchema : JsonSchema<ArrayWithItemsSchemaBoxed>(
+        JsonSchemaInfo()
+            .type(setOf(List::class.java))
+            .items(StringJsonSchema.StringJsonSchema1::class.java)
+    ), ListSchemaValidator<FrozenList<String>, ArrayWithItemsSchemaBoxedList> {
+        override fun getNewInstance(
+            arg: List<*>,
+            pathToItem: List<Any>,
+            pathToSchemas: PathToSchemasMap
+        ): FrozenList<String> {
+            val items: MutableList<String> = ArrayList()
+            var i = 0
+            for (item in arg) {
+                val itemPathToItem: MutableList<Any> = ArrayList(pathToItem)
+                itemPathToItem.add(i)
+                val schemas = pathToSchemas[itemPathToItem]
+                    ?: throw RuntimeException("Validation result is invalid, schemas must exist for a pathToItem")
+                val itemSchema = schemas.entries.iterator().next().key
+                val castItem = itemSchema.getNewInstance(item, itemPathToItem, pathToSchemas) as? String
+                    ?: throw RuntimeException("Instantiated type of item is invalid")
+                items.add(castItem)
+                i += 1
+            }
+            return FrozenList(items)
+        }
+
+        @Throws(ValidationException::class)
+        override fun validate(arg: List<*>, configuration: SchemaConfiguration?): FrozenList<String> {
+            val pathSet: MutableSet<List<Any>> = HashSet()
+            val pathToItem = listOf<Any>("args[0")
+            val castArg: List<*> = castToAllowedTypes(arg, pathToItem, pathSet)
+            val usedConfiguration = configuration ?: SchemaConfiguration(JsonSchemaKeywordFlags.Builder().build())
+            val validationMetadata =
+                ValidationMetadata(pathToItem, usedConfiguration, PathToSchemasMap(), LinkedHashSet())
+            val pathToSchemasMap = getPathToSchemas(this, castArg, validationMetadata, pathSet)
+            return getNewInstance(castArg, validationMetadata.pathToItem, pathToSchemasMap)
+        }
+
+        @Throws(ValidationException::class)
+        override fun validateAndBox(arg: List<*>, configuration: SchemaConfiguration?): ArrayWithItemsSchemaBoxedList {
+            return ArrayWithItemsSchemaBoxedList(validate(arg, configuration))
+        }
+
+        override fun getNewInstance(arg: Any?, pathToItem: List<Any>, pathToSchemas: PathToSchemasMap): Any? {
+            if (arg is List<*>) {
+                return getNewInstance(arg, pathToItem, pathToSchemas)
+            }
+            throw RuntimeException("Invalid input type=$javaClass. It can't be instantiated by this schema")
+        }
+
+        @Throws(ValidationException::class)
+        override fun validate(arg: Any?, configuration: SchemaConfiguration?): Any? {
+            if (arg is List<*>) {
+                return validate(arg as List<*>?, configuration)
+            }
+            throw ValidationException("Invalid input type=$javaClass. It can't be validated by this schema")
+        }
+
+        @Throws(ValidationException::class)
+        override fun validateAndBox(arg: Any?, configuration: SchemaConfiguration?): ArrayWithItemsSchemaBoxed {
+            if (arg is List<*>) {
+                return ArrayWithItemsSchemaBoxedList(validate(arg, configuration))
+            }
+            throw ValidationException("Invalid input type=$javaClass. It can't be validated by this schema")
+        }
+    }
+
+    class ArrayWithOutputClsSchemaList(m: FrozenList<String>) : FrozenList<String?>(m) {
+        companion object {
+            @Throws(ValidationException::class)
+            fun of(arg: List<String>, configuration: SchemaConfiguration?): ArrayWithOutputClsSchemaList {
+                return ArrayWithOutputClsSchema().validate(arg, configuration)
+            }
+        }
+    }
+
+    interface ArrayWithOutputClsSchemaBoxed
+
+    data class ArrayWithOutputClsSchemaBoxedList(val data: ArrayWithOutputClsSchemaList) :
+        ArrayWithOutputClsSchemaBoxed
+
+    class ArrayWithOutputClsSchema : JsonSchema<ArrayWithOutputClsSchemaBoxed>(
+        JsonSchemaInfo()
+            .type(setOf(List::class.java))
+            .items(StringJsonSchema.StringJsonSchema1::class.java)
+    ), ListSchemaValidator<ArrayWithOutputClsSchemaList, ArrayWithOutputClsSchemaBoxedList> {
+        override fun getNewInstance(
+            arg: List<*>,
+            pathToItem: List<Any>,
+            pathToSchemas: PathToSchemasMap
+        ): ArrayWithOutputClsSchemaList {
+            val items: MutableList<String> = ArrayList()
+            var i = 0
+            for (item in arg) {
+                val itemPathToItem: MutableList<Any> = ArrayList(pathToItem)
+                itemPathToItem.add(i)
+                val schemas = pathToSchemas[itemPathToItem]
+                    ?: throw RuntimeException("Validation result is invalid, schemas must exist for a pathToItem")
+                val itemSchema = schemas.entries.iterator().next().key
+                val castItem = itemSchema.getNewInstance(item, itemPathToItem, pathToSchemas) as? String
+                    ?: throw RuntimeException("Instantiated type of item is invalid")
+                items.add(castItem)
+                i += 1
+            }
+            val newInstanceItems = FrozenList(items)
+            return ArrayWithOutputClsSchemaList(newInstanceItems)
+        }
+
+        @Throws(ValidationException::class)
+        override fun validate(arg: List<*>, configuration: SchemaConfiguration?): ArrayWithOutputClsSchemaList {
+            val pathSet: MutableSet<List<Any>> = HashSet()
+            val pathToItem = listOf<Any>("args[0")
+            val castArg: List<*> = castToAllowedTypes(arg, pathToItem, pathSet)
+            val usedConfiguration = configuration ?: SchemaConfiguration(JsonSchemaKeywordFlags.Builder().build())
+            val validationMetadata =
+                ValidationMetadata(pathToItem, usedConfiguration, PathToSchemasMap(), LinkedHashSet())
+            val pathToSchemasMap = getPathToSchemas(this, castArg, validationMetadata, pathSet)
+            return getNewInstance(castArg, validationMetadata.pathToItem, pathToSchemasMap)
+        }
+
+        @Throws(ValidationException::class)
+        override fun validateAndBox(
+            arg: List<*>,
+            configuration: SchemaConfiguration?
+        ): ArrayWithOutputClsSchemaBoxedList {
+            return ArrayWithOutputClsSchemaBoxedList(validate(arg, configuration))
+        }
+
+        override fun getNewInstance(arg: Any?, pathToItem: List<Any>, pathToSchemas: PathToSchemasMap): Any? {
+            if (arg is List<*>) {
+                return getNewInstance(arg, pathToItem, pathToSchemas)
+            }
+            throw RuntimeException("Invalid input type=$javaClass. It can't be instantiated by this schema")
+        }
+
+        @Throws(ValidationException::class)
+        override fun validate(arg: Any?, configuration: SchemaConfiguration?): Any? {
+            if (arg is List<*>) {
+                return validate(arg as List<*>?, configuration)
+            }
+            throw ValidationException("Invalid input type=$javaClass. It can't be validated by this schema")
+        }
+
+        @Throws(ValidationException::class)
+        override fun validateAndBox(arg: Any?, configuration: SchemaConfiguration?): ArrayWithOutputClsSchemaBoxed {
+            if (arg is List<*>) {
+                return ArrayWithOutputClsSchemaBoxedList(validate(arg, configuration))
+            }
+            throw ValidationException("Invalid input type=$javaClass. It can't be validated by this schema")
+        }
+    }
+
+    @Test
+    fun testExceptionThrownForInvalidType() {
+        assertFailsWith<ValidationException>(
+            block = {
+                JsonSchema.validate(
+                    ArrayWithItemsSchema(),
+                    null,
+                    validationMetadata
+                )
+            }
+        )
+    }
+
+    @Test
+    @Throws(ValidationException::class)
+    fun testValidateArrayWithItemsSchema() {
+        // list with only item works
+        var inList: List<String> = listOf("abc")
+        var validatedValue: FrozenList<String> = ArrayWithItemsSchema().validate(inList, configuration)
+        var outList: List<Any?> = listOf("abc")
+        assertEquals(validatedValue, outList)
+
+        // list with no items works
+        inList = listOf()
+        validatedValue = ArrayWithItemsSchema().validate(inList, configuration)
+        outList = listOf()
+        assertEquals(validatedValue, outList)
+
+        // invalid item type fails
+        val intList = listOf(1)
+        assertFailsWith<ValidationException>(
+            block = {
+                JsonSchema.validate(
+                    ArrayWithItemsSchema(),
+                    intList,
+                    validationMetadata
+                )
+            }
+        )
+    }
+
+    @Test
+    @Throws(ValidationException::class)
+    fun testValidateArrayWithOutputClsSchema() {
+        // list with only item works
+        var inList: List<String> = listOf("abc")
+        var validatedValue = ArrayWithOutputClsSchema().validate(inList, configuration)
+        var outList: List<Any?> = listOf("abc")
+        assertEquals(validatedValue, outList)
+
+        // list with no items works
+        inList = listOf()
+        validatedValue = ArrayWithOutputClsSchema().validate(inList, configuration)
+        outList = listOf()
+        assertEquals(validatedValue, outList)
+
+        // invalid item type fails
+        val intList = listOf(1)
+        assertFailsWith<ValidationException>(
+            block = {
+                JsonSchema.validate(
+                    ArrayWithOutputClsSchema(),
+                    intList,
+                    validationMetadata
+                )
+            }
+        )
+    }
+
+    companion object {
+        val configuration = SchemaConfiguration(JsonSchemaKeywordFlags.Builder().build())
+        val validationMetadata = ValidationMetadata(
+            listOf("args[0"),
             configuration,
-            new PathToSchemasMap(),
-            new LinkedHashSet<>()
-    );
-
-    public sealed interface ArrayWithItemsSchemaBoxed permits ArrayWithItemsSchemaBoxedList {
-    }
-    public record ArrayWithItemsSchemaBoxedList(FrozenList<String> data) implements ArrayWithItemsSchemaBoxed {
-    }
-
-    public static class ArrayWithItemsSchema extends JsonSchema<ArrayWithItemsSchemaBoxed> implements ListSchemaValidator<FrozenList<String>, ArrayWithItemsSchemaBoxedList> {
-        public ArrayWithItemsSchema() {
-            super(new JsonSchemaInfo()
-                .type(Set.of(List.class))
-                .items(StringJsonSchema.StringJsonSchema1.class)
-            );
-        }
-
-        @Override
-        public FrozenList<String> getNewInstance(List<?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
-            List<String> items = new ArrayList<>();
-            int i = 0;
-            for (Object item: arg) {
-                List<Object> itemPathToItem = new ArrayList<>(pathToItem);
-                itemPathToItem.add(i);
-                LinkedHashMap<JsonSchema<?>, Nothing?> schemas = pathToSchemas.get(itemPathToItem);
-                if (schemas == null) {
-                    throw new RuntimeException("Validation result is invalid, schemas must exist for a pathToItem");
-                }
-                JsonSchema<?> itemSchema = schemas.entrySet().iterator().next().getKey();
-                @Nullable Object castItem = itemSchema.getNewInstance(item, itemPathToItem, pathToSchemas);
-                if (!(castItem instanceof String)) {
-                    throw new RuntimeException("Instantiated type of item is invalid");
-                }
-                items.add((String) castItem);
-                i += 1;
-            }
-            return new FrozenList<>(items);
-        }
-
-        public FrozenList<String> validate(List<?> arg, SchemaConfiguration configuration) throws ValidationException {
-            Set<List<Object>> pathSet = new HashSet<>();
-            List<Object> pathToItem = List.of("args[0");
-            List<?> castArg = castToAllowedTypes(arg, pathToItem, pathSet);
-            SchemaConfiguration usedConfiguration = Objects.requireNonNullElseGet(configuration, () -> new SchemaConfiguration(new JsonSchemaKeywordFlags.Builder().build()));
-            ValidationMetadata validationMetadata = new ValidationMetadata(pathToItem, usedConfiguration, new PathToSchemasMap(), new LinkedHashSet<>());
-            PathToSchemasMap pathToSchemasMap = getPathToSchemas(this, castArg, validationMetadata, pathSet);
-            return getNewInstance(castArg, validationMetadata.pathToItem(), pathToSchemasMap);
-        }
-
-        @Override
-        public ArrayWithItemsSchemaBoxedList validateAndBox(List<?> arg, SchemaConfiguration configuration) throws ValidationException {
-            return new ArrayWithItemsSchemaBoxedList(validate(arg, configuration));
-        }
-
-        @Override
-        public Object getNewInstance(@Nullable Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
-            if (arg instanceof List) {
-                return getNewInstance((List<?>) arg, pathToItem, pathToSchemas);
-            }
-            throw new RuntimeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
-        }
-
-        @Override
-        public @Nullable Object validate(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException {
-            if (arg instanceof List) {
-                return validate((List<?>) arg, configuration);
-            }
-            throw new ValidationException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
-        }
-
-        @Override
-        public ArrayWithItemsSchemaBoxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException {
-            if (arg instanceof List<?> listArg) {
-                return new ArrayWithItemsSchemaBoxedList(validate(listArg, configuration));
-            }
-            throw new ValidationException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
-        }
-    }
-
-    public static class ArrayWithOutputClsSchemaList extends FrozenList<String> {
-        protected ArrayWithOutputClsSchemaList(FrozenList<String> m) {
-            super(m);
-        }
-
-        public static ArrayWithOutputClsSchemaList of(List<String> arg, SchemaConfiguration configuration) throws ValidationException {
-            return new ArrayWithOutputClsSchema().validate(arg, configuration);
-        }
-    }
-
-    public sealed interface ArrayWithOutputClsSchemaBoxed permits ArrayWithOutputClsSchemaBoxedList {
-    }
-    public record ArrayWithOutputClsSchemaBoxedList(ArrayWithOutputClsSchemaList data) implements ArrayWithOutputClsSchemaBoxed {
-    }
-    public static class ArrayWithOutputClsSchema extends JsonSchema<ArrayWithOutputClsSchemaBoxed> implements ListSchemaValidator<ArrayWithOutputClsSchemaList, ArrayWithOutputClsSchemaBoxedList> {
-        public ArrayWithOutputClsSchema() {
-            super(new JsonSchemaInfo()
-                .type(Set.of(List.class))
-                .items(StringJsonSchema.StringJsonSchema1.class)
-            );
-
-        }
-
-        @Override
-        public ArrayWithOutputClsSchemaList getNewInstance(List<?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
-            List<String> items = new ArrayList<>();
-            int i = 0;
-            for (Object item: arg) {
-                List<Object> itemPathToItem = new ArrayList<>(pathToItem);
-                itemPathToItem.add(i);
-                LinkedHashMap<JsonSchema<?>, Nothing?> schemas = pathToSchemas.get(itemPathToItem);
-                if (schemas == null) {
-                    throw new RuntimeException("Validation result is invalid, schemas must exist for a pathToItem");
-                }
-                JsonSchema<?> itemSchema = schemas.entrySet().iterator().next().getKey();
-                @Nullable Object castItem = itemSchema.getNewInstance(item, itemPathToItem, pathToSchemas);
-                if (!(castItem instanceof String)) {
-                    throw new RuntimeException("Instantiated type of item is invalid");
-                }
-                items.add((String) castItem);
-                i += 1;
-            }
-            FrozenList<String> newInstanceItems = new FrozenList<>(items);
-            return new ArrayWithOutputClsSchemaList(newInstanceItems);
-        }
-
-        public ArrayWithOutputClsSchemaList validate(List<?> arg, SchemaConfiguration configuration) throws ValidationException {
-            Set<List<Object>> pathSet = new HashSet<>();
-            List<Object> pathToItem = List.of("args[0");
-            List<?> castArg = castToAllowedTypes(arg, pathToItem, pathSet);
-            SchemaConfiguration usedConfiguration = Objects.requireNonNullElseGet(configuration, () -> new SchemaConfiguration(new JsonSchemaKeywordFlags.Builder().build()));
-            ValidationMetadata validationMetadata = new ValidationMetadata(pathToItem, usedConfiguration, new PathToSchemasMap(), new LinkedHashSet<>());
-            PathToSchemasMap pathToSchemasMap = getPathToSchemas(this, castArg, validationMetadata, pathSet);
-            return getNewInstance(castArg, validationMetadata.pathToItem(), pathToSchemasMap);
-        }
-
-        @Override
-        public ArrayWithOutputClsSchemaBoxedList validateAndBox(List<?> arg, SchemaConfiguration configuration) throws ValidationException {
-            return new ArrayWithOutputClsSchemaBoxedList(validate(arg, configuration));
-        }
-
-        @Override
-        public Object getNewInstance(@Nullable Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
-            if (arg instanceof List) {
-                return getNewInstance((List<?>) arg, pathToItem, pathToSchemas);
-            }
-            throw new RuntimeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
-        }
-
-        @Override
-        public @Nullable Object validate(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException {
-            if (arg instanceof List) {
-                return validate((List<?>) arg, configuration);
-            }
-            throw new ValidationException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
-        }
-
-        @Override
-        public ArrayWithOutputClsSchemaBoxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException {
-            if (arg instanceof List<?> listArg) {
-                return new ArrayWithOutputClsSchemaBoxedList(validate(listArg, configuration));
-            }
-            throw new ValidationException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
-        }
-    }
-
-    @Test
-    public void testExceptionThrownForInvalidType() {
-        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
-                new ArrayWithItemsSchema(),
-                null,
-                validationMetadata
-        ));
-    }
-
-    @Test
-    public void testValidateArrayWithItemsSchema() throws ValidationException {
-        // list with only item works
-        List<String> inList = new ArrayList<>();
-        inList.add("abc");
-        FrozenList<String> validatedValue = new ArrayWithItemsSchema().validate(inList, configuration);
-        List<Object> outList = new ArrayList<>();
-        outList.add("abc");
-        Assert.assertEquals(validatedValue, outList);
-
-        // list with no items works
-        inList = new ArrayList<>();
-        validatedValue = new ArrayWithItemsSchema().validate(inList, configuration);
-        outList = new ArrayList<>();
-        Assert.assertEquals(validatedValue, outList);
-
-        // invalid item type fails
-        List<Integer> intList = List.of(1);
-        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
-                new ArrayWithItemsSchema(),
-                intList,
-                validationMetadata
-        ));
-    }
-
-    @Test
-    public void testValidateArrayWithOutputClsSchema() throws ValidationException {
-        // list with only item works
-        List<String> inList = new ArrayList<>();
-        inList.add("abc");
-        ArrayWithOutputClsSchemaList validatedValue = new ArrayWithOutputClsSchema().validate(inList, configuration);
-        List<Object> outList = new ArrayList<>();
-        outList.add("abc");
-        Assert.assertEquals(validatedValue, outList);
-
-        // list with no items works
-        inList = new ArrayList<>();
-        validatedValue = new ArrayWithOutputClsSchema().validate(inList, configuration);
-        outList = new ArrayList<>();
-        Assert.assertEquals(validatedValue, outList);
-
-        // invalid item type fails
-        List<Integer> intList = List.of(1);
-        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
-                new ArrayWithOutputClsSchema(),
-                intList,
-                validationMetadata
-        ));
+            PathToSchemasMap(),
+            LinkedHashSet()
+        )
     }
 }

@@ -1,21 +1,20 @@
-package {{{packageName}}}.servers;
+package {{{packageName}}}.servers
 
-import java.util.Map;
+abstract class ServerWithVariables<T : Map<String, String>> protected constructor(url: String, variables: T) :
+    Server {
+    val url: String
+    val variables: T
 
-public abstract class ServerWithVariables<T extends Map<String, String>> implements Server {
-    public final String url;
-    public final T variables;
-
-    protected ServerWithVariables(String url, T variables) {
-        this.variables = variables;
-        for (Map.Entry<String, String> entry: variables.entrySet()) {
-            url = url.replace("{" + entry.getKey() + "}", entry.getValue());
+    init {
+        var url = url
+        this.variables = variables
+        for ((key, value) in variables) {
+            url = url.replace("{$key}", value)
         }
-        this.url = url;
+        this.url = url
     }
 
-    public String url(){
-        return url;
+    override fun url(): String {
+        return url
     }
 }
-

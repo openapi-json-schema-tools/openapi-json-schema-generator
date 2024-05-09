@@ -1,26 +1,26 @@
-package {{{packageName}}}.schemas;
+package {{{packageName}}}.schemas
 
-import {{{packageName}}}.configurations.JsonSchemaKeywordFlags;
-import {{{packageName}}}.configurations.SchemaConfiguration;
-import {{{packageName}}}.exceptions.ValidationException;
-import {{{packageName}}}.schemas.validation.FrozenList;
-import {{{packageName}}}.schemas.validation.FrozenMap;
-import {{{packageName}}}.schemas.validation.JsonSchema;
-import {{{packageName}}}.schemas.validation.JsonSchemaInfo;
-import {{{packageName}}}.schemas.validation.PathToSchemasMap;
-import {{{packageName}}}.schemas.validation.NullSchemaValidator;
-import {{{packageName}}}.schemas.validation.BooleanSchemaValidator;
-import {{{packageName}}}.schemas.validation.NumberSchemaValidator;
-import {{{packageName}}}.schemas.validation.StringSchemaValidator;
-import {{{packageName}}}.schemas.validation.ListSchemaValidator;
-import {{{packageName}}}.schemas.validation.MapSchemaValidator;
-import {{{packageName}}}.schemas.validation.ValidationMetadata;
+import {{{packageName}}}.configurations.JsonSchemaKeywordFlags
+import {{{packageName}}}.configurations.SchemaConfiguration
+import {{{packageName}}}.exceptions.ValidationException
+import {{{packageName}}}.schemas.validation.FrozenList
+import {{{packageName}}}.schemas.validation.FrozenMap
+import {{{packageName}}}.schemas.validation.JsonSchema
+import {{{packageName}}}.schemas.validation.JsonSchemaInfo
+import {{{packageName}}}.schemas.validation.PathToSchemasMap
+import {{{packageName}}}.schemas.validation.NullSchemaValidator
+import {{{packageName}}}.schemas.validation.BooleanSchemaValidator
+import {{{packageName}}}.schemas.validation.NumberSchemaValidator
+import {{{packageName}}}.schemas.validation.StringSchemaValidator
+import {{{packageName}}}.schemas.validation.ListSchemaValidator
+import {{{packageName}}}.schemas.validation.MapSchemaValidator
+import {{{packageName}}}.schemas.validation.ValidationMetadata
 
 import java.time.LocalDate
 import java.time.ZonedDateTime
 import java.util.UUID
 
-class NotAnyTypeJsonSchema {
+open class NotAnyTypeJsonSchema {
     sealed interface NotAnyTypeJsonSchema1Boxed {
         fun getData(): Any?
     }
@@ -34,7 +34,7 @@ class NotAnyTypeJsonSchema {
 
 
     data class NotAnyTypeJsonSchema1BoxedBoolean(val data: Boolean) : NotAnyTypeJsonSchema1Boxed {
-        override fun getData(): Boolean {
+        override fun getData(): Any? {
             return data
         }
 
@@ -42,40 +42,40 @@ class NotAnyTypeJsonSchema {
 
 
     data class NotAnyTypeJsonSchema1BoxedNumber(val data: Number) : NotAnyTypeJsonSchema1Boxed {
-        override fun getData(): Number {
+        override fun getData(): Any? {
             return data
         }
     }
 
 
     data class NotAnyTypeJsonSchema1BoxedString(val data: String) : NotAnyTypeJsonSchema1Boxed {
-        override fun getData(): String {
+        override fun getData(): Any? {
             return data
         }
     }
 
 
     data class NotAnyTypeJsonSchema1BoxedList(val data: FrozenList<Any?>) : NotAnyTypeJsonSchema1Boxed {
-        override fun getData(): FrozenList<Any?> {
+        override fun getData(): Any? {
             return data
         }
     }
 
 
     data class NotAnyTypeJsonSchema1BoxedMap(val data: FrozenMap<Any?>) : NotAnyTypeJsonSchema1Boxed {
-        override fun getData(): FrozenMap<Any?> {
+        override fun getData(): Any? {
             return data
         }
     }
 
-    class NotAnyTypeJsonSchema1 private constructor() : JsonSchema<NotAnyTypeJsonSchema1Boxed?>(
+    open class NotAnyTypeJsonSchema1 protected constructor() : JsonSchema<NotAnyTypeJsonSchema1Boxed?>(
         JsonSchemaInfo()
-            .not(AnyTypeJsonSchema1::class.java)
-    ), NullSchemaValidator<NotAnyTypeJsonSchema1BoxedVoid?>, BooleanSchemaValidator<NotAnyTypeJsonSchema1BoxedBoolean?>,
-        NumberSchemaValidator<NotAnyTypeJsonSchema1BoxedNumber?>,
-        StringSchemaValidator<NotAnyTypeJsonSchema1BoxedString?>,
-        ListSchemaValidator<FrozenList<Any?>?, NotAnyTypeJsonSchema1BoxedList?>,
-        MapSchemaValidator<FrozenMap<Any?>?, NotAnyTypeJsonSchema1BoxedMap?> {
+            .not(AnyTypeJsonSchema.AnyTypeJsonSchema1::class.java)
+    ), NullSchemaValidator<NotAnyTypeJsonSchema1BoxedVoid>, BooleanSchemaValidator<NotAnyTypeJsonSchema1BoxedBoolean>,
+        NumberSchemaValidator<NotAnyTypeJsonSchema1BoxedNumber>,
+        StringSchemaValidator<NotAnyTypeJsonSchema1BoxedString>,
+        ListSchemaValidator<FrozenList<Any?>, NotAnyTypeJsonSchema1BoxedList>,
+        MapSchemaValidator<FrozenMap<Any?>, NotAnyTypeJsonSchema1BoxedMap> {
         @Throws(ValidationException::class)
         override fun validate(arg: Nothing?, configuration: SchemaConfiguration?): Nothing? {
             val pathSet: MutableSet<List<Any>> = HashSet()
@@ -240,11 +240,11 @@ class NotAnyTypeJsonSchema {
                 }
 
                 is Number -> {
-                    return getNewInstance(arg as Number?, pathToItem, pathToSchemas)
+                    return getNewInstance(arg, pathToItem, pathToSchemas)
                 }
 
                 is String -> {
-                    return getNewInstance(arg as String?, pathToItem, pathToSchemas)
+                    return getNewInstance(arg, pathToItem, pathToSchemas)
                 }
 
                 is List<*> -> {
@@ -278,11 +278,11 @@ class NotAnyTypeJsonSchema {
                 }
 
                 is List<*> -> {
-                    return validate(arg as List<*>?, configuration)
+                    return validate(arg, configuration)
                 }
 
                 is Map<*, *> -> {
-                    return validate(arg as Map<*, *>?, configuration)
+                    return validate(arg, configuration)
                 }
 
                 else -> throw ValidationException("Invalid input type=$javaClass. It can't be validated by this schema")

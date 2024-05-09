@@ -1,11 +1,11 @@
-package {{{packageName}}}.schemas.validation;
+package {{{packageName}}}.schemas.validation
 
 data class ValidationData(
     val schema: JsonSchema<*>,
     val arg: Any?,
     val validationMetadata: ValidationMetadata,
-    val containsPathToSchemas: List<PathToSchemasMap>?,
-    val patternPropertiesPathToSchemas: PathToSchemasMap?,
-    val ifPathToSchemas: PathToSchemasMap?,
-    val knownPathToSchemas: PathToSchemasMap?
+    val containsPathToSchemas: List<PathToSchemasMap>? = null,
+    val patternPropertiesPathToSchemas: PathToSchemasMap? = null,
+    val ifPathToSchemas: PathToSchemasMap? = null,
+    val knownPathToSchemas: PathToSchemasMap? = null
 )

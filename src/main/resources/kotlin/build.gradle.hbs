@@ -1,6 +1,5 @@
 plugins {
-    kotlin("jvm") version "1.9.23"
-    id("org.checkerframework") version "0.6.33"
+    kotlin("jvm") version "{{generatorMetadata.languageVersion}}"
 }
 
 repositories {
@@ -11,6 +10,8 @@ repositories {
 }
 
 dependencies {
+    implementation(kotlin("reflect"))
+    testImplementation(kotlin("test"))
     implementation("org.checkerframework:checker-qual:3.42.0")
     implementation("com.google.code.gson:gson:2.10.1")
     testImplementation("junit:junit:4.13.2")
@@ -24,10 +25,15 @@ java {
     toolchain {
         languageVersion.set(JavaLanguageVersion.of(17))
     }
-    withSourcesJar()
-    withJavadocJar()
 }
 
 tasks.wrapper {
     gradleVersion = "8.1.1"
+}
+
+tasks.test {
+    useJUnitPlatform()
+    testLogging {
+        events( "started", "passed", "skipped", "failed")
+    }
 }

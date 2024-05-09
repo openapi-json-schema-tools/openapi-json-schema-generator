@@ -2,25 +2,25 @@
     {{#each typeToValues}}
 
         {{#eq @key "null"}}
-public enum Null{{../jsonPathPiece.pascalCase}} implements NullValueMethod {
+enum class Null{{../jsonPathPiece.pascalCase}}(private val value: Nothing?): NullValueMethod {
         {{else}}
             {{#eq @key "boolean"}}
-public enum Boolean{{../jsonPathPiece.pascalCase}} implements BooleanValueMethod {
+enum class Boolean{{../jsonPathPiece.pascalCase}}(private val value: Boolean): BooleanValueMethod {
             {{else}}
                 {{#eq @key "string"}}
-public enum String{{../jsonPathPiece.pascalCase}} implements StringValueMethod {
+enum class String{{../jsonPathPiece.pascalCase}}(private val value: String): StringValueMethod {
                 {{else}}
                     {{#eq @key "Integer"}}
-public enum Integer{{../jsonPathPiece.pascalCase}} implements IntegerValueMethod {
+enum class Integer{{../jsonPathPiece.pascalCase}}(private val value: Int): IntegerValueMethod {
                     {{else}}
                         {{#eq @key "Long"}}
-public enum Long{{../jsonPathPiece.pascalCase}} implements LongValueMethod {
+enum class Long{{../jsonPathPiece.pascalCase}}(private val value: Long): LongValueMethod {
                         {{else}}
                             {{#eq @key "Float"}}
-public enum Float{{../jsonPathPiece.pascalCase}} implements FloatValueMethod {
+enum class Float{{../jsonPathPiece.pascalCase}}(private val value: Float): FloatValueMethod {
                             {{else}}
                                 {{#eq @key "Double"}}
-public enum Double{{../jsonPathPiece.pascalCase}} implements DoubleValueMethod {
+enum class Double{{../jsonPathPiece.pascalCase}}(private val value: Double): DoubleValueMethod {
                                 {{/eq}}
                             {{/eq}}
                         {{/eq}}
@@ -48,7 +48,7 @@ public enum Double{{../jsonPathPiece.pascalCase}} implements DoubleValueMethod {
     {{this}}({{@key.value}}f){{#unless @last}},{{else}};{{/unless}}
                                 {{else}}
                                     {{#eq ../@key "Double"}}
-    {{this}}({{@key.value}}d){{#unless @last}},{{else}};{{/unless}}
+    {{this}}({{@key.value}}){{#unless @last}},{{else}};{{/unless}}
                                     {{/eq}}
                                 {{/eq}}
                             {{/eq}}
@@ -58,73 +58,45 @@ public enum Double{{../jsonPathPiece.pascalCase}} implements DoubleValueMethod {
             {{/eq}}
         {{/each}}
         {{#eq @key "null"}}
-    private final Nothing? value;
 
-    Null{{../jsonPathPiece.pascalCase}}(Nothing? value) {
-        this.value = value;
-    }
-    public Nothing? value() {
-        return this.value;
+    override fun value(): Nothing? {
+        return this.value
     }
         {{else}}
             {{#eq @key "boolean"}}
-    private final boolean value;
 
-    Boolean{{../jsonPathPiece.pascalCase}}(boolean value) {
-        this.value = value;
-    }
-    public boolean value() {
-        return this.value;
+    override fun value(): Boolean {
+        return this.value
     }
             {{else}}
                 {{#eq @key "string"}}
-    private final String value;
 
-    String{{../jsonPathPiece.pascalCase}}(String value) {
-        this.value = value;
-    }
-    public String value() {
-        return this.value;
+    override fun value(): String {
+        return this.value
     }
                 {{else}}
                     {{#eq @key "Integer"}}
-    private final int value;
 
-    Integer{{../jsonPathPiece.pascalCase}}(int value) {
-        this.value = value;
-    }
-    public int value() {
-        return this.value;
+    override fun value(): Int {
+        return this.value
     }
                     {{else}}
                         {{#eq @key "Long"}}
-    private final long value;
 
-    Long{{../jsonPathPiece.pascalCase}}(long value) {
-        this.value = value;
-    }
-    public long value() {
-        return this.value;
+    override fun value(): Long {
+        return this.value
     }
                         {{else}}
                             {{#eq @key "Float"}}
-    private final float value;
 
-    Float{{../jsonPathPiece.pascalCase}}(float value) {
-        this.value = value;
-    }
-    public float value() {
-        return this.value;
+    override fun value(): Float {
+        return this.value
     }
                             {{else}}
                                 {{#eq @key "Double"}}
-    private final double value;
 
-    Double{{../jsonPathPiece.pascalCase}}(double value) {
-        this.value = value;
-    }
-    public double value() {
-        return this.value;
+    override fun value(): Double {
+        return this.value
     }
                                 {{/eq}}
                             {{/eq}}

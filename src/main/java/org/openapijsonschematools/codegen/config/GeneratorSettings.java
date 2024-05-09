@@ -268,14 +268,8 @@ public final class GeneratorSettings implements Serializable {
         if (isNotEmpty(invokerPackage)) {
             additional.put("invokerPackage", invokerPackage);
         }
-        if (isNotEmpty(packageName)) {
-            additional.put("packageName", packageName);
-        }
         if (isNotEmpty(groupId)) {
             additional.put("groupId", groupId);
-        }
-        if (isNotEmpty(artifactId)) {
-            additional.put("artifactId", artifactId);
         }
         if (isNotEmpty(artifactVersion)) {
             additional.put("artifactVersion", artifactVersion);
