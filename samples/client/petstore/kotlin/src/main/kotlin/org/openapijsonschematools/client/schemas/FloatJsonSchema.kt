@@ -1,91 +1,83 @@
-package org.openapijsonschematools.client.schemas;
+package org.openapijsonschematools.client.schemas
 
-import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
-import org.openapijsonschematools.client.configurations.SchemaConfiguration;
-import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.schemas.validation.JsonSchema;
-import org.openapijsonschematools.client.schemas.validation.JsonSchemaInfo;
-import org.openapijsonschematools.client.schemas.validation.PathToSchemasMap;
-import org.openapijsonschematools.client.schemas.validation.NumberSchemaValidator;
-import org.openapijsonschematools.client.schemas.validation.ValidationMetadata;
-import org.checkerframework.checker.nullness.qual.Nullable;
+import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags
+import org.openapijsonschematools.client.configurations.SchemaConfiguration
+import org.openapijsonschematools.client.exceptions.ValidationException
+import org.openapijsonschematools.client.schemas.validation.JsonSchema
+import org.openapijsonschematools.client.schemas.validation.JsonSchemaInfo
+import org.openapijsonschematools.client.schemas.validation.NumberSchemaValidator
+import org.openapijsonschematools.client.schemas.validation.PathToSchemasMap
+import org.openapijsonschematools.client.schemas.validation.ValidationMetadata
 
-import java.util.HashSet;
-import java.util.LinkedHashSet;
-import java.util.List;
-import java.util.Objects;
-import java.util.Set;
-
-public class FloatJsonSchema {
-    public sealed interface FloatJsonSchema1Boxed permits FloatJsonSchema1BoxedNumber {
-        @Nullable Object getData();
+class FloatJsonSchema {
+    sealed interface FloatJsonSchema1Boxed {
+        fun getData(): Any?
     }
-    public record FloatJsonSchema1BoxedNumber(Number data) implements FloatJsonSchema1Boxed {
-        @Override
-        public @Nullable Object getData() {
-            return data;
+
+    data class FloatJsonSchema1BoxedNumber(val data: Number) : FloatJsonSchema1Boxed {
+        override fun getData(): Number {
+            return data
         }
     }
 
-    public static class FloatJsonSchema1 extends JsonSchema<FloatJsonSchema1Boxed> implements NumberSchemaValidator<FloatJsonSchema1BoxedNumber> {
-        private static @Nullable FloatJsonSchema1 instance = null;
-
-        protected FloatJsonSchema1() {
-            super(new JsonSchemaInfo()
-                    .type(Set.of(Float.class))
-                    .format("float")
-            );
+    class FloatJsonSchema1 private constructor() : JsonSchema<FloatJsonSchema1Boxed>(
+        JsonSchemaInfo()
+            .type(setOf(Float::class.java))
+            .format("float")
+    ), NumberSchemaValidator<FloatJsonSchema1BoxedNumber> {
+        @Throws(ValidationException::class)
+        override fun validate(arg: Number, configuration: SchemaConfiguration?): Number {
+            val pathSet: MutableSet<List<Any>> = HashSet()
+            val pathToItem = listOf<Any>("args[0")
+            val castArg: Number = castToAllowedTypes(arg, pathToItem, pathSet)
+            val usedConfiguration = configuration ?: SchemaConfiguration(JsonSchemaKeywordFlags.Builder().build())
+            val validationMetadata =
+                ValidationMetadata(pathToItem, usedConfiguration, PathToSchemasMap(), LinkedHashSet())
+            val pathToSchemasMap = getPathToSchemas(this, castArg, validationMetadata, pathSet)
+            return getNewInstance(castArg, validationMetadata.pathToItem, pathToSchemasMap)
         }
 
-        public static FloatJsonSchema1 getInstance() {
-            if (instance == null) {
-                instance = new FloatJsonSchema1();
+        @Throws(ValidationException::class)
+        fun validate(arg: Float, configuration: SchemaConfiguration?): Float {
+            return validate(arg as Number, configuration) as Float
+        }
+
+        override fun getNewInstance(arg: Any?, pathToItem: List<Any>, pathToSchemas: PathToSchemasMap): Any? {
+            if (arg is Number) {
+                return getNewInstance(arg as Number?, pathToItem, pathToSchemas)
             }
-            return instance;
+            throw RuntimeException("Invalid input type=$javaClass. It can't be instantiated by this schema")
         }
 
-        @Override
-        public Number validate(Number arg, SchemaConfiguration configuration) throws ValidationException {
-            Set<List<Object>> pathSet = new HashSet<>();
-            List<Object> pathToItem = List.of("args[0");
-            Number castArg = castToAllowedTypes(arg, pathToItem, pathSet);
-            SchemaConfiguration usedConfiguration = Objects.requireNonNullElseGet(configuration, () -> new SchemaConfiguration(new JsonSchemaKeywordFlags.Builder().build()));
-            ValidationMetadata validationMetadata = new ValidationMetadata(pathToItem, usedConfiguration, new PathToSchemasMap(), new LinkedHashSet<>());
-            PathToSchemasMap pathToSchemasMap = getPathToSchemas(this, castArg, validationMetadata, pathSet);
-            return getNewInstance(castArg, validationMetadata.pathToItem(), pathToSchemasMap);
-        }
-
-        public float validate(float arg, SchemaConfiguration configuration) throws ValidationException {
-            return (float) validate((Number) arg, configuration);
-        }
-
-        @Override
-        public @Nullable Object getNewInstance(@Nullable Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
-            if (arg instanceof Number) {
-                return getNewInstance((Number) arg, pathToItem, pathToSchemas);
+        @Throws(ValidationException::class)
+        override fun validate(arg: Any?, configuration: SchemaConfiguration?): Number {
+            if (arg is Number) {
+                return validate(arg, configuration)
             }
-            throw new RuntimeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
+            throw ValidationException("Invalid input type=$javaClass. It can't be validated by this schema")
         }
 
-        @Override
-        public @Nullable Object validate(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException {
-            if (arg instanceof Number) {
-                return validate((Number) arg, configuration);
+        @Throws(ValidationException::class)
+        override fun validateAndBox(arg: Number, configuration: SchemaConfiguration?): FloatJsonSchema1BoxedNumber {
+            return FloatJsonSchema1BoxedNumber(validate(arg, configuration))
+        }
+
+        @Throws(ValidationException::class)
+        override fun validateAndBox(arg: Any?, configuration: SchemaConfiguration?): FloatJsonSchema1Boxed {
+            if (arg is Number) {
+                return validateAndBox(arg, configuration)
             }
-            throw new ValidationException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
+            throw ValidationException("Invalid input type=$javaClass. It can't be validated by this schema")
         }
 
-        @Override
-        public FloatJsonSchema1BoxedNumber validateAndBox(Number arg, SchemaConfiguration configuration) throws ValidationException {
-            return new FloatJsonSchema1BoxedNumber(validate(arg, configuration));
-        }
+        companion object {
+            @Volatile
+            private var instance: FloatJsonSchema1? = null
 
-        @Override
-        public FloatJsonSchema1Boxed validateAndBox(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException {
-            if (arg instanceof Number castArg) {
-                return validateAndBox(castArg, configuration);
-            }
-            throw new ValidationException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
+            fun getInstance() =
+                instance ?: synchronized(this) {
+                    instance ?: FloatJsonSchema1().also { instance = it }
+                }
         }
     }
 }
