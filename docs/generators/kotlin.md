@@ -70,7 +70,10 @@ These options may be applied as additional-properties (cli) or configOptions (pl
 <li>Double</li>
 <li>Float</li>
 <li>Int</li>
+<li>List</li>
 <li>Long</li>
+<li>Map</li>
+<li>Nothing</li>
 <li>String</li>
 </ul>
 
