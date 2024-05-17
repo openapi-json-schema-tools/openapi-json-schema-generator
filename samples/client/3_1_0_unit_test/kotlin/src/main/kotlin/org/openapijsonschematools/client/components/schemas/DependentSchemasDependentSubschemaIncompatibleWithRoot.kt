@@ -137,9 +137,6 @@ class DependentSchemasDependentSubschemaIncompatibleWithRoot {
         private val knownKeys: Set<String> = setOf(
             "bar"
         )
-        override fun getKnownKeys(): Set<String> {
-            return knownKeys
-        }
         private val instance: MutableMap<String, Any?>
         init {
             this.instance = LinkedHashMap()

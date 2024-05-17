@@ -60,9 +60,6 @@ class NonAsciiPatternWithAdditionalproperties {
     
     class NonAsciiPatternWithAdditionalpropertiesMapBuilder: GenericBuilder<Map<String, Any?>> {
         private val knownKeys: Set<String> = setOf()
-        override fun getKnownKeys(): Set<String> {
-            return knownKeys
-        }
         private val instance: MutableMap<String, Any?>
         init {
             this.instance = LinkedHashMap()
