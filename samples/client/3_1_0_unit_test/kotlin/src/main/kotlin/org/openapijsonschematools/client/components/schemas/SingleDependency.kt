@@ -70,8 +70,8 @@ class SingleDependency {
     
     class SingleDependency1 private constructor(): JsonSchema<SingleDependency1Boxed>(
         JsonSchemaInfo()
-            .dependentRequired(MapUtils.makeMap(
-                new AbstractMap.SimpleEntry<>(
+            .dependentRequired(mapOf(
+                Pair(
                     "bar",
                     setOf(
                         "foo"

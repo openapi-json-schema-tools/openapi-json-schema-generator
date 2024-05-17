@@ -70,8 +70,8 @@ class EmptyDependents {
     
     class EmptyDependents1 private constructor(): JsonSchema<EmptyDependents1Boxed>(
         JsonSchemaInfo()
-            .dependentRequired(MapUtils.makeMap(
-                new AbstractMap.SimpleEntry<>(
+            .dependentRequired(mapOf(
+                Pair(
                     "bar",
                     setOf(
                     )

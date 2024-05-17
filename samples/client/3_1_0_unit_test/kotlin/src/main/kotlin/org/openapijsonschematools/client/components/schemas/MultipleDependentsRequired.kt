@@ -70,8 +70,8 @@ class MultipleDependentsRequired {
     
     class MultipleDependentsRequired1 private constructor(): JsonSchema<MultipleDependentsRequired1Boxed>(
         JsonSchemaInfo()
-            .dependentRequired(MapUtils.makeMap(
-                new AbstractMap.SimpleEntry<>(
+            .dependentRequired(mapOf(
+                Pair(
                     "quux",
                     setOf(
                         "foo",

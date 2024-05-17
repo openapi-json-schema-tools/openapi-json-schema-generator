@@ -1,7 +1,7 @@
 {{#if forDocs}}
-dependentRequired = MapUtils.makeMap(<br>
+dependentRequired = mapOf(<br>
     {{#each dependentRequired}}
-&nbsp;&nbsp;&nbsp;&nbsp;new AbstractMap.SimpleEntry<>(<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Pair(<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"{{{@key}}}",<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;setOf(
         {{#each this}}
@@ -12,9 +12,9 @@ dependentRequired = MapUtils.makeMap(<br>
     {{/each}}
 )
 {{else}}
-.dependentRequired(MapUtils.makeMap(
+.dependentRequired(mapOf(
     {{#each dependentRequired}}
-    new AbstractMap.SimpleEntry<>(
+    Pair(
         "{{{@key}}}",
         setOf(
         {{#each this}}
