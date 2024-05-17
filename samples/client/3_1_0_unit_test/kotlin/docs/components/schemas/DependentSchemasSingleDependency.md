@@ -160,7 +160,7 @@ A schema class that validates payloads
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |
-| Map<String, Class<? extends JsonSchema>> | dependentSchemas = mapOf(<br>&nbsp;&nbsp;&nbsp;&nbsp;new PropertyEntry("bar", [Bar::class.java](#bar)))<br>)<br> |
+| Map<String, Class<? extends JsonSchema>> | dependentSchemas = mapOf(<br>&nbsp;&nbsp;&nbsp;&nbsp;"bar" to [Bar::class.java](#bar))<br>)<br> |
 
 ### Method Summary
 | Modifier and Type | Method and Description |

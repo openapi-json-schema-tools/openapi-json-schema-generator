@@ -414,7 +414,7 @@ class DependentSchemasDependentSubschemaIncompatibleWithRoot {
                 "foo" to Foo::class.java
             ))
             .dependentSchemas(mapOf(
-                new PropertyEntry("foo", Foo1::class.java)
+                "foo" to Foo1::class.java
             ))
     ), NullSchemaValidator<DependentSchemasDependentSubschemaIncompatibleWithRoot1BoxedVoid>, BooleanSchemaValidator<DependentSchemasDependentSubschemaIncompatibleWithRoot1BoxedBoolean>, NumberSchemaValidator<DependentSchemasDependentSubschemaIncompatibleWithRoot1BoxedNumber>, StringSchemaValidator<DependentSchemasDependentSubschemaIncompatibleWithRoot1BoxedString>, ListSchemaValidator<FrozenList<Any?>, DependentSchemasDependentSubschemaIncompatibleWithRoot1BoxedList>, MapSchemaValidator<DependentSchemasDependentSubschemaIncompatibleWithRootMap, DependentSchemasDependentSubschemaIncompatibleWithRoot1BoxedMap> {
         /*

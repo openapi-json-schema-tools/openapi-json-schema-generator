@@ -506,7 +506,7 @@ class DependentSchemasSingleDependency {
     class DependentSchemasSingleDependency1 private constructor(): JsonSchema<DependentSchemasSingleDependency1Boxed>(
         JsonSchemaInfo()
             .dependentSchemas(mapOf(
-                new PropertyEntry("bar", Bar::class.java)
+                "bar" to Bar::class.java
             ))
     ), NullSchemaValidator<DependentSchemasSingleDependency1BoxedVoid>, BooleanSchemaValidator<DependentSchemasSingleDependency1BoxedBoolean>, NumberSchemaValidator<DependentSchemasSingleDependency1BoxedNumber>, StringSchemaValidator<DependentSchemasSingleDependency1BoxedString>, ListSchemaValidator<FrozenList<Any?>, DependentSchemasSingleDependency1BoxedList>, MapSchemaValidator<FrozenMap<Any?>, DependentSchemasSingleDependency1BoxedMap> {
         /*

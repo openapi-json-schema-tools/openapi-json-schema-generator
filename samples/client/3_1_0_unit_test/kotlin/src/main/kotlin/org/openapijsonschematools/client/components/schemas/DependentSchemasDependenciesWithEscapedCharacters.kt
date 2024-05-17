@@ -733,8 +733,8 @@ class DependentSchemasDependenciesWithEscapedCharacters {
     class DependentSchemasDependenciesWithEscapedCharacters1 private constructor(): JsonSchema<DependentSchemasDependenciesWithEscapedCharacters1Boxed>(
         JsonSchemaInfo()
             .dependentSchemas(mapOf(
-                new PropertyEntry("foo\tbar", Footbar::class.java),
-                new PropertyEntry("foo'bar", Foobar::class.java)
+                "foo\tbar" to Footbar::class.java,
+                "foo'bar" to Foobar::class.java
             ))
     ), NullSchemaValidator<DependentSchemasDependenciesWithEscapedCharacters1BoxedVoid>, BooleanSchemaValidator<DependentSchemasDependenciesWithEscapedCharacters1BoxedBoolean>, NumberSchemaValidator<DependentSchemasDependenciesWithEscapedCharacters1BoxedNumber>, StringSchemaValidator<DependentSchemasDependenciesWithEscapedCharacters1BoxedString>, ListSchemaValidator<FrozenList<Any?>, DependentSchemasDependenciesWithEscapedCharacters1BoxedList>, MapSchemaValidator<FrozenMap<Any?>, DependentSchemasDependenciesWithEscapedCharacters1BoxedMap> {
         /*

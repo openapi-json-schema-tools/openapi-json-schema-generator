@@ -176,7 +176,7 @@ A schema class that validates payloads
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |
 | Map<String, Class<? extends JsonSchema>> | properties = mapOf(<br>&nbsp;&nbsp;&nbsp;&nbsp;"foo" to [Foo::class.java](#foo))<br>)<br> |
-| Map<String, Class<? extends JsonSchema>> | dependentSchemas = mapOf(<br>&nbsp;&nbsp;&nbsp;&nbsp;new PropertyEntry("foo", [Foo1::class.java](#foo1)))<br>)<br> |
+| Map<String, Class<? extends JsonSchema>> | dependentSchemas = mapOf(<br>&nbsp;&nbsp;&nbsp;&nbsp;"foo" to [Foo1::class.java](#foo1))<br>)<br> |
 
 ### Method Summary
 | Modifier and Type | Method and Description |

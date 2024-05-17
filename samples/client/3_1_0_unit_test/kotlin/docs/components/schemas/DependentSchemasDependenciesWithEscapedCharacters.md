@@ -162,7 +162,7 @@ A schema class that validates payloads
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |
-| Map<String, Class<? extends JsonSchema>> | dependentSchemas = mapOf(<br>&nbsp;&nbsp;&nbsp;&nbsp;new PropertyEntry("foo\tbar", [Footbar::class.java](#footbar))),<br>&nbsp;&nbsp;&nbsp;&nbsp;new PropertyEntry("foo'bar", [Foobar::class.java](#foobar)))<br>)<br> |
+| Map<String, Class<? extends JsonSchema>> | dependentSchemas = mapOf(<br>&nbsp;&nbsp;&nbsp;&nbsp;"foo\tbar" to [Footbar::class.java](#footbar)),<br>&nbsp;&nbsp;&nbsp;&nbsp;"foo'bar" to [Foobar::class.java](#foobar))<br>)<br> |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
