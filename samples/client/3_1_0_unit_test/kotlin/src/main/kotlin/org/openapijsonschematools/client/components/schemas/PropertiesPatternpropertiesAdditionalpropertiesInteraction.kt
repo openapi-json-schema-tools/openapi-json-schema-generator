@@ -415,7 +415,7 @@ class PropertiesPatternpropertiesAdditionalpropertiesInteraction {
     }
     
     
-    class PropertiesPatternpropertiesAdditionalpropertiesInteractionMap(m: FrozenMap<Any>) : FrozenMap<Any>(m) {
+    class PropertiesPatternpropertiesAdditionalpropertiesInteractionMap(m: FrozenMap<Any?>) : FrozenMap<Any?>(m) {
         companion object {
             val requiredKeys: Set<String> = setOf()
             val optionalKeys: Set<String> = setOf(
@@ -423,7 +423,7 @@ class PropertiesPatternpropertiesAdditionalpropertiesInteraction {
                 "bar"
             )
             @Throws(ValidationException::class)
-            fun of(arg: Map<String, Any>, configuration: SchemaConfiguration): PropertiesPatternpropertiesAdditionalpropertiesInteractionMap {
+            fun of(arg: Map<String, Any?>, configuration: SchemaConfiguration): PropertiesPatternpropertiesAdditionalpropertiesInteractionMap {
                 return PropertiesPatternpropertiesAdditionalpropertiesInteraction1.getInstance().validate(arg, configuration)
             }
         }
@@ -432,7 +432,7 @@ class PropertiesPatternpropertiesAdditionalpropertiesInteraction {
         fun foo(): FrozenList<Any?> {
             val key = "foo"
             throwIfKeyNotPresent(key)
-            val value: Any = get(key)
+            val value: Any? = get(key)
             if (!(value is FrozenList<Any?>)) {
                 throw RuntimeException("Invalid value stored for foo")
             }
@@ -443,7 +443,7 @@ class PropertiesPatternpropertiesAdditionalpropertiesInteraction {
         fun bar(): FrozenList<Any?> {
             val key = "bar"
             throwIfKeyNotPresent(key)
-            val value: Any = get(key)
+            val value: Any? = get(key)
             if (!(value is FrozenList<Any?>)) {
                 throw RuntimeException("Invalid value stored for bar")
             }
@@ -462,8 +462,8 @@ class PropertiesPatternpropertiesAdditionalpropertiesInteraction {
     }
     
     interface SetterForFoo <T> {
-        fun getInstance(): MutableMap<String, Any>
-        fun getBuilderAfterFoo(instance: MutableMap<String, Any>): T
+        fun getInstance(): MutableMap<String, Any?>
+        fun getBuilderAfterFoo(instance: MutableMap<String, Any?>): T
         
         fun foo(value: List<Any?>): T {
             val instance = getInstance()
@@ -473,8 +473,8 @@ class PropertiesPatternpropertiesAdditionalpropertiesInteraction {
     }
     
     interface SetterForBar <T> {
-        fun getInstance(): MutableMap<String, Any>
-        fun getBuilderAfterBar(instance: MutableMap<String, Any>): T
+        fun getInstance(): MutableMap<String, Any?>
+        fun getBuilderAfterBar(instance: MutableMap<String, Any?>): T
         
         fun bar(value: List<Any?>): T {
             val instance = getInstance()
@@ -485,8 +485,8 @@ class PropertiesPatternpropertiesAdditionalpropertiesInteraction {
     
     interface SetterForAdditionalProperties<T> {
         fun getKnownKeys(): Set<String>
-        fun getInstance(): MutableMap<String, Any>
-        fun getBuilderAfterAdditionalProperty(instance: MutableMap<String, Any>): T
+        fun getInstance(): MutableMap<String, Any?>
+        fun getBuilderAfterAdditionalProperty(instance: MutableMap<String, Any?>): T
         
         @Throws(InvalidAdditionalPropertyException::class)
         fun additionalProperty(key: String, value: Int): T {
@@ -521,7 +521,7 @@ class PropertiesPatternpropertiesAdditionalpropertiesInteraction {
         }
     }
     
-    class PropertiesPatternpropertiesAdditionalpropertiesInteractionMapBuilder: GenericBuilder<Map<String, Any>>, SetterForFoo<PropertiesPatternpropertiesAdditionalpropertiesInteractionMapBuilder>, SetterForBar<PropertiesPatternpropertiesAdditionalpropertiesInteractionMapBuilder>, SetterForAdditionalProperties<PropertiesPatternpropertiesAdditionalpropertiesInteractionMapBuilder> {
+    class PropertiesPatternpropertiesAdditionalpropertiesInteractionMapBuilder: GenericBuilder<Map<String, Any?>>, SetterForFoo<PropertiesPatternpropertiesAdditionalpropertiesInteractionMapBuilder>, SetterForBar<PropertiesPatternpropertiesAdditionalpropertiesInteractionMapBuilder>, SetterForAdditionalProperties<PropertiesPatternpropertiesAdditionalpropertiesInteractionMapBuilder> {
         private val knownKeys: Set<String> = setOf(
             "foo",
             "bar"
@@ -529,23 +529,23 @@ class PropertiesPatternpropertiesAdditionalpropertiesInteraction {
         override fun getKnownKeys(): Set<String> {
             return knownKeys
         }
-        private val instance: MutableMap<String, Any>
+        private val instance: MutableMap<String, Any?>
         init {
             this.instance = LinkedHashMap()
         }
-        override fun build(): Map<String, Any> {
+        override fun build(): Map<String, Any?> {
             return instance
         }
-        override fun getInstance(): MutableMap<String, Any> {
+        override fun getInstance(): MutableMap<String, Any?> {
             return instance
         }
-        override fun getBuilderAfterFoo(instance: MutableMap<String, Any>): PropertiesPatternpropertiesAdditionalpropertiesInteractionMapBuilder {
+        override fun getBuilderAfterFoo(instance: MutableMap<String, Any?>): PropertiesPatternpropertiesAdditionalpropertiesInteractionMapBuilder {
             return this
         }
-        override fun getBuilderAfterBar(instance: MutableMap<String, Any>): PropertiesPatternpropertiesAdditionalpropertiesInteractionMapBuilder {
+        override fun getBuilderAfterBar(instance: MutableMap<String, Any?>): PropertiesPatternpropertiesAdditionalpropertiesInteractionMapBuilder {
             return this
         }
-        override fun getBuilderAfterAdditionalProperty(instance: MutableMap<String, Any>): PropertiesPatternpropertiesAdditionalpropertiesInteractionMapBuilder  {
+        override fun getBuilderAfterAdditionalProperty(instance: MutableMap<String, Any?>): PropertiesPatternpropertiesAdditionalpropertiesInteractionMapBuilder  {
             return this
         }
     }
@@ -592,7 +592,7 @@ class PropertiesPatternpropertiesAdditionalpropertiesInteraction {
         }
         
         override fun getNewInstance(arg: Map<*, *>, pathToItem: List<Any>, pathToSchemas: PathToSchemasMap): PropertiesPatternpropertiesAdditionalpropertiesInteractionMap {
-            val properties: LinkedHashMap<String, Any> = LinkedHashMap()
+            val properties: LinkedHashMap<String, Any?> = LinkedHashMap()
             for((entryKey, value) in arg) {
                 if (!(entryKey is String)) {
                     throw RuntimeException("Invalid non-string key value")
@@ -604,12 +604,9 @@ class PropertiesPatternpropertiesAdditionalpropertiesInteraction {
                 }
                 val propertySchema: JsonSchema<*> = schemas.entries.iterator().next().key
                 val propertyInstance: Any? = propertySchema.getNewInstance(value, propertyPathToItem, pathToSchemas)
-                if (!(propertyInstance is Any)) {
-                    throw RuntimeException("Invalid instantiated value")
-                }
                 properties[entryKey] = propertyInstance
             }
-            val castProperties: FrozenMap<Any> = FrozenMap(properties)
+            val castProperties: FrozenMap<Any?> = FrozenMap(properties)
             return PropertiesPatternpropertiesAdditionalpropertiesInteractionMap(castProperties)
         }
         

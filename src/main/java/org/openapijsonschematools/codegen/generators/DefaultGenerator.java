@@ -2271,6 +2271,11 @@ public class DefaultGenerator implements Generator {
             }
             property.mapValueSchema = mapValueSchema;
         }
+        if (property.patternProperties != null && !property.patternProperties.isEmpty()) {
+            for (CodegenSchema prop: property.patternProperties.values()) {
+                property.mapValueSchema = prop.add(property.mapValueSchema);
+            }
+        }
 
         if (currentJsonPath != null) {
             String[] pathPieces = currentJsonPath.split("/");

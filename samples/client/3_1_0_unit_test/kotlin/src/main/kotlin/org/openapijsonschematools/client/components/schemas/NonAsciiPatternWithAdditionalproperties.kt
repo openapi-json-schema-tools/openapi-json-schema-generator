@@ -46,7 +46,7 @@ class NonAsciiPatternWithAdditionalproperties {
     }
     
     
-    class NonAsciiPatternWithAdditionalpropertiesMap(m: FrozenMap<Any?>): FrozenMap<Any?>(m) {
+    class NonAsciiPatternWithAdditionalpropertiesMap(m: FrozenMap<Any?>) : FrozenMap<Any?>(m) {
         companion object {
             val requiredKeys: Set<String> = setOf()
             val optionalKeys: Set<String> = setOf()

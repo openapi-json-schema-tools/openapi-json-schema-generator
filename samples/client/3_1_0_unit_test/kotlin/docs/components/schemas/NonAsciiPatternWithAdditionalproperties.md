@@ -122,14 +122,14 @@ A class that builds the Map input type
 
 ## NonAsciiPatternWithAdditionalpropertiesMap
 class NonAsciiPatternWithAdditionalpropertiesMap<br>
-extends FrozenMap<String, Any>
+extends FrozenMap<String, Any?>
 
 A class to store validated Map payloads
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [NonAsciiPatternWithAdditionalpropertiesMap](#nonasciipatternwithadditionalpropertiesmap) | of([Map<String, Any>](#nonasciipatternwithadditionalpropertiesmapbuilder) arg, SchemaConfiguration configuration) |
+| static [NonAsciiPatternWithAdditionalpropertiesMap](#nonasciipatternwithadditionalpropertiesmap) | of([Map<String, Any?>](#nonasciipatternwithadditionalpropertiesmapbuilder) arg, SchemaConfiguration configuration) |
 
 ## CircumflexAccentLatinSmallLetterAWithAcuteBoxed
 sealed interface CircumflexAccentLatinSmallLetterAWithAcuteBoxed<br>

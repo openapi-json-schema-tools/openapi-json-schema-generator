@@ -65,7 +65,7 @@ class {{className.pascalCase}}{{#unless @last }}(private val instance: MutableMa
                 {{/eq}}
             {{/eq}}
         {{/and}}
-    override fun getKnownKeys(): Set<String> {
+    {{#unless ../additionalProperties.isBooleanSchemaFalse}}override {{/unless}}fun getKnownKeys(): Set<String> {
         return knownKeys
     }
     {{/if}}

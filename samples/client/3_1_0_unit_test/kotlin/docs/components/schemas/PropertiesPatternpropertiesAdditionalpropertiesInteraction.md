@@ -110,7 +110,7 @@ PropertiesPatternpropertiesAdditionalpropertiesInteraction.PropertiesPatternprop
 
 ## PropertiesPatternpropertiesAdditionalpropertiesInteractionMapBuilder
 class PropertiesPatternpropertiesAdditionalpropertiesInteractionMapBuilder<br>
-builder for `Map<String, Any>`
+builder for `Map<String, Any?>`
 
 A class that builds the Map input type
 
@@ -122,7 +122,7 @@ A class that builds the Map input type
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| Map<String, Any> | build()<br>Returns map input that should be used with Schema.validate |
+| Map<String, Any?> | build()<br>Returns map input that should be used with Schema.validate |
 | [PropertiesPatternpropertiesAdditionalpropertiesInteractionMapBuilder](#propertiespatternpropertiesadditionalpropertiesinteractionmapbuilder) | foo(value: List<Any?>) |
 | [PropertiesPatternpropertiesAdditionalpropertiesInteractionMapBuilder](#propertiespatternpropertiesadditionalpropertiesinteractionmapbuilder) | bar(value: List<Any?>) |
 | [PropertiesPatternpropertiesAdditionalpropertiesInteractionMapBuilder](#propertiespatternpropertiesadditionalpropertiesinteractionmapbuilder) | additionalProperty(key: String, value: Int) |
@@ -132,14 +132,14 @@ A class that builds the Map input type
 
 ## PropertiesPatternpropertiesAdditionalpropertiesInteractionMap
 class PropertiesPatternpropertiesAdditionalpropertiesInteractionMap<br>
-extends FrozenMap<String, Any>
+extends FrozenMap<String, Any?>
 
 A class to store validated Map payloads
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [PropertiesPatternpropertiesAdditionalpropertiesInteractionMap](#propertiespatternpropertiesadditionalpropertiesinteractionmap) | of([Map<String, Any>](#propertiespatternpropertiesadditionalpropertiesinteractionmapbuilder) arg, SchemaConfiguration configuration) |
+| static [PropertiesPatternpropertiesAdditionalpropertiesInteractionMap](#propertiespatternpropertiesadditionalpropertiesinteractionmap) | of([Map<String, Any?>](#propertiespatternpropertiesadditionalpropertiesinteractionmapbuilder) arg, SchemaConfiguration configuration) |
 | FrozenList<Any?> | foo()<br>[optional] |
 | FrozenList<Any?> | bar()<br>[optional] |
 | Number | getAdditionalProperty(String name)<br>provides type safety for additional properties |
