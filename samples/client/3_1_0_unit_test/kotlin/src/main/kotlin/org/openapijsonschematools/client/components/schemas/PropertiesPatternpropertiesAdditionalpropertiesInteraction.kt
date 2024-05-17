@@ -571,7 +571,7 @@ class PropertiesPatternpropertiesAdditionalpropertiesInteraction {
             ))
             .additionalProperties(AdditionalProperties::class.java)
             .patternProperties(mapOf(
-                new AbstractMap.SimpleEntry<>(Pattern.compile("f.o"), Fo::class.java)
+                Pattern.compile("f.o") to Fo::class.java
             ))
     ), MapSchemaValidator<PropertiesPatternpropertiesAdditionalpropertiesInteractionMap, PropertiesPatternpropertiesAdditionalpropertiesInteraction1BoxedMap> {
         /*

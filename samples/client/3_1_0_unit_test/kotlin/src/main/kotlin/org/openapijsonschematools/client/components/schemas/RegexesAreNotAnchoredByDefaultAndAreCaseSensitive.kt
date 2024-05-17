@@ -99,8 +99,8 @@ class RegexesAreNotAnchoredByDefaultAndAreCaseSensitive {
     class RegexesAreNotAnchoredByDefaultAndAreCaseSensitive1 private constructor(): JsonSchema<RegexesAreNotAnchoredByDefaultAndAreCaseSensitive1Boxed>(
         JsonSchemaInfo()
             .patternProperties(mapOf(
-                new AbstractMap.SimpleEntry<>(Pattern.compile("[0-9]{2,}"), Schema092::class.java),
-                new AbstractMap.SimpleEntry<>(Pattern.compile("X_"), X::class.java)
+                Pattern.compile("[0-9]{2,}") to Schema092::class.java,
+                Pattern.compile("X_") to X::class.java
             ))
     ), NullSchemaValidator<RegexesAreNotAnchoredByDefaultAndAreCaseSensitive1BoxedVoid>, BooleanSchemaValidator<RegexesAreNotAnchoredByDefaultAndAreCaseSensitive1BoxedBoolean>, NumberSchemaValidator<RegexesAreNotAnchoredByDefaultAndAreCaseSensitive1BoxedNumber>, StringSchemaValidator<RegexesAreNotAnchoredByDefaultAndAreCaseSensitive1BoxedString>, ListSchemaValidator<FrozenList<Any?>, RegexesAreNotAnchoredByDefaultAndAreCaseSensitive1BoxedList>, MapSchemaValidator<FrozenMap<Any?>, RegexesAreNotAnchoredByDefaultAndAreCaseSensitive1BoxedMap> {
         /*

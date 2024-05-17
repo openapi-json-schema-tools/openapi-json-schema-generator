@@ -98,7 +98,7 @@ PropertiesPatternpropertiesAdditionalpropertiesInteraction.PropertiesPatternprop
 | Set<Class<?>> | type = setOf(Map::class.java) |
 | Map<String, Class<? extends JsonSchema>> | properties = mapOf(<br>&nbsp;&nbsp;&nbsp;&nbsp;"foo" to [Foo::class.java](#foo)),<br>&nbsp;&nbsp;&nbsp;&nbsp;"bar" to [Bar::class.java](#bar))<br>)<br> |
 | Class<? extends JsonSchema> | additionalProperties = [AdditionalProperties::class.java](#additionalproperties) |
-| Map<Pattern, Class<? extends JsonSchema>> | patternProperties = mapOf(<br>&nbsp;&nbsp;&nbsp;&nbsp;new AbstractMap.SimpleEntry<>(Pattern.compile("f.o"), [Fo::class.java](#fo)))<br>)<br> |
+| Map<Pattern, Class<? extends JsonSchema>> | patternProperties = mapOf(<br>&nbsp;&nbsp;&nbsp;&nbsp;Pattern.compile("f.o") to [Fo::class.java](#fo))<br>)<br> |
 
 ### Method Summary
 | Modifier and Type | Method and Description |

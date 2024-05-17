@@ -153,7 +153,7 @@ A schema class that validates payloads
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |
-| Map<Pattern, Class<? extends JsonSchema>> | patternProperties = mapOf(<br>&nbsp;&nbsp;&nbsp;&nbsp;new AbstractMap.SimpleEntry<>(Pattern.compile("a*"), [A::class.java](#a))),<br>&nbsp;&nbsp;&nbsp;&nbsp;new AbstractMap.SimpleEntry<>(Pattern.compile("aaa*"), [Aaa::class.java](#aaa)))<br>)<br> |
+| Map<Pattern, Class<? extends JsonSchema>> | patternProperties = mapOf(<br>&nbsp;&nbsp;&nbsp;&nbsp;Pattern.compile("a*") to [A::class.java](#a)),<br>&nbsp;&nbsp;&nbsp;&nbsp;Pattern.compile("aaa*") to [Aaa::class.java](#aaa))<br>)<br> |
 
 ### Method Summary
 | Modifier and Type | Method and Description |

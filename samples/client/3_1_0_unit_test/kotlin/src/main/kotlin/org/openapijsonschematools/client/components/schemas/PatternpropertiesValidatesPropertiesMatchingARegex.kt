@@ -85,7 +85,7 @@ class PatternpropertiesValidatesPropertiesMatchingARegex {
     class PatternpropertiesValidatesPropertiesMatchingARegex1 private constructor(): JsonSchema<PatternpropertiesValidatesPropertiesMatchingARegex1Boxed>(
         JsonSchemaInfo()
             .patternProperties(mapOf(
-                new AbstractMap.SimpleEntry<>(Pattern.compile("f.*o"), Fo::class.java)
+                Pattern.compile("f.*o") to Fo::class.java
             ))
     ), NullSchemaValidator<PatternpropertiesValidatesPropertiesMatchingARegex1BoxedVoid>, BooleanSchemaValidator<PatternpropertiesValidatesPropertiesMatchingARegex1BoxedBoolean>, NumberSchemaValidator<PatternpropertiesValidatesPropertiesMatchingARegex1BoxedNumber>, StringSchemaValidator<PatternpropertiesValidatesPropertiesMatchingARegex1BoxedString>, ListSchemaValidator<FrozenList<Any?>, PatternpropertiesValidatesPropertiesMatchingARegex1BoxedList>, MapSchemaValidator<FrozenMap<Any?>, PatternpropertiesValidatesPropertiesMatchingARegex1BoxedMap> {
         /*

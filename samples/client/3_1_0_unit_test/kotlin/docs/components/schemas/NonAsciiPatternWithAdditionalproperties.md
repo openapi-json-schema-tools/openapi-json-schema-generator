@@ -94,7 +94,7 @@ NonAsciiPatternWithAdditionalproperties.NonAsciiPatternWithAdditionalpropertiesM
 | ----------------- | ---------------------- |
 | Set<Class<?>> | type = setOf(Map::class.java) |
 | Class<? extends JsonSchema> | additionalProperties = [AdditionalProperties::class.java](#additionalproperties) |
-| Map<Pattern, Class<? extends JsonSchema>> | patternProperties = mapOf(<br>&nbsp;&nbsp;&nbsp;&nbsp;new AbstractMap.SimpleEntry<>(Pattern.compile("^á"), [CircumflexAccentLatinSmallLetterAWithAcute::class.java](#circumflexaccentlatinsmallletterawithacute)))<br>)<br> |
+| Map<Pattern, Class<? extends JsonSchema>> | patternProperties = mapOf(<br>&nbsp;&nbsp;&nbsp;&nbsp;Pattern.compile("^á") to [CircumflexAccentLatinSmallLetterAWithAcute::class.java](#circumflexaccentlatinsmallletterawithacute))<br>)<br> |
 
 ### Method Summary
 | Modifier and Type | Method and Description |

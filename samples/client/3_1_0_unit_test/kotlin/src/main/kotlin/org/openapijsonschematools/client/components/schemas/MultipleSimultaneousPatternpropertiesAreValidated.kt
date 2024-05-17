@@ -360,8 +360,8 @@ class MultipleSimultaneousPatternpropertiesAreValidated {
     class MultipleSimultaneousPatternpropertiesAreValidated1 private constructor(): JsonSchema<MultipleSimultaneousPatternpropertiesAreValidated1Boxed>(
         JsonSchemaInfo()
             .patternProperties(mapOf(
-                new AbstractMap.SimpleEntry<>(Pattern.compile("a*"), A::class.java),
-                new AbstractMap.SimpleEntry<>(Pattern.compile("aaa*"), Aaa::class.java)
+                Pattern.compile("a*") to A::class.java,
+                Pattern.compile("aaa*") to Aaa::class.java
             ))
     ), NullSchemaValidator<MultipleSimultaneousPatternpropertiesAreValidated1BoxedVoid>, BooleanSchemaValidator<MultipleSimultaneousPatternpropertiesAreValidated1BoxedBoolean>, NumberSchemaValidator<MultipleSimultaneousPatternpropertiesAreValidated1BoxedNumber>, StringSchemaValidator<MultipleSimultaneousPatternpropertiesAreValidated1BoxedString>, ListSchemaValidator<FrozenList<Any?>, MultipleSimultaneousPatternpropertiesAreValidated1BoxedList>, MapSchemaValidator<FrozenMap<Any?>, MultipleSimultaneousPatternpropertiesAreValidated1BoxedMap> {
         /*

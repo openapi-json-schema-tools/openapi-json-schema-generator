@@ -89,7 +89,7 @@ class NonAsciiPatternWithAdditionalproperties {
             .type(setOf(Map::class.java))
             .additionalProperties(AdditionalProperties::class.java)
             .patternProperties(mapOf(
-                new AbstractMap.SimpleEntry<>(Pattern.compile("^á"), CircumflexAccentLatinSmallLetterAWithAcute::class.java)
+                Pattern.compile("^á") to CircumflexAccentLatinSmallLetterAWithAcute::class.java
             ))
     ), MapSchemaValidator<NonAsciiPatternWithAdditionalpropertiesMap, NonAsciiPatternWithAdditionalproperties1BoxedMap> {
         /*

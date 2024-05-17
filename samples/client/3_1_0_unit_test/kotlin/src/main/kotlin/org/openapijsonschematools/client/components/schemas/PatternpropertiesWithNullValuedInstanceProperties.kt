@@ -85,7 +85,7 @@ class PatternpropertiesWithNullValuedInstanceProperties {
     class PatternpropertiesWithNullValuedInstanceProperties1 private constructor(): JsonSchema<PatternpropertiesWithNullValuedInstanceProperties1Boxed>(
         JsonSchemaInfo()
             .patternProperties(mapOf(
-                new AbstractMap.SimpleEntry<>(Pattern.compile("^.*bar\$"), Bar::class.java)
+                Pattern.compile("^.*bar\$") to Bar::class.java
             ))
     ), NullSchemaValidator<PatternpropertiesWithNullValuedInstanceProperties1BoxedVoid>, BooleanSchemaValidator<PatternpropertiesWithNullValuedInstanceProperties1BoxedBoolean>, NumberSchemaValidator<PatternpropertiesWithNullValuedInstanceProperties1BoxedNumber>, StringSchemaValidator<PatternpropertiesWithNullValuedInstanceProperties1BoxedString>, ListSchemaValidator<FrozenList<Any?>, PatternpropertiesWithNullValuedInstanceProperties1BoxedList>, MapSchemaValidator<FrozenMap<Any?>, PatternpropertiesWithNullValuedInstanceProperties1BoxedMap> {
         /*
