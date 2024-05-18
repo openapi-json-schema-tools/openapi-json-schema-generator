@@ -56,7 +56,7 @@ FrozenList<{{#if noAnnotations}}*{{else}}Any?{{/if}}>
                                                 {{~/if}}
                                             {{/if}}
                                         {{~else}}
-FrozenMap<Any?>
+FrozenMap<{{#if noAnnotations}}*{{else}}Any?{{/if}}>
                                         {{~/if}}
                                     {{/eq}}
                                 {{/eq}}
@@ -72,21 +72,21 @@ FrozenMap<Any?>
                 {{! nullable types }}
                 {{#each types}}
                     {{#eq this "boolean"}}
-Boolean{{#unless noAnnotations}}?{{/unless}}
+Boolean?
                     {{~else}}
                         {{#eq this "string"}}
                             {{#eq format "binary"}}
 {{! todo binary types}}
-String{{#unless noAnnotations}}?{{/unless}}
+String?
                             {{~else}}
-String{{#unless noAnnotations}}?{{/unless}}
+String?
                             {{~/eq}}
                         {{else}}
                             {{#eq this "number"}}
-Number{{#unless noAnnotations}}?{{/unless}}
+Number?
                             {{~else}}
                                 {{#eq this "integer"}}
-Number{{#unless noAnnotations}}?{{/unless}}
+Number?
                                 {{~else}}
                                     {{#eq this "array"}}
                                         {{#if arrayOutputJsonPathPiece}}
@@ -98,13 +98,13 @@ Number{{#unless noAnnotations}}?{{/unless}}
                                                 {{~/if}}
                                             {{else}}
                                                 {{#if fullRefModule}}
-{{fullRefModule}}.{{arrayOutputJsonPathPiece.pascalCase}}{{#unless noAnnotations}}?{{/unless}}
+{{fullRefModule}}.{{arrayOutputJsonPathPiece.pascalCase}}?
                                                 {{~else}}
-{{arrayOutputJsonPathPiece.pascalCase}}{{#unless noAnnotations}}?{{/unless}}
+{{arrayOutputJsonPathPiece.pascalCase}}?
                                                 {{~/if}}
                                             {{/if}}
                                         {{else}}
-FrozenList<Any?>{{#unless noAnnotations}}?{{/unless}}
+FrozenList<{{#if noAnnotations}}*{{else}}Any?{{/if}}>?
                                         {{~/if}}
                                     {{else}}
                                         {{#eq this "object"}}
@@ -117,13 +117,13 @@ FrozenList<Any?>{{#unless noAnnotations}}?{{/unless}}
                                                     {{~/if}}
                                                 {{else}}
                                                     {{#if fullRefModule}}
-{{fullRefModule}}.{{mapOutputJsonPathPiece.pascalCase}}{{#unless noAnnotations}}?{{/unless}}
+{{fullRefModule}}.{{mapOutputJsonPathPiece.pascalCase}}?
                                                     {{~else}}
-{{mapOutputJsonPathPiece.pascalCase}}{{#unless noAnnotations}}?{{/unless}}
+{{mapOutputJsonPathPiece.pascalCase}}?
                                                     {{~/if}}
                                                 {{/if}}
                                             {{~else}}
-FrozenMap<Any?>{{#unless noAnnotations}}?{{/unless}}
+FrozenMap<{{#if noAnnotations}}*{{else}}Any?{{/if}}>?
                                             {{~/if}}
                                         {{/eq}}
                                     {{/eq}}
@@ -143,12 +143,12 @@ Any
         {{else}}
             {{! 3 or more types }}
             {{#contains types "null"}}
-Any{{#unless noAnnotations}}?{{/unless}}
+Any?
             {{~else}}
 Any
             {{~/contains}}
         {{/eq}}
     {{/eq}}
 {{else}}
-Any{{#unless noAnnotations}}?{{/unless}}
+Any?
 {{~/if}}

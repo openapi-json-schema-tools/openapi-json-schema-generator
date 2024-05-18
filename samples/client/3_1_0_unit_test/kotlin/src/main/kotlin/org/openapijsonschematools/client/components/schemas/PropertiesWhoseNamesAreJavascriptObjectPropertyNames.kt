@@ -431,7 +431,7 @@ class PropertiesWhoseNamesAreJavascriptObjectPropertyNames {
             val key = "toString"
             throwIfKeyNotPresent(key)
             val value: Any? = get(key)
-            if (!(value is Any)) {
+            if (!(value is Any?)) {
                 throw RuntimeException("Invalid value stored for toString")
             }
             return value

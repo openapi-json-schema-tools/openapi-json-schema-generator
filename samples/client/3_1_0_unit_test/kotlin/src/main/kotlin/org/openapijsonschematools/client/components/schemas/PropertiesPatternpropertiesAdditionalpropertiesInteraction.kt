@@ -429,7 +429,7 @@ class PropertiesPatternpropertiesAdditionalpropertiesInteraction {
         }
         
         @Throws(UnsetPropertyException::class)
-        fun foo(): FrozenList<Any?> {
+        fun foo(): FrozenList<*> {
             val key = "foo"
             throwIfKeyNotPresent(key)
             val value: Any? = get(key)
@@ -440,7 +440,7 @@ class PropertiesPatternpropertiesAdditionalpropertiesInteraction {
         }
         
         @Throws(UnsetPropertyException::class)
-        fun bar(): FrozenList<Any?> {
+        fun bar(): FrozenList<*> {
             val key = "bar"
             throwIfKeyNotPresent(key)
             val value: Any? = get(key)

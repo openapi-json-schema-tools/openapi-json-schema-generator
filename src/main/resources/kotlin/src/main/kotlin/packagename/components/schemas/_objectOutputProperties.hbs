@@ -31,7 +31,7 @@ fun {{@key.original}}(): Any? {
         {{#with this}}
 
 @Throws(UnsetPropertyException::class)
-fun {{{@key.original}}}(): {{> src/main/kotlin/packagename/components/schemas/types/schema_output_type }} {
+fun {{{@key.original}}}(): {{> src/main/kotlin/packagename/components/schemas/types/schema_output_type noAnnotations=true }} {
     {{> src/main/kotlin/packagename/components/schemas/_objectOutputGetProperty required=false }}
 }
         {{/with}}
