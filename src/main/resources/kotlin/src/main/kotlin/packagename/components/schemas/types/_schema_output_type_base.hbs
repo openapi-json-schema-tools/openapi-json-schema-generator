@@ -37,7 +37,7 @@ Number
                                             {{~/if}}
                                         {{/if}}
                                     {{else}}
-FrozenList<Any?>
+FrozenList<{{#if noAnnotations}}*{{else}}Any?{{/if}}>
                                     {{~/if}}
                                 {{else}}
                                     {{#eq this "object"}}

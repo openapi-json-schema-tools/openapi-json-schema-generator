@@ -433,7 +433,7 @@ class PropertiesPatternpropertiesAdditionalpropertiesInteraction {
             val key = "foo"
             throwIfKeyNotPresent(key)
             val value: Any? = get(key)
-            if (!(value is FrozenList<Any?>)) {
+            if (!(value is FrozenList<*>)) {
                 throw RuntimeException("Invalid value stored for foo")
             }
             return value
@@ -444,7 +444,7 @@ class PropertiesPatternpropertiesAdditionalpropertiesInteraction {
             val key = "bar"
             throwIfKeyNotPresent(key)
             val value: Any? = get(key)
-            if (!(value is FrozenList<Any?>)) {
+            if (!(value is FrozenList<*>)) {
                 throw RuntimeException("Invalid value stored for bar")
             }
             return value
