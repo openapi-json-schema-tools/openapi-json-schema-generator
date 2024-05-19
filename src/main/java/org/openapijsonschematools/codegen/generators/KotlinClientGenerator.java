@@ -431,7 +431,8 @@ public class KotlinClientGenerator extends DefaultGenerator implements Generator
                     "vararg",
                     "when",
                     "where",
-                    "while"
+                    "while",
+                    "toString" // Map method
                 )
             )
         )

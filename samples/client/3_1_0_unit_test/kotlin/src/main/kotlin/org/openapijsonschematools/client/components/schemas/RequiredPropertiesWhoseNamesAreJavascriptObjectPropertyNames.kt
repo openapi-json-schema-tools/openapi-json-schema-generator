@@ -40,14 +40,6 @@ class RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNames {
             }
         }
         
-        fun toString(): Any? {
-            try {
-                return getOrThrow("version")
-            } catch (e: UnsetPropertyException) {
-                throw RuntimeException(e)
-            }
-        }
-        
         @Throws(UnsetPropertyException::class, InvalidAdditionalPropertyException::class)
         fun getAdditionalProperty(name: String): Any? {
             throwIfKeyKnown(name, requiredKeys, optionalKeys)
@@ -174,62 +166,62 @@ class RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNames {
         }
     }
     
-    interface SetterForToString <T> {
+    interface SetterForToStringSchema <T> {
         fun getInstance(): MutableMap<String, Any?>
-        fun getBuilderAfterToString(instance: MutableMap<String, Any?>): T
+        fun getBuilderAfterToStringSchema(instance: MutableMap<String, Any?>): T
         
         fun toString(value: Nothing?): T {
             val instance = getInstance()
             instance["toString"] = null
-            return getBuilderAfterToString(instance)
+            return getBuilderAfterToStringSchema(instance)
         }
         
         fun toString(value: Boolean): T {
             val instance = getInstance()
             instance["toString"] = value
-            return getBuilderAfterToString(instance)
+            return getBuilderAfterToStringSchema(instance)
         }
         
         fun toString(value: String): T {
             val instance = getInstance()
             instance["toString"] = value
-            return getBuilderAfterToString(instance)
+            return getBuilderAfterToStringSchema(instance)
         }
         
         fun toString(value: Int): T {
             val instance = getInstance()
             instance["toString"] = value
-            return getBuilderAfterToString(instance)
+            return getBuilderAfterToStringSchema(instance)
         }
         
         fun toString(value: Float): T {
             val instance = getInstance()
             instance["toString"] = value
-            return getBuilderAfterToString(instance)
+            return getBuilderAfterToStringSchema(instance)
         }
         
         fun toString(value: Long): T {
             val instance = getInstance()
             instance["toString"] = value
-            return getBuilderAfterToString(instance)
+            return getBuilderAfterToStringSchema(instance)
         }
         
         fun toString(value: Double): T {
             val instance = getInstance()
             instance["toString"] = value
-            return getBuilderAfterToString(instance)
+            return getBuilderAfterToStringSchema(instance)
         }
         
         fun toString(value: List<Any?>): T {
             val instance = getInstance()
             instance["toString"] = value
-            return getBuilderAfterToString(instance)
+            return getBuilderAfterToStringSchema(instance)
         }
         
         fun toString(value: Map<String, Any?>): T {
             val instance = getInstance()
             instance["toString"] = value
-            return getBuilderAfterToString(instance)
+            return getBuilderAfterToStringSchema(instance)
         }
     }
     
@@ -253,11 +245,11 @@ class RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNames {
         }
     }
     
-    class RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNamesMap001Builder(private val instance: MutableMap<String, Any?>): SetterForToString<RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNamesMap000Builder> {
+    class RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNamesMap001Builder(private val instance: MutableMap<String, Any?>): SetterForToStringSchema<RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNamesMap000Builder> {
         override fun getInstance(): MutableMap<String, Any?> {
             return instance
         }
-        override fun getBuilderAfterToString(instance: MutableMap<String, Any?>): RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNamesMap000Builder {
+        override fun getBuilderAfterToStringSchema(instance: MutableMap<String, Any?>): RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNamesMap000Builder {
             return RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNamesMap000Builder(instance)
         }
     }
@@ -271,14 +263,14 @@ class RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNames {
         }
     }
     
-    class RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNamesMap011Builder(private val instance: MutableMap<String, Any?>): SetterForConstructorSchema<RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNamesMap001Builder>, SetterForToString<RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNamesMap010Builder> {
+    class RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNamesMap011Builder(private val instance: MutableMap<String, Any?>): SetterForConstructorSchema<RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNamesMap001Builder>, SetterForToStringSchema<RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNamesMap010Builder> {
         override fun getInstance(): MutableMap<String, Any?> {
             return instance
         }
         override fun getBuilderAfterConstructorSchema(instance: MutableMap<String, Any?>): RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNamesMap001Builder {
             return RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNamesMap001Builder(instance)
         }
-        override fun getBuilderAfterToString(instance: MutableMap<String, Any?>): RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNamesMap010Builder {
+        override fun getBuilderAfterToStringSchema(instance: MutableMap<String, Any?>): RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNamesMap010Builder {
             return RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNamesMap010Builder(instance)
         }
     }
@@ -292,14 +284,14 @@ class RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNames {
         }
     }
     
-    class RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNamesMap101Builder(private val instance: MutableMap<String, Any?>): SetterForProto<RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNamesMap001Builder>, SetterForToString<RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNamesMap100Builder> {
+    class RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNamesMap101Builder(private val instance: MutableMap<String, Any?>): SetterForProto<RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNamesMap001Builder>, SetterForToStringSchema<RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNamesMap100Builder> {
         override fun getInstance(): MutableMap<String, Any?> {
             return instance
         }
         override fun getBuilderAfterProto(instance: MutableMap<String, Any?>): RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNamesMap001Builder {
             return RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNamesMap001Builder(instance)
         }
-        override fun getBuilderAfterToString(instance: MutableMap<String, Any?>): RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNamesMap100Builder {
+        override fun getBuilderAfterToStringSchema(instance: MutableMap<String, Any?>): RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNamesMap100Builder {
             return RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNamesMap100Builder(instance)
         }
     }
@@ -316,7 +308,7 @@ class RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNames {
         }
     }
     
-    class RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNamesMapBuilder: SetterForProto<RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNamesMap011Builder>, SetterForConstructorSchema<RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNamesMap101Builder>, SetterForToString<RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNamesMap110Builder> {
+    class RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNamesMapBuilder: SetterForProto<RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNamesMap011Builder>, SetterForConstructorSchema<RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNamesMap101Builder>, SetterForToStringSchema<RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNamesMap110Builder> {
         private val instance: MutableMap<String, Any?>
         init {
             this.instance = LinkedHashMap()
@@ -330,7 +322,7 @@ class RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNames {
         override fun getBuilderAfterConstructorSchema(instance: MutableMap<String, Any?>): RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNamesMap101Builder {
             return RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNamesMap101Builder(instance)
         }
-        override fun getBuilderAfterToString(instance: MutableMap<String, Any?>): RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNamesMap110Builder {
+        override fun getBuilderAfterToStringSchema(instance: MutableMap<String, Any?>): RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNamesMap110Builder {
             return RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNamesMap110Builder(instance)
         }
     }

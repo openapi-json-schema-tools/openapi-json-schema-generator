@@ -62,7 +62,7 @@ class PropertiesWhoseNamesAreJavascriptObjectPropertyNames {
             )
             @Throws(ValidationException::class)
             fun of(arg: Map<String, Any?>, configuration: SchemaConfiguration): ToStringMap {
-                return ToString.getInstance().validate(arg, configuration)
+                return ToStringSchema.getInstance().validate(arg, configuration)
             }
         }
         
@@ -122,61 +122,61 @@ class PropertiesWhoseNamesAreJavascriptObjectPropertyNames {
     }
     
     
-    sealed interface ToStringBoxed {
+    sealed interface ToStringSchemaBoxed {
         fun getData(): Any?
     }
     
-    data class ToStringBoxedVoid(val data: Nothing?) : ToStringBoxed {
+    data class ToStringSchemaBoxedVoid(val data: Nothing?) : ToStringSchemaBoxed {
         override fun getData(): Any? {
             return data
         }
     }
     
-    data class ToStringBoxedBoolean(val data: Boolean): ToStringBoxed {
+    data class ToStringSchemaBoxedBoolean(val data: Boolean): ToStringSchemaBoxed {
         override fun getData(): Any? {
             return data
         }
     }
     
-    data class ToStringBoxedNumber(val data: Number) : ToStringBoxed {
+    data class ToStringSchemaBoxedNumber(val data: Number) : ToStringSchemaBoxed {
         override fun getData(): Any? {
             return data
         }
     }
     
-    data class ToStringBoxedString(val data: String) : ToStringBoxed {
+    data class ToStringSchemaBoxedString(val data: String) : ToStringSchemaBoxed {
         override fun getData(): Any? {
             return data
         }
     }
     
-    data class ToStringBoxedList(val data: FrozenList<Any?>) : ToStringBoxed {
+    data class ToStringSchemaBoxedList(val data: FrozenList<Any?>) : ToStringSchemaBoxed {
         override fun getData(): Any? {
             return data
         }
     }
     
-    data class ToStringBoxedMap(val data: ToStringMap) : ToStringBoxed {
+    data class ToStringSchemaBoxedMap(val data: ToStringMap) : ToStringSchemaBoxed {
         override fun getData(): Any? {
             return data
         }
     }
     
     
-    class ToString private constructor(): JsonSchema<ToStringBoxed>(
+    class ToStringSchema private constructor(): JsonSchema<ToStringSchemaBoxed>(
         JsonSchemaInfo()
             .properties(mapOf(
                 "length" to Length::class.java
             ))
-    ), NullSchemaValidator<ToStringBoxedVoid>, BooleanSchemaValidator<ToStringBoxedBoolean>, NumberSchemaValidator<ToStringBoxedNumber>, StringSchemaValidator<ToStringBoxedString>, ListSchemaValidator<FrozenList<Any?>, ToStringBoxedList>, MapSchemaValidator<ToStringMap, ToStringBoxedMap> {
+    ), NullSchemaValidator<ToStringSchemaBoxedVoid>, BooleanSchemaValidator<ToStringSchemaBoxedBoolean>, NumberSchemaValidator<ToStringSchemaBoxedNumber>, StringSchemaValidator<ToStringSchemaBoxedString>, ListSchemaValidator<FrozenList<Any?>, ToStringSchemaBoxedList>, MapSchemaValidator<ToStringMap, ToStringSchemaBoxedMap> {
     
         companion object {
             @Volatile
-            private var instance: ToString? = null
+            private var instance: ToStringSchema? = null
     
             fun getInstance() =
                 instance ?: synchronized(this) {
-                    instance ?: ToString().also { instance = it }
+                    instance ?: ToStringSchema().also { instance = it }
                 }
         }
         
@@ -357,31 +357,31 @@ class PropertiesWhoseNamesAreJavascriptObjectPropertyNames {
             throw RuntimeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema")
         }
         @Throws(ValidationException::class)
-        override fun validateAndBox(arg: Nothing?, configuration: SchemaConfiguration?): ToStringBoxedVoid {
-            return ToStringBoxedVoid(validate(arg, configuration))
+        override fun validateAndBox(arg: Nothing?, configuration: SchemaConfiguration?): ToStringSchemaBoxedVoid {
+            return ToStringSchemaBoxedVoid(validate(arg, configuration))
         }
         @Throws(ValidationException::class)
-        override fun validateAndBox(arg: Boolean, configuration: SchemaConfiguration?): ToStringBoxedBoolean {
-            return ToStringBoxedBoolean(validate(arg, configuration))
+        override fun validateAndBox(arg: Boolean, configuration: SchemaConfiguration?): ToStringSchemaBoxedBoolean {
+            return ToStringSchemaBoxedBoolean(validate(arg, configuration))
         }
         @Throws(ValidationException::class)
-        override fun validateAndBox(arg: Number, configuration: SchemaConfiguration?): ToStringBoxedNumber {
-            return ToStringBoxedNumber(validate(arg, configuration))
+        override fun validateAndBox(arg: Number, configuration: SchemaConfiguration?): ToStringSchemaBoxedNumber {
+            return ToStringSchemaBoxedNumber(validate(arg, configuration))
         }
         @Throws(ValidationException::class)
-        override fun validateAndBox(arg: String, configuration: SchemaConfiguration?): ToStringBoxedString {
-            return ToStringBoxedString(validate(arg, configuration))
+        override fun validateAndBox(arg: String, configuration: SchemaConfiguration?): ToStringSchemaBoxedString {
+            return ToStringSchemaBoxedString(validate(arg, configuration))
         }
         @Throws(ValidationException::class)
-        override fun validateAndBox(arg: List<*>, configuration: SchemaConfiguration?): ToStringBoxedList {
-            return ToStringBoxedList(validate(arg, configuration))
+        override fun validateAndBox(arg: List<*>, configuration: SchemaConfiguration?): ToStringSchemaBoxedList {
+            return ToStringSchemaBoxedList(validate(arg, configuration))
         }
         @Throws(ValidationException::class)
-        override fun validateAndBox(arg: Map<*, *>, configuration: SchemaConfiguration?): ToStringBoxedMap {
-            return ToStringBoxedMap(validate(arg, configuration))
+        override fun validateAndBox(arg: Map<*, *>, configuration: SchemaConfiguration?): ToStringSchemaBoxedMap {
+            return ToStringSchemaBoxedMap(validate(arg, configuration))
         }
         @Throws(ValidationException::class)
-        override fun validateAndBox(arg: Any?, configuration: SchemaConfiguration?): ToStringBoxed {
+        override fun validateAndBox(arg: Any?, configuration: SchemaConfiguration?): ToStringSchemaBoxed {
             if (arg == null) {
                 return validateAndBox(null, configuration)
             } else if (arg is Boolean) {
@@ -426,17 +426,6 @@ class PropertiesWhoseNamesAreJavascriptObjectPropertyNames {
             }
         }
         
-        @Throws(UnsetPropertyException::class)
-        fun toString(): Any? {
-            val key = "toString"
-            throwIfKeyNotPresent(key)
-            val value: Any? = get(key)
-            if (!(value is Any?)) {
-                throw RuntimeException("Invalid value stored for toString")
-            }
-            return value
-        }
-        
         @Throws(UnsetPropertyException::class, InvalidAdditionalPropertyException::class)
         fun getAdditionalProperty(name: String): Any? {
             throwIfKeyKnown(name, requiredKeys, optionalKeys)
@@ -474,62 +463,62 @@ class PropertiesWhoseNamesAreJavascriptObjectPropertyNames {
         }
     }
     
-    interface SetterForToString <T> {
+    interface SetterForToStringSchema <T> {
         fun getInstance(): MutableMap<String, Any?>
-        fun getBuilderAfterToString(instance: MutableMap<String, Any?>): T
+        fun getBuilderAfterToStringSchema(instance: MutableMap<String, Any?>): T
         
         fun toString(value: Nothing?): T {
             val instance = getInstance()
             instance["toString"] = null
-            return getBuilderAfterToString(instance)
+            return getBuilderAfterToStringSchema(instance)
         }
         
         fun toString(value: Boolean): T {
             val instance = getInstance()
             instance["toString"] = value
-            return getBuilderAfterToString(instance)
+            return getBuilderAfterToStringSchema(instance)
         }
         
         fun toString(value: String): T {
             val instance = getInstance()
             instance["toString"] = value
-            return getBuilderAfterToString(instance)
+            return getBuilderAfterToStringSchema(instance)
         }
         
         fun toString(value: Int): T {
             val instance = getInstance()
             instance["toString"] = value
-            return getBuilderAfterToString(instance)
+            return getBuilderAfterToStringSchema(instance)
         }
         
         fun toString(value: Float): T {
             val instance = getInstance()
             instance["toString"] = value
-            return getBuilderAfterToString(instance)
+            return getBuilderAfterToStringSchema(instance)
         }
         
         fun toString(value: Long): T {
             val instance = getInstance()
             instance["toString"] = value
-            return getBuilderAfterToString(instance)
+            return getBuilderAfterToStringSchema(instance)
         }
         
         fun toString(value: Double): T {
             val instance = getInstance()
             instance["toString"] = value
-            return getBuilderAfterToString(instance)
+            return getBuilderAfterToStringSchema(instance)
         }
         
         fun toString(value: List<Any?>): T {
             val instance = getInstance()
             instance["toString"] = value
-            return getBuilderAfterToString(instance)
+            return getBuilderAfterToStringSchema(instance)
         }
         
         fun toString(value: Map<String, Any?>): T {
             val instance = getInstance()
             instance["toString"] = value
-            return getBuilderAfterToString(instance)
+            return getBuilderAfterToStringSchema(instance)
         }
     }
     
@@ -562,7 +551,7 @@ class PropertiesWhoseNamesAreJavascriptObjectPropertyNames {
         }
     }
     
-    class PropertiesWhoseNamesAreJavascriptObjectPropertyNamesMapBuilder: UnsetAddPropsSetter<PropertiesWhoseNamesAreJavascriptObjectPropertyNamesMapBuilder>, GenericBuilder<Map<String, Any?>>, SetterForProto<PropertiesWhoseNamesAreJavascriptObjectPropertyNamesMapBuilder>, SetterForToString<PropertiesWhoseNamesAreJavascriptObjectPropertyNamesMapBuilder>, SetterForConstructorSchema<PropertiesWhoseNamesAreJavascriptObjectPropertyNamesMapBuilder> {
+    class PropertiesWhoseNamesAreJavascriptObjectPropertyNamesMapBuilder: UnsetAddPropsSetter<PropertiesWhoseNamesAreJavascriptObjectPropertyNamesMapBuilder>, GenericBuilder<Map<String, Any?>>, SetterForProto<PropertiesWhoseNamesAreJavascriptObjectPropertyNamesMapBuilder>, SetterForToStringSchema<PropertiesWhoseNamesAreJavascriptObjectPropertyNamesMapBuilder>, SetterForConstructorSchema<PropertiesWhoseNamesAreJavascriptObjectPropertyNamesMapBuilder> {
         private val knownKeys: Set<String> = setOf(
             "__proto__",
             "toString",
@@ -584,7 +573,7 @@ class PropertiesWhoseNamesAreJavascriptObjectPropertyNames {
         override fun getBuilderAfterProto(instance: MutableMap<String, Any?>): PropertiesWhoseNamesAreJavascriptObjectPropertyNamesMapBuilder {
             return this
         }
-        override fun getBuilderAfterToString(instance: MutableMap<String, Any?>): PropertiesWhoseNamesAreJavascriptObjectPropertyNamesMapBuilder {
+        override fun getBuilderAfterToStringSchema(instance: MutableMap<String, Any?>): PropertiesWhoseNamesAreJavascriptObjectPropertyNamesMapBuilder {
             return this
         }
         override fun getBuilderAfterConstructorSchema(instance: MutableMap<String, Any?>): PropertiesWhoseNamesAreJavascriptObjectPropertyNamesMapBuilder {
@@ -641,7 +630,7 @@ class PropertiesWhoseNamesAreJavascriptObjectPropertyNames {
         JsonSchemaInfo()
             .properties(mapOf(
                 "__proto__" to Proto::class.java,
-                "toString" to ToString::class.java,
+                "toString" to ToStringSchema::class.java,
                 "constructor" to ConstructorSchema::class.java
             ))
     ), NullSchemaValidator<PropertiesWhoseNamesAreJavascriptObjectPropertyNames1BoxedVoid>, BooleanSchemaValidator<PropertiesWhoseNamesAreJavascriptObjectPropertyNames1BoxedBoolean>, NumberSchemaValidator<PropertiesWhoseNamesAreJavascriptObjectPropertyNames1BoxedNumber>, StringSchemaValidator<PropertiesWhoseNamesAreJavascriptObjectPropertyNames1BoxedString>, ListSchemaValidator<FrozenList<Any?>, PropertiesWhoseNamesAreJavascriptObjectPropertyNames1BoxedList>, MapSchemaValidator<PropertiesWhoseNamesAreJavascriptObjectPropertyNamesMap, PropertiesWhoseNamesAreJavascriptObjectPropertyNames1BoxedMap> {

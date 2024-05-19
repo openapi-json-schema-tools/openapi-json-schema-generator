@@ -418,8 +418,7 @@ A class to store validated Map payloads
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | static [RequiredPropertiesWhoseNamesAreJavascriptObjectPropertyNamesMap](#requiredpropertieswhosenamesarejavascriptobjectpropertynamesmap) | of([Map<String, Any?>](#requiredpropertieswhosenamesarejavascriptobjectpropertynamesmapbuilder) arg, SchemaConfiguration configuration) |
-| Any? | toString()<br> |
-| Any? | get(String key)<br>This schema has invalid Kotlin names so this method must be used when you access instance["__proto__"], instance["constructor"],  |
+| Any? | get(String key)<br>This schema has invalid Kotlin names so this method must be used when you access instance["__proto__"], instance["constructor"], instance["toString"],  |
 | Any? | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)
