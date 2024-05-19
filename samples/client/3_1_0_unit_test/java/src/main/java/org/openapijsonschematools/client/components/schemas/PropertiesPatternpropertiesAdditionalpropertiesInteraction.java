@@ -435,8 +435,8 @@ public class PropertiesPatternpropertiesAdditionalpropertiesInteraction {
     }
     
     
-    public static class PropertiesPatternpropertiesAdditionalpropertiesInteractionMap extends FrozenMap<Object> {
-        protected PropertiesPatternpropertiesAdditionalpropertiesInteractionMap(FrozenMap<Object> m) {
+    public static class PropertiesPatternpropertiesAdditionalpropertiesInteractionMap extends FrozenMap<@Nullable Object> {
+        protected PropertiesPatternpropertiesAdditionalpropertiesInteractionMap(FrozenMap<@Nullable Object> m) {
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of();
@@ -444,14 +444,14 @@ public class PropertiesPatternpropertiesAdditionalpropertiesInteraction {
             "foo",
             "bar"
         );
-        public static PropertiesPatternpropertiesAdditionalpropertiesInteractionMap of(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
+        public static PropertiesPatternpropertiesAdditionalpropertiesInteractionMap of(Map<String, ? extends @Nullable Object> arg, SchemaConfiguration configuration) throws ValidationException {
             return PropertiesPatternpropertiesAdditionalpropertiesInteraction1.getInstance().validate(arg, configuration);
         }
         
         public FrozenList<?> foo() throws UnsetPropertyException {
             String key = "foo";
             throwIfKeyNotPresent(key);
-            Object value = get(key);
+            @Nullable Object value = get(key);
             if (!(value instanceof FrozenList<?>)) {
                 throw new RuntimeException("Invalid value stored for foo");
             }
@@ -461,7 +461,7 @@ public class PropertiesPatternpropertiesAdditionalpropertiesInteraction {
         public FrozenList<?> bar() throws UnsetPropertyException {
             String key = "bar";
             throwIfKeyNotPresent(key);
-            Object value = get(key);
+            @Nullable Object value = get(key);
             if (!(value instanceof FrozenList<?>)) {
                 throw new RuntimeException("Invalid value stored for bar");
             }
@@ -479,8 +479,8 @@ public class PropertiesPatternpropertiesAdditionalpropertiesInteraction {
     }
     
     public interface SetterForFoo <T> {
-        Map<String, Object> getInstance();
-        T getBuilderAfterFoo(Map<String, Object> instance);
+        Map<String, @Nullable Object> getInstance();
+        T getBuilderAfterFoo(Map<String, @Nullable Object> instance);
         
         default T foo(List<@Nullable Object> value) {
             var instance = getInstance();
@@ -490,8 +490,8 @@ public class PropertiesPatternpropertiesAdditionalpropertiesInteraction {
     }
     
     public interface SetterForBar <T> {
-        Map<String, Object> getInstance();
-        T getBuilderAfterBar(Map<String, Object> instance);
+        Map<String, @Nullable Object> getInstance();
+        T getBuilderAfterBar(Map<String, @Nullable Object> instance);
         
         default T bar(List<@Nullable Object> value) {
             var instance = getInstance();
@@ -502,8 +502,8 @@ public class PropertiesPatternpropertiesAdditionalpropertiesInteraction {
     
     public interface SetterForAdditionalProperties<T> {
         Set<String> getKnownKeys();
-        Map<String, Object> getInstance();
-        T getBuilderAfterAdditionalProperty(Map<String, Object> instance);
+        Map<String, @Nullable Object> getInstance();
+        T getBuilderAfterAdditionalProperty(Map<String, @Nullable Object> instance);
         
         default T additionalProperty(String key, int value) throws InvalidAdditionalPropertyException {
             MapUtils.throwIfKeyKnown(key, getKnownKeys(), true);
@@ -534,8 +534,8 @@ public class PropertiesPatternpropertiesAdditionalpropertiesInteraction {
         }
     }
     
-    public static class PropertiesPatternpropertiesAdditionalpropertiesInteractionMapBuilder implements GenericBuilder<Map<String, Object>>, SetterForFoo<PropertiesPatternpropertiesAdditionalpropertiesInteractionMapBuilder>, SetterForBar<PropertiesPatternpropertiesAdditionalpropertiesInteractionMapBuilder>, SetterForAdditionalProperties<PropertiesPatternpropertiesAdditionalpropertiesInteractionMapBuilder> {
-        private final Map<String, Object> instance;
+    public static class PropertiesPatternpropertiesAdditionalpropertiesInteractionMapBuilder implements GenericBuilder<Map<String, @Nullable Object>>, SetterForFoo<PropertiesPatternpropertiesAdditionalpropertiesInteractionMapBuilder>, SetterForBar<PropertiesPatternpropertiesAdditionalpropertiesInteractionMapBuilder>, SetterForAdditionalProperties<PropertiesPatternpropertiesAdditionalpropertiesInteractionMapBuilder> {
+        private final Map<String, @Nullable Object> instance;
         private static final Set<String> knownKeys = Set.of(
             "foo",
             "bar"
@@ -546,19 +546,19 @@ public class PropertiesPatternpropertiesAdditionalpropertiesInteraction {
         public PropertiesPatternpropertiesAdditionalpropertiesInteractionMapBuilder() {
             this.instance = new LinkedHashMap<>();
         }
-        public Map<String, Object> build() {
+        public Map<String, @Nullable Object> build() {
             return instance;
         }
-        public Map<String, Object> getInstance() {
+        public Map<String, @Nullable Object> getInstance() {
             return instance;
         }
-        public PropertiesPatternpropertiesAdditionalpropertiesInteractionMapBuilder getBuilderAfterFoo(Map<String, Object> instance) {
+        public PropertiesPatternpropertiesAdditionalpropertiesInteractionMapBuilder getBuilderAfterFoo(Map<String, @Nullable Object> instance) {
             return this;
         }
-        public PropertiesPatternpropertiesAdditionalpropertiesInteractionMapBuilder getBuilderAfterBar(Map<String, Object> instance) {
+        public PropertiesPatternpropertiesAdditionalpropertiesInteractionMapBuilder getBuilderAfterBar(Map<String, @Nullable Object> instance) {
             return this;
         }
-        public PropertiesPatternpropertiesAdditionalpropertiesInteractionMapBuilder getBuilderAfterAdditionalProperty(Map<String, Object> instance) {
+        public PropertiesPatternpropertiesAdditionalpropertiesInteractionMapBuilder getBuilderAfterAdditionalProperty(Map<String, @Nullable Object> instance) {
             return this;
         }
     }
@@ -607,7 +607,7 @@ public class PropertiesPatternpropertiesAdditionalpropertiesInteraction {
         }
         
         public PropertiesPatternpropertiesAdditionalpropertiesInteractionMap getNewInstance(Map<?, ?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
-            LinkedHashMap<String, Object> properties = new LinkedHashMap<>();
+            LinkedHashMap<String, @Nullable Object> properties = new LinkedHashMap<>();
             for(Map.Entry<?, ?> entry: arg.entrySet()) {
                 @Nullable Object entryKey = entry.getKey();
                 if (!(entryKey instanceof String)) {
@@ -623,12 +623,9 @@ public class PropertiesPatternpropertiesAdditionalpropertiesInteraction {
                 }
                 JsonSchema<?> propertySchema = schemas.entrySet().iterator().next().getKey();
                 @Nullable Object propertyInstance = propertySchema.getNewInstance(value, propertyPathToItem, pathToSchemas);
-                if (!(propertyInstance instanceof Object)) {
-                    throw new RuntimeException("Invalid instantiated value");
-                }
-                properties.put(propertyName, (Object) propertyInstance);
+                properties.put(propertyName, propertyInstance);
             }
-            FrozenMap<Object> castProperties = new FrozenMap<>(properties);
+            FrozenMap<@Nullable Object> castProperties = new FrozenMap<>(properties);
             return new PropertiesPatternpropertiesAdditionalpropertiesInteractionMap(castProperties);
         }
         

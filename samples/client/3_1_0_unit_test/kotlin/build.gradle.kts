@@ -34,6 +34,6 @@ tasks.wrapper {
 tasks.test {
     useJUnitPlatform()
     testLogging {
-        events( "started", "passed", "skipped", "failed")
+        events("passed", "skipped", "failed")
     }
 }

@@ -43,7 +43,7 @@ class RefInProperty {
             val key = "a"
             throwIfKeyNotPresent(key)
             val value: Any? = get(key)
-            if (!(value is Any)) {
+            if (!(value is Any?)) {
                 throw RuntimeException("Invalid value stored for a")
             }
             return value

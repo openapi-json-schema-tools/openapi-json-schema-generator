@@ -58,7 +58,7 @@ public class NonAsciiPatternWithAdditionalproperties {
         public static final Set<String> requiredKeys = Set.of();
         public static final Set<String> optionalKeys = Set.of();
         // map with no key value pairs
-        public static NonAsciiPatternWithAdditionalpropertiesMap of(Map<String, @Nullable Object> arg, SchemaConfiguration configuration) throws ValidationException {
+        public static NonAsciiPatternWithAdditionalpropertiesMap of(Map<String, ? extends @Nullable Object> arg, SchemaConfiguration configuration) throws ValidationException {
             return NonAsciiPatternWithAdditionalproperties1.getInstance().validate(arg, configuration);
         }
     }

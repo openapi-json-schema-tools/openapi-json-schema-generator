@@ -178,7 +178,7 @@ class RefInAdditionalproperties {
                 }
                 val propertySchema: JsonSchema<*> = schemas.entries.iterator().next().key
                 val propertyInstance: Any? = propertySchema.getNewInstance(value, propertyPathToItem, pathToSchemas)
-                if (!(propertyInstance is Any)) {
+                if (!(propertyInstance is Any?)) {
                     throw RuntimeException("Invalid instantiated value")
                 }
                 properties[entryKey] = propertyInstance

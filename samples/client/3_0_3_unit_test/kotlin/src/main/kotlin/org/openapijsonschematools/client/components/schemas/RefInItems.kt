@@ -127,7 +127,7 @@ class RefInItems {
                 }
                 val itemSchema: JsonSchema<*> = schemas.entries.iterator().next().key
                 val itemInstance: Any? = itemSchema.getNewInstance(item, itemPathToItem, pathToSchemas)
-                if (!(itemInstance is Any)) {
+                if (!(itemInstance is Any?)) {
                     throw RuntimeException("Invalid instantiated value")
                 }
                 items.add(itemInstance)

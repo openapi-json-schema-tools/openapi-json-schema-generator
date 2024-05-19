@@ -49,11 +49,11 @@ Here is the mapping from json schema types to Kotlin types:
 | object           | FrozenMap (Map) |
 | array            | FrozenList (List) |
 | string           | String |
-| number           | Number (int, long, float, double) |
-| integer          | int, long, float, double (with values equal to integers) |
-| boolean          | boolean |
+| number           | Number (Int, Long, Float, Double) |
+| integer          | Int, Long, Float, Double (with values equal to integers) |
+| boolean          | Boolean |
 | null             | Nothing? (null) |
-| AnyType (unset)  | Object? |
+| AnyType (unset)  | Any? |
 
 ### Storage of Json Schema Definition in Kotlin JsonSchema Classes
 In openapi v3.0.3 there are ~ 28 json schema keywords. Almost all of them can apply if

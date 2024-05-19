@@ -52,10 +52,7 @@ Properties = typing.TypedDict(
 )
 
 
-class PropertiesPatternpropertiesAdditionalpropertiesInteractionDict(schemas.immutabledict[str, typing.Union[
-    typing.Tuple[schemas.OUTPUT_BASE_TYPES],
-    int,
-]]):
+class PropertiesPatternpropertiesAdditionalpropertiesInteractionDict(schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]):
 
     __required_keys__: typing.FrozenSet[str] = frozenset({
     })

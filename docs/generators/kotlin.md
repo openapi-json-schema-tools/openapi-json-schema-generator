@@ -142,6 +142,7 @@ These options may be applied as additional-properties (cli) or configOptions (pl
 <li>tailrec</li>
 <li>this</li>
 <li>throw</li>
+<li>tostring</li>
 <li>true</li>
 <li>try</li>
 <li>typealias</li>
