@@ -21,10 +21,8 @@ group = "org.openapijsonschematools"
 version = "0.0.1"
 description = "OpenAPI Kotlin"
 
-java {
-    toolchain {
-        languageVersion.set(JavaLanguageVersion.of(17))
-    }
+kotlin {
+    jvmToolchain(17)
 }
 
 tasks.wrapper {
