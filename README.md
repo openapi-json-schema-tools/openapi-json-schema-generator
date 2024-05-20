@@ -21,15 +21,15 @@ Currently, the following languages/frameworks are supported:
 | Openapi v3.0.0-3.1.0 ingestion                                                                     | X                                   | X                               | X                                   |
 | Json Schema 2020-12 Support (components/schemas)                                                   | X                                   | X                               | X                                   |
 | Component schemas documentation produced                                                           | X                                   | X                               | X                                   |
-| Documentation produced for other component types:<br>headers, parameters,requestBodies, ressponses | X                                   | X                               |                                     |
+| Documentation produced for other component types:<br>headers, parameters, requestBodies, ressponses, securitySchemes | X                                   | X                               |                                     |
 | Endpoints that send/receive json + docs generated for them                                         | X                                   | X                               |                                     |
 
 ## Reasons To Use the Generators
 - Openapi spec support for v3.0.0-3.1.0
   - thorough tests run in CI using json schema test suite, see 3_0_0 and 3_1_0 sample clients
 - Static analysis:
-  - mypy run in CI against python petstore sample
-  - checker framework run w/ NullnessChecker, ensures no null pointer exceptions
+  - Python: mypy run in CI against python petstore sample
+  - Java: checker framework run w/ NullnessChecker, ensures no null pointer exceptions
 - Format support for: int32, int64, float, double, binary, date, datetime, uuid
 - Invalid (in language) property names supported like `from`, `1var`, `hi-there` etc in
   - schema property names
