@@ -143,15 +143,8 @@ jobs:
       CIRCLE_ARTIFACTS: /tmp/circleci-artifacts
       CIRCLE_TEST_REPORTS: /tmp/circleci-test-results
     steps:
-      - restore_cache:
-          keys:
-            - kotlinClientGradleCache
       - command_build_and_test:
           jobId: "testKotlinClientSamples"
-      - save_cache:
-          key: kotlinClientGradleCache
-          paths:
-            - ~/build
 workflows:
   version: 2
   build:
