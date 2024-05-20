@@ -21,7 +21,7 @@ Currently, the following languages/frameworks are supported:
 | Openapi v3.0.0-3.1.0 ingestion                                                                     | X                                   | X                               | X                                   |
 | Json Schema 2020-12 Support (components/schemas)                                                   | X                                   | X                               | X                                   |
 | Component schemas documentation produced                                                           | X                                   | X                               | X                                   |
-| Documentation produced for other component types:<br>headers, parameters,requestBodies, ressponses | X                                   | X                               |                                     |
+| Documentation produced for other component types:<br>headers, parameters, requestBodies, ressponses | X                                   | X                               |                                     |
 | Endpoints that send/receive json + docs generated for them                                         | X                                   | X                               |                                     |
 
 ## Reasons To Use the Generators
