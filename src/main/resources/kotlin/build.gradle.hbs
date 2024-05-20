@@ -31,6 +31,10 @@ tasks.wrapper {
     gradleVersion = "8.1.1"
 }
 
+tasks.compileKotlin {
+    kotlinDaemonJvmArguments.add("-Xmx256m")
+}
+
 tasks.test {
     useJUnitPlatform()
     testLogging {
