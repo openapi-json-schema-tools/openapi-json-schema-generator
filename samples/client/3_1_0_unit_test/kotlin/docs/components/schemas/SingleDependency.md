@@ -11,13 +11,13 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | sealed interface | [SingleDependency.SingleDependency1Boxed](#singledependency1boxed)<br> sealed interface for validated payloads |
-| record | [SingleDependency.SingleDependency1BoxedVoid](#singledependency1boxedvoid)<br> boxed class to store validated null payloads |
-| record | [SingleDependency.SingleDependency1BoxedBoolean](#singledependency1boxedboolean)<br> boxed class to store validated boolean payloads |
-| record | [SingleDependency.SingleDependency1BoxedNumber](#singledependency1boxednumber)<br> boxed class to store validated Number payloads |
-| record | [SingleDependency.SingleDependency1BoxedString](#singledependency1boxedstring)<br> boxed class to store validated String payloads |
-| record | [SingleDependency.SingleDependency1BoxedList](#singledependency1boxedlist)<br> boxed class to store validated List payloads |
-| record | [SingleDependency.SingleDependency1BoxedMap](#singledependency1boxedmap)<br> boxed class to store validated Map payloads |
-| static class | [SingleDependency.SingleDependency1](#singledependency1)<br> schema class |
+| data class | [SingleDependency.SingleDependency1BoxedVoid](#singledependency1boxedvoid)<br> boxed class to store validated null payloads |
+| data class | [SingleDependency.SingleDependency1BoxedBoolean](#singledependency1boxedboolean)<br> boxed class to store validated boolean payloads |
+| data class | [SingleDependency.SingleDependency1BoxedNumber](#singledependency1boxednumber)<br> boxed class to store validated Number payloads |
+| data class | [SingleDependency.SingleDependency1BoxedString](#singledependency1boxedstring)<br> boxed class to store validated String payloads |
+| data class | [SingleDependency.SingleDependency1BoxedList](#singledependency1boxedlist)<br> boxed class to store validated List payloads |
+| data class | [SingleDependency.SingleDependency1BoxedMap](#singledependency1boxedmap)<br> boxed class to store validated Map payloads |
+| class | [SingleDependency.SingleDependency1](#singledependency1)<br> schema class |
 
 ## SingleDependency1Boxed
 sealed interface SingleDependency1Boxed<br>
@@ -52,7 +52,7 @@ data class that stores validated null payloads, sealed permits implementation
 data class SingleDependency1BoxedBoolean<br>
 implements [SingleDependency1Boxed](#singledependency1boxed)
 
-record that stores validated boolean payloads, sealed permits implementation
+data class that stores validated boolean payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |

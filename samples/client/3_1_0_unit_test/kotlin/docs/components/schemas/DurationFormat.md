@@ -11,13 +11,13 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | sealed interface | [DurationFormat.DurationFormat1Boxed](#durationformat1boxed)<br> sealed interface for validated payloads |
-| record | [DurationFormat.DurationFormat1BoxedVoid](#durationformat1boxedvoid)<br> boxed class to store validated null payloads |
-| record | [DurationFormat.DurationFormat1BoxedBoolean](#durationformat1boxedboolean)<br> boxed class to store validated boolean payloads |
-| record | [DurationFormat.DurationFormat1BoxedNumber](#durationformat1boxednumber)<br> boxed class to store validated Number payloads |
-| record | [DurationFormat.DurationFormat1BoxedString](#durationformat1boxedstring)<br> boxed class to store validated String payloads |
-| record | [DurationFormat.DurationFormat1BoxedList](#durationformat1boxedlist)<br> boxed class to store validated List payloads |
-| record | [DurationFormat.DurationFormat1BoxedMap](#durationformat1boxedmap)<br> boxed class to store validated Map payloads |
-| static class | [DurationFormat.DurationFormat1](#durationformat1)<br> schema class |
+| data class | [DurationFormat.DurationFormat1BoxedVoid](#durationformat1boxedvoid)<br> boxed class to store validated null payloads |
+| data class | [DurationFormat.DurationFormat1BoxedBoolean](#durationformat1boxedboolean)<br> boxed class to store validated boolean payloads |
+| data class | [DurationFormat.DurationFormat1BoxedNumber](#durationformat1boxednumber)<br> boxed class to store validated Number payloads |
+| data class | [DurationFormat.DurationFormat1BoxedString](#durationformat1boxedstring)<br> boxed class to store validated String payloads |
+| data class | [DurationFormat.DurationFormat1BoxedList](#durationformat1boxedlist)<br> boxed class to store validated List payloads |
+| data class | [DurationFormat.DurationFormat1BoxedMap](#durationformat1boxedmap)<br> boxed class to store validated Map payloads |
+| class | [DurationFormat.DurationFormat1](#durationformat1)<br> schema class |
 
 ## DurationFormat1Boxed
 sealed interface DurationFormat1Boxed<br>
@@ -52,7 +52,7 @@ data class that stores validated null payloads, sealed permits implementation
 data class DurationFormat1BoxedBoolean<br>
 implements [DurationFormat1Boxed](#durationformat1boxed)
 
-record that stores validated boolean payloads, sealed permits implementation
+data class that stores validated boolean payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |

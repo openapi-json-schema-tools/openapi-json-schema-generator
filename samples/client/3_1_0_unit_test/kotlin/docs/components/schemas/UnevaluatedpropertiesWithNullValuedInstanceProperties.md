@@ -11,16 +11,16 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | sealed interface | [UnevaluatedpropertiesWithNullValuedInstanceProperties.UnevaluatedpropertiesWithNullValuedInstanceProperties1Boxed](#unevaluatedpropertieswithnullvaluedinstanceproperties1boxed)<br> sealed interface for validated payloads |
-| record | [UnevaluatedpropertiesWithNullValuedInstanceProperties.UnevaluatedpropertiesWithNullValuedInstanceProperties1BoxedVoid](#unevaluatedpropertieswithnullvaluedinstanceproperties1boxedvoid)<br> boxed class to store validated null payloads |
-| record | [UnevaluatedpropertiesWithNullValuedInstanceProperties.UnevaluatedpropertiesWithNullValuedInstanceProperties1BoxedBoolean](#unevaluatedpropertieswithnullvaluedinstanceproperties1boxedboolean)<br> boxed class to store validated boolean payloads |
-| record | [UnevaluatedpropertiesWithNullValuedInstanceProperties.UnevaluatedpropertiesWithNullValuedInstanceProperties1BoxedNumber](#unevaluatedpropertieswithnullvaluedinstanceproperties1boxednumber)<br> boxed class to store validated Number payloads |
-| record | [UnevaluatedpropertiesWithNullValuedInstanceProperties.UnevaluatedpropertiesWithNullValuedInstanceProperties1BoxedString](#unevaluatedpropertieswithnullvaluedinstanceproperties1boxedstring)<br> boxed class to store validated String payloads |
-| record | [UnevaluatedpropertiesWithNullValuedInstanceProperties.UnevaluatedpropertiesWithNullValuedInstanceProperties1BoxedList](#unevaluatedpropertieswithnullvaluedinstanceproperties1boxedlist)<br> boxed class to store validated List payloads |
-| record | [UnevaluatedpropertiesWithNullValuedInstanceProperties.UnevaluatedpropertiesWithNullValuedInstanceProperties1BoxedMap](#unevaluatedpropertieswithnullvaluedinstanceproperties1boxedmap)<br> boxed class to store validated Map payloads |
-| static class | [UnevaluatedpropertiesWithNullValuedInstanceProperties.UnevaluatedpropertiesWithNullValuedInstanceProperties1](#unevaluatedpropertieswithnullvaluedinstanceproperties1)<br> schema class |
+| data class | [UnevaluatedpropertiesWithNullValuedInstanceProperties.UnevaluatedpropertiesWithNullValuedInstanceProperties1BoxedVoid](#unevaluatedpropertieswithnullvaluedinstanceproperties1boxedvoid)<br> boxed class to store validated null payloads |
+| data class | [UnevaluatedpropertiesWithNullValuedInstanceProperties.UnevaluatedpropertiesWithNullValuedInstanceProperties1BoxedBoolean](#unevaluatedpropertieswithnullvaluedinstanceproperties1boxedboolean)<br> boxed class to store validated boolean payloads |
+| data class | [UnevaluatedpropertiesWithNullValuedInstanceProperties.UnevaluatedpropertiesWithNullValuedInstanceProperties1BoxedNumber](#unevaluatedpropertieswithnullvaluedinstanceproperties1boxednumber)<br> boxed class to store validated Number payloads |
+| data class | [UnevaluatedpropertiesWithNullValuedInstanceProperties.UnevaluatedpropertiesWithNullValuedInstanceProperties1BoxedString](#unevaluatedpropertieswithnullvaluedinstanceproperties1boxedstring)<br> boxed class to store validated String payloads |
+| data class | [UnevaluatedpropertiesWithNullValuedInstanceProperties.UnevaluatedpropertiesWithNullValuedInstanceProperties1BoxedList](#unevaluatedpropertieswithnullvaluedinstanceproperties1boxedlist)<br> boxed class to store validated List payloads |
+| data class | [UnevaluatedpropertiesWithNullValuedInstanceProperties.UnevaluatedpropertiesWithNullValuedInstanceProperties1BoxedMap](#unevaluatedpropertieswithnullvaluedinstanceproperties1boxedmap)<br> boxed class to store validated Map payloads |
+| class | [UnevaluatedpropertiesWithNullValuedInstanceProperties.UnevaluatedpropertiesWithNullValuedInstanceProperties1](#unevaluatedpropertieswithnullvaluedinstanceproperties1)<br> schema class |
 | sealed interface | [UnevaluatedpropertiesWithNullValuedInstanceProperties.UnevaluatedPropertiesBoxed](#unevaluatedpropertiesboxed)<br> sealed interface for validated payloads |
-| record | [UnevaluatedpropertiesWithNullValuedInstanceProperties.UnevaluatedPropertiesBoxedVoid](#unevaluatedpropertiesboxedvoid)<br> boxed class to store validated null payloads |
-| static class | [UnevaluatedpropertiesWithNullValuedInstanceProperties.UnevaluatedProperties](#unevaluatedproperties)<br> schema class |
+| data class | [UnevaluatedpropertiesWithNullValuedInstanceProperties.UnevaluatedPropertiesBoxedVoid](#unevaluatedpropertiesboxedvoid)<br> boxed class to store validated null payloads |
+| class | [UnevaluatedpropertiesWithNullValuedInstanceProperties.UnevaluatedProperties](#unevaluatedproperties)<br> schema class |
 
 ## UnevaluatedpropertiesWithNullValuedInstanceProperties1Boxed
 sealed interface UnevaluatedpropertiesWithNullValuedInstanceProperties1Boxed<br>
@@ -55,7 +55,7 @@ data class that stores validated null payloads, sealed permits implementation
 data class UnevaluatedpropertiesWithNullValuedInstanceProperties1BoxedBoolean<br>
 implements [UnevaluatedpropertiesWithNullValuedInstanceProperties1Boxed](#unevaluatedpropertieswithnullvaluedinstanceproperties1boxed)
 
-record that stores validated boolean payloads, sealed permits implementation
+data class that stores validated boolean payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |

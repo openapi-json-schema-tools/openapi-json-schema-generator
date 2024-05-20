@@ -11,13 +11,13 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | sealed interface | [DateTimeFormat.DateTimeFormat1Boxed](#datetimeformat1boxed)<br> sealed interface for validated payloads |
-| record | [DateTimeFormat.DateTimeFormat1BoxedVoid](#datetimeformat1boxedvoid)<br> boxed class to store validated null payloads |
-| record | [DateTimeFormat.DateTimeFormat1BoxedBoolean](#datetimeformat1boxedboolean)<br> boxed class to store validated boolean payloads |
-| record | [DateTimeFormat.DateTimeFormat1BoxedNumber](#datetimeformat1boxednumber)<br> boxed class to store validated Number payloads |
-| record | [DateTimeFormat.DateTimeFormat1BoxedString](#datetimeformat1boxedstring)<br> boxed class to store validated String payloads |
-| record | [DateTimeFormat.DateTimeFormat1BoxedList](#datetimeformat1boxedlist)<br> boxed class to store validated List payloads |
-| record | [DateTimeFormat.DateTimeFormat1BoxedMap](#datetimeformat1boxedmap)<br> boxed class to store validated Map payloads |
-| static class | [DateTimeFormat.DateTimeFormat1](#datetimeformat1)<br> schema class |
+| data class | [DateTimeFormat.DateTimeFormat1BoxedVoid](#datetimeformat1boxedvoid)<br> boxed class to store validated null payloads |
+| data class | [DateTimeFormat.DateTimeFormat1BoxedBoolean](#datetimeformat1boxedboolean)<br> boxed class to store validated boolean payloads |
+| data class | [DateTimeFormat.DateTimeFormat1BoxedNumber](#datetimeformat1boxednumber)<br> boxed class to store validated Number payloads |
+| data class | [DateTimeFormat.DateTimeFormat1BoxedString](#datetimeformat1boxedstring)<br> boxed class to store validated String payloads |
+| data class | [DateTimeFormat.DateTimeFormat1BoxedList](#datetimeformat1boxedlist)<br> boxed class to store validated List payloads |
+| data class | [DateTimeFormat.DateTimeFormat1BoxedMap](#datetimeformat1boxedmap)<br> boxed class to store validated Map payloads |
+| class | [DateTimeFormat.DateTimeFormat1](#datetimeformat1)<br> schema class |
 
 ## DateTimeFormat1Boxed
 sealed interface DateTimeFormat1Boxed<br>
@@ -52,7 +52,7 @@ data class that stores validated null payloads, sealed permits implementation
 data class DateTimeFormat1BoxedBoolean<br>
 implements [DateTimeFormat1Boxed](#datetimeformat1boxed)
 
-record that stores validated boolean payloads, sealed permits implementation
+data class that stores validated boolean payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |

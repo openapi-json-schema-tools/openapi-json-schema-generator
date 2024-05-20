@@ -11,9 +11,9 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | sealed interface | [MultipleTypesCanBeSpecifiedInAnArray.MultipleTypesCanBeSpecifiedInAnArray1Boxed](#multipletypescanbespecifiedinanarray1boxed)<br> sealed interface for validated payloads |
-| record | [MultipleTypesCanBeSpecifiedInAnArray.MultipleTypesCanBeSpecifiedInAnArray1BoxedNumber](#multipletypescanbespecifiedinanarray1boxednumber)<br> boxed class to store validated Number payloads |
-| record | [MultipleTypesCanBeSpecifiedInAnArray.MultipleTypesCanBeSpecifiedInAnArray1BoxedString](#multipletypescanbespecifiedinanarray1boxedstring)<br> boxed class to store validated String payloads |
-| static class | [MultipleTypesCanBeSpecifiedInAnArray.MultipleTypesCanBeSpecifiedInAnArray1](#multipletypescanbespecifiedinanarray1)<br> schema class |
+| data class | [MultipleTypesCanBeSpecifiedInAnArray.MultipleTypesCanBeSpecifiedInAnArray1BoxedNumber](#multipletypescanbespecifiedinanarray1boxednumber)<br> boxed class to store validated Number payloads |
+| data class | [MultipleTypesCanBeSpecifiedInAnArray.MultipleTypesCanBeSpecifiedInAnArray1BoxedString](#multipletypescanbespecifiedinanarray1boxedstring)<br> boxed class to store validated String payloads |
+| class | [MultipleTypesCanBeSpecifiedInAnArray.MultipleTypesCanBeSpecifiedInAnArray1](#multipletypescanbespecifiedinanarray1)<br> schema class |
 
 ## MultipleTypesCanBeSpecifiedInAnArray1Boxed
 sealed interface MultipleTypesCanBeSpecifiedInAnArray1Boxed<br>

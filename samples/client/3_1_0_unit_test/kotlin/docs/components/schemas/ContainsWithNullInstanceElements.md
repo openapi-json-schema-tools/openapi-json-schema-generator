@@ -11,16 +11,16 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | sealed interface | [ContainsWithNullInstanceElements.ContainsWithNullInstanceElements1Boxed](#containswithnullinstanceelements1boxed)<br> sealed interface for validated payloads |
-| record | [ContainsWithNullInstanceElements.ContainsWithNullInstanceElements1BoxedVoid](#containswithnullinstanceelements1boxedvoid)<br> boxed class to store validated null payloads |
-| record | [ContainsWithNullInstanceElements.ContainsWithNullInstanceElements1BoxedBoolean](#containswithnullinstanceelements1boxedboolean)<br> boxed class to store validated boolean payloads |
-| record | [ContainsWithNullInstanceElements.ContainsWithNullInstanceElements1BoxedNumber](#containswithnullinstanceelements1boxednumber)<br> boxed class to store validated Number payloads |
-| record | [ContainsWithNullInstanceElements.ContainsWithNullInstanceElements1BoxedString](#containswithnullinstanceelements1boxedstring)<br> boxed class to store validated String payloads |
-| record | [ContainsWithNullInstanceElements.ContainsWithNullInstanceElements1BoxedList](#containswithnullinstanceelements1boxedlist)<br> boxed class to store validated List payloads |
-| record | [ContainsWithNullInstanceElements.ContainsWithNullInstanceElements1BoxedMap](#containswithnullinstanceelements1boxedmap)<br> boxed class to store validated Map payloads |
-| static class | [ContainsWithNullInstanceElements.ContainsWithNullInstanceElements1](#containswithnullinstanceelements1)<br> schema class |
+| data class | [ContainsWithNullInstanceElements.ContainsWithNullInstanceElements1BoxedVoid](#containswithnullinstanceelements1boxedvoid)<br> boxed class to store validated null payloads |
+| data class | [ContainsWithNullInstanceElements.ContainsWithNullInstanceElements1BoxedBoolean](#containswithnullinstanceelements1boxedboolean)<br> boxed class to store validated boolean payloads |
+| data class | [ContainsWithNullInstanceElements.ContainsWithNullInstanceElements1BoxedNumber](#containswithnullinstanceelements1boxednumber)<br> boxed class to store validated Number payloads |
+| data class | [ContainsWithNullInstanceElements.ContainsWithNullInstanceElements1BoxedString](#containswithnullinstanceelements1boxedstring)<br> boxed class to store validated String payloads |
+| data class | [ContainsWithNullInstanceElements.ContainsWithNullInstanceElements1BoxedList](#containswithnullinstanceelements1boxedlist)<br> boxed class to store validated List payloads |
+| data class | [ContainsWithNullInstanceElements.ContainsWithNullInstanceElements1BoxedMap](#containswithnullinstanceelements1boxedmap)<br> boxed class to store validated Map payloads |
+| class | [ContainsWithNullInstanceElements.ContainsWithNullInstanceElements1](#containswithnullinstanceelements1)<br> schema class |
 | sealed interface | [ContainsWithNullInstanceElements.ContainsBoxed](#containsboxed)<br> sealed interface for validated payloads |
-| record | [ContainsWithNullInstanceElements.ContainsBoxedVoid](#containsboxedvoid)<br> boxed class to store validated null payloads |
-| static class | [ContainsWithNullInstanceElements.Contains](#contains)<br> schema class |
+| data class | [ContainsWithNullInstanceElements.ContainsBoxedVoid](#containsboxedvoid)<br> boxed class to store validated null payloads |
+| class | [ContainsWithNullInstanceElements.Contains](#contains)<br> schema class |
 
 ## ContainsWithNullInstanceElements1Boxed
 sealed interface ContainsWithNullInstanceElements1Boxed<br>
@@ -55,7 +55,7 @@ data class that stores validated null payloads, sealed permits implementation
 data class ContainsWithNullInstanceElements1BoxedBoolean<br>
 implements [ContainsWithNullInstanceElements1Boxed](#containswithnullinstanceelements1boxed)
 
-record that stores validated boolean payloads, sealed permits implementation
+data class that stores validated boolean payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |

@@ -13,18 +13,18 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | sealed interface | [ArrayTypeMatchesArrays.ArrayTypeMatchesArrays1Boxed](#arraytypematchesarrays1boxed)<br> sealed interface for validated payloads |
-| record | [ArrayTypeMatchesArrays.ArrayTypeMatchesArrays1BoxedList](#arraytypematchesarrays1boxedlist)<br> boxed class to store validated List payloads |
-| static class | [ArrayTypeMatchesArrays.ArrayTypeMatchesArrays1](#arraytypematchesarrays1)<br> schema class |
-| static class | [ArrayTypeMatchesArrays.ArrayTypeMatchesArraysListBuilder](#arraytypematchesarrayslistbuilder)<br> builder for List payloads |
-| static class | [ArrayTypeMatchesArrays.ArrayTypeMatchesArraysList](#arraytypematchesarrayslist)<br> output class for List payloads |
+| data class | [ArrayTypeMatchesArrays.ArrayTypeMatchesArrays1BoxedList](#arraytypematchesarrays1boxedlist)<br> boxed class to store validated List payloads |
+| class | [ArrayTypeMatchesArrays.ArrayTypeMatchesArrays1](#arraytypematchesarrays1)<br> schema class |
+| class | [ArrayTypeMatchesArrays.ArrayTypeMatchesArraysListBuilder](#arraytypematchesarrayslistbuilder)<br> builder for List payloads |
+| class | [ArrayTypeMatchesArrays.ArrayTypeMatchesArraysList](#arraytypematchesarrayslist)<br> output class for List payloads |
 | sealed interface | [ArrayTypeMatchesArrays.ItemsBoxed](#itemsboxed)<br> sealed interface for validated payloads |
-| record | [ArrayTypeMatchesArrays.ItemsBoxedVoid](#itemsboxedvoid)<br> boxed class to store validated null payloads |
-| record | [ArrayTypeMatchesArrays.ItemsBoxedBoolean](#itemsboxedboolean)<br> boxed class to store validated boolean payloads |
-| record | [ArrayTypeMatchesArrays.ItemsBoxedNumber](#itemsboxednumber)<br> boxed class to store validated Number payloads |
-| record | [ArrayTypeMatchesArrays.ItemsBoxedString](#itemsboxedstring)<br> boxed class to store validated String payloads |
-| record | [ArrayTypeMatchesArrays.ItemsBoxedList](#itemsboxedlist)<br> boxed class to store validated List payloads |
-| record | [ArrayTypeMatchesArrays.ItemsBoxedMap](#itemsboxedmap)<br> boxed class to store validated Map payloads |
-| static class | [ArrayTypeMatchesArrays.Items](#items)<br> schema class |
+| data class | [ArrayTypeMatchesArrays.ItemsBoxedVoid](#itemsboxedvoid)<br> boxed class to store validated null payloads |
+| data class | [ArrayTypeMatchesArrays.ItemsBoxedBoolean](#itemsboxedboolean)<br> boxed class to store validated boolean payloads |
+| data class | [ArrayTypeMatchesArrays.ItemsBoxedNumber](#itemsboxednumber)<br> boxed class to store validated Number payloads |
+| data class | [ArrayTypeMatchesArrays.ItemsBoxedString](#itemsboxedstring)<br> boxed class to store validated String payloads |
+| data class | [ArrayTypeMatchesArrays.ItemsBoxedList](#itemsboxedlist)<br> boxed class to store validated List payloads |
+| data class | [ArrayTypeMatchesArrays.ItemsBoxedMap](#itemsboxedmap)<br> boxed class to store validated Map payloads |
+| class | [ArrayTypeMatchesArrays.Items](#items)<br> schema class |
 
 ## ArrayTypeMatchesArrays1Boxed
 sealed interface ArrayTypeMatchesArrays1Boxed<br>
@@ -161,7 +161,7 @@ data class that stores validated null payloads, sealed permits implementation
 data class ItemsBoxedBoolean<br>
 implements [ItemsBoxed](#itemsboxed)
 
-record that stores validated boolean payloads, sealed permits implementation
+data class that stores validated boolean payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |

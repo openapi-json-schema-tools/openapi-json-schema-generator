@@ -12,38 +12,38 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | sealed interface | [IfAppearsAtTheEndWhenSerializedKeywordProcessingSequence.IfAppearsAtTheEndWhenSerializedKeywordProcessingSequence1Boxed](#ifappearsattheendwhenserializedkeywordprocessingsequence1boxed)<br> sealed interface for validated payloads |
-| record | [IfAppearsAtTheEndWhenSerializedKeywordProcessingSequence.IfAppearsAtTheEndWhenSerializedKeywordProcessingSequence1BoxedVoid](#ifappearsattheendwhenserializedkeywordprocessingsequence1boxedvoid)<br> boxed class to store validated null payloads |
-| record | [IfAppearsAtTheEndWhenSerializedKeywordProcessingSequence.IfAppearsAtTheEndWhenSerializedKeywordProcessingSequence1BoxedBoolean](#ifappearsattheendwhenserializedkeywordprocessingsequence1boxedboolean)<br> boxed class to store validated boolean payloads |
-| record | [IfAppearsAtTheEndWhenSerializedKeywordProcessingSequence.IfAppearsAtTheEndWhenSerializedKeywordProcessingSequence1BoxedNumber](#ifappearsattheendwhenserializedkeywordprocessingsequence1boxednumber)<br> boxed class to store validated Number payloads |
-| record | [IfAppearsAtTheEndWhenSerializedKeywordProcessingSequence.IfAppearsAtTheEndWhenSerializedKeywordProcessingSequence1BoxedString](#ifappearsattheendwhenserializedkeywordprocessingsequence1boxedstring)<br> boxed class to store validated String payloads |
-| record | [IfAppearsAtTheEndWhenSerializedKeywordProcessingSequence.IfAppearsAtTheEndWhenSerializedKeywordProcessingSequence1BoxedList](#ifappearsattheendwhenserializedkeywordprocessingsequence1boxedlist)<br> boxed class to store validated List payloads |
-| record | [IfAppearsAtTheEndWhenSerializedKeywordProcessingSequence.IfAppearsAtTheEndWhenSerializedKeywordProcessingSequence1BoxedMap](#ifappearsattheendwhenserializedkeywordprocessingsequence1boxedmap)<br> boxed class to store validated Map payloads |
-| static class | [IfAppearsAtTheEndWhenSerializedKeywordProcessingSequence.IfAppearsAtTheEndWhenSerializedKeywordProcessingSequence1](#ifappearsattheendwhenserializedkeywordprocessingsequence1)<br> schema class |
+| data class | [IfAppearsAtTheEndWhenSerializedKeywordProcessingSequence.IfAppearsAtTheEndWhenSerializedKeywordProcessingSequence1BoxedVoid](#ifappearsattheendwhenserializedkeywordprocessingsequence1boxedvoid)<br> boxed class to store validated null payloads |
+| data class | [IfAppearsAtTheEndWhenSerializedKeywordProcessingSequence.IfAppearsAtTheEndWhenSerializedKeywordProcessingSequence1BoxedBoolean](#ifappearsattheendwhenserializedkeywordprocessingsequence1boxedboolean)<br> boxed class to store validated boolean payloads |
+| data class | [IfAppearsAtTheEndWhenSerializedKeywordProcessingSequence.IfAppearsAtTheEndWhenSerializedKeywordProcessingSequence1BoxedNumber](#ifappearsattheendwhenserializedkeywordprocessingsequence1boxednumber)<br> boxed class to store validated Number payloads |
+| data class | [IfAppearsAtTheEndWhenSerializedKeywordProcessingSequence.IfAppearsAtTheEndWhenSerializedKeywordProcessingSequence1BoxedString](#ifappearsattheendwhenserializedkeywordprocessingsequence1boxedstring)<br> boxed class to store validated String payloads |
+| data class | [IfAppearsAtTheEndWhenSerializedKeywordProcessingSequence.IfAppearsAtTheEndWhenSerializedKeywordProcessingSequence1BoxedList](#ifappearsattheendwhenserializedkeywordprocessingsequence1boxedlist)<br> boxed class to store validated List payloads |
+| data class | [IfAppearsAtTheEndWhenSerializedKeywordProcessingSequence.IfAppearsAtTheEndWhenSerializedKeywordProcessingSequence1BoxedMap](#ifappearsattheendwhenserializedkeywordprocessingsequence1boxedmap)<br> boxed class to store validated Map payloads |
+| class | [IfAppearsAtTheEndWhenSerializedKeywordProcessingSequence.IfAppearsAtTheEndWhenSerializedKeywordProcessingSequence1](#ifappearsattheendwhenserializedkeywordprocessingsequence1)<br> schema class |
 | sealed interface | [IfAppearsAtTheEndWhenSerializedKeywordProcessingSequence.ThenBoxed](#thenboxed)<br> sealed interface for validated payloads |
-| record | [IfAppearsAtTheEndWhenSerializedKeywordProcessingSequence.ThenBoxedVoid](#thenboxedvoid)<br> boxed class to store validated null payloads |
-| record | [IfAppearsAtTheEndWhenSerializedKeywordProcessingSequence.ThenBoxedBoolean](#thenboxedboolean)<br> boxed class to store validated boolean payloads |
-| record | [IfAppearsAtTheEndWhenSerializedKeywordProcessingSequence.ThenBoxedNumber](#thenboxednumber)<br> boxed class to store validated Number payloads |
-| record | [IfAppearsAtTheEndWhenSerializedKeywordProcessingSequence.ThenBoxedString](#thenboxedstring)<br> boxed class to store validated String payloads |
-| record | [IfAppearsAtTheEndWhenSerializedKeywordProcessingSequence.ThenBoxedList](#thenboxedlist)<br> boxed class to store validated List payloads |
-| record | [IfAppearsAtTheEndWhenSerializedKeywordProcessingSequence.ThenBoxedMap](#thenboxedmap)<br> boxed class to store validated Map payloads |
-| static class | [IfAppearsAtTheEndWhenSerializedKeywordProcessingSequence.Then](#then)<br> schema class |
+| data class | [IfAppearsAtTheEndWhenSerializedKeywordProcessingSequence.ThenBoxedVoid](#thenboxedvoid)<br> boxed class to store validated null payloads |
+| data class | [IfAppearsAtTheEndWhenSerializedKeywordProcessingSequence.ThenBoxedBoolean](#thenboxedboolean)<br> boxed class to store validated boolean payloads |
+| data class | [IfAppearsAtTheEndWhenSerializedKeywordProcessingSequence.ThenBoxedNumber](#thenboxednumber)<br> boxed class to store validated Number payloads |
+| data class | [IfAppearsAtTheEndWhenSerializedKeywordProcessingSequence.ThenBoxedString](#thenboxedstring)<br> boxed class to store validated String payloads |
+| data class | [IfAppearsAtTheEndWhenSerializedKeywordProcessingSequence.ThenBoxedList](#thenboxedlist)<br> boxed class to store validated List payloads |
+| data class | [IfAppearsAtTheEndWhenSerializedKeywordProcessingSequence.ThenBoxedMap](#thenboxedmap)<br> boxed class to store validated Map payloads |
+| class | [IfAppearsAtTheEndWhenSerializedKeywordProcessingSequence.Then](#then)<br> schema class |
 | enum | [IfAppearsAtTheEndWhenSerializedKeywordProcessingSequence.StringThenConst](#stringthenconst)<br>String enum |
 | sealed interface | [IfAppearsAtTheEndWhenSerializedKeywordProcessingSequence.IfSchemaBoxed](#ifschemaboxed)<br> sealed interface for validated payloads |
-| record | [IfAppearsAtTheEndWhenSerializedKeywordProcessingSequence.IfSchemaBoxedVoid](#ifschemaboxedvoid)<br> boxed class to store validated null payloads |
-| record | [IfAppearsAtTheEndWhenSerializedKeywordProcessingSequence.IfSchemaBoxedBoolean](#ifschemaboxedboolean)<br> boxed class to store validated boolean payloads |
-| record | [IfAppearsAtTheEndWhenSerializedKeywordProcessingSequence.IfSchemaBoxedNumber](#ifschemaboxednumber)<br> boxed class to store validated Number payloads |
-| record | [IfAppearsAtTheEndWhenSerializedKeywordProcessingSequence.IfSchemaBoxedString](#ifschemaboxedstring)<br> boxed class to store validated String payloads |
-| record | [IfAppearsAtTheEndWhenSerializedKeywordProcessingSequence.IfSchemaBoxedList](#ifschemaboxedlist)<br> boxed class to store validated List payloads |
-| record | [IfAppearsAtTheEndWhenSerializedKeywordProcessingSequence.IfSchemaBoxedMap](#ifschemaboxedmap)<br> boxed class to store validated Map payloads |
-| static class | [IfAppearsAtTheEndWhenSerializedKeywordProcessingSequence.IfSchema](#ifschema)<br> schema class |
+| data class | [IfAppearsAtTheEndWhenSerializedKeywordProcessingSequence.IfSchemaBoxedVoid](#ifschemaboxedvoid)<br> boxed class to store validated null payloads |
+| data class | [IfAppearsAtTheEndWhenSerializedKeywordProcessingSequence.IfSchemaBoxedBoolean](#ifschemaboxedboolean)<br> boxed class to store validated boolean payloads |
+| data class | [IfAppearsAtTheEndWhenSerializedKeywordProcessingSequence.IfSchemaBoxedNumber](#ifschemaboxednumber)<br> boxed class to store validated Number payloads |
+| data class | [IfAppearsAtTheEndWhenSerializedKeywordProcessingSequence.IfSchemaBoxedString](#ifschemaboxedstring)<br> boxed class to store validated String payloads |
+| data class | [IfAppearsAtTheEndWhenSerializedKeywordProcessingSequence.IfSchemaBoxedList](#ifschemaboxedlist)<br> boxed class to store validated List payloads |
+| data class | [IfAppearsAtTheEndWhenSerializedKeywordProcessingSequence.IfSchemaBoxedMap](#ifschemaboxedmap)<br> boxed class to store validated Map payloads |
+| class | [IfAppearsAtTheEndWhenSerializedKeywordProcessingSequence.IfSchema](#ifschema)<br> schema class |
 | sealed interface | [IfAppearsAtTheEndWhenSerializedKeywordProcessingSequence.ElseSchemaBoxed](#elseschemaboxed)<br> sealed interface for validated payloads |
-| record | [IfAppearsAtTheEndWhenSerializedKeywordProcessingSequence.ElseSchemaBoxedVoid](#elseschemaboxedvoid)<br> boxed class to store validated null payloads |
-| record | [IfAppearsAtTheEndWhenSerializedKeywordProcessingSequence.ElseSchemaBoxedBoolean](#elseschemaboxedboolean)<br> boxed class to store validated boolean payloads |
-| record | [IfAppearsAtTheEndWhenSerializedKeywordProcessingSequence.ElseSchemaBoxedNumber](#elseschemaboxednumber)<br> boxed class to store validated Number payloads |
-| record | [IfAppearsAtTheEndWhenSerializedKeywordProcessingSequence.ElseSchemaBoxedString](#elseschemaboxedstring)<br> boxed class to store validated String payloads |
-| record | [IfAppearsAtTheEndWhenSerializedKeywordProcessingSequence.ElseSchemaBoxedList](#elseschemaboxedlist)<br> boxed class to store validated List payloads |
-| record | [IfAppearsAtTheEndWhenSerializedKeywordProcessingSequence.ElseSchemaBoxedMap](#elseschemaboxedmap)<br> boxed class to store validated Map payloads |
-| static class | [IfAppearsAtTheEndWhenSerializedKeywordProcessingSequence.ElseSchema](#elseschema)<br> schema class |
+| data class | [IfAppearsAtTheEndWhenSerializedKeywordProcessingSequence.ElseSchemaBoxedVoid](#elseschemaboxedvoid)<br> boxed class to store validated null payloads |
+| data class | [IfAppearsAtTheEndWhenSerializedKeywordProcessingSequence.ElseSchemaBoxedBoolean](#elseschemaboxedboolean)<br> boxed class to store validated boolean payloads |
+| data class | [IfAppearsAtTheEndWhenSerializedKeywordProcessingSequence.ElseSchemaBoxedNumber](#elseschemaboxednumber)<br> boxed class to store validated Number payloads |
+| data class | [IfAppearsAtTheEndWhenSerializedKeywordProcessingSequence.ElseSchemaBoxedString](#elseschemaboxedstring)<br> boxed class to store validated String payloads |
+| data class | [IfAppearsAtTheEndWhenSerializedKeywordProcessingSequence.ElseSchemaBoxedList](#elseschemaboxedlist)<br> boxed class to store validated List payloads |
+| data class | [IfAppearsAtTheEndWhenSerializedKeywordProcessingSequence.ElseSchemaBoxedMap](#elseschemaboxedmap)<br> boxed class to store validated Map payloads |
+| class | [IfAppearsAtTheEndWhenSerializedKeywordProcessingSequence.ElseSchema](#elseschema)<br> schema class |
 | enum | [IfAppearsAtTheEndWhenSerializedKeywordProcessingSequence.StringElseConst](#stringelseconst)<br>String enum |
 
 ## IfAppearsAtTheEndWhenSerializedKeywordProcessingSequence1Boxed
@@ -79,7 +79,7 @@ data class that stores validated null payloads, sealed permits implementation
 data class IfAppearsAtTheEndWhenSerializedKeywordProcessingSequence1BoxedBoolean<br>
 implements [IfAppearsAtTheEndWhenSerializedKeywordProcessingSequence1Boxed](#ifappearsattheendwhenserializedkeywordprocessingsequence1boxed)
 
-record that stores validated boolean payloads, sealed permits implementation
+data class that stores validated boolean payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
@@ -228,7 +228,7 @@ data class that stores validated null payloads, sealed permits implementation
 data class ThenBoxedBoolean<br>
 implements [ThenBoxed](#thenboxed)
 
-record that stores validated boolean payloads, sealed permits implementation
+data class that stores validated boolean payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
@@ -386,7 +386,7 @@ data class that stores validated null payloads, sealed permits implementation
 data class IfSchemaBoxedBoolean<br>
 implements [IfSchemaBoxed](#ifschemaboxed)
 
-record that stores validated boolean payloads, sealed permits implementation
+data class that stores validated boolean payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
@@ -533,7 +533,7 @@ data class that stores validated null payloads, sealed permits implementation
 data class ElseSchemaBoxedBoolean<br>
 implements [ElseSchemaBoxed](#elseschemaboxed)
 
-record that stores validated boolean payloads, sealed permits implementation
+data class that stores validated boolean payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |

@@ -13,18 +13,18 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | sealed interface | [PropertyNamedRefThatIsNotAReference.PropertyNamedRefThatIsNotAReference1Boxed](#propertynamedrefthatisnotareference1boxed)<br> sealed interface for validated payloads |
-| record | [PropertyNamedRefThatIsNotAReference.PropertyNamedRefThatIsNotAReference1BoxedVoid](#propertynamedrefthatisnotareference1boxedvoid)<br> boxed class to store validated null payloads |
-| record | [PropertyNamedRefThatIsNotAReference.PropertyNamedRefThatIsNotAReference1BoxedBoolean](#propertynamedrefthatisnotareference1boxedboolean)<br> boxed class to store validated boolean payloads |
-| record | [PropertyNamedRefThatIsNotAReference.PropertyNamedRefThatIsNotAReference1BoxedNumber](#propertynamedrefthatisnotareference1boxednumber)<br> boxed class to store validated Number payloads |
-| record | [PropertyNamedRefThatIsNotAReference.PropertyNamedRefThatIsNotAReference1BoxedString](#propertynamedrefthatisnotareference1boxedstring)<br> boxed class to store validated String payloads |
-| record | [PropertyNamedRefThatIsNotAReference.PropertyNamedRefThatIsNotAReference1BoxedList](#propertynamedrefthatisnotareference1boxedlist)<br> boxed class to store validated List payloads |
-| record | [PropertyNamedRefThatIsNotAReference.PropertyNamedRefThatIsNotAReference1BoxedMap](#propertynamedrefthatisnotareference1boxedmap)<br> boxed class to store validated Map payloads |
-| static class | [PropertyNamedRefThatIsNotAReference.PropertyNamedRefThatIsNotAReference1](#propertynamedrefthatisnotareference1)<br> schema class |
-| static class | [PropertyNamedRefThatIsNotAReference.PropertyNamedRefThatIsNotAReferenceMapBuilder](#propertynamedrefthatisnotareferencemapbuilder)<br> builder for Map payloads |
-| static class | [PropertyNamedRefThatIsNotAReference.PropertyNamedRefThatIsNotAReferenceMap](#propertynamedrefthatisnotareferencemap)<br> output class for Map payloads |
+| data class | [PropertyNamedRefThatIsNotAReference.PropertyNamedRefThatIsNotAReference1BoxedVoid](#propertynamedrefthatisnotareference1boxedvoid)<br> boxed class to store validated null payloads |
+| data class | [PropertyNamedRefThatIsNotAReference.PropertyNamedRefThatIsNotAReference1BoxedBoolean](#propertynamedrefthatisnotareference1boxedboolean)<br> boxed class to store validated boolean payloads |
+| data class | [PropertyNamedRefThatIsNotAReference.PropertyNamedRefThatIsNotAReference1BoxedNumber](#propertynamedrefthatisnotareference1boxednumber)<br> boxed class to store validated Number payloads |
+| data class | [PropertyNamedRefThatIsNotAReference.PropertyNamedRefThatIsNotAReference1BoxedString](#propertynamedrefthatisnotareference1boxedstring)<br> boxed class to store validated String payloads |
+| data class | [PropertyNamedRefThatIsNotAReference.PropertyNamedRefThatIsNotAReference1BoxedList](#propertynamedrefthatisnotareference1boxedlist)<br> boxed class to store validated List payloads |
+| data class | [PropertyNamedRefThatIsNotAReference.PropertyNamedRefThatIsNotAReference1BoxedMap](#propertynamedrefthatisnotareference1boxedmap)<br> boxed class to store validated Map payloads |
+| class | [PropertyNamedRefThatIsNotAReference.PropertyNamedRefThatIsNotAReference1](#propertynamedrefthatisnotareference1)<br> schema class |
+| class | [PropertyNamedRefThatIsNotAReference.PropertyNamedRefThatIsNotAReferenceMapBuilder](#propertynamedrefthatisnotareferencemapbuilder)<br> builder for Map payloads |
+| class | [PropertyNamedRefThatIsNotAReference.PropertyNamedRefThatIsNotAReferenceMap](#propertynamedrefthatisnotareferencemap)<br> output class for Map payloads |
 | sealed interface | [PropertyNamedRefThatIsNotAReference.RefBoxed](#refboxed)<br> sealed interface for validated payloads |
-| record | [PropertyNamedRefThatIsNotAReference.RefBoxedString](#refboxedstring)<br> boxed class to store validated String payloads |
-| static class | [PropertyNamedRefThatIsNotAReference.Ref](#ref)<br> schema class |
+| data class | [PropertyNamedRefThatIsNotAReference.RefBoxedString](#refboxedstring)<br> boxed class to store validated String payloads |
+| class | [PropertyNamedRefThatIsNotAReference.Ref](#ref)<br> schema class |
 
 ## PropertyNamedRefThatIsNotAReference1Boxed
 sealed interface PropertyNamedRefThatIsNotAReference1Boxed<br>
@@ -59,7 +59,7 @@ data class that stores validated null payloads, sealed permits implementation
 data class PropertyNamedRefThatIsNotAReference1BoxedBoolean<br>
 implements [PropertyNamedRefThatIsNotAReference1Boxed](#propertynamedrefthatisnotareference1boxed)
 
-record that stores validated boolean payloads, sealed permits implementation
+data class that stores validated boolean payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |

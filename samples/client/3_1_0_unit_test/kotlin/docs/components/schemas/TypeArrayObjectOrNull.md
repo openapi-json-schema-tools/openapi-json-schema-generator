@@ -11,10 +11,10 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | sealed interface | [TypeArrayObjectOrNull.TypeArrayObjectOrNull1Boxed](#typearrayobjectornull1boxed)<br> sealed interface for validated payloads |
-| record | [TypeArrayObjectOrNull.TypeArrayObjectOrNull1BoxedList](#typearrayobjectornull1boxedlist)<br> boxed class to store validated List payloads |
-| record | [TypeArrayObjectOrNull.TypeArrayObjectOrNull1BoxedMap](#typearrayobjectornull1boxedmap)<br> boxed class to store validated Map payloads |
-| record | [TypeArrayObjectOrNull.TypeArrayObjectOrNull1BoxedVoid](#typearrayobjectornull1boxedvoid)<br> boxed class to store validated null payloads |
-| static class | [TypeArrayObjectOrNull.TypeArrayObjectOrNull1](#typearrayobjectornull1)<br> schema class |
+| data class | [TypeArrayObjectOrNull.TypeArrayObjectOrNull1BoxedList](#typearrayobjectornull1boxedlist)<br> boxed class to store validated List payloads |
+| data class | [TypeArrayObjectOrNull.TypeArrayObjectOrNull1BoxedMap](#typearrayobjectornull1boxedmap)<br> boxed class to store validated Map payloads |
+| data class | [TypeArrayObjectOrNull.TypeArrayObjectOrNull1BoxedVoid](#typearrayobjectornull1boxedvoid)<br> boxed class to store validated null payloads |
+| class | [TypeArrayObjectOrNull.TypeArrayObjectOrNull1](#typearrayobjectornull1)<br> schema class |
 
 ## TypeArrayObjectOrNull1Boxed
 sealed interface TypeArrayObjectOrNull1Boxed<br>

@@ -12,8 +12,8 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | sealed interface | [EnumWith0DoesNotMatchFalse.EnumWith0DoesNotMatchFalse1Boxed](#enumwith0doesnotmatchfalse1boxed)<br> sealed interface for validated payloads |
-| record | [EnumWith0DoesNotMatchFalse.EnumWith0DoesNotMatchFalse1BoxedNumber](#enumwith0doesnotmatchfalse1boxednumber)<br> boxed class to store validated Number payloads |
-| static class | [EnumWith0DoesNotMatchFalse.EnumWith0DoesNotMatchFalse1](#enumwith0doesnotmatchfalse1)<br> schema class |
+| data class | [EnumWith0DoesNotMatchFalse.EnumWith0DoesNotMatchFalse1BoxedNumber](#enumwith0doesnotmatchfalse1boxednumber)<br> boxed class to store validated Number payloads |
+| class | [EnumWith0DoesNotMatchFalse.EnumWith0DoesNotMatchFalse1](#enumwith0doesnotmatchfalse1)<br> schema class |
 | enum | [EnumWith0DoesNotMatchFalse.IntegerEnumWith0DoesNotMatchFalseEnums](#integerenumwith0doesnotmatchfalseenums)<br>Integer enum |
 | enum | [EnumWith0DoesNotMatchFalse.LongEnumWith0DoesNotMatchFalseEnums](#longenumwith0doesnotmatchfalseenums)<br>Long enum |
 | enum | [EnumWith0DoesNotMatchFalse.FloatEnumWith0DoesNotMatchFalseEnums](#floatenumwith0doesnotmatchfalseenums)<br>Float enum |

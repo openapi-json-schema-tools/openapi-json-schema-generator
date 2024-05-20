@@ -11,24 +11,24 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | sealed interface | [MultipleSimultaneousPatternpropertiesAreValidated.MultipleSimultaneousPatternpropertiesAreValidated1Boxed](#multiplesimultaneouspatternpropertiesarevalidated1boxed)<br> sealed interface for validated payloads |
-| record | [MultipleSimultaneousPatternpropertiesAreValidated.MultipleSimultaneousPatternpropertiesAreValidated1BoxedVoid](#multiplesimultaneouspatternpropertiesarevalidated1boxedvoid)<br> boxed class to store validated null payloads |
-| record | [MultipleSimultaneousPatternpropertiesAreValidated.MultipleSimultaneousPatternpropertiesAreValidated1BoxedBoolean](#multiplesimultaneouspatternpropertiesarevalidated1boxedboolean)<br> boxed class to store validated boolean payloads |
-| record | [MultipleSimultaneousPatternpropertiesAreValidated.MultipleSimultaneousPatternpropertiesAreValidated1BoxedNumber](#multiplesimultaneouspatternpropertiesarevalidated1boxednumber)<br> boxed class to store validated Number payloads |
-| record | [MultipleSimultaneousPatternpropertiesAreValidated.MultipleSimultaneousPatternpropertiesAreValidated1BoxedString](#multiplesimultaneouspatternpropertiesarevalidated1boxedstring)<br> boxed class to store validated String payloads |
-| record | [MultipleSimultaneousPatternpropertiesAreValidated.MultipleSimultaneousPatternpropertiesAreValidated1BoxedList](#multiplesimultaneouspatternpropertiesarevalidated1boxedlist)<br> boxed class to store validated List payloads |
-| record | [MultipleSimultaneousPatternpropertiesAreValidated.MultipleSimultaneousPatternpropertiesAreValidated1BoxedMap](#multiplesimultaneouspatternpropertiesarevalidated1boxedmap)<br> boxed class to store validated Map payloads |
-| static class | [MultipleSimultaneousPatternpropertiesAreValidated.MultipleSimultaneousPatternpropertiesAreValidated1](#multiplesimultaneouspatternpropertiesarevalidated1)<br> schema class |
+| data class | [MultipleSimultaneousPatternpropertiesAreValidated.MultipleSimultaneousPatternpropertiesAreValidated1BoxedVoid](#multiplesimultaneouspatternpropertiesarevalidated1boxedvoid)<br> boxed class to store validated null payloads |
+| data class | [MultipleSimultaneousPatternpropertiesAreValidated.MultipleSimultaneousPatternpropertiesAreValidated1BoxedBoolean](#multiplesimultaneouspatternpropertiesarevalidated1boxedboolean)<br> boxed class to store validated boolean payloads |
+| data class | [MultipleSimultaneousPatternpropertiesAreValidated.MultipleSimultaneousPatternpropertiesAreValidated1BoxedNumber](#multiplesimultaneouspatternpropertiesarevalidated1boxednumber)<br> boxed class to store validated Number payloads |
+| data class | [MultipleSimultaneousPatternpropertiesAreValidated.MultipleSimultaneousPatternpropertiesAreValidated1BoxedString](#multiplesimultaneouspatternpropertiesarevalidated1boxedstring)<br> boxed class to store validated String payloads |
+| data class | [MultipleSimultaneousPatternpropertiesAreValidated.MultipleSimultaneousPatternpropertiesAreValidated1BoxedList](#multiplesimultaneouspatternpropertiesarevalidated1boxedlist)<br> boxed class to store validated List payloads |
+| data class | [MultipleSimultaneousPatternpropertiesAreValidated.MultipleSimultaneousPatternpropertiesAreValidated1BoxedMap](#multiplesimultaneouspatternpropertiesarevalidated1boxedmap)<br> boxed class to store validated Map payloads |
+| class | [MultipleSimultaneousPatternpropertiesAreValidated.MultipleSimultaneousPatternpropertiesAreValidated1](#multiplesimultaneouspatternpropertiesarevalidated1)<br> schema class |
 | sealed interface | [MultipleSimultaneousPatternpropertiesAreValidated.AaaBoxed](#aaaboxed)<br> sealed interface for validated payloads |
-| record | [MultipleSimultaneousPatternpropertiesAreValidated.AaaBoxedVoid](#aaaboxedvoid)<br> boxed class to store validated null payloads |
-| record | [MultipleSimultaneousPatternpropertiesAreValidated.AaaBoxedBoolean](#aaaboxedboolean)<br> boxed class to store validated boolean payloads |
-| record | [MultipleSimultaneousPatternpropertiesAreValidated.AaaBoxedNumber](#aaaboxednumber)<br> boxed class to store validated Number payloads |
-| record | [MultipleSimultaneousPatternpropertiesAreValidated.AaaBoxedString](#aaaboxedstring)<br> boxed class to store validated String payloads |
-| record | [MultipleSimultaneousPatternpropertiesAreValidated.AaaBoxedList](#aaaboxedlist)<br> boxed class to store validated List payloads |
-| record | [MultipleSimultaneousPatternpropertiesAreValidated.AaaBoxedMap](#aaaboxedmap)<br> boxed class to store validated Map payloads |
-| static class | [MultipleSimultaneousPatternpropertiesAreValidated.Aaa](#aaa)<br> schema class |
+| data class | [MultipleSimultaneousPatternpropertiesAreValidated.AaaBoxedVoid](#aaaboxedvoid)<br> boxed class to store validated null payloads |
+| data class | [MultipleSimultaneousPatternpropertiesAreValidated.AaaBoxedBoolean](#aaaboxedboolean)<br> boxed class to store validated boolean payloads |
+| data class | [MultipleSimultaneousPatternpropertiesAreValidated.AaaBoxedNumber](#aaaboxednumber)<br> boxed class to store validated Number payloads |
+| data class | [MultipleSimultaneousPatternpropertiesAreValidated.AaaBoxedString](#aaaboxedstring)<br> boxed class to store validated String payloads |
+| data class | [MultipleSimultaneousPatternpropertiesAreValidated.AaaBoxedList](#aaaboxedlist)<br> boxed class to store validated List payloads |
+| data class | [MultipleSimultaneousPatternpropertiesAreValidated.AaaBoxedMap](#aaaboxedmap)<br> boxed class to store validated Map payloads |
+| class | [MultipleSimultaneousPatternpropertiesAreValidated.Aaa](#aaa)<br> schema class |
 | sealed interface | [MultipleSimultaneousPatternpropertiesAreValidated.ABoxed](#aboxed)<br> sealed interface for validated payloads |
-| record | [MultipleSimultaneousPatternpropertiesAreValidated.ABoxedNumber](#aboxednumber)<br> boxed class to store validated Number payloads |
-| static class | [MultipleSimultaneousPatternpropertiesAreValidated.A](#a)<br> schema class |
+| data class | [MultipleSimultaneousPatternpropertiesAreValidated.ABoxedNumber](#aboxednumber)<br> boxed class to store validated Number payloads |
+| class | [MultipleSimultaneousPatternpropertiesAreValidated.A](#a)<br> schema class |
 
 ## MultipleSimultaneousPatternpropertiesAreValidated1Boxed
 sealed interface MultipleSimultaneousPatternpropertiesAreValidated1Boxed<br>
@@ -63,7 +63,7 @@ data class that stores validated null payloads, sealed permits implementation
 data class MultipleSimultaneousPatternpropertiesAreValidated1BoxedBoolean<br>
 implements [MultipleSimultaneousPatternpropertiesAreValidated1Boxed](#multiplesimultaneouspatternpropertiesarevalidated1boxed)
 
-record that stores validated boolean payloads, sealed permits implementation
+data class that stores validated boolean payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
@@ -210,7 +210,7 @@ data class that stores validated null payloads, sealed permits implementation
 data class AaaBoxedBoolean<br>
 implements [AaaBoxed](#aaaboxed)
 
-record that stores validated boolean payloads, sealed permits implementation
+data class that stores validated boolean payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |

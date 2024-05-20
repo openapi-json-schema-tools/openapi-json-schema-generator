@@ -12,13 +12,13 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | sealed interface | [ConstNulCharactersInStrings.ConstNulCharactersInStrings1Boxed](#constnulcharactersinstrings1boxed)<br> sealed interface for validated payloads |
-| record | [ConstNulCharactersInStrings.ConstNulCharactersInStrings1BoxedVoid](#constnulcharactersinstrings1boxedvoid)<br> boxed class to store validated null payloads |
-| record | [ConstNulCharactersInStrings.ConstNulCharactersInStrings1BoxedBoolean](#constnulcharactersinstrings1boxedboolean)<br> boxed class to store validated boolean payloads |
-| record | [ConstNulCharactersInStrings.ConstNulCharactersInStrings1BoxedNumber](#constnulcharactersinstrings1boxednumber)<br> boxed class to store validated Number payloads |
-| record | [ConstNulCharactersInStrings.ConstNulCharactersInStrings1BoxedString](#constnulcharactersinstrings1boxedstring)<br> boxed class to store validated String payloads |
-| record | [ConstNulCharactersInStrings.ConstNulCharactersInStrings1BoxedList](#constnulcharactersinstrings1boxedlist)<br> boxed class to store validated List payloads |
-| record | [ConstNulCharactersInStrings.ConstNulCharactersInStrings1BoxedMap](#constnulcharactersinstrings1boxedmap)<br> boxed class to store validated Map payloads |
-| static class | [ConstNulCharactersInStrings.ConstNulCharactersInStrings1](#constnulcharactersinstrings1)<br> schema class |
+| data class | [ConstNulCharactersInStrings.ConstNulCharactersInStrings1BoxedVoid](#constnulcharactersinstrings1boxedvoid)<br> boxed class to store validated null payloads |
+| data class | [ConstNulCharactersInStrings.ConstNulCharactersInStrings1BoxedBoolean](#constnulcharactersinstrings1boxedboolean)<br> boxed class to store validated boolean payloads |
+| data class | [ConstNulCharactersInStrings.ConstNulCharactersInStrings1BoxedNumber](#constnulcharactersinstrings1boxednumber)<br> boxed class to store validated Number payloads |
+| data class | [ConstNulCharactersInStrings.ConstNulCharactersInStrings1BoxedString](#constnulcharactersinstrings1boxedstring)<br> boxed class to store validated String payloads |
+| data class | [ConstNulCharactersInStrings.ConstNulCharactersInStrings1BoxedList](#constnulcharactersinstrings1boxedlist)<br> boxed class to store validated List payloads |
+| data class | [ConstNulCharactersInStrings.ConstNulCharactersInStrings1BoxedMap](#constnulcharactersinstrings1boxedmap)<br> boxed class to store validated Map payloads |
+| class | [ConstNulCharactersInStrings.ConstNulCharactersInStrings1](#constnulcharactersinstrings1)<br> schema class |
 | enum | [ConstNulCharactersInStrings.StringConstNulCharactersInStringsConst](#stringconstnulcharactersinstringsconst)<br>String enum |
 
 ## ConstNulCharactersInStrings1Boxed
@@ -54,7 +54,7 @@ data class that stores validated null payloads, sealed permits implementation
 data class ConstNulCharactersInStrings1BoxedBoolean<br>
 implements [ConstNulCharactersInStrings1Boxed](#constnulcharactersinstrings1boxed)
 
-record that stores validated boolean payloads, sealed permits implementation
+data class that stores validated boolean payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |

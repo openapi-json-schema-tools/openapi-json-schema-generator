@@ -13,31 +13,31 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | sealed interface | [RequiredValidation.RequiredValidation1Boxed](#requiredvalidation1boxed)<br> sealed interface for validated payloads |
-| record | [RequiredValidation.RequiredValidation1BoxedVoid](#requiredvalidation1boxedvoid)<br> boxed class to store validated null payloads |
-| record | [RequiredValidation.RequiredValidation1BoxedBoolean](#requiredvalidation1boxedboolean)<br> boxed class to store validated boolean payloads |
-| record | [RequiredValidation.RequiredValidation1BoxedNumber](#requiredvalidation1boxednumber)<br> boxed class to store validated Number payloads |
-| record | [RequiredValidation.RequiredValidation1BoxedString](#requiredvalidation1boxedstring)<br> boxed class to store validated String payloads |
-| record | [RequiredValidation.RequiredValidation1BoxedList](#requiredvalidation1boxedlist)<br> boxed class to store validated List payloads |
-| record | [RequiredValidation.RequiredValidation1BoxedMap](#requiredvalidation1boxedmap)<br> boxed class to store validated Map payloads |
-| static class | [RequiredValidation.RequiredValidation1](#requiredvalidation1)<br> schema class |
-| static class | [RequiredValidation.RequiredValidationMapBuilder](#requiredvalidationmapbuilder)<br> builder for Map payloads |
-| static class | [RequiredValidation.RequiredValidationMap](#requiredvalidationmap)<br> output class for Map payloads |
+| data class | [RequiredValidation.RequiredValidation1BoxedVoid](#requiredvalidation1boxedvoid)<br> boxed class to store validated null payloads |
+| data class | [RequiredValidation.RequiredValidation1BoxedBoolean](#requiredvalidation1boxedboolean)<br> boxed class to store validated boolean payloads |
+| data class | [RequiredValidation.RequiredValidation1BoxedNumber](#requiredvalidation1boxednumber)<br> boxed class to store validated Number payloads |
+| data class | [RequiredValidation.RequiredValidation1BoxedString](#requiredvalidation1boxedstring)<br> boxed class to store validated String payloads |
+| data class | [RequiredValidation.RequiredValidation1BoxedList](#requiredvalidation1boxedlist)<br> boxed class to store validated List payloads |
+| data class | [RequiredValidation.RequiredValidation1BoxedMap](#requiredvalidation1boxedmap)<br> boxed class to store validated Map payloads |
+| class | [RequiredValidation.RequiredValidation1](#requiredvalidation1)<br> schema class |
+| class | [RequiredValidation.RequiredValidationMapBuilder](#requiredvalidationmapbuilder)<br> builder for Map payloads |
+| class | [RequiredValidation.RequiredValidationMap](#requiredvalidationmap)<br> output class for Map payloads |
 | sealed interface | [RequiredValidation.BarBoxed](#barboxed)<br> sealed interface for validated payloads |
-| record | [RequiredValidation.BarBoxedVoid](#barboxedvoid)<br> boxed class to store validated null payloads |
-| record | [RequiredValidation.BarBoxedBoolean](#barboxedboolean)<br> boxed class to store validated boolean payloads |
-| record | [RequiredValidation.BarBoxedNumber](#barboxednumber)<br> boxed class to store validated Number payloads |
-| record | [RequiredValidation.BarBoxedString](#barboxedstring)<br> boxed class to store validated String payloads |
-| record | [RequiredValidation.BarBoxedList](#barboxedlist)<br> boxed class to store validated List payloads |
-| record | [RequiredValidation.BarBoxedMap](#barboxedmap)<br> boxed class to store validated Map payloads |
-| static class | [RequiredValidation.Bar](#bar)<br> schema class |
+| data class | [RequiredValidation.BarBoxedVoid](#barboxedvoid)<br> boxed class to store validated null payloads |
+| data class | [RequiredValidation.BarBoxedBoolean](#barboxedboolean)<br> boxed class to store validated boolean payloads |
+| data class | [RequiredValidation.BarBoxedNumber](#barboxednumber)<br> boxed class to store validated Number payloads |
+| data class | [RequiredValidation.BarBoxedString](#barboxedstring)<br> boxed class to store validated String payloads |
+| data class | [RequiredValidation.BarBoxedList](#barboxedlist)<br> boxed class to store validated List payloads |
+| data class | [RequiredValidation.BarBoxedMap](#barboxedmap)<br> boxed class to store validated Map payloads |
+| class | [RequiredValidation.Bar](#bar)<br> schema class |
 | sealed interface | [RequiredValidation.FooBoxed](#fooboxed)<br> sealed interface for validated payloads |
-| record | [RequiredValidation.FooBoxedVoid](#fooboxedvoid)<br> boxed class to store validated null payloads |
-| record | [RequiredValidation.FooBoxedBoolean](#fooboxedboolean)<br> boxed class to store validated boolean payloads |
-| record | [RequiredValidation.FooBoxedNumber](#fooboxednumber)<br> boxed class to store validated Number payloads |
-| record | [RequiredValidation.FooBoxedString](#fooboxedstring)<br> boxed class to store validated String payloads |
-| record | [RequiredValidation.FooBoxedList](#fooboxedlist)<br> boxed class to store validated List payloads |
-| record | [RequiredValidation.FooBoxedMap](#fooboxedmap)<br> boxed class to store validated Map payloads |
-| static class | [RequiredValidation.Foo](#foo)<br> schema class |
+| data class | [RequiredValidation.FooBoxedVoid](#fooboxedvoid)<br> boxed class to store validated null payloads |
+| data class | [RequiredValidation.FooBoxedBoolean](#fooboxedboolean)<br> boxed class to store validated boolean payloads |
+| data class | [RequiredValidation.FooBoxedNumber](#fooboxednumber)<br> boxed class to store validated Number payloads |
+| data class | [RequiredValidation.FooBoxedString](#fooboxedstring)<br> boxed class to store validated String payloads |
+| data class | [RequiredValidation.FooBoxedList](#fooboxedlist)<br> boxed class to store validated List payloads |
+| data class | [RequiredValidation.FooBoxedMap](#fooboxedmap)<br> boxed class to store validated Map payloads |
+| class | [RequiredValidation.Foo](#foo)<br> schema class |
 
 ## RequiredValidation1Boxed
 sealed interface RequiredValidation1Boxed<br>
@@ -72,7 +72,7 @@ data class that stores validated null payloads, sealed permits implementation
 data class RequiredValidation1BoxedBoolean<br>
 implements [RequiredValidation1Boxed](#requiredvalidation1boxed)
 
-record that stores validated boolean payloads, sealed permits implementation
+data class that stores validated boolean payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
@@ -292,7 +292,7 @@ data class that stores validated null payloads, sealed permits implementation
 data class BarBoxedBoolean<br>
 implements [BarBoxed](#barboxed)
 
-record that stores validated boolean payloads, sealed permits implementation
+data class that stores validated boolean payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
@@ -417,7 +417,7 @@ data class that stores validated null payloads, sealed permits implementation
 data class FooBoxedBoolean<br>
 implements [FooBoxed](#fooboxed)
 
-record that stores validated boolean payloads, sealed permits implementation
+data class that stores validated boolean payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |

@@ -11,24 +11,24 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | sealed interface | [AnyofWithBaseSchema.AnyofWithBaseSchema1Boxed](#anyofwithbaseschema1boxed)<br> sealed interface for validated payloads |
-| record | [AnyofWithBaseSchema.AnyofWithBaseSchema1BoxedString](#anyofwithbaseschema1boxedstring)<br> boxed class to store validated String payloads |
-| static class | [AnyofWithBaseSchema.AnyofWithBaseSchema1](#anyofwithbaseschema1)<br> schema class |
+| data class | [AnyofWithBaseSchema.AnyofWithBaseSchema1BoxedString](#anyofwithbaseschema1boxedstring)<br> boxed class to store validated String payloads |
+| class | [AnyofWithBaseSchema.AnyofWithBaseSchema1](#anyofwithbaseschema1)<br> schema class |
 | sealed interface | [AnyofWithBaseSchema.Schema1Boxed](#schema1boxed)<br> sealed interface for validated payloads |
-| record | [AnyofWithBaseSchema.Schema1BoxedVoid](#schema1boxedvoid)<br> boxed class to store validated null payloads |
-| record | [AnyofWithBaseSchema.Schema1BoxedBoolean](#schema1boxedboolean)<br> boxed class to store validated boolean payloads |
-| record | [AnyofWithBaseSchema.Schema1BoxedNumber](#schema1boxednumber)<br> boxed class to store validated Number payloads |
-| record | [AnyofWithBaseSchema.Schema1BoxedString](#schema1boxedstring)<br> boxed class to store validated String payloads |
-| record | [AnyofWithBaseSchema.Schema1BoxedList](#schema1boxedlist)<br> boxed class to store validated List payloads |
-| record | [AnyofWithBaseSchema.Schema1BoxedMap](#schema1boxedmap)<br> boxed class to store validated Map payloads |
-| static class | [AnyofWithBaseSchema.Schema1](#schema1)<br> schema class |
+| data class | [AnyofWithBaseSchema.Schema1BoxedVoid](#schema1boxedvoid)<br> boxed class to store validated null payloads |
+| data class | [AnyofWithBaseSchema.Schema1BoxedBoolean](#schema1boxedboolean)<br> boxed class to store validated boolean payloads |
+| data class | [AnyofWithBaseSchema.Schema1BoxedNumber](#schema1boxednumber)<br> boxed class to store validated Number payloads |
+| data class | [AnyofWithBaseSchema.Schema1BoxedString](#schema1boxedstring)<br> boxed class to store validated String payloads |
+| data class | [AnyofWithBaseSchema.Schema1BoxedList](#schema1boxedlist)<br> boxed class to store validated List payloads |
+| data class | [AnyofWithBaseSchema.Schema1BoxedMap](#schema1boxedmap)<br> boxed class to store validated Map payloads |
+| class | [AnyofWithBaseSchema.Schema1](#schema1)<br> schema class |
 | sealed interface | [AnyofWithBaseSchema.Schema0Boxed](#schema0boxed)<br> sealed interface for validated payloads |
-| record | [AnyofWithBaseSchema.Schema0BoxedVoid](#schema0boxedvoid)<br> boxed class to store validated null payloads |
-| record | [AnyofWithBaseSchema.Schema0BoxedBoolean](#schema0boxedboolean)<br> boxed class to store validated boolean payloads |
-| record | [AnyofWithBaseSchema.Schema0BoxedNumber](#schema0boxednumber)<br> boxed class to store validated Number payloads |
-| record | [AnyofWithBaseSchema.Schema0BoxedString](#schema0boxedstring)<br> boxed class to store validated String payloads |
-| record | [AnyofWithBaseSchema.Schema0BoxedList](#schema0boxedlist)<br> boxed class to store validated List payloads |
-| record | [AnyofWithBaseSchema.Schema0BoxedMap](#schema0boxedmap)<br> boxed class to store validated Map payloads |
-| static class | [AnyofWithBaseSchema.Schema0](#schema0)<br> schema class |
+| data class | [AnyofWithBaseSchema.Schema0BoxedVoid](#schema0boxedvoid)<br> boxed class to store validated null payloads |
+| data class | [AnyofWithBaseSchema.Schema0BoxedBoolean](#schema0boxedboolean)<br> boxed class to store validated boolean payloads |
+| data class | [AnyofWithBaseSchema.Schema0BoxedNumber](#schema0boxednumber)<br> boxed class to store validated Number payloads |
+| data class | [AnyofWithBaseSchema.Schema0BoxedString](#schema0boxedstring)<br> boxed class to store validated String payloads |
+| data class | [AnyofWithBaseSchema.Schema0BoxedList](#schema0boxedlist)<br> boxed class to store validated List payloads |
+| data class | [AnyofWithBaseSchema.Schema0BoxedMap](#schema0boxedmap)<br> boxed class to store validated Map payloads |
+| class | [AnyofWithBaseSchema.Schema0](#schema0)<br> schema class |
 
 ## AnyofWithBaseSchema1Boxed
 sealed interface AnyofWithBaseSchema1Boxed<br>
@@ -126,7 +126,7 @@ data class that stores validated null payloads, sealed permits implementation
 data class Schema1BoxedBoolean<br>
 implements [Schema1Boxed](#schema1boxed)
 
-record that stores validated boolean payloads, sealed permits implementation
+data class that stores validated boolean payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
@@ -273,7 +273,7 @@ data class that stores validated null payloads, sealed permits implementation
 data class Schema0BoxedBoolean<br>
 implements [Schema0Boxed](#schema0boxed)
 
-record that stores validated boolean payloads, sealed permits implementation
+data class that stores validated boolean payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |

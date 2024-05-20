@@ -11,13 +11,13 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | sealed interface | [UniqueitemsValidation.UniqueitemsValidation1Boxed](#uniqueitemsvalidation1boxed)<br> sealed interface for validated payloads |
-| record | [UniqueitemsValidation.UniqueitemsValidation1BoxedVoid](#uniqueitemsvalidation1boxedvoid)<br> boxed class to store validated null payloads |
-| record | [UniqueitemsValidation.UniqueitemsValidation1BoxedBoolean](#uniqueitemsvalidation1boxedboolean)<br> boxed class to store validated boolean payloads |
-| record | [UniqueitemsValidation.UniqueitemsValidation1BoxedNumber](#uniqueitemsvalidation1boxednumber)<br> boxed class to store validated Number payloads |
-| record | [UniqueitemsValidation.UniqueitemsValidation1BoxedString](#uniqueitemsvalidation1boxedstring)<br> boxed class to store validated String payloads |
-| record | [UniqueitemsValidation.UniqueitemsValidation1BoxedList](#uniqueitemsvalidation1boxedlist)<br> boxed class to store validated List payloads |
-| record | [UniqueitemsValidation.UniqueitemsValidation1BoxedMap](#uniqueitemsvalidation1boxedmap)<br> boxed class to store validated Map payloads |
-| static class | [UniqueitemsValidation.UniqueitemsValidation1](#uniqueitemsvalidation1)<br> schema class |
+| data class | [UniqueitemsValidation.UniqueitemsValidation1BoxedVoid](#uniqueitemsvalidation1boxedvoid)<br> boxed class to store validated null payloads |
+| data class | [UniqueitemsValidation.UniqueitemsValidation1BoxedBoolean](#uniqueitemsvalidation1boxedboolean)<br> boxed class to store validated boolean payloads |
+| data class | [UniqueitemsValidation.UniqueitemsValidation1BoxedNumber](#uniqueitemsvalidation1boxednumber)<br> boxed class to store validated Number payloads |
+| data class | [UniqueitemsValidation.UniqueitemsValidation1BoxedString](#uniqueitemsvalidation1boxedstring)<br> boxed class to store validated String payloads |
+| data class | [UniqueitemsValidation.UniqueitemsValidation1BoxedList](#uniqueitemsvalidation1boxedlist)<br> boxed class to store validated List payloads |
+| data class | [UniqueitemsValidation.UniqueitemsValidation1BoxedMap](#uniqueitemsvalidation1boxedmap)<br> boxed class to store validated Map payloads |
+| class | [UniqueitemsValidation.UniqueitemsValidation1](#uniqueitemsvalidation1)<br> schema class |
 
 ## UniqueitemsValidation1Boxed
 sealed interface UniqueitemsValidation1Boxed<br>
@@ -52,7 +52,7 @@ data class that stores validated null payloads, sealed permits implementation
 data class UniqueitemsValidation1BoxedBoolean<br>
 implements [UniqueitemsValidation1Boxed](#uniqueitemsvalidation1boxed)
 
-record that stores validated boolean payloads, sealed permits implementation
+data class that stores validated boolean payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |

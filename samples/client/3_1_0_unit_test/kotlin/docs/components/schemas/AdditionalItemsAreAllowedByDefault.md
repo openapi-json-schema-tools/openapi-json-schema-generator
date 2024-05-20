@@ -13,18 +13,18 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | sealed interface | [AdditionalItemsAreAllowedByDefault.AdditionalItemsAreAllowedByDefault1Boxed](#additionalitemsareallowedbydefault1boxed)<br> sealed interface for validated payloads |
-| record | [AdditionalItemsAreAllowedByDefault.AdditionalItemsAreAllowedByDefault1BoxedVoid](#additionalitemsareallowedbydefault1boxedvoid)<br> boxed class to store validated null payloads |
-| record | [AdditionalItemsAreAllowedByDefault.AdditionalItemsAreAllowedByDefault1BoxedBoolean](#additionalitemsareallowedbydefault1boxedboolean)<br> boxed class to store validated boolean payloads |
-| record | [AdditionalItemsAreAllowedByDefault.AdditionalItemsAreAllowedByDefault1BoxedNumber](#additionalitemsareallowedbydefault1boxednumber)<br> boxed class to store validated Number payloads |
-| record | [AdditionalItemsAreAllowedByDefault.AdditionalItemsAreAllowedByDefault1BoxedString](#additionalitemsareallowedbydefault1boxedstring)<br> boxed class to store validated String payloads |
-| record | [AdditionalItemsAreAllowedByDefault.AdditionalItemsAreAllowedByDefault1BoxedList](#additionalitemsareallowedbydefault1boxedlist)<br> boxed class to store validated List payloads |
-| record | [AdditionalItemsAreAllowedByDefault.AdditionalItemsAreAllowedByDefault1BoxedMap](#additionalitemsareallowedbydefault1boxedmap)<br> boxed class to store validated Map payloads |
-| static class | [AdditionalItemsAreAllowedByDefault.AdditionalItemsAreAllowedByDefault1](#additionalitemsareallowedbydefault1)<br> schema class |
+| data class | [AdditionalItemsAreAllowedByDefault.AdditionalItemsAreAllowedByDefault1BoxedVoid](#additionalitemsareallowedbydefault1boxedvoid)<br> boxed class to store validated null payloads |
+| data class | [AdditionalItemsAreAllowedByDefault.AdditionalItemsAreAllowedByDefault1BoxedBoolean](#additionalitemsareallowedbydefault1boxedboolean)<br> boxed class to store validated boolean payloads |
+| data class | [AdditionalItemsAreAllowedByDefault.AdditionalItemsAreAllowedByDefault1BoxedNumber](#additionalitemsareallowedbydefault1boxednumber)<br> boxed class to store validated Number payloads |
+| data class | [AdditionalItemsAreAllowedByDefault.AdditionalItemsAreAllowedByDefault1BoxedString](#additionalitemsareallowedbydefault1boxedstring)<br> boxed class to store validated String payloads |
+| data class | [AdditionalItemsAreAllowedByDefault.AdditionalItemsAreAllowedByDefault1BoxedList](#additionalitemsareallowedbydefault1boxedlist)<br> boxed class to store validated List payloads |
+| data class | [AdditionalItemsAreAllowedByDefault.AdditionalItemsAreAllowedByDefault1BoxedMap](#additionalitemsareallowedbydefault1boxedmap)<br> boxed class to store validated Map payloads |
+| class | [AdditionalItemsAreAllowedByDefault.AdditionalItemsAreAllowedByDefault1](#additionalitemsareallowedbydefault1)<br> schema class |
 | sealed interface | [AdditionalItemsAreAllowedByDefault.Schema0Boxed](#schema0boxed)<br> sealed interface for validated payloads |
-| record | [AdditionalItemsAreAllowedByDefault.Schema0BoxedNumber](#schema0boxednumber)<br> boxed class to store validated Number payloads |
-| static class | [AdditionalItemsAreAllowedByDefault.Schema0](#schema0)<br> schema class |
-| static class | [AdditionalItemsAreAllowedByDefault.AdditionalItemsAreAllowedByDefaultListBuilder](#additionalitemsareallowedbydefaultlistbuilder)<br> builder for List payloads |
-| static class | [AdditionalItemsAreAllowedByDefault.AdditionalItemsAreAllowedByDefaultList](#additionalitemsareallowedbydefaultlist)<br> output class for List payloads |
+| data class | [AdditionalItemsAreAllowedByDefault.Schema0BoxedNumber](#schema0boxednumber)<br> boxed class to store validated Number payloads |
+| class | [AdditionalItemsAreAllowedByDefault.Schema0](#schema0)<br> schema class |
+| class | [AdditionalItemsAreAllowedByDefault.AdditionalItemsAreAllowedByDefaultListBuilder](#additionalitemsareallowedbydefaultlistbuilder)<br> builder for List payloads |
+| class | [AdditionalItemsAreAllowedByDefault.AdditionalItemsAreAllowedByDefaultList](#additionalitemsareallowedbydefaultlist)<br> output class for List payloads |
 
 ## AdditionalItemsAreAllowedByDefault1Boxed
 sealed interface AdditionalItemsAreAllowedByDefault1Boxed<br>
@@ -59,7 +59,7 @@ data class that stores validated null payloads, sealed permits implementation
 data class AdditionalItemsAreAllowedByDefault1BoxedBoolean<br>
 implements [AdditionalItemsAreAllowedByDefault1Boxed](#additionalitemsareallowedbydefault1boxed)
 
-record that stores validated boolean payloads, sealed permits implementation
+data class that stores validated boolean payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |

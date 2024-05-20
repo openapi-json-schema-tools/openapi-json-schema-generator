@@ -13,21 +13,21 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | sealed interface | [ObjectPropertiesValidation.ObjectPropertiesValidation1Boxed](#objectpropertiesvalidation1boxed)<br> sealed interface for validated payloads |
-| record | [ObjectPropertiesValidation.ObjectPropertiesValidation1BoxedVoid](#objectpropertiesvalidation1boxedvoid)<br> boxed class to store validated null payloads |
-| record | [ObjectPropertiesValidation.ObjectPropertiesValidation1BoxedBoolean](#objectpropertiesvalidation1boxedboolean)<br> boxed class to store validated boolean payloads |
-| record | [ObjectPropertiesValidation.ObjectPropertiesValidation1BoxedNumber](#objectpropertiesvalidation1boxednumber)<br> boxed class to store validated Number payloads |
-| record | [ObjectPropertiesValidation.ObjectPropertiesValidation1BoxedString](#objectpropertiesvalidation1boxedstring)<br> boxed class to store validated String payloads |
-| record | [ObjectPropertiesValidation.ObjectPropertiesValidation1BoxedList](#objectpropertiesvalidation1boxedlist)<br> boxed class to store validated List payloads |
-| record | [ObjectPropertiesValidation.ObjectPropertiesValidation1BoxedMap](#objectpropertiesvalidation1boxedmap)<br> boxed class to store validated Map payloads |
-| static class | [ObjectPropertiesValidation.ObjectPropertiesValidation1](#objectpropertiesvalidation1)<br> schema class |
-| static class | [ObjectPropertiesValidation.ObjectPropertiesValidationMapBuilder](#objectpropertiesvalidationmapbuilder)<br> builder for Map payloads |
-| static class | [ObjectPropertiesValidation.ObjectPropertiesValidationMap](#objectpropertiesvalidationmap)<br> output class for Map payloads |
+| data class | [ObjectPropertiesValidation.ObjectPropertiesValidation1BoxedVoid](#objectpropertiesvalidation1boxedvoid)<br> boxed class to store validated null payloads |
+| data class | [ObjectPropertiesValidation.ObjectPropertiesValidation1BoxedBoolean](#objectpropertiesvalidation1boxedboolean)<br> boxed class to store validated boolean payloads |
+| data class | [ObjectPropertiesValidation.ObjectPropertiesValidation1BoxedNumber](#objectpropertiesvalidation1boxednumber)<br> boxed class to store validated Number payloads |
+| data class | [ObjectPropertiesValidation.ObjectPropertiesValidation1BoxedString](#objectpropertiesvalidation1boxedstring)<br> boxed class to store validated String payloads |
+| data class | [ObjectPropertiesValidation.ObjectPropertiesValidation1BoxedList](#objectpropertiesvalidation1boxedlist)<br> boxed class to store validated List payloads |
+| data class | [ObjectPropertiesValidation.ObjectPropertiesValidation1BoxedMap](#objectpropertiesvalidation1boxedmap)<br> boxed class to store validated Map payloads |
+| class | [ObjectPropertiesValidation.ObjectPropertiesValidation1](#objectpropertiesvalidation1)<br> schema class |
+| class | [ObjectPropertiesValidation.ObjectPropertiesValidationMapBuilder](#objectpropertiesvalidationmapbuilder)<br> builder for Map payloads |
+| class | [ObjectPropertiesValidation.ObjectPropertiesValidationMap](#objectpropertiesvalidationmap)<br> output class for Map payloads |
 | sealed interface | [ObjectPropertiesValidation.BarBoxed](#barboxed)<br> sealed interface for validated payloads |
-| record | [ObjectPropertiesValidation.BarBoxedString](#barboxedstring)<br> boxed class to store validated String payloads |
-| static class | [ObjectPropertiesValidation.Bar](#bar)<br> schema class |
+| data class | [ObjectPropertiesValidation.BarBoxedString](#barboxedstring)<br> boxed class to store validated String payloads |
+| class | [ObjectPropertiesValidation.Bar](#bar)<br> schema class |
 | sealed interface | [ObjectPropertiesValidation.FooBoxed](#fooboxed)<br> sealed interface for validated payloads |
-| record | [ObjectPropertiesValidation.FooBoxedNumber](#fooboxednumber)<br> boxed class to store validated Number payloads |
-| static class | [ObjectPropertiesValidation.Foo](#foo)<br> schema class |
+| data class | [ObjectPropertiesValidation.FooBoxedNumber](#fooboxednumber)<br> boxed class to store validated Number payloads |
+| class | [ObjectPropertiesValidation.Foo](#foo)<br> schema class |
 
 ## ObjectPropertiesValidation1Boxed
 sealed interface ObjectPropertiesValidation1Boxed<br>
@@ -62,7 +62,7 @@ data class that stores validated null payloads, sealed permits implementation
 data class ObjectPropertiesValidation1BoxedBoolean<br>
 implements [ObjectPropertiesValidation1Boxed](#objectpropertiesvalidation1boxed)
 
-record that stores validated boolean payloads, sealed permits implementation
+data class that stores validated boolean payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |

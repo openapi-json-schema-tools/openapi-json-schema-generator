@@ -11,13 +11,13 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | sealed interface | [IdnHostnameFormat.IdnHostnameFormat1Boxed](#idnhostnameformat1boxed)<br> sealed interface for validated payloads |
-| record | [IdnHostnameFormat.IdnHostnameFormat1BoxedVoid](#idnhostnameformat1boxedvoid)<br> boxed class to store validated null payloads |
-| record | [IdnHostnameFormat.IdnHostnameFormat1BoxedBoolean](#idnhostnameformat1boxedboolean)<br> boxed class to store validated boolean payloads |
-| record | [IdnHostnameFormat.IdnHostnameFormat1BoxedNumber](#idnhostnameformat1boxednumber)<br> boxed class to store validated Number payloads |
-| record | [IdnHostnameFormat.IdnHostnameFormat1BoxedString](#idnhostnameformat1boxedstring)<br> boxed class to store validated String payloads |
-| record | [IdnHostnameFormat.IdnHostnameFormat1BoxedList](#idnhostnameformat1boxedlist)<br> boxed class to store validated List payloads |
-| record | [IdnHostnameFormat.IdnHostnameFormat1BoxedMap](#idnhostnameformat1boxedmap)<br> boxed class to store validated Map payloads |
-| static class | [IdnHostnameFormat.IdnHostnameFormat1](#idnhostnameformat1)<br> schema class |
+| data class | [IdnHostnameFormat.IdnHostnameFormat1BoxedVoid](#idnhostnameformat1boxedvoid)<br> boxed class to store validated null payloads |
+| data class | [IdnHostnameFormat.IdnHostnameFormat1BoxedBoolean](#idnhostnameformat1boxedboolean)<br> boxed class to store validated boolean payloads |
+| data class | [IdnHostnameFormat.IdnHostnameFormat1BoxedNumber](#idnhostnameformat1boxednumber)<br> boxed class to store validated Number payloads |
+| data class | [IdnHostnameFormat.IdnHostnameFormat1BoxedString](#idnhostnameformat1boxedstring)<br> boxed class to store validated String payloads |
+| data class | [IdnHostnameFormat.IdnHostnameFormat1BoxedList](#idnhostnameformat1boxedlist)<br> boxed class to store validated List payloads |
+| data class | [IdnHostnameFormat.IdnHostnameFormat1BoxedMap](#idnhostnameformat1boxedmap)<br> boxed class to store validated Map payloads |
+| class | [IdnHostnameFormat.IdnHostnameFormat1](#idnhostnameformat1)<br> schema class |
 
 ## IdnHostnameFormat1Boxed
 sealed interface IdnHostnameFormat1Boxed<br>
@@ -52,7 +52,7 @@ data class that stores validated null payloads, sealed permits implementation
 data class IdnHostnameFormat1BoxedBoolean<br>
 implements [IdnHostnameFormat1Boxed](#idnhostnameformat1boxed)
 
-record that stores validated boolean payloads, sealed permits implementation
+data class that stores validated boolean payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |

@@ -13,23 +13,23 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | sealed interface | [RequiredWithEmptyArray.RequiredWithEmptyArray1Boxed](#requiredwithemptyarray1boxed)<br> sealed interface for validated payloads |
-| record | [RequiredWithEmptyArray.RequiredWithEmptyArray1BoxedVoid](#requiredwithemptyarray1boxedvoid)<br> boxed class to store validated null payloads |
-| record | [RequiredWithEmptyArray.RequiredWithEmptyArray1BoxedBoolean](#requiredwithemptyarray1boxedboolean)<br> boxed class to store validated boolean payloads |
-| record | [RequiredWithEmptyArray.RequiredWithEmptyArray1BoxedNumber](#requiredwithemptyarray1boxednumber)<br> boxed class to store validated Number payloads |
-| record | [RequiredWithEmptyArray.RequiredWithEmptyArray1BoxedString](#requiredwithemptyarray1boxedstring)<br> boxed class to store validated String payloads |
-| record | [RequiredWithEmptyArray.RequiredWithEmptyArray1BoxedList](#requiredwithemptyarray1boxedlist)<br> boxed class to store validated List payloads |
-| record | [RequiredWithEmptyArray.RequiredWithEmptyArray1BoxedMap](#requiredwithemptyarray1boxedmap)<br> boxed class to store validated Map payloads |
-| static class | [RequiredWithEmptyArray.RequiredWithEmptyArray1](#requiredwithemptyarray1)<br> schema class |
-| static class | [RequiredWithEmptyArray.RequiredWithEmptyArrayMapBuilder](#requiredwithemptyarraymapbuilder)<br> builder for Map payloads |
-| static class | [RequiredWithEmptyArray.RequiredWithEmptyArrayMap](#requiredwithemptyarraymap)<br> output class for Map payloads |
+| data class | [RequiredWithEmptyArray.RequiredWithEmptyArray1BoxedVoid](#requiredwithemptyarray1boxedvoid)<br> boxed class to store validated null payloads |
+| data class | [RequiredWithEmptyArray.RequiredWithEmptyArray1BoxedBoolean](#requiredwithemptyarray1boxedboolean)<br> boxed class to store validated boolean payloads |
+| data class | [RequiredWithEmptyArray.RequiredWithEmptyArray1BoxedNumber](#requiredwithemptyarray1boxednumber)<br> boxed class to store validated Number payloads |
+| data class | [RequiredWithEmptyArray.RequiredWithEmptyArray1BoxedString](#requiredwithemptyarray1boxedstring)<br> boxed class to store validated String payloads |
+| data class | [RequiredWithEmptyArray.RequiredWithEmptyArray1BoxedList](#requiredwithemptyarray1boxedlist)<br> boxed class to store validated List payloads |
+| data class | [RequiredWithEmptyArray.RequiredWithEmptyArray1BoxedMap](#requiredwithemptyarray1boxedmap)<br> boxed class to store validated Map payloads |
+| class | [RequiredWithEmptyArray.RequiredWithEmptyArray1](#requiredwithemptyarray1)<br> schema class |
+| class | [RequiredWithEmptyArray.RequiredWithEmptyArrayMapBuilder](#requiredwithemptyarraymapbuilder)<br> builder for Map payloads |
+| class | [RequiredWithEmptyArray.RequiredWithEmptyArrayMap](#requiredwithemptyarraymap)<br> output class for Map payloads |
 | sealed interface | [RequiredWithEmptyArray.FooBoxed](#fooboxed)<br> sealed interface for validated payloads |
-| record | [RequiredWithEmptyArray.FooBoxedVoid](#fooboxedvoid)<br> boxed class to store validated null payloads |
-| record | [RequiredWithEmptyArray.FooBoxedBoolean](#fooboxedboolean)<br> boxed class to store validated boolean payloads |
-| record | [RequiredWithEmptyArray.FooBoxedNumber](#fooboxednumber)<br> boxed class to store validated Number payloads |
-| record | [RequiredWithEmptyArray.FooBoxedString](#fooboxedstring)<br> boxed class to store validated String payloads |
-| record | [RequiredWithEmptyArray.FooBoxedList](#fooboxedlist)<br> boxed class to store validated List payloads |
-| record | [RequiredWithEmptyArray.FooBoxedMap](#fooboxedmap)<br> boxed class to store validated Map payloads |
-| static class | [RequiredWithEmptyArray.Foo](#foo)<br> schema class |
+| data class | [RequiredWithEmptyArray.FooBoxedVoid](#fooboxedvoid)<br> boxed class to store validated null payloads |
+| data class | [RequiredWithEmptyArray.FooBoxedBoolean](#fooboxedboolean)<br> boxed class to store validated boolean payloads |
+| data class | [RequiredWithEmptyArray.FooBoxedNumber](#fooboxednumber)<br> boxed class to store validated Number payloads |
+| data class | [RequiredWithEmptyArray.FooBoxedString](#fooboxedstring)<br> boxed class to store validated String payloads |
+| data class | [RequiredWithEmptyArray.FooBoxedList](#fooboxedlist)<br> boxed class to store validated List payloads |
+| data class | [RequiredWithEmptyArray.FooBoxedMap](#fooboxedmap)<br> boxed class to store validated Map payloads |
+| class | [RequiredWithEmptyArray.Foo](#foo)<br> schema class |
 
 ## RequiredWithEmptyArray1Boxed
 sealed interface RequiredWithEmptyArray1Boxed<br>
@@ -64,7 +64,7 @@ data class that stores validated null payloads, sealed permits implementation
 data class RequiredWithEmptyArray1BoxedBoolean<br>
 implements [RequiredWithEmptyArray1Boxed](#requiredwithemptyarray1boxed)
 
-record that stores validated boolean payloads, sealed permits implementation
+data class that stores validated boolean payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
@@ -258,7 +258,7 @@ data class that stores validated null payloads, sealed permits implementation
 data class FooBoxedBoolean<br>
 implements [FooBoxed](#fooboxed)
 
-record that stores validated boolean payloads, sealed permits implementation
+data class that stores validated boolean payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |

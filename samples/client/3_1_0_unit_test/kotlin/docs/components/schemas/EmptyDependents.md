@@ -11,13 +11,13 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | sealed interface | [EmptyDependents.EmptyDependents1Boxed](#emptydependents1boxed)<br> sealed interface for validated payloads |
-| record | [EmptyDependents.EmptyDependents1BoxedVoid](#emptydependents1boxedvoid)<br> boxed class to store validated null payloads |
-| record | [EmptyDependents.EmptyDependents1BoxedBoolean](#emptydependents1boxedboolean)<br> boxed class to store validated boolean payloads |
-| record | [EmptyDependents.EmptyDependents1BoxedNumber](#emptydependents1boxednumber)<br> boxed class to store validated Number payloads |
-| record | [EmptyDependents.EmptyDependents1BoxedString](#emptydependents1boxedstring)<br> boxed class to store validated String payloads |
-| record | [EmptyDependents.EmptyDependents1BoxedList](#emptydependents1boxedlist)<br> boxed class to store validated List payloads |
-| record | [EmptyDependents.EmptyDependents1BoxedMap](#emptydependents1boxedmap)<br> boxed class to store validated Map payloads |
-| static class | [EmptyDependents.EmptyDependents1](#emptydependents1)<br> schema class |
+| data class | [EmptyDependents.EmptyDependents1BoxedVoid](#emptydependents1boxedvoid)<br> boxed class to store validated null payloads |
+| data class | [EmptyDependents.EmptyDependents1BoxedBoolean](#emptydependents1boxedboolean)<br> boxed class to store validated boolean payloads |
+| data class | [EmptyDependents.EmptyDependents1BoxedNumber](#emptydependents1boxednumber)<br> boxed class to store validated Number payloads |
+| data class | [EmptyDependents.EmptyDependents1BoxedString](#emptydependents1boxedstring)<br> boxed class to store validated String payloads |
+| data class | [EmptyDependents.EmptyDependents1BoxedList](#emptydependents1boxedlist)<br> boxed class to store validated List payloads |
+| data class | [EmptyDependents.EmptyDependents1BoxedMap](#emptydependents1boxedmap)<br> boxed class to store validated Map payloads |
+| class | [EmptyDependents.EmptyDependents1](#emptydependents1)<br> schema class |
 
 ## EmptyDependents1Boxed
 sealed interface EmptyDependents1Boxed<br>
@@ -52,7 +52,7 @@ data class that stores validated null payloads, sealed permits implementation
 data class EmptyDependents1BoxedBoolean<br>
 implements [EmptyDependents1Boxed](#emptydependents1boxed)
 
-record that stores validated boolean payloads, sealed permits implementation
+data class that stores validated boolean payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |

@@ -11,13 +11,13 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | sealed interface | [UriTemplateFormat.UriTemplateFormat1Boxed](#uritemplateformat1boxed)<br> sealed interface for validated payloads |
-| record | [UriTemplateFormat.UriTemplateFormat1BoxedVoid](#uritemplateformat1boxedvoid)<br> boxed class to store validated null payloads |
-| record | [UriTemplateFormat.UriTemplateFormat1BoxedBoolean](#uritemplateformat1boxedboolean)<br> boxed class to store validated boolean payloads |
-| record | [UriTemplateFormat.UriTemplateFormat1BoxedNumber](#uritemplateformat1boxednumber)<br> boxed class to store validated Number payloads |
-| record | [UriTemplateFormat.UriTemplateFormat1BoxedString](#uritemplateformat1boxedstring)<br> boxed class to store validated String payloads |
-| record | [UriTemplateFormat.UriTemplateFormat1BoxedList](#uritemplateformat1boxedlist)<br> boxed class to store validated List payloads |
-| record | [UriTemplateFormat.UriTemplateFormat1BoxedMap](#uritemplateformat1boxedmap)<br> boxed class to store validated Map payloads |
-| static class | [UriTemplateFormat.UriTemplateFormat1](#uritemplateformat1)<br> schema class |
+| data class | [UriTemplateFormat.UriTemplateFormat1BoxedVoid](#uritemplateformat1boxedvoid)<br> boxed class to store validated null payloads |
+| data class | [UriTemplateFormat.UriTemplateFormat1BoxedBoolean](#uritemplateformat1boxedboolean)<br> boxed class to store validated boolean payloads |
+| data class | [UriTemplateFormat.UriTemplateFormat1BoxedNumber](#uritemplateformat1boxednumber)<br> boxed class to store validated Number payloads |
+| data class | [UriTemplateFormat.UriTemplateFormat1BoxedString](#uritemplateformat1boxedstring)<br> boxed class to store validated String payloads |
+| data class | [UriTemplateFormat.UriTemplateFormat1BoxedList](#uritemplateformat1boxedlist)<br> boxed class to store validated List payloads |
+| data class | [UriTemplateFormat.UriTemplateFormat1BoxedMap](#uritemplateformat1boxedmap)<br> boxed class to store validated Map payloads |
+| class | [UriTemplateFormat.UriTemplateFormat1](#uritemplateformat1)<br> schema class |
 
 ## UriTemplateFormat1Boxed
 sealed interface UriTemplateFormat1Boxed<br>
@@ -52,7 +52,7 @@ data class that stores validated null payloads, sealed permits implementation
 data class UriTemplateFormat1BoxedBoolean<br>
 implements [UriTemplateFormat1Boxed](#uritemplateformat1boxed)
 
-record that stores validated boolean payloads, sealed permits implementation
+data class that stores validated boolean payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |

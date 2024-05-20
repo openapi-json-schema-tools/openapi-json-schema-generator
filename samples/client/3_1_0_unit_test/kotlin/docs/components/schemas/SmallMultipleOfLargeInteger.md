@@ -11,8 +11,8 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | sealed interface | [SmallMultipleOfLargeInteger.SmallMultipleOfLargeInteger1Boxed](#smallmultipleoflargeinteger1boxed)<br> sealed interface for validated payloads |
-| record | [SmallMultipleOfLargeInteger.SmallMultipleOfLargeInteger1BoxedNumber](#smallmultipleoflargeinteger1boxednumber)<br> boxed class to store validated Number payloads |
-| static class | [SmallMultipleOfLargeInteger.SmallMultipleOfLargeInteger1](#smallmultipleoflargeinteger1)<br> schema class |
+| data class | [SmallMultipleOfLargeInteger.SmallMultipleOfLargeInteger1BoxedNumber](#smallmultipleoflargeinteger1boxednumber)<br> boxed class to store validated Number payloads |
+| class | [SmallMultipleOfLargeInteger.SmallMultipleOfLargeInteger1](#smallmultipleoflargeinteger1)<br> schema class |
 
 ## SmallMultipleOfLargeInteger1Boxed
 sealed interface SmallMultipleOfLargeInteger1Boxed<br>

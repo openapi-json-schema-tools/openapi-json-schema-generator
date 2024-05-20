@@ -11,13 +11,13 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | sealed interface | [MaximumValidationWithUnsignedInteger.MaximumValidationWithUnsignedInteger1Boxed](#maximumvalidationwithunsignedinteger1boxed)<br> sealed interface for validated payloads |
-| record | [MaximumValidationWithUnsignedInteger.MaximumValidationWithUnsignedInteger1BoxedVoid](#maximumvalidationwithunsignedinteger1boxedvoid)<br> boxed class to store validated null payloads |
-| record | [MaximumValidationWithUnsignedInteger.MaximumValidationWithUnsignedInteger1BoxedBoolean](#maximumvalidationwithunsignedinteger1boxedboolean)<br> boxed class to store validated boolean payloads |
-| record | [MaximumValidationWithUnsignedInteger.MaximumValidationWithUnsignedInteger1BoxedNumber](#maximumvalidationwithunsignedinteger1boxednumber)<br> boxed class to store validated Number payloads |
-| record | [MaximumValidationWithUnsignedInteger.MaximumValidationWithUnsignedInteger1BoxedString](#maximumvalidationwithunsignedinteger1boxedstring)<br> boxed class to store validated String payloads |
-| record | [MaximumValidationWithUnsignedInteger.MaximumValidationWithUnsignedInteger1BoxedList](#maximumvalidationwithunsignedinteger1boxedlist)<br> boxed class to store validated List payloads |
-| record | [MaximumValidationWithUnsignedInteger.MaximumValidationWithUnsignedInteger1BoxedMap](#maximumvalidationwithunsignedinteger1boxedmap)<br> boxed class to store validated Map payloads |
-| static class | [MaximumValidationWithUnsignedInteger.MaximumValidationWithUnsignedInteger1](#maximumvalidationwithunsignedinteger1)<br> schema class |
+| data class | [MaximumValidationWithUnsignedInteger.MaximumValidationWithUnsignedInteger1BoxedVoid](#maximumvalidationwithunsignedinteger1boxedvoid)<br> boxed class to store validated null payloads |
+| data class | [MaximumValidationWithUnsignedInteger.MaximumValidationWithUnsignedInteger1BoxedBoolean](#maximumvalidationwithunsignedinteger1boxedboolean)<br> boxed class to store validated boolean payloads |
+| data class | [MaximumValidationWithUnsignedInteger.MaximumValidationWithUnsignedInteger1BoxedNumber](#maximumvalidationwithunsignedinteger1boxednumber)<br> boxed class to store validated Number payloads |
+| data class | [MaximumValidationWithUnsignedInteger.MaximumValidationWithUnsignedInteger1BoxedString](#maximumvalidationwithunsignedinteger1boxedstring)<br> boxed class to store validated String payloads |
+| data class | [MaximumValidationWithUnsignedInteger.MaximumValidationWithUnsignedInteger1BoxedList](#maximumvalidationwithunsignedinteger1boxedlist)<br> boxed class to store validated List payloads |
+| data class | [MaximumValidationWithUnsignedInteger.MaximumValidationWithUnsignedInteger1BoxedMap](#maximumvalidationwithunsignedinteger1boxedmap)<br> boxed class to store validated Map payloads |
+| class | [MaximumValidationWithUnsignedInteger.MaximumValidationWithUnsignedInteger1](#maximumvalidationwithunsignedinteger1)<br> schema class |
 
 ## MaximumValidationWithUnsignedInteger1Boxed
 sealed interface MaximumValidationWithUnsignedInteger1Boxed<br>
@@ -52,7 +52,7 @@ data class that stores validated null payloads, sealed permits implementation
 data class MaximumValidationWithUnsignedInteger1BoxedBoolean<br>
 implements [MaximumValidationWithUnsignedInteger1Boxed](#maximumvalidationwithunsignedinteger1boxed)
 
-record that stores validated boolean payloads, sealed permits implementation
+data class that stores validated boolean payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |

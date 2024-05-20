@@ -11,13 +11,13 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | sealed interface | [MinimumValidationWithSignedInteger.MinimumValidationWithSignedInteger1Boxed](#minimumvalidationwithsignedinteger1boxed)<br> sealed interface for validated payloads |
-| record | [MinimumValidationWithSignedInteger.MinimumValidationWithSignedInteger1BoxedVoid](#minimumvalidationwithsignedinteger1boxedvoid)<br> boxed class to store validated null payloads |
-| record | [MinimumValidationWithSignedInteger.MinimumValidationWithSignedInteger1BoxedBoolean](#minimumvalidationwithsignedinteger1boxedboolean)<br> boxed class to store validated boolean payloads |
-| record | [MinimumValidationWithSignedInteger.MinimumValidationWithSignedInteger1BoxedNumber](#minimumvalidationwithsignedinteger1boxednumber)<br> boxed class to store validated Number payloads |
-| record | [MinimumValidationWithSignedInteger.MinimumValidationWithSignedInteger1BoxedString](#minimumvalidationwithsignedinteger1boxedstring)<br> boxed class to store validated String payloads |
-| record | [MinimumValidationWithSignedInteger.MinimumValidationWithSignedInteger1BoxedList](#minimumvalidationwithsignedinteger1boxedlist)<br> boxed class to store validated List payloads |
-| record | [MinimumValidationWithSignedInteger.MinimumValidationWithSignedInteger1BoxedMap](#minimumvalidationwithsignedinteger1boxedmap)<br> boxed class to store validated Map payloads |
-| static class | [MinimumValidationWithSignedInteger.MinimumValidationWithSignedInteger1](#minimumvalidationwithsignedinteger1)<br> schema class |
+| data class | [MinimumValidationWithSignedInteger.MinimumValidationWithSignedInteger1BoxedVoid](#minimumvalidationwithsignedinteger1boxedvoid)<br> boxed class to store validated null payloads |
+| data class | [MinimumValidationWithSignedInteger.MinimumValidationWithSignedInteger1BoxedBoolean](#minimumvalidationwithsignedinteger1boxedboolean)<br> boxed class to store validated boolean payloads |
+| data class | [MinimumValidationWithSignedInteger.MinimumValidationWithSignedInteger1BoxedNumber](#minimumvalidationwithsignedinteger1boxednumber)<br> boxed class to store validated Number payloads |
+| data class | [MinimumValidationWithSignedInteger.MinimumValidationWithSignedInteger1BoxedString](#minimumvalidationwithsignedinteger1boxedstring)<br> boxed class to store validated String payloads |
+| data class | [MinimumValidationWithSignedInteger.MinimumValidationWithSignedInteger1BoxedList](#minimumvalidationwithsignedinteger1boxedlist)<br> boxed class to store validated List payloads |
+| data class | [MinimumValidationWithSignedInteger.MinimumValidationWithSignedInteger1BoxedMap](#minimumvalidationwithsignedinteger1boxedmap)<br> boxed class to store validated Map payloads |
+| class | [MinimumValidationWithSignedInteger.MinimumValidationWithSignedInteger1](#minimumvalidationwithsignedinteger1)<br> schema class |
 
 ## MinimumValidationWithSignedInteger1Boxed
 sealed interface MinimumValidationWithSignedInteger1Boxed<br>
@@ -52,7 +52,7 @@ data class that stores validated null payloads, sealed permits implementation
 data class MinimumValidationWithSignedInteger1BoxedBoolean<br>
 implements [MinimumValidationWithSignedInteger1Boxed](#minimumvalidationwithsignedinteger1boxed)
 
-record that stores validated boolean payloads, sealed permits implementation
+data class that stores validated boolean payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |

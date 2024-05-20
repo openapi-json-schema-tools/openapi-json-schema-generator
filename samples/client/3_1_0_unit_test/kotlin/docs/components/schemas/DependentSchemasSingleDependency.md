@@ -13,29 +13,29 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | sealed interface | [DependentSchemasSingleDependency.DependentSchemasSingleDependency1Boxed](#dependentschemassingledependency1boxed)<br> sealed interface for validated payloads |
-| record | [DependentSchemasSingleDependency.DependentSchemasSingleDependency1BoxedVoid](#dependentschemassingledependency1boxedvoid)<br> boxed class to store validated null payloads |
-| record | [DependentSchemasSingleDependency.DependentSchemasSingleDependency1BoxedBoolean](#dependentschemassingledependency1boxedboolean)<br> boxed class to store validated boolean payloads |
-| record | [DependentSchemasSingleDependency.DependentSchemasSingleDependency1BoxedNumber](#dependentschemassingledependency1boxednumber)<br> boxed class to store validated Number payloads |
-| record | [DependentSchemasSingleDependency.DependentSchemasSingleDependency1BoxedString](#dependentschemassingledependency1boxedstring)<br> boxed class to store validated String payloads |
-| record | [DependentSchemasSingleDependency.DependentSchemasSingleDependency1BoxedList](#dependentschemassingledependency1boxedlist)<br> boxed class to store validated List payloads |
-| record | [DependentSchemasSingleDependency.DependentSchemasSingleDependency1BoxedMap](#dependentschemassingledependency1boxedmap)<br> boxed class to store validated Map payloads |
-| static class | [DependentSchemasSingleDependency.DependentSchemasSingleDependency1](#dependentschemassingledependency1)<br> schema class |
+| data class | [DependentSchemasSingleDependency.DependentSchemasSingleDependency1BoxedVoid](#dependentschemassingledependency1boxedvoid)<br> boxed class to store validated null payloads |
+| data class | [DependentSchemasSingleDependency.DependentSchemasSingleDependency1BoxedBoolean](#dependentschemassingledependency1boxedboolean)<br> boxed class to store validated boolean payloads |
+| data class | [DependentSchemasSingleDependency.DependentSchemasSingleDependency1BoxedNumber](#dependentschemassingledependency1boxednumber)<br> boxed class to store validated Number payloads |
+| data class | [DependentSchemasSingleDependency.DependentSchemasSingleDependency1BoxedString](#dependentschemassingledependency1boxedstring)<br> boxed class to store validated String payloads |
+| data class | [DependentSchemasSingleDependency.DependentSchemasSingleDependency1BoxedList](#dependentschemassingledependency1boxedlist)<br> boxed class to store validated List payloads |
+| data class | [DependentSchemasSingleDependency.DependentSchemasSingleDependency1BoxedMap](#dependentschemassingledependency1boxedmap)<br> boxed class to store validated Map payloads |
+| class | [DependentSchemasSingleDependency.DependentSchemasSingleDependency1](#dependentschemassingledependency1)<br> schema class |
 | sealed interface | [DependentSchemasSingleDependency.BarBoxed](#barboxed)<br> sealed interface for validated payloads |
-| record | [DependentSchemasSingleDependency.BarBoxedVoid](#barboxedvoid)<br> boxed class to store validated null payloads |
-| record | [DependentSchemasSingleDependency.BarBoxedBoolean](#barboxedboolean)<br> boxed class to store validated boolean payloads |
-| record | [DependentSchemasSingleDependency.BarBoxedNumber](#barboxednumber)<br> boxed class to store validated Number payloads |
-| record | [DependentSchemasSingleDependency.BarBoxedString](#barboxedstring)<br> boxed class to store validated String payloads |
-| record | [DependentSchemasSingleDependency.BarBoxedList](#barboxedlist)<br> boxed class to store validated List payloads |
-| record | [DependentSchemasSingleDependency.BarBoxedMap](#barboxedmap)<br> boxed class to store validated Map payloads |
-| static class | [DependentSchemasSingleDependency.Bar](#bar)<br> schema class |
-| static class | [DependentSchemasSingleDependency.BarMapBuilder1](#barmapbuilder1)<br> builder for Map payloads |
-| static class | [DependentSchemasSingleDependency.BarMap](#barmap)<br> output class for Map payloads |
+| data class | [DependentSchemasSingleDependency.BarBoxedVoid](#barboxedvoid)<br> boxed class to store validated null payloads |
+| data class | [DependentSchemasSingleDependency.BarBoxedBoolean](#barboxedboolean)<br> boxed class to store validated boolean payloads |
+| data class | [DependentSchemasSingleDependency.BarBoxedNumber](#barboxednumber)<br> boxed class to store validated Number payloads |
+| data class | [DependentSchemasSingleDependency.BarBoxedString](#barboxedstring)<br> boxed class to store validated String payloads |
+| data class | [DependentSchemasSingleDependency.BarBoxedList](#barboxedlist)<br> boxed class to store validated List payloads |
+| data class | [DependentSchemasSingleDependency.BarBoxedMap](#barboxedmap)<br> boxed class to store validated Map payloads |
+| class | [DependentSchemasSingleDependency.Bar](#bar)<br> schema class |
+| class | [DependentSchemasSingleDependency.BarMapBuilder1](#barmapbuilder1)<br> builder for Map payloads |
+| class | [DependentSchemasSingleDependency.BarMap](#barmap)<br> output class for Map payloads |
 | sealed interface | [DependentSchemasSingleDependency.Bar1Boxed](#bar1boxed)<br> sealed interface for validated payloads |
-| record | [DependentSchemasSingleDependency.Bar1BoxedNumber](#bar1boxednumber)<br> boxed class to store validated Number payloads |
-| static class | [DependentSchemasSingleDependency.Bar1](#bar1)<br> schema class |
+| data class | [DependentSchemasSingleDependency.Bar1BoxedNumber](#bar1boxednumber)<br> boxed class to store validated Number payloads |
+| class | [DependentSchemasSingleDependency.Bar1](#bar1)<br> schema class |
 | sealed interface | [DependentSchemasSingleDependency.FooBoxed](#fooboxed)<br> sealed interface for validated payloads |
-| record | [DependentSchemasSingleDependency.FooBoxedNumber](#fooboxednumber)<br> boxed class to store validated Number payloads |
-| static class | [DependentSchemasSingleDependency.Foo](#foo)<br> schema class |
+| data class | [DependentSchemasSingleDependency.FooBoxedNumber](#fooboxednumber)<br> boxed class to store validated Number payloads |
+| class | [DependentSchemasSingleDependency.Foo](#foo)<br> schema class |
 
 ## DependentSchemasSingleDependency1Boxed
 sealed interface DependentSchemasSingleDependency1Boxed<br>
@@ -70,7 +70,7 @@ data class that stores validated null payloads, sealed permits implementation
 data class DependentSchemasSingleDependency1BoxedBoolean<br>
 implements [DependentSchemasSingleDependency1Boxed](#dependentschemassingledependency1boxed)
 
-record that stores validated boolean payloads, sealed permits implementation
+data class that stores validated boolean payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
@@ -217,7 +217,7 @@ data class that stores validated null payloads, sealed permits implementation
 data class BarBoxedBoolean<br>
 implements [BarBoxed](#barboxed)
 
-record that stores validated boolean payloads, sealed permits implementation
+data class that stores validated boolean payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |

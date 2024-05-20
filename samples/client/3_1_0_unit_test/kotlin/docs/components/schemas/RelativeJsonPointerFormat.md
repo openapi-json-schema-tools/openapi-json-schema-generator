@@ -11,13 +11,13 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | sealed interface | [RelativeJsonPointerFormat.RelativeJsonPointerFormat1Boxed](#relativejsonpointerformat1boxed)<br> sealed interface for validated payloads |
-| record | [RelativeJsonPointerFormat.RelativeJsonPointerFormat1BoxedVoid](#relativejsonpointerformat1boxedvoid)<br> boxed class to store validated null payloads |
-| record | [RelativeJsonPointerFormat.RelativeJsonPointerFormat1BoxedBoolean](#relativejsonpointerformat1boxedboolean)<br> boxed class to store validated boolean payloads |
-| record | [RelativeJsonPointerFormat.RelativeJsonPointerFormat1BoxedNumber](#relativejsonpointerformat1boxednumber)<br> boxed class to store validated Number payloads |
-| record | [RelativeJsonPointerFormat.RelativeJsonPointerFormat1BoxedString](#relativejsonpointerformat1boxedstring)<br> boxed class to store validated String payloads |
-| record | [RelativeJsonPointerFormat.RelativeJsonPointerFormat1BoxedList](#relativejsonpointerformat1boxedlist)<br> boxed class to store validated List payloads |
-| record | [RelativeJsonPointerFormat.RelativeJsonPointerFormat1BoxedMap](#relativejsonpointerformat1boxedmap)<br> boxed class to store validated Map payloads |
-| static class | [RelativeJsonPointerFormat.RelativeJsonPointerFormat1](#relativejsonpointerformat1)<br> schema class |
+| data class | [RelativeJsonPointerFormat.RelativeJsonPointerFormat1BoxedVoid](#relativejsonpointerformat1boxedvoid)<br> boxed class to store validated null payloads |
+| data class | [RelativeJsonPointerFormat.RelativeJsonPointerFormat1BoxedBoolean](#relativejsonpointerformat1boxedboolean)<br> boxed class to store validated boolean payloads |
+| data class | [RelativeJsonPointerFormat.RelativeJsonPointerFormat1BoxedNumber](#relativejsonpointerformat1boxednumber)<br> boxed class to store validated Number payloads |
+| data class | [RelativeJsonPointerFormat.RelativeJsonPointerFormat1BoxedString](#relativejsonpointerformat1boxedstring)<br> boxed class to store validated String payloads |
+| data class | [RelativeJsonPointerFormat.RelativeJsonPointerFormat1BoxedList](#relativejsonpointerformat1boxedlist)<br> boxed class to store validated List payloads |
+| data class | [RelativeJsonPointerFormat.RelativeJsonPointerFormat1BoxedMap](#relativejsonpointerformat1boxedmap)<br> boxed class to store validated Map payloads |
+| class | [RelativeJsonPointerFormat.RelativeJsonPointerFormat1](#relativejsonpointerformat1)<br> schema class |
 
 ## RelativeJsonPointerFormat1Boxed
 sealed interface RelativeJsonPointerFormat1Boxed<br>
@@ -52,7 +52,7 @@ data class that stores validated null payloads, sealed permits implementation
 data class RelativeJsonPointerFormat1BoxedBoolean<br>
 implements [RelativeJsonPointerFormat1Boxed](#relativejsonpointerformat1boxed)
 
-record that stores validated boolean payloads, sealed permits implementation
+data class that stores validated boolean payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |

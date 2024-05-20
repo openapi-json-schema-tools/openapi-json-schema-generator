@@ -11,13 +11,13 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | sealed interface | [Ipv4Format.Ipv4Format1Boxed](#ipv4format1boxed)<br> sealed interface for validated payloads |
-| record | [Ipv4Format.Ipv4Format1BoxedVoid](#ipv4format1boxedvoid)<br> boxed class to store validated null payloads |
-| record | [Ipv4Format.Ipv4Format1BoxedBoolean](#ipv4format1boxedboolean)<br> boxed class to store validated boolean payloads |
-| record | [Ipv4Format.Ipv4Format1BoxedNumber](#ipv4format1boxednumber)<br> boxed class to store validated Number payloads |
-| record | [Ipv4Format.Ipv4Format1BoxedString](#ipv4format1boxedstring)<br> boxed class to store validated String payloads |
-| record | [Ipv4Format.Ipv4Format1BoxedList](#ipv4format1boxedlist)<br> boxed class to store validated List payloads |
-| record | [Ipv4Format.Ipv4Format1BoxedMap](#ipv4format1boxedmap)<br> boxed class to store validated Map payloads |
-| static class | [Ipv4Format.Ipv4Format1](#ipv4format1)<br> schema class |
+| data class | [Ipv4Format.Ipv4Format1BoxedVoid](#ipv4format1boxedvoid)<br> boxed class to store validated null payloads |
+| data class | [Ipv4Format.Ipv4Format1BoxedBoolean](#ipv4format1boxedboolean)<br> boxed class to store validated boolean payloads |
+| data class | [Ipv4Format.Ipv4Format1BoxedNumber](#ipv4format1boxednumber)<br> boxed class to store validated Number payloads |
+| data class | [Ipv4Format.Ipv4Format1BoxedString](#ipv4format1boxedstring)<br> boxed class to store validated String payloads |
+| data class | [Ipv4Format.Ipv4Format1BoxedList](#ipv4format1boxedlist)<br> boxed class to store validated List payloads |
+| data class | [Ipv4Format.Ipv4Format1BoxedMap](#ipv4format1boxedmap)<br> boxed class to store validated Map payloads |
+| class | [Ipv4Format.Ipv4Format1](#ipv4format1)<br> schema class |
 
 ## Ipv4Format1Boxed
 sealed interface Ipv4Format1Boxed<br>
@@ -52,7 +52,7 @@ data class that stores validated null payloads, sealed permits implementation
 data class Ipv4Format1BoxedBoolean<br>
 implements [Ipv4Format1Boxed](#ipv4format1boxed)
 
-record that stores validated boolean payloads, sealed permits implementation
+data class that stores validated boolean payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |

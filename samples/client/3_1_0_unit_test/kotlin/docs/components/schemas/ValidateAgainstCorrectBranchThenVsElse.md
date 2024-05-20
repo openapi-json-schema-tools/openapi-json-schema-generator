@@ -11,37 +11,37 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | sealed interface | [ValidateAgainstCorrectBranchThenVsElse.ValidateAgainstCorrectBranchThenVsElse1Boxed](#validateagainstcorrectbranchthenvselse1boxed)<br> sealed interface for validated payloads |
-| record | [ValidateAgainstCorrectBranchThenVsElse.ValidateAgainstCorrectBranchThenVsElse1BoxedVoid](#validateagainstcorrectbranchthenvselse1boxedvoid)<br> boxed class to store validated null payloads |
-| record | [ValidateAgainstCorrectBranchThenVsElse.ValidateAgainstCorrectBranchThenVsElse1BoxedBoolean](#validateagainstcorrectbranchthenvselse1boxedboolean)<br> boxed class to store validated boolean payloads |
-| record | [ValidateAgainstCorrectBranchThenVsElse.ValidateAgainstCorrectBranchThenVsElse1BoxedNumber](#validateagainstcorrectbranchthenvselse1boxednumber)<br> boxed class to store validated Number payloads |
-| record | [ValidateAgainstCorrectBranchThenVsElse.ValidateAgainstCorrectBranchThenVsElse1BoxedString](#validateagainstcorrectbranchthenvselse1boxedstring)<br> boxed class to store validated String payloads |
-| record | [ValidateAgainstCorrectBranchThenVsElse.ValidateAgainstCorrectBranchThenVsElse1BoxedList](#validateagainstcorrectbranchthenvselse1boxedlist)<br> boxed class to store validated List payloads |
-| record | [ValidateAgainstCorrectBranchThenVsElse.ValidateAgainstCorrectBranchThenVsElse1BoxedMap](#validateagainstcorrectbranchthenvselse1boxedmap)<br> boxed class to store validated Map payloads |
-| static class | [ValidateAgainstCorrectBranchThenVsElse.ValidateAgainstCorrectBranchThenVsElse1](#validateagainstcorrectbranchthenvselse1)<br> schema class |
+| data class | [ValidateAgainstCorrectBranchThenVsElse.ValidateAgainstCorrectBranchThenVsElse1BoxedVoid](#validateagainstcorrectbranchthenvselse1boxedvoid)<br> boxed class to store validated null payloads |
+| data class | [ValidateAgainstCorrectBranchThenVsElse.ValidateAgainstCorrectBranchThenVsElse1BoxedBoolean](#validateagainstcorrectbranchthenvselse1boxedboolean)<br> boxed class to store validated boolean payloads |
+| data class | [ValidateAgainstCorrectBranchThenVsElse.ValidateAgainstCorrectBranchThenVsElse1BoxedNumber](#validateagainstcorrectbranchthenvselse1boxednumber)<br> boxed class to store validated Number payloads |
+| data class | [ValidateAgainstCorrectBranchThenVsElse.ValidateAgainstCorrectBranchThenVsElse1BoxedString](#validateagainstcorrectbranchthenvselse1boxedstring)<br> boxed class to store validated String payloads |
+| data class | [ValidateAgainstCorrectBranchThenVsElse.ValidateAgainstCorrectBranchThenVsElse1BoxedList](#validateagainstcorrectbranchthenvselse1boxedlist)<br> boxed class to store validated List payloads |
+| data class | [ValidateAgainstCorrectBranchThenVsElse.ValidateAgainstCorrectBranchThenVsElse1BoxedMap](#validateagainstcorrectbranchthenvselse1boxedmap)<br> boxed class to store validated Map payloads |
+| class | [ValidateAgainstCorrectBranchThenVsElse.ValidateAgainstCorrectBranchThenVsElse1](#validateagainstcorrectbranchthenvselse1)<br> schema class |
 | sealed interface | [ValidateAgainstCorrectBranchThenVsElse.ThenBoxed](#thenboxed)<br> sealed interface for validated payloads |
-| record | [ValidateAgainstCorrectBranchThenVsElse.ThenBoxedVoid](#thenboxedvoid)<br> boxed class to store validated null payloads |
-| record | [ValidateAgainstCorrectBranchThenVsElse.ThenBoxedBoolean](#thenboxedboolean)<br> boxed class to store validated boolean payloads |
-| record | [ValidateAgainstCorrectBranchThenVsElse.ThenBoxedNumber](#thenboxednumber)<br> boxed class to store validated Number payloads |
-| record | [ValidateAgainstCorrectBranchThenVsElse.ThenBoxedString](#thenboxedstring)<br> boxed class to store validated String payloads |
-| record | [ValidateAgainstCorrectBranchThenVsElse.ThenBoxedList](#thenboxedlist)<br> boxed class to store validated List payloads |
-| record | [ValidateAgainstCorrectBranchThenVsElse.ThenBoxedMap](#thenboxedmap)<br> boxed class to store validated Map payloads |
-| static class | [ValidateAgainstCorrectBranchThenVsElse.Then](#then)<br> schema class |
+| data class | [ValidateAgainstCorrectBranchThenVsElse.ThenBoxedVoid](#thenboxedvoid)<br> boxed class to store validated null payloads |
+| data class | [ValidateAgainstCorrectBranchThenVsElse.ThenBoxedBoolean](#thenboxedboolean)<br> boxed class to store validated boolean payloads |
+| data class | [ValidateAgainstCorrectBranchThenVsElse.ThenBoxedNumber](#thenboxednumber)<br> boxed class to store validated Number payloads |
+| data class | [ValidateAgainstCorrectBranchThenVsElse.ThenBoxedString](#thenboxedstring)<br> boxed class to store validated String payloads |
+| data class | [ValidateAgainstCorrectBranchThenVsElse.ThenBoxedList](#thenboxedlist)<br> boxed class to store validated List payloads |
+| data class | [ValidateAgainstCorrectBranchThenVsElse.ThenBoxedMap](#thenboxedmap)<br> boxed class to store validated Map payloads |
+| class | [ValidateAgainstCorrectBranchThenVsElse.Then](#then)<br> schema class |
 | sealed interface | [ValidateAgainstCorrectBranchThenVsElse.IfSchemaBoxed](#ifschemaboxed)<br> sealed interface for validated payloads |
-| record | [ValidateAgainstCorrectBranchThenVsElse.IfSchemaBoxedVoid](#ifschemaboxedvoid)<br> boxed class to store validated null payloads |
-| record | [ValidateAgainstCorrectBranchThenVsElse.IfSchemaBoxedBoolean](#ifschemaboxedboolean)<br> boxed class to store validated boolean payloads |
-| record | [ValidateAgainstCorrectBranchThenVsElse.IfSchemaBoxedNumber](#ifschemaboxednumber)<br> boxed class to store validated Number payloads |
-| record | [ValidateAgainstCorrectBranchThenVsElse.IfSchemaBoxedString](#ifschemaboxedstring)<br> boxed class to store validated String payloads |
-| record | [ValidateAgainstCorrectBranchThenVsElse.IfSchemaBoxedList](#ifschemaboxedlist)<br> boxed class to store validated List payloads |
-| record | [ValidateAgainstCorrectBranchThenVsElse.IfSchemaBoxedMap](#ifschemaboxedmap)<br> boxed class to store validated Map payloads |
-| static class | [ValidateAgainstCorrectBranchThenVsElse.IfSchema](#ifschema)<br> schema class |
+| data class | [ValidateAgainstCorrectBranchThenVsElse.IfSchemaBoxedVoid](#ifschemaboxedvoid)<br> boxed class to store validated null payloads |
+| data class | [ValidateAgainstCorrectBranchThenVsElse.IfSchemaBoxedBoolean](#ifschemaboxedboolean)<br> boxed class to store validated boolean payloads |
+| data class | [ValidateAgainstCorrectBranchThenVsElse.IfSchemaBoxedNumber](#ifschemaboxednumber)<br> boxed class to store validated Number payloads |
+| data class | [ValidateAgainstCorrectBranchThenVsElse.IfSchemaBoxedString](#ifschemaboxedstring)<br> boxed class to store validated String payloads |
+| data class | [ValidateAgainstCorrectBranchThenVsElse.IfSchemaBoxedList](#ifschemaboxedlist)<br> boxed class to store validated List payloads |
+| data class | [ValidateAgainstCorrectBranchThenVsElse.IfSchemaBoxedMap](#ifschemaboxedmap)<br> boxed class to store validated Map payloads |
+| class | [ValidateAgainstCorrectBranchThenVsElse.IfSchema](#ifschema)<br> schema class |
 | sealed interface | [ValidateAgainstCorrectBranchThenVsElse.ElseSchemaBoxed](#elseschemaboxed)<br> sealed interface for validated payloads |
-| record | [ValidateAgainstCorrectBranchThenVsElse.ElseSchemaBoxedVoid](#elseschemaboxedvoid)<br> boxed class to store validated null payloads |
-| record | [ValidateAgainstCorrectBranchThenVsElse.ElseSchemaBoxedBoolean](#elseschemaboxedboolean)<br> boxed class to store validated boolean payloads |
-| record | [ValidateAgainstCorrectBranchThenVsElse.ElseSchemaBoxedNumber](#elseschemaboxednumber)<br> boxed class to store validated Number payloads |
-| record | [ValidateAgainstCorrectBranchThenVsElse.ElseSchemaBoxedString](#elseschemaboxedstring)<br> boxed class to store validated String payloads |
-| record | [ValidateAgainstCorrectBranchThenVsElse.ElseSchemaBoxedList](#elseschemaboxedlist)<br> boxed class to store validated List payloads |
-| record | [ValidateAgainstCorrectBranchThenVsElse.ElseSchemaBoxedMap](#elseschemaboxedmap)<br> boxed class to store validated Map payloads |
-| static class | [ValidateAgainstCorrectBranchThenVsElse.ElseSchema](#elseschema)<br> schema class |
+| data class | [ValidateAgainstCorrectBranchThenVsElse.ElseSchemaBoxedVoid](#elseschemaboxedvoid)<br> boxed class to store validated null payloads |
+| data class | [ValidateAgainstCorrectBranchThenVsElse.ElseSchemaBoxedBoolean](#elseschemaboxedboolean)<br> boxed class to store validated boolean payloads |
+| data class | [ValidateAgainstCorrectBranchThenVsElse.ElseSchemaBoxedNumber](#elseschemaboxednumber)<br> boxed class to store validated Number payloads |
+| data class | [ValidateAgainstCorrectBranchThenVsElse.ElseSchemaBoxedString](#elseschemaboxedstring)<br> boxed class to store validated String payloads |
+| data class | [ValidateAgainstCorrectBranchThenVsElse.ElseSchemaBoxedList](#elseschemaboxedlist)<br> boxed class to store validated List payloads |
+| data class | [ValidateAgainstCorrectBranchThenVsElse.ElseSchemaBoxedMap](#elseschemaboxedmap)<br> boxed class to store validated Map payloads |
+| class | [ValidateAgainstCorrectBranchThenVsElse.ElseSchema](#elseschema)<br> schema class |
 
 ## ValidateAgainstCorrectBranchThenVsElse1Boxed
 sealed interface ValidateAgainstCorrectBranchThenVsElse1Boxed<br>
@@ -76,7 +76,7 @@ data class that stores validated null payloads, sealed permits implementation
 data class ValidateAgainstCorrectBranchThenVsElse1BoxedBoolean<br>
 implements [ValidateAgainstCorrectBranchThenVsElse1Boxed](#validateagainstcorrectbranchthenvselse1boxed)
 
-record that stores validated boolean payloads, sealed permits implementation
+data class that stores validated boolean payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
@@ -225,7 +225,7 @@ data class that stores validated null payloads, sealed permits implementation
 data class ThenBoxedBoolean<br>
 implements [ThenBoxed](#thenboxed)
 
-record that stores validated boolean payloads, sealed permits implementation
+data class that stores validated boolean payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
@@ -372,7 +372,7 @@ data class that stores validated null payloads, sealed permits implementation
 data class IfSchemaBoxedBoolean<br>
 implements [IfSchemaBoxed](#ifschemaboxed)
 
-record that stores validated boolean payloads, sealed permits implementation
+data class that stores validated boolean payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
@@ -519,7 +519,7 @@ data class that stores validated null payloads, sealed permits implementation
 data class ElseSchemaBoxedBoolean<br>
 implements [ElseSchemaBoxed](#elseschemaboxed)
 
-record that stores validated boolean payloads, sealed permits implementation
+data class that stores validated boolean payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |

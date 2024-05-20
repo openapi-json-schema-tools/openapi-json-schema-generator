@@ -11,13 +11,13 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | sealed interface | [ExclusiveminimumValidation.ExclusiveminimumValidation1Boxed](#exclusiveminimumvalidation1boxed)<br> sealed interface for validated payloads |
-| record | [ExclusiveminimumValidation.ExclusiveminimumValidation1BoxedVoid](#exclusiveminimumvalidation1boxedvoid)<br> boxed class to store validated null payloads |
-| record | [ExclusiveminimumValidation.ExclusiveminimumValidation1BoxedBoolean](#exclusiveminimumvalidation1boxedboolean)<br> boxed class to store validated boolean payloads |
-| record | [ExclusiveminimumValidation.ExclusiveminimumValidation1BoxedNumber](#exclusiveminimumvalidation1boxednumber)<br> boxed class to store validated Number payloads |
-| record | [ExclusiveminimumValidation.ExclusiveminimumValidation1BoxedString](#exclusiveminimumvalidation1boxedstring)<br> boxed class to store validated String payloads |
-| record | [ExclusiveminimumValidation.ExclusiveminimumValidation1BoxedList](#exclusiveminimumvalidation1boxedlist)<br> boxed class to store validated List payloads |
-| record | [ExclusiveminimumValidation.ExclusiveminimumValidation1BoxedMap](#exclusiveminimumvalidation1boxedmap)<br> boxed class to store validated Map payloads |
-| static class | [ExclusiveminimumValidation.ExclusiveminimumValidation1](#exclusiveminimumvalidation1)<br> schema class |
+| data class | [ExclusiveminimumValidation.ExclusiveminimumValidation1BoxedVoid](#exclusiveminimumvalidation1boxedvoid)<br> boxed class to store validated null payloads |
+| data class | [ExclusiveminimumValidation.ExclusiveminimumValidation1BoxedBoolean](#exclusiveminimumvalidation1boxedboolean)<br> boxed class to store validated boolean payloads |
+| data class | [ExclusiveminimumValidation.ExclusiveminimumValidation1BoxedNumber](#exclusiveminimumvalidation1boxednumber)<br> boxed class to store validated Number payloads |
+| data class | [ExclusiveminimumValidation.ExclusiveminimumValidation1BoxedString](#exclusiveminimumvalidation1boxedstring)<br> boxed class to store validated String payloads |
+| data class | [ExclusiveminimumValidation.ExclusiveminimumValidation1BoxedList](#exclusiveminimumvalidation1boxedlist)<br> boxed class to store validated List payloads |
+| data class | [ExclusiveminimumValidation.ExclusiveminimumValidation1BoxedMap](#exclusiveminimumvalidation1boxedmap)<br> boxed class to store validated Map payloads |
+| class | [ExclusiveminimumValidation.ExclusiveminimumValidation1](#exclusiveminimumvalidation1)<br> schema class |
 
 ## ExclusiveminimumValidation1Boxed
 sealed interface ExclusiveminimumValidation1Boxed<br>
@@ -52,7 +52,7 @@ data class that stores validated null payloads, sealed permits implementation
 data class ExclusiveminimumValidation1BoxedBoolean<br>
 implements [ExclusiveminimumValidation1Boxed](#exclusiveminimumvalidation1boxed)
 
-record that stores validated boolean payloads, sealed permits implementation
+data class that stores validated boolean payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |

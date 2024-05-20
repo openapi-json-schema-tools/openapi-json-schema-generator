@@ -13,18 +13,18 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | sealed interface | [ItemsDoesNotLookInApplicatorsValidCase.ItemsDoesNotLookInApplicatorsValidCase1Boxed](#itemsdoesnotlookinapplicatorsvalidcase1boxed)<br> sealed interface for validated payloads |
-| record | [ItemsDoesNotLookInApplicatorsValidCase.ItemsDoesNotLookInApplicatorsValidCase1BoxedList](#itemsdoesnotlookinapplicatorsvalidcase1boxedlist)<br> boxed class to store validated List payloads |
-| static class | [ItemsDoesNotLookInApplicatorsValidCase.ItemsDoesNotLookInApplicatorsValidCase1](#itemsdoesnotlookinapplicatorsvalidcase1)<br> schema class |
-| static class | [ItemsDoesNotLookInApplicatorsValidCase.ItemsDoesNotLookInApplicatorsValidCaseListBuilder](#itemsdoesnotlookinapplicatorsvalidcaselistbuilder)<br> builder for List payloads |
-| static class | [ItemsDoesNotLookInApplicatorsValidCase.ItemsDoesNotLookInApplicatorsValidCaseList](#itemsdoesnotlookinapplicatorsvalidcaselist)<br> output class for List payloads |
+| data class | [ItemsDoesNotLookInApplicatorsValidCase.ItemsDoesNotLookInApplicatorsValidCase1BoxedList](#itemsdoesnotlookinapplicatorsvalidcase1boxedlist)<br> boxed class to store validated List payloads |
+| class | [ItemsDoesNotLookInApplicatorsValidCase.ItemsDoesNotLookInApplicatorsValidCase1](#itemsdoesnotlookinapplicatorsvalidcase1)<br> schema class |
+| class | [ItemsDoesNotLookInApplicatorsValidCase.ItemsDoesNotLookInApplicatorsValidCaseListBuilder](#itemsdoesnotlookinapplicatorsvalidcaselistbuilder)<br> builder for List payloads |
+| class | [ItemsDoesNotLookInApplicatorsValidCase.ItemsDoesNotLookInApplicatorsValidCaseList](#itemsdoesnotlookinapplicatorsvalidcaselist)<br> output class for List payloads |
 | sealed interface | [ItemsDoesNotLookInApplicatorsValidCase.ItemsBoxed](#itemsboxed)<br> sealed interface for validated payloads |
-| record | [ItemsDoesNotLookInApplicatorsValidCase.ItemsBoxedVoid](#itemsboxedvoid)<br> boxed class to store validated null payloads |
-| record | [ItemsDoesNotLookInApplicatorsValidCase.ItemsBoxedBoolean](#itemsboxedboolean)<br> boxed class to store validated boolean payloads |
-| record | [ItemsDoesNotLookInApplicatorsValidCase.ItemsBoxedNumber](#itemsboxednumber)<br> boxed class to store validated Number payloads |
-| record | [ItemsDoesNotLookInApplicatorsValidCase.ItemsBoxedString](#itemsboxedstring)<br> boxed class to store validated String payloads |
-| record | [ItemsDoesNotLookInApplicatorsValidCase.ItemsBoxedList](#itemsboxedlist)<br> boxed class to store validated List payloads |
-| record | [ItemsDoesNotLookInApplicatorsValidCase.ItemsBoxedMap](#itemsboxedmap)<br> boxed class to store validated Map payloads |
-| static class | [ItemsDoesNotLookInApplicatorsValidCase.Items](#items)<br> schema class |
+| data class | [ItemsDoesNotLookInApplicatorsValidCase.ItemsBoxedVoid](#itemsboxedvoid)<br> boxed class to store validated null payloads |
+| data class | [ItemsDoesNotLookInApplicatorsValidCase.ItemsBoxedBoolean](#itemsboxedboolean)<br> boxed class to store validated boolean payloads |
+| data class | [ItemsDoesNotLookInApplicatorsValidCase.ItemsBoxedNumber](#itemsboxednumber)<br> boxed class to store validated Number payloads |
+| data class | [ItemsDoesNotLookInApplicatorsValidCase.ItemsBoxedString](#itemsboxedstring)<br> boxed class to store validated String payloads |
+| data class | [ItemsDoesNotLookInApplicatorsValidCase.ItemsBoxedList](#itemsboxedlist)<br> boxed class to store validated List payloads |
+| data class | [ItemsDoesNotLookInApplicatorsValidCase.ItemsBoxedMap](#itemsboxedmap)<br> boxed class to store validated Map payloads |
+| class | [ItemsDoesNotLookInApplicatorsValidCase.Items](#items)<br> schema class |
 
 ## ItemsDoesNotLookInApplicatorsValidCase1Boxed
 sealed interface ItemsDoesNotLookInApplicatorsValidCase1Boxed<br>
@@ -161,7 +161,7 @@ data class that stores validated null payloads, sealed permits implementation
 data class ItemsBoxedBoolean<br>
 implements [ItemsBoxed](#itemsboxed)
 
-record that stores validated boolean payloads, sealed permits implementation
+data class that stores validated boolean payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |

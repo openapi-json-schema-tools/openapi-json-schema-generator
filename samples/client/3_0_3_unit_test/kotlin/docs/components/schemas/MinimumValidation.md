@@ -11,13 +11,13 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | sealed interface | [MinimumValidation.MinimumValidation1Boxed](#minimumvalidation1boxed)<br> sealed interface for validated payloads |
-| record | [MinimumValidation.MinimumValidation1BoxedVoid](#minimumvalidation1boxedvoid)<br> boxed class to store validated null payloads |
-| record | [MinimumValidation.MinimumValidation1BoxedBoolean](#minimumvalidation1boxedboolean)<br> boxed class to store validated boolean payloads |
-| record | [MinimumValidation.MinimumValidation1BoxedNumber](#minimumvalidation1boxednumber)<br> boxed class to store validated Number payloads |
-| record | [MinimumValidation.MinimumValidation1BoxedString](#minimumvalidation1boxedstring)<br> boxed class to store validated String payloads |
-| record | [MinimumValidation.MinimumValidation1BoxedList](#minimumvalidation1boxedlist)<br> boxed class to store validated List payloads |
-| record | [MinimumValidation.MinimumValidation1BoxedMap](#minimumvalidation1boxedmap)<br> boxed class to store validated Map payloads |
-| static class | [MinimumValidation.MinimumValidation1](#minimumvalidation1)<br> schema class |
+| data class | [MinimumValidation.MinimumValidation1BoxedVoid](#minimumvalidation1boxedvoid)<br> boxed class to store validated null payloads |
+| data class | [MinimumValidation.MinimumValidation1BoxedBoolean](#minimumvalidation1boxedboolean)<br> boxed class to store validated boolean payloads |
+| data class | [MinimumValidation.MinimumValidation1BoxedNumber](#minimumvalidation1boxednumber)<br> boxed class to store validated Number payloads |
+| data class | [MinimumValidation.MinimumValidation1BoxedString](#minimumvalidation1boxedstring)<br> boxed class to store validated String payloads |
+| data class | [MinimumValidation.MinimumValidation1BoxedList](#minimumvalidation1boxedlist)<br> boxed class to store validated List payloads |
+| data class | [MinimumValidation.MinimumValidation1BoxedMap](#minimumvalidation1boxedmap)<br> boxed class to store validated Map payloads |
+| class | [MinimumValidation.MinimumValidation1](#minimumvalidation1)<br> schema class |
 
 ## MinimumValidation1Boxed
 sealed interface MinimumValidation1Boxed<br>
@@ -52,7 +52,7 @@ data class that stores validated null payloads, sealed permits implementation
 data class MinimumValidation1BoxedBoolean<br>
 implements [MinimumValidation1Boxed](#minimumvalidation1boxed)
 
-record that stores validated boolean payloads, sealed permits implementation
+data class that stores validated boolean payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |

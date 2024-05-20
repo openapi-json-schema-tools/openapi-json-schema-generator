@@ -13,18 +13,18 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | sealed interface | [PropertiesWithNullValuedInstanceProperties.PropertiesWithNullValuedInstanceProperties1Boxed](#propertieswithnullvaluedinstanceproperties1boxed)<br> sealed interface for validated payloads |
-| record | [PropertiesWithNullValuedInstanceProperties.PropertiesWithNullValuedInstanceProperties1BoxedVoid](#propertieswithnullvaluedinstanceproperties1boxedvoid)<br> boxed class to store validated null payloads |
-| record | [PropertiesWithNullValuedInstanceProperties.PropertiesWithNullValuedInstanceProperties1BoxedBoolean](#propertieswithnullvaluedinstanceproperties1boxedboolean)<br> boxed class to store validated boolean payloads |
-| record | [PropertiesWithNullValuedInstanceProperties.PropertiesWithNullValuedInstanceProperties1BoxedNumber](#propertieswithnullvaluedinstanceproperties1boxednumber)<br> boxed class to store validated Number payloads |
-| record | [PropertiesWithNullValuedInstanceProperties.PropertiesWithNullValuedInstanceProperties1BoxedString](#propertieswithnullvaluedinstanceproperties1boxedstring)<br> boxed class to store validated String payloads |
-| record | [PropertiesWithNullValuedInstanceProperties.PropertiesWithNullValuedInstanceProperties1BoxedList](#propertieswithnullvaluedinstanceproperties1boxedlist)<br> boxed class to store validated List payloads |
-| record | [PropertiesWithNullValuedInstanceProperties.PropertiesWithNullValuedInstanceProperties1BoxedMap](#propertieswithnullvaluedinstanceproperties1boxedmap)<br> boxed class to store validated Map payloads |
-| static class | [PropertiesWithNullValuedInstanceProperties.PropertiesWithNullValuedInstanceProperties1](#propertieswithnullvaluedinstanceproperties1)<br> schema class |
-| static class | [PropertiesWithNullValuedInstanceProperties.PropertiesWithNullValuedInstancePropertiesMapBuilder](#propertieswithnullvaluedinstancepropertiesmapbuilder)<br> builder for Map payloads |
-| static class | [PropertiesWithNullValuedInstanceProperties.PropertiesWithNullValuedInstancePropertiesMap](#propertieswithnullvaluedinstancepropertiesmap)<br> output class for Map payloads |
+| data class | [PropertiesWithNullValuedInstanceProperties.PropertiesWithNullValuedInstanceProperties1BoxedVoid](#propertieswithnullvaluedinstanceproperties1boxedvoid)<br> boxed class to store validated null payloads |
+| data class | [PropertiesWithNullValuedInstanceProperties.PropertiesWithNullValuedInstanceProperties1BoxedBoolean](#propertieswithnullvaluedinstanceproperties1boxedboolean)<br> boxed class to store validated boolean payloads |
+| data class | [PropertiesWithNullValuedInstanceProperties.PropertiesWithNullValuedInstanceProperties1BoxedNumber](#propertieswithnullvaluedinstanceproperties1boxednumber)<br> boxed class to store validated Number payloads |
+| data class | [PropertiesWithNullValuedInstanceProperties.PropertiesWithNullValuedInstanceProperties1BoxedString](#propertieswithnullvaluedinstanceproperties1boxedstring)<br> boxed class to store validated String payloads |
+| data class | [PropertiesWithNullValuedInstanceProperties.PropertiesWithNullValuedInstanceProperties1BoxedList](#propertieswithnullvaluedinstanceproperties1boxedlist)<br> boxed class to store validated List payloads |
+| data class | [PropertiesWithNullValuedInstanceProperties.PropertiesWithNullValuedInstanceProperties1BoxedMap](#propertieswithnullvaluedinstanceproperties1boxedmap)<br> boxed class to store validated Map payloads |
+| class | [PropertiesWithNullValuedInstanceProperties.PropertiesWithNullValuedInstanceProperties1](#propertieswithnullvaluedinstanceproperties1)<br> schema class |
+| class | [PropertiesWithNullValuedInstanceProperties.PropertiesWithNullValuedInstancePropertiesMapBuilder](#propertieswithnullvaluedinstancepropertiesmapbuilder)<br> builder for Map payloads |
+| class | [PropertiesWithNullValuedInstanceProperties.PropertiesWithNullValuedInstancePropertiesMap](#propertieswithnullvaluedinstancepropertiesmap)<br> output class for Map payloads |
 | sealed interface | [PropertiesWithNullValuedInstanceProperties.FooBoxed](#fooboxed)<br> sealed interface for validated payloads |
-| record | [PropertiesWithNullValuedInstanceProperties.FooBoxedVoid](#fooboxedvoid)<br> boxed class to store validated null payloads |
-| static class | [PropertiesWithNullValuedInstanceProperties.Foo](#foo)<br> schema class |
+| data class | [PropertiesWithNullValuedInstanceProperties.FooBoxedVoid](#fooboxedvoid)<br> boxed class to store validated null payloads |
+| class | [PropertiesWithNullValuedInstanceProperties.Foo](#foo)<br> schema class |
 
 ## PropertiesWithNullValuedInstanceProperties1Boxed
 sealed interface PropertiesWithNullValuedInstanceProperties1Boxed<br>
@@ -59,7 +59,7 @@ data class that stores validated null payloads, sealed permits implementation
 data class PropertiesWithNullValuedInstanceProperties1BoxedBoolean<br>
 implements [PropertiesWithNullValuedInstanceProperties1Boxed](#propertieswithnullvaluedinstanceproperties1boxed)
 
-record that stores validated boolean payloads, sealed permits implementation
+data class that stores validated boolean payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |

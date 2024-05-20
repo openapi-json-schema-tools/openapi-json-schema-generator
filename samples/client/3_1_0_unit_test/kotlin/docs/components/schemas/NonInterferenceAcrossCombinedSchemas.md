@@ -11,61 +11,61 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | sealed interface | [NonInterferenceAcrossCombinedSchemas.NonInterferenceAcrossCombinedSchemas1Boxed](#noninterferenceacrosscombinedschemas1boxed)<br> sealed interface for validated payloads |
-| record | [NonInterferenceAcrossCombinedSchemas.NonInterferenceAcrossCombinedSchemas1BoxedVoid](#noninterferenceacrosscombinedschemas1boxedvoid)<br> boxed class to store validated null payloads |
-| record | [NonInterferenceAcrossCombinedSchemas.NonInterferenceAcrossCombinedSchemas1BoxedBoolean](#noninterferenceacrosscombinedschemas1boxedboolean)<br> boxed class to store validated boolean payloads |
-| record | [NonInterferenceAcrossCombinedSchemas.NonInterferenceAcrossCombinedSchemas1BoxedNumber](#noninterferenceacrosscombinedschemas1boxednumber)<br> boxed class to store validated Number payloads |
-| record | [NonInterferenceAcrossCombinedSchemas.NonInterferenceAcrossCombinedSchemas1BoxedString](#noninterferenceacrosscombinedschemas1boxedstring)<br> boxed class to store validated String payloads |
-| record | [NonInterferenceAcrossCombinedSchemas.NonInterferenceAcrossCombinedSchemas1BoxedList](#noninterferenceacrosscombinedschemas1boxedlist)<br> boxed class to store validated List payloads |
-| record | [NonInterferenceAcrossCombinedSchemas.NonInterferenceAcrossCombinedSchemas1BoxedMap](#noninterferenceacrosscombinedschemas1boxedmap)<br> boxed class to store validated Map payloads |
-| static class | [NonInterferenceAcrossCombinedSchemas.NonInterferenceAcrossCombinedSchemas1](#noninterferenceacrosscombinedschemas1)<br> schema class |
+| data class | [NonInterferenceAcrossCombinedSchemas.NonInterferenceAcrossCombinedSchemas1BoxedVoid](#noninterferenceacrosscombinedschemas1boxedvoid)<br> boxed class to store validated null payloads |
+| data class | [NonInterferenceAcrossCombinedSchemas.NonInterferenceAcrossCombinedSchemas1BoxedBoolean](#noninterferenceacrosscombinedschemas1boxedboolean)<br> boxed class to store validated boolean payloads |
+| data class | [NonInterferenceAcrossCombinedSchemas.NonInterferenceAcrossCombinedSchemas1BoxedNumber](#noninterferenceacrosscombinedschemas1boxednumber)<br> boxed class to store validated Number payloads |
+| data class | [NonInterferenceAcrossCombinedSchemas.NonInterferenceAcrossCombinedSchemas1BoxedString](#noninterferenceacrosscombinedschemas1boxedstring)<br> boxed class to store validated String payloads |
+| data class | [NonInterferenceAcrossCombinedSchemas.NonInterferenceAcrossCombinedSchemas1BoxedList](#noninterferenceacrosscombinedschemas1boxedlist)<br> boxed class to store validated List payloads |
+| data class | [NonInterferenceAcrossCombinedSchemas.NonInterferenceAcrossCombinedSchemas1BoxedMap](#noninterferenceacrosscombinedschemas1boxedmap)<br> boxed class to store validated Map payloads |
+| class | [NonInterferenceAcrossCombinedSchemas.NonInterferenceAcrossCombinedSchemas1](#noninterferenceacrosscombinedschemas1)<br> schema class |
 | sealed interface | [NonInterferenceAcrossCombinedSchemas.Schema2Boxed](#schema2boxed)<br> sealed interface for validated payloads |
-| record | [NonInterferenceAcrossCombinedSchemas.Schema2BoxedVoid](#schema2boxedvoid)<br> boxed class to store validated null payloads |
-| record | [NonInterferenceAcrossCombinedSchemas.Schema2BoxedBoolean](#schema2boxedboolean)<br> boxed class to store validated boolean payloads |
-| record | [NonInterferenceAcrossCombinedSchemas.Schema2BoxedNumber](#schema2boxednumber)<br> boxed class to store validated Number payloads |
-| record | [NonInterferenceAcrossCombinedSchemas.Schema2BoxedString](#schema2boxedstring)<br> boxed class to store validated String payloads |
-| record | [NonInterferenceAcrossCombinedSchemas.Schema2BoxedList](#schema2boxedlist)<br> boxed class to store validated List payloads |
-| record | [NonInterferenceAcrossCombinedSchemas.Schema2BoxedMap](#schema2boxedmap)<br> boxed class to store validated Map payloads |
-| static class | [NonInterferenceAcrossCombinedSchemas.Schema2](#schema2)<br> schema class |
+| data class | [NonInterferenceAcrossCombinedSchemas.Schema2BoxedVoid](#schema2boxedvoid)<br> boxed class to store validated null payloads |
+| data class | [NonInterferenceAcrossCombinedSchemas.Schema2BoxedBoolean](#schema2boxedboolean)<br> boxed class to store validated boolean payloads |
+| data class | [NonInterferenceAcrossCombinedSchemas.Schema2BoxedNumber](#schema2boxednumber)<br> boxed class to store validated Number payloads |
+| data class | [NonInterferenceAcrossCombinedSchemas.Schema2BoxedString](#schema2boxedstring)<br> boxed class to store validated String payloads |
+| data class | [NonInterferenceAcrossCombinedSchemas.Schema2BoxedList](#schema2boxedlist)<br> boxed class to store validated List payloads |
+| data class | [NonInterferenceAcrossCombinedSchemas.Schema2BoxedMap](#schema2boxedmap)<br> boxed class to store validated Map payloads |
+| class | [NonInterferenceAcrossCombinedSchemas.Schema2](#schema2)<br> schema class |
 | sealed interface | [NonInterferenceAcrossCombinedSchemas.ElseSchemaBoxed](#elseschemaboxed)<br> sealed interface for validated payloads |
-| record | [NonInterferenceAcrossCombinedSchemas.ElseSchemaBoxedVoid](#elseschemaboxedvoid)<br> boxed class to store validated null payloads |
-| record | [NonInterferenceAcrossCombinedSchemas.ElseSchemaBoxedBoolean](#elseschemaboxedboolean)<br> boxed class to store validated boolean payloads |
-| record | [NonInterferenceAcrossCombinedSchemas.ElseSchemaBoxedNumber](#elseschemaboxednumber)<br> boxed class to store validated Number payloads |
-| record | [NonInterferenceAcrossCombinedSchemas.ElseSchemaBoxedString](#elseschemaboxedstring)<br> boxed class to store validated String payloads |
-| record | [NonInterferenceAcrossCombinedSchemas.ElseSchemaBoxedList](#elseschemaboxedlist)<br> boxed class to store validated List payloads |
-| record | [NonInterferenceAcrossCombinedSchemas.ElseSchemaBoxedMap](#elseschemaboxedmap)<br> boxed class to store validated Map payloads |
-| static class | [NonInterferenceAcrossCombinedSchemas.ElseSchema](#elseschema)<br> schema class |
+| data class | [NonInterferenceAcrossCombinedSchemas.ElseSchemaBoxedVoid](#elseschemaboxedvoid)<br> boxed class to store validated null payloads |
+| data class | [NonInterferenceAcrossCombinedSchemas.ElseSchemaBoxedBoolean](#elseschemaboxedboolean)<br> boxed class to store validated boolean payloads |
+| data class | [NonInterferenceAcrossCombinedSchemas.ElseSchemaBoxedNumber](#elseschemaboxednumber)<br> boxed class to store validated Number payloads |
+| data class | [NonInterferenceAcrossCombinedSchemas.ElseSchemaBoxedString](#elseschemaboxedstring)<br> boxed class to store validated String payloads |
+| data class | [NonInterferenceAcrossCombinedSchemas.ElseSchemaBoxedList](#elseschemaboxedlist)<br> boxed class to store validated List payloads |
+| data class | [NonInterferenceAcrossCombinedSchemas.ElseSchemaBoxedMap](#elseschemaboxedmap)<br> boxed class to store validated Map payloads |
+| class | [NonInterferenceAcrossCombinedSchemas.ElseSchema](#elseschema)<br> schema class |
 | sealed interface | [NonInterferenceAcrossCombinedSchemas.Schema1Boxed](#schema1boxed)<br> sealed interface for validated payloads |
-| record | [NonInterferenceAcrossCombinedSchemas.Schema1BoxedVoid](#schema1boxedvoid)<br> boxed class to store validated null payloads |
-| record | [NonInterferenceAcrossCombinedSchemas.Schema1BoxedBoolean](#schema1boxedboolean)<br> boxed class to store validated boolean payloads |
-| record | [NonInterferenceAcrossCombinedSchemas.Schema1BoxedNumber](#schema1boxednumber)<br> boxed class to store validated Number payloads |
-| record | [NonInterferenceAcrossCombinedSchemas.Schema1BoxedString](#schema1boxedstring)<br> boxed class to store validated String payloads |
-| record | [NonInterferenceAcrossCombinedSchemas.Schema1BoxedList](#schema1boxedlist)<br> boxed class to store validated List payloads |
-| record | [NonInterferenceAcrossCombinedSchemas.Schema1BoxedMap](#schema1boxedmap)<br> boxed class to store validated Map payloads |
-| static class | [NonInterferenceAcrossCombinedSchemas.Schema1](#schema1)<br> schema class |
+| data class | [NonInterferenceAcrossCombinedSchemas.Schema1BoxedVoid](#schema1boxedvoid)<br> boxed class to store validated null payloads |
+| data class | [NonInterferenceAcrossCombinedSchemas.Schema1BoxedBoolean](#schema1boxedboolean)<br> boxed class to store validated boolean payloads |
+| data class | [NonInterferenceAcrossCombinedSchemas.Schema1BoxedNumber](#schema1boxednumber)<br> boxed class to store validated Number payloads |
+| data class | [NonInterferenceAcrossCombinedSchemas.Schema1BoxedString](#schema1boxedstring)<br> boxed class to store validated String payloads |
+| data class | [NonInterferenceAcrossCombinedSchemas.Schema1BoxedList](#schema1boxedlist)<br> boxed class to store validated List payloads |
+| data class | [NonInterferenceAcrossCombinedSchemas.Schema1BoxedMap](#schema1boxedmap)<br> boxed class to store validated Map payloads |
+| class | [NonInterferenceAcrossCombinedSchemas.Schema1](#schema1)<br> schema class |
 | sealed interface | [NonInterferenceAcrossCombinedSchemas.ThenBoxed](#thenboxed)<br> sealed interface for validated payloads |
-| record | [NonInterferenceAcrossCombinedSchemas.ThenBoxedVoid](#thenboxedvoid)<br> boxed class to store validated null payloads |
-| record | [NonInterferenceAcrossCombinedSchemas.ThenBoxedBoolean](#thenboxedboolean)<br> boxed class to store validated boolean payloads |
-| record | [NonInterferenceAcrossCombinedSchemas.ThenBoxedNumber](#thenboxednumber)<br> boxed class to store validated Number payloads |
-| record | [NonInterferenceAcrossCombinedSchemas.ThenBoxedString](#thenboxedstring)<br> boxed class to store validated String payloads |
-| record | [NonInterferenceAcrossCombinedSchemas.ThenBoxedList](#thenboxedlist)<br> boxed class to store validated List payloads |
-| record | [NonInterferenceAcrossCombinedSchemas.ThenBoxedMap](#thenboxedmap)<br> boxed class to store validated Map payloads |
-| static class | [NonInterferenceAcrossCombinedSchemas.Then](#then)<br> schema class |
+| data class | [NonInterferenceAcrossCombinedSchemas.ThenBoxedVoid](#thenboxedvoid)<br> boxed class to store validated null payloads |
+| data class | [NonInterferenceAcrossCombinedSchemas.ThenBoxedBoolean](#thenboxedboolean)<br> boxed class to store validated boolean payloads |
+| data class | [NonInterferenceAcrossCombinedSchemas.ThenBoxedNumber](#thenboxednumber)<br> boxed class to store validated Number payloads |
+| data class | [NonInterferenceAcrossCombinedSchemas.ThenBoxedString](#thenboxedstring)<br> boxed class to store validated String payloads |
+| data class | [NonInterferenceAcrossCombinedSchemas.ThenBoxedList](#thenboxedlist)<br> boxed class to store validated List payloads |
+| data class | [NonInterferenceAcrossCombinedSchemas.ThenBoxedMap](#thenboxedmap)<br> boxed class to store validated Map payloads |
+| class | [NonInterferenceAcrossCombinedSchemas.Then](#then)<br> schema class |
 | sealed interface | [NonInterferenceAcrossCombinedSchemas.Schema0Boxed](#schema0boxed)<br> sealed interface for validated payloads |
-| record | [NonInterferenceAcrossCombinedSchemas.Schema0BoxedVoid](#schema0boxedvoid)<br> boxed class to store validated null payloads |
-| record | [NonInterferenceAcrossCombinedSchemas.Schema0BoxedBoolean](#schema0boxedboolean)<br> boxed class to store validated boolean payloads |
-| record | [NonInterferenceAcrossCombinedSchemas.Schema0BoxedNumber](#schema0boxednumber)<br> boxed class to store validated Number payloads |
-| record | [NonInterferenceAcrossCombinedSchemas.Schema0BoxedString](#schema0boxedstring)<br> boxed class to store validated String payloads |
-| record | [NonInterferenceAcrossCombinedSchemas.Schema0BoxedList](#schema0boxedlist)<br> boxed class to store validated List payloads |
-| record | [NonInterferenceAcrossCombinedSchemas.Schema0BoxedMap](#schema0boxedmap)<br> boxed class to store validated Map payloads |
-| static class | [NonInterferenceAcrossCombinedSchemas.Schema0](#schema0)<br> schema class |
+| data class | [NonInterferenceAcrossCombinedSchemas.Schema0BoxedVoid](#schema0boxedvoid)<br> boxed class to store validated null payloads |
+| data class | [NonInterferenceAcrossCombinedSchemas.Schema0BoxedBoolean](#schema0boxedboolean)<br> boxed class to store validated boolean payloads |
+| data class | [NonInterferenceAcrossCombinedSchemas.Schema0BoxedNumber](#schema0boxednumber)<br> boxed class to store validated Number payloads |
+| data class | [NonInterferenceAcrossCombinedSchemas.Schema0BoxedString](#schema0boxedstring)<br> boxed class to store validated String payloads |
+| data class | [NonInterferenceAcrossCombinedSchemas.Schema0BoxedList](#schema0boxedlist)<br> boxed class to store validated List payloads |
+| data class | [NonInterferenceAcrossCombinedSchemas.Schema0BoxedMap](#schema0boxedmap)<br> boxed class to store validated Map payloads |
+| class | [NonInterferenceAcrossCombinedSchemas.Schema0](#schema0)<br> schema class |
 | sealed interface | [NonInterferenceAcrossCombinedSchemas.IfSchemaBoxed](#ifschemaboxed)<br> sealed interface for validated payloads |
-| record | [NonInterferenceAcrossCombinedSchemas.IfSchemaBoxedVoid](#ifschemaboxedvoid)<br> boxed class to store validated null payloads |
-| record | [NonInterferenceAcrossCombinedSchemas.IfSchemaBoxedBoolean](#ifschemaboxedboolean)<br> boxed class to store validated boolean payloads |
-| record | [NonInterferenceAcrossCombinedSchemas.IfSchemaBoxedNumber](#ifschemaboxednumber)<br> boxed class to store validated Number payloads |
-| record | [NonInterferenceAcrossCombinedSchemas.IfSchemaBoxedString](#ifschemaboxedstring)<br> boxed class to store validated String payloads |
-| record | [NonInterferenceAcrossCombinedSchemas.IfSchemaBoxedList](#ifschemaboxedlist)<br> boxed class to store validated List payloads |
-| record | [NonInterferenceAcrossCombinedSchemas.IfSchemaBoxedMap](#ifschemaboxedmap)<br> boxed class to store validated Map payloads |
-| static class | [NonInterferenceAcrossCombinedSchemas.IfSchema](#ifschema)<br> schema class |
+| data class | [NonInterferenceAcrossCombinedSchemas.IfSchemaBoxedVoid](#ifschemaboxedvoid)<br> boxed class to store validated null payloads |
+| data class | [NonInterferenceAcrossCombinedSchemas.IfSchemaBoxedBoolean](#ifschemaboxedboolean)<br> boxed class to store validated boolean payloads |
+| data class | [NonInterferenceAcrossCombinedSchemas.IfSchemaBoxedNumber](#ifschemaboxednumber)<br> boxed class to store validated Number payloads |
+| data class | [NonInterferenceAcrossCombinedSchemas.IfSchemaBoxedString](#ifschemaboxedstring)<br> boxed class to store validated String payloads |
+| data class | [NonInterferenceAcrossCombinedSchemas.IfSchemaBoxedList](#ifschemaboxedlist)<br> boxed class to store validated List payloads |
+| data class | [NonInterferenceAcrossCombinedSchemas.IfSchemaBoxedMap](#ifschemaboxedmap)<br> boxed class to store validated Map payloads |
+| class | [NonInterferenceAcrossCombinedSchemas.IfSchema](#ifschema)<br> schema class |
 
 ## NonInterferenceAcrossCombinedSchemas1Boxed
 sealed interface NonInterferenceAcrossCombinedSchemas1Boxed<br>
@@ -100,7 +100,7 @@ data class that stores validated null payloads, sealed permits implementation
 data class NonInterferenceAcrossCombinedSchemas1BoxedBoolean<br>
 implements [NonInterferenceAcrossCombinedSchemas1Boxed](#noninterferenceacrosscombinedschemas1boxed)
 
-record that stores validated boolean payloads, sealed permits implementation
+data class that stores validated boolean payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
@@ -247,7 +247,7 @@ data class that stores validated null payloads, sealed permits implementation
 data class Schema2BoxedBoolean<br>
 implements [Schema2Boxed](#schema2boxed)
 
-record that stores validated boolean payloads, sealed permits implementation
+data class that stores validated boolean payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
@@ -394,7 +394,7 @@ data class that stores validated null payloads, sealed permits implementation
 data class ElseSchemaBoxedBoolean<br>
 implements [ElseSchemaBoxed](#elseschemaboxed)
 
-record that stores validated boolean payloads, sealed permits implementation
+data class that stores validated boolean payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
@@ -541,7 +541,7 @@ data class that stores validated null payloads, sealed permits implementation
 data class Schema1BoxedBoolean<br>
 implements [Schema1Boxed](#schema1boxed)
 
-record that stores validated boolean payloads, sealed permits implementation
+data class that stores validated boolean payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
@@ -688,7 +688,7 @@ data class that stores validated null payloads, sealed permits implementation
 data class ThenBoxedBoolean<br>
 implements [ThenBoxed](#thenboxed)
 
-record that stores validated boolean payloads, sealed permits implementation
+data class that stores validated boolean payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
@@ -835,7 +835,7 @@ data class that stores validated null payloads, sealed permits implementation
 data class Schema0BoxedBoolean<br>
 implements [Schema0Boxed](#schema0boxed)
 
-record that stores validated boolean payloads, sealed permits implementation
+data class that stores validated boolean payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
@@ -982,7 +982,7 @@ data class that stores validated null payloads, sealed permits implementation
 data class IfSchemaBoxedBoolean<br>
 implements [IfSchemaBoxed](#ifschemaboxed)
 
-record that stores validated boolean payloads, sealed permits implementation
+data class that stores validated boolean payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |

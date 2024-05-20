@@ -11,13 +11,13 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | sealed interface | [UriFormat.UriFormat1Boxed](#uriformat1boxed)<br> sealed interface for validated payloads |
-| record | [UriFormat.UriFormat1BoxedVoid](#uriformat1boxedvoid)<br> boxed class to store validated null payloads |
-| record | [UriFormat.UriFormat1BoxedBoolean](#uriformat1boxedboolean)<br> boxed class to store validated boolean payloads |
-| record | [UriFormat.UriFormat1BoxedNumber](#uriformat1boxednumber)<br> boxed class to store validated Number payloads |
-| record | [UriFormat.UriFormat1BoxedString](#uriformat1boxedstring)<br> boxed class to store validated String payloads |
-| record | [UriFormat.UriFormat1BoxedList](#uriformat1boxedlist)<br> boxed class to store validated List payloads |
-| record | [UriFormat.UriFormat1BoxedMap](#uriformat1boxedmap)<br> boxed class to store validated Map payloads |
-| static class | [UriFormat.UriFormat1](#uriformat1)<br> schema class |
+| data class | [UriFormat.UriFormat1BoxedVoid](#uriformat1boxedvoid)<br> boxed class to store validated null payloads |
+| data class | [UriFormat.UriFormat1BoxedBoolean](#uriformat1boxedboolean)<br> boxed class to store validated boolean payloads |
+| data class | [UriFormat.UriFormat1BoxedNumber](#uriformat1boxednumber)<br> boxed class to store validated Number payloads |
+| data class | [UriFormat.UriFormat1BoxedString](#uriformat1boxedstring)<br> boxed class to store validated String payloads |
+| data class | [UriFormat.UriFormat1BoxedList](#uriformat1boxedlist)<br> boxed class to store validated List payloads |
+| data class | [UriFormat.UriFormat1BoxedMap](#uriformat1boxedmap)<br> boxed class to store validated Map payloads |
+| class | [UriFormat.UriFormat1](#uriformat1)<br> schema class |
 
 ## UriFormat1Boxed
 sealed interface UriFormat1Boxed<br>
@@ -52,7 +52,7 @@ data class that stores validated null payloads, sealed permits implementation
 data class UriFormat1BoxedBoolean<br>
 implements [UriFormat1Boxed](#uriformat1boxed)
 
-record that stores validated boolean payloads, sealed permits implementation
+data class that stores validated boolean payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |

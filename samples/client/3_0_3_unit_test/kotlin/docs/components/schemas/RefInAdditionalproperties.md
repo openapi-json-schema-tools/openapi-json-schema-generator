@@ -13,10 +13,10 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | sealed interface | [RefInAdditionalproperties.RefInAdditionalproperties1Boxed](#refinadditionalproperties1boxed)<br> sealed interface for validated payloads |
-| record | [RefInAdditionalproperties.RefInAdditionalproperties1BoxedMap](#refinadditionalproperties1boxedmap)<br> boxed class to store validated Map payloads |
-| static class | [RefInAdditionalproperties.RefInAdditionalproperties1](#refinadditionalproperties1)<br> schema class |
-| static class | [RefInAdditionalproperties.RefInAdditionalpropertiesMapBuilder](#refinadditionalpropertiesmapbuilder)<br> builder for Map payloads |
-| static class | [RefInAdditionalproperties.RefInAdditionalpropertiesMap](#refinadditionalpropertiesmap)<br> output class for Map payloads |
+| data class | [RefInAdditionalproperties.RefInAdditionalproperties1BoxedMap](#refinadditionalproperties1boxedmap)<br> boxed class to store validated Map payloads |
+| class | [RefInAdditionalproperties.RefInAdditionalproperties1](#refinadditionalproperties1)<br> schema class |
+| class | [RefInAdditionalproperties.RefInAdditionalpropertiesMapBuilder](#refinadditionalpropertiesmapbuilder)<br> builder for Map payloads |
+| class | [RefInAdditionalproperties.RefInAdditionalpropertiesMap](#refinadditionalpropertiesmap)<br> output class for Map payloads |
 
 ## RefInAdditionalproperties1Boxed
 sealed interface RefInAdditionalproperties1Boxed<br>

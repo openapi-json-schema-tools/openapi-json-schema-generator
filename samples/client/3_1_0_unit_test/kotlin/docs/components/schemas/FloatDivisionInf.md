@@ -11,8 +11,8 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | sealed interface | [FloatDivisionInf.FloatDivisionInf1Boxed](#floatdivisioninf1boxed)<br> sealed interface for validated payloads |
-| record | [FloatDivisionInf.FloatDivisionInf1BoxedNumber](#floatdivisioninf1boxednumber)<br> boxed class to store validated Number payloads |
-| static class | [FloatDivisionInf.FloatDivisionInf1](#floatdivisioninf1)<br> schema class |
+| data class | [FloatDivisionInf.FloatDivisionInf1BoxedNumber](#floatdivisioninf1boxednumber)<br> boxed class to store validated Number payloads |
+| class | [FloatDivisionInf.FloatDivisionInf1](#floatdivisioninf1)<br> schema class |
 
 ## FloatDivisionInf1Boxed
 sealed interface FloatDivisionInf1Boxed<br>

@@ -11,13 +11,13 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | sealed interface | [PatternIsNotAnchored.PatternIsNotAnchored1Boxed](#patternisnotanchored1boxed)<br> sealed interface for validated payloads |
-| record | [PatternIsNotAnchored.PatternIsNotAnchored1BoxedVoid](#patternisnotanchored1boxedvoid)<br> boxed class to store validated null payloads |
-| record | [PatternIsNotAnchored.PatternIsNotAnchored1BoxedBoolean](#patternisnotanchored1boxedboolean)<br> boxed class to store validated boolean payloads |
-| record | [PatternIsNotAnchored.PatternIsNotAnchored1BoxedNumber](#patternisnotanchored1boxednumber)<br> boxed class to store validated Number payloads |
-| record | [PatternIsNotAnchored.PatternIsNotAnchored1BoxedString](#patternisnotanchored1boxedstring)<br> boxed class to store validated String payloads |
-| record | [PatternIsNotAnchored.PatternIsNotAnchored1BoxedList](#patternisnotanchored1boxedlist)<br> boxed class to store validated List payloads |
-| record | [PatternIsNotAnchored.PatternIsNotAnchored1BoxedMap](#patternisnotanchored1boxedmap)<br> boxed class to store validated Map payloads |
-| static class | [PatternIsNotAnchored.PatternIsNotAnchored1](#patternisnotanchored1)<br> schema class |
+| data class | [PatternIsNotAnchored.PatternIsNotAnchored1BoxedVoid](#patternisnotanchored1boxedvoid)<br> boxed class to store validated null payloads |
+| data class | [PatternIsNotAnchored.PatternIsNotAnchored1BoxedBoolean](#patternisnotanchored1boxedboolean)<br> boxed class to store validated boolean payloads |
+| data class | [PatternIsNotAnchored.PatternIsNotAnchored1BoxedNumber](#patternisnotanchored1boxednumber)<br> boxed class to store validated Number payloads |
+| data class | [PatternIsNotAnchored.PatternIsNotAnchored1BoxedString](#patternisnotanchored1boxedstring)<br> boxed class to store validated String payloads |
+| data class | [PatternIsNotAnchored.PatternIsNotAnchored1BoxedList](#patternisnotanchored1boxedlist)<br> boxed class to store validated List payloads |
+| data class | [PatternIsNotAnchored.PatternIsNotAnchored1BoxedMap](#patternisnotanchored1boxedmap)<br> boxed class to store validated Map payloads |
+| class | [PatternIsNotAnchored.PatternIsNotAnchored1](#patternisnotanchored1)<br> schema class |
 
 ## PatternIsNotAnchored1Boxed
 sealed interface PatternIsNotAnchored1Boxed<br>
@@ -52,7 +52,7 @@ data class that stores validated null payloads, sealed permits implementation
 data class PatternIsNotAnchored1BoxedBoolean<br>
 implements [PatternIsNotAnchored1Boxed](#patternisnotanchored1boxed)
 
-record that stores validated boolean payloads, sealed permits implementation
+data class that stores validated boolean payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |

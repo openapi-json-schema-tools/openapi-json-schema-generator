@@ -13,36 +13,36 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | sealed interface | [AdditionalpropertiesDoesNotLookInApplicators.AdditionalpropertiesDoesNotLookInApplicators1Boxed](#additionalpropertiesdoesnotlookinapplicators1boxed)<br> sealed interface for validated payloads |
-| record | [AdditionalpropertiesDoesNotLookInApplicators.AdditionalpropertiesDoesNotLookInApplicators1BoxedVoid](#additionalpropertiesdoesnotlookinapplicators1boxedvoid)<br> boxed class to store validated null payloads |
-| record | [AdditionalpropertiesDoesNotLookInApplicators.AdditionalpropertiesDoesNotLookInApplicators1BoxedBoolean](#additionalpropertiesdoesnotlookinapplicators1boxedboolean)<br> boxed class to store validated boolean payloads |
-| record | [AdditionalpropertiesDoesNotLookInApplicators.AdditionalpropertiesDoesNotLookInApplicators1BoxedNumber](#additionalpropertiesdoesnotlookinapplicators1boxednumber)<br> boxed class to store validated Number payloads |
-| record | [AdditionalpropertiesDoesNotLookInApplicators.AdditionalpropertiesDoesNotLookInApplicators1BoxedString](#additionalpropertiesdoesnotlookinapplicators1boxedstring)<br> boxed class to store validated String payloads |
-| record | [AdditionalpropertiesDoesNotLookInApplicators.AdditionalpropertiesDoesNotLookInApplicators1BoxedList](#additionalpropertiesdoesnotlookinapplicators1boxedlist)<br> boxed class to store validated List payloads |
-| record | [AdditionalpropertiesDoesNotLookInApplicators.AdditionalpropertiesDoesNotLookInApplicators1BoxedMap](#additionalpropertiesdoesnotlookinapplicators1boxedmap)<br> boxed class to store validated Map payloads |
-| static class | [AdditionalpropertiesDoesNotLookInApplicators.AdditionalpropertiesDoesNotLookInApplicators1](#additionalpropertiesdoesnotlookinapplicators1)<br> schema class |
-| static class | [AdditionalpropertiesDoesNotLookInApplicators.AdditionalpropertiesDoesNotLookInApplicatorsMapBuilder](#additionalpropertiesdoesnotlookinapplicatorsmapbuilder)<br> builder for Map payloads |
-| static class | [AdditionalpropertiesDoesNotLookInApplicators.AdditionalpropertiesDoesNotLookInApplicatorsMap](#additionalpropertiesdoesnotlookinapplicatorsmap)<br> output class for Map payloads |
+| data class | [AdditionalpropertiesDoesNotLookInApplicators.AdditionalpropertiesDoesNotLookInApplicators1BoxedVoid](#additionalpropertiesdoesnotlookinapplicators1boxedvoid)<br> boxed class to store validated null payloads |
+| data class | [AdditionalpropertiesDoesNotLookInApplicators.AdditionalpropertiesDoesNotLookInApplicators1BoxedBoolean](#additionalpropertiesdoesnotlookinapplicators1boxedboolean)<br> boxed class to store validated boolean payloads |
+| data class | [AdditionalpropertiesDoesNotLookInApplicators.AdditionalpropertiesDoesNotLookInApplicators1BoxedNumber](#additionalpropertiesdoesnotlookinapplicators1boxednumber)<br> boxed class to store validated Number payloads |
+| data class | [AdditionalpropertiesDoesNotLookInApplicators.AdditionalpropertiesDoesNotLookInApplicators1BoxedString](#additionalpropertiesdoesnotlookinapplicators1boxedstring)<br> boxed class to store validated String payloads |
+| data class | [AdditionalpropertiesDoesNotLookInApplicators.AdditionalpropertiesDoesNotLookInApplicators1BoxedList](#additionalpropertiesdoesnotlookinapplicators1boxedlist)<br> boxed class to store validated List payloads |
+| data class | [AdditionalpropertiesDoesNotLookInApplicators.AdditionalpropertiesDoesNotLookInApplicators1BoxedMap](#additionalpropertiesdoesnotlookinapplicators1boxedmap)<br> boxed class to store validated Map payloads |
+| class | [AdditionalpropertiesDoesNotLookInApplicators.AdditionalpropertiesDoesNotLookInApplicators1](#additionalpropertiesdoesnotlookinapplicators1)<br> schema class |
+| class | [AdditionalpropertiesDoesNotLookInApplicators.AdditionalpropertiesDoesNotLookInApplicatorsMapBuilder](#additionalpropertiesdoesnotlookinapplicatorsmapbuilder)<br> builder for Map payloads |
+| class | [AdditionalpropertiesDoesNotLookInApplicators.AdditionalpropertiesDoesNotLookInApplicatorsMap](#additionalpropertiesdoesnotlookinapplicatorsmap)<br> output class for Map payloads |
 | sealed interface | [AdditionalpropertiesDoesNotLookInApplicators.Schema0Boxed](#schema0boxed)<br> sealed interface for validated payloads |
-| record | [AdditionalpropertiesDoesNotLookInApplicators.Schema0BoxedVoid](#schema0boxedvoid)<br> boxed class to store validated null payloads |
-| record | [AdditionalpropertiesDoesNotLookInApplicators.Schema0BoxedBoolean](#schema0boxedboolean)<br> boxed class to store validated boolean payloads |
-| record | [AdditionalpropertiesDoesNotLookInApplicators.Schema0BoxedNumber](#schema0boxednumber)<br> boxed class to store validated Number payloads |
-| record | [AdditionalpropertiesDoesNotLookInApplicators.Schema0BoxedString](#schema0boxedstring)<br> boxed class to store validated String payloads |
-| record | [AdditionalpropertiesDoesNotLookInApplicators.Schema0BoxedList](#schema0boxedlist)<br> boxed class to store validated List payloads |
-| record | [AdditionalpropertiesDoesNotLookInApplicators.Schema0BoxedMap](#schema0boxedmap)<br> boxed class to store validated Map payloads |
-| static class | [AdditionalpropertiesDoesNotLookInApplicators.Schema0](#schema0)<br> schema class |
-| static class | [AdditionalpropertiesDoesNotLookInApplicators.Schema0MapBuilder](#schema0mapbuilder)<br> builder for Map payloads |
-| static class | [AdditionalpropertiesDoesNotLookInApplicators.Schema0Map](#schema0map)<br> output class for Map payloads |
+| data class | [AdditionalpropertiesDoesNotLookInApplicators.Schema0BoxedVoid](#schema0boxedvoid)<br> boxed class to store validated null payloads |
+| data class | [AdditionalpropertiesDoesNotLookInApplicators.Schema0BoxedBoolean](#schema0boxedboolean)<br> boxed class to store validated boolean payloads |
+| data class | [AdditionalpropertiesDoesNotLookInApplicators.Schema0BoxedNumber](#schema0boxednumber)<br> boxed class to store validated Number payloads |
+| data class | [AdditionalpropertiesDoesNotLookInApplicators.Schema0BoxedString](#schema0boxedstring)<br> boxed class to store validated String payloads |
+| data class | [AdditionalpropertiesDoesNotLookInApplicators.Schema0BoxedList](#schema0boxedlist)<br> boxed class to store validated List payloads |
+| data class | [AdditionalpropertiesDoesNotLookInApplicators.Schema0BoxedMap](#schema0boxedmap)<br> boxed class to store validated Map payloads |
+| class | [AdditionalpropertiesDoesNotLookInApplicators.Schema0](#schema0)<br> schema class |
+| class | [AdditionalpropertiesDoesNotLookInApplicators.Schema0MapBuilder](#schema0mapbuilder)<br> builder for Map payloads |
+| class | [AdditionalpropertiesDoesNotLookInApplicators.Schema0Map](#schema0map)<br> output class for Map payloads |
 | sealed interface | [AdditionalpropertiesDoesNotLookInApplicators.FooBoxed](#fooboxed)<br> sealed interface for validated payloads |
-| record | [AdditionalpropertiesDoesNotLookInApplicators.FooBoxedVoid](#fooboxedvoid)<br> boxed class to store validated null payloads |
-| record | [AdditionalpropertiesDoesNotLookInApplicators.FooBoxedBoolean](#fooboxedboolean)<br> boxed class to store validated boolean payloads |
-| record | [AdditionalpropertiesDoesNotLookInApplicators.FooBoxedNumber](#fooboxednumber)<br> boxed class to store validated Number payloads |
-| record | [AdditionalpropertiesDoesNotLookInApplicators.FooBoxedString](#fooboxedstring)<br> boxed class to store validated String payloads |
-| record | [AdditionalpropertiesDoesNotLookInApplicators.FooBoxedList](#fooboxedlist)<br> boxed class to store validated List payloads |
-| record | [AdditionalpropertiesDoesNotLookInApplicators.FooBoxedMap](#fooboxedmap)<br> boxed class to store validated Map payloads |
-| static class | [AdditionalpropertiesDoesNotLookInApplicators.Foo](#foo)<br> schema class |
+| data class | [AdditionalpropertiesDoesNotLookInApplicators.FooBoxedVoid](#fooboxedvoid)<br> boxed class to store validated null payloads |
+| data class | [AdditionalpropertiesDoesNotLookInApplicators.FooBoxedBoolean](#fooboxedboolean)<br> boxed class to store validated boolean payloads |
+| data class | [AdditionalpropertiesDoesNotLookInApplicators.FooBoxedNumber](#fooboxednumber)<br> boxed class to store validated Number payloads |
+| data class | [AdditionalpropertiesDoesNotLookInApplicators.FooBoxedString](#fooboxedstring)<br> boxed class to store validated String payloads |
+| data class | [AdditionalpropertiesDoesNotLookInApplicators.FooBoxedList](#fooboxedlist)<br> boxed class to store validated List payloads |
+| data class | [AdditionalpropertiesDoesNotLookInApplicators.FooBoxedMap](#fooboxedmap)<br> boxed class to store validated Map payloads |
+| class | [AdditionalpropertiesDoesNotLookInApplicators.Foo](#foo)<br> schema class |
 | sealed interface | [AdditionalpropertiesDoesNotLookInApplicators.AdditionalPropertiesBoxed](#additionalpropertiesboxed)<br> sealed interface for validated payloads |
-| record | [AdditionalpropertiesDoesNotLookInApplicators.AdditionalPropertiesBoxedBoolean](#additionalpropertiesboxedboolean)<br> boxed class to store validated boolean payloads |
-| static class | [AdditionalpropertiesDoesNotLookInApplicators.AdditionalProperties](#additionalproperties)<br> schema class |
+| data class | [AdditionalpropertiesDoesNotLookInApplicators.AdditionalPropertiesBoxedBoolean](#additionalpropertiesboxedboolean)<br> boxed class to store validated boolean payloads |
+| class | [AdditionalpropertiesDoesNotLookInApplicators.AdditionalProperties](#additionalproperties)<br> schema class |
 
 ## AdditionalpropertiesDoesNotLookInApplicators1Boxed
 sealed interface AdditionalpropertiesDoesNotLookInApplicators1Boxed<br>
@@ -77,7 +77,7 @@ data class that stores validated null payloads, sealed permits implementation
 data class AdditionalpropertiesDoesNotLookInApplicators1BoxedBoolean<br>
 implements [AdditionalpropertiesDoesNotLookInApplicators1Boxed](#additionalpropertiesdoesnotlookinapplicators1boxed)
 
-record that stores validated boolean payloads, sealed permits implementation
+data class that stores validated boolean payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
@@ -254,7 +254,7 @@ data class that stores validated null payloads, sealed permits implementation
 data class Schema0BoxedBoolean<br>
 implements [Schema0Boxed](#schema0boxed)
 
-record that stores validated boolean payloads, sealed permits implementation
+data class that stores validated boolean payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
@@ -448,7 +448,7 @@ data class that stores validated null payloads, sealed permits implementation
 data class FooBoxedBoolean<br>
 implements [FooBoxed](#fooboxed)
 
-record that stores validated boolean payloads, sealed permits implementation
+data class that stores validated boolean payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
@@ -551,7 +551,7 @@ sealed interface that stores validated payloads using boxed classes
 data class AdditionalPropertiesBoxedBoolean<br>
 implements [AdditionalPropertiesBoxed](#additionalpropertiesboxed)
 
-record that stores validated boolean payloads, sealed permits implementation
+data class that stores validated boolean payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |

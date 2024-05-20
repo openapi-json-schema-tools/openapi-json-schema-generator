@@ -11,13 +11,13 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | sealed interface | [ByInt.ByInt1Boxed](#byint1boxed)<br> sealed interface for validated payloads |
-| record | [ByInt.ByInt1BoxedVoid](#byint1boxedvoid)<br> boxed class to store validated null payloads |
-| record | [ByInt.ByInt1BoxedBoolean](#byint1boxedboolean)<br> boxed class to store validated boolean payloads |
-| record | [ByInt.ByInt1BoxedNumber](#byint1boxednumber)<br> boxed class to store validated Number payloads |
-| record | [ByInt.ByInt1BoxedString](#byint1boxedstring)<br> boxed class to store validated String payloads |
-| record | [ByInt.ByInt1BoxedList](#byint1boxedlist)<br> boxed class to store validated List payloads |
-| record | [ByInt.ByInt1BoxedMap](#byint1boxedmap)<br> boxed class to store validated Map payloads |
-| static class | [ByInt.ByInt1](#byint1)<br> schema class |
+| data class | [ByInt.ByInt1BoxedVoid](#byint1boxedvoid)<br> boxed class to store validated null payloads |
+| data class | [ByInt.ByInt1BoxedBoolean](#byint1boxedboolean)<br> boxed class to store validated boolean payloads |
+| data class | [ByInt.ByInt1BoxedNumber](#byint1boxednumber)<br> boxed class to store validated Number payloads |
+| data class | [ByInt.ByInt1BoxedString](#byint1boxedstring)<br> boxed class to store validated String payloads |
+| data class | [ByInt.ByInt1BoxedList](#byint1boxedlist)<br> boxed class to store validated List payloads |
+| data class | [ByInt.ByInt1BoxedMap](#byint1boxedmap)<br> boxed class to store validated Map payloads |
+| class | [ByInt.ByInt1](#byint1)<br> schema class |
 
 ## ByInt1Boxed
 sealed interface ByInt1Boxed<br>
@@ -52,7 +52,7 @@ data class that stores validated null payloads, sealed permits implementation
 data class ByInt1BoxedBoolean<br>
 implements [ByInt1Boxed](#byint1boxed)
 
-record that stores validated boolean payloads, sealed permits implementation
+data class that stores validated boolean payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |

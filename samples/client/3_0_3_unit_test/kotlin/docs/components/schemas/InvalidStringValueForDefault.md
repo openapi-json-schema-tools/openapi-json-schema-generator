@@ -13,18 +13,18 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | sealed interface | [InvalidStringValueForDefault.InvalidStringValueForDefault1Boxed](#invalidstringvaluefordefault1boxed)<br> sealed interface for validated payloads |
-| record | [InvalidStringValueForDefault.InvalidStringValueForDefault1BoxedVoid](#invalidstringvaluefordefault1boxedvoid)<br> boxed class to store validated null payloads |
-| record | [InvalidStringValueForDefault.InvalidStringValueForDefault1BoxedBoolean](#invalidstringvaluefordefault1boxedboolean)<br> boxed class to store validated boolean payloads |
-| record | [InvalidStringValueForDefault.InvalidStringValueForDefault1BoxedNumber](#invalidstringvaluefordefault1boxednumber)<br> boxed class to store validated Number payloads |
-| record | [InvalidStringValueForDefault.InvalidStringValueForDefault1BoxedString](#invalidstringvaluefordefault1boxedstring)<br> boxed class to store validated String payloads |
-| record | [InvalidStringValueForDefault.InvalidStringValueForDefault1BoxedList](#invalidstringvaluefordefault1boxedlist)<br> boxed class to store validated List payloads |
-| record | [InvalidStringValueForDefault.InvalidStringValueForDefault1BoxedMap](#invalidstringvaluefordefault1boxedmap)<br> boxed class to store validated Map payloads |
-| static class | [InvalidStringValueForDefault.InvalidStringValueForDefault1](#invalidstringvaluefordefault1)<br> schema class |
-| static class | [InvalidStringValueForDefault.InvalidStringValueForDefaultMapBuilder](#invalidstringvaluefordefaultmapbuilder)<br> builder for Map payloads |
-| static class | [InvalidStringValueForDefault.InvalidStringValueForDefaultMap](#invalidstringvaluefordefaultmap)<br> output class for Map payloads |
+| data class | [InvalidStringValueForDefault.InvalidStringValueForDefault1BoxedVoid](#invalidstringvaluefordefault1boxedvoid)<br> boxed class to store validated null payloads |
+| data class | [InvalidStringValueForDefault.InvalidStringValueForDefault1BoxedBoolean](#invalidstringvaluefordefault1boxedboolean)<br> boxed class to store validated boolean payloads |
+| data class | [InvalidStringValueForDefault.InvalidStringValueForDefault1BoxedNumber](#invalidstringvaluefordefault1boxednumber)<br> boxed class to store validated Number payloads |
+| data class | [InvalidStringValueForDefault.InvalidStringValueForDefault1BoxedString](#invalidstringvaluefordefault1boxedstring)<br> boxed class to store validated String payloads |
+| data class | [InvalidStringValueForDefault.InvalidStringValueForDefault1BoxedList](#invalidstringvaluefordefault1boxedlist)<br> boxed class to store validated List payloads |
+| data class | [InvalidStringValueForDefault.InvalidStringValueForDefault1BoxedMap](#invalidstringvaluefordefault1boxedmap)<br> boxed class to store validated Map payloads |
+| class | [InvalidStringValueForDefault.InvalidStringValueForDefault1](#invalidstringvaluefordefault1)<br> schema class |
+| class | [InvalidStringValueForDefault.InvalidStringValueForDefaultMapBuilder](#invalidstringvaluefordefaultmapbuilder)<br> builder for Map payloads |
+| class | [InvalidStringValueForDefault.InvalidStringValueForDefaultMap](#invalidstringvaluefordefaultmap)<br> output class for Map payloads |
 | sealed interface | [InvalidStringValueForDefault.BarBoxed](#barboxed)<br> sealed interface for validated payloads |
-| record | [InvalidStringValueForDefault.BarBoxedString](#barboxedstring)<br> boxed class to store validated String payloads |
-| static class | [InvalidStringValueForDefault.Bar](#bar)<br> schema class |
+| data class | [InvalidStringValueForDefault.BarBoxedString](#barboxedstring)<br> boxed class to store validated String payloads |
+| class | [InvalidStringValueForDefault.Bar](#bar)<br> schema class |
 
 ## InvalidStringValueForDefault1Boxed
 sealed interface InvalidStringValueForDefault1Boxed<br>
@@ -59,7 +59,7 @@ data class that stores validated null payloads, sealed permits implementation
 data class InvalidStringValueForDefault1BoxedBoolean<br>
 implements [InvalidStringValueForDefault1Boxed](#invalidstringvaluefordefault1boxed)
 
-record that stores validated boolean payloads, sealed permits implementation
+data class that stores validated boolean payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |

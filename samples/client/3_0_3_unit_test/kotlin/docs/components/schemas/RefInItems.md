@@ -13,10 +13,10 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | sealed interface | [RefInItems.RefInItems1Boxed](#refinitems1boxed)<br> sealed interface for validated payloads |
-| record | [RefInItems.RefInItems1BoxedList](#refinitems1boxedlist)<br> boxed class to store validated List payloads |
-| static class | [RefInItems.RefInItems1](#refinitems1)<br> schema class |
-| static class | [RefInItems.RefInItemsListBuilder](#refinitemslistbuilder)<br> builder for List payloads |
-| static class | [RefInItems.RefInItemsList](#refinitemslist)<br> output class for List payloads |
+| data class | [RefInItems.RefInItems1BoxedList](#refinitems1boxedlist)<br> boxed class to store validated List payloads |
+| class | [RefInItems.RefInItems1](#refinitems1)<br> schema class |
+| class | [RefInItems.RefInItemsListBuilder](#refinitemslistbuilder)<br> builder for List payloads |
+| class | [RefInItems.RefInItemsList](#refinitemslist)<br> output class for List payloads |
 
 ## RefInItems1Boxed
 sealed interface RefInItems1Boxed<br>

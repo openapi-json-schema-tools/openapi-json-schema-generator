@@ -13,18 +13,18 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | sealed interface | [PrefixitemsWithNullInstanceElements.PrefixitemsWithNullInstanceElements1Boxed](#prefixitemswithnullinstanceelements1boxed)<br> sealed interface for validated payloads |
-| record | [PrefixitemsWithNullInstanceElements.PrefixitemsWithNullInstanceElements1BoxedVoid](#prefixitemswithnullinstanceelements1boxedvoid)<br> boxed class to store validated null payloads |
-| record | [PrefixitemsWithNullInstanceElements.PrefixitemsWithNullInstanceElements1BoxedBoolean](#prefixitemswithnullinstanceelements1boxedboolean)<br> boxed class to store validated boolean payloads |
-| record | [PrefixitemsWithNullInstanceElements.PrefixitemsWithNullInstanceElements1BoxedNumber](#prefixitemswithnullinstanceelements1boxednumber)<br> boxed class to store validated Number payloads |
-| record | [PrefixitemsWithNullInstanceElements.PrefixitemsWithNullInstanceElements1BoxedString](#prefixitemswithnullinstanceelements1boxedstring)<br> boxed class to store validated String payloads |
-| record | [PrefixitemsWithNullInstanceElements.PrefixitemsWithNullInstanceElements1BoxedList](#prefixitemswithnullinstanceelements1boxedlist)<br> boxed class to store validated List payloads |
-| record | [PrefixitemsWithNullInstanceElements.PrefixitemsWithNullInstanceElements1BoxedMap](#prefixitemswithnullinstanceelements1boxedmap)<br> boxed class to store validated Map payloads |
-| static class | [PrefixitemsWithNullInstanceElements.PrefixitemsWithNullInstanceElements1](#prefixitemswithnullinstanceelements1)<br> schema class |
+| data class | [PrefixitemsWithNullInstanceElements.PrefixitemsWithNullInstanceElements1BoxedVoid](#prefixitemswithnullinstanceelements1boxedvoid)<br> boxed class to store validated null payloads |
+| data class | [PrefixitemsWithNullInstanceElements.PrefixitemsWithNullInstanceElements1BoxedBoolean](#prefixitemswithnullinstanceelements1boxedboolean)<br> boxed class to store validated boolean payloads |
+| data class | [PrefixitemsWithNullInstanceElements.PrefixitemsWithNullInstanceElements1BoxedNumber](#prefixitemswithnullinstanceelements1boxednumber)<br> boxed class to store validated Number payloads |
+| data class | [PrefixitemsWithNullInstanceElements.PrefixitemsWithNullInstanceElements1BoxedString](#prefixitemswithnullinstanceelements1boxedstring)<br> boxed class to store validated String payloads |
+| data class | [PrefixitemsWithNullInstanceElements.PrefixitemsWithNullInstanceElements1BoxedList](#prefixitemswithnullinstanceelements1boxedlist)<br> boxed class to store validated List payloads |
+| data class | [PrefixitemsWithNullInstanceElements.PrefixitemsWithNullInstanceElements1BoxedMap](#prefixitemswithnullinstanceelements1boxedmap)<br> boxed class to store validated Map payloads |
+| class | [PrefixitemsWithNullInstanceElements.PrefixitemsWithNullInstanceElements1](#prefixitemswithnullinstanceelements1)<br> schema class |
 | sealed interface | [PrefixitemsWithNullInstanceElements.Schema0Boxed](#schema0boxed)<br> sealed interface for validated payloads |
-| record | [PrefixitemsWithNullInstanceElements.Schema0BoxedVoid](#schema0boxedvoid)<br> boxed class to store validated null payloads |
-| static class | [PrefixitemsWithNullInstanceElements.Schema0](#schema0)<br> schema class |
-| static class | [PrefixitemsWithNullInstanceElements.PrefixitemsWithNullInstanceElementsListBuilder](#prefixitemswithnullinstanceelementslistbuilder)<br> builder for List payloads |
-| static class | [PrefixitemsWithNullInstanceElements.PrefixitemsWithNullInstanceElementsList](#prefixitemswithnullinstanceelementslist)<br> output class for List payloads |
+| data class | [PrefixitemsWithNullInstanceElements.Schema0BoxedVoid](#schema0boxedvoid)<br> boxed class to store validated null payloads |
+| class | [PrefixitemsWithNullInstanceElements.Schema0](#schema0)<br> schema class |
+| class | [PrefixitemsWithNullInstanceElements.PrefixitemsWithNullInstanceElementsListBuilder](#prefixitemswithnullinstanceelementslistbuilder)<br> builder for List payloads |
+| class | [PrefixitemsWithNullInstanceElements.PrefixitemsWithNullInstanceElementsList](#prefixitemswithnullinstanceelementslist)<br> output class for List payloads |
 
 ## PrefixitemsWithNullInstanceElements1Boxed
 sealed interface PrefixitemsWithNullInstanceElements1Boxed<br>
@@ -59,7 +59,7 @@ data class that stores validated null payloads, sealed permits implementation
 data class PrefixitemsWithNullInstanceElements1BoxedBoolean<br>
 implements [PrefixitemsWithNullInstanceElements1Boxed](#prefixitemswithnullinstanceelements1boxed)
 
-record that stores validated boolean payloads, sealed permits implementation
+data class that stores validated boolean payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |

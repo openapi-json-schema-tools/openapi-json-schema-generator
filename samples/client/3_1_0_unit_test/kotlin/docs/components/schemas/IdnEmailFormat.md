@@ -11,13 +11,13 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | sealed interface | [IdnEmailFormat.IdnEmailFormat1Boxed](#idnemailformat1boxed)<br> sealed interface for validated payloads |
-| record | [IdnEmailFormat.IdnEmailFormat1BoxedVoid](#idnemailformat1boxedvoid)<br> boxed class to store validated null payloads |
-| record | [IdnEmailFormat.IdnEmailFormat1BoxedBoolean](#idnemailformat1boxedboolean)<br> boxed class to store validated boolean payloads |
-| record | [IdnEmailFormat.IdnEmailFormat1BoxedNumber](#idnemailformat1boxednumber)<br> boxed class to store validated Number payloads |
-| record | [IdnEmailFormat.IdnEmailFormat1BoxedString](#idnemailformat1boxedstring)<br> boxed class to store validated String payloads |
-| record | [IdnEmailFormat.IdnEmailFormat1BoxedList](#idnemailformat1boxedlist)<br> boxed class to store validated List payloads |
-| record | [IdnEmailFormat.IdnEmailFormat1BoxedMap](#idnemailformat1boxedmap)<br> boxed class to store validated Map payloads |
-| static class | [IdnEmailFormat.IdnEmailFormat1](#idnemailformat1)<br> schema class |
+| data class | [IdnEmailFormat.IdnEmailFormat1BoxedVoid](#idnemailformat1boxedvoid)<br> boxed class to store validated null payloads |
+| data class | [IdnEmailFormat.IdnEmailFormat1BoxedBoolean](#idnemailformat1boxedboolean)<br> boxed class to store validated boolean payloads |
+| data class | [IdnEmailFormat.IdnEmailFormat1BoxedNumber](#idnemailformat1boxednumber)<br> boxed class to store validated Number payloads |
+| data class | [IdnEmailFormat.IdnEmailFormat1BoxedString](#idnemailformat1boxedstring)<br> boxed class to store validated String payloads |
+| data class | [IdnEmailFormat.IdnEmailFormat1BoxedList](#idnemailformat1boxedlist)<br> boxed class to store validated List payloads |
+| data class | [IdnEmailFormat.IdnEmailFormat1BoxedMap](#idnemailformat1boxedmap)<br> boxed class to store validated Map payloads |
+| class | [IdnEmailFormat.IdnEmailFormat1](#idnemailformat1)<br> schema class |
 
 ## IdnEmailFormat1Boxed
 sealed interface IdnEmailFormat1Boxed<br>
@@ -52,7 +52,7 @@ data class that stores validated null payloads, sealed permits implementation
 data class IdnEmailFormat1BoxedBoolean<br>
 implements [IdnEmailFormat1Boxed](#idnemailformat1boxed)
 
-record that stores validated boolean payloads, sealed permits implementation
+data class that stores validated boolean payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |

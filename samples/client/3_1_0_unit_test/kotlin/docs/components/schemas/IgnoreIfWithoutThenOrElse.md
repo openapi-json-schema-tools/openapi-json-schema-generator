@@ -12,21 +12,21 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | sealed interface | [IgnoreIfWithoutThenOrElse.IgnoreIfWithoutThenOrElse1Boxed](#ignoreifwithoutthenorelse1boxed)<br> sealed interface for validated payloads |
-| record | [IgnoreIfWithoutThenOrElse.IgnoreIfWithoutThenOrElse1BoxedVoid](#ignoreifwithoutthenorelse1boxedvoid)<br> boxed class to store validated null payloads |
-| record | [IgnoreIfWithoutThenOrElse.IgnoreIfWithoutThenOrElse1BoxedBoolean](#ignoreifwithoutthenorelse1boxedboolean)<br> boxed class to store validated boolean payloads |
-| record | [IgnoreIfWithoutThenOrElse.IgnoreIfWithoutThenOrElse1BoxedNumber](#ignoreifwithoutthenorelse1boxednumber)<br> boxed class to store validated Number payloads |
-| record | [IgnoreIfWithoutThenOrElse.IgnoreIfWithoutThenOrElse1BoxedString](#ignoreifwithoutthenorelse1boxedstring)<br> boxed class to store validated String payloads |
-| record | [IgnoreIfWithoutThenOrElse.IgnoreIfWithoutThenOrElse1BoxedList](#ignoreifwithoutthenorelse1boxedlist)<br> boxed class to store validated List payloads |
-| record | [IgnoreIfWithoutThenOrElse.IgnoreIfWithoutThenOrElse1BoxedMap](#ignoreifwithoutthenorelse1boxedmap)<br> boxed class to store validated Map payloads |
-| static class | [IgnoreIfWithoutThenOrElse.IgnoreIfWithoutThenOrElse1](#ignoreifwithoutthenorelse1)<br> schema class |
+| data class | [IgnoreIfWithoutThenOrElse.IgnoreIfWithoutThenOrElse1BoxedVoid](#ignoreifwithoutthenorelse1boxedvoid)<br> boxed class to store validated null payloads |
+| data class | [IgnoreIfWithoutThenOrElse.IgnoreIfWithoutThenOrElse1BoxedBoolean](#ignoreifwithoutthenorelse1boxedboolean)<br> boxed class to store validated boolean payloads |
+| data class | [IgnoreIfWithoutThenOrElse.IgnoreIfWithoutThenOrElse1BoxedNumber](#ignoreifwithoutthenorelse1boxednumber)<br> boxed class to store validated Number payloads |
+| data class | [IgnoreIfWithoutThenOrElse.IgnoreIfWithoutThenOrElse1BoxedString](#ignoreifwithoutthenorelse1boxedstring)<br> boxed class to store validated String payloads |
+| data class | [IgnoreIfWithoutThenOrElse.IgnoreIfWithoutThenOrElse1BoxedList](#ignoreifwithoutthenorelse1boxedlist)<br> boxed class to store validated List payloads |
+| data class | [IgnoreIfWithoutThenOrElse.IgnoreIfWithoutThenOrElse1BoxedMap](#ignoreifwithoutthenorelse1boxedmap)<br> boxed class to store validated Map payloads |
+| class | [IgnoreIfWithoutThenOrElse.IgnoreIfWithoutThenOrElse1](#ignoreifwithoutthenorelse1)<br> schema class |
 | sealed interface | [IgnoreIfWithoutThenOrElse.IfSchemaBoxed](#ifschemaboxed)<br> sealed interface for validated payloads |
-| record | [IgnoreIfWithoutThenOrElse.IfSchemaBoxedVoid](#ifschemaboxedvoid)<br> boxed class to store validated null payloads |
-| record | [IgnoreIfWithoutThenOrElse.IfSchemaBoxedBoolean](#ifschemaboxedboolean)<br> boxed class to store validated boolean payloads |
-| record | [IgnoreIfWithoutThenOrElse.IfSchemaBoxedNumber](#ifschemaboxednumber)<br> boxed class to store validated Number payloads |
-| record | [IgnoreIfWithoutThenOrElse.IfSchemaBoxedString](#ifschemaboxedstring)<br> boxed class to store validated String payloads |
-| record | [IgnoreIfWithoutThenOrElse.IfSchemaBoxedList](#ifschemaboxedlist)<br> boxed class to store validated List payloads |
-| record | [IgnoreIfWithoutThenOrElse.IfSchemaBoxedMap](#ifschemaboxedmap)<br> boxed class to store validated Map payloads |
-| static class | [IgnoreIfWithoutThenOrElse.IfSchema](#ifschema)<br> schema class |
+| data class | [IgnoreIfWithoutThenOrElse.IfSchemaBoxedVoid](#ifschemaboxedvoid)<br> boxed class to store validated null payloads |
+| data class | [IgnoreIfWithoutThenOrElse.IfSchemaBoxedBoolean](#ifschemaboxedboolean)<br> boxed class to store validated boolean payloads |
+| data class | [IgnoreIfWithoutThenOrElse.IfSchemaBoxedNumber](#ifschemaboxednumber)<br> boxed class to store validated Number payloads |
+| data class | [IgnoreIfWithoutThenOrElse.IfSchemaBoxedString](#ifschemaboxedstring)<br> boxed class to store validated String payloads |
+| data class | [IgnoreIfWithoutThenOrElse.IfSchemaBoxedList](#ifschemaboxedlist)<br> boxed class to store validated List payloads |
+| data class | [IgnoreIfWithoutThenOrElse.IfSchemaBoxedMap](#ifschemaboxedmap)<br> boxed class to store validated Map payloads |
+| class | [IgnoreIfWithoutThenOrElse.IfSchema](#ifschema)<br> schema class |
 | enum | [IgnoreIfWithoutThenOrElse.StringIfConst](#stringifconst)<br>String enum |
 
 ## IgnoreIfWithoutThenOrElse1Boxed
@@ -62,7 +62,7 @@ data class that stores validated null payloads, sealed permits implementation
 data class IgnoreIfWithoutThenOrElse1BoxedBoolean<br>
 implements [IgnoreIfWithoutThenOrElse1Boxed](#ignoreifwithoutthenorelse1boxed)
 
-record that stores validated boolean payloads, sealed permits implementation
+data class that stores validated boolean payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
@@ -209,7 +209,7 @@ data class that stores validated null payloads, sealed permits implementation
 data class IfSchemaBoxedBoolean<br>
 implements [IfSchemaBoxed](#ifschemaboxed)
 
-record that stores validated boolean payloads, sealed permits implementation
+data class that stores validated boolean payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |

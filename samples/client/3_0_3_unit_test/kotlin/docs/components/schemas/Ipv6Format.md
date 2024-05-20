@@ -11,13 +11,13 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | sealed interface | [Ipv6Format.Ipv6Format1Boxed](#ipv6format1boxed)<br> sealed interface for validated payloads |
-| record | [Ipv6Format.Ipv6Format1BoxedVoid](#ipv6format1boxedvoid)<br> boxed class to store validated null payloads |
-| record | [Ipv6Format.Ipv6Format1BoxedBoolean](#ipv6format1boxedboolean)<br> boxed class to store validated boolean payloads |
-| record | [Ipv6Format.Ipv6Format1BoxedNumber](#ipv6format1boxednumber)<br> boxed class to store validated Number payloads |
-| record | [Ipv6Format.Ipv6Format1BoxedString](#ipv6format1boxedstring)<br> boxed class to store validated String payloads |
-| record | [Ipv6Format.Ipv6Format1BoxedList](#ipv6format1boxedlist)<br> boxed class to store validated List payloads |
-| record | [Ipv6Format.Ipv6Format1BoxedMap](#ipv6format1boxedmap)<br> boxed class to store validated Map payloads |
-| static class | [Ipv6Format.Ipv6Format1](#ipv6format1)<br> schema class |
+| data class | [Ipv6Format.Ipv6Format1BoxedVoid](#ipv6format1boxedvoid)<br> boxed class to store validated null payloads |
+| data class | [Ipv6Format.Ipv6Format1BoxedBoolean](#ipv6format1boxedboolean)<br> boxed class to store validated boolean payloads |
+| data class | [Ipv6Format.Ipv6Format1BoxedNumber](#ipv6format1boxednumber)<br> boxed class to store validated Number payloads |
+| data class | [Ipv6Format.Ipv6Format1BoxedString](#ipv6format1boxedstring)<br> boxed class to store validated String payloads |
+| data class | [Ipv6Format.Ipv6Format1BoxedList](#ipv6format1boxedlist)<br> boxed class to store validated List payloads |
+| data class | [Ipv6Format.Ipv6Format1BoxedMap](#ipv6format1boxedmap)<br> boxed class to store validated Map payloads |
+| class | [Ipv6Format.Ipv6Format1](#ipv6format1)<br> schema class |
 
 ## Ipv6Format1Boxed
 sealed interface Ipv6Format1Boxed<br>
@@ -52,7 +52,7 @@ data class that stores validated null payloads, sealed permits implementation
 data class Ipv6Format1BoxedBoolean<br>
 implements [Ipv6Format1Boxed](#ipv6format1boxed)
 
-record that stores validated boolean payloads, sealed permits implementation
+data class that stores validated boolean payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |

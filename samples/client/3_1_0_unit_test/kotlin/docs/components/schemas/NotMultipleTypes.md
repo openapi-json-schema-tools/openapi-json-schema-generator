@@ -11,17 +11,17 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | sealed interface | [NotMultipleTypes.NotMultipleTypes1Boxed](#notmultipletypes1boxed)<br> sealed interface for validated payloads |
-| record | [NotMultipleTypes.NotMultipleTypes1BoxedVoid](#notmultipletypes1boxedvoid)<br> boxed class to store validated null payloads |
-| record | [NotMultipleTypes.NotMultipleTypes1BoxedBoolean](#notmultipletypes1boxedboolean)<br> boxed class to store validated boolean payloads |
-| record | [NotMultipleTypes.NotMultipleTypes1BoxedNumber](#notmultipletypes1boxednumber)<br> boxed class to store validated Number payloads |
-| record | [NotMultipleTypes.NotMultipleTypes1BoxedString](#notmultipletypes1boxedstring)<br> boxed class to store validated String payloads |
-| record | [NotMultipleTypes.NotMultipleTypes1BoxedList](#notmultipletypes1boxedlist)<br> boxed class to store validated List payloads |
-| record | [NotMultipleTypes.NotMultipleTypes1BoxedMap](#notmultipletypes1boxedmap)<br> boxed class to store validated Map payloads |
-| static class | [NotMultipleTypes.NotMultipleTypes1](#notmultipletypes1)<br> schema class |
+| data class | [NotMultipleTypes.NotMultipleTypes1BoxedVoid](#notmultipletypes1boxedvoid)<br> boxed class to store validated null payloads |
+| data class | [NotMultipleTypes.NotMultipleTypes1BoxedBoolean](#notmultipletypes1boxedboolean)<br> boxed class to store validated boolean payloads |
+| data class | [NotMultipleTypes.NotMultipleTypes1BoxedNumber](#notmultipletypes1boxednumber)<br> boxed class to store validated Number payloads |
+| data class | [NotMultipleTypes.NotMultipleTypes1BoxedString](#notmultipletypes1boxedstring)<br> boxed class to store validated String payloads |
+| data class | [NotMultipleTypes.NotMultipleTypes1BoxedList](#notmultipletypes1boxedlist)<br> boxed class to store validated List payloads |
+| data class | [NotMultipleTypes.NotMultipleTypes1BoxedMap](#notmultipletypes1boxedmap)<br> boxed class to store validated Map payloads |
+| class | [NotMultipleTypes.NotMultipleTypes1](#notmultipletypes1)<br> schema class |
 | sealed interface | [NotMultipleTypes.NotBoxed](#notboxed)<br> sealed interface for validated payloads |
-| record | [NotMultipleTypes.NotBoxedNumber](#notboxednumber)<br> boxed class to store validated Number payloads |
-| record | [NotMultipleTypes.NotBoxedBoolean](#notboxedboolean)<br> boxed class to store validated boolean payloads |
-| static class | [NotMultipleTypes.Not](#not)<br> schema class |
+| data class | [NotMultipleTypes.NotBoxedNumber](#notboxednumber)<br> boxed class to store validated Number payloads |
+| data class | [NotMultipleTypes.NotBoxedBoolean](#notboxedboolean)<br> boxed class to store validated boolean payloads |
+| class | [NotMultipleTypes.Not](#not)<br> schema class |
 
 ## NotMultipleTypes1Boxed
 sealed interface NotMultipleTypes1Boxed<br>
@@ -56,7 +56,7 @@ data class that stores validated null payloads, sealed permits implementation
 data class NotMultipleTypes1BoxedBoolean<br>
 implements [NotMultipleTypes1Boxed](#notmultipletypes1boxed)
 
-record that stores validated boolean payloads, sealed permits implementation
+data class that stores validated boolean payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
@@ -199,7 +199,7 @@ data class that stores validated Number payloads, sealed permits implementation
 data class NotBoxedBoolean<br>
 implements [NotBoxed](#notboxed)
 
-record that stores validated boolean payloads, sealed permits implementation
+data class that stores validated boolean payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |

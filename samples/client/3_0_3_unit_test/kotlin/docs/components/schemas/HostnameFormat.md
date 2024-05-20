@@ -11,13 +11,13 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | sealed interface | [HostnameFormat.HostnameFormat1Boxed](#hostnameformat1boxed)<br> sealed interface for validated payloads |
-| record | [HostnameFormat.HostnameFormat1BoxedVoid](#hostnameformat1boxedvoid)<br> boxed class to store validated null payloads |
-| record | [HostnameFormat.HostnameFormat1BoxedBoolean](#hostnameformat1boxedboolean)<br> boxed class to store validated boolean payloads |
-| record | [HostnameFormat.HostnameFormat1BoxedNumber](#hostnameformat1boxednumber)<br> boxed class to store validated Number payloads |
-| record | [HostnameFormat.HostnameFormat1BoxedString](#hostnameformat1boxedstring)<br> boxed class to store validated String payloads |
-| record | [HostnameFormat.HostnameFormat1BoxedList](#hostnameformat1boxedlist)<br> boxed class to store validated List payloads |
-| record | [HostnameFormat.HostnameFormat1BoxedMap](#hostnameformat1boxedmap)<br> boxed class to store validated Map payloads |
-| static class | [HostnameFormat.HostnameFormat1](#hostnameformat1)<br> schema class |
+| data class | [HostnameFormat.HostnameFormat1BoxedVoid](#hostnameformat1boxedvoid)<br> boxed class to store validated null payloads |
+| data class | [HostnameFormat.HostnameFormat1BoxedBoolean](#hostnameformat1boxedboolean)<br> boxed class to store validated boolean payloads |
+| data class | [HostnameFormat.HostnameFormat1BoxedNumber](#hostnameformat1boxednumber)<br> boxed class to store validated Number payloads |
+| data class | [HostnameFormat.HostnameFormat1BoxedString](#hostnameformat1boxedstring)<br> boxed class to store validated String payloads |
+| data class | [HostnameFormat.HostnameFormat1BoxedList](#hostnameformat1boxedlist)<br> boxed class to store validated List payloads |
+| data class | [HostnameFormat.HostnameFormat1BoxedMap](#hostnameformat1boxedmap)<br> boxed class to store validated Map payloads |
+| class | [HostnameFormat.HostnameFormat1](#hostnameformat1)<br> schema class |
 
 ## HostnameFormat1Boxed
 sealed interface HostnameFormat1Boxed<br>
@@ -52,7 +52,7 @@ data class that stores validated null payloads, sealed permits implementation
 data class HostnameFormat1BoxedBoolean<br>
 implements [HostnameFormat1Boxed](#hostnameformat1boxed)
 
-record that stores validated boolean payloads, sealed permits implementation
+data class that stores validated boolean payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |

@@ -13,27 +13,27 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | sealed interface | [PropertiesPatternpropertiesAdditionalpropertiesInteraction.PropertiesPatternpropertiesAdditionalpropertiesInteraction1Boxed](#propertiespatternpropertiesadditionalpropertiesinteraction1boxed)<br> sealed interface for validated payloads |
-| record | [PropertiesPatternpropertiesAdditionalpropertiesInteraction.PropertiesPatternpropertiesAdditionalpropertiesInteraction1BoxedMap](#propertiespatternpropertiesadditionalpropertiesinteraction1boxedmap)<br> boxed class to store validated Map payloads |
-| static class | [PropertiesPatternpropertiesAdditionalpropertiesInteraction.PropertiesPatternpropertiesAdditionalpropertiesInteraction1](#propertiespatternpropertiesadditionalpropertiesinteraction1)<br> schema class |
-| static class | [PropertiesPatternpropertiesAdditionalpropertiesInteraction.PropertiesPatternpropertiesAdditionalpropertiesInteractionMapBuilder](#propertiespatternpropertiesadditionalpropertiesinteractionmapbuilder)<br> builder for Map payloads |
-| static class | [PropertiesPatternpropertiesAdditionalpropertiesInteraction.PropertiesPatternpropertiesAdditionalpropertiesInteractionMap](#propertiespatternpropertiesadditionalpropertiesinteractionmap)<br> output class for Map payloads |
+| data class | [PropertiesPatternpropertiesAdditionalpropertiesInteraction.PropertiesPatternpropertiesAdditionalpropertiesInteraction1BoxedMap](#propertiespatternpropertiesadditionalpropertiesinteraction1boxedmap)<br> boxed class to store validated Map payloads |
+| class | [PropertiesPatternpropertiesAdditionalpropertiesInteraction.PropertiesPatternpropertiesAdditionalpropertiesInteraction1](#propertiespatternpropertiesadditionalpropertiesinteraction1)<br> schema class |
+| class | [PropertiesPatternpropertiesAdditionalpropertiesInteraction.PropertiesPatternpropertiesAdditionalpropertiesInteractionMapBuilder](#propertiespatternpropertiesadditionalpropertiesinteractionmapbuilder)<br> builder for Map payloads |
+| class | [PropertiesPatternpropertiesAdditionalpropertiesInteraction.PropertiesPatternpropertiesAdditionalpropertiesInteractionMap](#propertiespatternpropertiesadditionalpropertiesinteractionmap)<br> output class for Map payloads |
 | sealed interface | [PropertiesPatternpropertiesAdditionalpropertiesInteraction.BarBoxed](#barboxed)<br> sealed interface for validated payloads |
-| record | [PropertiesPatternpropertiesAdditionalpropertiesInteraction.BarBoxedList](#barboxedlist)<br> boxed class to store validated List payloads |
-| static class | [PropertiesPatternpropertiesAdditionalpropertiesInteraction.Bar](#bar)<br> schema class |
+| data class | [PropertiesPatternpropertiesAdditionalpropertiesInteraction.BarBoxedList](#barboxedlist)<br> boxed class to store validated List payloads |
+| class | [PropertiesPatternpropertiesAdditionalpropertiesInteraction.Bar](#bar)<br> schema class |
 | sealed interface | [PropertiesPatternpropertiesAdditionalpropertiesInteraction.FooBoxed](#fooboxed)<br> sealed interface for validated payloads |
-| record | [PropertiesPatternpropertiesAdditionalpropertiesInteraction.FooBoxedList](#fooboxedlist)<br> boxed class to store validated List payloads |
-| static class | [PropertiesPatternpropertiesAdditionalpropertiesInteraction.Foo](#foo)<br> schema class |
+| data class | [PropertiesPatternpropertiesAdditionalpropertiesInteraction.FooBoxedList](#fooboxedlist)<br> boxed class to store validated List payloads |
+| class | [PropertiesPatternpropertiesAdditionalpropertiesInteraction.Foo](#foo)<br> schema class |
 | sealed interface | [PropertiesPatternpropertiesAdditionalpropertiesInteraction.FoBoxed](#foboxed)<br> sealed interface for validated payloads |
-| record | [PropertiesPatternpropertiesAdditionalpropertiesInteraction.FoBoxedVoid](#foboxedvoid)<br> boxed class to store validated null payloads |
-| record | [PropertiesPatternpropertiesAdditionalpropertiesInteraction.FoBoxedBoolean](#foboxedboolean)<br> boxed class to store validated boolean payloads |
-| record | [PropertiesPatternpropertiesAdditionalpropertiesInteraction.FoBoxedNumber](#foboxednumber)<br> boxed class to store validated Number payloads |
-| record | [PropertiesPatternpropertiesAdditionalpropertiesInteraction.FoBoxedString](#foboxedstring)<br> boxed class to store validated String payloads |
-| record | [PropertiesPatternpropertiesAdditionalpropertiesInteraction.FoBoxedList](#foboxedlist)<br> boxed class to store validated List payloads |
-| record | [PropertiesPatternpropertiesAdditionalpropertiesInteraction.FoBoxedMap](#foboxedmap)<br> boxed class to store validated Map payloads |
-| static class | [PropertiesPatternpropertiesAdditionalpropertiesInteraction.Fo](#fo)<br> schema class |
+| data class | [PropertiesPatternpropertiesAdditionalpropertiesInteraction.FoBoxedVoid](#foboxedvoid)<br> boxed class to store validated null payloads |
+| data class | [PropertiesPatternpropertiesAdditionalpropertiesInteraction.FoBoxedBoolean](#foboxedboolean)<br> boxed class to store validated boolean payloads |
+| data class | [PropertiesPatternpropertiesAdditionalpropertiesInteraction.FoBoxedNumber](#foboxednumber)<br> boxed class to store validated Number payloads |
+| data class | [PropertiesPatternpropertiesAdditionalpropertiesInteraction.FoBoxedString](#foboxedstring)<br> boxed class to store validated String payloads |
+| data class | [PropertiesPatternpropertiesAdditionalpropertiesInteraction.FoBoxedList](#foboxedlist)<br> boxed class to store validated List payloads |
+| data class | [PropertiesPatternpropertiesAdditionalpropertiesInteraction.FoBoxedMap](#foboxedmap)<br> boxed class to store validated Map payloads |
+| class | [PropertiesPatternpropertiesAdditionalpropertiesInteraction.Fo](#fo)<br> schema class |
 | sealed interface | [PropertiesPatternpropertiesAdditionalpropertiesInteraction.AdditionalPropertiesBoxed](#additionalpropertiesboxed)<br> sealed interface for validated payloads |
-| record | [PropertiesPatternpropertiesAdditionalpropertiesInteraction.AdditionalPropertiesBoxedNumber](#additionalpropertiesboxednumber)<br> boxed class to store validated Number payloads |
-| static class | [PropertiesPatternpropertiesAdditionalpropertiesInteraction.AdditionalProperties](#additionalproperties)<br> schema class |
+| data class | [PropertiesPatternpropertiesAdditionalpropertiesInteraction.AdditionalPropertiesBoxedNumber](#additionalpropertiesboxednumber)<br> boxed class to store validated Number payloads |
+| class | [PropertiesPatternpropertiesAdditionalpropertiesInteraction.AdditionalProperties](#additionalproperties)<br> schema class |
 
 ## PropertiesPatternpropertiesAdditionalpropertiesInteraction1Boxed
 sealed interface PropertiesPatternpropertiesAdditionalpropertiesInteraction1Boxed<br>
@@ -252,7 +252,7 @@ data class that stores validated null payloads, sealed permits implementation
 data class FoBoxedBoolean<br>
 implements [FoBoxed](#foboxed)
 
-record that stores validated boolean payloads, sealed permits implementation
+data class that stores validated boolean payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |

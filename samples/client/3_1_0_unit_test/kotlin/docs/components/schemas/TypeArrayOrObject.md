@@ -11,9 +11,9 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | sealed interface | [TypeArrayOrObject.TypeArrayOrObject1Boxed](#typearrayorobject1boxed)<br> sealed interface for validated payloads |
-| record | [TypeArrayOrObject.TypeArrayOrObject1BoxedList](#typearrayorobject1boxedlist)<br> boxed class to store validated List payloads |
-| record | [TypeArrayOrObject.TypeArrayOrObject1BoxedMap](#typearrayorobject1boxedmap)<br> boxed class to store validated Map payloads |
-| static class | [TypeArrayOrObject.TypeArrayOrObject1](#typearrayorobject1)<br> schema class |
+| data class | [TypeArrayOrObject.TypeArrayOrObject1BoxedList](#typearrayorobject1boxedlist)<br> boxed class to store validated List payloads |
+| data class | [TypeArrayOrObject.TypeArrayOrObject1BoxedMap](#typearrayorobject1boxedmap)<br> boxed class to store validated Map payloads |
+| class | [TypeArrayOrObject.TypeArrayOrObject1](#typearrayorobject1)<br> schema class |
 
 ## TypeArrayOrObject1Boxed
 sealed interface TypeArrayOrObject1Boxed<br>

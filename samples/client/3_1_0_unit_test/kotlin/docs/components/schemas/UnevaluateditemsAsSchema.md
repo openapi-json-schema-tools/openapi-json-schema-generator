@@ -11,16 +11,16 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | sealed interface | [UnevaluateditemsAsSchema.UnevaluateditemsAsSchema1Boxed](#unevaluateditemsasschema1boxed)<br> sealed interface for validated payloads |
-| record | [UnevaluateditemsAsSchema.UnevaluateditemsAsSchema1BoxedVoid](#unevaluateditemsasschema1boxedvoid)<br> boxed class to store validated null payloads |
-| record | [UnevaluateditemsAsSchema.UnevaluateditemsAsSchema1BoxedBoolean](#unevaluateditemsasschema1boxedboolean)<br> boxed class to store validated boolean payloads |
-| record | [UnevaluateditemsAsSchema.UnevaluateditemsAsSchema1BoxedNumber](#unevaluateditemsasschema1boxednumber)<br> boxed class to store validated Number payloads |
-| record | [UnevaluateditemsAsSchema.UnevaluateditemsAsSchema1BoxedString](#unevaluateditemsasschema1boxedstring)<br> boxed class to store validated String payloads |
-| record | [UnevaluateditemsAsSchema.UnevaluateditemsAsSchema1BoxedList](#unevaluateditemsasschema1boxedlist)<br> boxed class to store validated List payloads |
-| record | [UnevaluateditemsAsSchema.UnevaluateditemsAsSchema1BoxedMap](#unevaluateditemsasschema1boxedmap)<br> boxed class to store validated Map payloads |
-| static class | [UnevaluateditemsAsSchema.UnevaluateditemsAsSchema1](#unevaluateditemsasschema1)<br> schema class |
+| data class | [UnevaluateditemsAsSchema.UnevaluateditemsAsSchema1BoxedVoid](#unevaluateditemsasschema1boxedvoid)<br> boxed class to store validated null payloads |
+| data class | [UnevaluateditemsAsSchema.UnevaluateditemsAsSchema1BoxedBoolean](#unevaluateditemsasschema1boxedboolean)<br> boxed class to store validated boolean payloads |
+| data class | [UnevaluateditemsAsSchema.UnevaluateditemsAsSchema1BoxedNumber](#unevaluateditemsasschema1boxednumber)<br> boxed class to store validated Number payloads |
+| data class | [UnevaluateditemsAsSchema.UnevaluateditemsAsSchema1BoxedString](#unevaluateditemsasschema1boxedstring)<br> boxed class to store validated String payloads |
+| data class | [UnevaluateditemsAsSchema.UnevaluateditemsAsSchema1BoxedList](#unevaluateditemsasschema1boxedlist)<br> boxed class to store validated List payloads |
+| data class | [UnevaluateditemsAsSchema.UnevaluateditemsAsSchema1BoxedMap](#unevaluateditemsasschema1boxedmap)<br> boxed class to store validated Map payloads |
+| class | [UnevaluateditemsAsSchema.UnevaluateditemsAsSchema1](#unevaluateditemsasschema1)<br> schema class |
 | sealed interface | [UnevaluateditemsAsSchema.UnevaluatedItemsBoxed](#unevaluateditemsboxed)<br> sealed interface for validated payloads |
-| record | [UnevaluateditemsAsSchema.UnevaluatedItemsBoxedString](#unevaluateditemsboxedstring)<br> boxed class to store validated String payloads |
-| static class | [UnevaluateditemsAsSchema.UnevaluatedItems](#unevaluateditems)<br> schema class |
+| data class | [UnevaluateditemsAsSchema.UnevaluatedItemsBoxedString](#unevaluateditemsboxedstring)<br> boxed class to store validated String payloads |
+| class | [UnevaluateditemsAsSchema.UnevaluatedItems](#unevaluateditems)<br> schema class |
 
 ## UnevaluateditemsAsSchema1Boxed
 sealed interface UnevaluateditemsAsSchema1Boxed<br>
@@ -55,7 +55,7 @@ data class that stores validated null payloads, sealed permits implementation
 data class UnevaluateditemsAsSchema1BoxedBoolean<br>
 implements [UnevaluateditemsAsSchema1Boxed](#unevaluateditemsasschema1boxed)
 
-record that stores validated boolean payloads, sealed permits implementation
+data class that stores validated boolean payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |

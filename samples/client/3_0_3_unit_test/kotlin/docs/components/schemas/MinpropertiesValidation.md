@@ -11,13 +11,13 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | sealed interface | [MinpropertiesValidation.MinpropertiesValidation1Boxed](#minpropertiesvalidation1boxed)<br> sealed interface for validated payloads |
-| record | [MinpropertiesValidation.MinpropertiesValidation1BoxedVoid](#minpropertiesvalidation1boxedvoid)<br> boxed class to store validated null payloads |
-| record | [MinpropertiesValidation.MinpropertiesValidation1BoxedBoolean](#minpropertiesvalidation1boxedboolean)<br> boxed class to store validated boolean payloads |
-| record | [MinpropertiesValidation.MinpropertiesValidation1BoxedNumber](#minpropertiesvalidation1boxednumber)<br> boxed class to store validated Number payloads |
-| record | [MinpropertiesValidation.MinpropertiesValidation1BoxedString](#minpropertiesvalidation1boxedstring)<br> boxed class to store validated String payloads |
-| record | [MinpropertiesValidation.MinpropertiesValidation1BoxedList](#minpropertiesvalidation1boxedlist)<br> boxed class to store validated List payloads |
-| record | [MinpropertiesValidation.MinpropertiesValidation1BoxedMap](#minpropertiesvalidation1boxedmap)<br> boxed class to store validated Map payloads |
-| static class | [MinpropertiesValidation.MinpropertiesValidation1](#minpropertiesvalidation1)<br> schema class |
+| data class | [MinpropertiesValidation.MinpropertiesValidation1BoxedVoid](#minpropertiesvalidation1boxedvoid)<br> boxed class to store validated null payloads |
+| data class | [MinpropertiesValidation.MinpropertiesValidation1BoxedBoolean](#minpropertiesvalidation1boxedboolean)<br> boxed class to store validated boolean payloads |
+| data class | [MinpropertiesValidation.MinpropertiesValidation1BoxedNumber](#minpropertiesvalidation1boxednumber)<br> boxed class to store validated Number payloads |
+| data class | [MinpropertiesValidation.MinpropertiesValidation1BoxedString](#minpropertiesvalidation1boxedstring)<br> boxed class to store validated String payloads |
+| data class | [MinpropertiesValidation.MinpropertiesValidation1BoxedList](#minpropertiesvalidation1boxedlist)<br> boxed class to store validated List payloads |
+| data class | [MinpropertiesValidation.MinpropertiesValidation1BoxedMap](#minpropertiesvalidation1boxedmap)<br> boxed class to store validated Map payloads |
+| class | [MinpropertiesValidation.MinpropertiesValidation1](#minpropertiesvalidation1)<br> schema class |
 
 ## MinpropertiesValidation1Boxed
 sealed interface MinpropertiesValidation1Boxed<br>
@@ -52,7 +52,7 @@ data class that stores validated null payloads, sealed permits implementation
 data class MinpropertiesValidation1BoxedBoolean<br>
 implements [MinpropertiesValidation1Boxed](#minpropertiesvalidation1boxed)
 
-record that stores validated boolean payloads, sealed permits implementation
+data class that stores validated boolean payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |

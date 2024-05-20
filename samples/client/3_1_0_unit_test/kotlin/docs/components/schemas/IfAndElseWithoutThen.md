@@ -11,29 +11,29 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | sealed interface | [IfAndElseWithoutThen.IfAndElseWithoutThen1Boxed](#ifandelsewithoutthen1boxed)<br> sealed interface for validated payloads |
-| record | [IfAndElseWithoutThen.IfAndElseWithoutThen1BoxedVoid](#ifandelsewithoutthen1boxedvoid)<br> boxed class to store validated null payloads |
-| record | [IfAndElseWithoutThen.IfAndElseWithoutThen1BoxedBoolean](#ifandelsewithoutthen1boxedboolean)<br> boxed class to store validated boolean payloads |
-| record | [IfAndElseWithoutThen.IfAndElseWithoutThen1BoxedNumber](#ifandelsewithoutthen1boxednumber)<br> boxed class to store validated Number payloads |
-| record | [IfAndElseWithoutThen.IfAndElseWithoutThen1BoxedString](#ifandelsewithoutthen1boxedstring)<br> boxed class to store validated String payloads |
-| record | [IfAndElseWithoutThen.IfAndElseWithoutThen1BoxedList](#ifandelsewithoutthen1boxedlist)<br> boxed class to store validated List payloads |
-| record | [IfAndElseWithoutThen.IfAndElseWithoutThen1BoxedMap](#ifandelsewithoutthen1boxedmap)<br> boxed class to store validated Map payloads |
-| static class | [IfAndElseWithoutThen.IfAndElseWithoutThen1](#ifandelsewithoutthen1)<br> schema class |
+| data class | [IfAndElseWithoutThen.IfAndElseWithoutThen1BoxedVoid](#ifandelsewithoutthen1boxedvoid)<br> boxed class to store validated null payloads |
+| data class | [IfAndElseWithoutThen.IfAndElseWithoutThen1BoxedBoolean](#ifandelsewithoutthen1boxedboolean)<br> boxed class to store validated boolean payloads |
+| data class | [IfAndElseWithoutThen.IfAndElseWithoutThen1BoxedNumber](#ifandelsewithoutthen1boxednumber)<br> boxed class to store validated Number payloads |
+| data class | [IfAndElseWithoutThen.IfAndElseWithoutThen1BoxedString](#ifandelsewithoutthen1boxedstring)<br> boxed class to store validated String payloads |
+| data class | [IfAndElseWithoutThen.IfAndElseWithoutThen1BoxedList](#ifandelsewithoutthen1boxedlist)<br> boxed class to store validated List payloads |
+| data class | [IfAndElseWithoutThen.IfAndElseWithoutThen1BoxedMap](#ifandelsewithoutthen1boxedmap)<br> boxed class to store validated Map payloads |
+| class | [IfAndElseWithoutThen.IfAndElseWithoutThen1](#ifandelsewithoutthen1)<br> schema class |
 | sealed interface | [IfAndElseWithoutThen.IfSchemaBoxed](#ifschemaboxed)<br> sealed interface for validated payloads |
-| record | [IfAndElseWithoutThen.IfSchemaBoxedVoid](#ifschemaboxedvoid)<br> boxed class to store validated null payloads |
-| record | [IfAndElseWithoutThen.IfSchemaBoxedBoolean](#ifschemaboxedboolean)<br> boxed class to store validated boolean payloads |
-| record | [IfAndElseWithoutThen.IfSchemaBoxedNumber](#ifschemaboxednumber)<br> boxed class to store validated Number payloads |
-| record | [IfAndElseWithoutThen.IfSchemaBoxedString](#ifschemaboxedstring)<br> boxed class to store validated String payloads |
-| record | [IfAndElseWithoutThen.IfSchemaBoxedList](#ifschemaboxedlist)<br> boxed class to store validated List payloads |
-| record | [IfAndElseWithoutThen.IfSchemaBoxedMap](#ifschemaboxedmap)<br> boxed class to store validated Map payloads |
-| static class | [IfAndElseWithoutThen.IfSchema](#ifschema)<br> schema class |
+| data class | [IfAndElseWithoutThen.IfSchemaBoxedVoid](#ifschemaboxedvoid)<br> boxed class to store validated null payloads |
+| data class | [IfAndElseWithoutThen.IfSchemaBoxedBoolean](#ifschemaboxedboolean)<br> boxed class to store validated boolean payloads |
+| data class | [IfAndElseWithoutThen.IfSchemaBoxedNumber](#ifschemaboxednumber)<br> boxed class to store validated Number payloads |
+| data class | [IfAndElseWithoutThen.IfSchemaBoxedString](#ifschemaboxedstring)<br> boxed class to store validated String payloads |
+| data class | [IfAndElseWithoutThen.IfSchemaBoxedList](#ifschemaboxedlist)<br> boxed class to store validated List payloads |
+| data class | [IfAndElseWithoutThen.IfSchemaBoxedMap](#ifschemaboxedmap)<br> boxed class to store validated Map payloads |
+| class | [IfAndElseWithoutThen.IfSchema](#ifschema)<br> schema class |
 | sealed interface | [IfAndElseWithoutThen.ElseSchemaBoxed](#elseschemaboxed)<br> sealed interface for validated payloads |
-| record | [IfAndElseWithoutThen.ElseSchemaBoxedVoid](#elseschemaboxedvoid)<br> boxed class to store validated null payloads |
-| record | [IfAndElseWithoutThen.ElseSchemaBoxedBoolean](#elseschemaboxedboolean)<br> boxed class to store validated boolean payloads |
-| record | [IfAndElseWithoutThen.ElseSchemaBoxedNumber](#elseschemaboxednumber)<br> boxed class to store validated Number payloads |
-| record | [IfAndElseWithoutThen.ElseSchemaBoxedString](#elseschemaboxedstring)<br> boxed class to store validated String payloads |
-| record | [IfAndElseWithoutThen.ElseSchemaBoxedList](#elseschemaboxedlist)<br> boxed class to store validated List payloads |
-| record | [IfAndElseWithoutThen.ElseSchemaBoxedMap](#elseschemaboxedmap)<br> boxed class to store validated Map payloads |
-| static class | [IfAndElseWithoutThen.ElseSchema](#elseschema)<br> schema class |
+| data class | [IfAndElseWithoutThen.ElseSchemaBoxedVoid](#elseschemaboxedvoid)<br> boxed class to store validated null payloads |
+| data class | [IfAndElseWithoutThen.ElseSchemaBoxedBoolean](#elseschemaboxedboolean)<br> boxed class to store validated boolean payloads |
+| data class | [IfAndElseWithoutThen.ElseSchemaBoxedNumber](#elseschemaboxednumber)<br> boxed class to store validated Number payloads |
+| data class | [IfAndElseWithoutThen.ElseSchemaBoxedString](#elseschemaboxedstring)<br> boxed class to store validated String payloads |
+| data class | [IfAndElseWithoutThen.ElseSchemaBoxedList](#elseschemaboxedlist)<br> boxed class to store validated List payloads |
+| data class | [IfAndElseWithoutThen.ElseSchemaBoxedMap](#elseschemaboxedmap)<br> boxed class to store validated Map payloads |
+| class | [IfAndElseWithoutThen.ElseSchema](#elseschema)<br> schema class |
 
 ## IfAndElseWithoutThen1Boxed
 sealed interface IfAndElseWithoutThen1Boxed<br>
@@ -68,7 +68,7 @@ data class that stores validated null payloads, sealed permits implementation
 data class IfAndElseWithoutThen1BoxedBoolean<br>
 implements [IfAndElseWithoutThen1Boxed](#ifandelsewithoutthen1boxed)
 
-record that stores validated boolean payloads, sealed permits implementation
+data class that stores validated boolean payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
@@ -216,7 +216,7 @@ data class that stores validated null payloads, sealed permits implementation
 data class IfSchemaBoxedBoolean<br>
 implements [IfSchemaBoxed](#ifschemaboxed)
 
-record that stores validated boolean payloads, sealed permits implementation
+data class that stores validated boolean payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
@@ -363,7 +363,7 @@ data class that stores validated null payloads, sealed permits implementation
 data class ElseSchemaBoxedBoolean<br>
 implements [ElseSchemaBoxed](#elseschemaboxed)
 
-record that stores validated boolean payloads, sealed permits implementation
+data class that stores validated boolean payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |

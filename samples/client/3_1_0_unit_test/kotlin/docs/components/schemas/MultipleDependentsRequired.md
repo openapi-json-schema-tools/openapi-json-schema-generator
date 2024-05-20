@@ -11,13 +11,13 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | sealed interface | [MultipleDependentsRequired.MultipleDependentsRequired1Boxed](#multipledependentsrequired1boxed)<br> sealed interface for validated payloads |
-| record | [MultipleDependentsRequired.MultipleDependentsRequired1BoxedVoid](#multipledependentsrequired1boxedvoid)<br> boxed class to store validated null payloads |
-| record | [MultipleDependentsRequired.MultipleDependentsRequired1BoxedBoolean](#multipledependentsrequired1boxedboolean)<br> boxed class to store validated boolean payloads |
-| record | [MultipleDependentsRequired.MultipleDependentsRequired1BoxedNumber](#multipledependentsrequired1boxednumber)<br> boxed class to store validated Number payloads |
-| record | [MultipleDependentsRequired.MultipleDependentsRequired1BoxedString](#multipledependentsrequired1boxedstring)<br> boxed class to store validated String payloads |
-| record | [MultipleDependentsRequired.MultipleDependentsRequired1BoxedList](#multipledependentsrequired1boxedlist)<br> boxed class to store validated List payloads |
-| record | [MultipleDependentsRequired.MultipleDependentsRequired1BoxedMap](#multipledependentsrequired1boxedmap)<br> boxed class to store validated Map payloads |
-| static class | [MultipleDependentsRequired.MultipleDependentsRequired1](#multipledependentsrequired1)<br> schema class |
+| data class | [MultipleDependentsRequired.MultipleDependentsRequired1BoxedVoid](#multipledependentsrequired1boxedvoid)<br> boxed class to store validated null payloads |
+| data class | [MultipleDependentsRequired.MultipleDependentsRequired1BoxedBoolean](#multipledependentsrequired1boxedboolean)<br> boxed class to store validated boolean payloads |
+| data class | [MultipleDependentsRequired.MultipleDependentsRequired1BoxedNumber](#multipledependentsrequired1boxednumber)<br> boxed class to store validated Number payloads |
+| data class | [MultipleDependentsRequired.MultipleDependentsRequired1BoxedString](#multipledependentsrequired1boxedstring)<br> boxed class to store validated String payloads |
+| data class | [MultipleDependentsRequired.MultipleDependentsRequired1BoxedList](#multipledependentsrequired1boxedlist)<br> boxed class to store validated List payloads |
+| data class | [MultipleDependentsRequired.MultipleDependentsRequired1BoxedMap](#multipledependentsrequired1boxedmap)<br> boxed class to store validated Map payloads |
+| class | [MultipleDependentsRequired.MultipleDependentsRequired1](#multipledependentsrequired1)<br> schema class |
 
 ## MultipleDependentsRequired1Boxed
 sealed interface MultipleDependentsRequired1Boxed<br>
@@ -52,7 +52,7 @@ data class that stores validated null payloads, sealed permits implementation
 data class MultipleDependentsRequired1BoxedBoolean<br>
 implements [MultipleDependentsRequired1Boxed](#multipledependentsrequired1boxed)
 
-record that stores validated boolean payloads, sealed permits implementation
+data class that stores validated boolean payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |

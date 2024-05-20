@@ -11,13 +11,13 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | sealed interface | [MinlengthValidation.MinlengthValidation1Boxed](#minlengthvalidation1boxed)<br> sealed interface for validated payloads |
-| record | [MinlengthValidation.MinlengthValidation1BoxedVoid](#minlengthvalidation1boxedvoid)<br> boxed class to store validated null payloads |
-| record | [MinlengthValidation.MinlengthValidation1BoxedBoolean](#minlengthvalidation1boxedboolean)<br> boxed class to store validated boolean payloads |
-| record | [MinlengthValidation.MinlengthValidation1BoxedNumber](#minlengthvalidation1boxednumber)<br> boxed class to store validated Number payloads |
-| record | [MinlengthValidation.MinlengthValidation1BoxedString](#minlengthvalidation1boxedstring)<br> boxed class to store validated String payloads |
-| record | [MinlengthValidation.MinlengthValidation1BoxedList](#minlengthvalidation1boxedlist)<br> boxed class to store validated List payloads |
-| record | [MinlengthValidation.MinlengthValidation1BoxedMap](#minlengthvalidation1boxedmap)<br> boxed class to store validated Map payloads |
-| static class | [MinlengthValidation.MinlengthValidation1](#minlengthvalidation1)<br> schema class |
+| data class | [MinlengthValidation.MinlengthValidation1BoxedVoid](#minlengthvalidation1boxedvoid)<br> boxed class to store validated null payloads |
+| data class | [MinlengthValidation.MinlengthValidation1BoxedBoolean](#minlengthvalidation1boxedboolean)<br> boxed class to store validated boolean payloads |
+| data class | [MinlengthValidation.MinlengthValidation1BoxedNumber](#minlengthvalidation1boxednumber)<br> boxed class to store validated Number payloads |
+| data class | [MinlengthValidation.MinlengthValidation1BoxedString](#minlengthvalidation1boxedstring)<br> boxed class to store validated String payloads |
+| data class | [MinlengthValidation.MinlengthValidation1BoxedList](#minlengthvalidation1boxedlist)<br> boxed class to store validated List payloads |
+| data class | [MinlengthValidation.MinlengthValidation1BoxedMap](#minlengthvalidation1boxedmap)<br> boxed class to store validated Map payloads |
+| class | [MinlengthValidation.MinlengthValidation1](#minlengthvalidation1)<br> schema class |
 
 ## MinlengthValidation1Boxed
 sealed interface MinlengthValidation1Boxed<br>
@@ -52,7 +52,7 @@ data class that stores validated null payloads, sealed permits implementation
 data class MinlengthValidation1BoxedBoolean<br>
 implements [MinlengthValidation1Boxed](#minlengthvalidation1boxed)
 
-record that stores validated boolean payloads, sealed permits implementation
+data class that stores validated boolean payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |

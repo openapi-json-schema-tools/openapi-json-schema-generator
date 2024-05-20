@@ -11,13 +11,13 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | sealed interface | [RegexFormat.RegexFormat1Boxed](#regexformat1boxed)<br> sealed interface for validated payloads |
-| record | [RegexFormat.RegexFormat1BoxedVoid](#regexformat1boxedvoid)<br> boxed class to store validated null payloads |
-| record | [RegexFormat.RegexFormat1BoxedBoolean](#regexformat1boxedboolean)<br> boxed class to store validated boolean payloads |
-| record | [RegexFormat.RegexFormat1BoxedNumber](#regexformat1boxednumber)<br> boxed class to store validated Number payloads |
-| record | [RegexFormat.RegexFormat1BoxedString](#regexformat1boxedstring)<br> boxed class to store validated String payloads |
-| record | [RegexFormat.RegexFormat1BoxedList](#regexformat1boxedlist)<br> boxed class to store validated List payloads |
-| record | [RegexFormat.RegexFormat1BoxedMap](#regexformat1boxedmap)<br> boxed class to store validated Map payloads |
-| static class | [RegexFormat.RegexFormat1](#regexformat1)<br> schema class |
+| data class | [RegexFormat.RegexFormat1BoxedVoid](#regexformat1boxedvoid)<br> boxed class to store validated null payloads |
+| data class | [RegexFormat.RegexFormat1BoxedBoolean](#regexformat1boxedboolean)<br> boxed class to store validated boolean payloads |
+| data class | [RegexFormat.RegexFormat1BoxedNumber](#regexformat1boxednumber)<br> boxed class to store validated Number payloads |
+| data class | [RegexFormat.RegexFormat1BoxedString](#regexformat1boxedstring)<br> boxed class to store validated String payloads |
+| data class | [RegexFormat.RegexFormat1BoxedList](#regexformat1boxedlist)<br> boxed class to store validated List payloads |
+| data class | [RegexFormat.RegexFormat1BoxedMap](#regexformat1boxedmap)<br> boxed class to store validated Map payloads |
+| class | [RegexFormat.RegexFormat1](#regexformat1)<br> schema class |
 
 ## RegexFormat1Boxed
 sealed interface RegexFormat1Boxed<br>
@@ -52,7 +52,7 @@ data class that stores validated null payloads, sealed permits implementation
 data class RegexFormat1BoxedBoolean<br>
 implements [RegexFormat1Boxed](#regexformat1boxed)
 
-record that stores validated boolean payloads, sealed permits implementation
+data class that stores validated boolean payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |

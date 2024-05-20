@@ -11,13 +11,13 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | sealed interface | [ExclusivemaximumValidation.ExclusivemaximumValidation1Boxed](#exclusivemaximumvalidation1boxed)<br> sealed interface for validated payloads |
-| record | [ExclusivemaximumValidation.ExclusivemaximumValidation1BoxedVoid](#exclusivemaximumvalidation1boxedvoid)<br> boxed class to store validated null payloads |
-| record | [ExclusivemaximumValidation.ExclusivemaximumValidation1BoxedBoolean](#exclusivemaximumvalidation1boxedboolean)<br> boxed class to store validated boolean payloads |
-| record | [ExclusivemaximumValidation.ExclusivemaximumValidation1BoxedNumber](#exclusivemaximumvalidation1boxednumber)<br> boxed class to store validated Number payloads |
-| record | [ExclusivemaximumValidation.ExclusivemaximumValidation1BoxedString](#exclusivemaximumvalidation1boxedstring)<br> boxed class to store validated String payloads |
-| record | [ExclusivemaximumValidation.ExclusivemaximumValidation1BoxedList](#exclusivemaximumvalidation1boxedlist)<br> boxed class to store validated List payloads |
-| record | [ExclusivemaximumValidation.ExclusivemaximumValidation1BoxedMap](#exclusivemaximumvalidation1boxedmap)<br> boxed class to store validated Map payloads |
-| static class | [ExclusivemaximumValidation.ExclusivemaximumValidation1](#exclusivemaximumvalidation1)<br> schema class |
+| data class | [ExclusivemaximumValidation.ExclusivemaximumValidation1BoxedVoid](#exclusivemaximumvalidation1boxedvoid)<br> boxed class to store validated null payloads |
+| data class | [ExclusivemaximumValidation.ExclusivemaximumValidation1BoxedBoolean](#exclusivemaximumvalidation1boxedboolean)<br> boxed class to store validated boolean payloads |
+| data class | [ExclusivemaximumValidation.ExclusivemaximumValidation1BoxedNumber](#exclusivemaximumvalidation1boxednumber)<br> boxed class to store validated Number payloads |
+| data class | [ExclusivemaximumValidation.ExclusivemaximumValidation1BoxedString](#exclusivemaximumvalidation1boxedstring)<br> boxed class to store validated String payloads |
+| data class | [ExclusivemaximumValidation.ExclusivemaximumValidation1BoxedList](#exclusivemaximumvalidation1boxedlist)<br> boxed class to store validated List payloads |
+| data class | [ExclusivemaximumValidation.ExclusivemaximumValidation1BoxedMap](#exclusivemaximumvalidation1boxedmap)<br> boxed class to store validated Map payloads |
+| class | [ExclusivemaximumValidation.ExclusivemaximumValidation1](#exclusivemaximumvalidation1)<br> schema class |
 
 ## ExclusivemaximumValidation1Boxed
 sealed interface ExclusivemaximumValidation1Boxed<br>
@@ -52,7 +52,7 @@ data class that stores validated null payloads, sealed permits implementation
 data class ExclusivemaximumValidation1BoxedBoolean<br>
 implements [ExclusivemaximumValidation1Boxed](#exclusivemaximumvalidation1boxed)
 
-record that stores validated boolean payloads, sealed permits implementation
+data class that stores validated boolean payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |

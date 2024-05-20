@@ -11,8 +11,8 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | sealed interface | [TypeAsArrayWithOneItem.TypeAsArrayWithOneItem1Boxed](#typeasarraywithoneitem1boxed)<br> sealed interface for validated payloads |
-| record | [TypeAsArrayWithOneItem.TypeAsArrayWithOneItem1BoxedString](#typeasarraywithoneitem1boxedstring)<br> boxed class to store validated String payloads |
-| static class | [TypeAsArrayWithOneItem.TypeAsArrayWithOneItem1](#typeasarraywithoneitem1)<br> schema class |
+| data class | [TypeAsArrayWithOneItem.TypeAsArrayWithOneItem1BoxedString](#typeasarraywithoneitem1boxedstring)<br> boxed class to store validated String payloads |
+| class | [TypeAsArrayWithOneItem.TypeAsArrayWithOneItem1](#typeasarraywithoneitem1)<br> schema class |
 
 ## TypeAsArrayWithOneItem1Boxed
 sealed interface TypeAsArrayWithOneItem1Boxed<br>

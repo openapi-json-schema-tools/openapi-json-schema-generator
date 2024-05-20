@@ -11,13 +11,13 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | sealed interface | [BySmallNumber.BySmallNumber1Boxed](#bysmallnumber1boxed)<br> sealed interface for validated payloads |
-| record | [BySmallNumber.BySmallNumber1BoxedVoid](#bysmallnumber1boxedvoid)<br> boxed class to store validated null payloads |
-| record | [BySmallNumber.BySmallNumber1BoxedBoolean](#bysmallnumber1boxedboolean)<br> boxed class to store validated boolean payloads |
-| record | [BySmallNumber.BySmallNumber1BoxedNumber](#bysmallnumber1boxednumber)<br> boxed class to store validated Number payloads |
-| record | [BySmallNumber.BySmallNumber1BoxedString](#bysmallnumber1boxedstring)<br> boxed class to store validated String payloads |
-| record | [BySmallNumber.BySmallNumber1BoxedList](#bysmallnumber1boxedlist)<br> boxed class to store validated List payloads |
-| record | [BySmallNumber.BySmallNumber1BoxedMap](#bysmallnumber1boxedmap)<br> boxed class to store validated Map payloads |
-| static class | [BySmallNumber.BySmallNumber1](#bysmallnumber1)<br> schema class |
+| data class | [BySmallNumber.BySmallNumber1BoxedVoid](#bysmallnumber1boxedvoid)<br> boxed class to store validated null payloads |
+| data class | [BySmallNumber.BySmallNumber1BoxedBoolean](#bysmallnumber1boxedboolean)<br> boxed class to store validated boolean payloads |
+| data class | [BySmallNumber.BySmallNumber1BoxedNumber](#bysmallnumber1boxednumber)<br> boxed class to store validated Number payloads |
+| data class | [BySmallNumber.BySmallNumber1BoxedString](#bysmallnumber1boxedstring)<br> boxed class to store validated String payloads |
+| data class | [BySmallNumber.BySmallNumber1BoxedList](#bysmallnumber1boxedlist)<br> boxed class to store validated List payloads |
+| data class | [BySmallNumber.BySmallNumber1BoxedMap](#bysmallnumber1boxedmap)<br> boxed class to store validated Map payloads |
+| class | [BySmallNumber.BySmallNumber1](#bysmallnumber1)<br> schema class |
 
 ## BySmallNumber1Boxed
 sealed interface BySmallNumber1Boxed<br>
@@ -52,7 +52,7 @@ data class that stores validated null payloads, sealed permits implementation
 data class BySmallNumber1BoxedBoolean<br>
 implements [BySmallNumber1Boxed](#bysmallnumber1boxed)
 
-record that stores validated boolean payloads, sealed permits implementation
+data class that stores validated boolean payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |

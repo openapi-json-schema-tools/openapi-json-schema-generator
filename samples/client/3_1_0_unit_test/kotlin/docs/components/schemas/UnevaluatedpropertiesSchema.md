@@ -11,11 +11,11 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | sealed interface | [UnevaluatedpropertiesSchema.UnevaluatedpropertiesSchema1Boxed](#unevaluatedpropertiesschema1boxed)<br> sealed interface for validated payloads |
-| record | [UnevaluatedpropertiesSchema.UnevaluatedpropertiesSchema1BoxedMap](#unevaluatedpropertiesschema1boxedmap)<br> boxed class to store validated Map payloads |
-| static class | [UnevaluatedpropertiesSchema.UnevaluatedpropertiesSchema1](#unevaluatedpropertiesschema1)<br> schema class |
+| data class | [UnevaluatedpropertiesSchema.UnevaluatedpropertiesSchema1BoxedMap](#unevaluatedpropertiesschema1boxedmap)<br> boxed class to store validated Map payloads |
+| class | [UnevaluatedpropertiesSchema.UnevaluatedpropertiesSchema1](#unevaluatedpropertiesschema1)<br> schema class |
 | sealed interface | [UnevaluatedpropertiesSchema.UnevaluatedPropertiesBoxed](#unevaluatedpropertiesboxed)<br> sealed interface for validated payloads |
-| record | [UnevaluatedpropertiesSchema.UnevaluatedPropertiesBoxedString](#unevaluatedpropertiesboxedstring)<br> boxed class to store validated String payloads |
-| static class | [UnevaluatedpropertiesSchema.UnevaluatedProperties](#unevaluatedproperties)<br> schema class |
+| data class | [UnevaluatedpropertiesSchema.UnevaluatedPropertiesBoxedString](#unevaluatedpropertiesboxedstring)<br> boxed class to store validated String payloads |
+| class | [UnevaluatedpropertiesSchema.UnevaluatedProperties](#unevaluatedproperties)<br> schema class |
 
 ## UnevaluatedpropertiesSchema1Boxed
 sealed interface UnevaluatedpropertiesSchema1Boxed<br>

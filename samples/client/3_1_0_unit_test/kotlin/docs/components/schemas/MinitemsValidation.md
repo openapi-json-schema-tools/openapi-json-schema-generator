@@ -11,13 +11,13 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | sealed interface | [MinitemsValidation.MinitemsValidation1Boxed](#minitemsvalidation1boxed)<br> sealed interface for validated payloads |
-| record | [MinitemsValidation.MinitemsValidation1BoxedVoid](#minitemsvalidation1boxedvoid)<br> boxed class to store validated null payloads |
-| record | [MinitemsValidation.MinitemsValidation1BoxedBoolean](#minitemsvalidation1boxedboolean)<br> boxed class to store validated boolean payloads |
-| record | [MinitemsValidation.MinitemsValidation1BoxedNumber](#minitemsvalidation1boxednumber)<br> boxed class to store validated Number payloads |
-| record | [MinitemsValidation.MinitemsValidation1BoxedString](#minitemsvalidation1boxedstring)<br> boxed class to store validated String payloads |
-| record | [MinitemsValidation.MinitemsValidation1BoxedList](#minitemsvalidation1boxedlist)<br> boxed class to store validated List payloads |
-| record | [MinitemsValidation.MinitemsValidation1BoxedMap](#minitemsvalidation1boxedmap)<br> boxed class to store validated Map payloads |
-| static class | [MinitemsValidation.MinitemsValidation1](#minitemsvalidation1)<br> schema class |
+| data class | [MinitemsValidation.MinitemsValidation1BoxedVoid](#minitemsvalidation1boxedvoid)<br> boxed class to store validated null payloads |
+| data class | [MinitemsValidation.MinitemsValidation1BoxedBoolean](#minitemsvalidation1boxedboolean)<br> boxed class to store validated boolean payloads |
+| data class | [MinitemsValidation.MinitemsValidation1BoxedNumber](#minitemsvalidation1boxednumber)<br> boxed class to store validated Number payloads |
+| data class | [MinitemsValidation.MinitemsValidation1BoxedString](#minitemsvalidation1boxedstring)<br> boxed class to store validated String payloads |
+| data class | [MinitemsValidation.MinitemsValidation1BoxedList](#minitemsvalidation1boxedlist)<br> boxed class to store validated List payloads |
+| data class | [MinitemsValidation.MinitemsValidation1BoxedMap](#minitemsvalidation1boxedmap)<br> boxed class to store validated Map payloads |
+| class | [MinitemsValidation.MinitemsValidation1](#minitemsvalidation1)<br> schema class |
 
 ## MinitemsValidation1Boxed
 sealed interface MinitemsValidation1Boxed<br>
@@ -52,7 +52,7 @@ data class that stores validated null payloads, sealed permits implementation
 data class MinitemsValidation1BoxedBoolean<br>
 implements [MinitemsValidation1Boxed](#minitemsvalidation1boxed)
 
-record that stores validated boolean payloads, sealed permits implementation
+data class that stores validated boolean payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |

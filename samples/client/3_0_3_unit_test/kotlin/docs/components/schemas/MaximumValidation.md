@@ -11,13 +11,13 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | sealed interface | [MaximumValidation.MaximumValidation1Boxed](#maximumvalidation1boxed)<br> sealed interface for validated payloads |
-| record | [MaximumValidation.MaximumValidation1BoxedVoid](#maximumvalidation1boxedvoid)<br> boxed class to store validated null payloads |
-| record | [MaximumValidation.MaximumValidation1BoxedBoolean](#maximumvalidation1boxedboolean)<br> boxed class to store validated boolean payloads |
-| record | [MaximumValidation.MaximumValidation1BoxedNumber](#maximumvalidation1boxednumber)<br> boxed class to store validated Number payloads |
-| record | [MaximumValidation.MaximumValidation1BoxedString](#maximumvalidation1boxedstring)<br> boxed class to store validated String payloads |
-| record | [MaximumValidation.MaximumValidation1BoxedList](#maximumvalidation1boxedlist)<br> boxed class to store validated List payloads |
-| record | [MaximumValidation.MaximumValidation1BoxedMap](#maximumvalidation1boxedmap)<br> boxed class to store validated Map payloads |
-| static class | [MaximumValidation.MaximumValidation1](#maximumvalidation1)<br> schema class |
+| data class | [MaximumValidation.MaximumValidation1BoxedVoid](#maximumvalidation1boxedvoid)<br> boxed class to store validated null payloads |
+| data class | [MaximumValidation.MaximumValidation1BoxedBoolean](#maximumvalidation1boxedboolean)<br> boxed class to store validated boolean payloads |
+| data class | [MaximumValidation.MaximumValidation1BoxedNumber](#maximumvalidation1boxednumber)<br> boxed class to store validated Number payloads |
+| data class | [MaximumValidation.MaximumValidation1BoxedString](#maximumvalidation1boxedstring)<br> boxed class to store validated String payloads |
+| data class | [MaximumValidation.MaximumValidation1BoxedList](#maximumvalidation1boxedlist)<br> boxed class to store validated List payloads |
+| data class | [MaximumValidation.MaximumValidation1BoxedMap](#maximumvalidation1boxedmap)<br> boxed class to store validated Map payloads |
+| class | [MaximumValidation.MaximumValidation1](#maximumvalidation1)<br> schema class |
 
 ## MaximumValidation1Boxed
 sealed interface MaximumValidation1Boxed<br>
@@ -52,7 +52,7 @@ data class that stores validated null payloads, sealed permits implementation
 data class MaximumValidation1BoxedBoolean<br>
 implements [MaximumValidation1Boxed](#maximumvalidation1boxed)
 
-record that stores validated boolean payloads, sealed permits implementation
+data class that stores validated boolean payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |

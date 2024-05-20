@@ -13,21 +13,21 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | sealed interface | [NotMoreComplexSchema.NotMoreComplexSchema1Boxed](#notmorecomplexschema1boxed)<br> sealed interface for validated payloads |
-| record | [NotMoreComplexSchema.NotMoreComplexSchema1BoxedVoid](#notmorecomplexschema1boxedvoid)<br> boxed class to store validated null payloads |
-| record | [NotMoreComplexSchema.NotMoreComplexSchema1BoxedBoolean](#notmorecomplexschema1boxedboolean)<br> boxed class to store validated boolean payloads |
-| record | [NotMoreComplexSchema.NotMoreComplexSchema1BoxedNumber](#notmorecomplexschema1boxednumber)<br> boxed class to store validated Number payloads |
-| record | [NotMoreComplexSchema.NotMoreComplexSchema1BoxedString](#notmorecomplexschema1boxedstring)<br> boxed class to store validated String payloads |
-| record | [NotMoreComplexSchema.NotMoreComplexSchema1BoxedList](#notmorecomplexschema1boxedlist)<br> boxed class to store validated List payloads |
-| record | [NotMoreComplexSchema.NotMoreComplexSchema1BoxedMap](#notmorecomplexschema1boxedmap)<br> boxed class to store validated Map payloads |
-| static class | [NotMoreComplexSchema.NotMoreComplexSchema1](#notmorecomplexschema1)<br> schema class |
+| data class | [NotMoreComplexSchema.NotMoreComplexSchema1BoxedVoid](#notmorecomplexschema1boxedvoid)<br> boxed class to store validated null payloads |
+| data class | [NotMoreComplexSchema.NotMoreComplexSchema1BoxedBoolean](#notmorecomplexschema1boxedboolean)<br> boxed class to store validated boolean payloads |
+| data class | [NotMoreComplexSchema.NotMoreComplexSchema1BoxedNumber](#notmorecomplexschema1boxednumber)<br> boxed class to store validated Number payloads |
+| data class | [NotMoreComplexSchema.NotMoreComplexSchema1BoxedString](#notmorecomplexschema1boxedstring)<br> boxed class to store validated String payloads |
+| data class | [NotMoreComplexSchema.NotMoreComplexSchema1BoxedList](#notmorecomplexschema1boxedlist)<br> boxed class to store validated List payloads |
+| data class | [NotMoreComplexSchema.NotMoreComplexSchema1BoxedMap](#notmorecomplexschema1boxedmap)<br> boxed class to store validated Map payloads |
+| class | [NotMoreComplexSchema.NotMoreComplexSchema1](#notmorecomplexschema1)<br> schema class |
 | sealed interface | [NotMoreComplexSchema.NotBoxed](#notboxed)<br> sealed interface for validated payloads |
-| record | [NotMoreComplexSchema.NotBoxedMap](#notboxedmap)<br> boxed class to store validated Map payloads |
-| static class | [NotMoreComplexSchema.Not](#not)<br> schema class |
-| static class | [NotMoreComplexSchema.NotMapBuilder](#notmapbuilder)<br> builder for Map payloads |
-| static class | [NotMoreComplexSchema.NotMap](#notmap)<br> output class for Map payloads |
+| data class | [NotMoreComplexSchema.NotBoxedMap](#notboxedmap)<br> boxed class to store validated Map payloads |
+| class | [NotMoreComplexSchema.Not](#not)<br> schema class |
+| class | [NotMoreComplexSchema.NotMapBuilder](#notmapbuilder)<br> builder for Map payloads |
+| class | [NotMoreComplexSchema.NotMap](#notmap)<br> output class for Map payloads |
 | sealed interface | [NotMoreComplexSchema.FooBoxed](#fooboxed)<br> sealed interface for validated payloads |
-| record | [NotMoreComplexSchema.FooBoxedString](#fooboxedstring)<br> boxed class to store validated String payloads |
-| static class | [NotMoreComplexSchema.Foo](#foo)<br> schema class |
+| data class | [NotMoreComplexSchema.FooBoxedString](#fooboxedstring)<br> boxed class to store validated String payloads |
+| class | [NotMoreComplexSchema.Foo](#foo)<br> schema class |
 
 ## NotMoreComplexSchema1Boxed
 sealed interface NotMoreComplexSchema1Boxed<br>
@@ -62,7 +62,7 @@ data class that stores validated null payloads, sealed permits implementation
 data class NotMoreComplexSchema1BoxedBoolean<br>
 implements [NotMoreComplexSchema1Boxed](#notmorecomplexschema1boxed)
 
-record that stores validated boolean payloads, sealed permits implementation
+data class that stores validated boolean payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |

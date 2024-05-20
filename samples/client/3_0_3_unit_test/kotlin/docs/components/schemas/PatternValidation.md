@@ -11,13 +11,13 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | sealed interface | [PatternValidation.PatternValidation1Boxed](#patternvalidation1boxed)<br> sealed interface for validated payloads |
-| record | [PatternValidation.PatternValidation1BoxedVoid](#patternvalidation1boxedvoid)<br> boxed class to store validated null payloads |
-| record | [PatternValidation.PatternValidation1BoxedBoolean](#patternvalidation1boxedboolean)<br> boxed class to store validated boolean payloads |
-| record | [PatternValidation.PatternValidation1BoxedNumber](#patternvalidation1boxednumber)<br> boxed class to store validated Number payloads |
-| record | [PatternValidation.PatternValidation1BoxedString](#patternvalidation1boxedstring)<br> boxed class to store validated String payloads |
-| record | [PatternValidation.PatternValidation1BoxedList](#patternvalidation1boxedlist)<br> boxed class to store validated List payloads |
-| record | [PatternValidation.PatternValidation1BoxedMap](#patternvalidation1boxedmap)<br> boxed class to store validated Map payloads |
-| static class | [PatternValidation.PatternValidation1](#patternvalidation1)<br> schema class |
+| data class | [PatternValidation.PatternValidation1BoxedVoid](#patternvalidation1boxedvoid)<br> boxed class to store validated null payloads |
+| data class | [PatternValidation.PatternValidation1BoxedBoolean](#patternvalidation1boxedboolean)<br> boxed class to store validated boolean payloads |
+| data class | [PatternValidation.PatternValidation1BoxedNumber](#patternvalidation1boxednumber)<br> boxed class to store validated Number payloads |
+| data class | [PatternValidation.PatternValidation1BoxedString](#patternvalidation1boxedstring)<br> boxed class to store validated String payloads |
+| data class | [PatternValidation.PatternValidation1BoxedList](#patternvalidation1boxedlist)<br> boxed class to store validated List payloads |
+| data class | [PatternValidation.PatternValidation1BoxedMap](#patternvalidation1boxedmap)<br> boxed class to store validated Map payloads |
+| class | [PatternValidation.PatternValidation1](#patternvalidation1)<br> schema class |
 
 ## PatternValidation1Boxed
 sealed interface PatternValidation1Boxed<br>
@@ -52,7 +52,7 @@ data class that stores validated null payloads, sealed permits implementation
 data class PatternValidation1BoxedBoolean<br>
 implements [PatternValidation1Boxed](#patternvalidation1boxed)
 
-record that stores validated boolean payloads, sealed permits implementation
+data class that stores validated boolean payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |

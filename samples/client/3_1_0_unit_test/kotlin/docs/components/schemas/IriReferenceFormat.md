@@ -11,13 +11,13 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | sealed interface | [IriReferenceFormat.IriReferenceFormat1Boxed](#irireferenceformat1boxed)<br> sealed interface for validated payloads |
-| record | [IriReferenceFormat.IriReferenceFormat1BoxedVoid](#irireferenceformat1boxedvoid)<br> boxed class to store validated null payloads |
-| record | [IriReferenceFormat.IriReferenceFormat1BoxedBoolean](#irireferenceformat1boxedboolean)<br> boxed class to store validated boolean payloads |
-| record | [IriReferenceFormat.IriReferenceFormat1BoxedNumber](#irireferenceformat1boxednumber)<br> boxed class to store validated Number payloads |
-| record | [IriReferenceFormat.IriReferenceFormat1BoxedString](#irireferenceformat1boxedstring)<br> boxed class to store validated String payloads |
-| record | [IriReferenceFormat.IriReferenceFormat1BoxedList](#irireferenceformat1boxedlist)<br> boxed class to store validated List payloads |
-| record | [IriReferenceFormat.IriReferenceFormat1BoxedMap](#irireferenceformat1boxedmap)<br> boxed class to store validated Map payloads |
-| static class | [IriReferenceFormat.IriReferenceFormat1](#irireferenceformat1)<br> schema class |
+| data class | [IriReferenceFormat.IriReferenceFormat1BoxedVoid](#irireferenceformat1boxedvoid)<br> boxed class to store validated null payloads |
+| data class | [IriReferenceFormat.IriReferenceFormat1BoxedBoolean](#irireferenceformat1boxedboolean)<br> boxed class to store validated boolean payloads |
+| data class | [IriReferenceFormat.IriReferenceFormat1BoxedNumber](#irireferenceformat1boxednumber)<br> boxed class to store validated Number payloads |
+| data class | [IriReferenceFormat.IriReferenceFormat1BoxedString](#irireferenceformat1boxedstring)<br> boxed class to store validated String payloads |
+| data class | [IriReferenceFormat.IriReferenceFormat1BoxedList](#irireferenceformat1boxedlist)<br> boxed class to store validated List payloads |
+| data class | [IriReferenceFormat.IriReferenceFormat1BoxedMap](#irireferenceformat1boxedmap)<br> boxed class to store validated Map payloads |
+| class | [IriReferenceFormat.IriReferenceFormat1](#irireferenceformat1)<br> schema class |
 
 ## IriReferenceFormat1Boxed
 sealed interface IriReferenceFormat1Boxed<br>
@@ -52,7 +52,7 @@ data class that stores validated null payloads, sealed permits implementation
 data class IriReferenceFormat1BoxedBoolean<br>
 implements [IriReferenceFormat1Boxed](#irireferenceformat1boxed)
 
-record that stores validated boolean payloads, sealed permits implementation
+data class that stores validated boolean payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |

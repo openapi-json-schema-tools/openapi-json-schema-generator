@@ -11,13 +11,13 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | sealed interface | [RefInNot.RefInNot1Boxed](#refinnot1boxed)<br> sealed interface for validated payloads |
-| record | [RefInNot.RefInNot1BoxedVoid](#refinnot1boxedvoid)<br> boxed class to store validated null payloads |
-| record | [RefInNot.RefInNot1BoxedBoolean](#refinnot1boxedboolean)<br> boxed class to store validated boolean payloads |
-| record | [RefInNot.RefInNot1BoxedNumber](#refinnot1boxednumber)<br> boxed class to store validated Number payloads |
-| record | [RefInNot.RefInNot1BoxedString](#refinnot1boxedstring)<br> boxed class to store validated String payloads |
-| record | [RefInNot.RefInNot1BoxedList](#refinnot1boxedlist)<br> boxed class to store validated List payloads |
-| record | [RefInNot.RefInNot1BoxedMap](#refinnot1boxedmap)<br> boxed class to store validated Map payloads |
-| static class | [RefInNot.RefInNot1](#refinnot1)<br> schema class |
+| data class | [RefInNot.RefInNot1BoxedVoid](#refinnot1boxedvoid)<br> boxed class to store validated null payloads |
+| data class | [RefInNot.RefInNot1BoxedBoolean](#refinnot1boxedboolean)<br> boxed class to store validated boolean payloads |
+| data class | [RefInNot.RefInNot1BoxedNumber](#refinnot1boxednumber)<br> boxed class to store validated Number payloads |
+| data class | [RefInNot.RefInNot1BoxedString](#refinnot1boxedstring)<br> boxed class to store validated String payloads |
+| data class | [RefInNot.RefInNot1BoxedList](#refinnot1boxedlist)<br> boxed class to store validated List payloads |
+| data class | [RefInNot.RefInNot1BoxedMap](#refinnot1boxedmap)<br> boxed class to store validated Map payloads |
+| class | [RefInNot.RefInNot1](#refinnot1)<br> schema class |
 
 ## RefInNot1Boxed
 sealed interface RefInNot1Boxed<br>
@@ -52,7 +52,7 @@ data class that stores validated null payloads, sealed permits implementation
 data class RefInNot1BoxedBoolean<br>
 implements [RefInNot1Boxed](#refinnot1boxed)
 
-record that stores validated boolean payloads, sealed permits implementation
+data class that stores validated boolean payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |

@@ -13,44 +13,44 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | sealed interface | [DependentSchemasDependentSubschemaIncompatibleWithRoot.DependentSchemasDependentSubschemaIncompatibleWithRoot1Boxed](#dependentschemasdependentsubschemaincompatiblewithroot1boxed)<br> sealed interface for validated payloads |
-| record | [DependentSchemasDependentSubschemaIncompatibleWithRoot.DependentSchemasDependentSubschemaIncompatibleWithRoot1BoxedVoid](#dependentschemasdependentsubschemaincompatiblewithroot1boxedvoid)<br> boxed class to store validated null payloads |
-| record | [DependentSchemasDependentSubschemaIncompatibleWithRoot.DependentSchemasDependentSubschemaIncompatibleWithRoot1BoxedBoolean](#dependentschemasdependentsubschemaincompatiblewithroot1boxedboolean)<br> boxed class to store validated boolean payloads |
-| record | [DependentSchemasDependentSubschemaIncompatibleWithRoot.DependentSchemasDependentSubschemaIncompatibleWithRoot1BoxedNumber](#dependentschemasdependentsubschemaincompatiblewithroot1boxednumber)<br> boxed class to store validated Number payloads |
-| record | [DependentSchemasDependentSubschemaIncompatibleWithRoot.DependentSchemasDependentSubschemaIncompatibleWithRoot1BoxedString](#dependentschemasdependentsubschemaincompatiblewithroot1boxedstring)<br> boxed class to store validated String payloads |
-| record | [DependentSchemasDependentSubschemaIncompatibleWithRoot.DependentSchemasDependentSubschemaIncompatibleWithRoot1BoxedList](#dependentschemasdependentsubschemaincompatiblewithroot1boxedlist)<br> boxed class to store validated List payloads |
-| record | [DependentSchemasDependentSubschemaIncompatibleWithRoot.DependentSchemasDependentSubschemaIncompatibleWithRoot1BoxedMap](#dependentschemasdependentsubschemaincompatiblewithroot1boxedmap)<br> boxed class to store validated Map payloads |
-| static class | [DependentSchemasDependentSubschemaIncompatibleWithRoot.DependentSchemasDependentSubschemaIncompatibleWithRoot1](#dependentschemasdependentsubschemaincompatiblewithroot1)<br> schema class |
-| static class | [DependentSchemasDependentSubschemaIncompatibleWithRoot.DependentSchemasDependentSubschemaIncompatibleWithRootMapBuilder](#dependentschemasdependentsubschemaincompatiblewithrootmapbuilder)<br> builder for Map payloads |
-| static class | [DependentSchemasDependentSubschemaIncompatibleWithRoot.DependentSchemasDependentSubschemaIncompatibleWithRootMap](#dependentschemasdependentsubschemaincompatiblewithrootmap)<br> output class for Map payloads |
+| data class | [DependentSchemasDependentSubschemaIncompatibleWithRoot.DependentSchemasDependentSubschemaIncompatibleWithRoot1BoxedVoid](#dependentschemasdependentsubschemaincompatiblewithroot1boxedvoid)<br> boxed class to store validated null payloads |
+| data class | [DependentSchemasDependentSubschemaIncompatibleWithRoot.DependentSchemasDependentSubschemaIncompatibleWithRoot1BoxedBoolean](#dependentschemasdependentsubschemaincompatiblewithroot1boxedboolean)<br> boxed class to store validated boolean payloads |
+| data class | [DependentSchemasDependentSubschemaIncompatibleWithRoot.DependentSchemasDependentSubschemaIncompatibleWithRoot1BoxedNumber](#dependentschemasdependentsubschemaincompatiblewithroot1boxednumber)<br> boxed class to store validated Number payloads |
+| data class | [DependentSchemasDependentSubschemaIncompatibleWithRoot.DependentSchemasDependentSubschemaIncompatibleWithRoot1BoxedString](#dependentschemasdependentsubschemaincompatiblewithroot1boxedstring)<br> boxed class to store validated String payloads |
+| data class | [DependentSchemasDependentSubschemaIncompatibleWithRoot.DependentSchemasDependentSubschemaIncompatibleWithRoot1BoxedList](#dependentschemasdependentsubschemaincompatiblewithroot1boxedlist)<br> boxed class to store validated List payloads |
+| data class | [DependentSchemasDependentSubschemaIncompatibleWithRoot.DependentSchemasDependentSubschemaIncompatibleWithRoot1BoxedMap](#dependentschemasdependentsubschemaincompatiblewithroot1boxedmap)<br> boxed class to store validated Map payloads |
+| class | [DependentSchemasDependentSubschemaIncompatibleWithRoot.DependentSchemasDependentSubschemaIncompatibleWithRoot1](#dependentschemasdependentsubschemaincompatiblewithroot1)<br> schema class |
+| class | [DependentSchemasDependentSubschemaIncompatibleWithRoot.DependentSchemasDependentSubschemaIncompatibleWithRootMapBuilder](#dependentschemasdependentsubschemaincompatiblewithrootmapbuilder)<br> builder for Map payloads |
+| class | [DependentSchemasDependentSubschemaIncompatibleWithRoot.DependentSchemasDependentSubschemaIncompatibleWithRootMap](#dependentschemasdependentsubschemaincompatiblewithrootmap)<br> output class for Map payloads |
 | sealed interface | [DependentSchemasDependentSubschemaIncompatibleWithRoot.FooBoxed](#fooboxed)<br> sealed interface for validated payloads |
-| record | [DependentSchemasDependentSubschemaIncompatibleWithRoot.FooBoxedVoid](#fooboxedvoid)<br> boxed class to store validated null payloads |
-| record | [DependentSchemasDependentSubschemaIncompatibleWithRoot.FooBoxedBoolean](#fooboxedboolean)<br> boxed class to store validated boolean payloads |
-| record | [DependentSchemasDependentSubschemaIncompatibleWithRoot.FooBoxedNumber](#fooboxednumber)<br> boxed class to store validated Number payloads |
-| record | [DependentSchemasDependentSubschemaIncompatibleWithRoot.FooBoxedString](#fooboxedstring)<br> boxed class to store validated String payloads |
-| record | [DependentSchemasDependentSubschemaIncompatibleWithRoot.FooBoxedList](#fooboxedlist)<br> boxed class to store validated List payloads |
-| record | [DependentSchemasDependentSubschemaIncompatibleWithRoot.FooBoxedMap](#fooboxedmap)<br> boxed class to store validated Map payloads |
-| static class | [DependentSchemasDependentSubschemaIncompatibleWithRoot.Foo](#foo)<br> schema class |
+| data class | [DependentSchemasDependentSubschemaIncompatibleWithRoot.FooBoxedVoid](#fooboxedvoid)<br> boxed class to store validated null payloads |
+| data class | [DependentSchemasDependentSubschemaIncompatibleWithRoot.FooBoxedBoolean](#fooboxedboolean)<br> boxed class to store validated boolean payloads |
+| data class | [DependentSchemasDependentSubschemaIncompatibleWithRoot.FooBoxedNumber](#fooboxednumber)<br> boxed class to store validated Number payloads |
+| data class | [DependentSchemasDependentSubschemaIncompatibleWithRoot.FooBoxedString](#fooboxedstring)<br> boxed class to store validated String payloads |
+| data class | [DependentSchemasDependentSubschemaIncompatibleWithRoot.FooBoxedList](#fooboxedlist)<br> boxed class to store validated List payloads |
+| data class | [DependentSchemasDependentSubschemaIncompatibleWithRoot.FooBoxedMap](#fooboxedmap)<br> boxed class to store validated Map payloads |
+| class | [DependentSchemasDependentSubschemaIncompatibleWithRoot.Foo](#foo)<br> schema class |
 | sealed interface | [DependentSchemasDependentSubschemaIncompatibleWithRoot.Foo1Boxed](#foo1boxed)<br> sealed interface for validated payloads |
-| record | [DependentSchemasDependentSubschemaIncompatibleWithRoot.Foo1BoxedMap](#foo1boxedmap)<br> boxed class to store validated Map payloads |
-| static class | [DependentSchemasDependentSubschemaIncompatibleWithRoot.Foo1](#foo1)<br> schema class |
-| static class | [DependentSchemasDependentSubschemaIncompatibleWithRoot.FooMapBuilder1](#foomapbuilder1)<br> builder for Map payloads |
-| static class | [DependentSchemasDependentSubschemaIncompatibleWithRoot.FooMap](#foomap)<br> output class for Map payloads |
+| data class | [DependentSchemasDependentSubschemaIncompatibleWithRoot.Foo1BoxedMap](#foo1boxedmap)<br> boxed class to store validated Map payloads |
+| class | [DependentSchemasDependentSubschemaIncompatibleWithRoot.Foo1](#foo1)<br> schema class |
+| class | [DependentSchemasDependentSubschemaIncompatibleWithRoot.FooMapBuilder1](#foomapbuilder1)<br> builder for Map payloads |
+| class | [DependentSchemasDependentSubschemaIncompatibleWithRoot.FooMap](#foomap)<br> output class for Map payloads |
 | sealed interface | [DependentSchemasDependentSubschemaIncompatibleWithRoot.BarBoxed](#barboxed)<br> sealed interface for validated payloads |
-| record | [DependentSchemasDependentSubschemaIncompatibleWithRoot.BarBoxedVoid](#barboxedvoid)<br> boxed class to store validated null payloads |
-| record | [DependentSchemasDependentSubschemaIncompatibleWithRoot.BarBoxedBoolean](#barboxedboolean)<br> boxed class to store validated boolean payloads |
-| record | [DependentSchemasDependentSubschemaIncompatibleWithRoot.BarBoxedNumber](#barboxednumber)<br> boxed class to store validated Number payloads |
-| record | [DependentSchemasDependentSubschemaIncompatibleWithRoot.BarBoxedString](#barboxedstring)<br> boxed class to store validated String payloads |
-| record | [DependentSchemasDependentSubschemaIncompatibleWithRoot.BarBoxedList](#barboxedlist)<br> boxed class to store validated List payloads |
-| record | [DependentSchemasDependentSubschemaIncompatibleWithRoot.BarBoxedMap](#barboxedmap)<br> boxed class to store validated Map payloads |
-| static class | [DependentSchemasDependentSubschemaIncompatibleWithRoot.Bar](#bar)<br> schema class |
+| data class | [DependentSchemasDependentSubschemaIncompatibleWithRoot.BarBoxedVoid](#barboxedvoid)<br> boxed class to store validated null payloads |
+| data class | [DependentSchemasDependentSubschemaIncompatibleWithRoot.BarBoxedBoolean](#barboxedboolean)<br> boxed class to store validated boolean payloads |
+| data class | [DependentSchemasDependentSubschemaIncompatibleWithRoot.BarBoxedNumber](#barboxednumber)<br> boxed class to store validated Number payloads |
+| data class | [DependentSchemasDependentSubschemaIncompatibleWithRoot.BarBoxedString](#barboxedstring)<br> boxed class to store validated String payloads |
+| data class | [DependentSchemasDependentSubschemaIncompatibleWithRoot.BarBoxedList](#barboxedlist)<br> boxed class to store validated List payloads |
+| data class | [DependentSchemasDependentSubschemaIncompatibleWithRoot.BarBoxedMap](#barboxedmap)<br> boxed class to store validated Map payloads |
+| class | [DependentSchemasDependentSubschemaIncompatibleWithRoot.Bar](#bar)<br> schema class |
 | sealed interface | [DependentSchemasDependentSubschemaIncompatibleWithRoot.AdditionalPropertiesBoxed](#additionalpropertiesboxed)<br> sealed interface for validated payloads |
-| record | [DependentSchemasDependentSubschemaIncompatibleWithRoot.AdditionalPropertiesBoxedVoid](#additionalpropertiesboxedvoid)<br> boxed class to store validated null payloads |
-| record | [DependentSchemasDependentSubschemaIncompatibleWithRoot.AdditionalPropertiesBoxedBoolean](#additionalpropertiesboxedboolean)<br> boxed class to store validated boolean payloads |
-| record | [DependentSchemasDependentSubschemaIncompatibleWithRoot.AdditionalPropertiesBoxedNumber](#additionalpropertiesboxednumber)<br> boxed class to store validated Number payloads |
-| record | [DependentSchemasDependentSubschemaIncompatibleWithRoot.AdditionalPropertiesBoxedString](#additionalpropertiesboxedstring)<br> boxed class to store validated String payloads |
-| record | [DependentSchemasDependentSubschemaIncompatibleWithRoot.AdditionalPropertiesBoxedList](#additionalpropertiesboxedlist)<br> boxed class to store validated List payloads |
-| record | [DependentSchemasDependentSubschemaIncompatibleWithRoot.AdditionalPropertiesBoxedMap](#additionalpropertiesboxedmap)<br> boxed class to store validated Map payloads |
-| static class | [DependentSchemasDependentSubschemaIncompatibleWithRoot.AdditionalProperties](#additionalproperties)<br> schema class |
+| data class | [DependentSchemasDependentSubschemaIncompatibleWithRoot.AdditionalPropertiesBoxedVoid](#additionalpropertiesboxedvoid)<br> boxed class to store validated null payloads |
+| data class | [DependentSchemasDependentSubschemaIncompatibleWithRoot.AdditionalPropertiesBoxedBoolean](#additionalpropertiesboxedboolean)<br> boxed class to store validated boolean payloads |
+| data class | [DependentSchemasDependentSubschemaIncompatibleWithRoot.AdditionalPropertiesBoxedNumber](#additionalpropertiesboxednumber)<br> boxed class to store validated Number payloads |
+| data class | [DependentSchemasDependentSubschemaIncompatibleWithRoot.AdditionalPropertiesBoxedString](#additionalpropertiesboxedstring)<br> boxed class to store validated String payloads |
+| data class | [DependentSchemasDependentSubschemaIncompatibleWithRoot.AdditionalPropertiesBoxedList](#additionalpropertiesboxedlist)<br> boxed class to store validated List payloads |
+| data class | [DependentSchemasDependentSubschemaIncompatibleWithRoot.AdditionalPropertiesBoxedMap](#additionalpropertiesboxedmap)<br> boxed class to store validated Map payloads |
+| class | [DependentSchemasDependentSubschemaIncompatibleWithRoot.AdditionalProperties](#additionalproperties)<br> schema class |
 
 ## DependentSchemasDependentSubschemaIncompatibleWithRoot1Boxed
 sealed interface DependentSchemasDependentSubschemaIncompatibleWithRoot1Boxed<br>
@@ -85,7 +85,7 @@ data class that stores validated null payloads, sealed permits implementation
 data class DependentSchemasDependentSubschemaIncompatibleWithRoot1BoxedBoolean<br>
 implements [DependentSchemasDependentSubschemaIncompatibleWithRoot1Boxed](#dependentschemasdependentsubschemaincompatiblewithroot1boxed)
 
-record that stores validated boolean payloads, sealed permits implementation
+data class that stores validated boolean payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
@@ -280,7 +280,7 @@ data class that stores validated null payloads, sealed permits implementation
 data class FooBoxedBoolean<br>
 implements [FooBoxed](#fooboxed)
 
-record that stores validated boolean payloads, sealed permits implementation
+data class that stores validated boolean payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
@@ -508,7 +508,7 @@ data class that stores validated null payloads, sealed permits implementation
 data class BarBoxedBoolean<br>
 implements [BarBoxed](#barboxed)
 
-record that stores validated boolean payloads, sealed permits implementation
+data class that stores validated boolean payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
@@ -633,7 +633,7 @@ data class that stores validated null payloads, sealed permits implementation
 data class AdditionalPropertiesBoxedBoolean<br>
 implements [AdditionalPropertiesBoxed](#additionalpropertiesboxed)
 
-record that stores validated boolean payloads, sealed permits implementation
+data class that stores validated boolean payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |

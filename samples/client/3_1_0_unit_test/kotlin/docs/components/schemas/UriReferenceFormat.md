@@ -11,13 +11,13 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | sealed interface | [UriReferenceFormat.UriReferenceFormat1Boxed](#urireferenceformat1boxed)<br> sealed interface for validated payloads |
-| record | [UriReferenceFormat.UriReferenceFormat1BoxedVoid](#urireferenceformat1boxedvoid)<br> boxed class to store validated null payloads |
-| record | [UriReferenceFormat.UriReferenceFormat1BoxedBoolean](#urireferenceformat1boxedboolean)<br> boxed class to store validated boolean payloads |
-| record | [UriReferenceFormat.UriReferenceFormat1BoxedNumber](#urireferenceformat1boxednumber)<br> boxed class to store validated Number payloads |
-| record | [UriReferenceFormat.UriReferenceFormat1BoxedString](#urireferenceformat1boxedstring)<br> boxed class to store validated String payloads |
-| record | [UriReferenceFormat.UriReferenceFormat1BoxedList](#urireferenceformat1boxedlist)<br> boxed class to store validated List payloads |
-| record | [UriReferenceFormat.UriReferenceFormat1BoxedMap](#urireferenceformat1boxedmap)<br> boxed class to store validated Map payloads |
-| static class | [UriReferenceFormat.UriReferenceFormat1](#urireferenceformat1)<br> schema class |
+| data class | [UriReferenceFormat.UriReferenceFormat1BoxedVoid](#urireferenceformat1boxedvoid)<br> boxed class to store validated null payloads |
+| data class | [UriReferenceFormat.UriReferenceFormat1BoxedBoolean](#urireferenceformat1boxedboolean)<br> boxed class to store validated boolean payloads |
+| data class | [UriReferenceFormat.UriReferenceFormat1BoxedNumber](#urireferenceformat1boxednumber)<br> boxed class to store validated Number payloads |
+| data class | [UriReferenceFormat.UriReferenceFormat1BoxedString](#urireferenceformat1boxedstring)<br> boxed class to store validated String payloads |
+| data class | [UriReferenceFormat.UriReferenceFormat1BoxedList](#urireferenceformat1boxedlist)<br> boxed class to store validated List payloads |
+| data class | [UriReferenceFormat.UriReferenceFormat1BoxedMap](#urireferenceformat1boxedmap)<br> boxed class to store validated Map payloads |
+| class | [UriReferenceFormat.UriReferenceFormat1](#urireferenceformat1)<br> schema class |
 
 ## UriReferenceFormat1Boxed
 sealed interface UriReferenceFormat1Boxed<br>
@@ -52,7 +52,7 @@ data class that stores validated null payloads, sealed permits implementation
 data class UriReferenceFormat1BoxedBoolean<br>
 implements [UriReferenceFormat1Boxed](#urireferenceformat1boxed)
 
-record that stores validated boolean payloads, sealed permits implementation
+data class that stores validated boolean payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |

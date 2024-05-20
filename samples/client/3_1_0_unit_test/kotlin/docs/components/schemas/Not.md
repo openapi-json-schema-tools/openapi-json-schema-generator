@@ -11,16 +11,16 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | sealed interface | [Not.Not1Boxed](#not1boxed)<br> sealed interface for validated payloads |
-| record | [Not.Not1BoxedVoid](#not1boxedvoid)<br> boxed class to store validated null payloads |
-| record | [Not.Not1BoxedBoolean](#not1boxedboolean)<br> boxed class to store validated boolean payloads |
-| record | [Not.Not1BoxedNumber](#not1boxednumber)<br> boxed class to store validated Number payloads |
-| record | [Not.Not1BoxedString](#not1boxedstring)<br> boxed class to store validated String payloads |
-| record | [Not.Not1BoxedList](#not1boxedlist)<br> boxed class to store validated List payloads |
-| record | [Not.Not1BoxedMap](#not1boxedmap)<br> boxed class to store validated Map payloads |
-| static class | [Not.Not1](#not1)<br> schema class |
+| data class | [Not.Not1BoxedVoid](#not1boxedvoid)<br> boxed class to store validated null payloads |
+| data class | [Not.Not1BoxedBoolean](#not1boxedboolean)<br> boxed class to store validated boolean payloads |
+| data class | [Not.Not1BoxedNumber](#not1boxednumber)<br> boxed class to store validated Number payloads |
+| data class | [Not.Not1BoxedString](#not1boxedstring)<br> boxed class to store validated String payloads |
+| data class | [Not.Not1BoxedList](#not1boxedlist)<br> boxed class to store validated List payloads |
+| data class | [Not.Not1BoxedMap](#not1boxedmap)<br> boxed class to store validated Map payloads |
+| class | [Not.Not1](#not1)<br> schema class |
 | sealed interface | [Not.Not2Boxed](#not2boxed)<br> sealed interface for validated payloads |
-| record | [Not.Not2BoxedNumber](#not2boxednumber)<br> boxed class to store validated Number payloads |
-| static class | [Not.Not2](#not2)<br> schema class |
+| data class | [Not.Not2BoxedNumber](#not2boxednumber)<br> boxed class to store validated Number payloads |
+| class | [Not.Not2](#not2)<br> schema class |
 
 ## Not1Boxed
 sealed interface Not1Boxed<br>
@@ -55,7 +55,7 @@ data class that stores validated null payloads, sealed permits implementation
 data class Not1BoxedBoolean<br>
 implements [Not1Boxed](#not1boxed)
 
-record that stores validated boolean payloads, sealed permits implementation
+data class that stores validated boolean payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |

@@ -13,28 +13,28 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | sealed interface | [NestedItems.NestedItems1Boxed](#nesteditems1boxed)<br> sealed interface for validated payloads |
-| record | [NestedItems.NestedItems1BoxedList](#nesteditems1boxedlist)<br> boxed class to store validated List payloads |
-| static class | [NestedItems.NestedItems1](#nesteditems1)<br> schema class |
-| static class | [NestedItems.NestedItemsListBuilder](#nesteditemslistbuilder)<br> builder for List payloads |
-| static class | [NestedItems.NestedItemsList](#nesteditemslist)<br> output class for List payloads |
+| data class | [NestedItems.NestedItems1BoxedList](#nesteditems1boxedlist)<br> boxed class to store validated List payloads |
+| class | [NestedItems.NestedItems1](#nesteditems1)<br> schema class |
+| class | [NestedItems.NestedItemsListBuilder](#nesteditemslistbuilder)<br> builder for List payloads |
+| class | [NestedItems.NestedItemsList](#nesteditemslist)<br> output class for List payloads |
 | sealed interface | [NestedItems.ItemsBoxed](#itemsboxed)<br> sealed interface for validated payloads |
-| record | [NestedItems.ItemsBoxedList](#itemsboxedlist)<br> boxed class to store validated List payloads |
-| static class | [NestedItems.Items](#items)<br> schema class |
-| static class | [NestedItems.ItemsListBuilder2](#itemslistbuilder2)<br> builder for List payloads |
-| static class | [NestedItems.ItemsList2](#itemslist2)<br> output class for List payloads |
+| data class | [NestedItems.ItemsBoxedList](#itemsboxedlist)<br> boxed class to store validated List payloads |
+| class | [NestedItems.Items](#items)<br> schema class |
+| class | [NestedItems.ItemsListBuilder2](#itemslistbuilder2)<br> builder for List payloads |
+| class | [NestedItems.ItemsList2](#itemslist2)<br> output class for List payloads |
 | sealed interface | [NestedItems.Items1Boxed](#items1boxed)<br> sealed interface for validated payloads |
-| record | [NestedItems.Items1BoxedList](#items1boxedlist)<br> boxed class to store validated List payloads |
-| static class | [NestedItems.Items1](#items1)<br> schema class |
-| static class | [NestedItems.ItemsListBuilder1](#itemslistbuilder1)<br> builder for List payloads |
-| static class | [NestedItems.ItemsList1](#itemslist1)<br> output class for List payloads |
+| data class | [NestedItems.Items1BoxedList](#items1boxedlist)<br> boxed class to store validated List payloads |
+| class | [NestedItems.Items1](#items1)<br> schema class |
+| class | [NestedItems.ItemsListBuilder1](#itemslistbuilder1)<br> builder for List payloads |
+| class | [NestedItems.ItemsList1](#itemslist1)<br> output class for List payloads |
 | sealed interface | [NestedItems.Items2Boxed](#items2boxed)<br> sealed interface for validated payloads |
-| record | [NestedItems.Items2BoxedList](#items2boxedlist)<br> boxed class to store validated List payloads |
-| static class | [NestedItems.Items2](#items2)<br> schema class |
-| static class | [NestedItems.ItemsListBuilder](#itemslistbuilder)<br> builder for List payloads |
-| static class | [NestedItems.ItemsList](#itemslist)<br> output class for List payloads |
+| data class | [NestedItems.Items2BoxedList](#items2boxedlist)<br> boxed class to store validated List payloads |
+| class | [NestedItems.Items2](#items2)<br> schema class |
+| class | [NestedItems.ItemsListBuilder](#itemslistbuilder)<br> builder for List payloads |
+| class | [NestedItems.ItemsList](#itemslist)<br> output class for List payloads |
 | sealed interface | [NestedItems.Items3Boxed](#items3boxed)<br> sealed interface for validated payloads |
-| record | [NestedItems.Items3BoxedNumber](#items3boxednumber)<br> boxed class to store validated Number payloads |
-| static class | [NestedItems.Items3](#items3)<br> schema class |
+| data class | [NestedItems.Items3BoxedNumber](#items3boxednumber)<br> boxed class to store validated Number payloads |
+| class | [NestedItems.Items3](#items3)<br> schema class |
 
 ## NestedItems1Boxed
 sealed interface NestedItems1Boxed<br>

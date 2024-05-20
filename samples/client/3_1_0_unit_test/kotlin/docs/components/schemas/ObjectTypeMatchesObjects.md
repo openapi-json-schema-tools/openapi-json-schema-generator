@@ -11,8 +11,8 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | sealed interface | [ObjectTypeMatchesObjects.ObjectTypeMatchesObjects1Boxed](#objecttypematchesobjects1boxed)<br> sealed interface for validated payloads |
-| record | [ObjectTypeMatchesObjects.ObjectTypeMatchesObjects1BoxedMap](#objecttypematchesobjects1boxedmap)<br> boxed class to store validated Map payloads |
-| static class | [ObjectTypeMatchesObjects.ObjectTypeMatchesObjects1](#objecttypematchesobjects1)<br> schema class |
+| data class | [ObjectTypeMatchesObjects.ObjectTypeMatchesObjects1BoxedMap](#objecttypematchesobjects1boxedmap)<br> boxed class to store validated Map payloads |
+| class | [ObjectTypeMatchesObjects.ObjectTypeMatchesObjects1](#objecttypematchesobjects1)<br> schema class |
 
 ## ObjectTypeMatchesObjects1Boxed
 sealed interface ObjectTypeMatchesObjects1Boxed<br>

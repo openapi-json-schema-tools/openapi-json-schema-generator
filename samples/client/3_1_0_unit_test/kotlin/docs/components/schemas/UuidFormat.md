@@ -11,13 +11,13 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | sealed interface | [UuidFormat.UuidFormat1Boxed](#uuidformat1boxed)<br> sealed interface for validated payloads |
-| record | [UuidFormat.UuidFormat1BoxedVoid](#uuidformat1boxedvoid)<br> boxed class to store validated null payloads |
-| record | [UuidFormat.UuidFormat1BoxedBoolean](#uuidformat1boxedboolean)<br> boxed class to store validated boolean payloads |
-| record | [UuidFormat.UuidFormat1BoxedNumber](#uuidformat1boxednumber)<br> boxed class to store validated Number payloads |
-| record | [UuidFormat.UuidFormat1BoxedString](#uuidformat1boxedstring)<br> boxed class to store validated String payloads |
-| record | [UuidFormat.UuidFormat1BoxedList](#uuidformat1boxedlist)<br> boxed class to store validated List payloads |
-| record | [UuidFormat.UuidFormat1BoxedMap](#uuidformat1boxedmap)<br> boxed class to store validated Map payloads |
-| static class | [UuidFormat.UuidFormat1](#uuidformat1)<br> schema class |
+| data class | [UuidFormat.UuidFormat1BoxedVoid](#uuidformat1boxedvoid)<br> boxed class to store validated null payloads |
+| data class | [UuidFormat.UuidFormat1BoxedBoolean](#uuidformat1boxedboolean)<br> boxed class to store validated boolean payloads |
+| data class | [UuidFormat.UuidFormat1BoxedNumber](#uuidformat1boxednumber)<br> boxed class to store validated Number payloads |
+| data class | [UuidFormat.UuidFormat1BoxedString](#uuidformat1boxedstring)<br> boxed class to store validated String payloads |
+| data class | [UuidFormat.UuidFormat1BoxedList](#uuidformat1boxedlist)<br> boxed class to store validated List payloads |
+| data class | [UuidFormat.UuidFormat1BoxedMap](#uuidformat1boxedmap)<br> boxed class to store validated Map payloads |
+| class | [UuidFormat.UuidFormat1](#uuidformat1)<br> schema class |
 
 ## UuidFormat1Boxed
 sealed interface UuidFormat1Boxed<br>
@@ -52,7 +52,7 @@ data class that stores validated null payloads, sealed permits implementation
 data class UuidFormat1BoxedBoolean<br>
 implements [UuidFormat1Boxed](#uuidformat1boxed)
 
-record that stores validated boolean payloads, sealed permits implementation
+data class that stores validated boolean payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |

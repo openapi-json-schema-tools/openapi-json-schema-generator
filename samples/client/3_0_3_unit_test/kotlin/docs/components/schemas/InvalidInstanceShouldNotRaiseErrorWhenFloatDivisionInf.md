@@ -11,8 +11,8 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | sealed interface | [InvalidInstanceShouldNotRaiseErrorWhenFloatDivisionInf.InvalidInstanceShouldNotRaiseErrorWhenFloatDivisionInf1Boxed](#invalidinstanceshouldnotraiseerrorwhenfloatdivisioninf1boxed)<br> sealed interface for validated payloads |
-| record | [InvalidInstanceShouldNotRaiseErrorWhenFloatDivisionInf.InvalidInstanceShouldNotRaiseErrorWhenFloatDivisionInf1BoxedNumber](#invalidinstanceshouldnotraiseerrorwhenfloatdivisioninf1boxednumber)<br> boxed class to store validated Number payloads |
-| static class | [InvalidInstanceShouldNotRaiseErrorWhenFloatDivisionInf.InvalidInstanceShouldNotRaiseErrorWhenFloatDivisionInf1](#invalidinstanceshouldnotraiseerrorwhenfloatdivisioninf1)<br> schema class |
+| data class | [InvalidInstanceShouldNotRaiseErrorWhenFloatDivisionInf.InvalidInstanceShouldNotRaiseErrorWhenFloatDivisionInf1BoxedNumber](#invalidinstanceshouldnotraiseerrorwhenfloatdivisioninf1boxednumber)<br> boxed class to store validated Number payloads |
+| class | [InvalidInstanceShouldNotRaiseErrorWhenFloatDivisionInf.InvalidInstanceShouldNotRaiseErrorWhenFloatDivisionInf1](#invalidinstanceshouldnotraiseerrorwhenfloatdivisioninf1)<br> schema class |
 
 ## InvalidInstanceShouldNotRaiseErrorWhenFloatDivisionInf1Boxed
 sealed interface InvalidInstanceShouldNotRaiseErrorWhenFloatDivisionInf1Boxed<br>

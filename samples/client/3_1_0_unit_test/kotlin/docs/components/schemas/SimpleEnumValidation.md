@@ -12,8 +12,8 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | sealed interface | [SimpleEnumValidation.SimpleEnumValidation1Boxed](#simpleenumvalidation1boxed)<br> sealed interface for validated payloads |
-| record | [SimpleEnumValidation.SimpleEnumValidation1BoxedNumber](#simpleenumvalidation1boxednumber)<br> boxed class to store validated Number payloads |
-| static class | [SimpleEnumValidation.SimpleEnumValidation1](#simpleenumvalidation1)<br> schema class |
+| data class | [SimpleEnumValidation.SimpleEnumValidation1BoxedNumber](#simpleenumvalidation1boxednumber)<br> boxed class to store validated Number payloads |
+| class | [SimpleEnumValidation.SimpleEnumValidation1](#simpleenumvalidation1)<br> schema class |
 | enum | [SimpleEnumValidation.IntegerSimpleEnumValidationEnums](#integersimpleenumvalidationenums)<br>Integer enum |
 | enum | [SimpleEnumValidation.LongSimpleEnumValidationEnums](#longsimpleenumvalidationenums)<br>Long enum |
 | enum | [SimpleEnumValidation.FloatSimpleEnumValidationEnums](#floatsimpleenumvalidationenums)<br>Float enum |

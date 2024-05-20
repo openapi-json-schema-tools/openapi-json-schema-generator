@@ -12,8 +12,8 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | sealed interface | [EnumWithFalseDoesNotMatch0.EnumWithFalseDoesNotMatch01Boxed](#enumwithfalsedoesnotmatch01boxed)<br> sealed interface for validated payloads |
-| record | [EnumWithFalseDoesNotMatch0.EnumWithFalseDoesNotMatch01BoxedBoolean](#enumwithfalsedoesnotmatch01boxedboolean)<br> boxed class to store validated boolean payloads |
-| static class | [EnumWithFalseDoesNotMatch0.EnumWithFalseDoesNotMatch01](#enumwithfalsedoesnotmatch01)<br> schema class |
+| data class | [EnumWithFalseDoesNotMatch0.EnumWithFalseDoesNotMatch01BoxedBoolean](#enumwithfalsedoesnotmatch01boxedboolean)<br> boxed class to store validated boolean payloads |
+| class | [EnumWithFalseDoesNotMatch0.EnumWithFalseDoesNotMatch01](#enumwithfalsedoesnotmatch01)<br> schema class |
 | enum | [EnumWithFalseDoesNotMatch0.BooleanEnumWithFalseDoesNotMatch0Enums](#booleanenumwithfalsedoesnotmatch0enums)<br>boolean enum |
 
 ## EnumWithFalseDoesNotMatch01Boxed
@@ -27,7 +27,7 @@ sealed interface that stores validated payloads using boxed classes
 data class EnumWithFalseDoesNotMatch01BoxedBoolean<br>
 implements [EnumWithFalseDoesNotMatch01Boxed](#enumwithfalsedoesnotmatch01boxed)
 
-record that stores validated boolean payloads, sealed permits implementation
+data class that stores validated boolean payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |

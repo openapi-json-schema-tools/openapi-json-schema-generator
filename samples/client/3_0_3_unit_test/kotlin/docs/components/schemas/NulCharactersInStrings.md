@@ -12,8 +12,8 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | sealed interface | [NulCharactersInStrings.NulCharactersInStrings1Boxed](#nulcharactersinstrings1boxed)<br> sealed interface for validated payloads |
-| record | [NulCharactersInStrings.NulCharactersInStrings1BoxedString](#nulcharactersinstrings1boxedstring)<br> boxed class to store validated String payloads |
-| static class | [NulCharactersInStrings.NulCharactersInStrings1](#nulcharactersinstrings1)<br> schema class |
+| data class | [NulCharactersInStrings.NulCharactersInStrings1BoxedString](#nulcharactersinstrings1boxedstring)<br> boxed class to store validated String payloads |
+| class | [NulCharactersInStrings.NulCharactersInStrings1](#nulcharactersinstrings1)<br> schema class |
 | enum | [NulCharactersInStrings.StringNulCharactersInStringsEnums](#stringnulcharactersinstringsenums)<br>String enum |
 
 ## NulCharactersInStrings1Boxed

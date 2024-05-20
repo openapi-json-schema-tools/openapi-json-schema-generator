@@ -11,13 +11,13 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | sealed interface | [MincontainsWithoutContainsIsIgnored.MincontainsWithoutContainsIsIgnored1Boxed](#mincontainswithoutcontainsisignored1boxed)<br> sealed interface for validated payloads |
-| record | [MincontainsWithoutContainsIsIgnored.MincontainsWithoutContainsIsIgnored1BoxedVoid](#mincontainswithoutcontainsisignored1boxedvoid)<br> boxed class to store validated null payloads |
-| record | [MincontainsWithoutContainsIsIgnored.MincontainsWithoutContainsIsIgnored1BoxedBoolean](#mincontainswithoutcontainsisignored1boxedboolean)<br> boxed class to store validated boolean payloads |
-| record | [MincontainsWithoutContainsIsIgnored.MincontainsWithoutContainsIsIgnored1BoxedNumber](#mincontainswithoutcontainsisignored1boxednumber)<br> boxed class to store validated Number payloads |
-| record | [MincontainsWithoutContainsIsIgnored.MincontainsWithoutContainsIsIgnored1BoxedString](#mincontainswithoutcontainsisignored1boxedstring)<br> boxed class to store validated String payloads |
-| record | [MincontainsWithoutContainsIsIgnored.MincontainsWithoutContainsIsIgnored1BoxedList](#mincontainswithoutcontainsisignored1boxedlist)<br> boxed class to store validated List payloads |
-| record | [MincontainsWithoutContainsIsIgnored.MincontainsWithoutContainsIsIgnored1BoxedMap](#mincontainswithoutcontainsisignored1boxedmap)<br> boxed class to store validated Map payloads |
-| static class | [MincontainsWithoutContainsIsIgnored.MincontainsWithoutContainsIsIgnored1](#mincontainswithoutcontainsisignored1)<br> schema class |
+| data class | [MincontainsWithoutContainsIsIgnored.MincontainsWithoutContainsIsIgnored1BoxedVoid](#mincontainswithoutcontainsisignored1boxedvoid)<br> boxed class to store validated null payloads |
+| data class | [MincontainsWithoutContainsIsIgnored.MincontainsWithoutContainsIsIgnored1BoxedBoolean](#mincontainswithoutcontainsisignored1boxedboolean)<br> boxed class to store validated boolean payloads |
+| data class | [MincontainsWithoutContainsIsIgnored.MincontainsWithoutContainsIsIgnored1BoxedNumber](#mincontainswithoutcontainsisignored1boxednumber)<br> boxed class to store validated Number payloads |
+| data class | [MincontainsWithoutContainsIsIgnored.MincontainsWithoutContainsIsIgnored1BoxedString](#mincontainswithoutcontainsisignored1boxedstring)<br> boxed class to store validated String payloads |
+| data class | [MincontainsWithoutContainsIsIgnored.MincontainsWithoutContainsIsIgnored1BoxedList](#mincontainswithoutcontainsisignored1boxedlist)<br> boxed class to store validated List payloads |
+| data class | [MincontainsWithoutContainsIsIgnored.MincontainsWithoutContainsIsIgnored1BoxedMap](#mincontainswithoutcontainsisignored1boxedmap)<br> boxed class to store validated Map payloads |
+| class | [MincontainsWithoutContainsIsIgnored.MincontainsWithoutContainsIsIgnored1](#mincontainswithoutcontainsisignored1)<br> schema class |
 
 ## MincontainsWithoutContainsIsIgnored1Boxed
 sealed interface MincontainsWithoutContainsIsIgnored1Boxed<br>
@@ -52,7 +52,7 @@ data class that stores validated null payloads, sealed permits implementation
 data class MincontainsWithoutContainsIsIgnored1BoxedBoolean<br>
 implements [MincontainsWithoutContainsIsIgnored1Boxed](#mincontainswithoutcontainsisignored1boxed)
 
-record that stores validated boolean payloads, sealed permits implementation
+data class that stores validated boolean payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |

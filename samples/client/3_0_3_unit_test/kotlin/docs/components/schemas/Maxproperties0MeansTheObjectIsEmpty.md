@@ -11,13 +11,13 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | sealed interface | [Maxproperties0MeansTheObjectIsEmpty.Maxproperties0MeansTheObjectIsEmpty1Boxed](#maxproperties0meanstheobjectisempty1boxed)<br> sealed interface for validated payloads |
-| record | [Maxproperties0MeansTheObjectIsEmpty.Maxproperties0MeansTheObjectIsEmpty1BoxedVoid](#maxproperties0meanstheobjectisempty1boxedvoid)<br> boxed class to store validated null payloads |
-| record | [Maxproperties0MeansTheObjectIsEmpty.Maxproperties0MeansTheObjectIsEmpty1BoxedBoolean](#maxproperties0meanstheobjectisempty1boxedboolean)<br> boxed class to store validated boolean payloads |
-| record | [Maxproperties0MeansTheObjectIsEmpty.Maxproperties0MeansTheObjectIsEmpty1BoxedNumber](#maxproperties0meanstheobjectisempty1boxednumber)<br> boxed class to store validated Number payloads |
-| record | [Maxproperties0MeansTheObjectIsEmpty.Maxproperties0MeansTheObjectIsEmpty1BoxedString](#maxproperties0meanstheobjectisempty1boxedstring)<br> boxed class to store validated String payloads |
-| record | [Maxproperties0MeansTheObjectIsEmpty.Maxproperties0MeansTheObjectIsEmpty1BoxedList](#maxproperties0meanstheobjectisempty1boxedlist)<br> boxed class to store validated List payloads |
-| record | [Maxproperties0MeansTheObjectIsEmpty.Maxproperties0MeansTheObjectIsEmpty1BoxedMap](#maxproperties0meanstheobjectisempty1boxedmap)<br> boxed class to store validated Map payloads |
-| static class | [Maxproperties0MeansTheObjectIsEmpty.Maxproperties0MeansTheObjectIsEmpty1](#maxproperties0meanstheobjectisempty1)<br> schema class |
+| data class | [Maxproperties0MeansTheObjectIsEmpty.Maxproperties0MeansTheObjectIsEmpty1BoxedVoid](#maxproperties0meanstheobjectisempty1boxedvoid)<br> boxed class to store validated null payloads |
+| data class | [Maxproperties0MeansTheObjectIsEmpty.Maxproperties0MeansTheObjectIsEmpty1BoxedBoolean](#maxproperties0meanstheobjectisempty1boxedboolean)<br> boxed class to store validated boolean payloads |
+| data class | [Maxproperties0MeansTheObjectIsEmpty.Maxproperties0MeansTheObjectIsEmpty1BoxedNumber](#maxproperties0meanstheobjectisempty1boxednumber)<br> boxed class to store validated Number payloads |
+| data class | [Maxproperties0MeansTheObjectIsEmpty.Maxproperties0MeansTheObjectIsEmpty1BoxedString](#maxproperties0meanstheobjectisempty1boxedstring)<br> boxed class to store validated String payloads |
+| data class | [Maxproperties0MeansTheObjectIsEmpty.Maxproperties0MeansTheObjectIsEmpty1BoxedList](#maxproperties0meanstheobjectisempty1boxedlist)<br> boxed class to store validated List payloads |
+| data class | [Maxproperties0MeansTheObjectIsEmpty.Maxproperties0MeansTheObjectIsEmpty1BoxedMap](#maxproperties0meanstheobjectisempty1boxedmap)<br> boxed class to store validated Map payloads |
+| class | [Maxproperties0MeansTheObjectIsEmpty.Maxproperties0MeansTheObjectIsEmpty1](#maxproperties0meanstheobjectisempty1)<br> schema class |
 
 ## Maxproperties0MeansTheObjectIsEmpty1Boxed
 sealed interface Maxproperties0MeansTheObjectIsEmpty1Boxed<br>
@@ -52,7 +52,7 @@ data class that stores validated null payloads, sealed permits implementation
 data class Maxproperties0MeansTheObjectIsEmpty1BoxedBoolean<br>
 implements [Maxproperties0MeansTheObjectIsEmpty1Boxed](#maxproperties0meanstheobjectisempty1boxed)
 
-record that stores validated boolean payloads, sealed permits implementation
+data class that stores validated boolean payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |

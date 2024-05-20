@@ -13,13 +13,13 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | sealed interface | [ItemsWithNullInstanceElements.ItemsWithNullInstanceElements1Boxed](#itemswithnullinstanceelements1boxed)<br> sealed interface for validated payloads |
-| record | [ItemsWithNullInstanceElements.ItemsWithNullInstanceElements1BoxedList](#itemswithnullinstanceelements1boxedlist)<br> boxed class to store validated List payloads |
-| static class | [ItemsWithNullInstanceElements.ItemsWithNullInstanceElements1](#itemswithnullinstanceelements1)<br> schema class |
-| static class | [ItemsWithNullInstanceElements.ItemsWithNullInstanceElementsListBuilder](#itemswithnullinstanceelementslistbuilder)<br> builder for List payloads |
-| static class | [ItemsWithNullInstanceElements.ItemsWithNullInstanceElementsList](#itemswithnullinstanceelementslist)<br> output class for List payloads |
+| data class | [ItemsWithNullInstanceElements.ItemsWithNullInstanceElements1BoxedList](#itemswithnullinstanceelements1boxedlist)<br> boxed class to store validated List payloads |
+| class | [ItemsWithNullInstanceElements.ItemsWithNullInstanceElements1](#itemswithnullinstanceelements1)<br> schema class |
+| class | [ItemsWithNullInstanceElements.ItemsWithNullInstanceElementsListBuilder](#itemswithnullinstanceelementslistbuilder)<br> builder for List payloads |
+| class | [ItemsWithNullInstanceElements.ItemsWithNullInstanceElementsList](#itemswithnullinstanceelementslist)<br> output class for List payloads |
 | sealed interface | [ItemsWithNullInstanceElements.ItemsBoxed](#itemsboxed)<br> sealed interface for validated payloads |
-| record | [ItemsWithNullInstanceElements.ItemsBoxedVoid](#itemsboxedvoid)<br> boxed class to store validated null payloads |
-| static class | [ItemsWithNullInstanceElements.Items](#items)<br> schema class |
+| data class | [ItemsWithNullInstanceElements.ItemsBoxedVoid](#itemsboxedvoid)<br> boxed class to store validated null payloads |
+| class | [ItemsWithNullInstanceElements.Items](#items)<br> schema class |
 
 ## ItemsWithNullInstanceElements1Boxed
 sealed interface ItemsWithNullInstanceElements1Boxed<br>

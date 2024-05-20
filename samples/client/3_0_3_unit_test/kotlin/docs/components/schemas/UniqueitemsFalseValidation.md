@@ -11,13 +11,13 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | sealed interface | [UniqueitemsFalseValidation.UniqueitemsFalseValidation1Boxed](#uniqueitemsfalsevalidation1boxed)<br> sealed interface for validated payloads |
-| record | [UniqueitemsFalseValidation.UniqueitemsFalseValidation1BoxedVoid](#uniqueitemsfalsevalidation1boxedvoid)<br> boxed class to store validated null payloads |
-| record | [UniqueitemsFalseValidation.UniqueitemsFalseValidation1BoxedBoolean](#uniqueitemsfalsevalidation1boxedboolean)<br> boxed class to store validated boolean payloads |
-| record | [UniqueitemsFalseValidation.UniqueitemsFalseValidation1BoxedNumber](#uniqueitemsfalsevalidation1boxednumber)<br> boxed class to store validated Number payloads |
-| record | [UniqueitemsFalseValidation.UniqueitemsFalseValidation1BoxedString](#uniqueitemsfalsevalidation1boxedstring)<br> boxed class to store validated String payloads |
-| record | [UniqueitemsFalseValidation.UniqueitemsFalseValidation1BoxedList](#uniqueitemsfalsevalidation1boxedlist)<br> boxed class to store validated List payloads |
-| record | [UniqueitemsFalseValidation.UniqueitemsFalseValidation1BoxedMap](#uniqueitemsfalsevalidation1boxedmap)<br> boxed class to store validated Map payloads |
-| static class | [UniqueitemsFalseValidation.UniqueitemsFalseValidation1](#uniqueitemsfalsevalidation1)<br> schema class |
+| data class | [UniqueitemsFalseValidation.UniqueitemsFalseValidation1BoxedVoid](#uniqueitemsfalsevalidation1boxedvoid)<br> boxed class to store validated null payloads |
+| data class | [UniqueitemsFalseValidation.UniqueitemsFalseValidation1BoxedBoolean](#uniqueitemsfalsevalidation1boxedboolean)<br> boxed class to store validated boolean payloads |
+| data class | [UniqueitemsFalseValidation.UniqueitemsFalseValidation1BoxedNumber](#uniqueitemsfalsevalidation1boxednumber)<br> boxed class to store validated Number payloads |
+| data class | [UniqueitemsFalseValidation.UniqueitemsFalseValidation1BoxedString](#uniqueitemsfalsevalidation1boxedstring)<br> boxed class to store validated String payloads |
+| data class | [UniqueitemsFalseValidation.UniqueitemsFalseValidation1BoxedList](#uniqueitemsfalsevalidation1boxedlist)<br> boxed class to store validated List payloads |
+| data class | [UniqueitemsFalseValidation.UniqueitemsFalseValidation1BoxedMap](#uniqueitemsfalsevalidation1boxedmap)<br> boxed class to store validated Map payloads |
+| class | [UniqueitemsFalseValidation.UniqueitemsFalseValidation1](#uniqueitemsfalsevalidation1)<br> schema class |
 
 ## UniqueitemsFalseValidation1Boxed
 sealed interface UniqueitemsFalseValidation1Boxed<br>
@@ -52,7 +52,7 @@ data class that stores validated null payloads, sealed permits implementation
 data class UniqueitemsFalseValidation1BoxedBoolean<br>
 implements [UniqueitemsFalseValidation1Boxed](#uniqueitemsfalsevalidation1boxed)
 
-record that stores validated boolean payloads, sealed permits implementation
+data class that stores validated boolean payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |

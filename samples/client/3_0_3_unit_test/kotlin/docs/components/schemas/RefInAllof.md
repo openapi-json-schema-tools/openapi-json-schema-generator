@@ -11,13 +11,13 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | sealed interface | [RefInAllof.RefInAllof1Boxed](#refinallof1boxed)<br> sealed interface for validated payloads |
-| record | [RefInAllof.RefInAllof1BoxedVoid](#refinallof1boxedvoid)<br> boxed class to store validated null payloads |
-| record | [RefInAllof.RefInAllof1BoxedBoolean](#refinallof1boxedboolean)<br> boxed class to store validated boolean payloads |
-| record | [RefInAllof.RefInAllof1BoxedNumber](#refinallof1boxednumber)<br> boxed class to store validated Number payloads |
-| record | [RefInAllof.RefInAllof1BoxedString](#refinallof1boxedstring)<br> boxed class to store validated String payloads |
-| record | [RefInAllof.RefInAllof1BoxedList](#refinallof1boxedlist)<br> boxed class to store validated List payloads |
-| record | [RefInAllof.RefInAllof1BoxedMap](#refinallof1boxedmap)<br> boxed class to store validated Map payloads |
-| static class | [RefInAllof.RefInAllof1](#refinallof1)<br> schema class |
+| data class | [RefInAllof.RefInAllof1BoxedVoid](#refinallof1boxedvoid)<br> boxed class to store validated null payloads |
+| data class | [RefInAllof.RefInAllof1BoxedBoolean](#refinallof1boxedboolean)<br> boxed class to store validated boolean payloads |
+| data class | [RefInAllof.RefInAllof1BoxedNumber](#refinallof1boxednumber)<br> boxed class to store validated Number payloads |
+| data class | [RefInAllof.RefInAllof1BoxedString](#refinallof1boxedstring)<br> boxed class to store validated String payloads |
+| data class | [RefInAllof.RefInAllof1BoxedList](#refinallof1boxedlist)<br> boxed class to store validated List payloads |
+| data class | [RefInAllof.RefInAllof1BoxedMap](#refinallof1boxedmap)<br> boxed class to store validated Map payloads |
+| class | [RefInAllof.RefInAllof1](#refinallof1)<br> schema class |
 
 ## RefInAllof1Boxed
 sealed interface RefInAllof1Boxed<br>
@@ -52,7 +52,7 @@ data class that stores validated null payloads, sealed permits implementation
 data class RefInAllof1BoxedBoolean<br>
 implements [RefInAllof1Boxed](#refinallof1boxed)
 
-record that stores validated boolean payloads, sealed permits implementation
+data class that stores validated boolean payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |

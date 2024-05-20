@@ -13,13 +13,13 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | sealed interface | [TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissing.TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissing1Boxed](#thedefaultkeyworddoesnotdoanythingifthepropertyismissing1boxed)<br> sealed interface for validated payloads |
-| record | [TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissing.TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissing1BoxedMap](#thedefaultkeyworddoesnotdoanythingifthepropertyismissing1boxedmap)<br> boxed class to store validated Map payloads |
-| static class | [TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissing.TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissing1](#thedefaultkeyworddoesnotdoanythingifthepropertyismissing1)<br> schema class |
-| static class | [TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissing.TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissingMapBuilder](#thedefaultkeyworddoesnotdoanythingifthepropertyismissingmapbuilder)<br> builder for Map payloads |
-| static class | [TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissing.TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissingMap](#thedefaultkeyworddoesnotdoanythingifthepropertyismissingmap)<br> output class for Map payloads |
+| data class | [TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissing.TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissing1BoxedMap](#thedefaultkeyworddoesnotdoanythingifthepropertyismissing1boxedmap)<br> boxed class to store validated Map payloads |
+| class | [TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissing.TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissing1](#thedefaultkeyworddoesnotdoanythingifthepropertyismissing1)<br> schema class |
+| class | [TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissing.TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissingMapBuilder](#thedefaultkeyworddoesnotdoanythingifthepropertyismissingmapbuilder)<br> builder for Map payloads |
+| class | [TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissing.TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissingMap](#thedefaultkeyworddoesnotdoanythingifthepropertyismissingmap)<br> output class for Map payloads |
 | sealed interface | [TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissing.AlphaBoxed](#alphaboxed)<br> sealed interface for validated payloads |
-| record | [TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissing.AlphaBoxedNumber](#alphaboxednumber)<br> boxed class to store validated Number payloads |
-| static class | [TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissing.Alpha](#alpha)<br> schema class |
+| data class | [TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissing.AlphaBoxedNumber](#alphaboxednumber)<br> boxed class to store validated Number payloads |
+| class | [TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissing.Alpha](#alpha)<br> schema class |
 
 ## TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissing1Boxed
 sealed interface TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissing1Boxed<br>

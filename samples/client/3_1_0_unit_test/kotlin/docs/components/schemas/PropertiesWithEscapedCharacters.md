@@ -13,33 +13,33 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | sealed interface | [PropertiesWithEscapedCharacters.PropertiesWithEscapedCharacters1Boxed](#propertieswithescapedcharacters1boxed)<br> sealed interface for validated payloads |
-| record | [PropertiesWithEscapedCharacters.PropertiesWithEscapedCharacters1BoxedVoid](#propertieswithescapedcharacters1boxedvoid)<br> boxed class to store validated null payloads |
-| record | [PropertiesWithEscapedCharacters.PropertiesWithEscapedCharacters1BoxedBoolean](#propertieswithescapedcharacters1boxedboolean)<br> boxed class to store validated boolean payloads |
-| record | [PropertiesWithEscapedCharacters.PropertiesWithEscapedCharacters1BoxedNumber](#propertieswithescapedcharacters1boxednumber)<br> boxed class to store validated Number payloads |
-| record | [PropertiesWithEscapedCharacters.PropertiesWithEscapedCharacters1BoxedString](#propertieswithescapedcharacters1boxedstring)<br> boxed class to store validated String payloads |
-| record | [PropertiesWithEscapedCharacters.PropertiesWithEscapedCharacters1BoxedList](#propertieswithescapedcharacters1boxedlist)<br> boxed class to store validated List payloads |
-| record | [PropertiesWithEscapedCharacters.PropertiesWithEscapedCharacters1BoxedMap](#propertieswithescapedcharacters1boxedmap)<br> boxed class to store validated Map payloads |
-| static class | [PropertiesWithEscapedCharacters.PropertiesWithEscapedCharacters1](#propertieswithescapedcharacters1)<br> schema class |
-| static class | [PropertiesWithEscapedCharacters.PropertiesWithEscapedCharactersMapBuilder](#propertieswithescapedcharactersmapbuilder)<br> builder for Map payloads |
-| static class | [PropertiesWithEscapedCharacters.PropertiesWithEscapedCharactersMap](#propertieswithescapedcharactersmap)<br> output class for Map payloads |
+| data class | [PropertiesWithEscapedCharacters.PropertiesWithEscapedCharacters1BoxedVoid](#propertieswithescapedcharacters1boxedvoid)<br> boxed class to store validated null payloads |
+| data class | [PropertiesWithEscapedCharacters.PropertiesWithEscapedCharacters1BoxedBoolean](#propertieswithescapedcharacters1boxedboolean)<br> boxed class to store validated boolean payloads |
+| data class | [PropertiesWithEscapedCharacters.PropertiesWithEscapedCharacters1BoxedNumber](#propertieswithescapedcharacters1boxednumber)<br> boxed class to store validated Number payloads |
+| data class | [PropertiesWithEscapedCharacters.PropertiesWithEscapedCharacters1BoxedString](#propertieswithescapedcharacters1boxedstring)<br> boxed class to store validated String payloads |
+| data class | [PropertiesWithEscapedCharacters.PropertiesWithEscapedCharacters1BoxedList](#propertieswithescapedcharacters1boxedlist)<br> boxed class to store validated List payloads |
+| data class | [PropertiesWithEscapedCharacters.PropertiesWithEscapedCharacters1BoxedMap](#propertieswithescapedcharacters1boxedmap)<br> boxed class to store validated Map payloads |
+| class | [PropertiesWithEscapedCharacters.PropertiesWithEscapedCharacters1](#propertieswithescapedcharacters1)<br> schema class |
+| class | [PropertiesWithEscapedCharacters.PropertiesWithEscapedCharactersMapBuilder](#propertieswithescapedcharactersmapbuilder)<br> builder for Map payloads |
+| class | [PropertiesWithEscapedCharacters.PropertiesWithEscapedCharactersMap](#propertieswithescapedcharactersmap)<br> output class for Map payloads |
 | sealed interface | [PropertiesWithEscapedCharacters.Foou000CbarBoxed](#foou000cbarboxed)<br> sealed interface for validated payloads |
-| record | [PropertiesWithEscapedCharacters.Foou000CbarBoxedNumber](#foou000cbarboxednumber)<br> boxed class to store validated Number payloads |
-| static class | [PropertiesWithEscapedCharacters.Foou000Cbar](#foou000cbar)<br> schema class |
+| data class | [PropertiesWithEscapedCharacters.Foou000CbarBoxedNumber](#foou000cbarboxednumber)<br> boxed class to store validated Number payloads |
+| class | [PropertiesWithEscapedCharacters.Foou000Cbar](#foou000cbar)<br> schema class |
 | sealed interface | [PropertiesWithEscapedCharacters.FootbarBoxed](#footbarboxed)<br> sealed interface for validated payloads |
-| record | [PropertiesWithEscapedCharacters.FootbarBoxedNumber](#footbarboxednumber)<br> boxed class to store validated Number payloads |
-| static class | [PropertiesWithEscapedCharacters.Footbar](#footbar)<br> schema class |
+| data class | [PropertiesWithEscapedCharacters.FootbarBoxedNumber](#footbarboxednumber)<br> boxed class to store validated Number payloads |
+| class | [PropertiesWithEscapedCharacters.Footbar](#footbar)<br> schema class |
 | sealed interface | [PropertiesWithEscapedCharacters.FoorbarBoxed](#foorbarboxed)<br> sealed interface for validated payloads |
-| record | [PropertiesWithEscapedCharacters.FoorbarBoxedNumber](#foorbarboxednumber)<br> boxed class to store validated Number payloads |
-| static class | [PropertiesWithEscapedCharacters.Foorbar](#foorbar)<br> schema class |
+| data class | [PropertiesWithEscapedCharacters.FoorbarBoxedNumber](#foorbarboxednumber)<br> boxed class to store validated Number payloads |
+| class | [PropertiesWithEscapedCharacters.Foorbar](#foorbar)<br> schema class |
 | sealed interface | [PropertiesWithEscapedCharacters.Foobar1Boxed](#foobar1boxed)<br> sealed interface for validated payloads |
-| record | [PropertiesWithEscapedCharacters.Foobar1BoxedNumber](#foobar1boxednumber)<br> boxed class to store validated Number payloads |
-| static class | [PropertiesWithEscapedCharacters.Foobar1](#foobar1)<br> schema class |
+| data class | [PropertiesWithEscapedCharacters.Foobar1BoxedNumber](#foobar1boxednumber)<br> boxed class to store validated Number payloads |
+| class | [PropertiesWithEscapedCharacters.Foobar1](#foobar1)<br> schema class |
 | sealed interface | [PropertiesWithEscapedCharacters.FoobarBoxed](#foobarboxed)<br> sealed interface for validated payloads |
-| record | [PropertiesWithEscapedCharacters.FoobarBoxedNumber](#foobarboxednumber)<br> boxed class to store validated Number payloads |
-| static class | [PropertiesWithEscapedCharacters.Foobar](#foobar)<br> schema class |
+| data class | [PropertiesWithEscapedCharacters.FoobarBoxedNumber](#foobarboxednumber)<br> boxed class to store validated Number payloads |
+| class | [PropertiesWithEscapedCharacters.Foobar](#foobar)<br> schema class |
 | sealed interface | [PropertiesWithEscapedCharacters.FoonbarBoxed](#foonbarboxed)<br> sealed interface for validated payloads |
-| record | [PropertiesWithEscapedCharacters.FoonbarBoxedNumber](#foonbarboxednumber)<br> boxed class to store validated Number payloads |
-| static class | [PropertiesWithEscapedCharacters.Foonbar](#foonbar)<br> schema class |
+| data class | [PropertiesWithEscapedCharacters.FoonbarBoxedNumber](#foonbarboxednumber)<br> boxed class to store validated Number payloads |
+| class | [PropertiesWithEscapedCharacters.Foonbar](#foonbar)<br> schema class |
 
 ## PropertiesWithEscapedCharacters1Boxed
 sealed interface PropertiesWithEscapedCharacters1Boxed<br>
@@ -74,7 +74,7 @@ data class that stores validated null payloads, sealed permits implementation
 data class PropertiesWithEscapedCharacters1BoxedBoolean<br>
 implements [PropertiesWithEscapedCharacters1Boxed](#propertieswithescapedcharacters1boxed)
 
-record that stores validated boolean payloads, sealed permits implementation
+data class that stores validated boolean payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |

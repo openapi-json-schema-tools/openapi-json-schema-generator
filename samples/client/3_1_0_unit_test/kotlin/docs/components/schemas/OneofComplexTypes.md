@@ -13,39 +13,39 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | sealed interface | [OneofComplexTypes.OneofComplexTypes1Boxed](#oneofcomplextypes1boxed)<br> sealed interface for validated payloads |
-| record | [OneofComplexTypes.OneofComplexTypes1BoxedVoid](#oneofcomplextypes1boxedvoid)<br> boxed class to store validated null payloads |
-| record | [OneofComplexTypes.OneofComplexTypes1BoxedBoolean](#oneofcomplextypes1boxedboolean)<br> boxed class to store validated boolean payloads |
-| record | [OneofComplexTypes.OneofComplexTypes1BoxedNumber](#oneofcomplextypes1boxednumber)<br> boxed class to store validated Number payloads |
-| record | [OneofComplexTypes.OneofComplexTypes1BoxedString](#oneofcomplextypes1boxedstring)<br> boxed class to store validated String payloads |
-| record | [OneofComplexTypes.OneofComplexTypes1BoxedList](#oneofcomplextypes1boxedlist)<br> boxed class to store validated List payloads |
-| record | [OneofComplexTypes.OneofComplexTypes1BoxedMap](#oneofcomplextypes1boxedmap)<br> boxed class to store validated Map payloads |
-| static class | [OneofComplexTypes.OneofComplexTypes1](#oneofcomplextypes1)<br> schema class |
+| data class | [OneofComplexTypes.OneofComplexTypes1BoxedVoid](#oneofcomplextypes1boxedvoid)<br> boxed class to store validated null payloads |
+| data class | [OneofComplexTypes.OneofComplexTypes1BoxedBoolean](#oneofcomplextypes1boxedboolean)<br> boxed class to store validated boolean payloads |
+| data class | [OneofComplexTypes.OneofComplexTypes1BoxedNumber](#oneofcomplextypes1boxednumber)<br> boxed class to store validated Number payloads |
+| data class | [OneofComplexTypes.OneofComplexTypes1BoxedString](#oneofcomplextypes1boxedstring)<br> boxed class to store validated String payloads |
+| data class | [OneofComplexTypes.OneofComplexTypes1BoxedList](#oneofcomplextypes1boxedlist)<br> boxed class to store validated List payloads |
+| data class | [OneofComplexTypes.OneofComplexTypes1BoxedMap](#oneofcomplextypes1boxedmap)<br> boxed class to store validated Map payloads |
+| class | [OneofComplexTypes.OneofComplexTypes1](#oneofcomplextypes1)<br> schema class |
 | sealed interface | [OneofComplexTypes.Schema1Boxed](#schema1boxed)<br> sealed interface for validated payloads |
-| record | [OneofComplexTypes.Schema1BoxedVoid](#schema1boxedvoid)<br> boxed class to store validated null payloads |
-| record | [OneofComplexTypes.Schema1BoxedBoolean](#schema1boxedboolean)<br> boxed class to store validated boolean payloads |
-| record | [OneofComplexTypes.Schema1BoxedNumber](#schema1boxednumber)<br> boxed class to store validated Number payloads |
-| record | [OneofComplexTypes.Schema1BoxedString](#schema1boxedstring)<br> boxed class to store validated String payloads |
-| record | [OneofComplexTypes.Schema1BoxedList](#schema1boxedlist)<br> boxed class to store validated List payloads |
-| record | [OneofComplexTypes.Schema1BoxedMap](#schema1boxedmap)<br> boxed class to store validated Map payloads |
-| static class | [OneofComplexTypes.Schema1](#schema1)<br> schema class |
-| static class | [OneofComplexTypes.Schema1MapBuilder](#schema1mapbuilder)<br> builder for Map payloads |
-| static class | [OneofComplexTypes.Schema1Map](#schema1map)<br> output class for Map payloads |
+| data class | [OneofComplexTypes.Schema1BoxedVoid](#schema1boxedvoid)<br> boxed class to store validated null payloads |
+| data class | [OneofComplexTypes.Schema1BoxedBoolean](#schema1boxedboolean)<br> boxed class to store validated boolean payloads |
+| data class | [OneofComplexTypes.Schema1BoxedNumber](#schema1boxednumber)<br> boxed class to store validated Number payloads |
+| data class | [OneofComplexTypes.Schema1BoxedString](#schema1boxedstring)<br> boxed class to store validated String payloads |
+| data class | [OneofComplexTypes.Schema1BoxedList](#schema1boxedlist)<br> boxed class to store validated List payloads |
+| data class | [OneofComplexTypes.Schema1BoxedMap](#schema1boxedmap)<br> boxed class to store validated Map payloads |
+| class | [OneofComplexTypes.Schema1](#schema1)<br> schema class |
+| class | [OneofComplexTypes.Schema1MapBuilder](#schema1mapbuilder)<br> builder for Map payloads |
+| class | [OneofComplexTypes.Schema1Map](#schema1map)<br> output class for Map payloads |
 | sealed interface | [OneofComplexTypes.FooBoxed](#fooboxed)<br> sealed interface for validated payloads |
-| record | [OneofComplexTypes.FooBoxedString](#fooboxedstring)<br> boxed class to store validated String payloads |
-| static class | [OneofComplexTypes.Foo](#foo)<br> schema class |
+| data class | [OneofComplexTypes.FooBoxedString](#fooboxedstring)<br> boxed class to store validated String payloads |
+| class | [OneofComplexTypes.Foo](#foo)<br> schema class |
 | sealed interface | [OneofComplexTypes.Schema0Boxed](#schema0boxed)<br> sealed interface for validated payloads |
-| record | [OneofComplexTypes.Schema0BoxedVoid](#schema0boxedvoid)<br> boxed class to store validated null payloads |
-| record | [OneofComplexTypes.Schema0BoxedBoolean](#schema0boxedboolean)<br> boxed class to store validated boolean payloads |
-| record | [OneofComplexTypes.Schema0BoxedNumber](#schema0boxednumber)<br> boxed class to store validated Number payloads |
-| record | [OneofComplexTypes.Schema0BoxedString](#schema0boxedstring)<br> boxed class to store validated String payloads |
-| record | [OneofComplexTypes.Schema0BoxedList](#schema0boxedlist)<br> boxed class to store validated List payloads |
-| record | [OneofComplexTypes.Schema0BoxedMap](#schema0boxedmap)<br> boxed class to store validated Map payloads |
-| static class | [OneofComplexTypes.Schema0](#schema0)<br> schema class |
-| static class | [OneofComplexTypes.Schema0MapBuilder](#schema0mapbuilder)<br> builder for Map payloads |
-| static class | [OneofComplexTypes.Schema0Map](#schema0map)<br> output class for Map payloads |
+| data class | [OneofComplexTypes.Schema0BoxedVoid](#schema0boxedvoid)<br> boxed class to store validated null payloads |
+| data class | [OneofComplexTypes.Schema0BoxedBoolean](#schema0boxedboolean)<br> boxed class to store validated boolean payloads |
+| data class | [OneofComplexTypes.Schema0BoxedNumber](#schema0boxednumber)<br> boxed class to store validated Number payloads |
+| data class | [OneofComplexTypes.Schema0BoxedString](#schema0boxedstring)<br> boxed class to store validated String payloads |
+| data class | [OneofComplexTypes.Schema0BoxedList](#schema0boxedlist)<br> boxed class to store validated List payloads |
+| data class | [OneofComplexTypes.Schema0BoxedMap](#schema0boxedmap)<br> boxed class to store validated Map payloads |
+| class | [OneofComplexTypes.Schema0](#schema0)<br> schema class |
+| class | [OneofComplexTypes.Schema0MapBuilder](#schema0mapbuilder)<br> builder for Map payloads |
+| class | [OneofComplexTypes.Schema0Map](#schema0map)<br> output class for Map payloads |
 | sealed interface | [OneofComplexTypes.BarBoxed](#barboxed)<br> sealed interface for validated payloads |
-| record | [OneofComplexTypes.BarBoxedNumber](#barboxednumber)<br> boxed class to store validated Number payloads |
-| static class | [OneofComplexTypes.Bar](#bar)<br> schema class |
+| data class | [OneofComplexTypes.BarBoxedNumber](#barboxednumber)<br> boxed class to store validated Number payloads |
+| class | [OneofComplexTypes.Bar](#bar)<br> schema class |
 
 ## OneofComplexTypes1Boxed
 sealed interface OneofComplexTypes1Boxed<br>
@@ -80,7 +80,7 @@ data class that stores validated null payloads, sealed permits implementation
 data class OneofComplexTypes1BoxedBoolean<br>
 implements [OneofComplexTypes1Boxed](#oneofcomplextypes1boxed)
 
-record that stores validated boolean payloads, sealed permits implementation
+data class that stores validated boolean payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
@@ -227,7 +227,7 @@ data class that stores validated null payloads, sealed permits implementation
 data class Schema1BoxedBoolean<br>
 implements [Schema1Boxed](#schema1boxed)
 
-record that stores validated boolean payloads, sealed permits implementation
+data class that stores validated boolean payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
@@ -464,7 +464,7 @@ data class that stores validated null payloads, sealed permits implementation
 data class Schema0BoxedBoolean<br>
 implements [Schema0Boxed](#schema0boxed)
 
-record that stores validated boolean payloads, sealed permits implementation
+data class that stores validated boolean payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |

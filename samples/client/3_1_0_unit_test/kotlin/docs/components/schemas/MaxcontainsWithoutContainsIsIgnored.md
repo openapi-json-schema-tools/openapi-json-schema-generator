@@ -11,13 +11,13 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | sealed interface | [MaxcontainsWithoutContainsIsIgnored.MaxcontainsWithoutContainsIsIgnored1Boxed](#maxcontainswithoutcontainsisignored1boxed)<br> sealed interface for validated payloads |
-| record | [MaxcontainsWithoutContainsIsIgnored.MaxcontainsWithoutContainsIsIgnored1BoxedVoid](#maxcontainswithoutcontainsisignored1boxedvoid)<br> boxed class to store validated null payloads |
-| record | [MaxcontainsWithoutContainsIsIgnored.MaxcontainsWithoutContainsIsIgnored1BoxedBoolean](#maxcontainswithoutcontainsisignored1boxedboolean)<br> boxed class to store validated boolean payloads |
-| record | [MaxcontainsWithoutContainsIsIgnored.MaxcontainsWithoutContainsIsIgnored1BoxedNumber](#maxcontainswithoutcontainsisignored1boxednumber)<br> boxed class to store validated Number payloads |
-| record | [MaxcontainsWithoutContainsIsIgnored.MaxcontainsWithoutContainsIsIgnored1BoxedString](#maxcontainswithoutcontainsisignored1boxedstring)<br> boxed class to store validated String payloads |
-| record | [MaxcontainsWithoutContainsIsIgnored.MaxcontainsWithoutContainsIsIgnored1BoxedList](#maxcontainswithoutcontainsisignored1boxedlist)<br> boxed class to store validated List payloads |
-| record | [MaxcontainsWithoutContainsIsIgnored.MaxcontainsWithoutContainsIsIgnored1BoxedMap](#maxcontainswithoutcontainsisignored1boxedmap)<br> boxed class to store validated Map payloads |
-| static class | [MaxcontainsWithoutContainsIsIgnored.MaxcontainsWithoutContainsIsIgnored1](#maxcontainswithoutcontainsisignored1)<br> schema class |
+| data class | [MaxcontainsWithoutContainsIsIgnored.MaxcontainsWithoutContainsIsIgnored1BoxedVoid](#maxcontainswithoutcontainsisignored1boxedvoid)<br> boxed class to store validated null payloads |
+| data class | [MaxcontainsWithoutContainsIsIgnored.MaxcontainsWithoutContainsIsIgnored1BoxedBoolean](#maxcontainswithoutcontainsisignored1boxedboolean)<br> boxed class to store validated boolean payloads |
+| data class | [MaxcontainsWithoutContainsIsIgnored.MaxcontainsWithoutContainsIsIgnored1BoxedNumber](#maxcontainswithoutcontainsisignored1boxednumber)<br> boxed class to store validated Number payloads |
+| data class | [MaxcontainsWithoutContainsIsIgnored.MaxcontainsWithoutContainsIsIgnored1BoxedString](#maxcontainswithoutcontainsisignored1boxedstring)<br> boxed class to store validated String payloads |
+| data class | [MaxcontainsWithoutContainsIsIgnored.MaxcontainsWithoutContainsIsIgnored1BoxedList](#maxcontainswithoutcontainsisignored1boxedlist)<br> boxed class to store validated List payloads |
+| data class | [MaxcontainsWithoutContainsIsIgnored.MaxcontainsWithoutContainsIsIgnored1BoxedMap](#maxcontainswithoutcontainsisignored1boxedmap)<br> boxed class to store validated Map payloads |
+| class | [MaxcontainsWithoutContainsIsIgnored.MaxcontainsWithoutContainsIsIgnored1](#maxcontainswithoutcontainsisignored1)<br> schema class |
 
 ## MaxcontainsWithoutContainsIsIgnored1Boxed
 sealed interface MaxcontainsWithoutContainsIsIgnored1Boxed<br>
@@ -52,7 +52,7 @@ data class that stores validated null payloads, sealed permits implementation
 data class MaxcontainsWithoutContainsIsIgnored1BoxedBoolean<br>
 implements [MaxcontainsWithoutContainsIsIgnored1Boxed](#maxcontainswithoutcontainsisignored1boxed)
 
-record that stores validated boolean payloads, sealed permits implementation
+data class that stores validated boolean payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |

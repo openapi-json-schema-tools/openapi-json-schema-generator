@@ -13,15 +13,15 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | sealed interface | [RequiredWithEscapedCharacters.RequiredWithEscapedCharacters1Boxed](#requiredwithescapedcharacters1boxed)<br> sealed interface for validated payloads |
-| record | [RequiredWithEscapedCharacters.RequiredWithEscapedCharacters1BoxedVoid](#requiredwithescapedcharacters1boxedvoid)<br> boxed class to store validated null payloads |
-| record | [RequiredWithEscapedCharacters.RequiredWithEscapedCharacters1BoxedBoolean](#requiredwithescapedcharacters1boxedboolean)<br> boxed class to store validated boolean payloads |
-| record | [RequiredWithEscapedCharacters.RequiredWithEscapedCharacters1BoxedNumber](#requiredwithescapedcharacters1boxednumber)<br> boxed class to store validated Number payloads |
-| record | [RequiredWithEscapedCharacters.RequiredWithEscapedCharacters1BoxedString](#requiredwithescapedcharacters1boxedstring)<br> boxed class to store validated String payloads |
-| record | [RequiredWithEscapedCharacters.RequiredWithEscapedCharacters1BoxedList](#requiredwithescapedcharacters1boxedlist)<br> boxed class to store validated List payloads |
-| record | [RequiredWithEscapedCharacters.RequiredWithEscapedCharacters1BoxedMap](#requiredwithescapedcharacters1boxedmap)<br> boxed class to store validated Map payloads |
-| static class | [RequiredWithEscapedCharacters.RequiredWithEscapedCharacters1](#requiredwithescapedcharacters1)<br> schema class |
-| static class | [RequiredWithEscapedCharacters.RequiredWithEscapedCharactersMapBuilder](#requiredwithescapedcharactersmapbuilder)<br> builder for Map payloads |
-| static class | [RequiredWithEscapedCharacters.RequiredWithEscapedCharactersMap](#requiredwithescapedcharactersmap)<br> output class for Map payloads |
+| data class | [RequiredWithEscapedCharacters.RequiredWithEscapedCharacters1BoxedVoid](#requiredwithescapedcharacters1boxedvoid)<br> boxed class to store validated null payloads |
+| data class | [RequiredWithEscapedCharacters.RequiredWithEscapedCharacters1BoxedBoolean](#requiredwithescapedcharacters1boxedboolean)<br> boxed class to store validated boolean payloads |
+| data class | [RequiredWithEscapedCharacters.RequiredWithEscapedCharacters1BoxedNumber](#requiredwithescapedcharacters1boxednumber)<br> boxed class to store validated Number payloads |
+| data class | [RequiredWithEscapedCharacters.RequiredWithEscapedCharacters1BoxedString](#requiredwithescapedcharacters1boxedstring)<br> boxed class to store validated String payloads |
+| data class | [RequiredWithEscapedCharacters.RequiredWithEscapedCharacters1BoxedList](#requiredwithescapedcharacters1boxedlist)<br> boxed class to store validated List payloads |
+| data class | [RequiredWithEscapedCharacters.RequiredWithEscapedCharacters1BoxedMap](#requiredwithescapedcharacters1boxedmap)<br> boxed class to store validated Map payloads |
+| class | [RequiredWithEscapedCharacters.RequiredWithEscapedCharacters1](#requiredwithescapedcharacters1)<br> schema class |
+| class | [RequiredWithEscapedCharacters.RequiredWithEscapedCharactersMapBuilder](#requiredwithescapedcharactersmapbuilder)<br> builder for Map payloads |
+| class | [RequiredWithEscapedCharacters.RequiredWithEscapedCharactersMap](#requiredwithescapedcharactersmap)<br> output class for Map payloads |
 
 ## RequiredWithEscapedCharacters1Boxed
 sealed interface RequiredWithEscapedCharacters1Boxed<br>
@@ -56,7 +56,7 @@ data class that stores validated null payloads, sealed permits implementation
 data class RequiredWithEscapedCharacters1BoxedBoolean<br>
 implements [RequiredWithEscapedCharacters1Boxed](#requiredwithescapedcharacters1boxed)
 
-record that stores validated boolean payloads, sealed permits implementation
+data class that stores validated boolean payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |

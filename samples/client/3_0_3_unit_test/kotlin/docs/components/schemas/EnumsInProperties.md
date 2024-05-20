@@ -14,17 +14,17 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | sealed interface | [EnumsInProperties.EnumsInProperties1Boxed](#enumsinproperties1boxed)<br> sealed interface for validated payloads |
-| record | [EnumsInProperties.EnumsInProperties1BoxedMap](#enumsinproperties1boxedmap)<br> boxed class to store validated Map payloads |
-| static class | [EnumsInProperties.EnumsInProperties1](#enumsinproperties1)<br> schema class |
-| static class | [EnumsInProperties.EnumsInPropertiesMapBuilder](#enumsinpropertiesmapbuilder)<br> builder for Map payloads |
-| static class | [EnumsInProperties.EnumsInPropertiesMap](#enumsinpropertiesmap)<br> output class for Map payloads |
+| data class | [EnumsInProperties.EnumsInProperties1BoxedMap](#enumsinproperties1boxedmap)<br> boxed class to store validated Map payloads |
+| class | [EnumsInProperties.EnumsInProperties1](#enumsinproperties1)<br> schema class |
+| class | [EnumsInProperties.EnumsInPropertiesMapBuilder](#enumsinpropertiesmapbuilder)<br> builder for Map payloads |
+| class | [EnumsInProperties.EnumsInPropertiesMap](#enumsinpropertiesmap)<br> output class for Map payloads |
 | sealed interface | [EnumsInProperties.BarBoxed](#barboxed)<br> sealed interface for validated payloads |
-| record | [EnumsInProperties.BarBoxedString](#barboxedstring)<br> boxed class to store validated String payloads |
-| static class | [EnumsInProperties.Bar](#bar)<br> schema class |
+| data class | [EnumsInProperties.BarBoxedString](#barboxedstring)<br> boxed class to store validated String payloads |
+| class | [EnumsInProperties.Bar](#bar)<br> schema class |
 | enum | [EnumsInProperties.StringBarEnums](#stringbarenums)<br>String enum |
 | sealed interface | [EnumsInProperties.FooBoxed](#fooboxed)<br> sealed interface for validated payloads |
-| record | [EnumsInProperties.FooBoxedString](#fooboxedstring)<br> boxed class to store validated String payloads |
-| static class | [EnumsInProperties.Foo](#foo)<br> schema class |
+| data class | [EnumsInProperties.FooBoxedString](#fooboxedstring)<br> boxed class to store validated String payloads |
+| class | [EnumsInProperties.Foo](#foo)<br> schema class |
 | enum | [EnumsInProperties.StringFooEnums](#stringfooenums)<br>String enum |
 
 ## EnumsInProperties1Boxed

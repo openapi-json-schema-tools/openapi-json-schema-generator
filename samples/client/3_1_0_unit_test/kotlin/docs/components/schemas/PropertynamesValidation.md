@@ -11,16 +11,16 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | sealed interface | [PropertynamesValidation.PropertynamesValidation1Boxed](#propertynamesvalidation1boxed)<br> sealed interface for validated payloads |
-| record | [PropertynamesValidation.PropertynamesValidation1BoxedVoid](#propertynamesvalidation1boxedvoid)<br> boxed class to store validated null payloads |
-| record | [PropertynamesValidation.PropertynamesValidation1BoxedBoolean](#propertynamesvalidation1boxedboolean)<br> boxed class to store validated boolean payloads |
-| record | [PropertynamesValidation.PropertynamesValidation1BoxedNumber](#propertynamesvalidation1boxednumber)<br> boxed class to store validated Number payloads |
-| record | [PropertynamesValidation.PropertynamesValidation1BoxedString](#propertynamesvalidation1boxedstring)<br> boxed class to store validated String payloads |
-| record | [PropertynamesValidation.PropertynamesValidation1BoxedList](#propertynamesvalidation1boxedlist)<br> boxed class to store validated List payloads |
-| record | [PropertynamesValidation.PropertynamesValidation1BoxedMap](#propertynamesvalidation1boxedmap)<br> boxed class to store validated Map payloads |
-| static class | [PropertynamesValidation.PropertynamesValidation1](#propertynamesvalidation1)<br> schema class |
+| data class | [PropertynamesValidation.PropertynamesValidation1BoxedVoid](#propertynamesvalidation1boxedvoid)<br> boxed class to store validated null payloads |
+| data class | [PropertynamesValidation.PropertynamesValidation1BoxedBoolean](#propertynamesvalidation1boxedboolean)<br> boxed class to store validated boolean payloads |
+| data class | [PropertynamesValidation.PropertynamesValidation1BoxedNumber](#propertynamesvalidation1boxednumber)<br> boxed class to store validated Number payloads |
+| data class | [PropertynamesValidation.PropertynamesValidation1BoxedString](#propertynamesvalidation1boxedstring)<br> boxed class to store validated String payloads |
+| data class | [PropertynamesValidation.PropertynamesValidation1BoxedList](#propertynamesvalidation1boxedlist)<br> boxed class to store validated List payloads |
+| data class | [PropertynamesValidation.PropertynamesValidation1BoxedMap](#propertynamesvalidation1boxedmap)<br> boxed class to store validated Map payloads |
+| class | [PropertynamesValidation.PropertynamesValidation1](#propertynamesvalidation1)<br> schema class |
 | sealed interface | [PropertynamesValidation.PropertyNamesBoxed](#propertynamesboxed)<br> sealed interface for validated payloads |
-| record | [PropertynamesValidation.PropertyNamesBoxedString](#propertynamesboxedstring)<br> boxed class to store validated String payloads |
-| static class | [PropertynamesValidation.PropertyNames](#propertynames)<br> schema class |
+| data class | [PropertynamesValidation.PropertyNamesBoxedString](#propertynamesboxedstring)<br> boxed class to store validated String payloads |
+| class | [PropertynamesValidation.PropertyNames](#propertynames)<br> schema class |
 
 ## PropertynamesValidation1Boxed
 sealed interface PropertynamesValidation1Boxed<br>
@@ -55,7 +55,7 @@ data class that stores validated null payloads, sealed permits implementation
 data class PropertynamesValidation1BoxedBoolean<br>
 implements [PropertynamesValidation1Boxed](#propertynamesvalidation1boxed)
 
-record that stores validated boolean payloads, sealed permits implementation
+data class that stores validated boolean payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |

@@ -11,13 +11,13 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | sealed interface | [ByNumber.ByNumber1Boxed](#bynumber1boxed)<br> sealed interface for validated payloads |
-| record | [ByNumber.ByNumber1BoxedVoid](#bynumber1boxedvoid)<br> boxed class to store validated null payloads |
-| record | [ByNumber.ByNumber1BoxedBoolean](#bynumber1boxedboolean)<br> boxed class to store validated boolean payloads |
-| record | [ByNumber.ByNumber1BoxedNumber](#bynumber1boxednumber)<br> boxed class to store validated Number payloads |
-| record | [ByNumber.ByNumber1BoxedString](#bynumber1boxedstring)<br> boxed class to store validated String payloads |
-| record | [ByNumber.ByNumber1BoxedList](#bynumber1boxedlist)<br> boxed class to store validated List payloads |
-| record | [ByNumber.ByNumber1BoxedMap](#bynumber1boxedmap)<br> boxed class to store validated Map payloads |
-| static class | [ByNumber.ByNumber1](#bynumber1)<br> schema class |
+| data class | [ByNumber.ByNumber1BoxedVoid](#bynumber1boxedvoid)<br> boxed class to store validated null payloads |
+| data class | [ByNumber.ByNumber1BoxedBoolean](#bynumber1boxedboolean)<br> boxed class to store validated boolean payloads |
+| data class | [ByNumber.ByNumber1BoxedNumber](#bynumber1boxednumber)<br> boxed class to store validated Number payloads |
+| data class | [ByNumber.ByNumber1BoxedString](#bynumber1boxedstring)<br> boxed class to store validated String payloads |
+| data class | [ByNumber.ByNumber1BoxedList](#bynumber1boxedlist)<br> boxed class to store validated List payloads |
+| data class | [ByNumber.ByNumber1BoxedMap](#bynumber1boxedmap)<br> boxed class to store validated Map payloads |
+| class | [ByNumber.ByNumber1](#bynumber1)<br> schema class |
 
 ## ByNumber1Boxed
 sealed interface ByNumber1Boxed<br>
@@ -52,7 +52,7 @@ data class that stores validated null payloads, sealed permits implementation
 data class ByNumber1BoxedBoolean<br>
 implements [ByNumber1Boxed](#bynumber1boxed)
 
-record that stores validated boolean payloads, sealed permits implementation
+data class that stores validated boolean payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |

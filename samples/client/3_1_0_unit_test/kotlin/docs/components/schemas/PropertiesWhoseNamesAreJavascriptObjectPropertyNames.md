@@ -13,34 +13,34 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | sealed interface | [PropertiesWhoseNamesAreJavascriptObjectPropertyNames.PropertiesWhoseNamesAreJavascriptObjectPropertyNames1Boxed](#propertieswhosenamesarejavascriptobjectpropertynames1boxed)<br> sealed interface for validated payloads |
-| record | [PropertiesWhoseNamesAreJavascriptObjectPropertyNames.PropertiesWhoseNamesAreJavascriptObjectPropertyNames1BoxedVoid](#propertieswhosenamesarejavascriptobjectpropertynames1boxedvoid)<br> boxed class to store validated null payloads |
-| record | [PropertiesWhoseNamesAreJavascriptObjectPropertyNames.PropertiesWhoseNamesAreJavascriptObjectPropertyNames1BoxedBoolean](#propertieswhosenamesarejavascriptobjectpropertynames1boxedboolean)<br> boxed class to store validated boolean payloads |
-| record | [PropertiesWhoseNamesAreJavascriptObjectPropertyNames.PropertiesWhoseNamesAreJavascriptObjectPropertyNames1BoxedNumber](#propertieswhosenamesarejavascriptobjectpropertynames1boxednumber)<br> boxed class to store validated Number payloads |
-| record | [PropertiesWhoseNamesAreJavascriptObjectPropertyNames.PropertiesWhoseNamesAreJavascriptObjectPropertyNames1BoxedString](#propertieswhosenamesarejavascriptobjectpropertynames1boxedstring)<br> boxed class to store validated String payloads |
-| record | [PropertiesWhoseNamesAreJavascriptObjectPropertyNames.PropertiesWhoseNamesAreJavascriptObjectPropertyNames1BoxedList](#propertieswhosenamesarejavascriptobjectpropertynames1boxedlist)<br> boxed class to store validated List payloads |
-| record | [PropertiesWhoseNamesAreJavascriptObjectPropertyNames.PropertiesWhoseNamesAreJavascriptObjectPropertyNames1BoxedMap](#propertieswhosenamesarejavascriptobjectpropertynames1boxedmap)<br> boxed class to store validated Map payloads |
-| static class | [PropertiesWhoseNamesAreJavascriptObjectPropertyNames.PropertiesWhoseNamesAreJavascriptObjectPropertyNames1](#propertieswhosenamesarejavascriptobjectpropertynames1)<br> schema class |
-| static class | [PropertiesWhoseNamesAreJavascriptObjectPropertyNames.PropertiesWhoseNamesAreJavascriptObjectPropertyNamesMapBuilder](#propertieswhosenamesarejavascriptobjectpropertynamesmapbuilder)<br> builder for Map payloads |
-| static class | [PropertiesWhoseNamesAreJavascriptObjectPropertyNames.PropertiesWhoseNamesAreJavascriptObjectPropertyNamesMap](#propertieswhosenamesarejavascriptobjectpropertynamesmap)<br> output class for Map payloads |
+| data class | [PropertiesWhoseNamesAreJavascriptObjectPropertyNames.PropertiesWhoseNamesAreJavascriptObjectPropertyNames1BoxedVoid](#propertieswhosenamesarejavascriptobjectpropertynames1boxedvoid)<br> boxed class to store validated null payloads |
+| data class | [PropertiesWhoseNamesAreJavascriptObjectPropertyNames.PropertiesWhoseNamesAreJavascriptObjectPropertyNames1BoxedBoolean](#propertieswhosenamesarejavascriptobjectpropertynames1boxedboolean)<br> boxed class to store validated boolean payloads |
+| data class | [PropertiesWhoseNamesAreJavascriptObjectPropertyNames.PropertiesWhoseNamesAreJavascriptObjectPropertyNames1BoxedNumber](#propertieswhosenamesarejavascriptobjectpropertynames1boxednumber)<br> boxed class to store validated Number payloads |
+| data class | [PropertiesWhoseNamesAreJavascriptObjectPropertyNames.PropertiesWhoseNamesAreJavascriptObjectPropertyNames1BoxedString](#propertieswhosenamesarejavascriptobjectpropertynames1boxedstring)<br> boxed class to store validated String payloads |
+| data class | [PropertiesWhoseNamesAreJavascriptObjectPropertyNames.PropertiesWhoseNamesAreJavascriptObjectPropertyNames1BoxedList](#propertieswhosenamesarejavascriptobjectpropertynames1boxedlist)<br> boxed class to store validated List payloads |
+| data class | [PropertiesWhoseNamesAreJavascriptObjectPropertyNames.PropertiesWhoseNamesAreJavascriptObjectPropertyNames1BoxedMap](#propertieswhosenamesarejavascriptobjectpropertynames1boxedmap)<br> boxed class to store validated Map payloads |
+| class | [PropertiesWhoseNamesAreJavascriptObjectPropertyNames.PropertiesWhoseNamesAreJavascriptObjectPropertyNames1](#propertieswhosenamesarejavascriptobjectpropertynames1)<br> schema class |
+| class | [PropertiesWhoseNamesAreJavascriptObjectPropertyNames.PropertiesWhoseNamesAreJavascriptObjectPropertyNamesMapBuilder](#propertieswhosenamesarejavascriptobjectpropertynamesmapbuilder)<br> builder for Map payloads |
+| class | [PropertiesWhoseNamesAreJavascriptObjectPropertyNames.PropertiesWhoseNamesAreJavascriptObjectPropertyNamesMap](#propertieswhosenamesarejavascriptobjectpropertynamesmap)<br> output class for Map payloads |
 | sealed interface | [PropertiesWhoseNamesAreJavascriptObjectPropertyNames.ConstructorSchemaBoxed](#constructorschemaboxed)<br> sealed interface for validated payloads |
-| record | [PropertiesWhoseNamesAreJavascriptObjectPropertyNames.ConstructorSchemaBoxedNumber](#constructorschemaboxednumber)<br> boxed class to store validated Number payloads |
-| static class | [PropertiesWhoseNamesAreJavascriptObjectPropertyNames.ConstructorSchema](#constructorschema)<br> schema class |
+| data class | [PropertiesWhoseNamesAreJavascriptObjectPropertyNames.ConstructorSchemaBoxedNumber](#constructorschemaboxednumber)<br> boxed class to store validated Number payloads |
+| class | [PropertiesWhoseNamesAreJavascriptObjectPropertyNames.ConstructorSchema](#constructorschema)<br> schema class |
 | sealed interface | [PropertiesWhoseNamesAreJavascriptObjectPropertyNames.ToStringSchemaBoxed](#tostringschemaboxed)<br> sealed interface for validated payloads |
-| record | [PropertiesWhoseNamesAreJavascriptObjectPropertyNames.ToStringSchemaBoxedVoid](#tostringschemaboxedvoid)<br> boxed class to store validated null payloads |
-| record | [PropertiesWhoseNamesAreJavascriptObjectPropertyNames.ToStringSchemaBoxedBoolean](#tostringschemaboxedboolean)<br> boxed class to store validated boolean payloads |
-| record | [PropertiesWhoseNamesAreJavascriptObjectPropertyNames.ToStringSchemaBoxedNumber](#tostringschemaboxednumber)<br> boxed class to store validated Number payloads |
-| record | [PropertiesWhoseNamesAreJavascriptObjectPropertyNames.ToStringSchemaBoxedString](#tostringschemaboxedstring)<br> boxed class to store validated String payloads |
-| record | [PropertiesWhoseNamesAreJavascriptObjectPropertyNames.ToStringSchemaBoxedList](#tostringschemaboxedlist)<br> boxed class to store validated List payloads |
-| record | [PropertiesWhoseNamesAreJavascriptObjectPropertyNames.ToStringSchemaBoxedMap](#tostringschemaboxedmap)<br> boxed class to store validated Map payloads |
-| static class | [PropertiesWhoseNamesAreJavascriptObjectPropertyNames.ToStringSchema](#tostringschema)<br> schema class |
-| static class | [PropertiesWhoseNamesAreJavascriptObjectPropertyNames.ToStringMapBuilder](#tostringmapbuilder)<br> builder for Map payloads |
-| static class | [PropertiesWhoseNamesAreJavascriptObjectPropertyNames.ToStringMap](#tostringmap)<br> output class for Map payloads |
+| data class | [PropertiesWhoseNamesAreJavascriptObjectPropertyNames.ToStringSchemaBoxedVoid](#tostringschemaboxedvoid)<br> boxed class to store validated null payloads |
+| data class | [PropertiesWhoseNamesAreJavascriptObjectPropertyNames.ToStringSchemaBoxedBoolean](#tostringschemaboxedboolean)<br> boxed class to store validated boolean payloads |
+| data class | [PropertiesWhoseNamesAreJavascriptObjectPropertyNames.ToStringSchemaBoxedNumber](#tostringschemaboxednumber)<br> boxed class to store validated Number payloads |
+| data class | [PropertiesWhoseNamesAreJavascriptObjectPropertyNames.ToStringSchemaBoxedString](#tostringschemaboxedstring)<br> boxed class to store validated String payloads |
+| data class | [PropertiesWhoseNamesAreJavascriptObjectPropertyNames.ToStringSchemaBoxedList](#tostringschemaboxedlist)<br> boxed class to store validated List payloads |
+| data class | [PropertiesWhoseNamesAreJavascriptObjectPropertyNames.ToStringSchemaBoxedMap](#tostringschemaboxedmap)<br> boxed class to store validated Map payloads |
+| class | [PropertiesWhoseNamesAreJavascriptObjectPropertyNames.ToStringSchema](#tostringschema)<br> schema class |
+| class | [PropertiesWhoseNamesAreJavascriptObjectPropertyNames.ToStringMapBuilder](#tostringmapbuilder)<br> builder for Map payloads |
+| class | [PropertiesWhoseNamesAreJavascriptObjectPropertyNames.ToStringMap](#tostringmap)<br> output class for Map payloads |
 | sealed interface | [PropertiesWhoseNamesAreJavascriptObjectPropertyNames.LengthBoxed](#lengthboxed)<br> sealed interface for validated payloads |
-| record | [PropertiesWhoseNamesAreJavascriptObjectPropertyNames.LengthBoxedString](#lengthboxedstring)<br> boxed class to store validated String payloads |
-| static class | [PropertiesWhoseNamesAreJavascriptObjectPropertyNames.Length](#length)<br> schema class |
+| data class | [PropertiesWhoseNamesAreJavascriptObjectPropertyNames.LengthBoxedString](#lengthboxedstring)<br> boxed class to store validated String payloads |
+| class | [PropertiesWhoseNamesAreJavascriptObjectPropertyNames.Length](#length)<br> schema class |
 | sealed interface | [PropertiesWhoseNamesAreJavascriptObjectPropertyNames.ProtoBoxed](#protoboxed)<br> sealed interface for validated payloads |
-| record | [PropertiesWhoseNamesAreJavascriptObjectPropertyNames.ProtoBoxedNumber](#protoboxednumber)<br> boxed class to store validated Number payloads |
-| static class | [PropertiesWhoseNamesAreJavascriptObjectPropertyNames.Proto](#proto)<br> schema class |
+| data class | [PropertiesWhoseNamesAreJavascriptObjectPropertyNames.ProtoBoxedNumber](#protoboxednumber)<br> boxed class to store validated Number payloads |
+| class | [PropertiesWhoseNamesAreJavascriptObjectPropertyNames.Proto](#proto)<br> schema class |
 
 ## PropertiesWhoseNamesAreJavascriptObjectPropertyNames1Boxed
 sealed interface PropertiesWhoseNamesAreJavascriptObjectPropertyNames1Boxed<br>
@@ -75,7 +75,7 @@ data class that stores validated null payloads, sealed permits implementation
 data class PropertiesWhoseNamesAreJavascriptObjectPropertyNames1BoxedBoolean<br>
 implements [PropertiesWhoseNamesAreJavascriptObjectPropertyNames1Boxed](#propertieswhosenamesarejavascriptobjectpropertynames1boxed)
 
-record that stores validated boolean payloads, sealed permits implementation
+data class that stores validated boolean payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
@@ -312,7 +312,7 @@ data class that stores validated null payloads, sealed permits implementation
 data class ToStringSchemaBoxedBoolean<br>
 implements [ToStringSchemaBoxed](#tostringschemaboxed)
 
-record that stores validated boolean payloads, sealed permits implementation
+data class that stores validated boolean payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |

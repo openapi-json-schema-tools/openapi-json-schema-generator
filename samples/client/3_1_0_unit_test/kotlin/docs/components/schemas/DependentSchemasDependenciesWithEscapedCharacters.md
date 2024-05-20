@@ -13,31 +13,31 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | sealed interface | [DependentSchemasDependenciesWithEscapedCharacters.DependentSchemasDependenciesWithEscapedCharacters1Boxed](#dependentschemasdependencieswithescapedcharacters1boxed)<br> sealed interface for validated payloads |
-| record | [DependentSchemasDependenciesWithEscapedCharacters.DependentSchemasDependenciesWithEscapedCharacters1BoxedVoid](#dependentschemasdependencieswithescapedcharacters1boxedvoid)<br> boxed class to store validated null payloads |
-| record | [DependentSchemasDependenciesWithEscapedCharacters.DependentSchemasDependenciesWithEscapedCharacters1BoxedBoolean](#dependentschemasdependencieswithescapedcharacters1boxedboolean)<br> boxed class to store validated boolean payloads |
-| record | [DependentSchemasDependenciesWithEscapedCharacters.DependentSchemasDependenciesWithEscapedCharacters1BoxedNumber](#dependentschemasdependencieswithescapedcharacters1boxednumber)<br> boxed class to store validated Number payloads |
-| record | [DependentSchemasDependenciesWithEscapedCharacters.DependentSchemasDependenciesWithEscapedCharacters1BoxedString](#dependentschemasdependencieswithescapedcharacters1boxedstring)<br> boxed class to store validated String payloads |
-| record | [DependentSchemasDependenciesWithEscapedCharacters.DependentSchemasDependenciesWithEscapedCharacters1BoxedList](#dependentschemasdependencieswithescapedcharacters1boxedlist)<br> boxed class to store validated List payloads |
-| record | [DependentSchemasDependenciesWithEscapedCharacters.DependentSchemasDependenciesWithEscapedCharacters1BoxedMap](#dependentschemasdependencieswithescapedcharacters1boxedmap)<br> boxed class to store validated Map payloads |
-| static class | [DependentSchemasDependenciesWithEscapedCharacters.DependentSchemasDependenciesWithEscapedCharacters1](#dependentschemasdependencieswithescapedcharacters1)<br> schema class |
+| data class | [DependentSchemasDependenciesWithEscapedCharacters.DependentSchemasDependenciesWithEscapedCharacters1BoxedVoid](#dependentschemasdependencieswithescapedcharacters1boxedvoid)<br> boxed class to store validated null payloads |
+| data class | [DependentSchemasDependenciesWithEscapedCharacters.DependentSchemasDependenciesWithEscapedCharacters1BoxedBoolean](#dependentschemasdependencieswithescapedcharacters1boxedboolean)<br> boxed class to store validated boolean payloads |
+| data class | [DependentSchemasDependenciesWithEscapedCharacters.DependentSchemasDependenciesWithEscapedCharacters1BoxedNumber](#dependentschemasdependencieswithescapedcharacters1boxednumber)<br> boxed class to store validated Number payloads |
+| data class | [DependentSchemasDependenciesWithEscapedCharacters.DependentSchemasDependenciesWithEscapedCharacters1BoxedString](#dependentschemasdependencieswithescapedcharacters1boxedstring)<br> boxed class to store validated String payloads |
+| data class | [DependentSchemasDependenciesWithEscapedCharacters.DependentSchemasDependenciesWithEscapedCharacters1BoxedList](#dependentschemasdependencieswithescapedcharacters1boxedlist)<br> boxed class to store validated List payloads |
+| data class | [DependentSchemasDependenciesWithEscapedCharacters.DependentSchemasDependenciesWithEscapedCharacters1BoxedMap](#dependentschemasdependencieswithescapedcharacters1boxedmap)<br> boxed class to store validated Map payloads |
+| class | [DependentSchemasDependenciesWithEscapedCharacters.DependentSchemasDependenciesWithEscapedCharacters1](#dependentschemasdependencieswithescapedcharacters1)<br> schema class |
 | sealed interface | [DependentSchemasDependenciesWithEscapedCharacters.FoobarBoxed](#foobarboxed)<br> sealed interface for validated payloads |
-| record | [DependentSchemasDependenciesWithEscapedCharacters.FoobarBoxedVoid](#foobarboxedvoid)<br> boxed class to store validated null payloads |
-| record | [DependentSchemasDependenciesWithEscapedCharacters.FoobarBoxedBoolean](#foobarboxedboolean)<br> boxed class to store validated boolean payloads |
-| record | [DependentSchemasDependenciesWithEscapedCharacters.FoobarBoxedNumber](#foobarboxednumber)<br> boxed class to store validated Number payloads |
-| record | [DependentSchemasDependenciesWithEscapedCharacters.FoobarBoxedString](#foobarboxedstring)<br> boxed class to store validated String payloads |
-| record | [DependentSchemasDependenciesWithEscapedCharacters.FoobarBoxedList](#foobarboxedlist)<br> boxed class to store validated List payloads |
-| record | [DependentSchemasDependenciesWithEscapedCharacters.FoobarBoxedMap](#foobarboxedmap)<br> boxed class to store validated Map payloads |
-| static class | [DependentSchemasDependenciesWithEscapedCharacters.Foobar](#foobar)<br> schema class |
-| static class | [DependentSchemasDependenciesWithEscapedCharacters.FoobarMapBuilder](#foobarmapbuilder)<br> builder for Map payloads |
-| static class | [DependentSchemasDependenciesWithEscapedCharacters.FoobarMap](#foobarmap)<br> output class for Map payloads |
+| data class | [DependentSchemasDependenciesWithEscapedCharacters.FoobarBoxedVoid](#foobarboxedvoid)<br> boxed class to store validated null payloads |
+| data class | [DependentSchemasDependenciesWithEscapedCharacters.FoobarBoxedBoolean](#foobarboxedboolean)<br> boxed class to store validated boolean payloads |
+| data class | [DependentSchemasDependenciesWithEscapedCharacters.FoobarBoxedNumber](#foobarboxednumber)<br> boxed class to store validated Number payloads |
+| data class | [DependentSchemasDependenciesWithEscapedCharacters.FoobarBoxedString](#foobarboxedstring)<br> boxed class to store validated String payloads |
+| data class | [DependentSchemasDependenciesWithEscapedCharacters.FoobarBoxedList](#foobarboxedlist)<br> boxed class to store validated List payloads |
+| data class | [DependentSchemasDependenciesWithEscapedCharacters.FoobarBoxedMap](#foobarboxedmap)<br> boxed class to store validated Map payloads |
+| class | [DependentSchemasDependenciesWithEscapedCharacters.Foobar](#foobar)<br> schema class |
+| class | [DependentSchemasDependenciesWithEscapedCharacters.FoobarMapBuilder](#foobarmapbuilder)<br> builder for Map payloads |
+| class | [DependentSchemasDependenciesWithEscapedCharacters.FoobarMap](#foobarmap)<br> output class for Map payloads |
 | sealed interface | [DependentSchemasDependenciesWithEscapedCharacters.FootbarBoxed](#footbarboxed)<br> sealed interface for validated payloads |
-| record | [DependentSchemasDependenciesWithEscapedCharacters.FootbarBoxedVoid](#footbarboxedvoid)<br> boxed class to store validated null payloads |
-| record | [DependentSchemasDependenciesWithEscapedCharacters.FootbarBoxedBoolean](#footbarboxedboolean)<br> boxed class to store validated boolean payloads |
-| record | [DependentSchemasDependenciesWithEscapedCharacters.FootbarBoxedNumber](#footbarboxednumber)<br> boxed class to store validated Number payloads |
-| record | [DependentSchemasDependenciesWithEscapedCharacters.FootbarBoxedString](#footbarboxedstring)<br> boxed class to store validated String payloads |
-| record | [DependentSchemasDependenciesWithEscapedCharacters.FootbarBoxedList](#footbarboxedlist)<br> boxed class to store validated List payloads |
-| record | [DependentSchemasDependenciesWithEscapedCharacters.FootbarBoxedMap](#footbarboxedmap)<br> boxed class to store validated Map payloads |
-| static class | [DependentSchemasDependenciesWithEscapedCharacters.Footbar](#footbar)<br> schema class |
+| data class | [DependentSchemasDependenciesWithEscapedCharacters.FootbarBoxedVoid](#footbarboxedvoid)<br> boxed class to store validated null payloads |
+| data class | [DependentSchemasDependenciesWithEscapedCharacters.FootbarBoxedBoolean](#footbarboxedboolean)<br> boxed class to store validated boolean payloads |
+| data class | [DependentSchemasDependenciesWithEscapedCharacters.FootbarBoxedNumber](#footbarboxednumber)<br> boxed class to store validated Number payloads |
+| data class | [DependentSchemasDependenciesWithEscapedCharacters.FootbarBoxedString](#footbarboxedstring)<br> boxed class to store validated String payloads |
+| data class | [DependentSchemasDependenciesWithEscapedCharacters.FootbarBoxedList](#footbarboxedlist)<br> boxed class to store validated List payloads |
+| data class | [DependentSchemasDependenciesWithEscapedCharacters.FootbarBoxedMap](#footbarboxedmap)<br> boxed class to store validated Map payloads |
+| class | [DependentSchemasDependenciesWithEscapedCharacters.Footbar](#footbar)<br> schema class |
 
 ## DependentSchemasDependenciesWithEscapedCharacters1Boxed
 sealed interface DependentSchemasDependenciesWithEscapedCharacters1Boxed<br>
@@ -72,7 +72,7 @@ data class that stores validated null payloads, sealed permits implementation
 data class DependentSchemasDependenciesWithEscapedCharacters1BoxedBoolean<br>
 implements [DependentSchemasDependenciesWithEscapedCharacters1Boxed](#dependentschemasdependencieswithescapedcharacters1boxed)
 
-record that stores validated boolean payloads, sealed permits implementation
+data class that stores validated boolean payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
@@ -219,7 +219,7 @@ data class that stores validated null payloads, sealed permits implementation
 data class FoobarBoxedBoolean<br>
 implements [FoobarBoxed](#foobarboxed)
 
-record that stores validated boolean payloads, sealed permits implementation
+data class that stores validated boolean payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
@@ -428,7 +428,7 @@ data class that stores validated null payloads, sealed permits implementation
 data class FootbarBoxedBoolean<br>
 implements [FootbarBoxed](#footbarboxed)
 
-record that stores validated boolean payloads, sealed permits implementation
+data class that stores validated boolean payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |

@@ -11,16 +11,16 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | sealed interface | [PatternpropertiesWithNullValuedInstanceProperties.PatternpropertiesWithNullValuedInstanceProperties1Boxed](#patternpropertieswithnullvaluedinstanceproperties1boxed)<br> sealed interface for validated payloads |
-| record | [PatternpropertiesWithNullValuedInstanceProperties.PatternpropertiesWithNullValuedInstanceProperties1BoxedVoid](#patternpropertieswithnullvaluedinstanceproperties1boxedvoid)<br> boxed class to store validated null payloads |
-| record | [PatternpropertiesWithNullValuedInstanceProperties.PatternpropertiesWithNullValuedInstanceProperties1BoxedBoolean](#patternpropertieswithnullvaluedinstanceproperties1boxedboolean)<br> boxed class to store validated boolean payloads |
-| record | [PatternpropertiesWithNullValuedInstanceProperties.PatternpropertiesWithNullValuedInstanceProperties1BoxedNumber](#patternpropertieswithnullvaluedinstanceproperties1boxednumber)<br> boxed class to store validated Number payloads |
-| record | [PatternpropertiesWithNullValuedInstanceProperties.PatternpropertiesWithNullValuedInstanceProperties1BoxedString](#patternpropertieswithnullvaluedinstanceproperties1boxedstring)<br> boxed class to store validated String payloads |
-| record | [PatternpropertiesWithNullValuedInstanceProperties.PatternpropertiesWithNullValuedInstanceProperties1BoxedList](#patternpropertieswithnullvaluedinstanceproperties1boxedlist)<br> boxed class to store validated List payloads |
-| record | [PatternpropertiesWithNullValuedInstanceProperties.PatternpropertiesWithNullValuedInstanceProperties1BoxedMap](#patternpropertieswithnullvaluedinstanceproperties1boxedmap)<br> boxed class to store validated Map payloads |
-| static class | [PatternpropertiesWithNullValuedInstanceProperties.PatternpropertiesWithNullValuedInstanceProperties1](#patternpropertieswithnullvaluedinstanceproperties1)<br> schema class |
+| data class | [PatternpropertiesWithNullValuedInstanceProperties.PatternpropertiesWithNullValuedInstanceProperties1BoxedVoid](#patternpropertieswithnullvaluedinstanceproperties1boxedvoid)<br> boxed class to store validated null payloads |
+| data class | [PatternpropertiesWithNullValuedInstanceProperties.PatternpropertiesWithNullValuedInstanceProperties1BoxedBoolean](#patternpropertieswithnullvaluedinstanceproperties1boxedboolean)<br> boxed class to store validated boolean payloads |
+| data class | [PatternpropertiesWithNullValuedInstanceProperties.PatternpropertiesWithNullValuedInstanceProperties1BoxedNumber](#patternpropertieswithnullvaluedinstanceproperties1boxednumber)<br> boxed class to store validated Number payloads |
+| data class | [PatternpropertiesWithNullValuedInstanceProperties.PatternpropertiesWithNullValuedInstanceProperties1BoxedString](#patternpropertieswithnullvaluedinstanceproperties1boxedstring)<br> boxed class to store validated String payloads |
+| data class | [PatternpropertiesWithNullValuedInstanceProperties.PatternpropertiesWithNullValuedInstanceProperties1BoxedList](#patternpropertieswithnullvaluedinstanceproperties1boxedlist)<br> boxed class to store validated List payloads |
+| data class | [PatternpropertiesWithNullValuedInstanceProperties.PatternpropertiesWithNullValuedInstanceProperties1BoxedMap](#patternpropertieswithnullvaluedinstanceproperties1boxedmap)<br> boxed class to store validated Map payloads |
+| class | [PatternpropertiesWithNullValuedInstanceProperties.PatternpropertiesWithNullValuedInstanceProperties1](#patternpropertieswithnullvaluedinstanceproperties1)<br> schema class |
 | sealed interface | [PatternpropertiesWithNullValuedInstanceProperties.BarBoxed](#barboxed)<br> sealed interface for validated payloads |
-| record | [PatternpropertiesWithNullValuedInstanceProperties.BarBoxedVoid](#barboxedvoid)<br> boxed class to store validated null payloads |
-| static class | [PatternpropertiesWithNullValuedInstanceProperties.Bar](#bar)<br> schema class |
+| data class | [PatternpropertiesWithNullValuedInstanceProperties.BarBoxedVoid](#barboxedvoid)<br> boxed class to store validated null payloads |
+| class | [PatternpropertiesWithNullValuedInstanceProperties.Bar](#bar)<br> schema class |
 
 ## PatternpropertiesWithNullValuedInstanceProperties1Boxed
 sealed interface PatternpropertiesWithNullValuedInstanceProperties1Boxed<br>
@@ -55,7 +55,7 @@ data class that stores validated null payloads, sealed permits implementation
 data class PatternpropertiesWithNullValuedInstanceProperties1BoxedBoolean<br>
 implements [PatternpropertiesWithNullValuedInstanceProperties1Boxed](#patternpropertieswithnullvaluedinstanceproperties1boxed)
 
-record that stores validated boolean payloads, sealed permits implementation
+data class that stores validated boolean payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |

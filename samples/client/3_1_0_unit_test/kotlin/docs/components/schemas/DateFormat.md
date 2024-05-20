@@ -11,13 +11,13 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | sealed interface | [DateFormat.DateFormat1Boxed](#dateformat1boxed)<br> sealed interface for validated payloads |
-| record | [DateFormat.DateFormat1BoxedVoid](#dateformat1boxedvoid)<br> boxed class to store validated null payloads |
-| record | [DateFormat.DateFormat1BoxedBoolean](#dateformat1boxedboolean)<br> boxed class to store validated boolean payloads |
-| record | [DateFormat.DateFormat1BoxedNumber](#dateformat1boxednumber)<br> boxed class to store validated Number payloads |
-| record | [DateFormat.DateFormat1BoxedString](#dateformat1boxedstring)<br> boxed class to store validated String payloads |
-| record | [DateFormat.DateFormat1BoxedList](#dateformat1boxedlist)<br> boxed class to store validated List payloads |
-| record | [DateFormat.DateFormat1BoxedMap](#dateformat1boxedmap)<br> boxed class to store validated Map payloads |
-| static class | [DateFormat.DateFormat1](#dateformat1)<br> schema class |
+| data class | [DateFormat.DateFormat1BoxedVoid](#dateformat1boxedvoid)<br> boxed class to store validated null payloads |
+| data class | [DateFormat.DateFormat1BoxedBoolean](#dateformat1boxedboolean)<br> boxed class to store validated boolean payloads |
+| data class | [DateFormat.DateFormat1BoxedNumber](#dateformat1boxednumber)<br> boxed class to store validated Number payloads |
+| data class | [DateFormat.DateFormat1BoxedString](#dateformat1boxedstring)<br> boxed class to store validated String payloads |
+| data class | [DateFormat.DateFormat1BoxedList](#dateformat1boxedlist)<br> boxed class to store validated List payloads |
+| data class | [DateFormat.DateFormat1BoxedMap](#dateformat1boxedmap)<br> boxed class to store validated Map payloads |
+| class | [DateFormat.DateFormat1](#dateformat1)<br> schema class |
 
 ## DateFormat1Boxed
 sealed interface DateFormat1Boxed<br>
@@ -52,7 +52,7 @@ data class that stores validated null payloads, sealed permits implementation
 data class DateFormat1BoxedBoolean<br>
 implements [DateFormat1Boxed](#dateformat1boxed)
 
-record that stores validated boolean payloads, sealed permits implementation
+data class that stores validated boolean payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |

@@ -13,26 +13,26 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | sealed interface | [ItemsContains.ItemsContains1Boxed](#itemscontains1boxed)<br> sealed interface for validated payloads |
-| record | [ItemsContains.ItemsContains1BoxedList](#itemscontains1boxedlist)<br> boxed class to store validated List payloads |
-| static class | [ItemsContains.ItemsContains1](#itemscontains1)<br> schema class |
-| static class | [ItemsContains.ItemsContainsListBuilder](#itemscontainslistbuilder)<br> builder for List payloads |
-| static class | [ItemsContains.ItemsContainsList](#itemscontainslist)<br> output class for List payloads |
+| data class | [ItemsContains.ItemsContains1BoxedList](#itemscontains1boxedlist)<br> boxed class to store validated List payloads |
+| class | [ItemsContains.ItemsContains1](#itemscontains1)<br> schema class |
+| class | [ItemsContains.ItemsContainsListBuilder](#itemscontainslistbuilder)<br> builder for List payloads |
+| class | [ItemsContains.ItemsContainsList](#itemscontainslist)<br> output class for List payloads |
 | sealed interface | [ItemsContains.ItemsBoxed](#itemsboxed)<br> sealed interface for validated payloads |
-| record | [ItemsContains.ItemsBoxedVoid](#itemsboxedvoid)<br> boxed class to store validated null payloads |
-| record | [ItemsContains.ItemsBoxedBoolean](#itemsboxedboolean)<br> boxed class to store validated boolean payloads |
-| record | [ItemsContains.ItemsBoxedNumber](#itemsboxednumber)<br> boxed class to store validated Number payloads |
-| record | [ItemsContains.ItemsBoxedString](#itemsboxedstring)<br> boxed class to store validated String payloads |
-| record | [ItemsContains.ItemsBoxedList](#itemsboxedlist)<br> boxed class to store validated List payloads |
-| record | [ItemsContains.ItemsBoxedMap](#itemsboxedmap)<br> boxed class to store validated Map payloads |
-| static class | [ItemsContains.Items](#items)<br> schema class |
+| data class | [ItemsContains.ItemsBoxedVoid](#itemsboxedvoid)<br> boxed class to store validated null payloads |
+| data class | [ItemsContains.ItemsBoxedBoolean](#itemsboxedboolean)<br> boxed class to store validated boolean payloads |
+| data class | [ItemsContains.ItemsBoxedNumber](#itemsboxednumber)<br> boxed class to store validated Number payloads |
+| data class | [ItemsContains.ItemsBoxedString](#itemsboxedstring)<br> boxed class to store validated String payloads |
+| data class | [ItemsContains.ItemsBoxedList](#itemsboxedlist)<br> boxed class to store validated List payloads |
+| data class | [ItemsContains.ItemsBoxedMap](#itemsboxedmap)<br> boxed class to store validated Map payloads |
+| class | [ItemsContains.Items](#items)<br> schema class |
 | sealed interface | [ItemsContains.ContainsBoxed](#containsboxed)<br> sealed interface for validated payloads |
-| record | [ItemsContains.ContainsBoxedVoid](#containsboxedvoid)<br> boxed class to store validated null payloads |
-| record | [ItemsContains.ContainsBoxedBoolean](#containsboxedboolean)<br> boxed class to store validated boolean payloads |
-| record | [ItemsContains.ContainsBoxedNumber](#containsboxednumber)<br> boxed class to store validated Number payloads |
-| record | [ItemsContains.ContainsBoxedString](#containsboxedstring)<br> boxed class to store validated String payloads |
-| record | [ItemsContains.ContainsBoxedList](#containsboxedlist)<br> boxed class to store validated List payloads |
-| record | [ItemsContains.ContainsBoxedMap](#containsboxedmap)<br> boxed class to store validated Map payloads |
-| static class | [ItemsContains.Contains](#contains)<br> schema class |
+| data class | [ItemsContains.ContainsBoxedVoid](#containsboxedvoid)<br> boxed class to store validated null payloads |
+| data class | [ItemsContains.ContainsBoxedBoolean](#containsboxedboolean)<br> boxed class to store validated boolean payloads |
+| data class | [ItemsContains.ContainsBoxedNumber](#containsboxednumber)<br> boxed class to store validated Number payloads |
+| data class | [ItemsContains.ContainsBoxedString](#containsboxedstring)<br> boxed class to store validated String payloads |
+| data class | [ItemsContains.ContainsBoxedList](#containsboxedlist)<br> boxed class to store validated List payloads |
+| data class | [ItemsContains.ContainsBoxedMap](#containsboxedmap)<br> boxed class to store validated Map payloads |
+| class | [ItemsContains.Contains](#contains)<br> schema class |
 
 ## ItemsContains1Boxed
 sealed interface ItemsContains1Boxed<br>
@@ -170,7 +170,7 @@ data class that stores validated null payloads, sealed permits implementation
 data class ItemsBoxedBoolean<br>
 implements [ItemsBoxed](#itemsboxed)
 
-record that stores validated boolean payloads, sealed permits implementation
+data class that stores validated boolean payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
@@ -317,7 +317,7 @@ data class that stores validated null payloads, sealed permits implementation
 data class ContainsBoxedBoolean<br>
 implements [ContainsBoxed](#containsboxed)
 
-record that stores validated boolean payloads, sealed permits implementation
+data class that stores validated boolean payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |

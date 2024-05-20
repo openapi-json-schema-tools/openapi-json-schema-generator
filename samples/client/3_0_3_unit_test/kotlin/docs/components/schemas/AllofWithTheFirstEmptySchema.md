@@ -11,24 +11,24 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | sealed interface | [AllofWithTheFirstEmptySchema.AllofWithTheFirstEmptySchema1Boxed](#allofwiththefirstemptyschema1boxed)<br> sealed interface for validated payloads |
-| record | [AllofWithTheFirstEmptySchema.AllofWithTheFirstEmptySchema1BoxedVoid](#allofwiththefirstemptyschema1boxedvoid)<br> boxed class to store validated null payloads |
-| record | [AllofWithTheFirstEmptySchema.AllofWithTheFirstEmptySchema1BoxedBoolean](#allofwiththefirstemptyschema1boxedboolean)<br> boxed class to store validated boolean payloads |
-| record | [AllofWithTheFirstEmptySchema.AllofWithTheFirstEmptySchema1BoxedNumber](#allofwiththefirstemptyschema1boxednumber)<br> boxed class to store validated Number payloads |
-| record | [AllofWithTheFirstEmptySchema.AllofWithTheFirstEmptySchema1BoxedString](#allofwiththefirstemptyschema1boxedstring)<br> boxed class to store validated String payloads |
-| record | [AllofWithTheFirstEmptySchema.AllofWithTheFirstEmptySchema1BoxedList](#allofwiththefirstemptyschema1boxedlist)<br> boxed class to store validated List payloads |
-| record | [AllofWithTheFirstEmptySchema.AllofWithTheFirstEmptySchema1BoxedMap](#allofwiththefirstemptyschema1boxedmap)<br> boxed class to store validated Map payloads |
-| static class | [AllofWithTheFirstEmptySchema.AllofWithTheFirstEmptySchema1](#allofwiththefirstemptyschema1)<br> schema class |
+| data class | [AllofWithTheFirstEmptySchema.AllofWithTheFirstEmptySchema1BoxedVoid](#allofwiththefirstemptyschema1boxedvoid)<br> boxed class to store validated null payloads |
+| data class | [AllofWithTheFirstEmptySchema.AllofWithTheFirstEmptySchema1BoxedBoolean](#allofwiththefirstemptyschema1boxedboolean)<br> boxed class to store validated boolean payloads |
+| data class | [AllofWithTheFirstEmptySchema.AllofWithTheFirstEmptySchema1BoxedNumber](#allofwiththefirstemptyschema1boxednumber)<br> boxed class to store validated Number payloads |
+| data class | [AllofWithTheFirstEmptySchema.AllofWithTheFirstEmptySchema1BoxedString](#allofwiththefirstemptyschema1boxedstring)<br> boxed class to store validated String payloads |
+| data class | [AllofWithTheFirstEmptySchema.AllofWithTheFirstEmptySchema1BoxedList](#allofwiththefirstemptyschema1boxedlist)<br> boxed class to store validated List payloads |
+| data class | [AllofWithTheFirstEmptySchema.AllofWithTheFirstEmptySchema1BoxedMap](#allofwiththefirstemptyschema1boxedmap)<br> boxed class to store validated Map payloads |
+| class | [AllofWithTheFirstEmptySchema.AllofWithTheFirstEmptySchema1](#allofwiththefirstemptyschema1)<br> schema class |
 | sealed interface | [AllofWithTheFirstEmptySchema.Schema1Boxed](#schema1boxed)<br> sealed interface for validated payloads |
-| record | [AllofWithTheFirstEmptySchema.Schema1BoxedNumber](#schema1boxednumber)<br> boxed class to store validated Number payloads |
-| static class | [AllofWithTheFirstEmptySchema.Schema1](#schema1)<br> schema class |
+| data class | [AllofWithTheFirstEmptySchema.Schema1BoxedNumber](#schema1boxednumber)<br> boxed class to store validated Number payloads |
+| class | [AllofWithTheFirstEmptySchema.Schema1](#schema1)<br> schema class |
 | sealed interface | [AllofWithTheFirstEmptySchema.Schema0Boxed](#schema0boxed)<br> sealed interface for validated payloads |
-| record | [AllofWithTheFirstEmptySchema.Schema0BoxedVoid](#schema0boxedvoid)<br> boxed class to store validated null payloads |
-| record | [AllofWithTheFirstEmptySchema.Schema0BoxedBoolean](#schema0boxedboolean)<br> boxed class to store validated boolean payloads |
-| record | [AllofWithTheFirstEmptySchema.Schema0BoxedNumber](#schema0boxednumber)<br> boxed class to store validated Number payloads |
-| record | [AllofWithTheFirstEmptySchema.Schema0BoxedString](#schema0boxedstring)<br> boxed class to store validated String payloads |
-| record | [AllofWithTheFirstEmptySchema.Schema0BoxedList](#schema0boxedlist)<br> boxed class to store validated List payloads |
-| record | [AllofWithTheFirstEmptySchema.Schema0BoxedMap](#schema0boxedmap)<br> boxed class to store validated Map payloads |
-| static class | [AllofWithTheFirstEmptySchema.Schema0](#schema0)<br> schema class |
+| data class | [AllofWithTheFirstEmptySchema.Schema0BoxedVoid](#schema0boxedvoid)<br> boxed class to store validated null payloads |
+| data class | [AllofWithTheFirstEmptySchema.Schema0BoxedBoolean](#schema0boxedboolean)<br> boxed class to store validated boolean payloads |
+| data class | [AllofWithTheFirstEmptySchema.Schema0BoxedNumber](#schema0boxednumber)<br> boxed class to store validated Number payloads |
+| data class | [AllofWithTheFirstEmptySchema.Schema0BoxedString](#schema0boxedstring)<br> boxed class to store validated String payloads |
+| data class | [AllofWithTheFirstEmptySchema.Schema0BoxedList](#schema0boxedlist)<br> boxed class to store validated List payloads |
+| data class | [AllofWithTheFirstEmptySchema.Schema0BoxedMap](#schema0boxedmap)<br> boxed class to store validated Map payloads |
+| class | [AllofWithTheFirstEmptySchema.Schema0](#schema0)<br> schema class |
 
 ## AllofWithTheFirstEmptySchema1Boxed
 sealed interface AllofWithTheFirstEmptySchema1Boxed<br>
@@ -63,7 +63,7 @@ data class that stores validated null payloads, sealed permits implementation
 data class AllofWithTheFirstEmptySchema1BoxedBoolean<br>
 implements [AllofWithTheFirstEmptySchema1Boxed](#allofwiththefirstemptyschema1boxed)
 
-record that stores validated boolean payloads, sealed permits implementation
+data class that stores validated boolean payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
@@ -245,7 +245,7 @@ data class that stores validated null payloads, sealed permits implementation
 data class Schema0BoxedBoolean<br>
 implements [Schema0Boxed](#schema0boxed)
 
-record that stores validated boolean payloads, sealed permits implementation
+data class that stores validated boolean payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |

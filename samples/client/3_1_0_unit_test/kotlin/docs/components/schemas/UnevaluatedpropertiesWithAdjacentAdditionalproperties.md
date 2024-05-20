@@ -13,29 +13,29 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | sealed interface | [UnevaluatedpropertiesWithAdjacentAdditionalproperties.UnevaluatedpropertiesWithAdjacentAdditionalproperties1Boxed](#unevaluatedpropertieswithadjacentadditionalproperties1boxed)<br> sealed interface for validated payloads |
-| record | [UnevaluatedpropertiesWithAdjacentAdditionalproperties.UnevaluatedpropertiesWithAdjacentAdditionalproperties1BoxedMap](#unevaluatedpropertieswithadjacentadditionalproperties1boxedmap)<br> boxed class to store validated Map payloads |
-| static class | [UnevaluatedpropertiesWithAdjacentAdditionalproperties.UnevaluatedpropertiesWithAdjacentAdditionalproperties1](#unevaluatedpropertieswithadjacentadditionalproperties1)<br> schema class |
+| data class | [UnevaluatedpropertiesWithAdjacentAdditionalproperties.UnevaluatedpropertiesWithAdjacentAdditionalproperties1BoxedMap](#unevaluatedpropertieswithadjacentadditionalproperties1boxedmap)<br> boxed class to store validated Map payloads |
+| class | [UnevaluatedpropertiesWithAdjacentAdditionalproperties.UnevaluatedpropertiesWithAdjacentAdditionalproperties1](#unevaluatedpropertieswithadjacentadditionalproperties1)<br> schema class |
 | sealed interface | [UnevaluatedpropertiesWithAdjacentAdditionalproperties.UnevaluatedPropertiesBoxed](#unevaluatedpropertiesboxed)<br> sealed interface for validated payloads |
-| record | [UnevaluatedpropertiesWithAdjacentAdditionalproperties.UnevaluatedPropertiesBoxedVoid](#unevaluatedpropertiesboxedvoid)<br> boxed class to store validated null payloads |
-| record | [UnevaluatedpropertiesWithAdjacentAdditionalproperties.UnevaluatedPropertiesBoxedBoolean](#unevaluatedpropertiesboxedboolean)<br> boxed class to store validated boolean payloads |
-| record | [UnevaluatedpropertiesWithAdjacentAdditionalproperties.UnevaluatedPropertiesBoxedNumber](#unevaluatedpropertiesboxednumber)<br> boxed class to store validated Number payloads |
-| record | [UnevaluatedpropertiesWithAdjacentAdditionalproperties.UnevaluatedPropertiesBoxedString](#unevaluatedpropertiesboxedstring)<br> boxed class to store validated String payloads |
-| record | [UnevaluatedpropertiesWithAdjacentAdditionalproperties.UnevaluatedPropertiesBoxedList](#unevaluatedpropertiesboxedlist)<br> boxed class to store validated List payloads |
-| record | [UnevaluatedpropertiesWithAdjacentAdditionalproperties.UnevaluatedPropertiesBoxedMap](#unevaluatedpropertiesboxedmap)<br> boxed class to store validated Map payloads |
-| static class | [UnevaluatedpropertiesWithAdjacentAdditionalproperties.UnevaluatedProperties](#unevaluatedproperties)<br> schema class |
-| static class | [UnevaluatedpropertiesWithAdjacentAdditionalproperties.UnevaluatedpropertiesWithAdjacentAdditionalpropertiesMapBuilder](#unevaluatedpropertieswithadjacentadditionalpropertiesmapbuilder)<br> builder for Map payloads |
-| static class | [UnevaluatedpropertiesWithAdjacentAdditionalproperties.UnevaluatedpropertiesWithAdjacentAdditionalpropertiesMap](#unevaluatedpropertieswithadjacentadditionalpropertiesmap)<br> output class for Map payloads |
+| data class | [UnevaluatedpropertiesWithAdjacentAdditionalproperties.UnevaluatedPropertiesBoxedVoid](#unevaluatedpropertiesboxedvoid)<br> boxed class to store validated null payloads |
+| data class | [UnevaluatedpropertiesWithAdjacentAdditionalproperties.UnevaluatedPropertiesBoxedBoolean](#unevaluatedpropertiesboxedboolean)<br> boxed class to store validated boolean payloads |
+| data class | [UnevaluatedpropertiesWithAdjacentAdditionalproperties.UnevaluatedPropertiesBoxedNumber](#unevaluatedpropertiesboxednumber)<br> boxed class to store validated Number payloads |
+| data class | [UnevaluatedpropertiesWithAdjacentAdditionalproperties.UnevaluatedPropertiesBoxedString](#unevaluatedpropertiesboxedstring)<br> boxed class to store validated String payloads |
+| data class | [UnevaluatedpropertiesWithAdjacentAdditionalproperties.UnevaluatedPropertiesBoxedList](#unevaluatedpropertiesboxedlist)<br> boxed class to store validated List payloads |
+| data class | [UnevaluatedpropertiesWithAdjacentAdditionalproperties.UnevaluatedPropertiesBoxedMap](#unevaluatedpropertiesboxedmap)<br> boxed class to store validated Map payloads |
+| class | [UnevaluatedpropertiesWithAdjacentAdditionalproperties.UnevaluatedProperties](#unevaluatedproperties)<br> schema class |
+| class | [UnevaluatedpropertiesWithAdjacentAdditionalproperties.UnevaluatedpropertiesWithAdjacentAdditionalpropertiesMapBuilder](#unevaluatedpropertieswithadjacentadditionalpropertiesmapbuilder)<br> builder for Map payloads |
+| class | [UnevaluatedpropertiesWithAdjacentAdditionalproperties.UnevaluatedpropertiesWithAdjacentAdditionalpropertiesMap](#unevaluatedpropertieswithadjacentadditionalpropertiesmap)<br> output class for Map payloads |
 | sealed interface | [UnevaluatedpropertiesWithAdjacentAdditionalproperties.FooBoxed](#fooboxed)<br> sealed interface for validated payloads |
-| record | [UnevaluatedpropertiesWithAdjacentAdditionalproperties.FooBoxedString](#fooboxedstring)<br> boxed class to store validated String payloads |
-| static class | [UnevaluatedpropertiesWithAdjacentAdditionalproperties.Foo](#foo)<br> schema class |
+| data class | [UnevaluatedpropertiesWithAdjacentAdditionalproperties.FooBoxedString](#fooboxedstring)<br> boxed class to store validated String payloads |
+| class | [UnevaluatedpropertiesWithAdjacentAdditionalproperties.Foo](#foo)<br> schema class |
 | sealed interface | [UnevaluatedpropertiesWithAdjacentAdditionalproperties.AdditionalPropertiesBoxed](#additionalpropertiesboxed)<br> sealed interface for validated payloads |
-| record | [UnevaluatedpropertiesWithAdjacentAdditionalproperties.AdditionalPropertiesBoxedVoid](#additionalpropertiesboxedvoid)<br> boxed class to store validated null payloads |
-| record | [UnevaluatedpropertiesWithAdjacentAdditionalproperties.AdditionalPropertiesBoxedBoolean](#additionalpropertiesboxedboolean)<br> boxed class to store validated boolean payloads |
-| record | [UnevaluatedpropertiesWithAdjacentAdditionalproperties.AdditionalPropertiesBoxedNumber](#additionalpropertiesboxednumber)<br> boxed class to store validated Number payloads |
-| record | [UnevaluatedpropertiesWithAdjacentAdditionalproperties.AdditionalPropertiesBoxedString](#additionalpropertiesboxedstring)<br> boxed class to store validated String payloads |
-| record | [UnevaluatedpropertiesWithAdjacentAdditionalproperties.AdditionalPropertiesBoxedList](#additionalpropertiesboxedlist)<br> boxed class to store validated List payloads |
-| record | [UnevaluatedpropertiesWithAdjacentAdditionalproperties.AdditionalPropertiesBoxedMap](#additionalpropertiesboxedmap)<br> boxed class to store validated Map payloads |
-| static class | [UnevaluatedpropertiesWithAdjacentAdditionalproperties.AdditionalProperties](#additionalproperties)<br> schema class |
+| data class | [UnevaluatedpropertiesWithAdjacentAdditionalproperties.AdditionalPropertiesBoxedVoid](#additionalpropertiesboxedvoid)<br> boxed class to store validated null payloads |
+| data class | [UnevaluatedpropertiesWithAdjacentAdditionalproperties.AdditionalPropertiesBoxedBoolean](#additionalpropertiesboxedboolean)<br> boxed class to store validated boolean payloads |
+| data class | [UnevaluatedpropertiesWithAdjacentAdditionalproperties.AdditionalPropertiesBoxedNumber](#additionalpropertiesboxednumber)<br> boxed class to store validated Number payloads |
+| data class | [UnevaluatedpropertiesWithAdjacentAdditionalproperties.AdditionalPropertiesBoxedString](#additionalpropertiesboxedstring)<br> boxed class to store validated String payloads |
+| data class | [UnevaluatedpropertiesWithAdjacentAdditionalproperties.AdditionalPropertiesBoxedList](#additionalpropertiesboxedlist)<br> boxed class to store validated List payloads |
+| data class | [UnevaluatedpropertiesWithAdjacentAdditionalproperties.AdditionalPropertiesBoxedMap](#additionalpropertiesboxedmap)<br> boxed class to store validated Map payloads |
+| class | [UnevaluatedpropertiesWithAdjacentAdditionalproperties.AdditionalProperties](#additionalproperties)<br> schema class |
 
 ## UnevaluatedpropertiesWithAdjacentAdditionalproperties1Boxed
 sealed interface UnevaluatedpropertiesWithAdjacentAdditionalproperties1Boxed<br>
@@ -139,7 +139,7 @@ data class that stores validated null payloads, sealed permits implementation
 data class UnevaluatedPropertiesBoxedBoolean<br>
 implements [UnevaluatedPropertiesBoxed](#unevaluatedpropertiesboxed)
 
-record that stores validated boolean payloads, sealed permits implementation
+data class that stores validated boolean payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
@@ -338,7 +338,7 @@ data class that stores validated null payloads, sealed permits implementation
 data class AdditionalPropertiesBoxedBoolean<br>
 implements [AdditionalPropertiesBoxed](#additionalpropertiesboxed)
 
-record that stores validated boolean payloads, sealed permits implementation
+data class that stores validated boolean payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |

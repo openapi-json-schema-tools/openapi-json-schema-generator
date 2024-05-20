@@ -13,29 +13,29 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | sealed interface | [AdditionalpropertiesAllowsASchemaWhichShouldValidate.AdditionalpropertiesAllowsASchemaWhichShouldValidate1Boxed](#additionalpropertiesallowsaschemawhichshouldvalidate1boxed)<br> sealed interface for validated payloads |
-| record | [AdditionalpropertiesAllowsASchemaWhichShouldValidate.AdditionalpropertiesAllowsASchemaWhichShouldValidate1BoxedMap](#additionalpropertiesallowsaschemawhichshouldvalidate1boxedmap)<br> boxed class to store validated Map payloads |
-| static class | [AdditionalpropertiesAllowsASchemaWhichShouldValidate.AdditionalpropertiesAllowsASchemaWhichShouldValidate1](#additionalpropertiesallowsaschemawhichshouldvalidate1)<br> schema class |
-| static class | [AdditionalpropertiesAllowsASchemaWhichShouldValidate.AdditionalpropertiesAllowsASchemaWhichShouldValidateMapBuilder](#additionalpropertiesallowsaschemawhichshouldvalidatemapbuilder)<br> builder for Map payloads |
-| static class | [AdditionalpropertiesAllowsASchemaWhichShouldValidate.AdditionalpropertiesAllowsASchemaWhichShouldValidateMap](#additionalpropertiesallowsaschemawhichshouldvalidatemap)<br> output class for Map payloads |
+| data class | [AdditionalpropertiesAllowsASchemaWhichShouldValidate.AdditionalpropertiesAllowsASchemaWhichShouldValidate1BoxedMap](#additionalpropertiesallowsaschemawhichshouldvalidate1boxedmap)<br> boxed class to store validated Map payloads |
+| class | [AdditionalpropertiesAllowsASchemaWhichShouldValidate.AdditionalpropertiesAllowsASchemaWhichShouldValidate1](#additionalpropertiesallowsaschemawhichshouldvalidate1)<br> schema class |
+| class | [AdditionalpropertiesAllowsASchemaWhichShouldValidate.AdditionalpropertiesAllowsASchemaWhichShouldValidateMapBuilder](#additionalpropertiesallowsaschemawhichshouldvalidatemapbuilder)<br> builder for Map payloads |
+| class | [AdditionalpropertiesAllowsASchemaWhichShouldValidate.AdditionalpropertiesAllowsASchemaWhichShouldValidateMap](#additionalpropertiesallowsaschemawhichshouldvalidatemap)<br> output class for Map payloads |
 | sealed interface | [AdditionalpropertiesAllowsASchemaWhichShouldValidate.BarBoxed](#barboxed)<br> sealed interface for validated payloads |
-| record | [AdditionalpropertiesAllowsASchemaWhichShouldValidate.BarBoxedVoid](#barboxedvoid)<br> boxed class to store validated null payloads |
-| record | [AdditionalpropertiesAllowsASchemaWhichShouldValidate.BarBoxedBoolean](#barboxedboolean)<br> boxed class to store validated boolean payloads |
-| record | [AdditionalpropertiesAllowsASchemaWhichShouldValidate.BarBoxedNumber](#barboxednumber)<br> boxed class to store validated Number payloads |
-| record | [AdditionalpropertiesAllowsASchemaWhichShouldValidate.BarBoxedString](#barboxedstring)<br> boxed class to store validated String payloads |
-| record | [AdditionalpropertiesAllowsASchemaWhichShouldValidate.BarBoxedList](#barboxedlist)<br> boxed class to store validated List payloads |
-| record | [AdditionalpropertiesAllowsASchemaWhichShouldValidate.BarBoxedMap](#barboxedmap)<br> boxed class to store validated Map payloads |
-| static class | [AdditionalpropertiesAllowsASchemaWhichShouldValidate.Bar](#bar)<br> schema class |
+| data class | [AdditionalpropertiesAllowsASchemaWhichShouldValidate.BarBoxedVoid](#barboxedvoid)<br> boxed class to store validated null payloads |
+| data class | [AdditionalpropertiesAllowsASchemaWhichShouldValidate.BarBoxedBoolean](#barboxedboolean)<br> boxed class to store validated boolean payloads |
+| data class | [AdditionalpropertiesAllowsASchemaWhichShouldValidate.BarBoxedNumber](#barboxednumber)<br> boxed class to store validated Number payloads |
+| data class | [AdditionalpropertiesAllowsASchemaWhichShouldValidate.BarBoxedString](#barboxedstring)<br> boxed class to store validated String payloads |
+| data class | [AdditionalpropertiesAllowsASchemaWhichShouldValidate.BarBoxedList](#barboxedlist)<br> boxed class to store validated List payloads |
+| data class | [AdditionalpropertiesAllowsASchemaWhichShouldValidate.BarBoxedMap](#barboxedmap)<br> boxed class to store validated Map payloads |
+| class | [AdditionalpropertiesAllowsASchemaWhichShouldValidate.Bar](#bar)<br> schema class |
 | sealed interface | [AdditionalpropertiesAllowsASchemaWhichShouldValidate.FooBoxed](#fooboxed)<br> sealed interface for validated payloads |
-| record | [AdditionalpropertiesAllowsASchemaWhichShouldValidate.FooBoxedVoid](#fooboxedvoid)<br> boxed class to store validated null payloads |
-| record | [AdditionalpropertiesAllowsASchemaWhichShouldValidate.FooBoxedBoolean](#fooboxedboolean)<br> boxed class to store validated boolean payloads |
-| record | [AdditionalpropertiesAllowsASchemaWhichShouldValidate.FooBoxedNumber](#fooboxednumber)<br> boxed class to store validated Number payloads |
-| record | [AdditionalpropertiesAllowsASchemaWhichShouldValidate.FooBoxedString](#fooboxedstring)<br> boxed class to store validated String payloads |
-| record | [AdditionalpropertiesAllowsASchemaWhichShouldValidate.FooBoxedList](#fooboxedlist)<br> boxed class to store validated List payloads |
-| record | [AdditionalpropertiesAllowsASchemaWhichShouldValidate.FooBoxedMap](#fooboxedmap)<br> boxed class to store validated Map payloads |
-| static class | [AdditionalpropertiesAllowsASchemaWhichShouldValidate.Foo](#foo)<br> schema class |
+| data class | [AdditionalpropertiesAllowsASchemaWhichShouldValidate.FooBoxedVoid](#fooboxedvoid)<br> boxed class to store validated null payloads |
+| data class | [AdditionalpropertiesAllowsASchemaWhichShouldValidate.FooBoxedBoolean](#fooboxedboolean)<br> boxed class to store validated boolean payloads |
+| data class | [AdditionalpropertiesAllowsASchemaWhichShouldValidate.FooBoxedNumber](#fooboxednumber)<br> boxed class to store validated Number payloads |
+| data class | [AdditionalpropertiesAllowsASchemaWhichShouldValidate.FooBoxedString](#fooboxedstring)<br> boxed class to store validated String payloads |
+| data class | [AdditionalpropertiesAllowsASchemaWhichShouldValidate.FooBoxedList](#fooboxedlist)<br> boxed class to store validated List payloads |
+| data class | [AdditionalpropertiesAllowsASchemaWhichShouldValidate.FooBoxedMap](#fooboxedmap)<br> boxed class to store validated Map payloads |
+| class | [AdditionalpropertiesAllowsASchemaWhichShouldValidate.Foo](#foo)<br> schema class |
 | sealed interface | [AdditionalpropertiesAllowsASchemaWhichShouldValidate.AdditionalPropertiesBoxed](#additionalpropertiesboxed)<br> sealed interface for validated payloads |
-| record | [AdditionalpropertiesAllowsASchemaWhichShouldValidate.AdditionalPropertiesBoxedBoolean](#additionalpropertiesboxedboolean)<br> boxed class to store validated boolean payloads |
-| static class | [AdditionalpropertiesAllowsASchemaWhichShouldValidate.AdditionalProperties](#additionalproperties)<br> schema class |
+| data class | [AdditionalpropertiesAllowsASchemaWhichShouldValidate.AdditionalPropertiesBoxedBoolean](#additionalpropertiesboxedboolean)<br> boxed class to store validated boolean payloads |
+| class | [AdditionalpropertiesAllowsASchemaWhichShouldValidate.AdditionalProperties](#additionalproperties)<br> schema class |
 
 ## AdditionalpropertiesAllowsASchemaWhichShouldValidate1Boxed
 sealed interface AdditionalpropertiesAllowsASchemaWhichShouldValidate1Boxed<br>
@@ -187,7 +187,7 @@ data class that stores validated null payloads, sealed permits implementation
 data class BarBoxedBoolean<br>
 implements [BarBoxed](#barboxed)
 
-record that stores validated boolean payloads, sealed permits implementation
+data class that stores validated boolean payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
@@ -312,7 +312,7 @@ data class that stores validated null payloads, sealed permits implementation
 data class FooBoxedBoolean<br>
 implements [FooBoxed](#fooboxed)
 
-record that stores validated boolean payloads, sealed permits implementation
+data class that stores validated boolean payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
@@ -415,7 +415,7 @@ sealed interface that stores validated payloads using boxed classes
 data class AdditionalPropertiesBoxedBoolean<br>
 implements [AdditionalPropertiesBoxed](#additionalpropertiesboxed)
 
-record that stores validated boolean payloads, sealed permits implementation
+data class that stores validated boolean payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |

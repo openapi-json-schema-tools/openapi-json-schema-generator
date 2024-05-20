@@ -11,16 +11,16 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | sealed interface | [PatternpropertiesValidatesPropertiesMatchingARegex.PatternpropertiesValidatesPropertiesMatchingARegex1Boxed](#patternpropertiesvalidatespropertiesmatchingaregex1boxed)<br> sealed interface for validated payloads |
-| record | [PatternpropertiesValidatesPropertiesMatchingARegex.PatternpropertiesValidatesPropertiesMatchingARegex1BoxedVoid](#patternpropertiesvalidatespropertiesmatchingaregex1boxedvoid)<br> boxed class to store validated null payloads |
-| record | [PatternpropertiesValidatesPropertiesMatchingARegex.PatternpropertiesValidatesPropertiesMatchingARegex1BoxedBoolean](#patternpropertiesvalidatespropertiesmatchingaregex1boxedboolean)<br> boxed class to store validated boolean payloads |
-| record | [PatternpropertiesValidatesPropertiesMatchingARegex.PatternpropertiesValidatesPropertiesMatchingARegex1BoxedNumber](#patternpropertiesvalidatespropertiesmatchingaregex1boxednumber)<br> boxed class to store validated Number payloads |
-| record | [PatternpropertiesValidatesPropertiesMatchingARegex.PatternpropertiesValidatesPropertiesMatchingARegex1BoxedString](#patternpropertiesvalidatespropertiesmatchingaregex1boxedstring)<br> boxed class to store validated String payloads |
-| record | [PatternpropertiesValidatesPropertiesMatchingARegex.PatternpropertiesValidatesPropertiesMatchingARegex1BoxedList](#patternpropertiesvalidatespropertiesmatchingaregex1boxedlist)<br> boxed class to store validated List payloads |
-| record | [PatternpropertiesValidatesPropertiesMatchingARegex.PatternpropertiesValidatesPropertiesMatchingARegex1BoxedMap](#patternpropertiesvalidatespropertiesmatchingaregex1boxedmap)<br> boxed class to store validated Map payloads |
-| static class | [PatternpropertiesValidatesPropertiesMatchingARegex.PatternpropertiesValidatesPropertiesMatchingARegex1](#patternpropertiesvalidatespropertiesmatchingaregex1)<br> schema class |
+| data class | [PatternpropertiesValidatesPropertiesMatchingARegex.PatternpropertiesValidatesPropertiesMatchingARegex1BoxedVoid](#patternpropertiesvalidatespropertiesmatchingaregex1boxedvoid)<br> boxed class to store validated null payloads |
+| data class | [PatternpropertiesValidatesPropertiesMatchingARegex.PatternpropertiesValidatesPropertiesMatchingARegex1BoxedBoolean](#patternpropertiesvalidatespropertiesmatchingaregex1boxedboolean)<br> boxed class to store validated boolean payloads |
+| data class | [PatternpropertiesValidatesPropertiesMatchingARegex.PatternpropertiesValidatesPropertiesMatchingARegex1BoxedNumber](#patternpropertiesvalidatespropertiesmatchingaregex1boxednumber)<br> boxed class to store validated Number payloads |
+| data class | [PatternpropertiesValidatesPropertiesMatchingARegex.PatternpropertiesValidatesPropertiesMatchingARegex1BoxedString](#patternpropertiesvalidatespropertiesmatchingaregex1boxedstring)<br> boxed class to store validated String payloads |
+| data class | [PatternpropertiesValidatesPropertiesMatchingARegex.PatternpropertiesValidatesPropertiesMatchingARegex1BoxedList](#patternpropertiesvalidatespropertiesmatchingaregex1boxedlist)<br> boxed class to store validated List payloads |
+| data class | [PatternpropertiesValidatesPropertiesMatchingARegex.PatternpropertiesValidatesPropertiesMatchingARegex1BoxedMap](#patternpropertiesvalidatespropertiesmatchingaregex1boxedmap)<br> boxed class to store validated Map payloads |
+| class | [PatternpropertiesValidatesPropertiesMatchingARegex.PatternpropertiesValidatesPropertiesMatchingARegex1](#patternpropertiesvalidatespropertiesmatchingaregex1)<br> schema class |
 | sealed interface | [PatternpropertiesValidatesPropertiesMatchingARegex.FoBoxed](#foboxed)<br> sealed interface for validated payloads |
-| record | [PatternpropertiesValidatesPropertiesMatchingARegex.FoBoxedNumber](#foboxednumber)<br> boxed class to store validated Number payloads |
-| static class | [PatternpropertiesValidatesPropertiesMatchingARegex.Fo](#fo)<br> schema class |
+| data class | [PatternpropertiesValidatesPropertiesMatchingARegex.FoBoxedNumber](#foboxednumber)<br> boxed class to store validated Number payloads |
+| class | [PatternpropertiesValidatesPropertiesMatchingARegex.Fo](#fo)<br> schema class |
 
 ## PatternpropertiesValidatesPropertiesMatchingARegex1Boxed
 sealed interface PatternpropertiesValidatesPropertiesMatchingARegex1Boxed<br>
@@ -55,7 +55,7 @@ data class that stores validated null payloads, sealed permits implementation
 data class PatternpropertiesValidatesPropertiesMatchingARegex1BoxedBoolean<br>
 implements [PatternpropertiesValidatesPropertiesMatchingARegex1Boxed](#patternpropertiesvalidatespropertiesmatchingaregex1boxed)
 
-record that stores validated boolean payloads, sealed permits implementation
+data class that stores validated boolean payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
