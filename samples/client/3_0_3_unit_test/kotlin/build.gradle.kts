@@ -32,7 +32,7 @@ tasks.wrapper {
 }
 
 tasks.compileKotlin {
-    kotlinDaemonJvmArguments.add("-Xmx256m")
+    kotlinDaemonJvmArguments.add("-Xmx512m")
 }
 
 tasks.test {
