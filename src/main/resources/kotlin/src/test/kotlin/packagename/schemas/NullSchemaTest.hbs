@@ -1,0 +1,46 @@
+package {{{packageName}}}.schemas
+
+import {{{packageName}}}.configurations.JsonSchemaKeywordFlags
+import {{{packageName}}}.configurations.SchemaConfiguration
+import {{{packageName}}}.exceptions.ValidationException
+import {{{packageName}}}.schemas.validation.JsonSchema
+import {{{packageName}}}.schemas.validation.PathToSchemasMap
+import {{{packageName}}}.schemas.validation.ValidationMetadata
+
+import kotlin.Throws
+import kotlin.test.Test
+import kotlin.test.assertFailsWith
+import kotlin.test.assertNull
+
+class NullSchemaTest {
+    @Test
+    @Throws(ValidationException::class)
+    fun testValidateNull() {
+        val validatedValue: Nothing? = nullJsonSchema.validate(null, configuration)
+        assertNull(validatedValue)
+    }
+
+    @Test
+    fun testExceptionThrownForInvalidType() {
+        assertFailsWith<ValidationException>(
+            block = {
+                JsonSchema.validate(
+                    nullJsonSchema,
+                    true,
+                    validationMetadata
+                )
+            }
+        )
+    }
+
+    companion object {
+        val configuration = SchemaConfiguration(JsonSchemaKeywordFlags.Builder().build())
+        val nullJsonSchema = NullJsonSchema.NullJsonSchema1.getInstance()
+        val validationMetadata = ValidationMetadata(
+            listOf("args[0"),
+            configuration,
+            PathToSchemasMap(),
+            LinkedHashSet()
+        )
+    }
+}

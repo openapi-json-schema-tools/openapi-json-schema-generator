@@ -1,0 +1,104 @@
+{{#or isBooleanSchemaFalse isBooleanSchemaTrue}}
+    {{#if isBooleanSchemaTrue}}
+{{> src/main/kotlin/packagename/components/schemas/_docschema_methodsInheritedFn className="AnyTypeJsonSchema.AnyTypeJsonSchema1" }}
+    {{else}}
+{{> src/main/kotlin/packagename/components/schemas/_docschema_methodsInheritedFn className="NotAnyTypeJsonSchema.NotAnyTypeJsonSchema1" }}
+    {{/if}}
+{{else}}
+    {{#eq types null }}
+        {{#and isSimpleAnyType (eq refInfo null) }}
+{{> src/main/kotlin/packagename/components/schemas/_docschema_methodsInheritedFn className="AnyTypeJsonSchema.AnyTypeJsonSchema1" }}
+        {{/and}}
+    {{else}}
+        {{! types exist }}
+        {{#eq types.size 1}}
+            {{! one type }}
+            {{#each types}}
+                {{#eq this "object"}}
+                    {{#and isSimpleObject (eq ../refInfo null) }}
+{{> src/main/kotlin/packagename/components/schemas/_docschema_methodsInheritedFn className="MapJsonSchema.MapJsonSchema1" }}
+                    {{/and}}
+                {{else}}
+                    {{#eq this "array"}}
+                        {{#and isSimpleArray (eq ../refInfo null) }}
+{{> src/main/kotlin/packagename/components/schemas/_docschema_methodsInheritedFn className="ListJsonSchema.ListJsonSchema1" }}
+                        {{/and}}
+                    {{else}}
+                        {{#eq this "boolean"}}
+                            {{#and isSimpleBoolean (eq ../refInfo null) }}
+{{> src/main/kotlin/packagename/components/schemas/_docschema_methodsInheritedFn className="BooleanJsonSchema.BooleanJsonSchema1" }}
+                            {{/and}}
+                        {{else}}
+                            {{#eq this "integer" }}
+                                {{#and isSimpleInteger (eq ../refInfo null) }}
+                                    {{#eq ../format null }}
+{{> src/main/kotlin/packagename/components/schemas/_docschema_methodsInheritedFn className="IntJsonSchema.IntJsonSchema1" }}
+                                    {{/eq}}
+                                    {{#eq ../format "int" }}
+{{> src/main/kotlin/packagename/components/schemas/_docschema_methodsInheritedFn className="IntJsonSchema.IntJsonSchema1" }}
+                                    {{/eq}}
+                                    {{#eq ../format "int32"}}
+{{> src/main/kotlin/packagename/components/schemas/_docschema_methodsInheritedFn className="Int32JsonSchema.Int32JsonSchema1" }}
+                                    {{/eq}}
+                                    {{#eq ../format "int64"}}
+{{> src/main/kotlin/packagename/components/schemas/_docschema_methodsInheritedFn className="Int64JsonSchema.Int64JsonSchema1" }}
+                                    {{/eq}}
+                                {{/and}}
+                            {{else}}
+                                {{#eq this "number" }}
+                                    {{#and isSimpleNumber (eq ../refInfo null) }}
+                                    {{#eq ../format null}}
+{{> src/main/kotlin/packagename/components/schemas/_docschema_methodsInheritedFn className="NumberJsonSchema.NumberJsonSchema1" }}
+                                    {{else}}
+                                        {{#eq ../format "float"}}
+{{> src/main/kotlin/packagename/components/schemas/_docschema_methodsInheritedFn className="FloatJsonSchema.FloatJsonSchema1" }}
+                                        {{else}}
+                                            {{#eq ../format "double"}}
+{{> src/main/kotlin/packagename/components/schemas/_docschema_methodsInheritedFn className="DoubleJsonSchema.DoubleJsonSchema1" }}
+                                            {{else}}
+                                                {{#eq ../format "int32"}}
+{{> src/main/kotlin/packagename/components/schemas/_docschema_methodsInheritedFn className="Int32JsonSchema.Int32JsonSchema1" }}
+                                                {{else}}
+                                                    {{#eq ../format "int64"}}
+{{> src/main/kotlin/packagename/components/schemas/_docschema_methodsInheritedFn className="Int64JsonSchema.Int64JsonSchema1" }}
+                                                    {{/eq}}
+                                                {{/eq}}
+                                            {{/eq}}
+                                        {{/eq}}
+                                    {{/eq}}
+                                    {{/and}}
+                                {{else}}
+                                    {{#eq this "string"}}
+                                        {{#and isSimpleString (eq ../refInfo null) }}
+                                            {{#eq ../format null}}
+{{> src/main/kotlin/packagename/components/schemas/_docschema_methodsInheritedFn className="StringJsonSchema.StringJsonSchema1" }}
+                                            {{/eq}}
+                                            {{#eq ../format "date"}}
+{{> src/main/kotlin/packagename/components/schemas/_docschema_methodsInheritedFn className="DateJsonSchema.DateJsonSchema1" }}
+                                            {{/eq}}
+                                            {{#eq ../format "date-time"}}
+{{> src/main/kotlin/packagename/components/schemas/_docschema_methodsInheritedFn className="DateTimeJsonSchema.DateTimeJsonSchema1" }}
+                                            {{/eq}}
+                                            {{#eq ../format "uuid"}}
+{{> src/main/kotlin/packagename/components/schemas/_docschema_methodsInheritedFn className="UuidJsonSchema.UuidJsonSchema1" }}
+                                            {{/eq}}
+                                            {{#eq ../format "number"}}
+{{> src/main/kotlin/packagename/components/schemas/_docschema_methodsInheritedFn className="DecimalJsonSchema.DecimalJsonSchema1" }}
+                                            {{/eq}}
+                                        {{/and}}
+                                    {{else}}
+                                        {{#and isSimpleNull (eq ../refInfo null) }}
+{{> src/main/kotlin/packagename/components/schemas/_docschema_methodsInheritedFn className="NullJsonSchema.NullJsonSchema1" }}
+                                        {{/and}}
+                                    {{/eq}}
+                                {{/eq}}
+                            {{/eq}}
+                        {{/eq}}
+                    {{/eq}}
+                {{/eq}}
+            {{/each}}
+        {{else}}
+            {{! multiple types }}
+        {{/eq}}
+    {{/eq}}
+{{/or}}

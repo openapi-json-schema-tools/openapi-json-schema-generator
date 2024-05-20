@@ -1,0 +1,93 @@
+{{#if types}}
+    {{#each types}}
+        {{#eq this "null"}}
+{{> src/main/kotlin/packagename/components/schemas/SchemaClass/_validateAndBoxVoid }}
+        {{/eq}}
+        {{#eq this "boolean"}}
+{{> src/main/kotlin/packagename/components/schemas/SchemaClass/_validateAndBoxBoolean }}
+        {{/eq}}
+        {{#and (eq this "string") (neq ../format "binary") }}
+{{> src/main/kotlin/packagename/components/schemas/SchemaClass/_validateAndBoxString }}
+        {{/and}}
+        {{#or (eq this "number") (eq this "integer")}}
+{{> src/main/kotlin/packagename/components/schemas/SchemaClass/_validateAndBoxNumber }}
+        {{/or}}
+        {{#eq this "array"}}
+{{> src/main/kotlin/packagename/components/schemas/SchemaClass/_validateAndBoxList }}
+        {{/eq}}
+        {{#eq this "object"}}
+{{> src/main/kotlin/packagename/components/schemas/SchemaClass/_validateAndBoxMap }}
+        {{/eq}}
+    {{/each}}
+@Throws(ValidationException::class)
+override fun validateAndBox(arg: Any?, configuration: SchemaConfiguration?): {{jsonPathPiece.pascalCase}}Boxed {
+    {{#each types}}
+        {{#if @first}}
+            {{#eq this "null"}}
+    if (arg == null) {
+            {{/eq}}
+            {{#eq this "boolean"}}
+    if (arg is Boolean) {
+            {{/eq}}
+            {{#and (eq this "string") (neq ../format "binary") }}
+    if (arg is String) {
+            {{/and}}
+            {{#or (eq this "number") (eq this "integer")}}
+    if (arg is Number) {
+            {{/or}}
+            {{#eq this "array"}}
+    if (arg is List<*>) {
+            {{/eq}}
+            {{#eq this "object"}}
+    if (arg is Map<*, *>) {
+            {{/eq}}
+        {{else}}
+            {{#eq this "null"}}
+    } else if (arg == null) {
+            {{/eq}}
+            {{#eq this "boolean"}}
+    } else if (arg is Boolean) {
+            {{/eq}}
+            {{#and (eq this "string") (neq ../format "binary") }}
+    } else if (arg is String) {
+            {{/and}}
+            {{#or (eq this "number") (eq this "integer")}}
+    } else if (arg is Number) {
+            {{/or}}
+            {{#eq this "array"}}
+    } else if (arg is List<*>) {
+            {{/eq}}
+            {{#eq this "object"}}
+    } else if (arg is Map<*, *>) {
+            {{/eq}}
+        {{/if}}
+        return validateAndBox(arg, configuration)
+    {{/each}}
+    }
+    throw ValidationException("Invalid input type="+getClass(arg)+". It can't be validated by this schema")
+}
+{{else}}
+{{> src/main/kotlin/packagename/components/schemas/SchemaClass/_validateAndBoxVoid }}
+{{> src/main/kotlin/packagename/components/schemas/SchemaClass/_validateAndBoxBoolean }}
+{{> src/main/kotlin/packagename/components/schemas/SchemaClass/_validateAndBoxNumber }}
+{{> src/main/kotlin/packagename/components/schemas/SchemaClass/_validateAndBoxString }}
+{{> src/main/kotlin/packagename/components/schemas/SchemaClass/_validateAndBoxList }}
+{{> src/main/kotlin/packagename/components/schemas/SchemaClass/_validateAndBoxMap }}
+@Throws(ValidationException::class)
+override fun validateAndBox(arg: Any?, configuration: SchemaConfiguration?): {{jsonPathPiece.pascalCase}}Boxed {
+    if (arg == null) {
+        return validateAndBox(null, configuration)
+    } else if (arg is Boolean) {
+        return validateAndBox(arg, configuration)
+    } else if (arg is String) {
+        return validateAndBox(arg, configuration)
+    } else if (arg is Number) {
+        return validateAndBox(arg, configuration)
+    } else if (arg is List<*>) {
+        return validateAndBox(arg, configuration)
+    } else if (arg is Map<*, *>) {
+        return validateAndBox(arg, configuration)
+    }
+    throw ValidationException("Invalid input type="+getClass(arg)+". It can't be validated by this schema")
+}
+{{/if}}

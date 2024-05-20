@@ -1,0 +1,5 @@
+{{#if forDocs}}
+constValue = {{#each constInfo.valueToName}}{{#with @key}}{{#eq type "string"}}"{{{value}}}"{{else}}{{#eq type "null"}}null{{else}}{{value}}{{/eq}}{{/eq}}{{/with}}{{/each}}
+{{~else}}
+.constValue({{#each constInfo.valueToName}}{{#with @key}}{{#eq type "string"}}"{{{value}}}"{{else}}{{#eq type "null"}}null{{else}}{{#eq type "boolean"}}{{value}}{{else}}new BigDecimal("{{value.toString}}"){{/eq}}{{/eq}}{{/eq}}{{/with}}{{/each}})
+{{/if}}

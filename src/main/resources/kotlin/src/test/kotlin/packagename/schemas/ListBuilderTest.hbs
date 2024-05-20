@@ -1,0 +1,55 @@
+package {{{packageName}}}.schemas
+
+import kotlin.test.Test
+import kotlin.test.assertEquals
+
+class ListBuilderTest {
+    class NullableListWithNullableItemsListBuilder {
+        // class to build List<@Nullable List<Number>>
+        private val list: MutableList<List<Number>?>
+
+        constructor() {
+            list = ArrayList()
+        }
+
+        constructor(list: MutableList<List<Number>?>) {
+            this.list = list
+        }
+
+        fun add(item: Nothing?): NullableListWithNullableItemsListBuilder {
+            list.add(item)
+            return this
+        }
+
+        fun add(item: List<Number>): NullableListWithNullableItemsListBuilder {
+            list.add(item)
+            return this
+        }
+
+        fun build(): List<List<Number>?> {
+            return list
+        }
+    }
+
+    @Test
+    fun testSucceedsWithNullInput() {
+        val inList: MutableList<List<Number>?> = ArrayList()
+        inList.add(null)
+        var builder = NullableListWithNullableItemsListBuilder(inList)
+        assertEquals(inList, builder.build())
+        builder = NullableListWithNullableItemsListBuilder()
+        builder.add(null)
+        assertEquals(inList, builder.build())
+    }
+
+    @Test
+    fun testSucceedsWithNonNullInput() {
+        val inList: MutableList<List<Number>?> = ArrayList()
+        inList.add(listOf<Number>(1))
+        var builder = NullableListWithNullableItemsListBuilder(inList)
+        assertEquals(inList, builder.build())
+        builder = NullableListWithNullableItemsListBuilder()
+        builder.add(listOf<Number>(1))
+        assertEquals(inList, builder.build())
+    }
+}

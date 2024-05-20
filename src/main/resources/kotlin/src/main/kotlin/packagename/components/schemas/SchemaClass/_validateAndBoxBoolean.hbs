@@ -1,0 +1,4 @@
+@Throws(ValidationException::class)
+override fun validateAndBox(arg: Boolean, configuration: SchemaConfiguration?): {{jsonPathPiece.pascalCase}}BoxedBoolean {
+    return {{jsonPathPiece.pascalCase}}BoxedBoolean(validate(arg, configuration))
+}

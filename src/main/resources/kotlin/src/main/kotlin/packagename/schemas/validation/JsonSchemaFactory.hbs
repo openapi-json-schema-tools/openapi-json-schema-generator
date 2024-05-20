@@ -1,0 +1,30 @@
+package {{{packageName}}}.schemas.validation
+
+import java.lang.reflect.InvocationTargetException
+
+object JsonSchemaFactory {
+    private var classToInstance: MutableMap<Class<out JsonSchema<*>>, JsonSchema<*>> = HashMap()
+
+    fun <V : JsonSchema<*>> getInstance(schemaCls: Class<out V>): V {
+        val cacheInst: JsonSchema<*>? = classToInstance[schemaCls]
+        cacheInst?.let {
+            assert(schemaCls.isInstance(it))
+            return schemaCls.cast(it)
+        }
+        try {
+            val companion = schemaCls.declaredClasses[0]
+            val method = companion.getMethod("getInstance")
+            val obj = method.invoke(companion.kotlin.objectInstance)
+            assert(schemaCls.isInstance(obj))
+            val inst = schemaCls.cast(obj)
+            classToInstance[schemaCls] = inst
+            return inst
+        } catch (e: NoSuchMethodException) {
+            throw RuntimeException(e)
+        } catch (e: IllegalAccessException) {
+            throw RuntimeException(e)
+        } catch (e: InvocationTargetException) {
+            throw RuntimeException(e)
+        }
+    }
+}

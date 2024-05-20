@@ -1,0 +1,17 @@
+{{#if nonErrorStatusCodes}}
+    {{#contains nonErrorStatusCodes @key }}
+return new Endpoint{{jsonPathPiece.pascalCase}}(response, deserializedResponse.body(), deserializedResponse.headers());
+    {{else}}
+throw new {{jsonPathPiece.pascalCase}}.ResponseApiException(
+    "Received error statusCode response from server",
+    response,
+    deserializedResponse
+);
+    {{/contains}}
+{{else}}
+throw new {{jsonPathPiece.pascalCase}}.ResponseApiException(
+    "Received error statusCode response from server",
+    response,
+    deserializedResponse
+);
+{{/if}}

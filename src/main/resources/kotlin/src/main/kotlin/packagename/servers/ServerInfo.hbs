@@ -1,0 +1,44 @@
+{{#if servers.subpackage}}
+package {{{packageName}}}.{{servers.subpackage}}
+{{else}}
+package {{{packageName}}}
+{{/if}}
+
+{{#each servers}}
+import {{{packageName}}}.{{subpackage}}.{{jsonPathPiece.pascalCase}}
+{{/each}}
+import {{{packageName}}}.servers.Server
+import {{{packageName}}}.servers.ServerProvider
+
+class {{servers.jsonPathPiece.pascalCase}} {
+    class {{servers.jsonPathPiece.pascalCase}}1(
+    {{#each servers}}
+        private val server{{@index}}: {{jsonPathPiece.pascalCase}} = {{jsonPathPiece.pascalCase}}(){{#unless @last}},{{/unless}}
+    {{/each}}
+    ) : ServerProvider<ServerIndex> {
+
+        override fun getServer(serverIndex: ServerIndex): Server {
+    {{#eq servers.size 1}}
+            return server0
+    {{else}}
+            switch (serverIndex) {
+        {{#each servers}}
+            {{#if @last}}
+                default:
+                    return server{{@index}};
+            {{else}}
+                case SERVER_{{@index}}:
+                    return server{{@index}};
+            {{/if}}
+        {{/each}}
+            }
+    {{/eq}}
+        }
+    }
+
+    enum class ServerIndex {
+        {{#each servers}}
+        SERVER_{{@index}}{{#unless @last}},{{/unless}}
+        {{/each}}
+    }
+}

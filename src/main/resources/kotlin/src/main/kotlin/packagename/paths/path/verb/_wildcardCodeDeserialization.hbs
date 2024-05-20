@@ -1,0 +1,23 @@
+{{#eq wildcardCodeResponses.size 1}}
+    {{#each wildcardCodeResponses}}
+Wildcard{{jsonPathPiece.pascalCase}}Deserializer castDeserializer = (Wildcard{{jsonPathPiece.pascalCase}}Deserializer) wildcardCodeDeserializer;
+var deserializedResponse = castDeserializer.deserialize(response, configuration);
+{{> src/main/kotlin/packagename/paths/path/verb/_returnOrThrow }}
+    {{/each}}
+{{else}}
+    {{#each wildcardCodeResponses}}
+        {{#if @first}}
+if (wildcardCodeDeserializer instanceof Wildcard{{jsonPathPiece.pascalCase}}Deserializer castDeserializer) {
+        {{else}}
+            {{#if @last}}
+} else {
+    Wildcard{{jsonPathPiece.pascalCase}}Deserializer castDeserializer = (Wildcard{{jsonPathPiece.pascalCase}}Deserializer) wildcardCodeDeserializer;
+            {{else}}
+} else if (wildcardCodeDeserializer instanceof Wildcard{{jsonPathPiece.pascalCase}}Deserializer castDeserializer) {
+            {{/if}}
+        {{/if}}
+    var deserializedResponse = castDeserializer.deserialize(response, configuration);
+    {{> src/main/kotlin/packagename/paths/path/verb/_returnOrThrow }}
+    {{/each}}
+}
+{{/eq}}

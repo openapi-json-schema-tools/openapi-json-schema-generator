@@ -1,0 +1,110 @@
+{{#with enumInfo}}
+    {{#each typeToValues}}
+
+        {{#eq @key "null"}}
+enum class Null{{../jsonPathPiece.pascalCase}}(private val value: Nothing?): NullValueMethod {
+        {{else}}
+            {{#eq @key "boolean"}}
+enum class Boolean{{../jsonPathPiece.pascalCase}}(private val value: Boolean): BooleanValueMethod {
+            {{else}}
+                {{#eq @key "string"}}
+enum class String{{../jsonPathPiece.pascalCase}}(private val value: String): StringValueMethod {
+                {{else}}
+                    {{#eq @key "Integer"}}
+enum class Integer{{../jsonPathPiece.pascalCase}}(private val value: Int): IntegerValueMethod {
+                    {{else}}
+                        {{#eq @key "Long"}}
+enum class Long{{../jsonPathPiece.pascalCase}}(private val value: Long): LongValueMethod {
+                        {{else}}
+                            {{#eq @key "Float"}}
+enum class Float{{../jsonPathPiece.pascalCase}}(private val value: Float): FloatValueMethod {
+                            {{else}}
+                                {{#eq @key "Double"}}
+enum class Double{{../jsonPathPiece.pascalCase}}(private val value: Double): DoubleValueMethod {
+                                {{/eq}}
+                            {{/eq}}
+                        {{/eq}}
+                    {{/eq}}
+                {{/eq}}
+            {{/eq}}
+        {{/eq}}
+        {{#each this}}
+            {{#eq ../@key "null"}}
+    {{this}}(null){{#unless @last}},{{else}};{{/unless}}
+            {{else}}
+                {{#eq ../@key "boolean"}}
+    {{this}}({{@key.value}}){{#unless @last}},{{else}};{{/unless}}
+                {{else}}
+                    {{#eq ../@key "string"}}
+    {{this}}("{{{@key.value}}}"){{#unless @last}},{{else}};{{/unless}}
+                    {{else}}
+                        {{#eq ../@key "Integer"}}
+    {{this}}({{@key.value}}){{#unless @last}},{{else}};{{/unless}}
+                        {{else}}
+                            {{#eq ../@key "Long"}}
+    {{this}}({{@key.value}}L){{#unless @last}},{{else}};{{/unless}}
+                            {{else}}
+                                {{#eq ../@key "Float"}}
+    {{this}}({{@key.value}}f){{#unless @last}},{{else}};{{/unless}}
+                                {{else}}
+                                    {{#eq ../@key "Double"}}
+    {{this}}({{@key.value}}){{#unless @last}},{{else}};{{/unless}}
+                                    {{/eq}}
+                                {{/eq}}
+                            {{/eq}}
+                        {{/eq}}
+                    {{/eq}}
+                {{/eq}}
+            {{/eq}}
+        {{/each}}
+        {{#eq @key "null"}}
+
+    override fun value(): Nothing? {
+        return this.value
+    }
+        {{else}}
+            {{#eq @key "boolean"}}
+
+    override fun value(): Boolean {
+        return this.value
+    }
+            {{else}}
+                {{#eq @key "string"}}
+
+    override fun value(): String {
+        return this.value
+    }
+                {{else}}
+                    {{#eq @key "Integer"}}
+
+    override fun value(): Int {
+        return this.value
+    }
+                    {{else}}
+                        {{#eq @key "Long"}}
+
+    override fun value(): Long {
+        return this.value
+    }
+                        {{else}}
+                            {{#eq @key "Float"}}
+
+    override fun value(): Float {
+        return this.value
+    }
+                            {{else}}
+                                {{#eq @key "Double"}}
+
+    override fun value(): Double {
+        return this.value
+    }
+                                {{/eq}}
+                            {{/eq}}
+                        {{/eq}}
+                    {{/eq}}
+                {{/eq}}
+            {{/eq}}
+        {{/eq}}
+}
+    {{/each}}
+{{/with}}

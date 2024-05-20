@@ -1,0 +1,122 @@
+{{#if types}}
+    {{#eq types.size 1}}
+        {{#each types}}
+            {{#eq this "boolean"}}
+Boolean
+            {{~else}}
+                {{#eq this "null"}}
+Nothing?
+                {{~else}}
+                    {{#eq this "string"}}
+                        {{#eq format "binary"}}
+{{! todo binary types}}
+String
+                        {{~else}}
+String
+                        {{~/eq}}
+                    {{else}}
+                        {{#eq this "number"}}
+Number
+                        {{~else}}
+                            {{#eq this "integer"}}
+Number
+                            {{~else}}
+                                {{#eq this "array"}}
+                                    {{#eq ../jsonPath sourceJsonPath}}
+List<Any?>
+                                    {{~else}}
+                                        {{#with items}}
+List<{{> src/main/kotlin/packagename/components/schemas/types/schema_input_type }}>
+                                        {{~else}}
+List<Any?>
+                                        {{~/with}}
+                                    {{/eq}}
+                                {{else}}
+                                    {{#eq this "object"}}
+                                        {{#eq ../jsonPath sourceJsonPath}}
+Map<String, Any?>
+                                        {{~else}}
+                                            {{#with mapValueSchema}}
+Map<String, {{> src/main/kotlin/packagename/components/schemas/types/schema_input_type }}>
+                                            {{~else}}
+Map<String, Any?>
+                                            {{~/with}}
+                                        {{/eq}}
+                                    {{/eq}}
+                                {{/eq}}
+                            {{/eq}}
+                        {{/eq}}
+                    {{/eq}}
+                {{/eq}}
+            {{/eq}}
+        {{/each}}
+    {{else}}
+        {{#eq types.size 2}}
+            {{#contains types "null"}}
+                {{! nullable types }}
+                {{#each types}}
+                    {{#eq this "boolean"}}
+{{#unless noExtends}}out {{/unless}} Boolean?
+                    {{~else}}
+                        {{#eq this "string"}}
+                            {{#eq format "binary"}}
+{{! todo binary types}}
+{{#unless noExtends}}out {{/unless}} String?
+                            {{~else}}
+{{#unless noExtends}}out {{/unless}}String?
+                            {{~/eq}}
+                        {{else}}
+                            {{#eq this "number"}}
+{{#unless noExtends}}out {{/unless}} Number?
+                            {{~else}}
+                                {{#eq this "integer"}}
+{{#unless noExtends}}out {{/unless}} Number?
+                                {{~else}}
+                                    {{#eq this "array"}}
+                                        {{#eq ../jsonPath sourceJsonPath}}
+{{#unless noExtends}}out {{/unless}} List<Any?>?
+                                        {{~else}}
+                                            {{#with items}}
+{{#unless noExtends}}out {{/unless}} List<{{> src/main/kotlin/packagename/components/schemas/types/schema_input_type }}>?
+                                            {{~else}}
+{{#unless noExtends}}out {{/unless}} List<Any?>?
+                                            {{~/with}}
+                                        {{/eq}}
+                                    {{else}}
+                                        {{#eq this "object"}}
+                                            {{#eq ../jsonPath sourceJsonPath}}
+{{#unless noExtends}}out {{/unless}} Map<String, Any?>?
+                                            {{~else}}
+                                                {{#with mapValueSchema}}
+{{#unless noExtends}}out {{/unless}} Map<String, {{> src/main/kotlin/packagename/components/schemas/types/schema_input_type }}>?
+                                                {{~else}}
+{{#unless noExtends}}out {{/unless}} Map<String, Any?>?
+                                                {{~/with}}
+                                            {{/eq}}
+                                        {{/eq}}
+                                    {{/eq}}
+                                {{/eq}}
+                            {{/eq}}
+                        {{/eq}}
+                    {{/eq}}
+                {{/each}}
+            {{else}}
+                {{! none of the types are null }}
+                {{#and (contains types "integer") (contains types "number") }}
+Number
+                {{~else}}
+Any
+                {{~/and}}
+            {{/contains}}
+        {{else}}
+            {{! 3 or more types }}
+            {{#contains types "null"}}
+Any?
+            {{~else}}
+Any
+            {{~/contains}}
+        {{/eq}}
+    {{/eq}}
+{{else}}
+Any?
+{{~/if}}

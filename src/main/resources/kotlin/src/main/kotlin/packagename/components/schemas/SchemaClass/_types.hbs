@@ -1,0 +1,79 @@
+{{#if types}}
+    {{#and (eq types.size 1) (or (contains types "null") (contains types "object") (contains types "array") (contains types "boolean"))}}
+        {{#if forDocs}}
+type = setOf({{#contains types "null"}}Void::class.java{{/contains}}{{#contains types "object"}}Map::class.java{{/contains}}{{#contains types "array"}}List::class.java{{/contains}}{{#contains types  "boolean"}}Boolean::class.java{{/contains}})
+        {{~else}}
+.type(setOf({{#contains types "null"}}Void::class.java{{/contains}}{{#contains types "object"}}Map::class.java{{/contains}}{{#contains types "array"}}List::class.java{{/contains}}{{#contains types  "boolean"}}Boolean::class.java{{/contains}}))
+        {{/if}}
+    {{else}}
+        {{#if forDocs}}
+type = setOf(<br/>
+            {{~#each types}}
+                {{#eq this "null"}}
+&nbsp;&nbsp;&nbsp;&nbsp;Void::class.java{{#unless @last}},{{/unless}}<br/>
+                {{~/eq}}
+                {{#eq this "object"}}
+&nbsp;&nbsp;&nbsp;&nbsp;Map::class.java{{#unless @last}},{{/unless}}<br/>
+                {{~/eq}}
+                {{#eq this "array"}}
+&nbsp;&nbsp;&nbsp;&nbsp;List::class.java{{#unless @last}},{{/unless}}<br/>
+                {{~/eq}}
+                {{#eq this "string" }}
+                    {{#eq ../format "binary"}}
+    // FileIO,
+    // bytes,
+                    {{else}}
+&nbsp;&nbsp;&nbsp;&nbsp;String::class.java{{#unless @last}},{{/unless}}<br/>
+                    {{~/eq}}
+                {{/eq}}
+                {{#eq this "integer"}}
+&nbsp;&nbsp;&nbsp;&nbsp;Int::class.java,<br/>&nbsp;&nbsp;&nbsp;&nbsp;Long::class.java,<br/>&nbsp;&nbsp;&nbsp;&nbsp;Float::class.java,<br/>&nbsp;&nbsp;&nbsp;&nbsp;Double::class.java{{#unless @last}},{{/unless}}<br/>
+                {{~/eq}}
+                {{#eq this "number"}}
+&nbsp;&nbsp;&nbsp;&nbsp;Int::class.java,<br/>&nbsp;&nbsp;&nbsp;&nbsp;Long::class.java,<br/>&nbsp;&nbsp;&nbsp;&nbsp;Float::class.java,<br/>&nbsp;&nbsp;&nbsp;&nbsp;Double::class.java{{#unless @last}},{{/unless}}<br/>
+                {{~/eq}}
+                {{#eq this "boolean"}}
+&nbsp;&nbsp;&nbsp;&nbsp;Boolean::class.java{{#unless @last}},{{/unless}}<br/>
+                {{~/eq}}
+            {{/each}}
+)<br/>
+        {{~else}}
+.type(setOf(
+            {{#each types}}
+                {{#eq this "null"}}
+    Void::class.java{{#unless @last}},{{/unless}}
+                {{/eq}}
+                {{#eq this "object"}}
+    Map::class.java{{#unless @last}},{{/unless}}
+                {{/eq}}
+                {{#eq this "array"}}
+    List::class.java{{#unless @last}},{{/unless}}
+                {{/eq}}
+                {{#eq this "string" }}
+                    {{#eq ../format "binary"}}
+    // FileIO,
+    // bytes,
+                    {{else}}
+    String::class.java{{#unless @last}},{{/unless}}
+                    {{/eq}}
+                {{/eq}}
+                {{#eq this "integer"}}
+    Int::class.java,
+    Long::class.java,
+    Float::class.java,
+    Double::class.java{{#unless @last}},{{/unless}}
+                {{/eq}}
+                {{#eq this "number"}}
+    Int::class.java,
+    Long::class.java,
+    Float::class.java,
+    Double::class.java{{#unless @last}},{{/unless}}
+                {{/eq}}
+                {{#eq this "boolean"}}
+    Boolean::class.java{{#unless @last}},{{/unless}}
+                {{/eq}}
+            {{/each}}
+))
+        {{/if}}
+    {{/and}}
+{{/if}}

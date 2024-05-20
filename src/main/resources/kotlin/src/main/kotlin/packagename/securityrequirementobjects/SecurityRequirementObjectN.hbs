@@ -1,0 +1,34 @@
+package {{{packageName}}}.{{securityRequirementObject.subpackage}};
+
+{{#if securityRequirementObject.isEmpty }}
+import {{{packageName}}}.securityrequirementobjects.EmptySecurityRequirementObject;
+
+public class {{securityRequirementObject.jsonPathPiece.pascalCase}} extends EmptySecurityRequirementObject {}
+{{else}}
+import org.checkerframework.checker.nullness.qual.Nullable;
+import {{{packageName}}}.securityrequirementobjects.SecurityRequirementObject;
+import {{{packageName}}}.securityschemes.SecurityScheme;
+    {{#with securityRequirementObject}}
+{{> _helper_imports }}
+    {{/with}}
+
+import java.util.List;
+import java.util.Map;
+import java.util.AbstractMap;
+
+public class {{securityRequirementObject.jsonPathPiece.pascalCase}} extends SecurityRequirementObject {
+
+    public {{securityRequirementObject.jsonPathPiece.pascalCase}}() {
+        super(
+            Map.ofEntries(
+        {{#each securityRequirementObject}}
+                new AbstractMap.SimpleEntry<Class<? extends SecurityScheme>, List<String>>(
+                    {{refInfo.refClass}}.class,
+                    List.of({{#each scopeNames}}"{{.}}"{{#unless @last}}, {{/unless}}{{/each}})
+                ){{#unless @last}},{{/unless}}
+        {{/each}}
+            )
+        );
+    }
+}
+{{/if}}

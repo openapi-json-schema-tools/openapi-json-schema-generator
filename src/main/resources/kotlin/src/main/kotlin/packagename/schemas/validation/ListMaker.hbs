@@ -1,0 +1,20 @@
+package {{{packageName}}}.schemas.validation
+
+import java.util.ArrayList
+import java.util.Arrays
+import java.util.List
+
+public class ListMaker {
+    /**
+     * A builder for lists that allows in null values
+     * Schema tests + doc code samples need it
+     * @param entries items to add
+     * @return the output map
+     * @param <E> value type
+     */
+    @SafeVarargs
+    @SuppressWarnings("varargs")
+    public static <E> List<E> makeList(E... entries) {
+        return new ArrayList<>(Arrays.stream(entries).toList())
+    }
+}

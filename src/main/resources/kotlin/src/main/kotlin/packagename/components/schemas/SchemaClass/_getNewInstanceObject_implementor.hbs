@@ -1,0 +1,48 @@
+
+override fun getNewInstance(arg: Any?, pathToItem: List<Any>, pathToSchemas: PathToSchemasMap): Any? {
+{{#if types}}
+    {{#each types}}
+        {{#if @first}}
+    if (arg {{#eq this "null"}}== null{{/eq}}{{#eq this "boolean"}}is Boolean{{/eq}}{{#or (eq this "integer") (eq this "number")}}is Number{{/or}}{{#eq this "string" }}is String{{/eq}}{{#eq this "array"}}is List<*>{{/eq}}{{#eq this "object"}}is Map<*, *>{{/eq}}) {
+        {{else}}
+    } else if (arg {{#eq this "null"}}== null{{/eq}}{{#eq this "boolean"}}is Boolean{{/eq}}{{#or (eq this "integer") (eq this "number")}}is Number{{/or}}{{#eq this "string" }}is String{{/eq}}{{#eq this "array"}}is List<*>{{/eq}}{{#eq this "object"}}is Map<*, *>{{/eq}}) {
+        {{/if}}
+        {{#eq this "null"}}
+        return getNewInstance(null, pathToItem, pathToSchemas)
+        {{/eq}}
+        {{#eq this "boolean"}}
+        return getNewInstance(arg, pathToItem, pathToSchemas)
+        {{/eq}}
+        {{#or (eq this "integer") (eq this "number")}}
+        return getNewInstance(arg, pathToItem, pathToSchemas)
+        {{/or}}
+        {{#eq this "string" }}
+        return getNewInstance(arg, pathToItem, pathToSchemas)
+        {{/eq}}
+        {{#eq this "array"}}
+        return getNewInstance(arg, pathToItem, pathToSchemas)
+        {{/eq}}
+        {{#eq this "object"}}
+        return getNewInstance(arg, pathToItem, pathToSchemas)
+        {{/eq}}
+        {{#if @last}}
+    }
+        {{/if}}
+    {{/each}}
+{{else}}
+    if (arg == null) {
+        return getNewInstance( null, pathToItem, pathToSchemas)
+    } else if (arg is Boolean) {
+        return getNewInstance(arg, pathToItem, pathToSchemas)
+    } else if (arg is Number) {
+        return getNewInstance(arg, pathToItem, pathToSchemas)
+    } else if (arg is String) {
+        return getNewInstance(arg, pathToItem, pathToSchemas)
+    } else if (arg is List<*>) {
+        return getNewInstance(arg, pathToItem, pathToSchemas)
+    } else if (arg is Map<*, *>) {
+        return getNewInstance(arg, pathToItem, pathToSchemas)
+    }
+{{/if}}
+    throw RuntimeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema")
+}

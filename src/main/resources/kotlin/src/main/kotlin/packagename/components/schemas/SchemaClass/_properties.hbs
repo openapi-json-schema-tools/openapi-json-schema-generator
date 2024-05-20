@@ -1,0 +1,29 @@
+{{#if forDocs}}
+properties = mapOf(<br>
+    {{~#each properties}}
+        {{#if refInfo.refClass}}
+            {{#if refInfo.refModule}}
+&nbsp;&nbsp;&nbsp;&nbsp;"{{{@key.original}}}" to [{{refInfo.refModule}}.{{refInfo.refClass}}::class.java]({{docRoot}}{{refInfo.ref.pathFromDocRoot}}.md#{{refInfo.ref.jsonPathPiece.kebabCase}}){{#unless @last}},{{/unless}}<br>
+            {{~else}}
+&nbsp;&nbsp;&nbsp;&nbsp;"{{{@key.original}}}" to [{{refInfo.refClass}}::class.java](#{{refInfo.ref.jsonPathPiece.kebabCase}})){{#unless @last}},{{/unless}}<br>
+            {{~/if}}
+        {{else}}
+&nbsp;&nbsp;&nbsp;&nbsp;"{{{@key.original}}}" to [{{jsonPathPiece.pascalCase}}::class.java](#{{jsonPathPiece.kebabCase}})){{#unless @last}},{{/unless}}<br>
+        {{~/if}}
+    {{/each}}
+)<br>
+{{~else}}
+.properties(mapOf(
+    {{#each properties}}
+        {{#if refInfo.refClass}}
+            {{#if refInfo.refModule}}
+    "{{{@key.original}}}" to {{refInfo.refModule}}.{{refInfo.refClass}}::class.java{{#unless @last}},{{/unless}}
+            {{else}}
+    "{{{@key.original}}}" to {{refInfo.refClass}}::class.java{{#unless @last}},{{/unless}}
+            {{/if}}
+        {{else}}
+    "{{{@key.original}}}" to {{jsonPathPiece.pascalCase}}::class.java{{#unless @last}},{{/unless}}
+        {{/if}}
+    {{/each}}
+))
+{{/if}}

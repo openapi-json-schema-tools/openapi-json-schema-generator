@@ -1,0 +1,96 @@
+{{#eq type "object"}}
+    {{#if constructor}}
+        {{#each value}}
+            {{#or (eq type "array") (eq type "object")}}
+                {{#or (and optionalProperties (contains optionalProperties @key)) (and requiredProperties (contains requiredProperties @key)) }}
+.{{#if @key.isValid}}{{{@key.original}}}{{else}}{{{@key.camelCase}}}{{/if}}(
+    {{> src/main/kotlin/packagename/components/schemas/helpers/payload_renderer endChar="" noVoid=true constructor=false }}
+)
+                {{else}}
+.additionalProperty(
+    "{{{@key.original}}}",
+    {{> src/main/kotlin/packagename/components/schemas/helpers/payload_renderer endChar="" noVoid=true constructor=false }}
+)
+                {{/or}}
+            {{else}}
+                {{#or (and optionalProperties (contains optionalProperties @key)) (and requiredProperties (contains requiredProperties @key)) }}
+.{{#if @key.isValid}}{{{@key.original}}}{{else}}{{{@key.camelCase}}}{{/if}}({{> src/main/kotlin/packagename/components/schemas/helpers/payload_renderer endChar=")" noVoid=true constructor=false }}
+                {{else}}
+.additionalProperty("{{{@key.original}}}", {{> src/main/kotlin/packagename/components/schemas/helpers/payload_renderer endChar=")" noVoid=true constructor=false }}
+                {{/or}}
+            {{/or}}
+        {{/each}}
+    {{else}}
+mapOf{{#eq value.size 0}}<Any?, Any?>{{/eq}}(
+        {{#each value}}
+    Pair(
+            {{#if @key.original }}
+        "{{{@key.original}}}",
+            {{else}}
+        "{{{@key}}}",
+            {{/if}}
+            {{#with this}}
+        {{> src/main/kotlin/packagename/components/schemas/helpers/payload_renderer endChar="" noVoid=true }}
+            {{/with}}
+    ){{#unless @last}},{{/unless}}
+        {{/each}}
+){{endChar}}
+    {{/if}}
+{{/eq}}
+{{#eq type"array"}}
+    {{#if constructor}}
+        {{#each value}}
+            {{#or (eq type "array") (eq type "object")}}
+.add(
+    {{> src/main/kotlin/packagename/components/schemas/helpers/payload_renderer endChar="" constructor=false }}
+)
+            {{else}}
+.add({{> src/main/kotlin/packagename/components/schemas/helpers/payload_renderer endChar=")" constructor=false }}
+            {{/or}}
+        {{/each}}
+    {{else}}
+listOf{{#eq value.size 0}}<Any?>{{/eq}}(
+        {{#eq value.size 1}}
+            {{#each value}}
+                {{! list with single null needs to describe the item as (Nothing?) }}
+    {{> src/main/kotlin/packagename/components/schemas/helpers/payload_renderer endChar="" }}
+            {{/each}}
+        {{else}}
+            {{#each value}}
+                {{#unless @last}}
+    {{> src/main/kotlin/packagename/components/schemas/helpers/payload_renderer endChar="," noVoid=true }}
+                {{else}}
+    {{> src/main/kotlin/packagename/components/schemas/helpers/payload_renderer endChar="" noVoid=true }}
+                {{/unless}}
+            {{/each}}
+        {{/eq}}
+){{endChar}}
+    {{/if}}
+{{/eq}}
+{{#eq type "number"}}
+    {{#eq javaType "Long"}}
+{{value}}L{{endChar}}
+    {{else}}
+        {{#eq javaType "Float"}}
+{{value}}f{{endChar}}
+        {{else}}
+            {{#eq javaType "Double"}}
+{{value}}{{endChar}}
+            {{else}}
+{{value}}{{endChar}}{{! Integer }}
+            {{/eq}}
+        {{/eq}}
+    {{/eq}}
+{{/eq}}
+{{#eq type "integer"}}
+{{value}}{{#eq javaType "Long"}}L{{/eq}}{{endChar}}
+{{/eq}}
+{{#eq type "boolean"}}
+{{value}}{{endChar}}
+{{/eq}}
+{{#eq type "null"}}
+null{{endChar}}
+{{/eq}}
+{{#eq type "string"}}
+"{{{value}}}"{{endChar}}
+{{/eq}}

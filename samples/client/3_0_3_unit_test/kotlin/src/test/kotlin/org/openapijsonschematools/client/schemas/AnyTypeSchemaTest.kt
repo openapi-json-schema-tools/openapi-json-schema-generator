@@ -1,0 +1,113 @@
+package org.openapijsonschematools.client.schemas
+
+import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags
+import org.openapijsonschematools.client.configurations.SchemaConfiguration
+import org.openapijsonschematools.client.exceptions.ValidationException
+import org.openapijsonschematools.client.schemas.validation.FrozenList
+import org.openapijsonschematools.client.schemas.validation.FrozenMap
+
+import java.time.LocalDate
+import java.time.ZoneId
+import java.time.ZonedDateTime
+import kotlin.test.Test
+import kotlin.test.assertEquals
+import kotlin.test.assertFalse
+import kotlin.test.assertNull
+import kotlin.test.assertTrue
+
+class AnyTypeSchemaTest {
+    @Test
+    @Throws(ValidationException::class)
+    fun testValidateNull() {
+        val validatedValue: Nothing? = schema.validate(null, configuration)
+        assertNull(validatedValue)
+    }
+
+    @Test
+    @Throws(ValidationException::class)
+    fun testValidateBoolean() {
+        val trueValue = schema.validate(true, configuration)
+        assertTrue(trueValue)
+        val falseValue = schema.validate(false, configuration)
+        assertFalse(falseValue)
+    }
+
+    @Test
+    @Throws(ValidationException::class)
+    fun testValidateInteger() {
+        val validatedValue = schema.validate(1, configuration)
+        assertEquals(validatedValue.toLong(), 1)
+    }
+
+    @Test
+    @Throws(ValidationException::class)
+    fun testValidateLong() {
+        val validatedValue = schema.validate(1L, configuration)
+        assertEquals(validatedValue, 1L)
+    }
+
+    @Test
+    @Throws(ValidationException::class)
+    fun testValidateFloat() {
+        val validatedValue = schema.validate(3.14f, configuration)
+        assertEquals(validatedValue.compareTo(3.14f).toLong(), 0)
+    }
+
+    @Test
+    @Throws(ValidationException::class)
+    fun testValidateDouble() {
+        val validatedValue = schema.validate(70.6458763, configuration)
+        assertEquals(validatedValue.compareTo(70.6458763).toLong(), 0)
+    }
+
+    @Test
+    @Throws(ValidationException::class)
+    fun testValidateString() {
+        val validatedValue = schema.validate("a", configuration)
+        assertEquals(validatedValue, "a")
+    }
+
+    @Test
+    @Throws(ValidationException::class)
+    fun testValidateZonedDateTime() {
+        val validatedValue =
+            schema.validate(ZonedDateTime.of(2017, 7, 21, 17, 32, 28, 0, ZoneId.of("Z")), configuration)
+        assertEquals(validatedValue, "2017-07-21T17:32:28Z")
+    }
+
+    @Test
+    @Throws(ValidationException::class)
+    fun testValidateLocalDate() {
+        val validatedValue = schema.validate(LocalDate.of(2017, 7, 21), configuration)
+        assertEquals(validatedValue, "2017-07-21")
+    }
+
+    @Test
+    @Throws(ValidationException::class)
+    fun testValidateMap() {
+        val inMap = mapOf(
+            "today" to LocalDate.of(2017, 7, 21)
+        )
+        val validatedValue: FrozenMap<*> = schema.validate(inMap, configuration)
+        val outMap: Map<String, Any?> = mapOf(
+            "today" to "2017-07-21"
+        )
+        assertEquals(validatedValue, outMap)
+    }
+
+    @Test
+    @Throws(ValidationException::class)
+    fun testValidateList() {
+        val inList = listOf(
+            LocalDate.of(2017, 7, 21)
+        )
+        val validatedValue: FrozenList<*> = schema.validate(inList, configuration)
+        val outList: List<Any?> = listOf("2017-07-21")
+        assertEquals(validatedValue, outList)
+    }
+
+    companion object {
+        val schema = AnyTypeJsonSchema.AnyTypeJsonSchema1.getInstance()
+        val configuration = SchemaConfiguration(JsonSchemaKeywordFlags.Builder().build())
+    }
+}

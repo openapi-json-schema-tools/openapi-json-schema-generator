@@ -1,0 +1,330 @@
+{{#with schema}}
+{{#eq identifierPieces.size 0}}
+{{> src/main/kotlin/packagename/components/_helper_header_from_identifier_pieces identifierPieces=(append identifierPieces containerJsonPathPiece) }}
+{{else}}
+{{> src/main/kotlin/packagename/components/_helper_header_from_identifier_pieces }}
+{{/eq}}
+{{#if componentModule}}
+{{moduleLocation}}.java
+{{/if}}
+class {{containerJsonPathPiece.pascalCase}}<br>
+{{#if refInfo}}
+extends [{{refInfo.refClass}}]({{docRoot}}{{#with refInfo.ref}}{{pathFromDocRoot}}.md#{{containerJsonPathPiece.kebabCase}}{{/with}})
+{{/if}}
+
+A class that contains necessary nested
+- schema classes (which validate payloads), extends JsonSchema
+- sealed interfaces which store validated payloads, Kotlin version of a sum type
+- boxed classes which store validated payloads, sealed permits class implementations
+{{#if containsArrayOutputClass}}
+- classes to store validated list payloads, extends FrozenList
+- classes to build inputs for list payloads
+{{/if}}
+{{#if containsObjectOutputClass}}
+- classes to store validated map payloads, extends FrozenMap
+- classes to build inputs for map payloads
+{{/if}}
+{{#if containsEnums}}
+- enum classes
+{{/if}}
+
+{{headerSize}}# Nested Class Summary
+| Modifier and Type | Class and Description |
+| ----------------- | ---------------------- |
+{{#each (reverse getSchemas)}}
+    {{#eq instanceType "schema"}}
+        {{#eq refInfo null }}
+| sealed interface | [{{../containerJsonPathPiece.pascalCase}}.{{jsonPathPiece.pascalCase}}Boxed](#{{> src/main/kotlin/packagename/components/_helper_anchor_id identifierPieces=(append identifierPieces (join jsonPathPiece.kebabCase "boxed" "")) }})<br> sealed interface for validated payloads |
+            {{#each types}}
+                {{#eq this "null"}}
+| record | [{{../../containerJsonPathPiece.pascalCase}}.{{jsonPathPiece.pascalCase}}BoxedVoid](#{{> src/main/kotlin/packagename/components/_helper_anchor_id identifierPieces=(append identifierPieces (join jsonPathPiece.kebabCase "boxedvoid" ""))}})<br> boxed class to store validated null payloads |
+                {{/eq}}
+                {{#eq this "boolean"}}
+| record | [{{../../containerJsonPathPiece.pascalCase}}.{{jsonPathPiece.pascalCase}}BoxedBoolean](#{{> src/main/kotlin/packagename/components/_helper_anchor_id identifierPieces=(append identifierPieces (join jsonPathPiece.kebabCase "boxedboolean" ""))}})<br> boxed class to store validated boolean payloads |
+                {{/eq}}
+                {{#or (eq this "number") (eq this "integer")}}
+| record | [{{../../containerJsonPathPiece.pascalCase}}.{{jsonPathPiece.pascalCase}}BoxedNumber](#{{> src/main/kotlin/packagename/components/_helper_anchor_id identifierPieces=(append identifierPieces (join jsonPathPiece.kebabCase "boxednumber" ""))}})<br> boxed class to store validated Number payloads |
+                {{/or}}
+                {{#and (eq this "string") (neq ../format "binary") }}
+| record | [{{../../containerJsonPathPiece.pascalCase}}.{{jsonPathPiece.pascalCase}}BoxedString](#{{> src/main/kotlin/packagename/components/_helper_anchor_id identifierPieces=(append identifierPieces (join jsonPathPiece.kebabCase "boxedstring" ""))}})<br> boxed class to store validated String payloads |
+                {{/and}}
+                {{#eq this "array"}}
+| record | [{{../../containerJsonPathPiece.pascalCase}}.{{jsonPathPiece.pascalCase}}BoxedList](#{{> src/main/kotlin/packagename/components/_helper_anchor_id identifierPieces=(append identifierPieces (join jsonPathPiece.kebabCase "boxedlist" ""))}})<br> boxed class to store validated List payloads |
+                {{/eq}}{{#eq this "object"}}
+| record | [{{../../containerJsonPathPiece.pascalCase}}.{{jsonPathPiece.pascalCase}}BoxedMap](#{{> src/main/kotlin/packagename/components/_helper_anchor_id identifierPieces=(append identifierPieces (join jsonPathPiece.kebabCase "boxedmap" ""))}})<br> boxed class to store validated Map payloads |
+                {{/eq}}
+            {{else}}
+| record | [{{../containerJsonPathPiece.pascalCase}}.{{jsonPathPiece.pascalCase}}BoxedVoid](#{{> src/main/kotlin/packagename/components/_helper_anchor_id identifierPieces=(append identifierPieces (join jsonPathPiece.kebabCase "boxedvoid" ""))}})<br> boxed class to store validated null payloads |
+| record | [{{../containerJsonPathPiece.pascalCase}}.{{jsonPathPiece.pascalCase}}BoxedBoolean](#{{> src/main/kotlin/packagename/components/_helper_anchor_id identifierPieces=(append identifierPieces (join jsonPathPiece.kebabCase "boxedboolean" ""))}})<br> boxed class to store validated boolean payloads |
+| record | [{{../containerJsonPathPiece.pascalCase}}.{{jsonPathPiece.pascalCase}}BoxedNumber](#{{> src/main/kotlin/packagename/components/_helper_anchor_id identifierPieces=(append identifierPieces (join jsonPathPiece.kebabCase "boxednumber" ""))}})<br> boxed class to store validated Number payloads |
+| record | [{{../containerJsonPathPiece.pascalCase}}.{{jsonPathPiece.pascalCase}}BoxedString](#{{> src/main/kotlin/packagename/components/_helper_anchor_id identifierPieces=(append identifierPieces (join jsonPathPiece.kebabCase "boxedstring" ""))}})<br> boxed class to store validated String payloads |
+| record | [{{../containerJsonPathPiece.pascalCase}}.{{jsonPathPiece.pascalCase}}BoxedList](#{{> src/main/kotlin/packagename/components/_helper_anchor_id identifierPieces=(append identifierPieces (join jsonPathPiece.kebabCase "boxedlist" ""))}})<br> boxed class to store validated List payloads |
+| record | [{{../containerJsonPathPiece.pascalCase}}.{{jsonPathPiece.pascalCase}}BoxedMap](#{{> src/main/kotlin/packagename/components/_helper_anchor_id identifierPieces=(append identifierPieces (join jsonPathPiece.kebabCase "boxedmap" ""))}})<br> boxed class to store validated Map payloads |
+            {{/each}}
+        {{/eq}}
+| static class | [{{../containerJsonPathPiece.pascalCase}}.{{jsonPathPiece.pascalCase}}](#{{> src/main/kotlin/packagename/components/_helper_anchor_id identifierPieces=(append identifierPieces jsonPathPiece) }})<br> schema class |
+    {{else}}
+        {{#eq instanceType "propertiesOutputType"}}
+| static class | [{{../containerJsonPathPiece.pascalCase}}.{{mapOutputJsonPathPiece.pascalCase}}](#{{> src/main/kotlin/packagename/components/_helper_anchor_id identifierPieces=(append identifierPieces mapOutputJsonPathPiece) }})<br> output class for Map payloads |
+        {{else}}
+            {{#eq instanceType "arrayOutputType"}}
+| static class | [{{../containerJsonPathPiece.pascalCase}}.{{arrayOutputJsonPathPiece.pascalCase}}](#{{> src/main/kotlin/packagename/components/_helper_anchor_id identifierPieces=(append identifierPieces arrayOutputJsonPathPiece) }})<br> output class for List payloads |
+            {{else}}
+                {{#eq instanceType "arrayInputType"}}
+| static class | [{{../containerJsonPathPiece.pascalCase}}.{{arrayInputJsonPathPiece.pascalCase}}](#{{> src/main/kotlin/packagename/components/_helper_anchor_id identifierPieces=(append identifierPieces arrayInputJsonPathPiece) }})<br> builder for List payloads |
+                {{else}}
+                    {{#or (eq instanceType "propertiesInputType") (eq instanceType "requiredPropertiesInputType") (eq instanceType "optionalPropertiesInputType") }}
+| static class | [{{../containerJsonPathPiece.pascalCase}}.{{mapInputJsonPathPiece.pascalCase}}](#{{> src/main/kotlin/packagename/components/_helper_anchor_id identifierPieces=(append identifierPieces mapInputJsonPathPiece) }})<br> builder for Map payloads |
+                    {{else}}
+                        {{#eq instanceType "enumClass"}}
+                            {{#with enumInfo}}
+                                {{#each typeToValues}}
+                                    {{#eq @key "null"}}
+| enum | [{{../../../containerJsonPathPiece.pascalCase}}.Null{{../jsonPathPiece.pascalCase}}](#null{{../jsonPathPiece.kebabCase}})<br>null enum |
+                                    {{else}}
+                                        {{#eq @key "boolean"}}
+| enum | [{{../../../containerJsonPathPiece.pascalCase}}.Boolean{{../jsonPathPiece.pascalCase}}](#boolean{{../jsonPathPiece.kebabCase}})<br>boolean enum |
+                                        {{else}}
+                                            {{#eq @key "string"}}
+| enum | [{{../../../containerJsonPathPiece.pascalCase}}.String{{../jsonPathPiece.pascalCase}}](#string{{../jsonPathPiece.kebabCase}})<br>String enum |
+                                            {{else}}
+                                                {{#eq @key "Integer"}}
+| enum | [{{../../../containerJsonPathPiece.pascalCase}}.Integer{{../jsonPathPiece.pascalCase}}](#integer{{../jsonPathPiece.kebabCase}})<br>Integer enum |
+                                                {{else}}
+                                                    {{#eq @key "Long"}}
+| enum | [{{../../../containerJsonPathPiece.pascalCase}}.Long{{../jsonPathPiece.pascalCase}}](#long{{../jsonPathPiece.kebabCase}})<br>Long enum |
+                                                    {{else}}
+                                                        {{#eq @key "Float"}}
+| enum | [{{../../../containerJsonPathPiece.pascalCase}}.Float{{../jsonPathPiece.pascalCase}}](#float{{../jsonPathPiece.kebabCase}})<br>Float enum |
+                                                        {{else}}
+                                                            {{#eq @key "Double"}}
+| enum | [{{../../../containerJsonPathPiece.pascalCase}}.Double{{../jsonPathPiece.pascalCase}}](#double{{../jsonPathPiece.kebabCase}})<br>Double enum |
+                                                            {{/eq}}
+                                                        {{/eq}}
+                                                    {{/eq}}
+                                                {{/eq}}
+                                            {{/eq}}
+                                        {{/eq}}
+                                    {{/eq}}
+                                {{/each}}
+                            {{/with}}
+                        {{/eq}}
+                    {{/or}}
+                {{/eq}}
+            {{/eq}}
+        {{/eq}}
+    {{/eq}}
+{{/each}}
+{{#each (reverse getSchemas)}}
+    {{#eq instanceType "schema"}}
+
+        {{#eq refInfo null}}
+{{> src/main/kotlin/packagename/components/schemas/SchemaClass/_boxedClasses forDocs=true }}
+        {{/eq}}
+{{> src/main/kotlin/packagename/components/_helper_header_from_identifier_pieces headerSize=(join headerSize "#" "") identifierPieces=(append identifierPieces jsonPathPiece) }}
+class {{jsonPathPiece.pascalCase}}<br>
+{{> src/main/kotlin/packagename/components/schemas/docschema_extends }}
+
+A schema class that validates payloads
+        {{#if description}}
+
+{{headerSize}}# Description
+{{description.originalWithBr}}
+        {{/if}}
+        {{#if isCustomSchema}}
+            {{#if typeToExample}}
+
+{{headerSize}}## Code Sample
+```
+import {{{packageName}}}.configurations.JsonSchemaKeywordFlags;
+import {{{packageName}}}.configurations.SchemaConfiguration;
+import {{{packageName}}}.exceptions.ValidationException;
+import {{{packageName}}}.schemas.validation.MapUtils;
+import {{{packageName}}}.schemas.validation.FrozenList;
+import {{{packageName}}}.schemas.validation.FrozenMap;
+import {{{packageName}}}.{{../subpackage}}.{{../containerJsonPathPiece.pascalCase}};
+
+import java.util.Arrays;
+import java.util.List;
+import java.util.AbstractMap;
+
+static final SchemaConfiguration configuration = new SchemaConfiguration(new JsonSchemaKeywordFlags.Builder().build());
+{{> src/main/kotlin/packagename/components/schemas/validateSchemaCodeSample payloadVarName="validatedPayload" configVarName="configuration" }}
+```
+            {{/if}}
+
+{{headerSize}}## Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+{{> src/main/kotlin/packagename/components/schemas/docschema_fields forDocs=true }}
+
+{{headerSize}}## Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+{{> src/main/kotlin/packagename/components/schemas/docschema_io_types }}
+        {{else}}
+{{> src/main/kotlin/packagename/components/schemas/_docschema_methodsInherited }}
+        {{/if}}
+    {{else}}
+        {{#eq instanceType "propertiesOutputType"}}
+
+{{> src/main/kotlin/packagename/components/_helper_header_from_identifier_pieces headerSize=(join headerSize "#" "") identifierPieces=(append identifierPieces mapOutputJsonPathPiece) }}
+class {{mapOutputJsonPathPiece.pascalCase}}<br>
+extends FrozenMap<String, {{#with mapValueSchema}}{{> src/main/kotlin/packagename/components/schemas/types/schema_output_type forceNull=true }}{{else}}Any{{/with}}>
+
+A class to store validated Map payloads
+
+{{headerSize}}## Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| static [{{mapOutputJsonPathPiece.pascalCase}}](#{{> src/main/kotlin/packagename/components/_helper_anchor_id identifierPieces=(append identifierPieces mapOutputJsonPathPiece) }}) | of([Map<String, {{#with mapValueSchema}}{{> src/main/kotlin/packagename/components/schemas/types/schema_input_type sourceJsonPath=../jsonPath forceNull=true }}{{else}}Any{{/with}}>](#{{> src/main/kotlin/packagename/components/_helper_anchor_id identifierPieces=(append identifierPieces mapInputJsonPathPiece) }}) arg, SchemaConfiguration configuration) |
+            {{#each requiredProperties}}
+                {{#if @key.isValid}}
+| {{> src/main/kotlin/packagename/components/schemas/types/schema_output_type sourceJsonPath=../jsonPath useLink=true }} | {{@key.original}}()<br>{{> src/main/kotlin/packagename/components/schemas/helpers/notes_msg defaultUser="server" }} |
+                {{/if}}
+            {{/each}}
+            {{#each optionalProperties}}
+                {{#if @key.isValid}}
+| {{> src/main/kotlin/packagename/components/schemas/types/schema_output_type sourceJsonPath=../jsonPath useLink=true }} | {{@key.original}}()<br>[optional]{{> src/main/kotlin/packagename/components/schemas/helpers/notes_msg defaultUser="server" }} |
+                {{/if}}
+            {{/each}}
+            {{#or (and requiredProperties requiredProperties.hasInvalidKey) (and optionalProperties optionalProperties.hasInvalidKey) }}
+| {{#with mapValueSchema}}{{> src/main/kotlin/packagename/components/schemas/types/schema_output_type sourceJsonPath=../jsonPath useLink=true }}{{else}}Any{{/with}} | get(String key)<br>This schema has invalid Kotlin names so this method must be used when you access {{#each requiredProperties}}{{#unless @key.isValid}}instance["{{@key.original}}"], {{/unless}}{{/each}}{{#each optionalProperties}}{{#unless @key.isValid}}instance["{{@key.original}}"], {{/unless}}{{/each}} |
+            {{/or}}
+            {{#with additionalProperties}}
+                {{#unless isBooleanSchemaFalse}}
+                    {{#if isBooleanSchemaTrue}}
+| Any? | getAdditionalProperty(String name)<br>provides type safety for additional properties |
+                {{else}}
+| {{> src/main/kotlin/packagename/components/schemas/types/schema_output_type sourceJsonPath=../jsonPath useLink=true }} | getAdditionalProperty(String name)<br>provides type safety for additional properties |
+                    {{/if}}
+                {{/unless}}
+            {{else}}
+| Any? | getAdditionalProperty(String name)<br>provides type safety for additional properties |
+            {{/with}}
+        {{else}}
+            {{#eq instanceType "arrayOutputType"}}
+
+{{> src/main/kotlin/packagename/components/_helper_header_from_identifier_pieces headerSize=(join headerSize "#" "") identifierPieces=(append identifierPieces arrayOutputJsonPathPiece) }}
+class {{arrayOutputJsonPathPiece.pascalCase}}<br>
+extends `FrozenList<{{#with listItemSchema}}{{> src/main/kotlin/packagename/components/schemas/types/schema_output_type forceNull=true }}{{else}}Any{{/with}}>`
+
+A class to store validated List payloads
+
+{{headerSize}}## Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| static [{{arrayOutputJsonPathPiece.pascalCase}}](#{{> src/main/kotlin/packagename/components/_helper_anchor_id identifierPieces=(append identifierPieces arrayOutputJsonPathPiece) }}) | of([List<{{#with listItemSchema}}{{> src/main/kotlin/packagename/components/schemas/types/schema_input_type sourceJsonPath=../jsonPath forceNull=true }}{{/with}}>](#{{> src/main/kotlin/packagename/components/_helper_anchor_id identifierPieces=(append identifierPieces arrayInputJsonPathPiece) }}) arg, SchemaConfiguration configuration) |
+            {{else}}
+                {{#eq instanceType "arrayInputType"}}
+{{> src/main/kotlin/packagename/components/schemas/docschema_arrayInput }}
+                {{else}}
+                    {{#or (eq instanceType "propertiesInputType") (eq instanceType "requiredPropertiesInputType") (eq instanceType "optionalPropertiesInputType") }}
+{{> src/main/kotlin/packagename/components/schemas/docschema_objectInput }}
+                    {{else}}
+                        {{#eq instanceType "enumClass"}}
+                            {{#with enumInfo}}
+                                {{#each typeToValues}}
+
+                                    {{#eq @key "null"}}
+{{> src/main/kotlin/packagename/components/_helper_header_from_identifier_pieces headerSize=(join headerSize "#" "") identifierPieces=(append identifierPieces (join "Null" ../jsonPathPiece.pascalCase "") ) }}
+public enum Null{{../jsonPathPiece.pascalCase}}<br>
+extends `Enum<Null{{../jsonPathPiece.pascalCase}}>`
+
+A class that stores null enum values
+                                    {{else}}
+                                        {{#eq @key "boolean"}}
+{{> src/main/kotlin/packagename/components/_helper_header_from_identifier_pieces headerSize=(join headerSize "#" "") identifierPieces=(append identifierPieces (join "Boolean" ../jsonPathPiece.pascalCase "") ) }}
+public enum Boolean{{../jsonPathPiece.pascalCase}}<br>
+extends `Enum<Boolean{{../jsonPathPiece.pascalCase}}>`
+
+A class that stores boolean enum values
+                                        {{else}}
+                                            {{#eq @key "string"}}
+{{> src/main/kotlin/packagename/components/_helper_header_from_identifier_pieces headerSize=(join headerSize "#" "") identifierPieces=(append identifierPieces (join "String" ../jsonPathPiece.pascalCase "") ) }}
+public enum String{{../jsonPathPiece.pascalCase}}<br>
+extends `Enum<String{{../jsonPathPiece.pascalCase}}>`
+
+A class that stores String enum values
+                                            {{else}}
+                                                {{#eq @key "Integer"}}
+{{> src/main/kotlin/packagename/components/_helper_header_from_identifier_pieces headerSize=(join headerSize "#" "") identifierPieces=(append identifierPieces (join "Integer" ../jsonPathPiece.pascalCase "") ) }}
+public enum Integer{{../jsonPathPiece.pascalCase}}<br>
+extends `Enum<Integer{{../jsonPathPiece.pascalCase}}>`
+
+A class that stores Integer enum values
+                                                {{else}}
+                                                    {{#eq @key "Long"}}
+{{> src/main/kotlin/packagename/components/_helper_header_from_identifier_pieces headerSize=(join headerSize "#" "") identifierPieces=(append identifierPieces (join "Long" ../jsonPathPiece.pascalCase "") ) }}
+public enum Long{{../jsonPathPiece.pascalCase}}<br>
+extends `Enum<Long{{../jsonPathPiece.pascalCase}}>`
+
+A class that stores Long enum values
+                                                    {{else}}
+                                                        {{#eq @key "Float"}}
+{{> src/main/kotlin/packagename/components/_helper_header_from_identifier_pieces headerSize=(join headerSize "#" "") identifierPieces=(append identifierPieces (join "Float" ../jsonPathPiece.pascalCase "") ) }}
+public enum Float{{../jsonPathPiece.pascalCase}}<br>
+extends `Enum<Float{{../jsonPathPiece.pascalCase}}>`
+
+A class that stores Float enum values
+                                                        {{else}}
+                                                            {{#eq @key "Double"}}
+{{> src/main/kotlin/packagename/components/_helper_header_from_identifier_pieces headerSize=(join headerSize "#" "") identifierPieces=(append identifierPieces (join "Double" ../jsonPathPiece.pascalCase "") ) }}
+public enum Double{{../jsonPathPiece.pascalCase}}<br>
+extends `Enum<Double{{../jsonPathPiece.pascalCase}}>`
+
+A class that stores Double enum values
+                                                            {{/eq}}
+                                                        {{/eq}}
+                                                    {{/eq}}
+                                                {{/eq}}
+                                            {{/eq}}
+                                        {{/eq}}
+                                    {{/eq}}
+
+{{headerSize}}## Enum Constant Summary
+| Enum Constant | Description |
+| ------------- | ----------- |
+                                    {{#each this}}
+                                        {{#eq ../@key "null"}}
+| {{this}} | value = null |
+                                        {{else}}
+                                            {{#eq ../@key "boolean"}}
+| {{this}} | value = {{@key.value}} |
+                                            {{else}}
+                                                {{#eq ../@key "string"}}
+| {{this}} | value = "{{{@key.value}}}" |
+                                                {{else}}
+                                                    {{#eq ../@key "Integer"}}
+| {{this}} | value = {{@key.value}} |
+                                                    {{else}}
+                                                        {{#eq ../@key "Long"}}
+| {{this}} | value = {{@key.value}}L |
+                                                        {{else}}
+                                                            {{#eq ../@key "Float"}}
+| {{this}} | value = {{@key.value}}f |
+                                                            {{else}}
+                                                                {{#eq ../@key "Double"}}
+| {{this}} | value = {{@key.value}}d |
+                                                                {{/eq}}
+                                                            {{/eq}}
+                                                        {{/eq}}
+                                                    {{/eq}}
+                                                {{/eq}}
+                                            {{/eq}}
+                                        {{/eq}}
+                                    {{/each}}
+                                {{/each}}
+                            {{/with}}
+                        {{/eq}}
+                    {{/or}}
+                {{/eq}}
+            {{/eq}}
+        {{/eq}}
+    {{/eq}}
+{{/each}}
+{{#if componentModule}}
+
+[[Back to top]](#top) {{> _helper_footer_links readmePath="../../../" schemasLink=true}}
+{{/if}}
+{{/with}}

@@ -1,0 +1,25 @@
+{{headerSize}}# {{method.pascalCase}}Request
+public static class {{method.pascalCase}}Request<br>
+
+a class that stores the final request inputs
+
+{{headerSize}}## Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | --------------------- |
+{{#each (reverse builders)}}
+    {{#or @first @last}}
+        {{#each keyToBuilder}}
+            {{#with property}}
+                {{#if containerJsonPathPiece}}
+| [{{containerJsonPathPiece.pascalCase}}.{{#if ../../@last}}@Nullable {{/if}}{{operationInputClassName.pascalCase}}]({{docRoot}}{{pathFromDocRoot}}.md#{{operationInputClassName.kebabCase}}) | {{@key.camelCase}}{{#if ../../@last}}<br>optional{{/if}} |
+                {{else}}
+                    {{#if this.jsonPathPiece}}
+| [{{jsonPathPiece.pascalCase}}.{{#if ../../@last}}@Nullable {{/if}}{{operationInputClassName.pascalCase}}]({{docRoot}}{{pathFromDocRoot}}.md#{{operationInputClassName.kebabCase}}) | {{@key.camelCase}}{{#if ../../@last}}<br>optional{{/if}}{{#or (eq @key.camelCase "securityIndex") (eq @key.camelCase "serverIndex")}}. Note: this will override the value in apiConfiguration{{/or}} |
+                    {{else}}
+| {{#if ../../@last}}@Nullable {{/if}}{{operationInputClassName.pascalCase}} | {{@key.camelCase}}{{#if ../../@last}}<br>optional{{/if}}{{#eq @key.camelCase "timeout"}}. Note: this will override the value in apiConfiguration{{/eq}} |
+                    {{/if}}
+                {{/if}}
+            {{/with}}
+        {{/each}}
+    {{/or}}
+{{/each}}

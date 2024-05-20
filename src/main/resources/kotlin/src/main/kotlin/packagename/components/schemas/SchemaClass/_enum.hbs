@@ -1,0 +1,37 @@
+{{#if forDocs}}
+enumValues = setOf(<br>
+    {{~#each enumInfo.valueToName}}
+    {{#with @key}}
+        {{#eq type "string"}}
+&nbsp;&nbsp;&nbsp;&nbsp;"{{{value}}}"{{#unless @last}},{{/unless}}<br>
+        {{~else}}
+            {{#eq type "null"}}
+&nbsp;&nbsp;&nbsp;&nbsp;null{{#unless @last}},{{/unless}}<br>
+            {{~else}}
+&nbsp;&nbsp;&nbsp;&nbsp;{{value}}{{#unless @last}},{{/unless}}<br>
+            {{~/eq}}
+        {{~/eq}}
+    {{/with}}
+    {{/each}}
+)<br>
+{{~else}}
+.enumValues(setOf(
+    {{#each enumInfo.valueToName}}
+    {{#with @key}}
+        {{#eq type "string"}}
+    "{{{value}}}"{{#unless @last}},{{/unless}}
+        {{else}}
+            {{#eq type "null"}}
+    null{{#unless @last}},{{/unless}}
+            {{else}}
+                {{#eq type "boolean"}}
+    {{value}}{{#unless @last}},{{/unless}}
+                {{else}}
+    BigDecimal("{{value.toString}}"){{#unless @last}},{{/unless}}
+                {{/eq}}
+            {{/eq}}
+        {{/eq}}
+    {{/with}}
+    {{/each}}
+))
+{{/if}}

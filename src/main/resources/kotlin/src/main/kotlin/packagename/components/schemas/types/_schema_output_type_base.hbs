@@ -1,0 +1,154 @@
+{{#if types}}
+    {{#eq types.size 1}}
+        {{#each types}}
+            {{#eq this "boolean"}}
+Boolean
+            {{~else}}
+                {{#eq this "null"}}
+Nothing?
+                {{~else}}
+                    {{#eq this "string"}}
+                        {{#eq format "binary"}}
+{{! todo binary types}}
+String
+                        {{~else}}
+String
+                        {{~/eq}}
+                    {{else}}
+                        {{#eq this "number"}}
+Number
+                        {{~else}}
+                            {{#eq this "integer"}}
+Number
+                            {{~else}}
+                                {{#eq this "array"}}
+                                    {{#if arrayOutputJsonPathPiece}}
+                                        {{#if useLink}}
+                                            {{#if fullRefModule}}
+[{{fullRefModule}}.{{arrayOutputJsonPathPiece.pascalCase}}]({{docRoot}}{{pathFromDocRoot}}.md#{{arrayOutputJsonPathPiece.kebabCase}})
+                                            {{~else}}
+[{{arrayOutputJsonPathPiece.pascalCase}}](#{{arrayOutputJsonPathPiece.kebabCase}})
+                                            {{~/if}}
+                                        {{else}}
+                                            {{#if fullRefModule}}
+{{fullRefModule}}.{{arrayOutputJsonPathPiece.pascalCase}}
+                                            {{~else}}
+{{arrayOutputJsonPathPiece.pascalCase}}
+                                            {{~/if}}
+                                        {{/if}}
+                                    {{else}}
+FrozenList<{{#if noAnnotations}}*{{else}}Any?{{/if}}>
+                                    {{~/if}}
+                                {{else}}
+                                    {{#eq this "object"}}
+                                        {{#if mapOutputJsonPathPiece}}
+                                            {{#if useLink}}
+                                                {{#if fullRefModule}}
+[{{fullRefModule}}.{{mapOutputJsonPathPiece.pascalCase}}]({{docRoot}}{{pathFromDocRoot}}.md#{{mapOutputJsonPathPiece.kebabCase}})
+                                                {{~else}}
+[{{mapOutputJsonPathPiece.pascalCase}}](#{{mapOutputJsonPathPiece.kebabCase}})
+                                                {{~/if}}
+                                            {{else}}
+                                                {{#if fullRefModule}}
+{{fullRefModule}}.{{mapOutputJsonPathPiece.pascalCase}}
+                                                {{~else}}
+{{mapOutputJsonPathPiece.pascalCase}}
+                                                {{~/if}}
+                                            {{/if}}
+                                        {{~else}}
+FrozenMap<{{#if noAnnotations}}*{{else}}Any?{{/if}}>
+                                        {{~/if}}
+                                    {{/eq}}
+                                {{/eq}}
+                            {{/eq}}
+                        {{/eq}}
+                    {{/eq}}
+                {{/eq}}
+            {{/eq}}
+        {{/each}}
+    {{else}}
+        {{#eq types.size 2}}
+            {{#contains types "null"}}
+                {{! nullable types }}
+                {{#each types}}
+                    {{#eq this "boolean"}}
+Boolean?
+                    {{~else}}
+                        {{#eq this "string"}}
+                            {{#eq format "binary"}}
+{{! todo binary types}}
+String?
+                            {{~else}}
+String?
+                            {{~/eq}}
+                        {{else}}
+                            {{#eq this "number"}}
+Number?
+                            {{~else}}
+                                {{#eq this "integer"}}
+Number?
+                                {{~else}}
+                                    {{#eq this "array"}}
+                                        {{#if arrayOutputJsonPathPiece}}
+                                            {{#if useLink}}
+                                                {{#if fullRefModule}}
+[{{fullRefModule}}.{{arrayOutputJsonPathPiece.pascalCase}}]({{docRoot}}{{pathFromDocRoot}}.md#{{arrayOutputJsonPathPiece.kebabCase}})
+                                                {{~else}}
+[{{arrayOutputJsonPathPiece.pascalCase}}](#{{arrayOutputJsonPathPiece.kebabCase}})
+                                                {{~/if}}
+                                            {{else}}
+                                                {{#if fullRefModule}}
+{{fullRefModule}}.{{arrayOutputJsonPathPiece.pascalCase}}?
+                                                {{~else}}
+{{arrayOutputJsonPathPiece.pascalCase}}?
+                                                {{~/if}}
+                                            {{/if}}
+                                        {{else}}
+FrozenList<{{#if noAnnotations}}*{{else}}Any?{{/if}}>?
+                                        {{~/if}}
+                                    {{else}}
+                                        {{#eq this "object"}}
+                                            {{#if mapOutputJsonPathPiece}}
+                                                {{#if useLink}}
+                                                    {{#if fullRefModule}}
+[{{fullRefModule}}.{{mapOutputJsonPathPiece.pascalCase}}]({{docRoot}}{{pathFromDocRoot}}.md#{{mapOutputJsonPathPiece.kebabCase}})
+                                                    {{~else}}
+[{{mapOutputJsonPathPiece.pascalCase}}](#{{mapOutputJsonPathPiece.kebabCase}})
+                                                    {{~/if}}
+                                                {{else}}
+                                                    {{#if fullRefModule}}
+{{fullRefModule}}.{{mapOutputJsonPathPiece.pascalCase}}?
+                                                    {{~else}}
+{{mapOutputJsonPathPiece.pascalCase}}?
+                                                    {{~/if}}
+                                                {{/if}}
+                                            {{~else}}
+FrozenMap<{{#if noAnnotations}}*{{else}}Any?{{/if}}>?
+                                            {{~/if}}
+                                        {{/eq}}
+                                    {{/eq}}
+                                {{/eq}}
+                            {{/eq}}
+                        {{/eq}}
+                    {{/eq}}
+                {{/each}}
+            {{else}}
+                {{! none of the types are null }}
+                {{#and (contains types "integer") (contains types "number") }}
+Number
+                {{~else}}
+Any
+                {{~/and}}
+            {{/contains}}
+        {{else}}
+            {{! 3 or more types }}
+            {{#contains types "null"}}
+Any?
+            {{~else}}
+Any
+            {{~/contains}}
+        {{/eq}}
+    {{/eq}}
+{{else}}
+Any?
+{{~/if}}

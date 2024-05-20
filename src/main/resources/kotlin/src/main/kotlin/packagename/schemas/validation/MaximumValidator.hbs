@@ -1,0 +1,42 @@
+package {{{packageName}}}.schemas.validation
+
+import {{{packageName}}}.exceptions.ValidationException
+
+class MaximumValidator : KeywordValidator {
+    @Throws(ValidationException::class)
+    override fun validate(
+        data: ValidationData
+    ): PathToSchemasMap? {
+        val maximum: Number = data.schema.maximum ?: return null
+        if (data.arg !is Number) {
+            return null
+        }
+        val msg = "Value " + data.arg + " is invalid because it is > the maximum of " + maximum
+        when (data.arg) {
+            is Int -> {
+                if (data.arg.compareTo(maximum.toInt()) > 0) {
+                    throw ValidationException(msg)
+                }
+            }
+
+            is Long -> {
+                if (data.arg.compareTo(maximum.toLong()) > 0) {
+                    throw ValidationException(msg)
+                }
+            }
+
+            is Float -> {
+                if (data.arg.compareTo(maximum.toFloat()) > 0) {
+                    throw ValidationException(msg)
+                }
+            }
+
+            is Double -> {
+                if (data.arg.compareTo(maximum.toDouble()) > 0) {
+                    throw ValidationException(msg)
+                }
+            }
+        }
+        return null
+    }
+}

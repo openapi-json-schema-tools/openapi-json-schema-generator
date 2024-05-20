@@ -1,0 +1,20 @@
+{{#with schema}}
+package {{packageName}}.{{subpackage}}
+    {{#if refInfo}}
+
+{{> _helper_imports }}
+
+class {{containerJsonPathPiece.pascalCase}} : {{refInfo.refModule}} {
+    // $refed class
+    {{> src/main/kotlin/packagename/components/schemas/SchemaClass/SchemaClass identifierPieces=(append identifierPieces jsonPathPiece) simpleRef=true }}
+}
+    {{else}}
+{{> _helper_imports }}
+
+class {{> src/main/kotlin/packagename/components/schemas/_containerClassName }} {
+    // nest classes so all schemas and input/output classes can be public
+    {{> src/main/kotlin/packagename/components/schemas/Schema_getSchemas }}
+
+}
+    {{/if}}
+{{/with}}

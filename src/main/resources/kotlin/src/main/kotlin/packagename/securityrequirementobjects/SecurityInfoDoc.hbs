@@ -1,0 +1,44 @@
+{{headerSize}} {{security.jsonPathPiece.pascalCase}}
+{{security.jsonPathPiece.pascalCase}}.java
+
+public class {{security.jsonPathPiece.pascalCase}}
+
+A class that provides a security requirement object, and any needed security info classes
+- a class that is a SecurityRequirementObjectProvider
+- an enum class that describes security index values
+
+{{headerSize}}# Nested Class Summary
+| Modifier and Type | Class and Description |
+| ----------------- | --------------------- |
+| static class | [{{security.jsonPathPiece.pascalCase}}.{{security.jsonPathPiece.pascalCase}}1](#{{security.jsonPathPiece.kebabCase}}1)<br>SecurityRequirementObjectProvider
+| enum | [{{security.jsonPathPiece.pascalCase}}.SecurityIndex](#securityindex)<br>class that stores a security index |
+
+{{headerSize}}# {{security.jsonPathPiece.pascalCase}}1
+implements SecurityRequirementObjectProvider<[SecurityIndex](#securityindex)>
+
+{{headerSize}}## Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| {{security.jsonPathPiece.pascalCase}}1()<br>Creates an instance |
+
+{{headerSize}}## Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | --------------------- |
+{{#each security}}
+| [{{jsonPathPiece.pascalCase}}]({{docRoot}}{{pathFromDocRoot}}.md) | security{{@index}} |
+{{/each}}
+
+{{headerSize}}## Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| SecurityRequirementObject | getSecurityRequirementObject(@Nullable [SecurityIndex](#securityindex) securityIndex)<br>If null is input, then the instance's securityIndex will be used |
+
+{{headerSize}}# SecurityIndex
+enum SecurityIndex<br>
+
+{{headerSize}}## Enum Constant Summary
+| Enum Constant And Description |
+| ----------------------------- |
+{{#each security}}
+| SECURITY_{{@index}}<br>security {{@index}} |
+{{/each}}

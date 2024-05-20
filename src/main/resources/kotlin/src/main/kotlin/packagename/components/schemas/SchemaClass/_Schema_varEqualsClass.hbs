@@ -1,0 +1,110 @@
+
+
+{{#or isBooleanSchemaTrue isBooleanSchemaFalse}}
+    {{#if isBooleanSchemaTrue}}
+class {{../jsonPathPiece.pascalCase}} : AnyTypeJsonSchema.AnyTypeJsonSchema1() {
+    {{else}}
+class {{jsonPathPiece.pascalCase}} : NotAnyTypeJsonSchema.NotAnyTypeJsonSchema1() {
+    // NotAnyTypeSchema
+    {{/if}}
+{{else}}
+    {{#if refInfo.refClass}}
+        {{#if simpleRef}}
+            {{#if refInfo.refModule}}
+                {{#with getDeepestRef}}
+class {{../jsonPathPiece.pascalCase}} : {{jsonPathPiece.pascalCase}}() {
+                {{/with}}
+            {{else}}
+                {{#with refInfo.ref}}
+class {{../jsonPathPiece.pascalCase}} : {{jsonPathPiece.pascalCase}}() {}
+                {{/with}}
+            {{/if}}
+        {{else}}
+// when is this case used?
+        {{/if}}
+    {{else}}
+        {{#eq types null}}
+class {{../jsonPathPiece.pascalCase}} : AnyTypeJsonSchema.AnyTypeJsonSchema1() {
+        {{else}}
+            {{#each types}}
+                {{#eq this "null"}}
+class {{../jsonPathPiece.pascalCase}} : NullJsonSchema.NullJsonSchema1() {
+                {{/eq}}
+                {{#eq this "object"}}
+class {{../jsonPathPiece.pascalCase}} : MapJsonSchema.MapJsonSchema1() {
+                {{/eq}}
+                {{#eq this "array"}}
+class {{../jsonPathPiece.pascalCase}} : ListJsonSchema.ListJsonSchema1() {
+                {{/eq}}
+                {{#eq this "boolean"}}
+class {{../jsonPathPiece.pascalCase}} : BooleanJsonSchema.BooleanJsonSchema1() {
+                {{/eq}}
+                {{#eq this "string"}}
+                    {{#eq ../format "date"}}
+class {{../jsonPathPiece.pascalCase}} : DateJsonSchema.DateJsonSchema1() {
+                    {{/eq}}
+                    {{#eq ../format "date-time"}}
+class {{../jsonPathPiece.pascalCase}} : DateTimeJsonSchema.DateTimeJsonSchema1() {
+                    {{/eq}}
+                    {{#eq ../format "uuid"}}
+class {{../jsonPathPiece.pascalCase}} : UuidJsonSchema.UuidJsonSchema1() {
+                    {{/eq}}
+                    {{#eq ../format "number"}}
+class {{../jsonPathPiece.pascalCase}} : DecimalJsonSchema.DecimalJsonSchema1() {
+                    {{/eq}}
+                    {{#eq ../format "binary"}}
+class {{jsonPathPiece.pascalCase}} : StringJsonSchema.StringJsonSchema1() {
+    // BinarySchema
+                    {{/eq}}
+                    {{#neq ../format "date"}}
+                        {{#neq ../format "date-time"}}
+                            {{#neq ../format "uuid"}}
+                                {{#neq ../format "number"}}
+                                    {{#neq ../format "binary"}}
+class {{../jsonPathPiece.pascalCase}} : StringJsonSchema.StringJsonSchema1() {
+                                    {{/neq}}
+                                {{/neq}}
+                            {{/neq}}
+                        {{/neq}}
+                    {{/neq}}
+                {{/eq}}
+                {{#eq this "integer"}}
+                    {{#eq ../format "int32"}}
+class {{../jsonPathPiece.pascalCase}} : Int32JsonSchema.Int32JsonSchema1() {
+                    {{/eq}}
+                    {{#eq ../format "int64"}}
+class {{../jsonPathPiece.pascalCase}} : Int64JsonSchema.Int64JsonSchema1() {
+                    {{/eq}}
+                    {{#neq ../format "int32"}}
+                        {{#neq ../format "int64"}}
+class {{../jsonPathPiece.pascalCase}} : IntJsonSchema.IntJsonSchema1() {
+                        {{/neq}}
+                    {{/neq}}
+                {{/eq}}
+                {{#eq this "number"}}
+                    {{#eq ../format null}}
+class {{../jsonPathPiece.pascalCase}} : NumberJsonSchema.NumberJsonSchema1() {
+                    {{else}}
+                        {{#eq ../format "float"}}
+class {{../jsonPathPiece.pascalCase}} : FloatJsonSchema.FloatJsonSchema1() {
+                        {{else}}
+                            {{#eq ../format "double"}}
+class {{../jsonPathPiece.pascalCase}} : DoubleJsonSchema.DoubleJsonSchema1() {
+                            {{/eq}}
+                        {{/eq}}
+                    {{/eq}}
+                {{/eq}}
+            {{/each}}
+        {{/eq}}
+    {{/if}}
+{{/or}}
+    companion object {
+        @Volatile
+        private var instance: {{jsonPathPiece.pascalCase}}? = null
+
+        fun getInstance() =
+            instance ?: synchronized(this) {
+                instance ?: {{jsonPathPiece.pascalCase}}().also { instance = it }
+            }
+    }
+}

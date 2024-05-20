@@ -1,0 +1,49 @@
+# {{tag.className}}
+
+public class {{tag.className}} extends extends ApiClient implements
+{{#each operations}}
+[{{jsonPathPiece.pascalCase}}.{{operationId.pascalCase}}Operation]({{docRoot}}{{pathFromDocRoot}}.md#{{operationId.kebabCase}}operation){{#unless @last}},{{/unless}}
+{{/each}}
+
+{{#with tag}}
+an api client class which contains all the routes for tag="{{name}}"
+    {{#if description}}
+{{description.originalWithBr}}
+    {{/if}}
+{{/with}}
+
+{{headerSize}}# Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+{{#each operations}}
+| {{#if nonErrorResponses }}{{#with responses}}[{{jsonPathPiece.pascalCase}}.EndpointResponse]({{docRoot}}{{pathFromDocRoot}}.md#endpointresponse){{/with}}{{else}}Nothing?{{/if}} | [{{operationId.camelCase}}](#{{operationId.kebabCase}})([{{jsonPathPiece.pascalCase}}.{{method.pascalCase}}Request]({{docRoot}}{{pathFromDocRoot}}.md#{{method.kebabCase}}request) request){{#if description}}<br>{{description.originalWithBr}}{{/if}} |
+{{/each}}
+
+{{headerSize}}# Method Detail
+{{#each operations}}
+
+{{headerSize}}## {{operationId.camelCase}}
+public {{#if nonErrorResponses }}{{#with responses}}[{{jsonPathPiece.pascalCase}}.EndpointResponse]({{docRoot}}{{pathFromDocRoot}}.md#endpointresponse){{/with}}{{else}}Nothing?{{/if}} {{operationId.camelCase}}([{{jsonPathPiece.pascalCase}}.{{method.pascalCase}}Request]({{docRoot}}{{pathFromDocRoot}}.md#{{method.kebabCase}}request) request)
+{{#if description}}
+
+{{description.originalWithBr}}
+{{/if}}
+
+**Parameters:**<br>
+request - the input request
+
+**Returns:**<br>
+{{#if nonErrorResponses }}the deserialized response{{else}}nothing (Nothing?){{/if}}
+
+**Throws:**<br>
+IOException, InterruptedException - an exception happened when making the request<br>
+ValidationException - the returned response body or header values do not conform the the schema validation requirements<br>
+NotImplementedException - the request body serialization or deserialization has not yet been implemented<br>
+                          or the header content type deserialization has not yet been implemented for this contentType<br>
+ApiException - server returned a response/contentType not defined in the openapi document<br>
+
+{{headerSize}}### Code Sample
+{{> src/main/kotlin/packagename/paths/path/verb/_OperationDocCodeSample apiSubpackage="apis.tags" apiContainerClass=tag.className apiFullyQualifiedClass=tag.className }}
+{{/each}}
+
+[[Back to top]](#top) {{> _helper_footer_links readmePath="../../../" endpointLink=true}}

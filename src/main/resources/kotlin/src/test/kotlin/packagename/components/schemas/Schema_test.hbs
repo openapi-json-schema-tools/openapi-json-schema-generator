@@ -1,0 +1,51 @@
+package {{{packageName}}}.components.schemas
+
+import {{{packageName}}}.configurations.JsonSchemaKeywordFlags
+import {{{packageName}}}.configurations.SchemaConfiguration
+import {{{packageName}}}.exceptions.ValidationException
+
+import kotlin.test.Test
+import kotlin.test.assertFailsWith
+
+{{#with schema}}
+class {{containerJsonPathPiece.pascalCase}}Test {
+    companion object {
+        val configuration = SchemaConfiguration(JsonSchemaKeywordFlags.Builder().format().build())
+    }
+{{#each testCases}}
+    {{#with this }}
+
+    @Test
+    fun test{{@key}}{{#if valid}}Passes(){{else}}Fails(){{/if}} {
+        // {{description.codeEscaped}}
+        val schema = {{containerJsonPathPiece.pascalCase}}.{{jsonPathPiece.pascalCase}}.getInstance()
+        {{#if valid}}
+        schema.validate(
+            {{#with data}}
+                {{#and (eq type "array") ../arrayInputJsonPathPiece }}
+            {{../containerJsonPathPiece.pascalCase}}.{{../arrayInputJsonPathPiece.pascalCase}}()
+                {{> src/main/kotlin/packagename/components/schemas/helpers/payload_renderer constructor=true endChar="" }}
+            .build(),
+                {{else}}
+            {{> src/main/kotlin/packagename/components/schemas/helpers/payload_renderer endChar="," }}
+                {{/and}}
+            {{/with}}
+            configuration
+        )
+        {{else}}
+        assertFailsWith<ValidationException>(
+            block = {
+                schema.validate(
+                    {{#with data}}
+                    {{> src/main/kotlin/packagename/components/schemas/helpers/payload_renderer endChar="," }}
+                    {{/with}}
+                    configuration
+                )
+            }
+        )
+        {{/if}}
+    }
+    {{/with}}
+{{/each}}
+{{/with}}
+}

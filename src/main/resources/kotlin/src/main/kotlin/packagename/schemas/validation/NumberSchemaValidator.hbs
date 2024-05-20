@@ -1,0 +1,12 @@
+package {{{packageName}}}.schemas.validation
+
+import {{{packageName}}}.configurations.SchemaConfiguration
+import {{{packageName}}}.exceptions.ValidationException
+
+interface NumberSchemaValidator<T> {
+    @Throws(ValidationException::class)
+    fun validate(arg: Number, configuration: SchemaConfiguration?): Number
+
+    @Throws(ValidationException::class)
+    fun validateAndBox(arg: Number, configuration: SchemaConfiguration?): T
+}

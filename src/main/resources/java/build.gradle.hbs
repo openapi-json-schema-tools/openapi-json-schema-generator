@@ -37,7 +37,7 @@ val testsJar by tasks.registering(Jar::class) {
 
 java {
     toolchain {
-        languageVersion.set(JavaLanguageVersion.of(17))
+        languageVersion.set(JavaLanguageVersion.of({{generatorMetadata.languageVersion}}))
     }
     withSourcesJar()
     withJavadocJar()

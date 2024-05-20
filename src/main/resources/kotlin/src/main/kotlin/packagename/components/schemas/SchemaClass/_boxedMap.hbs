@@ -1,0 +1,25 @@
+{{#if forDocs}}
+{{> src/main/kotlin/packagename/components/_helper_header_from_identifier_pieces headerSize=(join headerSize "#" "") identifierPieces=(append identifierPieces (join jsonPathPiece.pascalCase "BoxedMap" "")) }}
+data class {{jsonPathPiece.pascalCase}}BoxedMap<br>
+implements [{{jsonPathPiece.pascalCase}}Boxed](#{{> src/main/kotlin/packagename/components/_helper_anchor_id identifierPieces=(append identifierPieces (join jsonPathPiece.kebabCase "boxed" "")) }})
+
+data class that stores validated Map payloads, sealed permits implementation
+
+{{headerSize}}## Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| {{jsonPathPiece.pascalCase}}BoxedMap({{#if mapOutputJsonPathPiece}}[{{mapOutputJsonPathPiece.pascalCase}}](#{{> src/main/kotlin/packagename/components/_helper_anchor_id identifierPieces=(append identifierPieces mapOutputJsonPathPiece) }}){{else}}FrozenMap<Any?>{{/if}} data)<br>Creates an instance, private visibility |
+
+{{headerSize}}## Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| {{#if mapOutputJsonPathPiece}}[{{mapOutputJsonPathPiece.pascalCase}}](#{{> src/main/kotlin/packagename/components/_helper_anchor_id identifierPieces=(append identifierPieces mapOutputJsonPathPiece) }}){{else}}FrozenMap<Any?>{{/if}} | data()<br>validated payload |
+| Any? | getData()<br>validated payload |
+
+{{else}}
+data class {{jsonPathPiece.pascalCase}}BoxedMap(val data: {{#if mapOutputJsonPathPiece}}{{mapOutputJsonPathPiece.pascalCase}}{{else}}FrozenMap<Any?>{{/if}}) : {{jsonPathPiece.pascalCase}}Boxed {
+    override fun getData(): Any? {
+        return data
+    }
+}
+{{/if}}

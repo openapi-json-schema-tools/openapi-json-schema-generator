@@ -1,0 +1,81 @@
+{{#if requiredProperties}}
+    {{#each requiredProperties}}
+        {{#if @key.isValid}}
+        {{#with this}}
+            {{#if refInfo.refClass}}
+
+fun {{{@key.original}}}(): {{> src/main/kotlin/packagename/components/schemas/types/schema_output_type fullRefModule="" }} {
+    {{> src/main/kotlin/packagename/components/schemas/_objectOutputGetProperty required=true }}
+}
+            {{else}}
+                {{#if jsonPathPiece}}
+
+fun {{{@key.original}}}(): {{> src/main/kotlin/packagename/components/schemas/types/schema_output_type fullRefModule=null }} {
+    {{> src/main/kotlin/packagename/components/schemas/_objectOutputGetProperty required=true }}
+}
+                {{else}}
+                    {{! for when additionalProperties is unset, use OUTPUT_BASE_TYPES }}
+
+fun {{@key.original}}(): Any? {
+    {{> src/main/kotlin/packagename/components/schemas/_objectOutputGetProperty required=true }}
+}
+                {{/if}}
+            {{/if}}
+        {{/with}}
+        {{/if}}
+    {{/each}}
+{{/if}}
+{{#if optionalProperties}}
+    {{#each optionalProperties}}
+        {{#if @key.isValid}}
+        {{#with this}}
+
+@Throws(UnsetPropertyException::class)
+fun {{{@key.original}}}(): {{> src/main/kotlin/packagename/components/schemas/types/schema_output_type noAnnotations=true }} {
+    {{> src/main/kotlin/packagename/components/schemas/_objectOutputGetProperty required=false }}
+}
+        {{/with}}
+        {{/if}}
+    {{/each}}
+{{/if}}
+{{#eq additionalProperties null }}
+
+@Throws(UnsetPropertyException::class, InvalidAdditionalPropertyException::class)
+fun getAdditionalProperty(name: String): Any? {
+    {{#or optionalProperties requiredProperties}}
+    throwIfKeyKnown(name, requiredKeys, optionalKeys)
+    {{/or}}
+    throwIfKeyNotPresent(name)
+    return get(name)
+}
+{{else}}
+    {{#with additionalProperties}}
+        {{#unless isBooleanSchemaFalse}}
+
+@Throws(UnsetPropertyException::class{{#or ../optionalProperties ../requiredProperties}}, InvalidAdditionalPropertyException::class{{/or}})
+fun getAdditionalProperty(name: String): {{> src/main/kotlin/packagename/components/schemas/types/schema_output_type }} {
+            {{#or ../optionalProperties ../requiredProperties}}
+    throwIfKeyKnown(name, requiredKeys, optionalKeys)
+            {{/or}}
+            {{#and ../../mapValueSchema (eq typeSchema ../../mapValueSchema.typeSchema) }}
+                {{#and (neq types null) (eq types.size 1) (contains types "boolean") }}
+    throwIfKeyNotPresent(name)
+    val value: Boolean? = get(name)
+    if (value == null) {
+        throw RuntimeException("Value may not be null")
+    }
+    return value
+                {{else}}
+    return getOrThrow(name)
+                {{/and}}
+            {{else}}
+    val value = getOrThrow(name)
+    if (!({{#contains types "null" }}value == null || {{/contains}}value is {{> src/main/kotlin/packagename/components/schemas/types/schema_output_type fullRefModule="" forceNull=true noAnnotations=true }})) {
+        throw RuntimeException("Invalid value stored for " + name)
+    }
+    return value
+            {{/and}}
+}
+        {{/unless}}
+    {{/with}}
+{{/eq}}

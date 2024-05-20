@@ -1,0 +1,29 @@
+{{#if forDocs}}
+prefixItems = listOf(<br>
+    {{~#each prefixItems}}
+        {{#if refInfo.refClass}}
+            {{#if refInfo.refModule}}
+&nbsp;&nbsp;&nbsp;&nbsp;[{{refInfo.refModule}}.{{refInfo.refClass}}::class.java]({{docRoot}}{{refInfo.ref.pathFromDocRoot}}.md#{{refInfo.ref.jsonPathPiece.kebabCase}}){{#unless @last}},{{/unless}}<br>
+            {{~else}}
+&nbsp;&nbsp;&nbsp;&nbsp;[{{refInfo.refClass}}::class.java](#{{refInfo.ref.jsonPathPiece.kebabCase}}){{#unless @last}},{{/unless}}<br>
+            {{~/if}}
+        {{else}}
+&nbsp;&nbsp;&nbsp;&nbsp;[{{jsonPathPiece.pascalCase}}::class.java](#{{jsonPathPiece.kebabCase}}){{#unless @last}},{{/unless}}<br>
+        {{~/if}}
+    {{/each}}
+)<br>
+{{~else}}
+.prefixItems(listOf(
+    {{#each prefixItems}}
+        {{#if refInfo.refClass}}
+            {{#if refInfo.refModule}}
+    {{refInfo.refModule}}.{{refInfo.refClass}}::class.java{{#unless @last}},{{/unless}}
+            {{else}}
+    {{refInfo.refClass}}::class.java{{#unless @last}},{{/unless}}
+            {{/if}}
+        {{else}}
+    {{jsonPathPiece.pascalCase}}::class.java{{#unless @last}},{{/unless}}
+        {{/if}}
+    {{/each}}
+))
+{{/if}}

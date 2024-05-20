@@ -1,0 +1,35 @@
+package org.openapijsonschematools.client.schemas.validation
+
+import org.openapijsonschematools.client.exceptions.ValidationException
+
+import kotlin.math.min
+
+class PrefixItemsValidator : KeywordValidator {
+    @Throws(ValidationException::class)
+    override fun validate(
+        data: ValidationData
+    ): PathToSchemasMap? {
+        val prefixItems: List<Class<out JsonSchema<*>>> = data.schema.prefixItems ?: return null
+        if (data.arg !is List<*>) {
+            return null
+        }
+        if (data.arg.isEmpty()) {
+            return null
+        }
+        val pathToSchemas = PathToSchemasMap()
+        val maxIndex: Int = min(data.arg.size, prefixItems.size)
+        for (i in 0 until maxIndex) {
+            val itemPathToItem: List<Any> = data.validationMetadata.pathToItem + i
+            val itemValidationMetadata = ValidationMetadata(
+                itemPathToItem,
+                data.validationMetadata.configuration,
+                data.validationMetadata.validatedPathToSchemas,
+                data.validationMetadata.seenClasses
+            )
+            val itemsSchema: JsonSchema<*> = JsonSchemaFactory.getInstance(prefixItems[i])
+            val otherPathToSchemas = JsonSchema.validate(itemsSchema, data.arg[i], itemValidationMetadata)
+            pathToSchemas.update(otherPathToSchemas)
+        }
+        return pathToSchemas
+    }
+}

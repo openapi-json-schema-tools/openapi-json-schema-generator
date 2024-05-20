@@ -1,0 +1,307 @@
+{{#if refInfo }}
+    {{#if refInfo.refModule}}
+        {{#with getDeepestRef }}
+{{> src/main/kotlin/packagename/components/schemas/_objectInputSetter useContainer=true }}
+        {{/with}}
+    {{else}}
+        {{! self reference} }}
+        {{#with refInfo.ref }}
+{{> src/main/kotlin/packagename/components/schemas/_objectInputSetter }}
+        {{/with}}
+    {{/if}}
+{{else}}
+    {{#each types}}
+        {{#eq this "null"}}
+            {{#if forDocs }}
+| [{{builderClass.pascalCase}}](#{{builderClass.kebabCase}}) | {{methodName}}(value: Nothing?) |
+            {{else}}
+
+fun {{methodName}}(value: Nothing?): T {
+    val instance = getInstance()
+    instance["{{{key}}}"] = null
+    return {{getBuilderMethod}}(instance)
+}
+            {{/if}}
+        {{else}}
+            {{#eq this "boolean"}}
+                {{#if forDocs }}
+| [{{builderClass.pascalCase}}](#{{builderClass.kebabCase}}) | {{methodName}}(value: Boolean) |
+                {{else}}
+
+fun {{methodName}}(value: Boolean): T {
+    val instance = getInstance()
+    instance["{{{key}}}"] = value
+    return {{getBuilderMethod}}(instance)
+}
+                {{/if}}
+            {{else}}
+                {{#eq this "string"}}
+                    {{#if forDocs }}
+| [{{builderClass.pascalCase}}](#{{builderClass.kebabCase}}) | {{methodName}}(value: String) |
+                    {{else}}
+
+fun {{methodName}}(value: String): T {
+    val instance = getInstance()
+    instance["{{{key}}}"] = value
+    return {{getBuilderMethod}}(instance)
+}
+                    {{/if}}
+                {{else}}
+                    {{#or (eq this "integer") (eq this "number") }}
+                        {{#if forDocs }}
+| [{{builderClass.pascalCase}}](#{{builderClass.kebabCase}}) | {{methodName}}(value: Int) |
+| [{{builderClass.pascalCase}}](#{{builderClass.kebabCase}}) | {{methodName}}(value: Float) |
+                            {{#neq ../format "int32"}}
+| [{{builderClass.pascalCase}}](#{{builderClass.kebabCase}}) | {{methodName}}(value: Long) |
+| [{{builderClass.pascalCase}}](#{{builderClass.kebabCase}}) | {{methodName}}(value: Double) |
+                            {{/neq}}
+                        {{else}}
+
+fun {{methodName}}(value: Int): T {
+    val instance = getInstance()
+    instance["{{{key}}}"] = value
+    return {{getBuilderMethod}}(instance)
+}
+
+fun {{methodName}}(value: Float): T {
+    val instance = getInstance()
+    instance["{{{key}}}"] = value
+    return {{getBuilderMethod}}(instance)
+}
+                            {{#neq ../format "int32"}}
+
+fun {{methodName}}(value: Long): T {
+    val instance = getInstance()
+    instance["{{{key}}}"] = value
+    return {{getBuilderMethod}}(instance)
+}
+
+fun {{methodName}}(value: Double): T {
+    val instance = getInstance()
+    instance["{{{key}}}"] = value
+    return {{getBuilderMethod}}(instance)
+}
+                            {{/neq}}
+                        {{/if}}
+                    {{else}}
+                        {{#eq this "array"}}
+                            {{#if forDocs }}
+| [{{builderClass.pascalCase}}](#{{builderClass.kebabCase}}) | {{methodName}}(value: List<{{#with items}}{{> src/main/kotlin/packagename/components/schemas/types/schema_input_type sourceJsonPath=../jsonPath forceNull=true noExtends=true }}{{else}}Any?{{/with}}>) |
+                            {{else}}
+
+fun {{methodName}}(value: List<{{#with items}}{{> src/main/kotlin/packagename/components/schemas/types/schema_input_type sourceJsonPath=../jsonPath forceNull=true noExtends=true }}{{else}}Any?{{/with}}>): T {
+    val instance = getInstance()
+    instance["{{{key}}}"] = value
+    return {{getBuilderMethod}}(instance)
+}
+                            {{/if}}
+                        {{else}}
+                            {{#eq this "object"}}
+                                {{#if forDocs }}
+| [{{builderClass.pascalCase}}](#{{builderClass.kebabCase}}) | {{methodName}}(value: Map<String, {{#with mapValueSchema}}{{> src/main/kotlin/packagename/components/schemas/types/schema_input_type sourceJsonPath=../jsonPath forceNull=true noExtends=true }}{{else}}Any?{{/with}}>) |
+                                {{else}}
+
+fun {{methodName}}(value: Map<String, {{#with mapValueSchema}}{{> src/main/kotlin/packagename/components/schemas/types/schema_input_type sourceJsonPath=../jsonPath forceNull=true noExtends=true }}{{else}}Any?{{/with}}>): T {
+    val instance = getInstance()
+    instance["{{{key}}}"] = value
+    return {{getBuilderMethod}}(instance)
+}
+                                {{/if}}
+                            {{/eq}}
+                        {{/eq}}
+                    {{/or}}
+                {{/eq}}
+            {{/eq}}
+        {{/eq}}
+    {{else}}
+        {{! no type defined }}
+        {{#if forDocs }}
+| [{{builderClass.pascalCase}}](#{{builderClass.kebabCase}}) | {{methodName}}(value: Nothing?) |
+| [{{builderClass.pascalCase}}](#{{builderClass.kebabCase}}) | {{methodName}}(value: Boolean) |
+| [{{builderClass.pascalCase}}](#{{builderClass.kebabCase}}) | {{methodName}}(value: String) |
+| [{{builderClass.pascalCase}}](#{{builderClass.kebabCase}}) | {{methodName}}(value: Int) |
+| [{{builderClass.pascalCase}}](#{{builderClass.kebabCase}}) | {{methodName}}(value: Float) |
+| [{{builderClass.pascalCase}}](#{{builderClass.kebabCase}}) | {{methodName}}(value: Long) |
+| [{{builderClass.pascalCase}}](#{{builderClass.kebabCase}}) | {{methodName}}(value: Double) |
+| [{{builderClass.pascalCase}}](#{{builderClass.kebabCase}}) | {{methodName}}(value: List<Any?>) |
+| [{{builderClass.pascalCase}}](#{{builderClass.kebabCase}}) | {{methodName}}(value: Map<String, Any?>) |
+        {{else}}
+
+fun {{methodName}}(value: Nothing?): T {
+    val instance = getInstance()
+    instance["{{{key}}}"] = null
+    return {{getBuilderMethod}}(instance)
+}
+
+fun {{methodName}}(value: Boolean): T {
+    val instance = getInstance()
+    instance["{{{key}}}"] = value
+    return {{getBuilderMethod}}(instance)
+}
+
+fun {{methodName}}(value: String): T {
+    val instance = getInstance()
+    instance["{{{key}}}"] = value
+    return {{getBuilderMethod}}(instance)
+}
+
+fun {{methodName}}(value: Int): T {
+    val instance = getInstance()
+    instance["{{{key}}}"] = value
+    return {{getBuilderMethod}}(instance)
+}
+
+fun {{methodName}}(value: Float): T {
+    val instance = getInstance()
+    instance["{{{key}}}"] = value
+    return {{getBuilderMethod}}(instance)
+}
+
+fun {{methodName}}(value: Long): T {
+    val instance = getInstance()
+    instance["{{{key}}}"] = value
+    return {{getBuilderMethod}}(instance)
+}
+
+fun {{methodName}}(value: Double): T {
+    val instance = getInstance()
+    instance["{{{key}}}"] = value
+    return {{getBuilderMethod}}(instance)
+}
+
+fun {{methodName}}(value: List<Any?>): T {
+    val instance = getInstance()
+    instance["{{{key}}}"] = value
+    return {{getBuilderMethod}}(instance)
+}
+
+fun {{methodName}}(value: Map<String, Any?>): T {
+    val instance = getInstance()
+    instance["{{{key}}}"] = value
+    return {{getBuilderMethod}}(instance)
+}
+        {{/if}}
+    {{/each}}
+    {{#with enumInfo}}
+        {{#each typeToValues }}
+            {{#eq @key "null"}}
+                {{#if forDocs }}
+                    {{#if useContainer }}
+| [{{builderClass.pascalCase}}](#{{builderClass.kebabCase}}) | {{methodName}}(value: [{{../../containerJsonPathPiece.pascalCase}}.Null{{../jsonPathPiece.pascalCase}}]({{docRoot}}{{pathFromDocRoot}}.md#null{{../jsonPathPiece.kebabCase}})) |
+                    {{else}}
+| [{{builderClass.pascalCase}}](#{{builderClass.kebabCase}}) | {{methodName}}(value: [Null{{../jsonPathPiece.pascalCase}}](#null{{../jsonPathPiece.kebabCase}})) |
+                    {{/if}}
+                {{else}}
+
+fun {{methodName}}(value: {{#if useContainer}}{{../../containerJsonPathPiece.pascalCase}}.{{/if}}Null{{../jsonPathPiece.pascalCase}}): T {
+    val instance = getInstance()
+    instance["{{{key}}}"] = null
+    return {{getBuilderMethod}}(instance)
+}
+                {{/if}}
+            {{else}}
+                {{#eq @key "boolean"}}
+                    {{#if forDocs }}
+                        {{#if useContainer }}
+| [{{builderClass.pascalCase}}](#{{builderClass.kebabCase}}) | {{methodName}}(value: [{{../../containerJsonPathPiece.pascalCase}}.Boolean{{../jsonPathPiece.pascalCase}}]({{docRoot}}{{pathFromDocRoot}}.md#boolean{{../jsonPathPiece.kebabCase}})) |
+                        {{else}}
+| [{{builderClass.pascalCase}}](#{{builderClass.kebabCase}}) | {{methodName}}(value: [Boolean{{../jsonPathPiece.pascalCase}}](#boolean{{../jsonPathPiece.kebabCase}})) |
+                        {{/if}}
+                    {{else}}
+
+fun {{methodName}}(value: {{#if useContainer}}{{../../containerJsonPathPiece.pascalCase}}.{{/if}}Boolean{{../jsonPathPiece.pascalCase}}): T {
+    val instance = getInstance()
+    instance["{{{key}}}"] = value.value()
+    return {{getBuilderMethod}}(instance)
+}
+                    {{/if}}
+                {{else}}
+                    {{#eq @key "string"}}
+                        {{#if forDocs }}
+                            {{#if useContainer }}
+| [{{builderClass.pascalCase}}](#{{builderClass.kebabCase}}) | {{methodName}}(value: [{{../../containerJsonPathPiece.pascalCase}}.String{{../jsonPathPiece.pascalCase}}]({{docRoot}}{{pathFromDocRoot}}.md#string{{../jsonPathPiece.kebabCase}})) |
+                            {{else}}
+| [{{builderClass.pascalCase}}](#{{builderClass.kebabCase}}) | {{methodName}}(value: [String{{../jsonPathPiece.pascalCase}}](#string{{../jsonPathPiece.kebabCase}})) |
+                            {{/if}}
+                        {{else}}
+
+fun {{methodName}}(value: {{#if useContainer}}{{../../containerJsonPathPiece.pascalCase}}.{{/if}}String{{../jsonPathPiece.pascalCase}}): T {
+    val instance = getInstance()
+    instance["{{{key}}}"] = value.value()
+    return {{getBuilderMethod}}(instance)
+}
+                        {{/if}}
+                    {{else}}
+                        {{#eq @key "Integer"}}
+                            {{#if forDocs }}
+                                {{#if useContainer }}
+| [{{builderClass.pascalCase}}](#{{builderClass.kebabCase}}) | {{methodName}}(value: [{{../../containerJsonPathPiece.pascalCase}}.Integer{{../jsonPathPiece.pascalCase}}]({{docRoot}}{{pathFromDocRoot}}.md#integer{{../jsonPathPiece.kebabCase}})) |
+                                {{else}}
+| [{{builderClass.pascalCase}}](#{{builderClass.kebabCase}}) | {{methodName}}(value: [Integer{{../jsonPathPiece.pascalCase}}](#integer{{../jsonPathPiece.kebabCase}})) |
+                                {{/if}}
+                            {{else}}
+
+fun {{methodName}}(value: {{#if useContainer}}{{../../containerJsonPathPiece.pascalCase}}.{{/if}}Integer{{../jsonPathPiece.pascalCase}}): T {
+    val instance = getInstance()
+    instance["{{{key}}}"] = value.value()
+    return {{getBuilderMethod}}(instance)
+}
+                            {{/if}}
+                        {{else}}
+                            {{#eq @key "Long"}}
+                                {{#if forDocs }}
+                                    {{#if useContainer }}
+| [{{builderClass.pascalCase}}](#{{builderClass.kebabCase}}) | {{methodName}}(value: [{{../../containerJsonPathPiece.pascalCase}}.Long{{../jsonPathPiece.pascalCase}}]({{docRoot}}{{pathFromDocRoot}}.md#long{{../jsonPathPiece.kebabCase}})) |
+                                    {{else}}
+| [{{builderClass.pascalCase}}](#{{builderClass.kebabCase}}) | {{methodName}}(value: [Long{{../jsonPathPiece.pascalCase}}](#long{{../jsonPathPiece.kebabCase}})) |
+                                    {{/if}}
+                                {{else}}
+
+fun {{methodName}}(value: {{#if useContainer}}{{../../containerJsonPathPiece.pascalCase}}.{{/if}}Long{{../jsonPathPiece.pascalCase}}): T {
+    val instance = getInstance()
+    instance["{{{key}}}"] = value.value()
+    return {{getBuilderMethod}}(instance)
+}
+                                {{/if}}
+                            {{else}}
+                                {{#eq @key "Float"}}
+                                    {{#if forDocs }}
+                                        {{#if useContainer }}
+| [{{builderClass.pascalCase}}](#{{builderClass.kebabCase}}) | {{methodName}}(value: [{{../../containerJsonPathPiece.pascalCase}}.Float{{../jsonPathPiece.pascalCase}}]({{docRoot}}{{pathFromDocRoot}}.md#float{{../jsonPathPiece.kebabCase}})) |
+                                        {{else}}
+| [{{builderClass.pascalCase}}](#{{builderClass.kebabCase}}) | {{methodName}}(value: [Float{{../jsonPathPiece.pascalCase}}](#float{{../jsonPathPiece.kebabCase}})) |
+                                        {{/if}}
+                                    {{else}}
+
+fun {{methodName}}(value: {{#if useContainer}}{{../../containerJsonPathPiece.pascalCase}}.{{/if}}Float{{../jsonPathPiece.pascalCase}}): T {
+    val instance = getInstance()
+    instance["{{{key}}}"] = value.value()
+    return {{getBuilderMethod}}(instance)
+}
+                                    {{/if}}
+                                {{else}}
+                                    {{#eq @key "Double"}}
+                                        {{#if forDocs }}
+                                            {{#if useContainer }}
+| [{{builderClass.pascalCase}}](#{{builderClass.kebabCase}}) | {{methodName}}(value: [{{../../containerJsonPathPiece.pascalCase}}.Double{{../jsonPathPiece.pascalCase}}]({{docRoot}}{{pathFromDocRoot}}.md#double{{../jsonPathPiece.kebabCase}})) |
+                                            {{else}}
+| [{{builderClass.pascalCase}}](#{{builderClass.kebabCase}}) | {{methodName}}(value: [Double{{../jsonPathPiece.pascalCase}}](#double{{../jsonPathPiece.kebabCase}})) |
+                                            {{/if}}
+                                        {{else}}
+
+fun {{methodName}}(value: {{#if useContainer}}{{../../containerJsonPathPiece.pascalCase}}.{{/if}}Double{{../jsonPathPiece.pascalCase}}): T {
+    val instance = getInstance()
+    instance["{{{key}}}"] = value.value()
+    return {{getBuilderMethod}}(instance)
+}
+                                        {{/if}}
+                                    {{/eq}}
+                                {{/eq}}
+                            {{/eq}}
+                        {{/eq}}
+                    {{/eq}}
+                {{/eq}}
+            {{/eq}}
+        {{/each}}
+    {{/with}}
+{{/if}}

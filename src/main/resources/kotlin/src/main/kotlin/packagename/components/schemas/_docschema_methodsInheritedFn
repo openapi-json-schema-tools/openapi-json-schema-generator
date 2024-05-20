@@ -1,0 +1,5 @@
+
+| Methods Inherited from class {{packageName}}.schemas.{{className}} |
+| ------------------------------------------------------------------ |
+| validate                                                           |
+| validateAndBox                                                     |

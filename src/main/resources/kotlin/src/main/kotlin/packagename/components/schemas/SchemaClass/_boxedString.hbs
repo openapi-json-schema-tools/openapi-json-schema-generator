@@ -1,0 +1,26 @@
+{{#if forDocs}}
+{{> src/main/kotlin/packagename/components/_helper_header_from_identifier_pieces headerSize=(join headerSize "#" "") identifierPieces=(append identifierPieces (join jsonPathPiece.pascalCase "BoxedString" "")) }}
+data class {{jsonPathPiece.pascalCase}}BoxedString<br>
+implements [{{jsonPathPiece.pascalCase}}Boxed](#{{> src/main/kotlin/packagename/components/_helper_anchor_id identifierPieces=(append identifierPieces (join jsonPathPiece.kebabCase "boxed" "")) }})
+
+data class that stores validated String payloads, sealed permits implementation
+
+{{headerSize}}## Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| {{jsonPathPiece.pascalCase}}BoxedString(String data)<br>Creates an instance, private visibility |
+
+{{headerSize}}## Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| String | data()<br>validated payload |
+| Any? | getData()<br>validated payload |
+
+{{else}}
+data class {{jsonPathPiece.pascalCase}}BoxedString(val data: String) : {{jsonPathPiece.pascalCase}}Boxed {
+    override fun getData(): Any? {
+        return data
+    }
+}
+
+{{/if}}

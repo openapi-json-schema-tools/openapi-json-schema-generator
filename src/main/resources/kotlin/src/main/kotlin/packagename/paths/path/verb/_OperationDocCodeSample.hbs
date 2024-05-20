@@ -1,0 +1,270 @@
+```
+import {{packageName}}.configurations.ApiConfiguration;
+import {{packageName}}.configurations.SchemaConfiguration;
+import {{packageName}}.configurations.JsonSchemaKeywordFlags;
+import {{packageName}}.exceptions.ValidationException;
+import {{packageName}}.exceptions.NotImplementedException;
+import {{packageName}}.exceptions.ApiException;
+import {{{packageName}}}.schemas.validation.MapUtils;
+import {{{packageName}}}.schemas.validation.FrozenList;
+import {{{packageName}}}.schemas.validation.FrozenMap;
+    {{#each builders}}
+        {{#or @first @last}}
+            {{#each keyToBuilder}}
+                {{#with property}}
+                    {{#if containerJsonPathPiece}}
+import {{packageName}}.{{subpackage}}.{{containerJsonPathPiece.pascalCase}};
+                    {{else}}
+                        {{#if this.jsonPathPiece}}
+                            {{#if subpackage}}
+import {{packageName}}.{{subpackage}}.{{jsonPathPiece.pascalCase}};
+                            {{else}}
+import {{packageName}}.{{jsonPathPiece.pascalCase}};
+                            {{/if}}
+                        {{/if}}
+                    {{/if}}
+                    {{#if ../../@last}}
+                        {{#eq @key.camelCase "requestBody"}}
+                            {{#with getSelfOrDeepestRef}}
+                                {{#each content}}
+                                    {{#if @first}}
+                                        {{#with schema}}
+                                            {{#with getSelfOrDeepestRef}}
+import {{packageName}}.{{subpackage}}.{{containerJsonPathPiece.pascalCase}};
+                                            {{/with}}
+                                        {{/with}}
+                                    {{/if}}
+                                {{/each}}
+                            {{/with}}
+                        {{/eq}}
+                    {{/if}}
+                {{/with}}
+            {{/each}}
+        {{/or}}
+    {{/each}}
+    {{#each builders}}
+        {{#if @first}}
+            {{#each keyToBuilder}}
+                {{#eq @key.camelCase "serverIndex"}}
+                    {{#with property}}
+                        {{! CodegenList of CodegenServer }}
+                        {{#each this}}
+import {{packageName}}.{{subpackage}}.{{jsonPathPiece.pascalCase}};
+                        {{/each}}
+                    {{/with}}
+                {{/eq}}
+                {{#eq @key.camelCase "securityIndex"}}
+import {{packageName}}.securityschemes.SecurityScheme;
+                    {{#with property}}
+                        {{! CodegenList of SecurityRequirementObject }}
+                        {{#each this}}
+                            {{#each map}}
+                                {{#with refInfo.ref}}
+                                    {{! SecurityScheme }}
+import {{packageName}}.components.securityschemes.{{jsonPathPiece.pascalCase}};
+                                {{/with}}
+                            {{/each}}
+                        {{/each}}
+                    {{/with}}
+                {{/eq}}
+            {{/each}}
+        {{/if}}
+    {{/each}}
+    {{#each responses}}
+import {{{packageName}}}.{{subpackage}}.{{jsonPathPiece.pascalCase}};
+        {{#with getSelfOrDeepestRef}}
+            {{#with headersObjectSchema}}
+import {{{packageName}}}.{{subpackage}}.{{containerJsonPathPiece.pascalCase}};
+            {{/with}}
+        {{/with}}
+    {{/each}}
+    {{#with servers}}
+import {{packageName}}.{{#if subpackage}}{{subpackage}}{{else}}servers{{/if}}.{{jsonPathPiece.pascalCase}};
+    {{/with}}
+import {{packageName}}.{{apiSubpackage}}.{{apiContainerClass}};
+    {{#with responses}}
+import {{packageName}}.{{subpackage}}.{{jsonPathPiece.pascalCase}};
+    {{/with}}
+
+import java.io.IOException;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Map;
+import java.util.AbstractMap;
+
+// if you want to use a server that is not SERVER_0 pass it in here and change the ServerIndex input below
+ApiConfiguration.ServerInfo serverInfo = new ApiConfiguration.ServerInfoBuilder()
+    .{{servers.jsonPathPiece.camelCase}}(
+        new {{servers.jsonPathPiece.pascalCase}}.{{servers.jsonPathPiece.pascalCase}}Builder()
+    {{#each servers}}
+        {{#if @first}}
+            .{{jsonPathPiece.camelCase}}(new {{jsonPathPiece.pascalCase}}())
+            .build()
+        {{/if}}
+    {{/each}}
+    )
+    .build();
+ApiConfiguration.ServerIndexInfo serverIndexInfo = new ApiConfiguration.ServerIndexInfoBuilder()
+    {{#each builders}}
+        {{#if @first}}
+            {{#each keyToBuilder}}
+                {{#eq @key.camelCase "serverIndex"}}
+                    {{#with property}}
+                        {{! CodegenList of CodegenServer }}
+    .{{jsonPathPiece.camelCase}}ServerIndex({{jsonPathPiece.pascalCase}}.ServerIndex.SERVER_0)
+                    {{/with}}
+                {{/eq}}
+            {{/each}}
+    .build();
+        {{/if}}
+    {{/each}}
+    {{#each builders}}
+        {{#if @first}}
+            {{#each keyToBuilder}}
+                {{#eq @key.camelCase "securityIndex"}}
+                    {{#with property}}
+List<SecurityScheme> securitySchemes = new ArrayList();
+                        {{! CodegenList of SecurityRequirementObject }}
+                        {{#each this}}
+                            {{#each map}}
+                                {{#with refInfo.ref}}
+{{> src/main/kotlin/packagename/paths/path/verb/_OperationDocSSCodeSample }}
+                                {{/with}}
+                            {{/each}}
+                        {{/each}}
+                    {{/with}}
+                {{/eq}}
+            {{/each}}
+        {{/if}}
+    {{/each}}
+    {{#each security}}
+        {{#if @first}}
+ApiConfiguration.SecurityIndexInfo securityIndexInfo = new ApiConfiguration.SecurityIndexInfoBuilder()
+    .{{jsonPathPiece.camelCase}}SecurityIndex({{jsonPathPiece.pascalCase}}.SecurityIndex.SECURITY_0)
+    .build();
+        {{/if}}
+    {{/each}}
+Duration timeout = Duration.ofSeconds(1L);
+Map<String, List<String>> defaultHeaders = Map.of("User-Agent", List.of("{{#if httpUserAgent}}{{{httpUserAgent}}}{{else}}OpenAPI-JSON-Schema-Generator/{{{artifactVersion}}}/java{{/if}}"));
+ApiConfiguration apiConfiguration = new ApiConfiguration(
+    serverInfo
+    serverIndexInfo,
+    {{#each builders}}
+        {{#if @first}}
+            {{#each keyToBuilder}}
+                {{#eq @key.camelCase "securityIndex"}}
+    securitySchemes,
+    securityIndexInfo,
+                {{/eq}}
+            {{/each}}
+        {{/if}}
+    {{/each}}
+    timeout,
+    defaultHeaders
+);
+SchemaConfiguration schemaConfiguration = new SchemaConfiguration(new JsonSchemaKeywordFlags.Builder().build());
+{{apiFullyQualifiedClass}} apiClient = new {{apiFullyQualifiedClass}}(apiConfiguration, schemaConfiguration);
+
+    {{#gt builders.size 1}}
+    {{#each builders}}
+        {{#if @last}}
+            {{#each keyToBuilder}}
+                {{#with property}}
+                    {{#if containerJsonPathPiece}}
+                        {{#each (reverse getSchemas)}}
+                            {{#eq instanceType "schema"}}
+{{> src/main/kotlin/packagename/components/schemas/validateSchemaCodeSample payloadVarName=../@key.camelCase configVarName="schemaConfiguration" }}
+                            {{/eq}}
+                        {{/each}}
+                    {{else}}
+                        {{! CodegenRequestBody }}
+                        {{#with getSelfOrDeepestRef}}
+                            {{#each content}}
+                                {{#if @first}}
+                                    {{#with schema}}
+                                        {{#with getSelfOrDeepestRef}}
+{{> src/main/kotlin/packagename/components/schemas/validateAndBoxSchemaCodeSample payloadVarName="requestBodyPayload" configVarName="schemaConfiguration" }}
+                                        {{/with}}
+                                    {{/with}}
+{{../../jsonPathPiece.pascalCase}}.{{../operationInputClassName.pascalCase}} {{../@key.camelCase}} = new {{../../jsonPathPiece.pascalCase}}.{{@key.pascalCase}}RequestBody(requestBodyPayload);
+                                {{/if}}
+                            {{/each}}
+                        {{/with}}
+                    {{/if}}
+                {{/with}}
+            {{/each}}
+        {{/if}}
+    {{/each}}
+    {{/gt}}
+
+    {{#eq builders.size 1}}
+        {{! only option props}}
+        {{#each builders}}
+var request = new {{../jsonPathPiece.pascalCase}}.{{className.pascalCase}}().build();
+        {{/each}}
+    {{else}}
+        {{#each builders}}
+            {{#if @last}}
+var request = new {{../jsonPathPiece.pascalCase}}.{{className.pascalCase}}()
+                {{#each keyToBuilder}}
+    .{{@key.camelCase}}({{@key.camelCase}})
+                    {{#if @last}}
+    .build();
+                    {{/if}}
+                {{/each}}
+            {{/if}}
+        {{/each}}
+    {{/eq}}
+
+{{#if nonErrorResponses }}{{responses.jsonPathPiece.pascalCase}}.EndpointResponse{{else}}Nothing?{{/if}} response;
+try {
+    response = apiClient.{{jsonPathPiece.camelCase}}(request);
+{{#or errorStatusCodes errorWildcardStatusCodes}}
+} catch ({{> src/main/kotlin/packagename/paths/path/verb/_OperationDocExcCodeSample }} e) {
+    // server returned an error response defined in the openapi document
+    throw e;
+{{/or}}
+} catch (ApiException e) {
+    // server returned a response/contentType not defined in the openapi document
+    throw e;
+} catch (ValidationException e) {
+    // the returned response body or header values do not conform the the schema validation requirements
+    throw e;
+} catch (IOException | InterruptedException e) {
+    // an exception happened when making the request
+    throw e;
+} catch (NotImplementedException e) {
+    // the request body serialization or deserialization has not yet been implemented
+    // or the header content type deserialization has not yet been implemented for this contentType
+    throw e;
+}
+{{#if nonErrorResponses}}
+    {{#eq nonErrorResponses.size 1}}
+        {{#each nonErrorResponses}}
+{{responses.jsonPathPiece.pascalCase}}.Endpoint{{jsonPathPiece.pascalCase}} castResponse = ({{responses.jsonPathPiece.pascalCase}}.Endpoint{{jsonPathPiece.pascalCase}}) response;
+            {{#if hasContentSchema}}
+{{> src/main/kotlin/packagename/paths/path/verb/_OperationDocResBodyCodeSample }}
+            {{/if}}
+        {{/each}}
+    {{else}}
+        {{#each nonErrorResponses}}
+            {{#if @first}}
+if (response instanceof {{responses.jsonPathPiece.pascalCase}}.Endpoint{{jsonPathPiece.pascalCase}} castResponse) {
+            {{else}}
+                {{#if @last}}
+} else {
+    {{responses.jsonPathPiece.pascalCase}}.Endpoint{{jsonPathPiece.pascalCase}} castResponse = ({{responses.jsonPathPiece.pascalCase}}.Endpoint{{jsonPathPiece.pascalCase}}) response;
+                {{else}}
+} else if (response instanceof {{responses.jsonPathPiece.pascalCase}}.Endpoint{{jsonPathPiece.pascalCase}} castResponse) {
+                {{/if}}
+            {{/if}}
+            {{#if hasContentSchema}}
+    {{> src/main/kotlin/packagename/paths/path/verb/_OperationDocResBodyCodeSample }}
+            {{/if}}
+            {{#if @last}}
+}
+            {{/if}}
+        {{/each}}
+    {{/eq}}
+{{/if}}
+```

@@ -1,0 +1,106 @@
+{{#each requiredProperties}}
+
+interface SetterFor{{@key.pascalCase}} <T> {
+    fun getInstance(): MutableMap<String, {{#with ../mapValueSchema}}{{> src/main/kotlin/packagename/components/schemas/types/schema_input_type sourceJsonPath=../../jsonPath forceNull=true noExtends=true }}{{else}}Any?{{/with}}>
+    fun getBuilderAfter{{@key.pascalCase}}(instance: MutableMap<String, {{#with ../mapValueSchema}}{{> src/main/kotlin/packagename/components/schemas/types/schema_input_type sourceJsonPath=../../jsonPath forceNull=true noExtends=true }}{{else}}Any?{{/with}}>): T
+    {{#if @key.isValid}}
+    {{> src/main/kotlin/packagename/components/schemas/_objectInputSetter methodName=@key.original getBuilderMethod=(join "getBuilderAfter" @key.pascalCase "") key=@key.original }}
+    {{else}}
+    {{> src/main/kotlin/packagename/components/schemas/_objectInputSetter methodName=@key.camelCase getBuilderMethod=(join "getBuilderAfter" @key.pascalCase "") key=@key.original }}
+    {{/if}}
+}
+{{/each}}
+{{#each optionalProperties}}
+
+interface SetterFor{{@key.pascalCase}} <T> {
+    fun getInstance(): MutableMap<String, {{#with ../mapValueSchema}}{{> src/main/kotlin/packagename/components/schemas/types/schema_input_type sourceJsonPath=../../jsonPath forceNull=true noExtends=true }}{{else}}Any?{{/with}}>
+    fun getBuilderAfter{{@key.pascalCase}}(instance: MutableMap<String, {{#with ../mapValueSchema}}{{> src/main/kotlin/packagename/components/schemas/types/schema_input_type sourceJsonPath=../../jsonPath forceNull=true noExtends=true }}{{else}}Any?{{/with}}>): T
+    {{#if @key.isValid}}
+    {{> src/main/kotlin/packagename/components/schemas/_objectInputSetter methodName=@key.original getBuilderMethod=(join "getBuilderAfter" @key.pascalCase "") key=@key.original }}
+    {{else}}
+    {{> src/main/kotlin/packagename/components/schemas/_objectInputSetter methodName=@key.camelCase getBuilderMethod=(join "getBuilderAfter" @key.pascalCase "") key=@key.original }}
+    {{/if}}
+}
+{{/each}}
+{{#with additionalProperties }}
+    {{#eq isBooleanSchemaFalse false}}
+
+interface SetterFor{{jsonPathPiece.pascalCase}}<T> {
+    fun getKnownKeys(): Set<String>
+    fun getInstance(): MutableMap<String, {{#with ../mapValueSchema}}{{> src/main/kotlin/packagename/components/schemas/types/schema_input_type sourceJsonPath=../../jsonPath forceNull=true noExtends=true }}{{else}}Any?{{/with}}>
+    fun getBuilderAfterAdditionalProperty(instance: MutableMap<String, {{#with ../mapValueSchema}}{{> src/main/kotlin/packagename/components/schemas/types/schema_input_type sourceJsonPath=../../jsonPath forceNull=true noExtends=true }}{{else}}Any?{{/with}}>): T
+    {{> src/main/kotlin/packagename/components/schemas/_objectInputAddPropSetter methodName="additionalProperty" getBuilderMethod="getBuilderAfterAdditionalProperty" }}
+}
+    {{/eq}}
+{{/with}}
+{{#each mapBuilders}}
+
+class {{className.pascalCase}}{{#unless @last }}(private val instance: MutableMap<String, {{#with mapValueSchema}}{{> src/main/kotlin/packagename/components/schemas/types/schema_input_type sourceJsonPath=../../jsonPath forceNull=true noExtends=true }}{{else}}Any?{{/with}}>){{/unless}}: {{#and @first (eq ../additionalProperties null) }}UnsetAddPropsSetter<{{className.pascalCase}}>, {{/and}}{{#if @first}}GenericBuilder<Map<String, {{#with mapValueSchema}}{{> src/main/kotlin/packagename/components/schemas/types/schema_input_type sourceJsonPath=../../jsonPath forceNull=true noExtends=true }}{{else}}Any?{{/with}}>>{{#if ../optionalProperties}}, {{/if}}{{/if}}{{#each keyToBuilder}}SetterFor{{@key.pascalCase}}<{{builder.className.pascalCase}}>{{#unless @last}}, {{/unless}}{{/each}}{{#and @first ../additionalProperties (eq ../additionalProperties.isBooleanSchemaFalse false) }}, SetterFor{{../additionalProperties.jsonPathPiece.pascalCase}}<{{className.pascalCase}}>{{/and}} {
+    {{#if @first}}
+        {{#and (eq ../requiredProperties null) (eq ../optionalProperties null) }}
+    private val knownKeys: Set<String> = setOf()
+        {{else}}
+            {{#eq ../optionalProperties null }}
+    private val knownKeys: Set<String> = setOf(
+        {{#each ../requiredProperties}}
+        "{{{@key.original}}}"{{#unless @last}},{{/unless}}
+        {{/each}}
+    )
+            {{else}}
+                {{#eq ../requiredProperties null }}
+    private val knownKeys: Set<String> = setOf(
+        {{#each ../optionalProperties}}
+        "{{{@key.original}}}"{{#unless @last}},{{/unless}}
+        {{/each}}
+    )
+                {{else}}
+    private val knownKeys: Set<String> = setOf(
+        {{#each ../requiredProperties}}
+        "{{{@key.original}}}",
+        {{/each}}
+        {{#each ../optionalProperties}}
+        "{{{@key.original}}}"{{#unless @last}},{{/unless}}
+        {{/each}}
+    )
+                {{/eq}}
+            {{/eq}}
+        {{/and}}
+        {{#unless ../additionalProperties.isBooleanSchemaFalse}}
+    override fun getKnownKeys(): Set<String> {
+        return knownKeys
+    }
+        {{/unless}}
+    {{/if}}
+    {{#if @last }}
+    private val instance: MutableMap<String, {{#with mapValueSchema}}{{> src/main/kotlin/packagename/components/schemas/types/schema_input_type sourceJsonPath=../../jsonPath forceNull=true noExtends=true }}{{else}}Any?{{/with}}>
+    init {
+        this.instance = LinkedHashMap()
+    }
+    {{/if}}
+    {{#if @first}}
+    override fun build(): Map<String, {{#with mapValueSchema}}{{> src/main/kotlin/packagename/components/schemas/types/schema_input_type sourceJsonPath=../../jsonPath forceNull=true noExtends=true }}{{else}}Any?{{/with}}> {
+        return instance
+    }
+    {{/if}}
+    {{#or (eq keyToBuilder.isEmpty false) (and @first ../additionalProperties (eq ../additionalProperties.isBooleanSchemaFalse false)) (and @first (eq ../additionalProperties null)) }}
+    override fun getInstance(): MutableMap<String, {{#with mapValueSchema}}{{> src/main/kotlin/packagename/components/schemas/types/schema_input_type sourceJsonPath=../../jsonPath forceNull=true noExtends=true }}{{else}}Any?{{/with}}> {
+        return instance
+    }
+    {{/or}}
+    {{#each keyToBuilder}}
+    override fun getBuilderAfter{{@key.pascalCase}}(instance: MutableMap<String, {{#with ../mapValueSchema}}{{> src/main/kotlin/packagename/components/schemas/types/schema_input_type sourceJsonPath=../../jsonPath forceNull=true noExtends=true }}{{else}}Any?{{/with}}>): {{builder.className.pascalCase}} {
+        {{#eq builder ../this}}
+            {{! property in final builder }}
+        return this
+        {{else}}
+        return {{builder.className.pascalCase}}(instance)
+        {{/eq}}
+    }
+    {{/each}}
+    {{#and @first (or (and ../additionalProperties (eq ../additionalProperties.isBooleanSchemaFalse false)) (eq ../additionalProperties null)) }}
+    override fun getBuilderAfterAdditionalProperty(instance: MutableMap<String, {{#with ../mapValueSchema}}{{> src/main/kotlin/packagename/components/schemas/types/schema_input_type sourceJsonPath=../../jsonPath forceNull=true noExtends=true }}{{else}}Any?{{/with}}>): {{className.pascalCase}}  {
+        return this
+    }
+    {{/and}}
+}
+{{/each}}

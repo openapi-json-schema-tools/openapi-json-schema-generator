@@ -33,6 +33,13 @@ elif [ "$JOB_ID" = "testJava17ClientSamples" ]; then
 
   cat ./.circleci/testJava17ClientSamples.sh | parallel
 
+elif [ "$JOB_ID" = "testKotlinClientSamples" ]; then
+  echo "Running job $JOB_ID ..."
+  gradle --version
+  java -version
+
+  cat ./.circleci/testKotlinClientSamples.sh | parallel
+
 else
   echo "Running job $JOB_ID"
 

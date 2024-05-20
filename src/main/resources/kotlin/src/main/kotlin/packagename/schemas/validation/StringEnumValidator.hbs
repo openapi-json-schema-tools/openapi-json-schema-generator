@@ -1,0 +1,9 @@
+package {{{packageName}}}.schemas.validation
+
+import {{{packageName}}}.configurations.SchemaConfiguration
+import {{{packageName}}}.exceptions.ValidationException
+
+interface StringEnumValidator<EnumType : StringValueMethod> {
+    @Throws(ValidationException::class)
+    fun validate(arg: EnumType, configuration: SchemaConfiguration?): String
+}

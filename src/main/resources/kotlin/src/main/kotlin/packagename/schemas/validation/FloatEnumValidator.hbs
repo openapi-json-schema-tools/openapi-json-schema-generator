@@ -1,0 +1,9 @@
+package {{{packageName}}}.schemas.validation
+
+import {{{packageName}}}.configurations.SchemaConfiguration
+import {{{packageName}}}.exceptions.ValidationException
+
+interface FloatEnumValidator<EnumType : FloatValueMethod> {
+    @Throws(ValidationException::class)
+    fun validate(arg: EnumType, configuration: SchemaConfiguration?): Float
+}

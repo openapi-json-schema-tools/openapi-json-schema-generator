@@ -110,7 +110,7 @@ PropertiesPatternpropertiesAdditionalpropertiesInteraction.PropertiesPatternprop
 
 ## PropertiesPatternpropertiesAdditionalpropertiesInteractionMapBuilder
 public class PropertiesPatternpropertiesAdditionalpropertiesInteractionMapBuilder<br>
-builder for `Map<String, Object>`
+builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
 
@@ -122,7 +122,7 @@ A class that builds the Map input type
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| Map<String, Object> | build()<br>Returns map input that should be used with Schema.validate |
+| Map<String, @Nullable Object> | build()<br>Returns map input that should be used with Schema.validate |
 | [PropertiesPatternpropertiesAdditionalpropertiesInteractionMapBuilder](#propertiespatternpropertiesadditionalpropertiesinteractionmapbuilder) | foo(List<@Nullable Object> value) |
 | [PropertiesPatternpropertiesAdditionalpropertiesInteractionMapBuilder](#propertiespatternpropertiesadditionalpropertiesinteractionmapbuilder) | bar(List<@Nullable Object> value) |
 | [PropertiesPatternpropertiesAdditionalpropertiesInteractionMapBuilder](#propertiespatternpropertiesadditionalpropertiesinteractionmapbuilder) | additionalProperty(String key, int value) |
@@ -132,14 +132,14 @@ A class that builds the Map input type
 
 ## PropertiesPatternpropertiesAdditionalpropertiesInteractionMap
 public static class PropertiesPatternpropertiesAdditionalpropertiesInteractionMap<br>
-extends FrozenMap<String, Object>
+extends FrozenMap<String, @Nullable Object>
 
 A class to store validated Map payloads
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [PropertiesPatternpropertiesAdditionalpropertiesInteractionMap](#propertiespatternpropertiesadditionalpropertiesinteractionmap) | of([Map<String, Object>](#propertiespatternpropertiesadditionalpropertiesinteractionmapbuilder) arg, SchemaConfiguration configuration) |
+| static [PropertiesPatternpropertiesAdditionalpropertiesInteractionMap](#propertiespatternpropertiesadditionalpropertiesinteractionmap) | of([Map<String, ? extends @Nullable Object>](#propertiespatternpropertiesadditionalpropertiesinteractionmapbuilder) arg, SchemaConfiguration configuration) |
 | FrozenList<?> | foo()<br>[optional] |
 | FrozenList<?> | bar()<br>[optional] |
 | Number | getAdditionalProperty(String name)<br>provides type safety for additional properties |

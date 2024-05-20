@@ -1,0 +1,20 @@
+package {{{packageName}}}.servers
+
+abstract class ServerWithVariables<T : Map<String, String>> protected constructor(url: String, variables: T) :
+    Server {
+    val url: String
+    val variables: T
+
+    init {
+        var url = url
+        this.variables = variables
+        for ((key, value) in variables) {
+            url = url.replace("{$key}", value)
+        }
+        this.url = url
+    }
+
+    override fun url(): String {
+        return url
+    }
+}

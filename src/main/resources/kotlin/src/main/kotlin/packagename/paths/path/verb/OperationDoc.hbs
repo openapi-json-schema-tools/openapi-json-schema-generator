@@ -1,0 +1,118 @@
+{{#with operation}}
+{{headerSize}} {{jsonPathPiece.pascalCase}}
+
+public class {{jsonPathPiece.pascalCase}}
+
+A class that contains necessary endpoint classes
+- a class that calls the endpoint method using the http verb
+- a class that calls the endpoint method using the operationId name
+- class(es) to store the request inputs
+- builder(s) to set the request input data
+
+{{headerSize}}# Nested Class Summary
+| Modifier and Type | Class and Description |
+| ----------------- | --------------------- |
+| static class | [{{method.pascalCase}}](#{{method.kebabCase}})<br>The class that has a {{method.camelCase}} method to call the endpoint |
+{{#neq method.pascalCase operationId.pascalCase}}
+| interface | [{{operationId.pascalCase}}Operation](#{{operationId.kebabCase}}operation)<br>The interface that has a {{operationId.camelCase}} method to call the endpoint |
+{{/neq}}
+    {{#eq builders.size 1}}
+| static class | [{{method.pascalCase}}Request](#{{method.kebabCase}}request)<br>The request inputs class |
+    {{else}}
+| static class | [{{method.pascalCase}}Request](#{{method.kebabCase}}request)<br>The final request inputs class |
+| static class | [{{method.pascalCase}}NullableRequest](#{{method.kebabCase}}nullablerequest)<br>The initial request inputs class |
+    {{/eq}}
+    {{#each builders}}
+| static class | [{{className.pascalCase}}](#{{className.kebabCase}})<br>A builder for the request input class |
+    {{/each}}
+
+{{headerSize}}# {{method.pascalCase}}
+public static class {{method.pascalCase}} extends ApiClient.ApiClient1 implements {{method.pascalCase}}Operation<br>
+
+a class that allows one to call the endpoint using a method named {{method.camelCase}}
+
+{{headerSize}}## Code Sample
+{{> src/main/kotlin/packagename/paths/path/verb/_OperationDocCodeSample apiSubpackage=subpackage apiContainerClass=jsonPathPiece.pascalCase apiFullyQualifiedClass=(join jsonPathPiece.pascalCase method.pascalCase ".") }}
+
+{{headerSize}}## Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| {{method.pascalCase}}(ApiConfiguration apiConfiguration, SchemaConfiguration schemaConfiguration)<br>Creates an instance |
+
+{{headerSize}}## Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| {{#if nonErrorResponses }}{{#with responses}}[{{jsonPathPiece.pascalCase}}.EndpointResponse]({{docRoot}}{{pathFromDocRoot}}.md#endpointresponse){{/with}}{{else}}Nothing?{{/if}} | {{method.camelCase}}([{{method.pascalCase}}Request](#{{method.kebabCase}}request) request) |
+{{#neq method.pascalCase operationId.pascalCase}}
+
+{{headerSize}}# {{operationId.pascalCase}}Operation
+public interface {{operationId.pascalCase}}Operation<br>
+
+an interface that allows one to call the endpoint using a method named {{operationId.camelCase}} by the operationId
+
+{{headerSize}}## Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| {{#if nonErrorResponses }}{{#with responses}}[{{jsonPathPiece.pascalCase}}.EndpointResponse]({{docRoot}}{{pathFromDocRoot}}.md#endpointresponse){{/with}}{{else}}Nothing?{{/if}} | {{operationId.camelCase}}([{{method.pascalCase}}Request](#{{method.kebabCase}}request) request) |
+{{/neq}}
+
+    {{#eq builders.size 1}}
+{{> src/main/kotlin/packagename/paths/path/verb/_FinalRequestClassDoc }}
+    {{else}}
+{{> src/main/kotlin/packagename/paths/path/verb/_FinalRequestClassDoc }}
+
+{{headerSize}}# {{method.pascalCase}}NullableRequest
+public static class {{method.pascalCase}}NullableRequest<br>
+
+a class that stores the initial request inputs
+
+{{headerSize}}## Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | --------------------- |
+        {{#each (reverse builders)}}
+            {{#or @first @last}}
+                {{#each keyToBuilder}}
+                    {{#with property}}
+                        {{#if containerJsonPathPiece}}
+| [{{containerJsonPathPiece.pascalCase}}.@Nullable {{operationInputClassName.pascalCase}}]({{docRoot}}{{pathFromDocRoot}}.md#{{operationInputClassName.kebabCase}}) | {{@key.camelCase}} |
+                        {{else}}
+                            {{#if this.jsonPathPiece}}
+| [{{jsonPathPiece.pascalCase}}.@Nullable {{operationInputClassName.pascalCase}}]({{docRoot}}{{pathFromDocRoot}}.md#{{operationInputClassName.kebabCase}}) | {{@key.camelCase}} |
+                            {{else}}
+| @Nullable {{operationInputClassName.pascalCase}} | {{@key.camelCase}} |
+                            {{/if}}
+                        {{/if}}
+                    {{/with}}
+                {{/each}}
+            {{/or}}
+        {{/each}}
+    {{/eq}}
+    {{#each builders}}
+
+{{headerSize}}# {{className.pascalCase}}
+public static class {{className.pascalCase}}<br>
+
+a builder for request inputs
+
+{{headerSize}}## Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+        {{#if @last }}
+| {{className.pascalCase}}()<br>Creates a builder that contains null for all parameters |
+        {{else}}
+| {{className.pascalCase}}({{className.pascalCase}} instance)<br>Creates a builder that contains the passed instance |
+        {{/if}}
+
+{{headerSize}}## Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+        {{#if @first}}
+| [{{method.pascalCase}}Request](#{{method.kebabCase}}request) | build()<br>Returns the request input used to call an endpoint method |
+        {{/if}}
+        {{#each keyToBuilder}}
+| [{{builder.className.pascalCase}}](#{{builder.className.kebabCase}}) | {{@key.camelCase}}({{#with property}}{{#if containerJsonPathPiece}}[{{containerJsonPathPiece.pascalCase}}{{else}}{{#if this.jsonPathPiece}}[{{jsonPathPiece.pascalCase}}.{{/if}}{{/if}}{{operationInputClassName.pascalCase}}{{#or containerJsonPathPiece this.jsonPathPiece}}]({{docRoot}}{{pathFromDocRoot}}.md#{{operationInputClassName.kebabCase}}){{/or}}{{/with}} {{@key.camelCase}})<br>sets the {{#if ../@first}}optional {{/if}}property{{#or (eq @key.camelCase "securityIndex") (eq @key.camelCase "serverIndex") (eq @key.camelCase "timeout")}}. Note: this will override the value in apiConfiguration{{/or}} |
+        {{/each}}
+    {{/each}}
+
+[[Back to top]](#top) {{> _helper_footer_links readmePath="../../../" endpointLink=true}}
+{{/with}}

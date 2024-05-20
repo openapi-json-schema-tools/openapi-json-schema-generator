@@ -1,0 +1,39 @@
+{{#if forDocs}}
+{{> src/main/kotlin/packagename/components/_helper_header_from_identifier_pieces headerSize=(join headerSize "#" "") identifierPieces=(append identifierPieces (join jsonPathPiece.pascalCase "Boxed" "")) }}
+sealed interface {{jsonPathPiece.pascalCase}}Boxed<br>
+permits<br>
+{{#each types}}
+    {{#eq this "null"}}
+[{{jsonPathPiece.pascalCase}}BoxedVoid](#{{> src/main/kotlin/packagename/components/_helper_anchor_id identifierPieces=(append identifierPieces (join jsonPathPiece.kebabCase "boxedvoid" ""))}}){{#unless @last}},{{/unless}}
+    {{/eq}}
+    {{#eq this "boolean"}}
+[{{jsonPathPiece.pascalCase}}BoxedBoolean](#{{> src/main/kotlin/packagename/components/_helper_anchor_id identifierPieces=(append identifierPieces (join jsonPathPiece.kebabCase "boxedboolean" ""))}}){{#unless @last}},{{/unless}}
+    {{/eq}}
+    {{#or (eq this "number") (eq this "integer")}}
+[{{jsonPathPiece.pascalCase}}BoxedNumber](#{{> src/main/kotlin/packagename/components/_helper_anchor_id identifierPieces=(append identifierPieces (join jsonPathPiece.kebabCase "boxednumber" ""))}}){{#unless @last}},{{/unless}}
+    {{/or}}
+    {{#and (eq this "string") (neq ../format "binary") }}
+[{{jsonPathPiece.pascalCase}}BoxedString](#{{> src/main/kotlin/packagename/components/_helper_anchor_id identifierPieces=(append identifierPieces (join jsonPathPiece.kebabCase "boxedstring" ""))}}){{#unless @last}},{{/unless}}
+    {{/and}}
+    {{#eq this "array"}}
+[{{jsonPathPiece.pascalCase}}BoxedList](#{{> src/main/kotlin/packagename/components/_helper_anchor_id identifierPieces=(append identifierPieces (join jsonPathPiece.kebabCase "boxedlist" ""))}}){{#unless @last}},{{/unless}}
+    {{/eq}}{{#eq this "object"}}
+[{{jsonPathPiece.pascalCase}}BoxedMap](#{{> src/main/kotlin/packagename/components/_helper_anchor_id identifierPieces=(append identifierPieces (join jsonPathPiece.kebabCase "boxedmap" ""))}}){{#unless @last}},{{/unless}}
+    {{/eq}}
+{{else}}
+[{{jsonPathPiece.pascalCase}}BoxedVoid](#{{> src/main/kotlin/packagename/components/_helper_anchor_id identifierPieces=(append identifierPieces (join jsonPathPiece.kebabCase "boxedvoid" ""))}}),
+[{{jsonPathPiece.pascalCase}}BoxedBoolean](#{{> src/main/kotlin/packagename/components/_helper_anchor_id identifierPieces=(append identifierPieces (join jsonPathPiece.kebabCase "boxedboolean" ""))}}),
+[{{jsonPathPiece.pascalCase}}BoxedNumber](#{{> src/main/kotlin/packagename/components/_helper_anchor_id identifierPieces=(append identifierPieces (join jsonPathPiece.kebabCase "boxednumber" ""))}}),
+[{{jsonPathPiece.pascalCase}}BoxedString](#{{> src/main/kotlin/packagename/components/_helper_anchor_id identifierPieces=(append identifierPieces (join jsonPathPiece.kebabCase "boxedstring" ""))}}),
+[{{jsonPathPiece.pascalCase}}BoxedList](#{{> src/main/kotlin/packagename/components/_helper_anchor_id identifierPieces=(append identifierPieces (join jsonPathPiece.kebabCase "boxedlist" ""))}}),
+[{{jsonPathPiece.pascalCase}}BoxedMap](#{{> src/main/kotlin/packagename/components/_helper_anchor_id identifierPieces=(append identifierPieces (join jsonPathPiece.kebabCase "boxedmap" ""))}})
+{{/each}}
+
+sealed interface that stores validated payloads using boxed classes
+
+{{else}}
+sealed interface {{jsonPathPiece.pascalCase}}Boxed {
+    fun getData(): Any?
+}
+
+{{/if}}

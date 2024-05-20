@@ -1,0 +1,33 @@
+
+{{> src/main/kotlin/packagename/components/_helper_header_from_identifier_pieces headerSize=(join headerSize "#" "") identifierPieces=(append identifierPieces arrayInputJsonPathPiece) }}
+class {{arrayInputJsonPathPiece.pascalCase}}<br>
+builder for `List<{{#with listItemSchema}}{{> src/main/kotlin/packagename/components/schemas/types/schema_input_type sourceJsonPath=../jsonPath forceNull=true noExtends=true }}{{else}}Any?{{/with}}>`
+
+A class that builds the List input type
+
+{{headerSize}}## Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+| {{arrayInputJsonPathPiece.pascalCase}}()<br>Creates an empty list |
+| {{arrayInputJsonPathPiece.pascalCase}}(List<{{#with listItemSchema}}{{> src/main/kotlin/packagename/components/schemas/types/schema_input_type sourceJsonPath=../jsonPath forceNull=true noExtends=true }}{{else}}Any?{{/with}}> items)<br>Stores the items in a list |
+
+{{headerSize}}## Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+{{#with listItemSchema}}
+    {{#if refInfo }}
+        {{#if refInfo.refModule}}
+            {{#with getDeepestRef }}
+{{> src/main/kotlin/packagename/components/schemas/_arrayInputAddItem builderClass=../../arrayInputJsonPathPiece.pascalCase forDocs=true useContainer=true }}
+            {{/with}}
+        {{else}}
+            {{! self reference} }}
+| {{../arrayInputJsonPathPiece.pascalCase}} | add(List<*> item) |
+        {{/if}}
+    {{else}}
+{{> src/main/kotlin/packagename/components/schemas/_arrayInputAddItem builderClass=../arrayInputJsonPathPiece.pascalCase forDocs=true }}
+    {{/if}}
+{{else}}
+{{! todo handle this, 3.1.0 document use-case }}
+{{/with}}
+| List<{{#with listItemSchema}}{{> src/main/kotlin/packagename/components/schemas/types/schema_input_type sourceJsonPath=../jsonPath forceNull=true noExtends=true }}{{else}}Any?{{/with}}> | build()<br>Returns list input that should be used with Schema.validate |

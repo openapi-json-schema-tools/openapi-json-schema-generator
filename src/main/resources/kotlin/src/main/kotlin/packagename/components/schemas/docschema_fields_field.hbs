@@ -1,0 +1,117 @@
+{{#if types}}
+| Set<Class<?>> | {{> src/main/kotlin/packagename/components/schemas/SchemaClass/_types }} |
+{{/if}}
+{{#if format}}
+| String | {{> src/main/kotlin/packagename/components/schemas/SchemaClass/_format }} |
+{{/if}}
+{{#if items}}
+| Class<? extends JsonSchema> | {{> src/main/kotlin/packagename/components/schemas/SchemaClass/_items }} |
+{{/if}}
+{{#if properties}}
+| Map<String, Class<? extends JsonSchema>> | {{> src/main/kotlin/packagename/components/schemas/SchemaClass/_properties }} |
+{{/if}}
+{{#if requiredProperties}}
+| Set<String> | {{> src/main/kotlin/packagename/components/schemas/SchemaClass/_required }} |
+{{/if}}
+{{#neq exclusiveMaximum null}}
+| Number | {{> src/main/kotlin/packagename/components/schemas/SchemaClass/_exclusiveMaximum }} |
+{{/neq}}
+{{#neq exclusiveMinimum null}}
+| Number | {{> src/main/kotlin/packagename/components/schemas/SchemaClass/_exclusiveMinimum }} |
+{{/neq}}
+{{#neq maximum null}}
+| Number | {{> src/main/kotlin/packagename/components/schemas/SchemaClass/_maximum }} |
+{{/neq}}
+{{#neq minimum null}}
+| Number | {{> src/main/kotlin/packagename/components/schemas/SchemaClass/_minimum }} |
+{{/neq}}
+{{#neq multipleOf null}}
+| BigDecimal | {{> src/main/kotlin/packagename/components/schemas/SchemaClass/_multipleOf }} |
+{{/neq}}
+{{#neq maxItems null}}
+| Integer | {{> src/main/kotlin/packagename/components/schemas/SchemaClass/_maxItems }} |
+{{/neq}}
+{{#neq minItems null}}
+| Integer | {{> src/main/kotlin/packagename/components/schemas/SchemaClass/_minItems }} |
+{{/neq}}
+{{#neq maxLength null }}
+| Integer | {{> src/main/kotlin/packagename/components/schemas/SchemaClass/_maxLength }} |
+{{/neq}}
+{{#neq minLength null }}
+| Integer | {{> src/main/kotlin/packagename/components/schemas/SchemaClass/_minLength }} |
+{{/neq}}
+{{#neq maxProperties null}}
+| Integer | {{> src/main/kotlin/packagename/components/schemas/SchemaClass/_maxProperties }} |
+{{/neq}}
+{{#neq minProperties null}}
+| Integer | {{> src/main/kotlin/packagename/components/schemas/SchemaClass/_minProperties }} |
+{{/neq}}
+{{#if additionalProperties}}
+| Class<? extends JsonSchema> | {{> src/main/kotlin/packagename/components/schemas/SchemaClass/_additionalProperties }} |
+{{/if}}
+{{#if allOf}}
+| List<Class<? extends JsonSchema>> | {{> src/main/kotlin/packagename/components/schemas/SchemaClass/_allOf }} |
+{{/if}}
+{{#if anyOf}}
+| List<Class<? extends JsonSchema>> | {{> src/main/kotlin/packagename/components/schemas/SchemaClass/_anyOf }} |
+{{/if}}
+{{#if oneOf}}
+| List<Class<? extends JsonSchema>> | {{> src/main/kotlin/packagename/components/schemas/SchemaClass/_oneOf }} |
+{{/if}}
+{{#if not}}
+| Class<? extends JsonSchema> | {{> src/main/kotlin/packagename/components/schemas/SchemaClass/_not }} |
+{{/if}}
+{{#neq uniqueItems null}}
+| Boolean | {{> src/main/kotlin/packagename/components/schemas/SchemaClass/_uniqueItems }} |
+{{/neq}}
+{{#if enumInfo}}
+| Set<Any> | {{> src/main/kotlin/packagename/components/schemas/SchemaClass/_enum }} |
+{{/if}}
+{{#if patternInfo}}
+| Pattern | {{> src/main/kotlin/packagename/components/schemas/SchemaClass/_pattern }} |
+{{/if}}
+{{#if defaultValue}}
+| Any? | {{> src/main/kotlin/packagename/components/schemas/SchemaClass/_default }} |
+{{/if}}
+{{#if contains}}
+| Class<? extends JsonSchema> | {{> src/main/kotlin/packagename/components/schemas/SchemaClass/_contains }} |
+{{/if}}
+{{#neq maxContains null}}
+| Integer | {{> src/main/kotlin/packagename/components/schemas/SchemaClass/_maxContains }} |
+{{/neq}}
+{{#neq minContains null}}
+| Integer | {{> src/main/kotlin/packagename/components/schemas/SchemaClass/_minContains }} |
+{{/neq}}
+{{#if propertyNames}}
+| Class<? extends JsonSchema> | {{> src/main/kotlin/packagename/components/schemas/SchemaClass/_propertyNames }} |
+{{/if}}
+{{#if dependentRequired}}
+| Map<String, Set<String>> | {{> src/main/kotlin/packagename/components/schemas/SchemaClass/_dependentRequired }} |
+{{/if}}
+{{#if dependentSchemas}}
+| Map<String, Class<? extends JsonSchema>> | {{> src/main/kotlin/packagename/components/schemas/SchemaClass/_dependentSchemas }} |
+{{/if}}
+{{#if patternProperties}}
+| Map<Pattern, Class<? extends JsonSchema>> | {{> src/main/kotlin/packagename/components/schemas/SchemaClass/_patternProperties }} |
+{{/if}}
+{{#if prefixItems}}
+| List<Class<? extends JsonSchema>> | {{> src/main/kotlin/packagename/components/schemas/SchemaClass/_prefixItems }} |
+{{/if}}
+{{#if if_}}
+| Class<? extends JsonSchema> | {{> src/main/kotlin/packagename/components/schemas/SchemaClass/_if }} |
+{{/if}}
+{{#if then}}
+| Class<? extends JsonSchema> | {{> src/main/kotlin/packagename/components/schemas/SchemaClass/_then }} |
+{{/if}}
+{{#if else_}}
+| Class<? extends JsonSchema> | {{> src/main/kotlin/packagename/components/schemas/SchemaClass/_else }} |
+{{/if}}
+{{#if constInfo}}
+| Any? | {{> src/main/kotlin/packagename/components/schemas/SchemaClass/_const }} |
+{{/if}}
+{{#if unevaluatedItems}}
+| Class<? extends JsonSchema> | {{> src/main/kotlin/packagename/components/schemas/SchemaClass/_unevaluatedItems }} |
+{{/if}}
+{{#if unevaluatedProperties}}
+| Class<? extends JsonSchema> | {{> src/main/kotlin/packagename/components/schemas/SchemaClass/_unevaluatedProperties }} |
+{{/if}}

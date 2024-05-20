@@ -1,0 +1,20 @@
+package {{{packageName}}}.schemas.validation
+
+import {{{packageName}}}.exceptions.ValidationException
+
+class MaxLengthValidator : LengthValidator(), KeywordValidator {
+    @Throws(ValidationException::class)
+    override fun validate(
+        data: ValidationData
+    ): PathToSchemasMap? {
+        val maxLength: Int = data.schema.maxLength ?: return null
+        if (data.arg !is String) {
+            return null
+        }
+        val length: Int = getLength(data.arg)
+        if (length > maxLength) {
+            throw ValidationException("Value ${data.arg} is invalid because has > the maxLength of $maxLength")
+        }
+        return null
+    }
+}

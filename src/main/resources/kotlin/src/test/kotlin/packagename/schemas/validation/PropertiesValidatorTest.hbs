@@ -1,0 +1,123 @@
+package {{{packageName}}}.schemas.validation
+
+import {{{packageName}}}.configurations.JsonSchemaKeywordFlags
+import {{{packageName}}}.configurations.SchemaConfiguration
+import {{{packageName}}}.exceptions.ValidationException
+import {{{packageName}}}.schemas.StringJsonSchema
+
+import kotlin.test.Test
+import kotlin.test.assertEquals
+import kotlin.test.assertNull
+import kotlin.test.assertFailsWith
+
+class PropertiesValidatorTest {
+    interface ObjectWithPropsSchemaBoxed
+    class ObjectWithPropsSchemaBoxedMap : ObjectWithPropsSchemaBoxed
+    class ObjectWithPropsSchema : JsonSchema<ObjectWithPropsSchemaBoxed>(
+        JsonSchemaInfo()
+            .type(setOf(MutableMap::class.java))
+            .properties(
+                mapOf(
+                    "someString" to StringJsonSchema.StringJsonSchema1::class.java
+                )
+            )
+    ) {
+        override fun getNewInstance(arg: Any?, pathToItem: List<Any>, pathToSchemas: PathToSchemasMap): Any? {
+            if (arg is Map<*, *>) {
+                return getNewInstance(arg, pathToItem, pathToSchemas)
+            }
+            throw RuntimeException("Invalid input type=$javaClass. It can't be instantiated by this schema")
+        }
+
+        @Throws(ValidationException::class)
+        override fun validate(arg: Any?, configuration: SchemaConfiguration?): Any? {
+            if (arg is Map<*, *>) {
+                return validate(arg, configuration)
+            }
+            throw ValidationException("Invalid input type=$javaClass. It can't be validated by this schema")
+        }
+
+        @Throws(ValidationException::class)
+        override fun validateAndBox(arg: Any?, configuration: SchemaConfiguration?): ObjectWithPropsSchemaBoxed {
+            return ObjectWithPropsSchemaBoxedMap()
+        }
+    }
+
+    @Test
+    @Throws(ValidationException::class)
+    fun testCorrectPropertySucceeds() {
+        val validator = PropertiesValidator()
+        val pathToItem = listOf<Any>("args[0]")
+        val validationMetadata = ValidationMetadata(
+            pathToItem,
+            SchemaConfiguration(JsonSchemaKeywordFlags.Builder().build()),
+            PathToSchemasMap(),
+            LinkedHashSet()
+        )
+        val mutableMap = LinkedHashMap<String, Any>()
+        mutableMap["someString"] = "abc"
+        val arg = FrozenMap(mutableMap)
+        val pathToSchemas = validator.validate(
+            ValidationData(
+                ObjectWithPropsSchema(),
+                arg,
+                validationMetadata
+            )
+        ) ?: throw RuntimeException("Invalid null value for pathToSchemas for this test case")
+        val expectedPathToItem: MutableList<Any> = ArrayList()
+        expectedPathToItem.add("args[0]")
+        expectedPathToItem.add("someString")
+        val expectedClasses = LinkedHashMap<JsonSchema<*>, Nothing?>()
+        expectedClasses[JsonSchemaFactory.getInstance(StringJsonSchema.StringJsonSchema1::class.java)] = null
+        val expectedPathToSchemas = PathToSchemasMap()
+        expectedPathToSchemas[expectedPathToItem] = expectedClasses
+        assertEquals(pathToSchemas, expectedPathToSchemas)
+    }
+
+    @Test
+    @Throws(ValidationException::class)
+    fun testNotApplicableTypeReturnsNull() {
+        val validator = PropertiesValidator()
+        val pathToItem = listOf<Any>("args[0]")
+        val validationMetadata = ValidationMetadata(
+            pathToItem,
+            SchemaConfiguration(JsonSchemaKeywordFlags.Builder().build()),
+            PathToSchemasMap(),
+            LinkedHashSet()
+        )
+        val pathToSchemas = validator.validate(
+            ValidationData(
+                ObjectWithPropsSchema(),
+                1,
+                validationMetadata
+            )
+        )
+        assertNull(pathToSchemas)
+    }
+
+    @Test
+    fun testIncorrectPropertyValueFails() {
+        val validator = PropertiesValidator()
+        val pathToItem = listOf<Any>("args[0]")
+        val validationMetadata = ValidationMetadata(
+            pathToItem,
+            SchemaConfiguration(JsonSchemaKeywordFlags.Builder().build()),
+            PathToSchemasMap(),
+            LinkedHashSet()
+        )
+        val mutableMap = LinkedHashMap<String, Any>()
+        mutableMap["someString"] = 1
+        val arg = FrozenMap(mutableMap)
+        assertFailsWith<ValidationException>(
+            block = {
+                validator.validate(
+                    ValidationData(
+                        ObjectWithPropsSchema(),
+                        arg,
+                        validationMetadata
+                    )
+                )
+            }
+        )
+    }
+}

@@ -366,8 +366,7 @@ public class DefaultGeneratorRunner implements GeneratorRunner {
 
     private void generateFile(Map<String, Object> templateData, String templateName, String outputFilename, List<File> files, boolean shouldGenerate, String skippedByOption) {
         templateData.putAll(generator.additionalProperties());
-        String packageName = generator.generatorSettings().packageName;
-        templateData.put("packageName", packageName);
+        templateData.put("packageName", generator.generatorSettings().packageName);
         templateData.put("generatorSettings", generator.generatorSettings());
         try {
             File written = processTemplateToFile(templateData, templateName, outputFilename, shouldGenerate, skippedByOption);
@@ -382,6 +381,7 @@ public class DefaultGeneratorRunner implements GeneratorRunner {
         }
     }
 
+    @Deprecated
     private void generateFiles(List<List<Object>> processTemplateToFileInfos, boolean shouldGenerate, String skippedByOption, List<File> files) {
         for (List<Object> processTemplateToFileInfo: processTemplateToFileInfos) {
             Map<String, Object> templateData = (Map<String, Object>) processTemplateToFileInfo.get(0);
@@ -1343,7 +1343,9 @@ public class DefaultGeneratorRunner implements GeneratorRunner {
             CodegenList<CodegenSecurityRequirementObject> security) {
 
         Map<String, Object> bundle = new HashMap<>(generator.additionalProperties());
+        bundle.put("packageName", generator.generatorSettings().packageName);
         bundle.put("generatorSettings", generator.generatorSettings());
+        bundle.put("generatorMetadata", generator.getGeneratorMetadata());
         bundle.put("apiPackage", generator.generatorSettings().apiPackage);
 
         URL url = URLPathUtils.getServerURL(openAPI, null);

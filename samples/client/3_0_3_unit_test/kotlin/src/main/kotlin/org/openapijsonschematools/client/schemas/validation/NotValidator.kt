@@ -1,0 +1,25 @@
+package org.openapijsonschematools.client.schemas.validation
+
+import org.openapijsonschematools.client.exceptions.ValidationException
+
+class NotValidator : KeywordValidator {
+    @Throws(ValidationException::class)
+    override fun validate(
+        data: ValidationData
+    ): PathToSchemasMap? {
+        val not: Class<out JsonSchema<*>> = data.schema.not ?: return null
+        val pathToSchemas: PathToSchemasMap = try {
+            val notSchema = JsonSchemaFactory.getInstance(not)
+            JsonSchema.validate(notSchema, data.arg, data.validationMetadata)
+        } catch (e: ValidationException) {
+            return null
+        }
+        if (!pathToSchemas.isEmpty()) {
+            throw ValidationException(
+                "Invalid value " + data.arg + " was passed in to " + data.schema.javaClass
+                    + ". Value is invalid because it is disallowed by not " + not
+            )
+        }
+        return null
+    }
+}

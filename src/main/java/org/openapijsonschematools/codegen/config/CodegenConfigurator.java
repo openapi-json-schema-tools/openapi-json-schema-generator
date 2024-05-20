@@ -161,9 +161,6 @@ public class CodegenConfigurator {
     }
 
     public CodegenConfigurator setArtifactId(String artifactId) {
-        if (StringUtils.isNotEmpty(artifactId)) {
-            addAdditionalProperty(CodegenConstants.ARTIFACT_ID, artifactId);
-        }
         generatorSettingsBuilder.withArtifactId(artifactId);
         return this;
     }
@@ -301,9 +298,6 @@ public class CodegenConfigurator {
     }
 
     public CodegenConfigurator setPackageName(String packageName) {
-        if (StringUtils.isNotEmpty(packageName)) {
-            addAdditionalProperty(CodegenConstants.PACKAGE_NAME, packageName);
-        }
         generatorSettingsBuilder.withPackageName(packageName);
         return this;
     }

@@ -75,7 +75,7 @@ public interface Generator extends OpenApiProcessor, Comparable<Generator> {
 
     List<CliOption> cliOptions();
 
-    List<SupportingFile> supportingFiles();
+    Set<SupportingFile> supportingFiles();
 
     CodegenKey getKey(String key, String keyType);
 

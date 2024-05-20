@@ -1,0 +1,48 @@
+
+
+{{#if mapValueSchema}}
+class {{mapOutputJsonPathPiece.pascalCase}}(m: FrozenMap<{{#with mapValueSchema}}{{> src/main/kotlin/packagename/components/schemas/types/schema_output_type forceNull=true }}{{/with}}>) : FrozenMap<{{#with mapValueSchema}}{{> src/main/kotlin/packagename/components/schemas/types/schema_output_type forceNull=true }}{{/with}}>(m) {
+{{else}}
+class {{mapOutputJsonPathPiece.pascalCase}}(m: FrozenMap<Any?>): FrozenMap<Any?>(m) {
+{{/if}}
+    companion object {
+    {{#if requiredProperties}}
+        val requiredKeys: Set<String> = setOf(
+            {{#each requiredProperties}}
+            "{{{@key.original}}}"{{#unless @last}},{{/unless}}
+            {{/each}}
+        )
+    {{else}}
+        val requiredKeys: Set<String> = setOf()
+    {{/if}}
+    {{#if optionalProperties}}
+        val optionalKeys: Set<String> = setOf(
+        {{#each optionalProperties}}
+            "{{{@key.original}}}"{{#unless @last}},{{/unless}}
+        {{/each}}
+        )
+    {{else}}
+        val optionalKeys: Set<String> = setOf()
+    {{/if}}
+    {{#eq optionalProperties null}}
+        {{#eq requiredProperties null}}
+            {{#if additionalProperties}}
+                {{#if additionalProperties.isBooleanSchemaFalse}}
+        // map with no key value pairs
+                {{/if}}
+            {{/if}}
+        {{/eq}}
+    {{/eq}}
+        @Throws(ValidationException::class)
+        {{#if mapValueSchema}}
+        fun of(arg: Map<String, {{#with mapValueSchema}}{{> src/main/kotlin/packagename/components/schemas/types/schema_input_type sourceJsonPath=../jsonPath forceNull=true }}{{/with}}>, configuration: SchemaConfiguration): {{mapOutputJsonPathPiece.pascalCase}} {
+            return {{jsonPathPiece.pascalCase}}.getInstance().validate(arg, configuration)
+        }
+        {{else}}
+        fun of(arg: Map<String, Any?>, configuration: SchemaConfiguration): {{mapOutputJsonPathPiece.pascalCase}} {
+            return {{jsonPathPiece.pascalCase}}.getInstance().validate(arg, configuration)
+        }
+        {{/if}}
+    }
+    {{> src/main/kotlin/packagename/components/schemas/_objectOutputProperties }}
+}

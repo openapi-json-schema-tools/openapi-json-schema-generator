@@ -1,0 +1,20 @@
+{{! only make code samples for one that are known}}
+{{#eq type "apiKey"}}
+securitySchemes.add(
+    new {{jsonPathPiece.pascalCase}}("someApiKey");
+);
+{{else}}
+    {{#eq type "http"}}
+        {{#eq scheme "basic"}}
+securitySchemes.add(
+    new {{jsonPathPiece.pascalCase}}("someUserId", "somePassword");
+);
+        {{else}}
+            {{#eq scheme "bearer"}}
+securitySchemes.add(
+    new {{jsonPathPiece.pascalCase}}("someAccessToken");
+);
+            {{/eq}}
+        {{/eq}}
+    {{/eq}}
+{{/eq}}

@@ -1,0 +1,349 @@
+{{#if refInfo }}
+    {{#if refInfo.refModule}}
+        {{#with getDeepestRef }}
+{{> src/main/kotlin/packagename/components/schemas/_objectInputAddPropSetter useContainer=true }}
+        {{/with}}
+    {{else}}
+        {{! self reference} }}
+        {{#with refInfo.ref }}
+{{> src/main/kotlin/packagename/components/schemas/_objectInputAddPropSetter }}
+        {{/with}}
+    {{/if}}
+{{else}}
+    {{#each types}}
+        {{#eq this "null"}}
+            {{#if forDocs }}
+| [{{builderClass.pascalCase}}](#{{builderClass.kebabCase}}) | {{methodName}}(key: String, value: Nothing?) |
+            {{else}}
+
+@Throws(InvalidAdditionalPropertyException::class)
+fun {{methodName}}(key: String, value: Nothing?): T {
+    MapUtils.throwIfKeyKnown(key, getKnownKeys(), true)
+    val instance = getInstance()
+    instance[key] = null
+    return {{getBuilderMethod}}(instance)
+}
+            {{/if}}
+        {{else}}
+            {{#eq this "boolean"}}
+                {{#if forDocs }}
+| [{{builderClass.pascalCase}}](#{{builderClass.kebabCase}}) | {{methodName}}(key: String, value: Boolean) |
+                {{else}}
+
+@Throws(InvalidAdditionalPropertyException::class)
+fun {{methodName}}(key: String, value: Boolean): T {
+    MapUtils.throwIfKeyKnown(key, getKnownKeys(), true)
+    val instance = getInstance()
+    instance[key] = value
+    return {{getBuilderMethod}}(instance)
+}
+                {{/if}}
+            {{else}}
+                {{#eq this "string"}}
+                    {{#if forDocs }}
+| [{{builderClass.pascalCase}}](#{{builderClass.kebabCase}}) | {{methodName}}(key: String, value: String) |
+                    {{else}}
+
+@Throws(InvalidAdditionalPropertyException::class)
+fun {{methodName}}(key: String, value: String): T {
+    MapUtils.throwIfKeyKnown(key, getKnownKeys(), true)
+    val instance = getInstance()
+    instance[key] = value
+    return {{getBuilderMethod}}(instance)
+}
+                    {{/if}}
+                {{else}}
+                    {{#or (eq this "integer") (eq this "number") }}
+                        {{#if forDocs }}
+| [{{builderClass.pascalCase}}](#{{builderClass.kebabCase}}) | {{methodName}}(key: String, value: Int) |
+| [{{builderClass.pascalCase}}](#{{builderClass.kebabCase}}) | {{methodName}}(key: String, value: Float) |
+                            {{#neq ../format "int32"}}
+| [{{builderClass.pascalCase}}](#{{builderClass.kebabCase}}) | {{methodName}}(key: String, value: Long) |
+| [{{builderClass.pascalCase}}](#{{builderClass.kebabCase}}) | {{methodName}}(key: String, value: Double) |
+                            {{/neq}}
+                        {{else}}
+
+@Throws(InvalidAdditionalPropertyException::class)
+fun {{methodName}}(key: String, value: Int): T {
+    MapUtils.throwIfKeyKnown(key, getKnownKeys(), true)
+    val instance = getInstance()
+    instance[key] = value
+    return {{getBuilderMethod}}(instance)
+}
+
+@Throws(InvalidAdditionalPropertyException::class)
+fun {{methodName}}(key: String, value: Float): T {
+    MapUtils.throwIfKeyKnown(key, getKnownKeys(), true)
+    val instance = getInstance()
+    instance[key] = value
+    return {{getBuilderMethod}}(instance)
+}
+                            {{#neq ../format "int32"}}
+
+@Throws(InvalidAdditionalPropertyException::class)
+fun {{methodName}}(key: String, value: Long): T {
+    MapUtils.throwIfKeyKnown(key, getKnownKeys(), true)
+    val instance = getInstance()
+    instance[key] = value
+    return {{getBuilderMethod}}(instance)
+}
+
+@Throws(InvalidAdditionalPropertyException::class)
+fun {{methodName}}(key: String, value: Double): T {
+    MapUtils.throwIfKeyKnown(key, getKnownKeys(), true)
+    val instance = getInstance()
+    instance[key] = value
+    return {{getBuilderMethod}}(instance)
+}
+                            {{/neq}}
+                        {{/if}}
+                    {{else}}
+                        {{#eq this "array"}}
+                            {{#if forDocs }}
+| [{{builderClass.pascalCase}}](#{{builderClass.kebabCase}}) | {{methodName}}(key: String, value: List<{{#with items}}{{> src/main/kotlin/packagename/components/schemas/types/schema_input_type sourceJsonPath=../jsonPath forceNull=true noExtends=true }}{{else}}Any?{{/with}}>) |
+                            {{else}}
+
+@Throws(InvalidAdditionalPropertyException::class)
+fun {{methodName}}(key: String, value: List<{{#with items}}{{> src/main/kotlin/packagename/components/schemas/types/schema_input_type sourceJsonPath=../jsonPath forceNull=true noExtends=true }}{{else}}Any?{{/with}}>): T {
+    MapUtils.throwIfKeyKnown(key, getKnownKeys(), true)
+    val instance = getInstance()
+    instance[key] = value
+    return {{getBuilderMethod}}(instance)
+}
+                            {{/if}}
+                        {{else}}
+                            {{#eq this "object"}}
+                                {{#if forDocs }}
+| [{{builderClass.pascalCase}}](#{{builderClass.kebabCase}}) | {{methodName}}(key: String, value: Map<String, {{#with mapValueSchema}}{{> src/main/kotlin/packagename/components/schemas/types/schema_input_type sourceJsonPath=../jsonPath forceNull=true noExtends=true }}{{else}}Any?{{/with}}>) |
+                                {{else}}
+
+@Throws(InvalidAdditionalPropertyException::class)
+fun {{methodName}}(key: String, value: Map<String, {{#with mapValueSchema}}{{> src/main/kotlin/packagename/components/schemas/types/schema_input_type sourceJsonPath=../jsonPath forceNull=true noExtends=true }}{{else}}Any?{{/with}}>): T {
+    MapUtils.throwIfKeyKnown(key, getKnownKeys(), true)
+    val instance = getInstance()
+    instance[key] = value
+    return {{getBuilderMethod}}(instance)
+}
+                                {{/if}}
+                            {{/eq}}
+                        {{/eq}}
+                    {{/or}}
+                {{/eq}}
+            {{/eq}}
+        {{/eq}}
+    {{else}}
+        {{! no type defined }}
+        {{#if forDocs }}
+{{> src/main/kotlin/packagename/components/schemas/_objectInputAddPropUnsetSetterDocs }}
+        {{else}}
+
+@Throws(InvalidAdditionalPropertyException::class)
+fun {{methodName}}(key: String, value: Nothing?): T {
+    MapUtils.throwIfKeyKnown(key, getKnownKeys(), true)
+    val instance = getInstance()
+    instance[key] = null
+    return {{getBuilderMethod}}(instance)
+}
+
+@Throws(InvalidAdditionalPropertyException::class)
+fun {{methodName}}(key: String, value: Boolean): T {
+    MapUtils.throwIfKeyKnown(key, getKnownKeys(), true)
+    val instance = getInstance()
+    instance[key] = value
+    return {{getBuilderMethod}}(instance)
+}
+
+@Throws(InvalidAdditionalPropertyException::class)
+fun {{methodName}}(key: String, value: String): T {
+    MapUtils.throwIfKeyKnown(key, getKnownKeys(), true)
+    val instance = getInstance()
+    instance[key] = value
+    return {{getBuilderMethod}}(instance)
+}
+
+@Throws(InvalidAdditionalPropertyException::class)
+fun {{methodName}}(key: String, value: Int): T {
+    MapUtils.throwIfKeyKnown(key, getKnownKeys(), true)
+    val instance = getInstance()
+    instance[key] = value
+    return {{getBuilderMethod}}(instance)
+}
+
+@Throws(InvalidAdditionalPropertyException::class)
+fun {{methodName}}(key: String, value: Float): T {
+    MapUtils.throwIfKeyKnown(key, getKnownKeys(), true)
+    val instance = getInstance()
+    instance[key] = value
+    return {{getBuilderMethod}}(instance)
+}
+
+@Throws(InvalidAdditionalPropertyException::class)
+fun {{methodName}}(key: String, value: Long): T {
+    MapUtils.throwIfKeyKnown(key, getKnownKeys(), true)
+    val instance = getInstance()
+    instance[key] = value
+    return {{getBuilderMethod}}(instance)
+}
+
+@Throws(InvalidAdditionalPropertyException::class)
+fun {{methodName}}(key: String, value: Double): T {
+    MapUtils.throwIfKeyKnown(key, getKnownKeys(), true)
+    val instance = getInstance()
+    instance[key] = value
+    return {{getBuilderMethod}}(instance)
+}
+
+@Throws(InvalidAdditionalPropertyException::class)
+fun {{methodName}}(key: String, value: List<Any?>): T {
+    MapUtils.throwIfKeyKnown(key, getKnownKeys(), true)
+    val instance = getInstance()
+    instance[key] = value
+    return {{getBuilderMethod}}(instance)
+}
+
+@Throws(InvalidAdditionalPropertyException::class)
+fun {{methodName}}(key: String, value: Map<String, Any?>): T {
+    MapUtils.throwIfKeyKnown(key, getKnownKeys(), true)
+    val instance = getInstance()
+    instance[key] = value
+    return {{getBuilderMethod}}(instance)
+}
+        {{/if}}
+    {{/each}}
+    {{#with enumInfo}}
+        {{#each typeToValues }}
+            {{#eq @key "null"}}
+                {{#if forDocs }}
+                    {{#if useContainer }}
+| [{{builderClass.pascalCase}}](#{{builderClass.kebabCase}}) | {{methodName}}(key: String, value: [{{../../containerJsonPathPiece.pascalCase}}.Null{{../jsonPathPiece.pascalCase}}]({{docRoot}}{{pathFromDocRoot}}.md#null{{../jsonPathPiece.kebabCase}})) |
+                    {{else}}
+| [{{builderClass.pascalCase}}](#{{builderClass.kebabCase}}) | {{methodName}}(key: String, value: [Null{{../jsonPathPiece.pascalCase}}](#null{{../jsonPathPiece.kebabCase}})) |
+                    {{/if}}
+                {{else}}
+
+@Throws(InvalidAdditionalPropertyException::class)
+fun {{methodName}}(key: String, value: {{#if useContainer}}{{../../containerJsonPathPiece.pascalCase}}.{{/if}}Null{{../jsonPathPiece.pascalCase}}): T {
+    MapUtils.throwIfKeyKnown(key, getKnownKeys(), true)
+    val instance = getInstance()
+    instance[key] = null
+    return {{getBuilderMethod}}(instance)
+}
+                {{/if}}
+            {{else}}
+                {{#eq @key "boolean"}}
+                    {{#if forDocs }}
+                        {{#if useContainer }}
+| [{{builderClass.pascalCase}}](#{{builderClass.kebabCase}}) | {{methodName}}(key: String, value: [{{../../containerJsonPathPiece.pascalCase}}.Boolean{{../jsonPathPiece.pascalCase}}]({{docRoot}}{{pathFromDocRoot}}.md#boolean{{../jsonPathPiece.kebabCase}})) |
+                        {{else}}
+| [{{builderClass.pascalCase}}](#{{builderClass.kebabCase}}) | {{methodName}}(key: String, value: [Boolean{{../jsonPathPiece.pascalCase}}](#boolean{{../jsonPathPiece.kebabCase}})) |
+                        {{/if}}
+                    {{else}}
+
+@Throws(InvalidAdditionalPropertyException::class)
+fun {{methodName}}(key: String, value: {{#if useContainer}}{{../../containerJsonPathPiece.pascalCase}}.{{/if}}Boolean{{../jsonPathPiece.pascalCase}}): T {
+    MapUtils.throwIfKeyKnown(key, getKnownKeys(), true)
+    val instance = getInstance()
+    instance[key] = value.value()
+    return {{getBuilderMethod}}(instance)
+}
+                    {{/if}}
+                {{else}}
+                    {{#eq @key "string"}}
+                        {{#if forDocs }}
+                            {{#if useContainer }}
+| [{{builderClass.pascalCase}}](#{{builderClass.kebabCase}}) | {{methodName}}(key: String, value: [{{../../containerJsonPathPiece.pascalCase}}.String{{../jsonPathPiece.pascalCase}}]({{docRoot}}{{pathFromDocRoot}}.md#string{{../jsonPathPiece.kebabCase}})) |
+                            {{else}}
+| [{{builderClass.pascalCase}}](#{{builderClass.kebabCase}}) | {{methodName}}(key: String, value: [String{{../jsonPathPiece.pascalCase}}](#string{{../jsonPathPiece.kebabCase}})) |
+                            {{/if}}
+                        {{else}}
+
+@Throws(InvalidAdditionalPropertyException::class)
+fun {{methodName}}(key: String, value: {{#if useContainer}}{{../../containerJsonPathPiece.pascalCase}}.{{/if}}String{{../jsonPathPiece.pascalCase}}): T {
+    MapUtils.throwIfKeyKnown(key, getKnownKeys(), true)
+    val instance = getInstance()
+    instance[key] = value.value()
+    return {{getBuilderMethod}}(instance)
+}
+                        {{/if}}
+                    {{else}}
+                        {{#eq @key "Integer"}}
+                            {{#if forDocs }}
+                                {{#if useContainer }}
+| [{{builderClass.pascalCase}}](#{{builderClass.kebabCase}}) | {{methodName}}(key: String, value: [{{../../containerJsonPathPiece.pascalCase}}.Integer{{../jsonPathPiece.pascalCase}}]({{docRoot}}{{pathFromDocRoot}}.md#integer{{../jsonPathPiece.kebabCase}})) |
+                                {{else}}
+| [{{builderClass.pascalCase}}](#{{builderClass.kebabCase}}) | {{methodName}}(key: String, value: [Integer{{../jsonPathPiece.pascalCase}}](#integer{{../jsonPathPiece.kebabCase}})) |
+                                {{/if}}
+                            {{else}}
+
+@Throws(InvalidAdditionalPropertyException::class)
+fun {{methodName}}(key: String, value: {{#if useContainer}}{{../../containerJsonPathPiece.pascalCase}}.{{/if}}Integer{{../jsonPathPiece.pascalCase}}): T {
+    MapUtils.throwIfKeyKnown(key, getKnownKeys(), true)
+    val instance = getInstance()
+    instance[key] = value.value()
+    return {{getBuilderMethod}}(instance)
+}
+                            {{/if}}
+                        {{else}}
+                            {{#eq @key "Long"}}
+                                {{#if forDocs }}
+                                    {{#if useContainer }}
+| [{{builderClass.pascalCase}}](#{{builderClass.kebabCase}}) | {{methodName}}(key: String, value: [{{../../containerJsonPathPiece.pascalCase}}.Long{{../jsonPathPiece.pascalCase}}]({{docRoot}}{{pathFromDocRoot}}.md#long{{../jsonPathPiece.kebabCase}})) |
+                                    {{else}}
+| [{{builderClass.pascalCase}}](#{{builderClass.kebabCase}}) | {{methodName}}(key: String, value: [Long{{../jsonPathPiece.pascalCase}}](#long{{../jsonPathPiece.kebabCase}})) |
+                                    {{/if}}
+                                {{else}}
+
+@Throws(InvalidAdditionalPropertyException::class)
+fun {{methodName}}(key: String, value: {{#if useContainer}}{{../../containerJsonPathPiece.pascalCase}}.{{/if}}Long{{../jsonPathPiece.pascalCase}}): T {
+    MapUtils.throwIfKeyKnown(key, getKnownKeys(), true)
+    val instance = getInstance()
+    instance[key] = value.value()
+    return {{getBuilderMethod}}(instance)
+}
+                                {{/if}}
+                            {{else}}
+                                {{#eq @key "Float"}}
+                                    {{#if forDocs }}
+                                        {{#if useContainer }}
+| [{{builderClass.pascalCase}}](#{{builderClass.kebabCase}}) | {{methodName}}(key: String, value: [{{../../containerJsonPathPiece.pascalCase}}.Float{{../jsonPathPiece.pascalCase}}]({{docRoot}}{{pathFromDocRoot}}.md#float{{../jsonPathPiece.kebabCase}})) |
+                                        {{else}}
+| [{{builderClass.pascalCase}}](#{{builderClass.kebabCase}}) | {{methodName}}(key: String, value: [Float{{../jsonPathPiece.pascalCase}}](#float{{../jsonPathPiece.kebabCase}})) |
+                                        {{/if}}
+                                    {{else}}
+
+@Throws(InvalidAdditionalPropertyException::class)
+fun {{methodName}}(key: String, value: {{#if useContainer}}{{../../containerJsonPathPiece.pascalCase}}.{{/if}}Float{{../jsonPathPiece.pascalCase}}): T {
+    MapUtils.throwIfKeyKnown(key, getKnownKeys(), true)
+    val instance = getInstance()
+    instance[key] = value.value()
+    return {{getBuilderMethod}}(instance)
+}
+                                    {{/if}}
+                                {{else}}
+                                    {{#eq @key "Double"}}
+                                        {{#if forDocs }}
+                                            {{#if useContainer }}
+| [{{builderClass.pascalCase}}](#{{builderClass.kebabCase}}) | {{methodName}}(key: String, value: [{{../../containerJsonPathPiece.pascalCase}}.Double{{../jsonPathPiece.pascalCase}}]({{docRoot}}{{pathFromDocRoot}}.md#double{{../jsonPathPiece.kebabCase}})) |
+                                            {{else}}
+| [{{builderClass.pascalCase}}](#{{builderClass.kebabCase}}) | {{methodName}}(key: String, value: [Double{{../jsonPathPiece.pascalCase}}](#double{{../jsonPathPiece.kebabCase}})) |
+                                            {{/if}}
+                                        {{else}}
+
+@Throws(InvalidAdditionalPropertyException::class)
+fun {{methodName}}(key: String, value: {{#if useContainer}}{{../../containerJsonPathPiece.pascalCase}}.{{/if}}Double{{../jsonPathPiece.pascalCase}}): T {
+    MapUtils.throwIfKeyKnown(key, getKnownKeys(), true)
+    val instance = getInstance()
+    instance[key] = value.value()
+    return {{getBuilderMethod}}(instance)
+}
+                                        {{/if}}
+                                    {{/eq}}
+                                {{/eq}}
+                            {{/eq}}
+                        {{/eq}}
+                    {{/eq}}
+                {{/eq}}
+            {{/eq}}
+        {{/each}}
+    {{/with}}
+{{/if}}

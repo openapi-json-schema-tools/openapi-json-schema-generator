@@ -1,0 +1,10 @@
+package {{{packageName}}}.schemas.validation
+
+import {{{packageName}}}.exceptions.ValidationException
+
+fun interface KeywordValidator {
+    @Throws(ValidationException::class)
+    fun validate(
+        data: ValidationData
+    ): PathToSchemasMap?
+}

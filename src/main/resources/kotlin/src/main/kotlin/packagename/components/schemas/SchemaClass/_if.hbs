@@ -1,0 +1,17 @@
+{{#if forDocs}}
+    {{#with if_}}
+        {{#if refInfo.refClass}}
+            {{#if refInfo.refModule}}
+if = [{{refInfo.refModule}}.{{refInfo.refClass}}::class.java]({{docRoot}}{{refInfo.ref.pathFromDocRoot}}.md#{{refInfo.ref.jsonPathPiece.kebabCase}})
+            {{~else}}
+if = [{{refInfo.refClass}}::class.java](#{{refInfo.ref.jsonPathPiece.kebabCase}})
+            {{~/if}}
+        {{else}}
+if = [{{jsonPathPiece.pascalCase}}::class.java](#{{jsonPathPiece.kebabCase}})
+        {{~/if}}
+    {{~/with}}
+{{else}}
+    {{#with if_}}
+.ifSchema({{#if refInfo.refClass}}{{#if refInfo.refModule}}{{refInfo.refModule}}.{{/if}}{{refInfo.refClass}}{{else}}{{jsonPathPiece.pascalCase}}{{/if}}::class.java)
+    {{/with}}
+{{/if}}

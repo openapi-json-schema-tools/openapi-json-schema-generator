@@ -1,0 +1,49 @@
+package {{{packageName}}}.schemas
+
+import {{{packageName}}}.configurations.JsonSchemaKeywordFlags
+import {{{packageName}}}.configurations.SchemaConfiguration
+import {{{packageName}}}.exceptions.ValidationException
+import {{{packageName}}}.schemas.validation.JsonSchema
+import {{{packageName}}}.schemas.validation.FrozenList
+import {{{packageName}}}.schemas.validation.PathToSchemasMap
+import {{{packageName}}}.schemas.validation.ValidationMetadata
+
+import kotlin.test.Test
+import kotlin.test.assertEquals
+import kotlin.test.assertFailsWith
+
+class ListSchemaTest {
+    @Test
+    fun testExceptionThrownForInvalidType() {
+        assertFailsWith<ValidationException>(
+            block = {
+                JsonSchema.validate(
+                    listJsonSchema,
+                    null,
+                    validationMetadata
+                )
+            }
+        )
+    }
+
+    @Test
+    @Throws(ValidationException::class)
+    fun testValidateList() {
+        val inList: MutableList<Any?> = ArrayList()
+        inList.add("today")
+        val validatedValue = listJsonSchema.validate(inList, configuration)
+        val outList: List<Any?> = listOf("today")
+        assertEquals(validatedValue, outList)
+    }
+
+    companion object {
+        val configuration = SchemaConfiguration(JsonSchemaKeywordFlags.Builder().build())
+        val listJsonSchema = ListJsonSchema.ListJsonSchema1.getInstance()
+        val validationMetadata = ValidationMetadata(
+            listOf("args[0"),
+            configuration,
+            PathToSchemasMap(),
+            LinkedHashSet()
+        )
+    }
+}

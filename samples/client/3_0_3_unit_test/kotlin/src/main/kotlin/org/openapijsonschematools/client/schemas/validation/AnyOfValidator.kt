@@ -1,0 +1,39 @@
+package org.openapijsonschematools.client.schemas.validation
+
+import org.openapijsonschematools.client.exceptions.ValidationException
+
+class AnyOfValidator : KeywordValidator {
+    @Throws(ValidationException::class)
+    override fun validate(
+        data: ValidationData
+    ): PathToSchemasMap? {
+        val anyOf: List<Class<out JsonSchema<*>>> = data.schema.anyOf ?: return null
+        val pathToSchemas = PathToSchemasMap()
+        val validatedAnyOfClasses: MutableList<Class<out JsonSchema<*>>> = ArrayList()
+        for (anyOfClass in anyOf) {
+            if (anyOfClass == data.schema.javaClass) {
+                /*
+                optimistically assume that schema will pass validation
+                do not invoke _validate on it because that is recursive
+                */
+                validatedAnyOfClasses.add(anyOfClass)
+                continue
+            }
+            try {
+                val anyOfSchema = JsonSchemaFactory.getInstance(anyOfClass)
+                val otherPathToSchemas = JsonSchema.validate(anyOfSchema, data.arg, data.validationMetadata)
+                validatedAnyOfClasses.add(anyOfClass)
+                pathToSchemas.update(otherPathToSchemas)
+            } catch (e: ValidationException) {
+                // silence exceptions because the code needs to accumulate anyof_classes
+            }
+        }
+        if (validatedAnyOfClasses.isEmpty()) {
+            throw ValidationException(
+                "Invalid inputs given to generate an instance of " + data.schema.javaClass.simpleName + ". None " +
+                        "of the anyOf schemas matched the input data."
+            )
+        }
+        return pathToSchemas
+    }
+}
