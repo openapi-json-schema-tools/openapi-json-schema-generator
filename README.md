@@ -15,14 +15,14 @@ so developers can use all of those features.
 
 Currently, the following languages/frameworks are supported:
 
-| Feature                                                                                            | [Python](docs/generators/python.md) | [Java](docs/generators/java.md) | [Kotlin](docs/generators/kotlin.md) |
-|----------------------------------------------------------------------------------------------------|-------------------------------------|---------------------------------|-------------------------------------|
-| Generator status                                                                                   | stable                              | stable                          | experimental                        |
-| Openapi v3.0.0-3.1.0 ingestion                                                                     | X                                   | X                               | X                                   |
-| Json Schema 2020-12 Support (components/schemas)                                                   | X                                   | X                               | X                                   |
-| Component schemas documentation produced                                                           | X                                   | X                               | X                                   |
+| Feature                                                                                                              | [Python](docs/generators/python.md) | [Java](docs/generators/java.md) | [Kotlin](docs/generators/kotlin.md) |
+|----------------------------------------------------------------------------------------------------------------------|-------------------------------------|---------------------------------|-------------------------------------|
+| Generator status                                                                                                     | stable                              | stable                          | experimental                        |
+| Openapi v3.0.0-3.1.0 ingestion                                                                                       | X                                   | X                               | X                                   |
+| Json Schema 2020-12 Support (components/schemas)                                                                     | X                                   | X                               | X                                   |
+| Component schema classes + documentation produced                                                                    | X                                   | X                               | X                                   |
 | Documentation produced for other component types:<br>headers, parameters, requestBodies, ressponses, securitySchemes | X                                   | X                               |                                     |
-| Endpoints that send/receive json + docs generated for them                                         | X                                   | X                               |                                     |
+| Methods generated for endpoints <br>that send/receive json + docs generated for them                                 | X                                   | X                               |                                     |
 
 ## Reasons To Use the Generators
 - Openapi spec support for v3.0.0-3.1.0
