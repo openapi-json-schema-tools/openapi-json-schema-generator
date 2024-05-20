@@ -67,29 +67,25 @@ A schema class that validates payloads
 
 ### Code Sample
 ```
-import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
-import org.openapijsonschematools.client.configurations.SchemaConfiguration;
-import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.schemas.validation.MapUtils;
-import org.openapijsonschematools.client.schemas.validation.FrozenList;
-import org.openapijsonschematools.client.schemas.validation.FrozenMap;
-import org.openapijsonschematools.client.components.schemas.PropertiesPatternpropertiesAdditionalpropertiesInteraction;
+import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags
+import org.openapijsonschematools.client.configurations.SchemaConfiguration
+import org.openapijsonschematools.client.exceptions.ValidationException
+import org.openapijsonschematools.client.schemas.validation.MapUtils
+import org.openapijsonschematools.client.schemas.validation.FrozenList
+import org.openapijsonschematools.client.schemas.validation.FrozenMap
+import org.openapijsonschematools.client.components.schemas.PropertiesPatternpropertiesAdditionalpropertiesInteraction
 
-import java.util.Arrays;
-import java.util.List;
-import java.util.AbstractMap;
-
-static final SchemaConfiguration configuration = new SchemaConfiguration(new JsonSchemaKeywordFlags.Builder().build());
+val configuration = SchemaConfiguration(JsonSchemaKeywordFlags.Builder().build())
 
 // Map validation
-PropertiesPatternpropertiesAdditionalpropertiesInteraction.PropertiesPatternpropertiesAdditionalpropertiesInteractionMap validatedPayload =
+val validatedPayload: PropertiesPatternpropertiesAdditionalpropertiesInteraction.PropertiesPatternpropertiesAdditionalpropertiesInteractionMap =
     PropertiesPatternpropertiesAdditionalpropertiesInteraction.PropertiesPatternpropertiesAdditionalpropertiesInteraction1.validate(
-    new PropertiesPatternpropertiesAdditionalpropertiesInteraction.PropertiesPatternpropertiesAdditionalpropertiesInteractionMapBuilder()
+    PropertiesPatternpropertiesAdditionalpropertiesInteraction.PropertiesPatternpropertiesAdditionalpropertiesInteractionMapBuilder()
         .additionalProperty("someAdditionalProperty", 1)
 
     .build(),
     configuration
-);
+)
 ```
 
 ### Field Summary
@@ -103,8 +99,8 @@ PropertiesPatternpropertiesAdditionalpropertiesInteraction.PropertiesPatternprop
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [PropertiesPatternpropertiesAdditionalpropertiesInteractionMap](#propertiespatternpropertiesadditionalpropertiesinteractionmap) | validate(arg: [Map&lt;?, ?&gt;](#propertiespatternpropertiesadditionalpropertiesinteractionmapbuilder), configuration: SchemaConfiguration) |
-| [PropertiesPatternpropertiesAdditionalpropertiesInteraction1BoxedMap](#propertiespatternpropertiesadditionalpropertiesinteraction1boxedmap) | validateAndBox([Map&lt;?, ?&gt;](#propertiespatternpropertiesadditionalpropertiesinteractionmapbuilder), configuration: SchemaConfiguration) |
+| [PropertiesPatternpropertiesAdditionalpropertiesInteractionMap](#propertiespatternpropertiesadditionalpropertiesinteractionmap) | validate(arg: [Map&lt;*, *&gt;](#propertiespatternpropertiesadditionalpropertiesinteractionmapbuilder), configuration: SchemaConfiguration) |
+| [PropertiesPatternpropertiesAdditionalpropertiesInteraction1BoxedMap](#propertiespatternpropertiesadditionalpropertiesinteraction1boxedmap) | validateAndBox([Map&lt;*, *&gt;](#propertiespatternpropertiesadditionalpropertiesinteractionmapbuilder), configuration: SchemaConfiguration) |
 | [PropertiesPatternpropertiesAdditionalpropertiesInteraction1Boxed](#propertiespatternpropertiesadditionalpropertiesinteraction1boxed) | validateAndBox(Any?, configuration: SchemaConfiguration) |
 | Any? | validate(arg: Any?, configuration: SchemaConfiguration) |
 
@@ -213,7 +209,7 @@ A schema class that validates payloads
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |
 | Set<Class<?>> | type = setOf(List::class.java) |
-| Integer | maxItems = 3 |
+| Int | maxItems = 3 |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
@@ -346,26 +342,26 @@ A schema class that validates payloads
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |
-| Integer | minItems = 2 |
+| Int | minItems = 2 |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | String | validate(arg: String, configuration: SchemaConfiguration) |
 | Nothing? | validate(arg: Nothing?, configuration: SchemaConfiguration) |
-| int | validate(arg: int, configuration: SchemaConfiguration) |
-| long | validate(arg: long, configuration: SchemaConfiguration) |
-| float | validate(arg: float, configuration: SchemaConfiguration) |
-| double | validate(arg: double, configuration: SchemaConfiguration) |
+| Int | validate(arg: Int, configuration: SchemaConfiguration) |
+| Long | validate(arg: Long, configuration: SchemaConfiguration) |
+| Float | validate(arg: Float, configuration: SchemaConfiguration) |
+| Double | validate(arg: Double, configuration: SchemaConfiguration) |
 | Number | validate(arg: Number, configuration: SchemaConfiguration) |
-| boolean | validate(arg: boolean, configuration: SchemaConfiguration) |
-| FrozenMap<Any?> | validate(arg: Map&lt;?, ?&gt;, configuration: SchemaConfiguration) |
+| Boolean | validate(arg: Boolean, configuration: SchemaConfiguration) |
+| FrozenMap<Any?> | validate(arg: Map&lt;*, *&gt;, configuration: SchemaConfiguration) |
 | FrozenList<Any?> | validate(arg: List<*>, configuration: SchemaConfiguration) |
 | [FoBoxedString](#foboxedstring) | validateAndBox(String, configuration: SchemaConfiguration) |
 | [FoBoxedVoid](#foboxedvoid) | validateAndBox(Nothing?, configuration: SchemaConfiguration) |
 | [FoBoxedNumber](#foboxednumber) | validateAndBox(Number, configuration: SchemaConfiguration) |
-| [FoBoxedBoolean](#foboxedboolean) | validateAndBox(boolean, configuration: SchemaConfiguration) |
-| [FoBoxedMap](#foboxedmap) | validateAndBox(Map&lt;?, ?&gt;, configuration: SchemaConfiguration) |
+| [FoBoxedBoolean](#foboxedboolean) | validateAndBox(Boolean, configuration: SchemaConfiguration) |
+| [FoBoxedMap](#foboxedmap) | validateAndBox(Map&lt;*, *&gt;, configuration: SchemaConfiguration) |
 | [FoBoxedList](#foboxedlist) | validateAndBox(List<*>, configuration: SchemaConfiguration) |
 | [FoBoxed](#foboxed) | validateAndBox(Any?, configuration: SchemaConfiguration) |
 | Any? | validate(arg: Any?, configuration: SchemaConfiguration) |

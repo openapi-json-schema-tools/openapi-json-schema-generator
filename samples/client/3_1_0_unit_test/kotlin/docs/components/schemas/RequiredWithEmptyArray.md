@@ -161,19 +161,19 @@ A schema class that validates payloads
 | ----------------- | ---------------------- |
 | String | validate(arg: String, configuration: SchemaConfiguration) |
 | Nothing? | validate(arg: Nothing?, configuration: SchemaConfiguration) |
-| int | validate(arg: int, configuration: SchemaConfiguration) |
-| long | validate(arg: long, configuration: SchemaConfiguration) |
-| float | validate(arg: float, configuration: SchemaConfiguration) |
-| double | validate(arg: double, configuration: SchemaConfiguration) |
+| Int | validate(arg: Int, configuration: SchemaConfiguration) |
+| Long | validate(arg: Long, configuration: SchemaConfiguration) |
+| Float | validate(arg: Float, configuration: SchemaConfiguration) |
+| Double | validate(arg: Double, configuration: SchemaConfiguration) |
 | Number | validate(arg: Number, configuration: SchemaConfiguration) |
-| boolean | validate(arg: boolean, configuration: SchemaConfiguration) |
-| [RequiredWithEmptyArrayMap](#requiredwithemptyarraymap) | validate(arg: [Map&lt;?, ?&gt;](#requiredwithemptyarraymapbuilder), configuration: SchemaConfiguration) |
+| Boolean | validate(arg: Boolean, configuration: SchemaConfiguration) |
+| [RequiredWithEmptyArrayMap](#requiredwithemptyarraymap) | validate(arg: [Map&lt;*, *&gt;](#requiredwithemptyarraymapbuilder), configuration: SchemaConfiguration) |
 | FrozenList<Any?> | validate(arg: List<*>, configuration: SchemaConfiguration) |
 | [RequiredWithEmptyArray1BoxedString](#requiredwithemptyarray1boxedstring) | validateAndBox(String, configuration: SchemaConfiguration) |
 | [RequiredWithEmptyArray1BoxedVoid](#requiredwithemptyarray1boxedvoid) | validateAndBox(Nothing?, configuration: SchemaConfiguration) |
 | [RequiredWithEmptyArray1BoxedNumber](#requiredwithemptyarray1boxednumber) | validateAndBox(Number, configuration: SchemaConfiguration) |
-| [RequiredWithEmptyArray1BoxedBoolean](#requiredwithemptyarray1boxedboolean) | validateAndBox(boolean, configuration: SchemaConfiguration) |
-| [RequiredWithEmptyArray1BoxedMap](#requiredwithemptyarray1boxedmap) | validateAndBox([Map&lt;?, ?&gt;](#requiredwithemptyarraymapbuilder), configuration: SchemaConfiguration) |
+| [RequiredWithEmptyArray1BoxedBoolean](#requiredwithemptyarray1boxedboolean) | validateAndBox(Boolean, configuration: SchemaConfiguration) |
+| [RequiredWithEmptyArray1BoxedMap](#requiredwithemptyarray1boxedmap) | validateAndBox([Map&lt;*, *&gt;](#requiredwithemptyarraymapbuilder), configuration: SchemaConfiguration) |
 | [RequiredWithEmptyArray1BoxedList](#requiredwithemptyarray1boxedlist) | validateAndBox(List<*>, configuration: SchemaConfiguration) |
 | [RequiredWithEmptyArray1Boxed](#requiredwithemptyarray1boxed) | validateAndBox(Any?, configuration: SchemaConfiguration) |
 | Any? | validate(arg: Any?, configuration: SchemaConfiguration) |

@@ -160,19 +160,19 @@ A schema class that validates payloads
 | ----------------- | ---------------------- |
 | String | validate(arg: String, configuration: SchemaConfiguration) |
 | Nothing? | validate(arg: Nothing?, configuration: SchemaConfiguration) |
-| int | validate(arg: int, configuration: SchemaConfiguration) |
-| long | validate(arg: long, configuration: SchemaConfiguration) |
-| float | validate(arg: float, configuration: SchemaConfiguration) |
-| double | validate(arg: double, configuration: SchemaConfiguration) |
+| Int | validate(arg: Int, configuration: SchemaConfiguration) |
+| Long | validate(arg: Long, configuration: SchemaConfiguration) |
+| Float | validate(arg: Float, configuration: SchemaConfiguration) |
+| Double | validate(arg: Double, configuration: SchemaConfiguration) |
 | Number | validate(arg: Number, configuration: SchemaConfiguration) |
-| boolean | validate(arg: boolean, configuration: SchemaConfiguration) |
-| FrozenMap<Any?> | validate(arg: Map&lt;?, ?&gt;, configuration: SchemaConfiguration) |
+| Boolean | validate(arg: Boolean, configuration: SchemaConfiguration) |
+| FrozenMap<Any?> | validate(arg: Map&lt;*, *&gt;, configuration: SchemaConfiguration) |
 | FrozenList<Any?> | validate(arg: List<*>, configuration: SchemaConfiguration) |
 | [MultipleSimultaneousPatternpropertiesAreValidated1BoxedString](#multiplesimultaneouspatternpropertiesarevalidated1boxedstring) | validateAndBox(String, configuration: SchemaConfiguration) |
 | [MultipleSimultaneousPatternpropertiesAreValidated1BoxedVoid](#multiplesimultaneouspatternpropertiesarevalidated1boxedvoid) | validateAndBox(Nothing?, configuration: SchemaConfiguration) |
 | [MultipleSimultaneousPatternpropertiesAreValidated1BoxedNumber](#multiplesimultaneouspatternpropertiesarevalidated1boxednumber) | validateAndBox(Number, configuration: SchemaConfiguration) |
-| [MultipleSimultaneousPatternpropertiesAreValidated1BoxedBoolean](#multiplesimultaneouspatternpropertiesarevalidated1boxedboolean) | validateAndBox(boolean, configuration: SchemaConfiguration) |
-| [MultipleSimultaneousPatternpropertiesAreValidated1BoxedMap](#multiplesimultaneouspatternpropertiesarevalidated1boxedmap) | validateAndBox(Map&lt;?, ?&gt;, configuration: SchemaConfiguration) |
+| [MultipleSimultaneousPatternpropertiesAreValidated1BoxedBoolean](#multiplesimultaneouspatternpropertiesarevalidated1boxedboolean) | validateAndBox(Boolean, configuration: SchemaConfiguration) |
+| [MultipleSimultaneousPatternpropertiesAreValidated1BoxedMap](#multiplesimultaneouspatternpropertiesarevalidated1boxedmap) | validateAndBox(Map&lt;*, *&gt;, configuration: SchemaConfiguration) |
 | [MultipleSimultaneousPatternpropertiesAreValidated1BoxedList](#multiplesimultaneouspatternpropertiesarevalidated1boxedlist) | validateAndBox(List<*>, configuration: SchemaConfiguration) |
 | [MultipleSimultaneousPatternpropertiesAreValidated1Boxed](#multiplesimultaneouspatternpropertiesarevalidated1boxed) | validateAndBox(Any?, configuration: SchemaConfiguration) |
 | Any? | validate(arg: Any?, configuration: SchemaConfiguration) |
@@ -307,19 +307,19 @@ A schema class that validates payloads
 | ----------------- | ---------------------- |
 | String | validate(arg: String, configuration: SchemaConfiguration) |
 | Nothing? | validate(arg: Nothing?, configuration: SchemaConfiguration) |
-| int | validate(arg: int, configuration: SchemaConfiguration) |
-| long | validate(arg: long, configuration: SchemaConfiguration) |
-| float | validate(arg: float, configuration: SchemaConfiguration) |
-| double | validate(arg: double, configuration: SchemaConfiguration) |
+| Int | validate(arg: Int, configuration: SchemaConfiguration) |
+| Long | validate(arg: Long, configuration: SchemaConfiguration) |
+| Float | validate(arg: Float, configuration: SchemaConfiguration) |
+| Double | validate(arg: Double, configuration: SchemaConfiguration) |
 | Number | validate(arg: Number, configuration: SchemaConfiguration) |
-| boolean | validate(arg: boolean, configuration: SchemaConfiguration) |
-| FrozenMap<Any?> | validate(arg: Map&lt;?, ?&gt;, configuration: SchemaConfiguration) |
+| Boolean | validate(arg: Boolean, configuration: SchemaConfiguration) |
+| FrozenMap<Any?> | validate(arg: Map&lt;*, *&gt;, configuration: SchemaConfiguration) |
 | FrozenList<Any?> | validate(arg: List<*>, configuration: SchemaConfiguration) |
 | [AaaBoxedString](#aaaboxedstring) | validateAndBox(String, configuration: SchemaConfiguration) |
 | [AaaBoxedVoid](#aaaboxedvoid) | validateAndBox(Nothing?, configuration: SchemaConfiguration) |
 | [AaaBoxedNumber](#aaaboxednumber) | validateAndBox(Number, configuration: SchemaConfiguration) |
-| [AaaBoxedBoolean](#aaaboxedboolean) | validateAndBox(boolean, configuration: SchemaConfiguration) |
-| [AaaBoxedMap](#aaaboxedmap) | validateAndBox(Map&lt;?, ?&gt;, configuration: SchemaConfiguration) |
+| [AaaBoxedBoolean](#aaaboxedboolean) | validateAndBox(Boolean, configuration: SchemaConfiguration) |
+| [AaaBoxedMap](#aaaboxedmap) | validateAndBox(Map&lt;*, *&gt;, configuration: SchemaConfiguration) |
 | [AaaBoxedList](#aaaboxedlist) | validateAndBox(List<*>, configuration: SchemaConfiguration) |
 | [AaaBoxed](#aaaboxed) | validateAndBox(Any?, configuration: SchemaConfiguration) |
 | Any? | validate(arg: Any?, configuration: SchemaConfiguration) |

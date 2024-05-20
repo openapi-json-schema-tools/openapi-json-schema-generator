@@ -175,19 +175,19 @@ A schema class that validates payloads
 | ----------------- | ---------------------- |
 | String | validate(arg: String, configuration: SchemaConfiguration) |
 | Nothing? | validate(arg: Nothing?, configuration: SchemaConfiguration) |
-| int | validate(arg: int, configuration: SchemaConfiguration) |
-| long | validate(arg: long, configuration: SchemaConfiguration) |
-| float | validate(arg: float, configuration: SchemaConfiguration) |
-| double | validate(arg: double, configuration: SchemaConfiguration) |
+| Int | validate(arg: Int, configuration: SchemaConfiguration) |
+| Long | validate(arg: Long, configuration: SchemaConfiguration) |
+| Float | validate(arg: Float, configuration: SchemaConfiguration) |
+| Double | validate(arg: Double, configuration: SchemaConfiguration) |
 | Number | validate(arg: Number, configuration: SchemaConfiguration) |
-| boolean | validate(arg: boolean, configuration: SchemaConfiguration) |
-| [AdditionalpropertiesDoesNotLookInApplicatorsMap](#additionalpropertiesdoesnotlookinapplicatorsmap) | validate(arg: [Map&lt;?, ?&gt;](#additionalpropertiesdoesnotlookinapplicatorsmapbuilder), configuration: SchemaConfiguration) |
+| Boolean | validate(arg: Boolean, configuration: SchemaConfiguration) |
+| [AdditionalpropertiesDoesNotLookInApplicatorsMap](#additionalpropertiesdoesnotlookinapplicatorsmap) | validate(arg: [Map&lt;*, *&gt;](#additionalpropertiesdoesnotlookinapplicatorsmapbuilder), configuration: SchemaConfiguration) |
 | FrozenList<Any?> | validate(arg: List<*>, configuration: SchemaConfiguration) |
 | [AdditionalpropertiesDoesNotLookInApplicators1BoxedString](#additionalpropertiesdoesnotlookinapplicators1boxedstring) | validateAndBox(String, configuration: SchemaConfiguration) |
 | [AdditionalpropertiesDoesNotLookInApplicators1BoxedVoid](#additionalpropertiesdoesnotlookinapplicators1boxedvoid) | validateAndBox(Nothing?, configuration: SchemaConfiguration) |
 | [AdditionalpropertiesDoesNotLookInApplicators1BoxedNumber](#additionalpropertiesdoesnotlookinapplicators1boxednumber) | validateAndBox(Number, configuration: SchemaConfiguration) |
-| [AdditionalpropertiesDoesNotLookInApplicators1BoxedBoolean](#additionalpropertiesdoesnotlookinapplicators1boxedboolean) | validateAndBox(boolean, configuration: SchemaConfiguration) |
-| [AdditionalpropertiesDoesNotLookInApplicators1BoxedMap](#additionalpropertiesdoesnotlookinapplicators1boxedmap) | validateAndBox([Map&lt;?, ?&gt;](#additionalpropertiesdoesnotlookinapplicatorsmapbuilder), configuration: SchemaConfiguration) |
+| [AdditionalpropertiesDoesNotLookInApplicators1BoxedBoolean](#additionalpropertiesdoesnotlookinapplicators1boxedboolean) | validateAndBox(Boolean, configuration: SchemaConfiguration) |
+| [AdditionalpropertiesDoesNotLookInApplicators1BoxedMap](#additionalpropertiesdoesnotlookinapplicators1boxedmap) | validateAndBox([Map&lt;*, *&gt;](#additionalpropertiesdoesnotlookinapplicatorsmapbuilder), configuration: SchemaConfiguration) |
 | [AdditionalpropertiesDoesNotLookInApplicators1BoxedList](#additionalpropertiesdoesnotlookinapplicators1boxedlist) | validateAndBox(List<*>, configuration: SchemaConfiguration) |
 | [AdditionalpropertiesDoesNotLookInApplicators1Boxed](#additionalpropertiesdoesnotlookinapplicators1boxed) | validateAndBox(Any?, configuration: SchemaConfiguration) |
 | Any? | validate(arg: Any?, configuration: SchemaConfiguration) |
@@ -351,19 +351,19 @@ A schema class that validates payloads
 | ----------------- | ---------------------- |
 | String | validate(arg: String, configuration: SchemaConfiguration) |
 | Nothing? | validate(arg: Nothing?, configuration: SchemaConfiguration) |
-| int | validate(arg: int, configuration: SchemaConfiguration) |
-| long | validate(arg: long, configuration: SchemaConfiguration) |
-| float | validate(arg: float, configuration: SchemaConfiguration) |
-| double | validate(arg: double, configuration: SchemaConfiguration) |
+| Int | validate(arg: Int, configuration: SchemaConfiguration) |
+| Long | validate(arg: Long, configuration: SchemaConfiguration) |
+| Float | validate(arg: Float, configuration: SchemaConfiguration) |
+| Double | validate(arg: Double, configuration: SchemaConfiguration) |
 | Number | validate(arg: Number, configuration: SchemaConfiguration) |
-| boolean | validate(arg: boolean, configuration: SchemaConfiguration) |
-| [Schema0Map](#schema0map) | validate(arg: [Map&lt;?, ?&gt;](#schema0mapbuilder), configuration: SchemaConfiguration) |
+| Boolean | validate(arg: Boolean, configuration: SchemaConfiguration) |
+| [Schema0Map](#schema0map) | validate(arg: [Map&lt;*, *&gt;](#schema0mapbuilder), configuration: SchemaConfiguration) |
 | FrozenList<Any?> | validate(arg: List<*>, configuration: SchemaConfiguration) |
 | [Schema0BoxedString](#schema0boxedstring) | validateAndBox(String, configuration: SchemaConfiguration) |
 | [Schema0BoxedVoid](#schema0boxedvoid) | validateAndBox(Nothing?, configuration: SchemaConfiguration) |
 | [Schema0BoxedNumber](#schema0boxednumber) | validateAndBox(Number, configuration: SchemaConfiguration) |
-| [Schema0BoxedBoolean](#schema0boxedboolean) | validateAndBox(boolean, configuration: SchemaConfiguration) |
-| [Schema0BoxedMap](#schema0boxedmap) | validateAndBox([Map&lt;?, ?&gt;](#schema0mapbuilder), configuration: SchemaConfiguration) |
+| [Schema0BoxedBoolean](#schema0boxedboolean) | validateAndBox(Boolean, configuration: SchemaConfiguration) |
+| [Schema0BoxedMap](#schema0boxedmap) | validateAndBox([Map&lt;*, *&gt;](#schema0mapbuilder), configuration: SchemaConfiguration) |
 | [Schema0BoxedList](#schema0boxedlist) | validateAndBox(List<*>, configuration: SchemaConfiguration) |
 | [Schema0Boxed](#schema0boxed) | validateAndBox(Any?, configuration: SchemaConfiguration) |
 | Any? | validate(arg: Any?, configuration: SchemaConfiguration) |

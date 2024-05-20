@@ -48,25 +48,21 @@ A schema class that validates payloads
 
 ### Code Sample
 ```
-import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
-import org.openapijsonschematools.client.configurations.SchemaConfiguration;
-import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.schemas.validation.MapUtils;
-import org.openapijsonschematools.client.schemas.validation.FrozenList;
-import org.openapijsonschematools.client.schemas.validation.FrozenMap;
-import org.openapijsonschematools.client.components.schemas.EnumWithFalseDoesNotMatch0;
+import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags
+import org.openapijsonschematools.client.configurations.SchemaConfiguration
+import org.openapijsonschematools.client.exceptions.ValidationException
+import org.openapijsonschematools.client.schemas.validation.MapUtils
+import org.openapijsonschematools.client.schemas.validation.FrozenList
+import org.openapijsonschematools.client.schemas.validation.FrozenMap
+import org.openapijsonschematools.client.components.schemas.EnumWithFalseDoesNotMatch0
 
-import java.util.Arrays;
-import java.util.List;
-import java.util.AbstractMap;
-
-static final SchemaConfiguration configuration = new SchemaConfiguration(new JsonSchemaKeywordFlags.Builder().build());
+val configuration = SchemaConfiguration(JsonSchemaKeywordFlags.Builder().build())
 
 // boolean validation
-boolean validatedPayload = EnumWithFalseDoesNotMatch0.EnumWithFalseDoesNotMatch01.validate(
+val validatedPayload: Boolean = EnumWithFalseDoesNotMatch0.EnumWithFalseDoesNotMatch01.validate(
     false,
     configuration
-);
+)
 ```
 
 ### Field Summary
@@ -78,9 +74,9 @@ boolean validatedPayload = EnumWithFalseDoesNotMatch0.EnumWithFalseDoesNotMatch0
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| boolean | validate(arg: boolean, configuration: SchemaConfiguration) |
-| boolean | validate(arg: [BooleanEnumWithFalseDoesNotMatch0Enums](#booleanenumwithfalsedoesnotmatch0enums), configuration: SchemaConfiguration) |
-| [EnumWithFalseDoesNotMatch01BoxedBoolean](#enumwithfalsedoesnotmatch01boxedboolean) | validateAndBox(boolean, configuration: SchemaConfiguration) |
+| Boolean | validate(arg: Boolean, configuration: SchemaConfiguration) |
+| Boolean | validate(arg: [BooleanEnumWithFalseDoesNotMatch0Enums](#booleanenumwithfalsedoesnotmatch0enums), configuration: SchemaConfiguration) |
+| [EnumWithFalseDoesNotMatch01BoxedBoolean](#enumwithfalsedoesnotmatch01boxedboolean) | validateAndBox(Boolean, configuration: SchemaConfiguration) |
 | [EnumWithFalseDoesNotMatch01Boxed](#enumwithfalsedoesnotmatch01boxed) | validateAndBox(Any?, configuration: SchemaConfiguration) |
 | Any? | validate(arg: Any?, configuration: SchemaConfiguration) |
 

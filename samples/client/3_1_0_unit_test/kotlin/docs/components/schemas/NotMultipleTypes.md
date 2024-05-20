@@ -153,19 +153,19 @@ A schema class that validates payloads
 | ----------------- | ---------------------- |
 | String | validate(arg: String, configuration: SchemaConfiguration) |
 | Nothing? | validate(arg: Nothing?, configuration: SchemaConfiguration) |
-| int | validate(arg: int, configuration: SchemaConfiguration) |
-| long | validate(arg: long, configuration: SchemaConfiguration) |
-| float | validate(arg: float, configuration: SchemaConfiguration) |
-| double | validate(arg: double, configuration: SchemaConfiguration) |
+| Int | validate(arg: Int, configuration: SchemaConfiguration) |
+| Long | validate(arg: Long, configuration: SchemaConfiguration) |
+| Float | validate(arg: Float, configuration: SchemaConfiguration) |
+| Double | validate(arg: Double, configuration: SchemaConfiguration) |
 | Number | validate(arg: Number, configuration: SchemaConfiguration) |
-| boolean | validate(arg: boolean, configuration: SchemaConfiguration) |
-| FrozenMap<Any?> | validate(arg: Map&lt;?, ?&gt;, configuration: SchemaConfiguration) |
+| Boolean | validate(arg: Boolean, configuration: SchemaConfiguration) |
+| FrozenMap<Any?> | validate(arg: Map&lt;*, *&gt;, configuration: SchemaConfiguration) |
 | FrozenList<Any?> | validate(arg: List<*>, configuration: SchemaConfiguration) |
 | [NotMultipleTypes1BoxedString](#notmultipletypes1boxedstring) | validateAndBox(String, configuration: SchemaConfiguration) |
 | [NotMultipleTypes1BoxedVoid](#notmultipletypes1boxedvoid) | validateAndBox(Nothing?, configuration: SchemaConfiguration) |
 | [NotMultipleTypes1BoxedNumber](#notmultipletypes1boxednumber) | validateAndBox(Number, configuration: SchemaConfiguration) |
-| [NotMultipleTypes1BoxedBoolean](#notmultipletypes1boxedboolean) | validateAndBox(boolean, configuration: SchemaConfiguration) |
-| [NotMultipleTypes1BoxedMap](#notmultipletypes1boxedmap) | validateAndBox(Map&lt;?, ?&gt;, configuration: SchemaConfiguration) |
+| [NotMultipleTypes1BoxedBoolean](#notmultipletypes1boxedboolean) | validateAndBox(Boolean, configuration: SchemaConfiguration) |
+| [NotMultipleTypes1BoxedMap](#notmultipletypes1boxedmap) | validateAndBox(Map&lt;*, *&gt;, configuration: SchemaConfiguration) |
 | [NotMultipleTypes1BoxedList](#notmultipletypes1boxedlist) | validateAndBox(List<*>, configuration: SchemaConfiguration) |
 | [NotMultipleTypes1Boxed](#notmultipletypes1boxed) | validateAndBox(Any?, configuration: SchemaConfiguration) |
 | Any? | validate(arg: Any?, configuration: SchemaConfiguration) |
@@ -220,31 +220,27 @@ A schema class that validates payloads
 
 ### Code Sample
 ```
-import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
-import org.openapijsonschematools.client.configurations.SchemaConfiguration;
-import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.schemas.validation.MapUtils;
-import org.openapijsonschematools.client.schemas.validation.FrozenList;
-import org.openapijsonschematools.client.schemas.validation.FrozenMap;
-import org.openapijsonschematools.client.components.schemas.NotMultipleTypes;
+import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags
+import org.openapijsonschematools.client.configurations.SchemaConfiguration
+import org.openapijsonschematools.client.exceptions.ValidationException
+import org.openapijsonschematools.client.schemas.validation.MapUtils
+import org.openapijsonschematools.client.schemas.validation.FrozenList
+import org.openapijsonschematools.client.schemas.validation.FrozenMap
+import org.openapijsonschematools.client.components.schemas.NotMultipleTypes
 
-import java.util.Arrays;
-import java.util.List;
-import java.util.AbstractMap;
-
-static final SchemaConfiguration configuration = new SchemaConfiguration(new JsonSchemaKeywordFlags.Builder().build());
+val configuration = SchemaConfiguration(JsonSchemaKeywordFlags.Builder().build())
 
 // int validation
-int validatedPayload = NotMultipleTypes.Not.validate(
+val validatedPayload: Int = NotMultipleTypes.Not.validate(
     1L,
     configuration
-);
+)
 
 // boolean validation
-boolean validatedPayload = NotMultipleTypes.Not.validate(
+val validatedPayload: Boolean = NotMultipleTypes.Not.validate(
     true,
     configuration
-);
+)
 ```
 
 ### Field Summary
@@ -256,10 +252,10 @@ boolean validatedPayload = NotMultipleTypes.Not.validate(
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| long | validate(arg: long, configuration: SchemaConfiguration) |
+| Long | validate(arg: Long, configuration: SchemaConfiguration) |
 | [NotBoxedNumber](#notboxednumber) | validateAndBox(Number, configuration: SchemaConfiguration) |
-| boolean | validate(arg: boolean, configuration: SchemaConfiguration) |
-| [NotBoxedBoolean](#notboxedboolean) | validateAndBox(boolean, configuration: SchemaConfiguration) |
+| Boolean | validate(arg: Boolean, configuration: SchemaConfiguration) |
+| [NotBoxedBoolean](#notboxedboolean) | validateAndBox(Boolean, configuration: SchemaConfiguration) |
 | [NotBoxed](#notboxed) | validateAndBox(Any?, configuration: SchemaConfiguration) |
 | Any? | validate(arg: Any?, configuration: SchemaConfiguration) |
 

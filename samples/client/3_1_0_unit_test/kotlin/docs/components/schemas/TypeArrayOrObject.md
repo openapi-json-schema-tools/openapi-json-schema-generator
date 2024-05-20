@@ -73,8 +73,8 @@ A schema class that validates payloads
 | ----------------- | ---------------------- |
 | FrozenList<Any?> | validate(arg: List<*>, configuration: SchemaConfiguration) |
 | [TypeArrayOrObject1BoxedList](#typearrayorobject1boxedlist) | validateAndBox(List<*>, configuration: SchemaConfiguration) |
-| FrozenMap<String, Any?> | validate(arg: Map&lt;?, ?&gt;, configuration: SchemaConfiguration) |
-| [TypeArrayOrObject1BoxedMap](#typearrayorobject1boxedmap) | validateAndBox(Map&lt;?, ?&gt;, configuration: SchemaConfiguration) |
+| FrozenMap<String, Any?> | validate(arg: Map&lt;*, *&gt;, configuration: SchemaConfiguration) |
+| [TypeArrayOrObject1BoxedMap](#typearrayorobject1boxedmap) | validateAndBox(Map&lt;*, *&gt;, configuration: SchemaConfiguration) |
 | [TypeArrayOrObject1Boxed](#typearrayorobject1boxed) | validateAndBox(Any?, configuration: SchemaConfiguration) |
 | Any? | validate(arg: Any?, configuration: SchemaConfiguration) |
 

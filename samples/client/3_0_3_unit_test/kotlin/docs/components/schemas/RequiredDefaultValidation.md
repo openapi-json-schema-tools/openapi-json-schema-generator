@@ -161,19 +161,19 @@ A schema class that validates payloads
 | ----------------- | ---------------------- |
 | String | validate(arg: String, configuration: SchemaConfiguration) |
 | Nothing? | validate(arg: Nothing?, configuration: SchemaConfiguration) |
-| int | validate(arg: int, configuration: SchemaConfiguration) |
-| long | validate(arg: long, configuration: SchemaConfiguration) |
-| float | validate(arg: float, configuration: SchemaConfiguration) |
-| double | validate(arg: double, configuration: SchemaConfiguration) |
+| Int | validate(arg: Int, configuration: SchemaConfiguration) |
+| Long | validate(arg: Long, configuration: SchemaConfiguration) |
+| Float | validate(arg: Float, configuration: SchemaConfiguration) |
+| Double | validate(arg: Double, configuration: SchemaConfiguration) |
 | Number | validate(arg: Number, configuration: SchemaConfiguration) |
-| boolean | validate(arg: boolean, configuration: SchemaConfiguration) |
-| [RequiredDefaultValidationMap](#requireddefaultvalidationmap) | validate(arg: [Map&lt;?, ?&gt;](#requireddefaultvalidationmapbuilder), configuration: SchemaConfiguration) |
+| Boolean | validate(arg: Boolean, configuration: SchemaConfiguration) |
+| [RequiredDefaultValidationMap](#requireddefaultvalidationmap) | validate(arg: [Map&lt;*, *&gt;](#requireddefaultvalidationmapbuilder), configuration: SchemaConfiguration) |
 | FrozenList<Any?> | validate(arg: List<*>, configuration: SchemaConfiguration) |
 | [RequiredDefaultValidation1BoxedString](#requireddefaultvalidation1boxedstring) | validateAndBox(String, configuration: SchemaConfiguration) |
 | [RequiredDefaultValidation1BoxedVoid](#requireddefaultvalidation1boxedvoid) | validateAndBox(Nothing?, configuration: SchemaConfiguration) |
 | [RequiredDefaultValidation1BoxedNumber](#requireddefaultvalidation1boxednumber) | validateAndBox(Number, configuration: SchemaConfiguration) |
-| [RequiredDefaultValidation1BoxedBoolean](#requireddefaultvalidation1boxedboolean) | validateAndBox(boolean, configuration: SchemaConfiguration) |
-| [RequiredDefaultValidation1BoxedMap](#requireddefaultvalidation1boxedmap) | validateAndBox([Map&lt;?, ?&gt;](#requireddefaultvalidationmapbuilder), configuration: SchemaConfiguration) |
+| [RequiredDefaultValidation1BoxedBoolean](#requireddefaultvalidation1boxedboolean) | validateAndBox(Boolean, configuration: SchemaConfiguration) |
+| [RequiredDefaultValidation1BoxedMap](#requireddefaultvalidation1boxedmap) | validateAndBox([Map&lt;*, *&gt;](#requireddefaultvalidationmapbuilder), configuration: SchemaConfiguration) |
 | [RequiredDefaultValidation1BoxedList](#requireddefaultvalidation1boxedlist) | validateAndBox(List<*>, configuration: SchemaConfiguration) |
 | [RequiredDefaultValidation1Boxed](#requireddefaultvalidation1boxed) | validateAndBox(Any?, configuration: SchemaConfiguration) |
 | Any? | validate(arg: Any?, configuration: SchemaConfiguration) |

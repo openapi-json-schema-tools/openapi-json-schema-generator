@@ -149,19 +149,19 @@ A schema class that validates payloads
 | ----------------- | ---------------------- |
 | String | validate(arg: String, configuration: SchemaConfiguration) |
 | Nothing? | validate(arg: Nothing?, configuration: SchemaConfiguration) |
-| int | validate(arg: int, configuration: SchemaConfiguration) |
-| long | validate(arg: long, configuration: SchemaConfiguration) |
-| float | validate(arg: float, configuration: SchemaConfiguration) |
-| double | validate(arg: double, configuration: SchemaConfiguration) |
+| Int | validate(arg: Int, configuration: SchemaConfiguration) |
+| Long | validate(arg: Long, configuration: SchemaConfiguration) |
+| Float | validate(arg: Float, configuration: SchemaConfiguration) |
+| Double | validate(arg: Double, configuration: SchemaConfiguration) |
 | Number | validate(arg: Number, configuration: SchemaConfiguration) |
-| boolean | validate(arg: boolean, configuration: SchemaConfiguration) |
-| FrozenMap<Any?> | validate(arg: Map&lt;?, ?&gt;, configuration: SchemaConfiguration) |
+| Boolean | validate(arg: Boolean, configuration: SchemaConfiguration) |
+| FrozenMap<Any?> | validate(arg: Map&lt;*, *&gt;, configuration: SchemaConfiguration) |
 | FrozenList<Any?> | validate(arg: List<*>, configuration: SchemaConfiguration) |
 | [DateFormat1BoxedString](#dateformat1boxedstring) | validateAndBox(String, configuration: SchemaConfiguration) |
 | [DateFormat1BoxedVoid](#dateformat1boxedvoid) | validateAndBox(Nothing?, configuration: SchemaConfiguration) |
 | [DateFormat1BoxedNumber](#dateformat1boxednumber) | validateAndBox(Number, configuration: SchemaConfiguration) |
-| [DateFormat1BoxedBoolean](#dateformat1boxedboolean) | validateAndBox(boolean, configuration: SchemaConfiguration) |
-| [DateFormat1BoxedMap](#dateformat1boxedmap) | validateAndBox(Map&lt;?, ?&gt;, configuration: SchemaConfiguration) |
+| [DateFormat1BoxedBoolean](#dateformat1boxedboolean) | validateAndBox(Boolean, configuration: SchemaConfiguration) |
+| [DateFormat1BoxedMap](#dateformat1boxedmap) | validateAndBox(Map&lt;*, *&gt;, configuration: SchemaConfiguration) |
 | [DateFormat1BoxedList](#dateformat1boxedlist) | validateAndBox(List<*>, configuration: SchemaConfiguration) |
 | [DateFormat1Boxed](#dateformat1boxed) | validateAndBox(Any?, configuration: SchemaConfiguration) |
 | Any? | validate(arg: Any?, configuration: SchemaConfiguration) |

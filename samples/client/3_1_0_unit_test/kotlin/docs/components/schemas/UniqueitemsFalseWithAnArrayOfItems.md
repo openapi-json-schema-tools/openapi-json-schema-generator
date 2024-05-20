@@ -160,19 +160,19 @@ A schema class that validates payloads
 | ----------------- | ---------------------- |
 | String | validate(arg: String, configuration: SchemaConfiguration) |
 | Nothing? | validate(arg: Nothing?, configuration: SchemaConfiguration) |
-| int | validate(arg: int, configuration: SchemaConfiguration) |
-| long | validate(arg: long, configuration: SchemaConfiguration) |
-| float | validate(arg: float, configuration: SchemaConfiguration) |
-| double | validate(arg: double, configuration: SchemaConfiguration) |
+| Int | validate(arg: Int, configuration: SchemaConfiguration) |
+| Long | validate(arg: Long, configuration: SchemaConfiguration) |
+| Float | validate(arg: Float, configuration: SchemaConfiguration) |
+| Double | validate(arg: Double, configuration: SchemaConfiguration) |
 | Number | validate(arg: Number, configuration: SchemaConfiguration) |
-| boolean | validate(arg: boolean, configuration: SchemaConfiguration) |
-| FrozenMap<Any?> | validate(arg: Map&lt;?, ?&gt;, configuration: SchemaConfiguration) |
+| Boolean | validate(arg: Boolean, configuration: SchemaConfiguration) |
+| FrozenMap<Any?> | validate(arg: Map&lt;*, *&gt;, configuration: SchemaConfiguration) |
 | [UniqueitemsFalseWithAnArrayOfItemsList](#uniqueitemsfalsewithanarrayofitemslist) | validate(arg: [List<*>](#uniqueitemsfalsewithanarrayofitemslistbuilder), configuration: SchemaConfiguration) |
 | [UniqueitemsFalseWithAnArrayOfItems1BoxedString](#uniqueitemsfalsewithanarrayofitems1boxedstring) | validateAndBox(String, configuration: SchemaConfiguration) |
 | [UniqueitemsFalseWithAnArrayOfItems1BoxedVoid](#uniqueitemsfalsewithanarrayofitems1boxedvoid) | validateAndBox(Nothing?, configuration: SchemaConfiguration) |
 | [UniqueitemsFalseWithAnArrayOfItems1BoxedNumber](#uniqueitemsfalsewithanarrayofitems1boxednumber) | validateAndBox(Number, configuration: SchemaConfiguration) |
-| [UniqueitemsFalseWithAnArrayOfItems1BoxedBoolean](#uniqueitemsfalsewithanarrayofitems1boxedboolean) | validateAndBox(boolean, configuration: SchemaConfiguration) |
-| [UniqueitemsFalseWithAnArrayOfItems1BoxedMap](#uniqueitemsfalsewithanarrayofitems1boxedmap) | validateAndBox(Map&lt;?, ?&gt;, configuration: SchemaConfiguration) |
+| [UniqueitemsFalseWithAnArrayOfItems1BoxedBoolean](#uniqueitemsfalsewithanarrayofitems1boxedboolean) | validateAndBox(Boolean, configuration: SchemaConfiguration) |
+| [UniqueitemsFalseWithAnArrayOfItems1BoxedMap](#uniqueitemsfalsewithanarrayofitems1boxedmap) | validateAndBox(Map&lt;*, *&gt;, configuration: SchemaConfiguration) |
 | [UniqueitemsFalseWithAnArrayOfItems1BoxedList](#uniqueitemsfalsewithanarrayofitems1boxedlist) | validateAndBox([List<*>](#uniqueitemsfalsewithanarrayofitemslistbuilder), configuration: SchemaConfiguration) |
 | [UniqueitemsFalseWithAnArrayOfItems1Boxed](#uniqueitemsfalsewithanarrayofitems1boxed) | validateAndBox(Any?, configuration: SchemaConfiguration) |
 | Any? | validate(arg: Any?, configuration: SchemaConfiguration) |

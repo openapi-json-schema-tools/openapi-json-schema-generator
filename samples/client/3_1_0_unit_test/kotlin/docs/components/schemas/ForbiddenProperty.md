@@ -169,19 +169,19 @@ A schema class that validates payloads
 | ----------------- | ---------------------- |
 | String | validate(arg: String, configuration: SchemaConfiguration) |
 | Nothing? | validate(arg: Nothing?, configuration: SchemaConfiguration) |
-| int | validate(arg: int, configuration: SchemaConfiguration) |
-| long | validate(arg: long, configuration: SchemaConfiguration) |
-| float | validate(arg: float, configuration: SchemaConfiguration) |
-| double | validate(arg: double, configuration: SchemaConfiguration) |
+| Int | validate(arg: Int, configuration: SchemaConfiguration) |
+| Long | validate(arg: Long, configuration: SchemaConfiguration) |
+| Float | validate(arg: Float, configuration: SchemaConfiguration) |
+| Double | validate(arg: Double, configuration: SchemaConfiguration) |
 | Number | validate(arg: Number, configuration: SchemaConfiguration) |
-| boolean | validate(arg: boolean, configuration: SchemaConfiguration) |
-| [ForbiddenPropertyMap](#forbiddenpropertymap) | validate(arg: [Map&lt;?, ?&gt;](#forbiddenpropertymapbuilder), configuration: SchemaConfiguration) |
+| Boolean | validate(arg: Boolean, configuration: SchemaConfiguration) |
+| [ForbiddenPropertyMap](#forbiddenpropertymap) | validate(arg: [Map&lt;*, *&gt;](#forbiddenpropertymapbuilder), configuration: SchemaConfiguration) |
 | FrozenList<Any?> | validate(arg: List<*>, configuration: SchemaConfiguration) |
 | [ForbiddenProperty1BoxedString](#forbiddenproperty1boxedstring) | validateAndBox(String, configuration: SchemaConfiguration) |
 | [ForbiddenProperty1BoxedVoid](#forbiddenproperty1boxedvoid) | validateAndBox(Nothing?, configuration: SchemaConfiguration) |
 | [ForbiddenProperty1BoxedNumber](#forbiddenproperty1boxednumber) | validateAndBox(Number, configuration: SchemaConfiguration) |
-| [ForbiddenProperty1BoxedBoolean](#forbiddenproperty1boxedboolean) | validateAndBox(boolean, configuration: SchemaConfiguration) |
-| [ForbiddenProperty1BoxedMap](#forbiddenproperty1boxedmap) | validateAndBox([Map&lt;?, ?&gt;](#forbiddenpropertymapbuilder), configuration: SchemaConfiguration) |
+| [ForbiddenProperty1BoxedBoolean](#forbiddenproperty1boxedboolean) | validateAndBox(Boolean, configuration: SchemaConfiguration) |
+| [ForbiddenProperty1BoxedMap](#forbiddenproperty1boxedmap) | validateAndBox([Map&lt;*, *&gt;](#forbiddenpropertymapbuilder), configuration: SchemaConfiguration) |
 | [ForbiddenProperty1BoxedList](#forbiddenproperty1boxedlist) | validateAndBox(List<*>, configuration: SchemaConfiguration) |
 | [ForbiddenProperty1Boxed](#forbiddenproperty1boxed) | validateAndBox(Any?, configuration: SchemaConfiguration) |
 | Any? | validate(arg: Any?, configuration: SchemaConfiguration) |
@@ -363,19 +363,19 @@ A schema class that validates payloads
 | ----------------- | ---------------------- |
 | String | validate(arg: String, configuration: SchemaConfiguration) |
 | Nothing? | validate(arg: Nothing?, configuration: SchemaConfiguration) |
-| int | validate(arg: int, configuration: SchemaConfiguration) |
-| long | validate(arg: long, configuration: SchemaConfiguration) |
-| float | validate(arg: float, configuration: SchemaConfiguration) |
-| double | validate(arg: double, configuration: SchemaConfiguration) |
+| Int | validate(arg: Int, configuration: SchemaConfiguration) |
+| Long | validate(arg: Long, configuration: SchemaConfiguration) |
+| Float | validate(arg: Float, configuration: SchemaConfiguration) |
+| Double | validate(arg: Double, configuration: SchemaConfiguration) |
 | Number | validate(arg: Number, configuration: SchemaConfiguration) |
-| boolean | validate(arg: boolean, configuration: SchemaConfiguration) |
-| FrozenMap<Any?> | validate(arg: Map&lt;?, ?&gt;, configuration: SchemaConfiguration) |
+| Boolean | validate(arg: Boolean, configuration: SchemaConfiguration) |
+| FrozenMap<Any?> | validate(arg: Map&lt;*, *&gt;, configuration: SchemaConfiguration) |
 | FrozenList<Any?> | validate(arg: List<*>, configuration: SchemaConfiguration) |
 | [FooBoxedString](#fooboxedstring) | validateAndBox(String, configuration: SchemaConfiguration) |
 | [FooBoxedVoid](#fooboxedvoid) | validateAndBox(Nothing?, configuration: SchemaConfiguration) |
 | [FooBoxedNumber](#fooboxednumber) | validateAndBox(Number, configuration: SchemaConfiguration) |
-| [FooBoxedBoolean](#fooboxedboolean) | validateAndBox(boolean, configuration: SchemaConfiguration) |
-| [FooBoxedMap](#fooboxedmap) | validateAndBox(Map&lt;?, ?&gt;, configuration: SchemaConfiguration) |
+| [FooBoxedBoolean](#fooboxedboolean) | validateAndBox(Boolean, configuration: SchemaConfiguration) |
+| [FooBoxedMap](#fooboxedmap) | validateAndBox(Map&lt;*, *&gt;, configuration: SchemaConfiguration) |
 | [FooBoxedList](#fooboxedlist) | validateAndBox(List<*>, configuration: SchemaConfiguration) |
 | [FooBoxed](#fooboxed) | validateAndBox(Any?, configuration: SchemaConfiguration) |
 | Any? | validate(arg: Any?, configuration: SchemaConfiguration) |

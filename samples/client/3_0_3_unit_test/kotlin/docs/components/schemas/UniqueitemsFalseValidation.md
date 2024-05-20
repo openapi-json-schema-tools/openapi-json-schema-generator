@@ -149,19 +149,19 @@ A schema class that validates payloads
 | ----------------- | ---------------------- |
 | String | validate(arg: String, configuration: SchemaConfiguration) |
 | Nothing? | validate(arg: Nothing?, configuration: SchemaConfiguration) |
-| int | validate(arg: int, configuration: SchemaConfiguration) |
-| long | validate(arg: long, configuration: SchemaConfiguration) |
-| float | validate(arg: float, configuration: SchemaConfiguration) |
-| double | validate(arg: double, configuration: SchemaConfiguration) |
+| Int | validate(arg: Int, configuration: SchemaConfiguration) |
+| Long | validate(arg: Long, configuration: SchemaConfiguration) |
+| Float | validate(arg: Float, configuration: SchemaConfiguration) |
+| Double | validate(arg: Double, configuration: SchemaConfiguration) |
 | Number | validate(arg: Number, configuration: SchemaConfiguration) |
-| boolean | validate(arg: boolean, configuration: SchemaConfiguration) |
-| FrozenMap<Any?> | validate(arg: Map&lt;?, ?&gt;, configuration: SchemaConfiguration) |
+| Boolean | validate(arg: Boolean, configuration: SchemaConfiguration) |
+| FrozenMap<Any?> | validate(arg: Map&lt;*, *&gt;, configuration: SchemaConfiguration) |
 | FrozenList<Any?> | validate(arg: List<*>, configuration: SchemaConfiguration) |
 | [UniqueitemsFalseValidation1BoxedString](#uniqueitemsfalsevalidation1boxedstring) | validateAndBox(String, configuration: SchemaConfiguration) |
 | [UniqueitemsFalseValidation1BoxedVoid](#uniqueitemsfalsevalidation1boxedvoid) | validateAndBox(Nothing?, configuration: SchemaConfiguration) |
 | [UniqueitemsFalseValidation1BoxedNumber](#uniqueitemsfalsevalidation1boxednumber) | validateAndBox(Number, configuration: SchemaConfiguration) |
-| [UniqueitemsFalseValidation1BoxedBoolean](#uniqueitemsfalsevalidation1boxedboolean) | validateAndBox(boolean, configuration: SchemaConfiguration) |
-| [UniqueitemsFalseValidation1BoxedMap](#uniqueitemsfalsevalidation1boxedmap) | validateAndBox(Map&lt;?, ?&gt;, configuration: SchemaConfiguration) |
+| [UniqueitemsFalseValidation1BoxedBoolean](#uniqueitemsfalsevalidation1boxedboolean) | validateAndBox(Boolean, configuration: SchemaConfiguration) |
+| [UniqueitemsFalseValidation1BoxedMap](#uniqueitemsfalsevalidation1boxedmap) | validateAndBox(Map&lt;*, *&gt;, configuration: SchemaConfiguration) |
 | [UniqueitemsFalseValidation1BoxedList](#uniqueitemsfalsevalidation1boxedlist) | validateAndBox(List<*>, configuration: SchemaConfiguration) |
 | [UniqueitemsFalseValidation1Boxed](#uniqueitemsfalsevalidation1boxed) | validateAndBox(Any?, configuration: SchemaConfiguration) |
 | Any? | validate(arg: Any?, configuration: SchemaConfiguration) |

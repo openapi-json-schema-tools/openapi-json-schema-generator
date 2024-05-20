@@ -183,19 +183,19 @@ A schema class that validates payloads
 | ----------------- | ---------------------- |
 | String | validate(arg: String, configuration: SchemaConfiguration) |
 | Nothing? | validate(arg: Nothing?, configuration: SchemaConfiguration) |
-| int | validate(arg: int, configuration: SchemaConfiguration) |
-| long | validate(arg: long, configuration: SchemaConfiguration) |
-| float | validate(arg: float, configuration: SchemaConfiguration) |
-| double | validate(arg: double, configuration: SchemaConfiguration) |
+| Int | validate(arg: Int, configuration: SchemaConfiguration) |
+| Long | validate(arg: Long, configuration: SchemaConfiguration) |
+| Float | validate(arg: Float, configuration: SchemaConfiguration) |
+| Double | validate(arg: Double, configuration: SchemaConfiguration) |
 | Number | validate(arg: Number, configuration: SchemaConfiguration) |
-| boolean | validate(arg: boolean, configuration: SchemaConfiguration) |
-| [DependentSchemasDependentSubschemaIncompatibleWithRootMap](#dependentschemasdependentsubschemaincompatiblewithrootmap) | validate(arg: [Map&lt;?, ?&gt;](#dependentschemasdependentsubschemaincompatiblewithrootmapbuilder), configuration: SchemaConfiguration) |
+| Boolean | validate(arg: Boolean, configuration: SchemaConfiguration) |
+| [DependentSchemasDependentSubschemaIncompatibleWithRootMap](#dependentschemasdependentsubschemaincompatiblewithrootmap) | validate(arg: [Map&lt;*, *&gt;](#dependentschemasdependentsubschemaincompatiblewithrootmapbuilder), configuration: SchemaConfiguration) |
 | FrozenList<Any?> | validate(arg: List<*>, configuration: SchemaConfiguration) |
 | [DependentSchemasDependentSubschemaIncompatibleWithRoot1BoxedString](#dependentschemasdependentsubschemaincompatiblewithroot1boxedstring) | validateAndBox(String, configuration: SchemaConfiguration) |
 | [DependentSchemasDependentSubschemaIncompatibleWithRoot1BoxedVoid](#dependentschemasdependentsubschemaincompatiblewithroot1boxedvoid) | validateAndBox(Nothing?, configuration: SchemaConfiguration) |
 | [DependentSchemasDependentSubschemaIncompatibleWithRoot1BoxedNumber](#dependentschemasdependentsubschemaincompatiblewithroot1boxednumber) | validateAndBox(Number, configuration: SchemaConfiguration) |
-| [DependentSchemasDependentSubschemaIncompatibleWithRoot1BoxedBoolean](#dependentschemasdependentsubschemaincompatiblewithroot1boxedboolean) | validateAndBox(boolean, configuration: SchemaConfiguration) |
-| [DependentSchemasDependentSubschemaIncompatibleWithRoot1BoxedMap](#dependentschemasdependentsubschemaincompatiblewithroot1boxedmap) | validateAndBox([Map&lt;?, ?&gt;](#dependentschemasdependentsubschemaincompatiblewithrootmapbuilder), configuration: SchemaConfiguration) |
+| [DependentSchemasDependentSubschemaIncompatibleWithRoot1BoxedBoolean](#dependentschemasdependentsubschemaincompatiblewithroot1boxedboolean) | validateAndBox(Boolean, configuration: SchemaConfiguration) |
+| [DependentSchemasDependentSubschemaIncompatibleWithRoot1BoxedMap](#dependentschemasdependentsubschemaincompatiblewithroot1boxedmap) | validateAndBox([Map&lt;*, *&gt;](#dependentschemasdependentsubschemaincompatiblewithrootmapbuilder), configuration: SchemaConfiguration) |
 | [DependentSchemasDependentSubschemaIncompatibleWithRoot1BoxedList](#dependentschemasdependentsubschemaincompatiblewithroot1boxedlist) | validateAndBox(List<*>, configuration: SchemaConfiguration) |
 | [DependentSchemasDependentSubschemaIncompatibleWithRoot1Boxed](#dependentschemasdependentsubschemaincompatiblewithroot1boxed) | validateAndBox(Any?, configuration: SchemaConfiguration) |
 | Any? | validate(arg: Any?, configuration: SchemaConfiguration) |
@@ -404,27 +404,23 @@ A schema class that validates payloads
 
 ### Code Sample
 ```
-import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
-import org.openapijsonschematools.client.configurations.SchemaConfiguration;
-import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.schemas.validation.MapUtils;
-import org.openapijsonschematools.client.schemas.validation.FrozenList;
-import org.openapijsonschematools.client.schemas.validation.FrozenMap;
-import org.openapijsonschematools.client.components.schemas.DependentSchemasDependentSubschemaIncompatibleWithRoot;
+import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags
+import org.openapijsonschematools.client.configurations.SchemaConfiguration
+import org.openapijsonschematools.client.exceptions.ValidationException
+import org.openapijsonschematools.client.schemas.validation.MapUtils
+import org.openapijsonschematools.client.schemas.validation.FrozenList
+import org.openapijsonschematools.client.schemas.validation.FrozenMap
+import org.openapijsonschematools.client.components.schemas.DependentSchemasDependentSubschemaIncompatibleWithRoot
 
-import java.util.Arrays;
-import java.util.List;
-import java.util.AbstractMap;
-
-static final SchemaConfiguration configuration = new SchemaConfiguration(new JsonSchemaKeywordFlags.Builder().build());
+val configuration = SchemaConfiguration(JsonSchemaKeywordFlags.Builder().build())
 
 // Map validation
-DependentSchemasDependentSubschemaIncompatibleWithRoot.FooMap validatedPayload =
+val validatedPayload: DependentSchemasDependentSubschemaIncompatibleWithRoot.FooMap =
     DependentSchemasDependentSubschemaIncompatibleWithRoot.Foo1.validate(
-    new DependentSchemasDependentSubschemaIncompatibleWithRoot.FooMapBuilder1()
+    DependentSchemasDependentSubschemaIncompatibleWithRoot.FooMapBuilder1()
     .build(),
     configuration
-);
+)
 ```
 
 ### Field Summary
@@ -437,8 +433,8 @@ DependentSchemasDependentSubschemaIncompatibleWithRoot.FooMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [FooMap](#foomap) | validate(arg: [Map&lt;?, ?&gt;](#foomapbuilder1), configuration: SchemaConfiguration) |
-| [Foo1BoxedMap](#foo1boxedmap) | validateAndBox([Map&lt;?, ?&gt;](#foomapbuilder1), configuration: SchemaConfiguration) |
+| [FooMap](#foomap) | validate(arg: [Map&lt;*, *&gt;](#foomapbuilder1), configuration: SchemaConfiguration) |
+| [Foo1BoxedMap](#foo1boxedmap) | validateAndBox([Map&lt;*, *&gt;](#foomapbuilder1), configuration: SchemaConfiguration) |
 | [Foo1Boxed](#foo1boxed) | validateAndBox(Any?, configuration: SchemaConfiguration) |
 | Any? | validate(arg: Any?, configuration: SchemaConfiguration) |
 

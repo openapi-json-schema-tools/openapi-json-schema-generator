@@ -156,19 +156,19 @@ A schema class that validates payloads
 | ----------------- | ---------------------- |
 | String | validate(arg: String, configuration: SchemaConfiguration) |
 | Nothing? | validate(arg: Nothing?, configuration: SchemaConfiguration) |
-| int | validate(arg: int, configuration: SchemaConfiguration) |
-| long | validate(arg: long, configuration: SchemaConfiguration) |
-| float | validate(arg: float, configuration: SchemaConfiguration) |
-| double | validate(arg: double, configuration: SchemaConfiguration) |
+| Int | validate(arg: Int, configuration: SchemaConfiguration) |
+| Long | validate(arg: Long, configuration: SchemaConfiguration) |
+| Float | validate(arg: Float, configuration: SchemaConfiguration) |
+| Double | validate(arg: Double, configuration: SchemaConfiguration) |
 | Number | validate(arg: Number, configuration: SchemaConfiguration) |
-| boolean | validate(arg: boolean, configuration: SchemaConfiguration) |
-| [InvalidStringValueForDefaultMap](#invalidstringvaluefordefaultmap) | validate(arg: [Map&lt;?, ?&gt;](#invalidstringvaluefordefaultmapbuilder), configuration: SchemaConfiguration) |
+| Boolean | validate(arg: Boolean, configuration: SchemaConfiguration) |
+| [InvalidStringValueForDefaultMap](#invalidstringvaluefordefaultmap) | validate(arg: [Map&lt;*, *&gt;](#invalidstringvaluefordefaultmapbuilder), configuration: SchemaConfiguration) |
 | FrozenList<Any?> | validate(arg: List<*>, configuration: SchemaConfiguration) |
 | [InvalidStringValueForDefault1BoxedString](#invalidstringvaluefordefault1boxedstring) | validateAndBox(String, configuration: SchemaConfiguration) |
 | [InvalidStringValueForDefault1BoxedVoid](#invalidstringvaluefordefault1boxedvoid) | validateAndBox(Nothing?, configuration: SchemaConfiguration) |
 | [InvalidStringValueForDefault1BoxedNumber](#invalidstringvaluefordefault1boxednumber) | validateAndBox(Number, configuration: SchemaConfiguration) |
-| [InvalidStringValueForDefault1BoxedBoolean](#invalidstringvaluefordefault1boxedboolean) | validateAndBox(boolean, configuration: SchemaConfiguration) |
-| [InvalidStringValueForDefault1BoxedMap](#invalidstringvaluefordefault1boxedmap) | validateAndBox([Map&lt;?, ?&gt;](#invalidstringvaluefordefaultmapbuilder), configuration: SchemaConfiguration) |
+| [InvalidStringValueForDefault1BoxedBoolean](#invalidstringvaluefordefault1boxedboolean) | validateAndBox(Boolean, configuration: SchemaConfiguration) |
+| [InvalidStringValueForDefault1BoxedMap](#invalidstringvaluefordefault1boxedmap) | validateAndBox([Map&lt;*, *&gt;](#invalidstringvaluefordefaultmapbuilder), configuration: SchemaConfiguration) |
 | [InvalidStringValueForDefault1BoxedList](#invalidstringvaluefordefault1boxedlist) | validateAndBox(List<*>, configuration: SchemaConfiguration) |
 | [InvalidStringValueForDefault1Boxed](#invalidstringvaluefordefault1boxed) | validateAndBox(Any?, configuration: SchemaConfiguration) |
 | Any? | validate(arg: Any?, configuration: SchemaConfiguration) |
@@ -244,32 +244,28 @@ A schema class that validates payloads
 
 ### Code Sample
 ```
-import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
-import org.openapijsonschematools.client.configurations.SchemaConfiguration;
-import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.schemas.validation.MapUtils;
-import org.openapijsonschematools.client.schemas.validation.FrozenList;
-import org.openapijsonschematools.client.schemas.validation.FrozenMap;
-import org.openapijsonschematools.client.components.schemas.InvalidStringValueForDefault;
+import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags
+import org.openapijsonschematools.client.configurations.SchemaConfiguration
+import org.openapijsonschematools.client.exceptions.ValidationException
+import org.openapijsonschematools.client.schemas.validation.MapUtils
+import org.openapijsonschematools.client.schemas.validation.FrozenList
+import org.openapijsonschematools.client.schemas.validation.FrozenMap
+import org.openapijsonschematools.client.components.schemas.InvalidStringValueForDefault
 
-import java.util.Arrays;
-import java.util.List;
-import java.util.AbstractMap;
-
-static final SchemaConfiguration configuration = new SchemaConfiguration(new JsonSchemaKeywordFlags.Builder().build());
+val configuration = SchemaConfiguration(JsonSchemaKeywordFlags.Builder().build())
 
 // String validation
-String validatedPayload = InvalidStringValueForDefault.Bar.validate(
+val validatedPayload: String = InvalidStringValueForDefault.Bar.validate(
     "a",
     configuration
-);
+)
 ```
 
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |
 | Set<Class<?>> | type = setOf(<br/>&nbsp;&nbsp;&nbsp;&nbsp;String::class.java<br/>)<br/> |
-| Integer | minLength = 4 |
+| Int | minLength = 4 |
 | Any? | defaultValue = "bad" |
 
 ### Method Summary

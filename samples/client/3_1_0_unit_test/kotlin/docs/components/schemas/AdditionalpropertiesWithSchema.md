@@ -69,29 +69,25 @@ A schema class that validates payloads
 
 ### Code Sample
 ```
-import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
-import org.openapijsonschematools.client.configurations.SchemaConfiguration;
-import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.schemas.validation.MapUtils;
-import org.openapijsonschematools.client.schemas.validation.FrozenList;
-import org.openapijsonschematools.client.schemas.validation.FrozenMap;
-import org.openapijsonschematools.client.components.schemas.AdditionalpropertiesWithSchema;
+import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags
+import org.openapijsonschematools.client.configurations.SchemaConfiguration
+import org.openapijsonschematools.client.exceptions.ValidationException
+import org.openapijsonschematools.client.schemas.validation.MapUtils
+import org.openapijsonschematools.client.schemas.validation.FrozenList
+import org.openapijsonschematools.client.schemas.validation.FrozenMap
+import org.openapijsonschematools.client.components.schemas.AdditionalpropertiesWithSchema
 
-import java.util.Arrays;
-import java.util.List;
-import java.util.AbstractMap;
-
-static final SchemaConfiguration configuration = new SchemaConfiguration(new JsonSchemaKeywordFlags.Builder().build());
+val configuration = SchemaConfiguration(JsonSchemaKeywordFlags.Builder().build())
 
 // Map validation
-AdditionalpropertiesWithSchema.AdditionalpropertiesWithSchemaMap validatedPayload =
+val validatedPayload: AdditionalpropertiesWithSchema.AdditionalpropertiesWithSchemaMap =
     AdditionalpropertiesWithSchema.AdditionalpropertiesWithSchema1.validate(
-    new AdditionalpropertiesWithSchema.AdditionalpropertiesWithSchemaMapBuilder()
+    AdditionalpropertiesWithSchema.AdditionalpropertiesWithSchemaMapBuilder()
         .additionalProperty("someAdditionalProperty", true)
 
     .build(),
     configuration
-);
+)
 ```
 
 ### Field Summary
@@ -104,8 +100,8 @@ AdditionalpropertiesWithSchema.AdditionalpropertiesWithSchemaMap validatedPayloa
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [AdditionalpropertiesWithSchemaMap](#additionalpropertieswithschemamap) | validate(arg: [Map&lt;?, ?&gt;](#additionalpropertieswithschemamapbuilder), configuration: SchemaConfiguration) |
-| [AdditionalpropertiesWithSchema1BoxedMap](#additionalpropertieswithschema1boxedmap) | validateAndBox([Map&lt;?, ?&gt;](#additionalpropertieswithschemamapbuilder), configuration: SchemaConfiguration) |
+| [AdditionalpropertiesWithSchemaMap](#additionalpropertieswithschemamap) | validate(arg: [Map&lt;*, *&gt;](#additionalpropertieswithschemamapbuilder), configuration: SchemaConfiguration) |
+| [AdditionalpropertiesWithSchema1BoxedMap](#additionalpropertieswithschema1boxedmap) | validateAndBox([Map&lt;*, *&gt;](#additionalpropertieswithschemamapbuilder), configuration: SchemaConfiguration) |
 | [AdditionalpropertiesWithSchema1Boxed](#additionalpropertieswithschema1boxed) | validateAndBox(Any?, configuration: SchemaConfiguration) |
 | Any? | validate(arg: Any?, configuration: SchemaConfiguration) |
 

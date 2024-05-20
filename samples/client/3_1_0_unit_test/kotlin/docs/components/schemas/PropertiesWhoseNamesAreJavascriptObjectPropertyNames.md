@@ -172,19 +172,19 @@ A schema class that validates payloads
 | ----------------- | ---------------------- |
 | String | validate(arg: String, configuration: SchemaConfiguration) |
 | Nothing? | validate(arg: Nothing?, configuration: SchemaConfiguration) |
-| int | validate(arg: int, configuration: SchemaConfiguration) |
-| long | validate(arg: long, configuration: SchemaConfiguration) |
-| float | validate(arg: float, configuration: SchemaConfiguration) |
-| double | validate(arg: double, configuration: SchemaConfiguration) |
+| Int | validate(arg: Int, configuration: SchemaConfiguration) |
+| Long | validate(arg: Long, configuration: SchemaConfiguration) |
+| Float | validate(arg: Float, configuration: SchemaConfiguration) |
+| Double | validate(arg: Double, configuration: SchemaConfiguration) |
 | Number | validate(arg: Number, configuration: SchemaConfiguration) |
-| boolean | validate(arg: boolean, configuration: SchemaConfiguration) |
-| [PropertiesWhoseNamesAreJavascriptObjectPropertyNamesMap](#propertieswhosenamesarejavascriptobjectpropertynamesmap) | validate(arg: [Map&lt;?, ?&gt;](#propertieswhosenamesarejavascriptobjectpropertynamesmapbuilder), configuration: SchemaConfiguration) |
+| Boolean | validate(arg: Boolean, configuration: SchemaConfiguration) |
+| [PropertiesWhoseNamesAreJavascriptObjectPropertyNamesMap](#propertieswhosenamesarejavascriptobjectpropertynamesmap) | validate(arg: [Map&lt;*, *&gt;](#propertieswhosenamesarejavascriptobjectpropertynamesmapbuilder), configuration: SchemaConfiguration) |
 | FrozenList<Any?> | validate(arg: List<*>, configuration: SchemaConfiguration) |
 | [PropertiesWhoseNamesAreJavascriptObjectPropertyNames1BoxedString](#propertieswhosenamesarejavascriptobjectpropertynames1boxedstring) | validateAndBox(String, configuration: SchemaConfiguration) |
 | [PropertiesWhoseNamesAreJavascriptObjectPropertyNames1BoxedVoid](#propertieswhosenamesarejavascriptobjectpropertynames1boxedvoid) | validateAndBox(Nothing?, configuration: SchemaConfiguration) |
 | [PropertiesWhoseNamesAreJavascriptObjectPropertyNames1BoxedNumber](#propertieswhosenamesarejavascriptobjectpropertynames1boxednumber) | validateAndBox(Number, configuration: SchemaConfiguration) |
-| [PropertiesWhoseNamesAreJavascriptObjectPropertyNames1BoxedBoolean](#propertieswhosenamesarejavascriptobjectpropertynames1boxedboolean) | validateAndBox(boolean, configuration: SchemaConfiguration) |
-| [PropertiesWhoseNamesAreJavascriptObjectPropertyNames1BoxedMap](#propertieswhosenamesarejavascriptobjectpropertynames1boxedmap) | validateAndBox([Map&lt;?, ?&gt;](#propertieswhosenamesarejavascriptobjectpropertynamesmapbuilder), configuration: SchemaConfiguration) |
+| [PropertiesWhoseNamesAreJavascriptObjectPropertyNames1BoxedBoolean](#propertieswhosenamesarejavascriptobjectpropertynames1boxedboolean) | validateAndBox(Boolean, configuration: SchemaConfiguration) |
+| [PropertiesWhoseNamesAreJavascriptObjectPropertyNames1BoxedMap](#propertieswhosenamesarejavascriptobjectpropertynames1boxedmap) | validateAndBox([Map&lt;*, *&gt;](#propertieswhosenamesarejavascriptobjectpropertynamesmapbuilder), configuration: SchemaConfiguration) |
 | [PropertiesWhoseNamesAreJavascriptObjectPropertyNames1BoxedList](#propertieswhosenamesarejavascriptobjectpropertynames1boxedlist) | validateAndBox(List<*>, configuration: SchemaConfiguration) |
 | [PropertiesWhoseNamesAreJavascriptObjectPropertyNames1Boxed](#propertieswhosenamesarejavascriptobjectpropertynames1boxed) | validateAndBox(Any?, configuration: SchemaConfiguration) |
 | Any? | validate(arg: Any?, configuration: SchemaConfiguration) |
@@ -409,19 +409,19 @@ A schema class that validates payloads
 | ----------------- | ---------------------- |
 | String | validate(arg: String, configuration: SchemaConfiguration) |
 | Nothing? | validate(arg: Nothing?, configuration: SchemaConfiguration) |
-| int | validate(arg: int, configuration: SchemaConfiguration) |
-| long | validate(arg: long, configuration: SchemaConfiguration) |
-| float | validate(arg: float, configuration: SchemaConfiguration) |
-| double | validate(arg: double, configuration: SchemaConfiguration) |
+| Int | validate(arg: Int, configuration: SchemaConfiguration) |
+| Long | validate(arg: Long, configuration: SchemaConfiguration) |
+| Float | validate(arg: Float, configuration: SchemaConfiguration) |
+| Double | validate(arg: Double, configuration: SchemaConfiguration) |
 | Number | validate(arg: Number, configuration: SchemaConfiguration) |
-| boolean | validate(arg: boolean, configuration: SchemaConfiguration) |
-| [ToStringMap](#tostringmap) | validate(arg: [Map&lt;?, ?&gt;](#tostringmapbuilder), configuration: SchemaConfiguration) |
+| Boolean | validate(arg: Boolean, configuration: SchemaConfiguration) |
+| [ToStringMap](#tostringmap) | validate(arg: [Map&lt;*, *&gt;](#tostringmapbuilder), configuration: SchemaConfiguration) |
 | FrozenList<Any?> | validate(arg: List<*>, configuration: SchemaConfiguration) |
 | [ToStringSchemaBoxedString](#tostringschemaboxedstring) | validateAndBox(String, configuration: SchemaConfiguration) |
 | [ToStringSchemaBoxedVoid](#tostringschemaboxedvoid) | validateAndBox(Nothing?, configuration: SchemaConfiguration) |
 | [ToStringSchemaBoxedNumber](#tostringschemaboxednumber) | validateAndBox(Number, configuration: SchemaConfiguration) |
-| [ToStringSchemaBoxedBoolean](#tostringschemaboxedboolean) | validateAndBox(boolean, configuration: SchemaConfiguration) |
-| [ToStringSchemaBoxedMap](#tostringschemaboxedmap) | validateAndBox([Map&lt;?, ?&gt;](#tostringmapbuilder), configuration: SchemaConfiguration) |
+| [ToStringSchemaBoxedBoolean](#tostringschemaboxedboolean) | validateAndBox(Boolean, configuration: SchemaConfiguration) |
+| [ToStringSchemaBoxedMap](#tostringschemaboxedmap) | validateAndBox([Map&lt;*, *&gt;](#tostringmapbuilder), configuration: SchemaConfiguration) |
 | [ToStringSchemaBoxedList](#tostringschemaboxedlist) | validateAndBox(List<*>, configuration: SchemaConfiguration) |
 | [ToStringSchemaBoxed](#tostringschemaboxed) | validateAndBox(Any?, configuration: SchemaConfiguration) |
 | Any? | validate(arg: Any?, configuration: SchemaConfiguration) |

@@ -171,19 +171,19 @@ A schema class that validates payloads
 | ----------------- | ---------------------- |
 | String | validate(arg: String, configuration: SchemaConfiguration) |
 | Nothing? | validate(arg: Nothing?, configuration: SchemaConfiguration) |
-| int | validate(arg: int, configuration: SchemaConfiguration) |
-| long | validate(arg: long, configuration: SchemaConfiguration) |
-| float | validate(arg: float, configuration: SchemaConfiguration) |
-| double | validate(arg: double, configuration: SchemaConfiguration) |
+| Int | validate(arg: Int, configuration: SchemaConfiguration) |
+| Long | validate(arg: Long, configuration: SchemaConfiguration) |
+| Float | validate(arg: Float, configuration: SchemaConfiguration) |
+| Double | validate(arg: Double, configuration: SchemaConfiguration) |
 | Number | validate(arg: Number, configuration: SchemaConfiguration) |
-| boolean | validate(arg: boolean, configuration: SchemaConfiguration) |
-| [PropertiesWithEscapedCharactersMap](#propertieswithescapedcharactersmap) | validate(arg: [Map&lt;?, ?&gt;](#propertieswithescapedcharactersmapbuilder), configuration: SchemaConfiguration) |
+| Boolean | validate(arg: Boolean, configuration: SchemaConfiguration) |
+| [PropertiesWithEscapedCharactersMap](#propertieswithescapedcharactersmap) | validate(arg: [Map&lt;*, *&gt;](#propertieswithescapedcharactersmapbuilder), configuration: SchemaConfiguration) |
 | FrozenList<Any?> | validate(arg: List<*>, configuration: SchemaConfiguration) |
 | [PropertiesWithEscapedCharacters1BoxedString](#propertieswithescapedcharacters1boxedstring) | validateAndBox(String, configuration: SchemaConfiguration) |
 | [PropertiesWithEscapedCharacters1BoxedVoid](#propertieswithescapedcharacters1boxedvoid) | validateAndBox(Nothing?, configuration: SchemaConfiguration) |
 | [PropertiesWithEscapedCharacters1BoxedNumber](#propertieswithescapedcharacters1boxednumber) | validateAndBox(Number, configuration: SchemaConfiguration) |
-| [PropertiesWithEscapedCharacters1BoxedBoolean](#propertieswithescapedcharacters1boxedboolean) | validateAndBox(boolean, configuration: SchemaConfiguration) |
-| [PropertiesWithEscapedCharacters1BoxedMap](#propertieswithescapedcharacters1boxedmap) | validateAndBox([Map&lt;?, ?&gt;](#propertieswithescapedcharactersmapbuilder), configuration: SchemaConfiguration) |
+| [PropertiesWithEscapedCharacters1BoxedBoolean](#propertieswithescapedcharacters1boxedboolean) | validateAndBox(Boolean, configuration: SchemaConfiguration) |
+| [PropertiesWithEscapedCharacters1BoxedMap](#propertieswithescapedcharacters1boxedmap) | validateAndBox([Map&lt;*, *&gt;](#propertieswithescapedcharactersmapbuilder), configuration: SchemaConfiguration) |
 | [PropertiesWithEscapedCharacters1BoxedList](#propertieswithescapedcharacters1boxedlist) | validateAndBox(List<*>, configuration: SchemaConfiguration) |
 | [PropertiesWithEscapedCharacters1Boxed](#propertieswithescapedcharacters1boxed) | validateAndBox(Any?, configuration: SchemaConfiguration) |
 | Any? | validate(arg: Any?, configuration: SchemaConfiguration) |

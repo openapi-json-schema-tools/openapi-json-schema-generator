@@ -159,19 +159,19 @@ A schema class that validates payloads
 | ----------------- | ---------------------- |
 | String | validate(arg: String, configuration: SchemaConfiguration) |
 | Nothing? | validate(arg: Nothing?, configuration: SchemaConfiguration) |
-| int | validate(arg: int, configuration: SchemaConfiguration) |
-| long | validate(arg: long, configuration: SchemaConfiguration) |
-| float | validate(arg: float, configuration: SchemaConfiguration) |
-| double | validate(arg: double, configuration: SchemaConfiguration) |
+| Int | validate(arg: Int, configuration: SchemaConfiguration) |
+| Long | validate(arg: Long, configuration: SchemaConfiguration) |
+| Float | validate(arg: Float, configuration: SchemaConfiguration) |
+| Double | validate(arg: Double, configuration: SchemaConfiguration) |
 | Number | validate(arg: Number, configuration: SchemaConfiguration) |
-| boolean | validate(arg: boolean, configuration: SchemaConfiguration) |
-| FrozenMap<Any?> | validate(arg: Map&lt;?, ?&gt;, configuration: SchemaConfiguration) |
+| Boolean | validate(arg: Boolean, configuration: SchemaConfiguration) |
+| FrozenMap<Any?> | validate(arg: Map&lt;*, *&gt;, configuration: SchemaConfiguration) |
 | [ASchemaGivenForPrefixitemsList](#aschemagivenforprefixitemslist) | validate(arg: [List<*>](#aschemagivenforprefixitemslistbuilder), configuration: SchemaConfiguration) |
 | [ASchemaGivenForPrefixitems1BoxedString](#aschemagivenforprefixitems1boxedstring) | validateAndBox(String, configuration: SchemaConfiguration) |
 | [ASchemaGivenForPrefixitems1BoxedVoid](#aschemagivenforprefixitems1boxedvoid) | validateAndBox(Nothing?, configuration: SchemaConfiguration) |
 | [ASchemaGivenForPrefixitems1BoxedNumber](#aschemagivenforprefixitems1boxednumber) | validateAndBox(Number, configuration: SchemaConfiguration) |
-| [ASchemaGivenForPrefixitems1BoxedBoolean](#aschemagivenforprefixitems1boxedboolean) | validateAndBox(boolean, configuration: SchemaConfiguration) |
-| [ASchemaGivenForPrefixitems1BoxedMap](#aschemagivenforprefixitems1boxedmap) | validateAndBox(Map&lt;?, ?&gt;, configuration: SchemaConfiguration) |
+| [ASchemaGivenForPrefixitems1BoxedBoolean](#aschemagivenforprefixitems1boxedboolean) | validateAndBox(Boolean, configuration: SchemaConfiguration) |
+| [ASchemaGivenForPrefixitems1BoxedMap](#aschemagivenforprefixitems1boxedmap) | validateAndBox(Map&lt;*, *&gt;, configuration: SchemaConfiguration) |
 | [ASchemaGivenForPrefixitems1BoxedList](#aschemagivenforprefixitems1boxedlist) | validateAndBox([List<*>](#aschemagivenforprefixitemslistbuilder), configuration: SchemaConfiguration) |
 | [ASchemaGivenForPrefixitems1Boxed](#aschemagivenforprefixitems1boxed) | validateAndBox(Any?, configuration: SchemaConfiguration) |
 | Any? | validate(arg: Any?, configuration: SchemaConfiguration) |

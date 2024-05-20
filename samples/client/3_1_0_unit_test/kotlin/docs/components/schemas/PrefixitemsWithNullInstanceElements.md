@@ -156,19 +156,19 @@ A schema class that validates payloads
 | ----------------- | ---------------------- |
 | String | validate(arg: String, configuration: SchemaConfiguration) |
 | Nothing? | validate(arg: Nothing?, configuration: SchemaConfiguration) |
-| int | validate(arg: int, configuration: SchemaConfiguration) |
-| long | validate(arg: long, configuration: SchemaConfiguration) |
-| float | validate(arg: float, configuration: SchemaConfiguration) |
-| double | validate(arg: double, configuration: SchemaConfiguration) |
+| Int | validate(arg: Int, configuration: SchemaConfiguration) |
+| Long | validate(arg: Long, configuration: SchemaConfiguration) |
+| Float | validate(arg: Float, configuration: SchemaConfiguration) |
+| Double | validate(arg: Double, configuration: SchemaConfiguration) |
 | Number | validate(arg: Number, configuration: SchemaConfiguration) |
-| boolean | validate(arg: boolean, configuration: SchemaConfiguration) |
-| FrozenMap<Any?> | validate(arg: Map&lt;?, ?&gt;, configuration: SchemaConfiguration) |
+| Boolean | validate(arg: Boolean, configuration: SchemaConfiguration) |
+| FrozenMap<Any?> | validate(arg: Map&lt;*, *&gt;, configuration: SchemaConfiguration) |
 | [PrefixitemsWithNullInstanceElementsList](#prefixitemswithnullinstanceelementslist) | validate(arg: [List<*>](#prefixitemswithnullinstanceelementslistbuilder), configuration: SchemaConfiguration) |
 | [PrefixitemsWithNullInstanceElements1BoxedString](#prefixitemswithnullinstanceelements1boxedstring) | validateAndBox(String, configuration: SchemaConfiguration) |
 | [PrefixitemsWithNullInstanceElements1BoxedVoid](#prefixitemswithnullinstanceelements1boxedvoid) | validateAndBox(Nothing?, configuration: SchemaConfiguration) |
 | [PrefixitemsWithNullInstanceElements1BoxedNumber](#prefixitemswithnullinstanceelements1boxednumber) | validateAndBox(Number, configuration: SchemaConfiguration) |
-| [PrefixitemsWithNullInstanceElements1BoxedBoolean](#prefixitemswithnullinstanceelements1boxedboolean) | validateAndBox(boolean, configuration: SchemaConfiguration) |
-| [PrefixitemsWithNullInstanceElements1BoxedMap](#prefixitemswithnullinstanceelements1boxedmap) | validateAndBox(Map&lt;?, ?&gt;, configuration: SchemaConfiguration) |
+| [PrefixitemsWithNullInstanceElements1BoxedBoolean](#prefixitemswithnullinstanceelements1boxedboolean) | validateAndBox(Boolean, configuration: SchemaConfiguration) |
+| [PrefixitemsWithNullInstanceElements1BoxedMap](#prefixitemswithnullinstanceelements1boxedmap) | validateAndBox(Map&lt;*, *&gt;, configuration: SchemaConfiguration) |
 | [PrefixitemsWithNullInstanceElements1BoxedList](#prefixitemswithnullinstanceelements1boxedlist) | validateAndBox([List<*>](#prefixitemswithnullinstanceelementslistbuilder), configuration: SchemaConfiguration) |
 | [PrefixitemsWithNullInstanceElements1Boxed](#prefixitemswithnullinstanceelements1boxed) | validateAndBox(Any?, configuration: SchemaConfiguration) |
 | Any? | validate(arg: Any?, configuration: SchemaConfiguration) |

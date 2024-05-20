@@ -59,31 +59,27 @@ A schema class that validates payloads
 
 ### Code Sample
 ```
-import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
-import org.openapijsonschematools.client.configurations.SchemaConfiguration;
-import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.schemas.validation.MapUtils;
-import org.openapijsonschematools.client.schemas.validation.FrozenList;
-import org.openapijsonschematools.client.schemas.validation.FrozenMap;
-import org.openapijsonschematools.client.components.schemas.EnumsInProperties;
+import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags
+import org.openapijsonschematools.client.configurations.SchemaConfiguration
+import org.openapijsonschematools.client.exceptions.ValidationException
+import org.openapijsonschematools.client.schemas.validation.MapUtils
+import org.openapijsonschematools.client.schemas.validation.FrozenList
+import org.openapijsonschematools.client.schemas.validation.FrozenMap
+import org.openapijsonschematools.client.components.schemas.EnumsInProperties
 
-import java.util.Arrays;
-import java.util.List;
-import java.util.AbstractMap;
-
-static final SchemaConfiguration configuration = new SchemaConfiguration(new JsonSchemaKeywordFlags.Builder().build());
+val configuration = SchemaConfiguration(JsonSchemaKeywordFlags.Builder().build())
 
 // Map validation
-EnumsInProperties.EnumsInPropertiesMap validatedPayload =
+val validatedPayload: EnumsInProperties.EnumsInPropertiesMap =
     EnumsInProperties.EnumsInProperties1.validate(
-    new EnumsInProperties.EnumsInPropertiesMapBuilder()
+    EnumsInProperties.EnumsInPropertiesMapBuilder()
         .bar("bar")
 
         .foo("foo")
 
     .build(),
     configuration
-);
+)
 ```
 
 ### Field Summary
@@ -96,8 +92,8 @@ EnumsInProperties.EnumsInPropertiesMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [EnumsInPropertiesMap](#enumsinpropertiesmap) | validate(arg: [Map&lt;?, ?&gt;](#enumsinpropertiesmapbuilder), configuration: SchemaConfiguration) |
-| [EnumsInProperties1BoxedMap](#enumsinproperties1boxedmap) | validateAndBox([Map&lt;?, ?&gt;](#enumsinpropertiesmapbuilder), configuration: SchemaConfiguration) |
+| [EnumsInPropertiesMap](#enumsinpropertiesmap) | validate(arg: [Map&lt;*, *&gt;](#enumsinpropertiesmapbuilder), configuration: SchemaConfiguration) |
+| [EnumsInProperties1BoxedMap](#enumsinproperties1boxedmap) | validateAndBox([Map&lt;*, *&gt;](#enumsinpropertiesmapbuilder), configuration: SchemaConfiguration) |
 | [EnumsInProperties1Boxed](#enumsinproperties1boxed) | validateAndBox(Any?, configuration: SchemaConfiguration) |
 | Any? | validate(arg: Any?, configuration: SchemaConfiguration) |
 
@@ -191,25 +187,21 @@ A schema class that validates payloads
 
 ### Code Sample
 ```
-import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
-import org.openapijsonschematools.client.configurations.SchemaConfiguration;
-import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.schemas.validation.MapUtils;
-import org.openapijsonschematools.client.schemas.validation.FrozenList;
-import org.openapijsonschematools.client.schemas.validation.FrozenMap;
-import org.openapijsonschematools.client.components.schemas.EnumsInProperties;
+import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags
+import org.openapijsonschematools.client.configurations.SchemaConfiguration
+import org.openapijsonschematools.client.exceptions.ValidationException
+import org.openapijsonschematools.client.schemas.validation.MapUtils
+import org.openapijsonschematools.client.schemas.validation.FrozenList
+import org.openapijsonschematools.client.schemas.validation.FrozenMap
+import org.openapijsonschematools.client.components.schemas.EnumsInProperties
 
-import java.util.Arrays;
-import java.util.List;
-import java.util.AbstractMap;
-
-static final SchemaConfiguration configuration = new SchemaConfiguration(new JsonSchemaKeywordFlags.Builder().build());
+val configuration = SchemaConfiguration(JsonSchemaKeywordFlags.Builder().build())
 
 // String validation
-String validatedPayload = EnumsInProperties.Bar.validate(
+val validatedPayload: String = EnumsInProperties.Bar.validate(
     "bar",
     configuration
-);
+)
 ```
 
 ### Field Summary
@@ -270,25 +262,21 @@ A schema class that validates payloads
 
 ### Code Sample
 ```
-import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
-import org.openapijsonschematools.client.configurations.SchemaConfiguration;
-import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.schemas.validation.MapUtils;
-import org.openapijsonschematools.client.schemas.validation.FrozenList;
-import org.openapijsonschematools.client.schemas.validation.FrozenMap;
-import org.openapijsonschematools.client.components.schemas.EnumsInProperties;
+import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags
+import org.openapijsonschematools.client.configurations.SchemaConfiguration
+import org.openapijsonschematools.client.exceptions.ValidationException
+import org.openapijsonschematools.client.schemas.validation.MapUtils
+import org.openapijsonschematools.client.schemas.validation.FrozenList
+import org.openapijsonschematools.client.schemas.validation.FrozenMap
+import org.openapijsonschematools.client.components.schemas.EnumsInProperties
 
-import java.util.Arrays;
-import java.util.List;
-import java.util.AbstractMap;
-
-static final SchemaConfiguration configuration = new SchemaConfiguration(new JsonSchemaKeywordFlags.Builder().build());
+val configuration = SchemaConfiguration(JsonSchemaKeywordFlags.Builder().build())
 
 // String validation
-String validatedPayload = EnumsInProperties.Foo.validate(
+val validatedPayload: String = EnumsInProperties.Foo.validate(
     "foo",
     configuration
-);
+)
 ```
 
 ### Field Summary

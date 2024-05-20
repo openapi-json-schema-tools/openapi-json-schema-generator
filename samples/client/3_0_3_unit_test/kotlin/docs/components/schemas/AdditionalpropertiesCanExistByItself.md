@@ -53,29 +53,25 @@ A schema class that validates payloads
 
 ### Code Sample
 ```
-import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
-import org.openapijsonschematools.client.configurations.SchemaConfiguration;
-import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.schemas.validation.MapUtils;
-import org.openapijsonschematools.client.schemas.validation.FrozenList;
-import org.openapijsonschematools.client.schemas.validation.FrozenMap;
-import org.openapijsonschematools.client.components.schemas.AdditionalpropertiesCanExistByItself;
+import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags
+import org.openapijsonschematools.client.configurations.SchemaConfiguration
+import org.openapijsonschematools.client.exceptions.ValidationException
+import org.openapijsonschematools.client.schemas.validation.MapUtils
+import org.openapijsonschematools.client.schemas.validation.FrozenList
+import org.openapijsonschematools.client.schemas.validation.FrozenMap
+import org.openapijsonschematools.client.components.schemas.AdditionalpropertiesCanExistByItself
 
-import java.util.Arrays;
-import java.util.List;
-import java.util.AbstractMap;
-
-static final SchemaConfiguration configuration = new SchemaConfiguration(new JsonSchemaKeywordFlags.Builder().build());
+val configuration = SchemaConfiguration(JsonSchemaKeywordFlags.Builder().build())
 
 // Map validation
-AdditionalpropertiesCanExistByItself.AdditionalpropertiesCanExistByItselfMap validatedPayload =
+val validatedPayload: AdditionalpropertiesCanExistByItself.AdditionalpropertiesCanExistByItselfMap =
     AdditionalpropertiesCanExistByItself.AdditionalpropertiesCanExistByItself1.validate(
-    new AdditionalpropertiesCanExistByItself.AdditionalpropertiesCanExistByItselfMapBuilder()
+    AdditionalpropertiesCanExistByItself.AdditionalpropertiesCanExistByItselfMapBuilder()
         .additionalProperty("someAdditionalProperty", true)
 
     .build(),
     configuration
-);
+)
 ```
 
 ### Field Summary
@@ -87,8 +83,8 @@ AdditionalpropertiesCanExistByItself.AdditionalpropertiesCanExistByItselfMap val
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [AdditionalpropertiesCanExistByItselfMap](#additionalpropertiescanexistbyitselfmap) | validate(arg: [Map&lt;?, ?&gt;](#additionalpropertiescanexistbyitselfmapbuilder), configuration: SchemaConfiguration) |
-| [AdditionalpropertiesCanExistByItself1BoxedMap](#additionalpropertiescanexistbyitself1boxedmap) | validateAndBox([Map&lt;?, ?&gt;](#additionalpropertiescanexistbyitselfmapbuilder), configuration: SchemaConfiguration) |
+| [AdditionalpropertiesCanExistByItselfMap](#additionalpropertiescanexistbyitselfmap) | validate(arg: [Map&lt;*, *&gt;](#additionalpropertiescanexistbyitselfmapbuilder), configuration: SchemaConfiguration) |
+| [AdditionalpropertiesCanExistByItself1BoxedMap](#additionalpropertiescanexistbyitself1boxedmap) | validateAndBox([Map&lt;*, *&gt;](#additionalpropertiescanexistbyitselfmapbuilder), configuration: SchemaConfiguration) |
 | [AdditionalpropertiesCanExistByItself1Boxed](#additionalpropertiescanexistbyitself1boxed) | validateAndBox(Any?, configuration: SchemaConfiguration) |
 | Any? | validate(arg: Any?, configuration: SchemaConfiguration) |
 

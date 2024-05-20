@@ -142,26 +142,26 @@ A schema class that validates payloads
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |
-| Integer | maxProperties = 2 |
+| Int | maxProperties = 2 |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | String | validate(arg: String, configuration: SchemaConfiguration) |
 | Nothing? | validate(arg: Nothing?, configuration: SchemaConfiguration) |
-| int | validate(arg: int, configuration: SchemaConfiguration) |
-| long | validate(arg: long, configuration: SchemaConfiguration) |
-| float | validate(arg: float, configuration: SchemaConfiguration) |
-| double | validate(arg: double, configuration: SchemaConfiguration) |
+| Int | validate(arg: Int, configuration: SchemaConfiguration) |
+| Long | validate(arg: Long, configuration: SchemaConfiguration) |
+| Float | validate(arg: Float, configuration: SchemaConfiguration) |
+| Double | validate(arg: Double, configuration: SchemaConfiguration) |
 | Number | validate(arg: Number, configuration: SchemaConfiguration) |
-| boolean | validate(arg: boolean, configuration: SchemaConfiguration) |
-| FrozenMap<Any?> | validate(arg: Map&lt;?, ?&gt;, configuration: SchemaConfiguration) |
+| Boolean | validate(arg: Boolean, configuration: SchemaConfiguration) |
+| FrozenMap<Any?> | validate(arg: Map&lt;*, *&gt;, configuration: SchemaConfiguration) |
 | FrozenList<Any?> | validate(arg: List<*>, configuration: SchemaConfiguration) |
 | [MaxpropertiesValidation1BoxedString](#maxpropertiesvalidation1boxedstring) | validateAndBox(String, configuration: SchemaConfiguration) |
 | [MaxpropertiesValidation1BoxedVoid](#maxpropertiesvalidation1boxedvoid) | validateAndBox(Nothing?, configuration: SchemaConfiguration) |
 | [MaxpropertiesValidation1BoxedNumber](#maxpropertiesvalidation1boxednumber) | validateAndBox(Number, configuration: SchemaConfiguration) |
-| [MaxpropertiesValidation1BoxedBoolean](#maxpropertiesvalidation1boxedboolean) | validateAndBox(boolean, configuration: SchemaConfiguration) |
-| [MaxpropertiesValidation1BoxedMap](#maxpropertiesvalidation1boxedmap) | validateAndBox(Map&lt;?, ?&gt;, configuration: SchemaConfiguration) |
+| [MaxpropertiesValidation1BoxedBoolean](#maxpropertiesvalidation1boxedboolean) | validateAndBox(Boolean, configuration: SchemaConfiguration) |
+| [MaxpropertiesValidation1BoxedMap](#maxpropertiesvalidation1boxedmap) | validateAndBox(Map&lt;*, *&gt;, configuration: SchemaConfiguration) |
 | [MaxpropertiesValidation1BoxedList](#maxpropertiesvalidation1boxedlist) | validateAndBox(List<*>, configuration: SchemaConfiguration) |
 | [MaxpropertiesValidation1Boxed](#maxpropertiesvalidation1boxed) | validateAndBox(Any?, configuration: SchemaConfiguration) |
 | Any? | validate(arg: Any?, configuration: SchemaConfiguration) |

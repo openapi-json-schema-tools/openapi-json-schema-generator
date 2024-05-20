@@ -153,19 +153,19 @@ A schema class that validates payloads
 | ----------------- | ---------------------- |
 | String | validate(arg: String, configuration: SchemaConfiguration) |
 | Nothing? | validate(arg: Nothing?, configuration: SchemaConfiguration) |
-| int | validate(arg: int, configuration: SchemaConfiguration) |
-| long | validate(arg: long, configuration: SchemaConfiguration) |
-| float | validate(arg: float, configuration: SchemaConfiguration) |
-| double | validate(arg: double, configuration: SchemaConfiguration) |
+| Int | validate(arg: Int, configuration: SchemaConfiguration) |
+| Long | validate(arg: Long, configuration: SchemaConfiguration) |
+| Float | validate(arg: Float, configuration: SchemaConfiguration) |
+| Double | validate(arg: Double, configuration: SchemaConfiguration) |
 | Number | validate(arg: Number, configuration: SchemaConfiguration) |
-| boolean | validate(arg: boolean, configuration: SchemaConfiguration) |
-| [RefInPropertyMap](#refinpropertymap) | validate(arg: [Map&lt;?, ?&gt;](#refinpropertymapbuilder), configuration: SchemaConfiguration) |
+| Boolean | validate(arg: Boolean, configuration: SchemaConfiguration) |
+| [RefInPropertyMap](#refinpropertymap) | validate(arg: [Map&lt;*, *&gt;](#refinpropertymapbuilder), configuration: SchemaConfiguration) |
 | FrozenList<Any?> | validate(arg: List<*>, configuration: SchemaConfiguration) |
 | [RefInProperty1BoxedString](#refinproperty1boxedstring) | validateAndBox(String, configuration: SchemaConfiguration) |
 | [RefInProperty1BoxedVoid](#refinproperty1boxedvoid) | validateAndBox(Nothing?, configuration: SchemaConfiguration) |
 | [RefInProperty1BoxedNumber](#refinproperty1boxednumber) | validateAndBox(Number, configuration: SchemaConfiguration) |
-| [RefInProperty1BoxedBoolean](#refinproperty1boxedboolean) | validateAndBox(boolean, configuration: SchemaConfiguration) |
-| [RefInProperty1BoxedMap](#refinproperty1boxedmap) | validateAndBox([Map&lt;?, ?&gt;](#refinpropertymapbuilder), configuration: SchemaConfiguration) |
+| [RefInProperty1BoxedBoolean](#refinproperty1boxedboolean) | validateAndBox(Boolean, configuration: SchemaConfiguration) |
+| [RefInProperty1BoxedMap](#refinproperty1boxedmap) | validateAndBox([Map&lt;*, *&gt;](#refinpropertymapbuilder), configuration: SchemaConfiguration) |
 | [RefInProperty1BoxedList](#refinproperty1boxedlist) | validateAndBox(List<*>, configuration: SchemaConfiguration) |
 | [RefInProperty1Boxed](#refinproperty1boxed) | validateAndBox(Any?, configuration: SchemaConfiguration) |
 | Any? | validate(arg: Any?, configuration: SchemaConfiguration) |

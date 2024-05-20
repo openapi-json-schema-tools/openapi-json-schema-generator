@@ -153,19 +153,19 @@ A schema class that validates payloads
 | ----------------- | ---------------------- |
 | String | validate(arg: String, configuration: SchemaConfiguration) |
 | Nothing? | validate(arg: Nothing?, configuration: SchemaConfiguration) |
-| int | validate(arg: int, configuration: SchemaConfiguration) |
-| long | validate(arg: long, configuration: SchemaConfiguration) |
-| float | validate(arg: float, configuration: SchemaConfiguration) |
-| double | validate(arg: double, configuration: SchemaConfiguration) |
+| Int | validate(arg: Int, configuration: SchemaConfiguration) |
+| Long | validate(arg: Long, configuration: SchemaConfiguration) |
+| Float | validate(arg: Float, configuration: SchemaConfiguration) |
+| Double | validate(arg: Double, configuration: SchemaConfiguration) |
 | Number | validate(arg: Number, configuration: SchemaConfiguration) |
-| boolean | validate(arg: boolean, configuration: SchemaConfiguration) |
-| [RequiredWithEscapedCharactersMap](#requiredwithescapedcharactersmap) | validate(arg: [Map&lt;?, ?&gt;](#requiredwithescapedcharactersmapbuilder), configuration: SchemaConfiguration) |
+| Boolean | validate(arg: Boolean, configuration: SchemaConfiguration) |
+| [RequiredWithEscapedCharactersMap](#requiredwithescapedcharactersmap) | validate(arg: [Map&lt;*, *&gt;](#requiredwithescapedcharactersmapbuilder), configuration: SchemaConfiguration) |
 | FrozenList<Any?> | validate(arg: List<*>, configuration: SchemaConfiguration) |
 | [RequiredWithEscapedCharacters1BoxedString](#requiredwithescapedcharacters1boxedstring) | validateAndBox(String, configuration: SchemaConfiguration) |
 | [RequiredWithEscapedCharacters1BoxedVoid](#requiredwithescapedcharacters1boxedvoid) | validateAndBox(Nothing?, configuration: SchemaConfiguration) |
 | [RequiredWithEscapedCharacters1BoxedNumber](#requiredwithescapedcharacters1boxednumber) | validateAndBox(Number, configuration: SchemaConfiguration) |
-| [RequiredWithEscapedCharacters1BoxedBoolean](#requiredwithescapedcharacters1boxedboolean) | validateAndBox(boolean, configuration: SchemaConfiguration) |
-| [RequiredWithEscapedCharacters1BoxedMap](#requiredwithescapedcharacters1boxedmap) | validateAndBox([Map&lt;?, ?&gt;](#requiredwithescapedcharactersmapbuilder), configuration: SchemaConfiguration) |
+| [RequiredWithEscapedCharacters1BoxedBoolean](#requiredwithescapedcharacters1boxedboolean) | validateAndBox(Boolean, configuration: SchemaConfiguration) |
+| [RequiredWithEscapedCharacters1BoxedMap](#requiredwithescapedcharacters1boxedmap) | validateAndBox([Map&lt;*, *&gt;](#requiredwithescapedcharactersmapbuilder), configuration: SchemaConfiguration) |
 | [RequiredWithEscapedCharacters1BoxedList](#requiredwithescapedcharacters1boxedlist) | validateAndBox(List<*>, configuration: SchemaConfiguration) |
 | [RequiredWithEscapedCharacters1Boxed](#requiredwithescapedcharacters1boxed) | validateAndBox(Any?, configuration: SchemaConfiguration) |
 | Any? | validate(arg: Any?, configuration: SchemaConfiguration) |

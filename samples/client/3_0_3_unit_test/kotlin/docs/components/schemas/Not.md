@@ -152,19 +152,19 @@ A schema class that validates payloads
 | ----------------- | ---------------------- |
 | String | validate(arg: String, configuration: SchemaConfiguration) |
 | Nothing? | validate(arg: Nothing?, configuration: SchemaConfiguration) |
-| int | validate(arg: int, configuration: SchemaConfiguration) |
-| long | validate(arg: long, configuration: SchemaConfiguration) |
-| float | validate(arg: float, configuration: SchemaConfiguration) |
-| double | validate(arg: double, configuration: SchemaConfiguration) |
+| Int | validate(arg: Int, configuration: SchemaConfiguration) |
+| Long | validate(arg: Long, configuration: SchemaConfiguration) |
+| Float | validate(arg: Float, configuration: SchemaConfiguration) |
+| Double | validate(arg: Double, configuration: SchemaConfiguration) |
 | Number | validate(arg: Number, configuration: SchemaConfiguration) |
-| boolean | validate(arg: boolean, configuration: SchemaConfiguration) |
-| FrozenMap<Any?> | validate(arg: Map&lt;?, ?&gt;, configuration: SchemaConfiguration) |
+| Boolean | validate(arg: Boolean, configuration: SchemaConfiguration) |
+| FrozenMap<Any?> | validate(arg: Map&lt;*, *&gt;, configuration: SchemaConfiguration) |
 | FrozenList<Any?> | validate(arg: List<*>, configuration: SchemaConfiguration) |
 | [Not1BoxedString](#not1boxedstring) | validateAndBox(String, configuration: SchemaConfiguration) |
 | [Not1BoxedVoid](#not1boxedvoid) | validateAndBox(Nothing?, configuration: SchemaConfiguration) |
 | [Not1BoxedNumber](#not1boxednumber) | validateAndBox(Number, configuration: SchemaConfiguration) |
-| [Not1BoxedBoolean](#not1boxedboolean) | validateAndBox(boolean, configuration: SchemaConfiguration) |
-| [Not1BoxedMap](#not1boxedmap) | validateAndBox(Map&lt;?, ?&gt;, configuration: SchemaConfiguration) |
+| [Not1BoxedBoolean](#not1boxedboolean) | validateAndBox(Boolean, configuration: SchemaConfiguration) |
+| [Not1BoxedMap](#not1boxedmap) | validateAndBox(Map&lt;*, *&gt;, configuration: SchemaConfiguration) |
 | [Not1BoxedList](#not1boxedlist) | validateAndBox(List<*>, configuration: SchemaConfiguration) |
 | [Not1Boxed](#not1boxed) | validateAndBox(Any?, configuration: SchemaConfiguration) |
 | Any? | validate(arg: Any?, configuration: SchemaConfiguration) |

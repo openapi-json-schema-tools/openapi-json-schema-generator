@@ -149,19 +149,19 @@ A schema class that validates payloads
 | ----------------- | ---------------------- |
 | String | validate(arg: String, configuration: SchemaConfiguration) |
 | Nothing? | validate(arg: Nothing?, configuration: SchemaConfiguration) |
-| int | validate(arg: int, configuration: SchemaConfiguration) |
-| long | validate(arg: long, configuration: SchemaConfiguration) |
-| float | validate(arg: float, configuration: SchemaConfiguration) |
-| double | validate(arg: double, configuration: SchemaConfiguration) |
+| Int | validate(arg: Int, configuration: SchemaConfiguration) |
+| Long | validate(arg: Long, configuration: SchemaConfiguration) |
+| Float | validate(arg: Float, configuration: SchemaConfiguration) |
+| Double | validate(arg: Double, configuration: SchemaConfiguration) |
 | Number | validate(arg: Number, configuration: SchemaConfiguration) |
-| boolean | validate(arg: boolean, configuration: SchemaConfiguration) |
-| FrozenMap<Any?> | validate(arg: Map&lt;?, ?&gt;, configuration: SchemaConfiguration) |
+| Boolean | validate(arg: Boolean, configuration: SchemaConfiguration) |
+| FrozenMap<Any?> | validate(arg: Map&lt;*, *&gt;, configuration: SchemaConfiguration) |
 | FrozenList<Any?> | validate(arg: List<*>, configuration: SchemaConfiguration) |
 | [IdnHostnameFormat1BoxedString](#idnhostnameformat1boxedstring) | validateAndBox(String, configuration: SchemaConfiguration) |
 | [IdnHostnameFormat1BoxedVoid](#idnhostnameformat1boxedvoid) | validateAndBox(Nothing?, configuration: SchemaConfiguration) |
 | [IdnHostnameFormat1BoxedNumber](#idnhostnameformat1boxednumber) | validateAndBox(Number, configuration: SchemaConfiguration) |
-| [IdnHostnameFormat1BoxedBoolean](#idnhostnameformat1boxedboolean) | validateAndBox(boolean, configuration: SchemaConfiguration) |
-| [IdnHostnameFormat1BoxedMap](#idnhostnameformat1boxedmap) | validateAndBox(Map&lt;?, ?&gt;, configuration: SchemaConfiguration) |
+| [IdnHostnameFormat1BoxedBoolean](#idnhostnameformat1boxedboolean) | validateAndBox(Boolean, configuration: SchemaConfiguration) |
+| [IdnHostnameFormat1BoxedMap](#idnhostnameformat1boxedmap) | validateAndBox(Map&lt;*, *&gt;, configuration: SchemaConfiguration) |
 | [IdnHostnameFormat1BoxedList](#idnhostnameformat1boxedlist) | validateAndBox(List<*>, configuration: SchemaConfiguration) |
 | [IdnHostnameFormat1Boxed](#idnhostnameformat1boxed) | validateAndBox(Any?, configuration: SchemaConfiguration) |
 | Any? | validate(arg: Any?, configuration: SchemaConfiguration) |

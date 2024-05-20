@@ -142,26 +142,26 @@ A schema class that validates payloads
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |
-| Integer | maxLength = 2 |
+| Int | maxLength = 2 |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | String | validate(arg: String, configuration: SchemaConfiguration) |
 | Nothing? | validate(arg: Nothing?, configuration: SchemaConfiguration) |
-| int | validate(arg: int, configuration: SchemaConfiguration) |
-| long | validate(arg: long, configuration: SchemaConfiguration) |
-| float | validate(arg: float, configuration: SchemaConfiguration) |
-| double | validate(arg: double, configuration: SchemaConfiguration) |
+| Int | validate(arg: Int, configuration: SchemaConfiguration) |
+| Long | validate(arg: Long, configuration: SchemaConfiguration) |
+| Float | validate(arg: Float, configuration: SchemaConfiguration) |
+| Double | validate(arg: Double, configuration: SchemaConfiguration) |
 | Number | validate(arg: Number, configuration: SchemaConfiguration) |
-| boolean | validate(arg: boolean, configuration: SchemaConfiguration) |
-| FrozenMap<Any?> | validate(arg: Map&lt;?, ?&gt;, configuration: SchemaConfiguration) |
+| Boolean | validate(arg: Boolean, configuration: SchemaConfiguration) |
+| FrozenMap<Any?> | validate(arg: Map&lt;*, *&gt;, configuration: SchemaConfiguration) |
 | FrozenList<Any?> | validate(arg: List<*>, configuration: SchemaConfiguration) |
 | [MaxlengthValidation1BoxedString](#maxlengthvalidation1boxedstring) | validateAndBox(String, configuration: SchemaConfiguration) |
 | [MaxlengthValidation1BoxedVoid](#maxlengthvalidation1boxedvoid) | validateAndBox(Nothing?, configuration: SchemaConfiguration) |
 | [MaxlengthValidation1BoxedNumber](#maxlengthvalidation1boxednumber) | validateAndBox(Number, configuration: SchemaConfiguration) |
-| [MaxlengthValidation1BoxedBoolean](#maxlengthvalidation1boxedboolean) | validateAndBox(boolean, configuration: SchemaConfiguration) |
-| [MaxlengthValidation1BoxedMap](#maxlengthvalidation1boxedmap) | validateAndBox(Map&lt;?, ?&gt;, configuration: SchemaConfiguration) |
+| [MaxlengthValidation1BoxedBoolean](#maxlengthvalidation1boxedboolean) | validateAndBox(Boolean, configuration: SchemaConfiguration) |
+| [MaxlengthValidation1BoxedMap](#maxlengthvalidation1boxedmap) | validateAndBox(Map&lt;*, *&gt;, configuration: SchemaConfiguration) |
 | [MaxlengthValidation1BoxedList](#maxlengthvalidation1boxedlist) | validateAndBox(List<*>, configuration: SchemaConfiguration) |
 | [MaxlengthValidation1Boxed](#maxlengthvalidation1boxed) | validateAndBox(Any?, configuration: SchemaConfiguration) |
 | Any? | validate(arg: Any?, configuration: SchemaConfiguration) |

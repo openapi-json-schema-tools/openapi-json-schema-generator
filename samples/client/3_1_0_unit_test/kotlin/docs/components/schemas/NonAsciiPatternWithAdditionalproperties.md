@@ -66,27 +66,23 @@ A schema class that validates payloads
 
 ### Code Sample
 ```
-import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
-import org.openapijsonschematools.client.configurations.SchemaConfiguration;
-import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.schemas.validation.MapUtils;
-import org.openapijsonschematools.client.schemas.validation.FrozenList;
-import org.openapijsonschematools.client.schemas.validation.FrozenMap;
-import org.openapijsonschematools.client.components.schemas.NonAsciiPatternWithAdditionalproperties;
+import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags
+import org.openapijsonschematools.client.configurations.SchemaConfiguration
+import org.openapijsonschematools.client.exceptions.ValidationException
+import org.openapijsonschematools.client.schemas.validation.MapUtils
+import org.openapijsonschematools.client.schemas.validation.FrozenList
+import org.openapijsonschematools.client.schemas.validation.FrozenMap
+import org.openapijsonschematools.client.components.schemas.NonAsciiPatternWithAdditionalproperties
 
-import java.util.Arrays;
-import java.util.List;
-import java.util.AbstractMap;
-
-static final SchemaConfiguration configuration = new SchemaConfiguration(new JsonSchemaKeywordFlags.Builder().build());
+val configuration = SchemaConfiguration(JsonSchemaKeywordFlags.Builder().build())
 
 // Map validation
-NonAsciiPatternWithAdditionalproperties.NonAsciiPatternWithAdditionalpropertiesMap validatedPayload =
+val validatedPayload: NonAsciiPatternWithAdditionalproperties.NonAsciiPatternWithAdditionalpropertiesMap =
     NonAsciiPatternWithAdditionalproperties.NonAsciiPatternWithAdditionalproperties1.validate(
-    new NonAsciiPatternWithAdditionalproperties.NonAsciiPatternWithAdditionalpropertiesMapBuilder()
+    NonAsciiPatternWithAdditionalproperties.NonAsciiPatternWithAdditionalpropertiesMapBuilder()
     .build(),
     configuration
-);
+)
 ```
 
 ### Field Summary
@@ -99,8 +95,8 @@ NonAsciiPatternWithAdditionalproperties.NonAsciiPatternWithAdditionalpropertiesM
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [NonAsciiPatternWithAdditionalpropertiesMap](#nonasciipatternwithadditionalpropertiesmap) | validate(arg: [Map&lt;?, ?&gt;](#nonasciipatternwithadditionalpropertiesmapbuilder), configuration: SchemaConfiguration) |
-| [NonAsciiPatternWithAdditionalproperties1BoxedMap](#nonasciipatternwithadditionalproperties1boxedmap) | validateAndBox([Map&lt;?, ?&gt;](#nonasciipatternwithadditionalpropertiesmapbuilder), configuration: SchemaConfiguration) |
+| [NonAsciiPatternWithAdditionalpropertiesMap](#nonasciipatternwithadditionalpropertiesmap) | validate(arg: [Map&lt;*, *&gt;](#nonasciipatternwithadditionalpropertiesmapbuilder), configuration: SchemaConfiguration) |
+| [NonAsciiPatternWithAdditionalproperties1BoxedMap](#nonasciipatternwithadditionalproperties1boxedmap) | validateAndBox([Map&lt;*, *&gt;](#nonasciipatternwithadditionalpropertiesmapbuilder), configuration: SchemaConfiguration) |
 | [NonAsciiPatternWithAdditionalproperties1Boxed](#nonasciipatternwithadditionalproperties1boxed) | validateAndBox(Any?, configuration: SchemaConfiguration) |
 | Any? | validate(arg: Any?, configuration: SchemaConfiguration) |
 

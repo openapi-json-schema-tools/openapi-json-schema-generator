@@ -159,19 +159,19 @@ A schema class that validates payloads
 | ----------------- | ---------------------- |
 | String | validate(arg: String, configuration: SchemaConfiguration) |
 | Nothing? | validate(arg: Nothing?, configuration: SchemaConfiguration) |
-| int | validate(arg: int, configuration: SchemaConfiguration) |
-| long | validate(arg: long, configuration: SchemaConfiguration) |
-| float | validate(arg: float, configuration: SchemaConfiguration) |
-| double | validate(arg: double, configuration: SchemaConfiguration) |
+| Int | validate(arg: Int, configuration: SchemaConfiguration) |
+| Long | validate(arg: Long, configuration: SchemaConfiguration) |
+| Float | validate(arg: Float, configuration: SchemaConfiguration) |
+| Double | validate(arg: Double, configuration: SchemaConfiguration) |
 | Number | validate(arg: Number, configuration: SchemaConfiguration) |
-| boolean | validate(arg: boolean, configuration: SchemaConfiguration) |
-| [ObjectPropertiesValidationMap](#objectpropertiesvalidationmap) | validate(arg: [Map&lt;?, ?&gt;](#objectpropertiesvalidationmapbuilder), configuration: SchemaConfiguration) |
+| Boolean | validate(arg: Boolean, configuration: SchemaConfiguration) |
+| [ObjectPropertiesValidationMap](#objectpropertiesvalidationmap) | validate(arg: [Map&lt;*, *&gt;](#objectpropertiesvalidationmapbuilder), configuration: SchemaConfiguration) |
 | FrozenList<Any?> | validate(arg: List<*>, configuration: SchemaConfiguration) |
 | [ObjectPropertiesValidation1BoxedString](#objectpropertiesvalidation1boxedstring) | validateAndBox(String, configuration: SchemaConfiguration) |
 | [ObjectPropertiesValidation1BoxedVoid](#objectpropertiesvalidation1boxedvoid) | validateAndBox(Nothing?, configuration: SchemaConfiguration) |
 | [ObjectPropertiesValidation1BoxedNumber](#objectpropertiesvalidation1boxednumber) | validateAndBox(Number, configuration: SchemaConfiguration) |
-| [ObjectPropertiesValidation1BoxedBoolean](#objectpropertiesvalidation1boxedboolean) | validateAndBox(boolean, configuration: SchemaConfiguration) |
-| [ObjectPropertiesValidation1BoxedMap](#objectpropertiesvalidation1boxedmap) | validateAndBox([Map&lt;?, ?&gt;](#objectpropertiesvalidationmapbuilder), configuration: SchemaConfiguration) |
+| [ObjectPropertiesValidation1BoxedBoolean](#objectpropertiesvalidation1boxedboolean) | validateAndBox(Boolean, configuration: SchemaConfiguration) |
+| [ObjectPropertiesValidation1BoxedMap](#objectpropertiesvalidation1boxedmap) | validateAndBox([Map&lt;*, *&gt;](#objectpropertiesvalidationmapbuilder), configuration: SchemaConfiguration) |
 | [ObjectPropertiesValidation1BoxedList](#objectpropertiesvalidation1boxedlist) | validateAndBox(List<*>, configuration: SchemaConfiguration) |
 | [ObjectPropertiesValidation1Boxed](#objectpropertiesvalidation1boxed) | validateAndBox(Any?, configuration: SchemaConfiguration) |
 | Any? | validate(arg: Any?, configuration: SchemaConfiguration) |

@@ -152,19 +152,19 @@ A schema class that validates payloads
 | ----------------- | ---------------------- |
 | String | validate(arg: String, configuration: SchemaConfiguration) |
 | Nothing? | validate(arg: Nothing?, configuration: SchemaConfiguration) |
-| int | validate(arg: int, configuration: SchemaConfiguration) |
-| long | validate(arg: long, configuration: SchemaConfiguration) |
-| float | validate(arg: float, configuration: SchemaConfiguration) |
-| double | validate(arg: double, configuration: SchemaConfiguration) |
+| Int | validate(arg: Int, configuration: SchemaConfiguration) |
+| Long | validate(arg: Long, configuration: SchemaConfiguration) |
+| Float | validate(arg: Float, configuration: SchemaConfiguration) |
+| Double | validate(arg: Double, configuration: SchemaConfiguration) |
 | Number | validate(arg: Number, configuration: SchemaConfiguration) |
-| boolean | validate(arg: boolean, configuration: SchemaConfiguration) |
-| FrozenMap<Any?> | validate(arg: Map&lt;?, ?&gt;, configuration: SchemaConfiguration) |
+| Boolean | validate(arg: Boolean, configuration: SchemaConfiguration) |
+| FrozenMap<Any?> | validate(arg: Map&lt;*, *&gt;, configuration: SchemaConfiguration) |
 | FrozenList<Any?> | validate(arg: List<*>, configuration: SchemaConfiguration) |
 | [UnevaluatedpropertiesWithNullValuedInstanceProperties1BoxedString](#unevaluatedpropertieswithnullvaluedinstanceproperties1boxedstring) | validateAndBox(String, configuration: SchemaConfiguration) |
 | [UnevaluatedpropertiesWithNullValuedInstanceProperties1BoxedVoid](#unevaluatedpropertieswithnullvaluedinstanceproperties1boxedvoid) | validateAndBox(Nothing?, configuration: SchemaConfiguration) |
 | [UnevaluatedpropertiesWithNullValuedInstanceProperties1BoxedNumber](#unevaluatedpropertieswithnullvaluedinstanceproperties1boxednumber) | validateAndBox(Number, configuration: SchemaConfiguration) |
-| [UnevaluatedpropertiesWithNullValuedInstanceProperties1BoxedBoolean](#unevaluatedpropertieswithnullvaluedinstanceproperties1boxedboolean) | validateAndBox(boolean, configuration: SchemaConfiguration) |
-| [UnevaluatedpropertiesWithNullValuedInstanceProperties1BoxedMap](#unevaluatedpropertieswithnullvaluedinstanceproperties1boxedmap) | validateAndBox(Map&lt;?, ?&gt;, configuration: SchemaConfiguration) |
+| [UnevaluatedpropertiesWithNullValuedInstanceProperties1BoxedBoolean](#unevaluatedpropertieswithnullvaluedinstanceproperties1boxedboolean) | validateAndBox(Boolean, configuration: SchemaConfiguration) |
+| [UnevaluatedpropertiesWithNullValuedInstanceProperties1BoxedMap](#unevaluatedpropertieswithnullvaluedinstanceproperties1boxedmap) | validateAndBox(Map&lt;*, *&gt;, configuration: SchemaConfiguration) |
 | [UnevaluatedpropertiesWithNullValuedInstanceProperties1BoxedList](#unevaluatedpropertieswithnullvaluedinstanceproperties1boxedlist) | validateAndBox(List<*>, configuration: SchemaConfiguration) |
 | [UnevaluatedpropertiesWithNullValuedInstanceProperties1Boxed](#unevaluatedpropertieswithnullvaluedinstanceproperties1boxed) | validateAndBox(Any?, configuration: SchemaConfiguration) |
 | Any? | validate(arg: Any?, configuration: SchemaConfiguration) |

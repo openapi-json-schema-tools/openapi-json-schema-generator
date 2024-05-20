@@ -149,19 +149,19 @@ A schema class that validates payloads
 | ----------------- | ---------------------- |
 | String | validate(arg: String, configuration: SchemaConfiguration) |
 | Nothing? | validate(arg: Nothing?, configuration: SchemaConfiguration) |
-| int | validate(arg: int, configuration: SchemaConfiguration) |
-| long | validate(arg: long, configuration: SchemaConfiguration) |
-| float | validate(arg: float, configuration: SchemaConfiguration) |
-| double | validate(arg: double, configuration: SchemaConfiguration) |
+| Int | validate(arg: Int, configuration: SchemaConfiguration) |
+| Long | validate(arg: Long, configuration: SchemaConfiguration) |
+| Float | validate(arg: Float, configuration: SchemaConfiguration) |
+| Double | validate(arg: Double, configuration: SchemaConfiguration) |
 | Number | validate(arg: Number, configuration: SchemaConfiguration) |
-| boolean | validate(arg: boolean, configuration: SchemaConfiguration) |
-| FrozenMap<Any?> | validate(arg: Map&lt;?, ?&gt;, configuration: SchemaConfiguration) |
+| Boolean | validate(arg: Boolean, configuration: SchemaConfiguration) |
+| FrozenMap<Any?> | validate(arg: Map&lt;*, *&gt;, configuration: SchemaConfiguration) |
 | FrozenList<Any?> | validate(arg: List<*>, configuration: SchemaConfiguration) |
 | [RelativeJsonPointerFormat1BoxedString](#relativejsonpointerformat1boxedstring) | validateAndBox(String, configuration: SchemaConfiguration) |
 | [RelativeJsonPointerFormat1BoxedVoid](#relativejsonpointerformat1boxedvoid) | validateAndBox(Nothing?, configuration: SchemaConfiguration) |
 | [RelativeJsonPointerFormat1BoxedNumber](#relativejsonpointerformat1boxednumber) | validateAndBox(Number, configuration: SchemaConfiguration) |
-| [RelativeJsonPointerFormat1BoxedBoolean](#relativejsonpointerformat1boxedboolean) | validateAndBox(boolean, configuration: SchemaConfiguration) |
-| [RelativeJsonPointerFormat1BoxedMap](#relativejsonpointerformat1boxedmap) | validateAndBox(Map&lt;?, ?&gt;, configuration: SchemaConfiguration) |
+| [RelativeJsonPointerFormat1BoxedBoolean](#relativejsonpointerformat1boxedboolean) | validateAndBox(Boolean, configuration: SchemaConfiguration) |
+| [RelativeJsonPointerFormat1BoxedMap](#relativejsonpointerformat1boxedmap) | validateAndBox(Map&lt;*, *&gt;, configuration: SchemaConfiguration) |
 | [RelativeJsonPointerFormat1BoxedList](#relativejsonpointerformat1boxedlist) | validateAndBox(List<*>, configuration: SchemaConfiguration) |
 | [RelativeJsonPointerFormat1Boxed](#relativejsonpointerformat1boxed) | validateAndBox(Any?, configuration: SchemaConfiguration) |
 | Any? | validate(arg: Any?, configuration: SchemaConfiguration) |
