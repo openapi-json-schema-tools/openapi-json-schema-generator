@@ -86,7 +86,7 @@ open class NotAnyTypeJsonSchema {
             val validationMetadata =
                 ValidationMetadata(pathToItem, usedConfiguration, validatedPathToSchemas, LinkedHashSet())
             val pathToSchemasMap = getPathToSchemas(this, castArg, validationMetadata, pathSet)
-            return getNewInstance(castArg, validationMetadata.pathToItem, pathToSchemasMap)
+            return castArg
         }
 
         @Throws(ValidationException::class)
@@ -99,7 +99,7 @@ open class NotAnyTypeJsonSchema {
             val validationMetadata =
                 ValidationMetadata(pathToItem, usedConfiguration, validatedPathToSchemas, LinkedHashSet())
             val pathToSchemasMap = getPathToSchemas(this, castArg, validationMetadata, pathSet)
-            return getNewInstance(castArg, validationMetadata.pathToItem, pathToSchemasMap)
+            return castArg
         }
 
         @Throws(ValidationException::class)
@@ -112,7 +112,7 @@ open class NotAnyTypeJsonSchema {
             val validationMetadata =
                 ValidationMetadata(pathToItem, usedConfiguration, validatedPathToSchemas, LinkedHashSet())
             val pathToSchemasMap = getPathToSchemas(this, castArg, validationMetadata, pathSet)
-            return getNewInstance(castArg, validationMetadata.pathToItem, pathToSchemasMap)
+            return castArg
         }
 
         @Throws(ValidationException::class)
@@ -145,7 +145,7 @@ open class NotAnyTypeJsonSchema {
             val validationMetadata =
                 ValidationMetadata(pathToItem, usedConfiguration, validatedPathToSchemas, LinkedHashSet())
             val pathToSchemasMap = getPathToSchemas(this, castArg, validationMetadata, pathSet)
-            return getNewInstance(castArg, validationMetadata.pathToItem, pathToSchemasMap)
+            return castArg
         }
 
         @Throws(ValidationException::class)
@@ -233,18 +233,18 @@ open class NotAnyTypeJsonSchema {
         override fun getNewInstance(arg: Any?, pathToItem: List<Any>, pathToSchemas: PathToSchemasMap): Any? {
             when (arg) {
                 null -> {
-                    return getNewInstance(null as Void?, pathToItem, pathToSchemas)
+                    return null
                 }
                 is Boolean -> {
-                    return getNewInstance(arg, pathToItem, pathToSchemas)
+                    return arg
                 }
 
                 is Number -> {
-                    return getNewInstance(arg, pathToItem, pathToSchemas)
+                    return arg
                 }
 
                 is String -> {
-                    return getNewInstance(arg, pathToItem, pathToSchemas)
+                    return arg
                 }
 
                 is List<*> -> {

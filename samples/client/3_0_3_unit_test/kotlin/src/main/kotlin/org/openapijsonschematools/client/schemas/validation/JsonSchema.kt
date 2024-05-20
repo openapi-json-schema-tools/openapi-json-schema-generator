@@ -399,22 +399,6 @@ abstract class JsonSchema<T> protected constructor(jsonSchemaInfo: JsonSchemaInf
         }
     }
 
-    protected fun getNewInstance(arg: Nothing?, pathToItem: List<Any>, pathToSchemas: PathToSchemasMap): Nothing? {
-        return arg
-    }
-
-    protected fun getNewInstance(arg: Boolean, pathToItem: List<Any>, pathToSchemas: PathToSchemasMap): Boolean {
-        return arg
-    }
-
-    protected fun getNewInstance(arg: Number, pathToItem: List<Any>, pathToSchemas: PathToSchemasMap): Number {
-        return arg
-    }
-
-    protected fun getNewInstance(arg: String, pathToItem: List<Any>, pathToSchemas: PathToSchemasMap): String {
-        return arg
-    }
-
     companion object {
         @Throws(ValidationException::class)
         fun validate(

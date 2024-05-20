@@ -40,7 +40,7 @@ open class NumberJsonSchema {
             val validationMetadata =
                 ValidationMetadata(pathToItem, usedConfiguration, PathToSchemasMap(), LinkedHashSet())
             val pathToSchemasMap = getPathToSchemas(this, castArg, validationMetadata, pathSet)
-            return getNewInstance(castArg, validationMetadata.pathToItem, pathToSchemasMap)
+            return castArg
         }
 
         @Throws(ValidationException::class)
@@ -65,7 +65,7 @@ open class NumberJsonSchema {
 
         override fun getNewInstance(arg: Any?, pathToItem: List<Any>, pathToSchemas: PathToSchemasMap): Any? {
             if (arg is Number) {
-                return getNewInstance(arg, pathToItem, pathToSchemas)
+                return arg
             }
             throw RuntimeException("Invalid input type=$javaClass. It can't be instantiated by this schema")
         }

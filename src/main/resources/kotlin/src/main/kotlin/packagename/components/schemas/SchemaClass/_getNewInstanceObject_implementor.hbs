@@ -8,16 +8,16 @@ override fun getNewInstance(arg: Any?, pathToItem: List<Any>, pathToSchemas: Pat
     } else if (arg {{#eq this "null"}}== null{{/eq}}{{#eq this "boolean"}}is Boolean{{/eq}}{{#or (eq this "integer") (eq this "number")}}is Number{{/or}}{{#eq this "string" }}is String{{/eq}}{{#eq this "array"}}is List<*>{{/eq}}{{#eq this "object"}}is Map<*, *>{{/eq}}) {
         {{/if}}
         {{#eq this "null"}}
-        return getNewInstance(null, pathToItem, pathToSchemas)
+        return arg
         {{/eq}}
         {{#eq this "boolean"}}
-        return getNewInstance(arg, pathToItem, pathToSchemas)
+        return arg
         {{/eq}}
         {{#or (eq this "integer") (eq this "number")}}
-        return getNewInstance(arg, pathToItem, pathToSchemas)
+        return arg
         {{/or}}
         {{#eq this "string" }}
-        return getNewInstance(arg, pathToItem, pathToSchemas)
+        return arg
         {{/eq}}
         {{#eq this "array"}}
         return getNewInstance(arg, pathToItem, pathToSchemas)
@@ -31,13 +31,13 @@ override fun getNewInstance(arg: Any?, pathToItem: List<Any>, pathToSchemas: Pat
     {{/each}}
 {{else}}
     if (arg == null) {
-        return getNewInstance( null, pathToItem, pathToSchemas)
+        return arg
     } else if (arg is Boolean) {
-        return getNewInstance(arg, pathToItem, pathToSchemas)
+        return arg
     } else if (arg is Number) {
-        return getNewInstance(arg, pathToItem, pathToSchemas)
+        return arg
     } else if (arg is String) {
-        return getNewInstance(arg, pathToItem, pathToSchemas)
+        return arg
     } else if (arg is List<*>) {
         return getNewInstance(arg, pathToItem, pathToSchemas)
     } else if (arg is Map<*, *>) {
