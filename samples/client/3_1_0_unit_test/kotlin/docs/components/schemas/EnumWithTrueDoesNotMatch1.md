@@ -12,8 +12,8 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | sealed interface | [EnumWithTrueDoesNotMatch1.EnumWithTrueDoesNotMatch11Boxed](#enumwithtruedoesnotmatch11boxed)<br> sealed interface for validated payloads |
-| record | [EnumWithTrueDoesNotMatch1.EnumWithTrueDoesNotMatch11BoxedBoolean](#enumwithtruedoesnotmatch11boxedboolean)<br> boxed class to store validated boolean payloads |
-| static class | [EnumWithTrueDoesNotMatch1.EnumWithTrueDoesNotMatch11](#enumwithtruedoesnotmatch11)<br> schema class |
+| data class | [EnumWithTrueDoesNotMatch1.EnumWithTrueDoesNotMatch11BoxedBoolean](#enumwithtruedoesnotmatch11boxedboolean)<br> boxed class to store validated boolean payloads |
+| class | [EnumWithTrueDoesNotMatch1.EnumWithTrueDoesNotMatch11](#enumwithtruedoesnotmatch11)<br> schema class |
 | enum | [EnumWithTrueDoesNotMatch1.BooleanEnumWithTrueDoesNotMatch1Enums](#booleanenumwithtruedoesnotmatch1enums)<br>boolean enum |
 
 ## EnumWithTrueDoesNotMatch11Boxed
@@ -27,7 +27,7 @@ sealed interface that stores validated payloads using boxed classes
 data class EnumWithTrueDoesNotMatch11BoxedBoolean<br>
 implements [EnumWithTrueDoesNotMatch11Boxed](#enumwithtruedoesnotmatch11boxed)
 
-record that stores validated boolean payloads, sealed permits implementation
+data class that stores validated boolean payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
@@ -48,25 +48,21 @@ A schema class that validates payloads
 
 ### Code Sample
 ```
-import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
-import org.openapijsonschematools.client.configurations.SchemaConfiguration;
-import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.schemas.validation.MapUtils;
-import org.openapijsonschematools.client.schemas.validation.FrozenList;
-import org.openapijsonschematools.client.schemas.validation.FrozenMap;
-import org.openapijsonschematools.client.components.schemas.EnumWithTrueDoesNotMatch1;
+import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags
+import org.openapijsonschematools.client.configurations.SchemaConfiguration
+import org.openapijsonschematools.client.exceptions.ValidationException
+import org.openapijsonschematools.client.schemas.validation.MapUtils
+import org.openapijsonschematools.client.schemas.validation.FrozenList
+import org.openapijsonschematools.client.schemas.validation.FrozenMap
+import org.openapijsonschematools.client.components.schemas.EnumWithTrueDoesNotMatch1
 
-import java.util.Arrays;
-import java.util.List;
-import java.util.AbstractMap;
-
-static final SchemaConfiguration configuration = new SchemaConfiguration(new JsonSchemaKeywordFlags.Builder().build());
+val configuration = SchemaConfiguration(JsonSchemaKeywordFlags.Builder().build())
 
 // boolean validation
-boolean validatedPayload = EnumWithTrueDoesNotMatch1.EnumWithTrueDoesNotMatch11.validate(
+val validatedPayload: Boolean = EnumWithTrueDoesNotMatch1.EnumWithTrueDoesNotMatch11.validate(
     true,
     configuration
-);
+)
 ```
 
 ### Field Summary
@@ -78,9 +74,9 @@ boolean validatedPayload = EnumWithTrueDoesNotMatch1.EnumWithTrueDoesNotMatch11.
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| boolean | validate(arg: boolean, configuration: SchemaConfiguration) |
-| boolean | validate(arg: [BooleanEnumWithTrueDoesNotMatch1Enums](#booleanenumwithtruedoesnotmatch1enums), configuration: SchemaConfiguration) |
-| [EnumWithTrueDoesNotMatch11BoxedBoolean](#enumwithtruedoesnotmatch11boxedboolean) | validateAndBox(boolean, configuration: SchemaConfiguration) |
+| Boolean | validate(arg: Boolean, configuration: SchemaConfiguration) |
+| Boolean | validate(arg: [BooleanEnumWithTrueDoesNotMatch1Enums](#booleanenumwithtruedoesnotmatch1enums), configuration: SchemaConfiguration) |
+| [EnumWithTrueDoesNotMatch11BoxedBoolean](#enumwithtruedoesnotmatch11boxedboolean) | validateAndBox(Boolean, configuration: SchemaConfiguration) |
 | [EnumWithTrueDoesNotMatch11Boxed](#enumwithtruedoesnotmatch11boxed) | validateAndBox(Any?, configuration: SchemaConfiguration) |
 | Any? | validate(arg: Any?, configuration: SchemaConfiguration) |
 

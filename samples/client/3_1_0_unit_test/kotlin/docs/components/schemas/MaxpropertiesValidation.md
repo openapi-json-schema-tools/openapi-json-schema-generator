@@ -11,13 +11,13 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | sealed interface | [MaxpropertiesValidation.MaxpropertiesValidation1Boxed](#maxpropertiesvalidation1boxed)<br> sealed interface for validated payloads |
-| record | [MaxpropertiesValidation.MaxpropertiesValidation1BoxedVoid](#maxpropertiesvalidation1boxedvoid)<br> boxed class to store validated null payloads |
-| record | [MaxpropertiesValidation.MaxpropertiesValidation1BoxedBoolean](#maxpropertiesvalidation1boxedboolean)<br> boxed class to store validated boolean payloads |
-| record | [MaxpropertiesValidation.MaxpropertiesValidation1BoxedNumber](#maxpropertiesvalidation1boxednumber)<br> boxed class to store validated Number payloads |
-| record | [MaxpropertiesValidation.MaxpropertiesValidation1BoxedString](#maxpropertiesvalidation1boxedstring)<br> boxed class to store validated String payloads |
-| record | [MaxpropertiesValidation.MaxpropertiesValidation1BoxedList](#maxpropertiesvalidation1boxedlist)<br> boxed class to store validated List payloads |
-| record | [MaxpropertiesValidation.MaxpropertiesValidation1BoxedMap](#maxpropertiesvalidation1boxedmap)<br> boxed class to store validated Map payloads |
-| static class | [MaxpropertiesValidation.MaxpropertiesValidation1](#maxpropertiesvalidation1)<br> schema class |
+| data class | [MaxpropertiesValidation.MaxpropertiesValidation1BoxedVoid](#maxpropertiesvalidation1boxedvoid)<br> boxed class to store validated null payloads |
+| data class | [MaxpropertiesValidation.MaxpropertiesValidation1BoxedBoolean](#maxpropertiesvalidation1boxedboolean)<br> boxed class to store validated boolean payloads |
+| data class | [MaxpropertiesValidation.MaxpropertiesValidation1BoxedNumber](#maxpropertiesvalidation1boxednumber)<br> boxed class to store validated Number payloads |
+| data class | [MaxpropertiesValidation.MaxpropertiesValidation1BoxedString](#maxpropertiesvalidation1boxedstring)<br> boxed class to store validated String payloads |
+| data class | [MaxpropertiesValidation.MaxpropertiesValidation1BoxedList](#maxpropertiesvalidation1boxedlist)<br> boxed class to store validated List payloads |
+| data class | [MaxpropertiesValidation.MaxpropertiesValidation1BoxedMap](#maxpropertiesvalidation1boxedmap)<br> boxed class to store validated Map payloads |
+| class | [MaxpropertiesValidation.MaxpropertiesValidation1](#maxpropertiesvalidation1)<br> schema class |
 
 ## MaxpropertiesValidation1Boxed
 sealed interface MaxpropertiesValidation1Boxed<br>
@@ -52,7 +52,7 @@ data class that stores validated null payloads, sealed permits implementation
 data class MaxpropertiesValidation1BoxedBoolean<br>
 implements [MaxpropertiesValidation1Boxed](#maxpropertiesvalidation1boxed)
 
-record that stores validated boolean payloads, sealed permits implementation
+data class that stores validated boolean payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
@@ -142,26 +142,26 @@ A schema class that validates payloads
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |
-| Integer | maxProperties = 2 |
+| Int | maxProperties = 2 |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | String | validate(arg: String, configuration: SchemaConfiguration) |
 | Nothing? | validate(arg: Nothing?, configuration: SchemaConfiguration) |
-| int | validate(arg: int, configuration: SchemaConfiguration) |
-| long | validate(arg: long, configuration: SchemaConfiguration) |
-| float | validate(arg: float, configuration: SchemaConfiguration) |
-| double | validate(arg: double, configuration: SchemaConfiguration) |
+| Int | validate(arg: Int, configuration: SchemaConfiguration) |
+| Long | validate(arg: Long, configuration: SchemaConfiguration) |
+| Float | validate(arg: Float, configuration: SchemaConfiguration) |
+| Double | validate(arg: Double, configuration: SchemaConfiguration) |
 | Number | validate(arg: Number, configuration: SchemaConfiguration) |
-| boolean | validate(arg: boolean, configuration: SchemaConfiguration) |
-| FrozenMap<Any?> | validate(arg: Map&lt;?, ?&gt;, configuration: SchemaConfiguration) |
+| Boolean | validate(arg: Boolean, configuration: SchemaConfiguration) |
+| FrozenMap<Any?> | validate(arg: Map&lt;*, *&gt;, configuration: SchemaConfiguration) |
 | FrozenList<Any?> | validate(arg: List<*>, configuration: SchemaConfiguration) |
 | [MaxpropertiesValidation1BoxedString](#maxpropertiesvalidation1boxedstring) | validateAndBox(String, configuration: SchemaConfiguration) |
 | [MaxpropertiesValidation1BoxedVoid](#maxpropertiesvalidation1boxedvoid) | validateAndBox(Nothing?, configuration: SchemaConfiguration) |
 | [MaxpropertiesValidation1BoxedNumber](#maxpropertiesvalidation1boxednumber) | validateAndBox(Number, configuration: SchemaConfiguration) |
-| [MaxpropertiesValidation1BoxedBoolean](#maxpropertiesvalidation1boxedboolean) | validateAndBox(boolean, configuration: SchemaConfiguration) |
-| [MaxpropertiesValidation1BoxedMap](#maxpropertiesvalidation1boxedmap) | validateAndBox(Map&lt;?, ?&gt;, configuration: SchemaConfiguration) |
+| [MaxpropertiesValidation1BoxedBoolean](#maxpropertiesvalidation1boxedboolean) | validateAndBox(Boolean, configuration: SchemaConfiguration) |
+| [MaxpropertiesValidation1BoxedMap](#maxpropertiesvalidation1boxedmap) | validateAndBox(Map&lt;*, *&gt;, configuration: SchemaConfiguration) |
 | [MaxpropertiesValidation1BoxedList](#maxpropertiesvalidation1boxedlist) | validateAndBox(List<*>, configuration: SchemaConfiguration) |
 | [MaxpropertiesValidation1Boxed](#maxpropertiesvalidation1boxed) | validateAndBox(Any?, configuration: SchemaConfiguration) |
 | Any? | validate(arg: Any?, configuration: SchemaConfiguration) |

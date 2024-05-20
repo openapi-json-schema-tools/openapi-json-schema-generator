@@ -13,13 +13,13 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | sealed interface | [AdditionalpropertiesWithNullValuedInstanceProperties.AdditionalpropertiesWithNullValuedInstanceProperties1Boxed](#additionalpropertieswithnullvaluedinstanceproperties1boxed)<br> sealed interface for validated payloads |
-| record | [AdditionalpropertiesWithNullValuedInstanceProperties.AdditionalpropertiesWithNullValuedInstanceProperties1BoxedMap](#additionalpropertieswithnullvaluedinstanceproperties1boxedmap)<br> boxed class to store validated Map payloads |
-| static class | [AdditionalpropertiesWithNullValuedInstanceProperties.AdditionalpropertiesWithNullValuedInstanceProperties1](#additionalpropertieswithnullvaluedinstanceproperties1)<br> schema class |
-| static class | [AdditionalpropertiesWithNullValuedInstanceProperties.AdditionalpropertiesWithNullValuedInstancePropertiesMapBuilder](#additionalpropertieswithnullvaluedinstancepropertiesmapbuilder)<br> builder for Map payloads |
-| static class | [AdditionalpropertiesWithNullValuedInstanceProperties.AdditionalpropertiesWithNullValuedInstancePropertiesMap](#additionalpropertieswithnullvaluedinstancepropertiesmap)<br> output class for Map payloads |
+| data class | [AdditionalpropertiesWithNullValuedInstanceProperties.AdditionalpropertiesWithNullValuedInstanceProperties1BoxedMap](#additionalpropertieswithnullvaluedinstanceproperties1boxedmap)<br> boxed class to store validated Map payloads |
+| class | [AdditionalpropertiesWithNullValuedInstanceProperties.AdditionalpropertiesWithNullValuedInstanceProperties1](#additionalpropertieswithnullvaluedinstanceproperties1)<br> schema class |
+| class | [AdditionalpropertiesWithNullValuedInstanceProperties.AdditionalpropertiesWithNullValuedInstancePropertiesMapBuilder](#additionalpropertieswithnullvaluedinstancepropertiesmapbuilder)<br> builder for Map payloads |
+| class | [AdditionalpropertiesWithNullValuedInstanceProperties.AdditionalpropertiesWithNullValuedInstancePropertiesMap](#additionalpropertieswithnullvaluedinstancepropertiesmap)<br> output class for Map payloads |
 | sealed interface | [AdditionalpropertiesWithNullValuedInstanceProperties.AdditionalPropertiesBoxed](#additionalpropertiesboxed)<br> sealed interface for validated payloads |
-| record | [AdditionalpropertiesWithNullValuedInstanceProperties.AdditionalPropertiesBoxedVoid](#additionalpropertiesboxedvoid)<br> boxed class to store validated null payloads |
-| static class | [AdditionalpropertiesWithNullValuedInstanceProperties.AdditionalProperties](#additionalproperties)<br> schema class |
+| data class | [AdditionalpropertiesWithNullValuedInstanceProperties.AdditionalPropertiesBoxedVoid](#additionalpropertiesboxedvoid)<br> boxed class to store validated null payloads |
+| class | [AdditionalpropertiesWithNullValuedInstanceProperties.AdditionalProperties](#additionalproperties)<br> schema class |
 
 ## AdditionalpropertiesWithNullValuedInstanceProperties1Boxed
 sealed interface AdditionalpropertiesWithNullValuedInstanceProperties1Boxed<br>
@@ -53,29 +53,25 @@ A schema class that validates payloads
 
 ### Code Sample
 ```
-import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
-import org.openapijsonschematools.client.configurations.SchemaConfiguration;
-import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.schemas.validation.MapUtils;
-import org.openapijsonschematools.client.schemas.validation.FrozenList;
-import org.openapijsonschematools.client.schemas.validation.FrozenMap;
-import org.openapijsonschematools.client.components.schemas.AdditionalpropertiesWithNullValuedInstanceProperties;
+import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags
+import org.openapijsonschematools.client.configurations.SchemaConfiguration
+import org.openapijsonschematools.client.exceptions.ValidationException
+import org.openapijsonschematools.client.schemas.validation.MapUtils
+import org.openapijsonschematools.client.schemas.validation.FrozenList
+import org.openapijsonschematools.client.schemas.validation.FrozenMap
+import org.openapijsonschematools.client.components.schemas.AdditionalpropertiesWithNullValuedInstanceProperties
 
-import java.util.Arrays;
-import java.util.List;
-import java.util.AbstractMap;
-
-static final SchemaConfiguration configuration = new SchemaConfiguration(new JsonSchemaKeywordFlags.Builder().build());
+val configuration = SchemaConfiguration(JsonSchemaKeywordFlags.Builder().build())
 
 // Map validation
-AdditionalpropertiesWithNullValuedInstanceProperties.AdditionalpropertiesWithNullValuedInstancePropertiesMap validatedPayload =
+val validatedPayload: AdditionalpropertiesWithNullValuedInstanceProperties.AdditionalpropertiesWithNullValuedInstancePropertiesMap =
     AdditionalpropertiesWithNullValuedInstanceProperties.AdditionalpropertiesWithNullValuedInstanceProperties1.validate(
-    new AdditionalpropertiesWithNullValuedInstanceProperties.AdditionalpropertiesWithNullValuedInstancePropertiesMapBuilder()
+    AdditionalpropertiesWithNullValuedInstanceProperties.AdditionalpropertiesWithNullValuedInstancePropertiesMapBuilder()
         .additionalProperty("someAdditionalProperty", null)
 
     .build(),
     configuration
-);
+)
 ```
 
 ### Field Summary
@@ -87,8 +83,8 @@ AdditionalpropertiesWithNullValuedInstanceProperties.AdditionalpropertiesWithNul
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [AdditionalpropertiesWithNullValuedInstancePropertiesMap](#additionalpropertieswithnullvaluedinstancepropertiesmap) | validate(arg: [Map&lt;?, ?&gt;](#additionalpropertieswithnullvaluedinstancepropertiesmapbuilder), configuration: SchemaConfiguration) |
-| [AdditionalpropertiesWithNullValuedInstanceProperties1BoxedMap](#additionalpropertieswithnullvaluedinstanceproperties1boxedmap) | validateAndBox([Map&lt;?, ?&gt;](#additionalpropertieswithnullvaluedinstancepropertiesmapbuilder), configuration: SchemaConfiguration) |
+| [AdditionalpropertiesWithNullValuedInstancePropertiesMap](#additionalpropertieswithnullvaluedinstancepropertiesmap) | validate(arg: [Map&lt;*, *&gt;](#additionalpropertieswithnullvaluedinstancepropertiesmapbuilder), configuration: SchemaConfiguration) |
+| [AdditionalpropertiesWithNullValuedInstanceProperties1BoxedMap](#additionalpropertieswithnullvaluedinstanceproperties1boxedmap) | validateAndBox([Map&lt;*, *&gt;](#additionalpropertieswithnullvaluedinstancepropertiesmapbuilder), configuration: SchemaConfiguration) |
 | [AdditionalpropertiesWithNullValuedInstanceProperties1Boxed](#additionalpropertieswithnullvaluedinstanceproperties1boxed) | validateAndBox(Any?, configuration: SchemaConfiguration) |
 | Any? | validate(arg: Any?, configuration: SchemaConfiguration) |
 

@@ -11,9 +11,9 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | sealed interface | [TypeArrayOrObject.TypeArrayOrObject1Boxed](#typearrayorobject1boxed)<br> sealed interface for validated payloads |
-| record | [TypeArrayOrObject.TypeArrayOrObject1BoxedList](#typearrayorobject1boxedlist)<br> boxed class to store validated List payloads |
-| record | [TypeArrayOrObject.TypeArrayOrObject1BoxedMap](#typearrayorobject1boxedmap)<br> boxed class to store validated Map payloads |
-| static class | [TypeArrayOrObject.TypeArrayOrObject1](#typearrayorobject1)<br> schema class |
+| data class | [TypeArrayOrObject.TypeArrayOrObject1BoxedList](#typearrayorobject1boxedlist)<br> boxed class to store validated List payloads |
+| data class | [TypeArrayOrObject.TypeArrayOrObject1BoxedMap](#typearrayorobject1boxedmap)<br> boxed class to store validated Map payloads |
+| class | [TypeArrayOrObject.TypeArrayOrObject1](#typearrayorobject1)<br> schema class |
 
 ## TypeArrayOrObject1Boxed
 sealed interface TypeArrayOrObject1Boxed<br>
@@ -73,8 +73,8 @@ A schema class that validates payloads
 | ----------------- | ---------------------- |
 | FrozenList<Any?> | validate(arg: List<*>, configuration: SchemaConfiguration) |
 | [TypeArrayOrObject1BoxedList](#typearrayorobject1boxedlist) | validateAndBox(List<*>, configuration: SchemaConfiguration) |
-| FrozenMap<String, Any?> | validate(arg: Map&lt;?, ?&gt;, configuration: SchemaConfiguration) |
-| [TypeArrayOrObject1BoxedMap](#typearrayorobject1boxedmap) | validateAndBox(Map&lt;?, ?&gt;, configuration: SchemaConfiguration) |
+| FrozenMap<String, Any?> | validate(arg: Map&lt;*, *&gt;, configuration: SchemaConfiguration) |
+| [TypeArrayOrObject1BoxedMap](#typearrayorobject1boxedmap) | validateAndBox(Map&lt;*, *&gt;, configuration: SchemaConfiguration) |
 | [TypeArrayOrObject1Boxed](#typearrayorobject1boxed) | validateAndBox(Any?, configuration: SchemaConfiguration) |
 | Any? | validate(arg: Any?, configuration: SchemaConfiguration) |
 

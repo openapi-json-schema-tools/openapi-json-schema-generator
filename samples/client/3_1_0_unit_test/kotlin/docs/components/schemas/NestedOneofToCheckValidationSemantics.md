@@ -11,24 +11,24 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | sealed interface | [NestedOneofToCheckValidationSemantics.NestedOneofToCheckValidationSemantics1Boxed](#nestedoneoftocheckvalidationsemantics1boxed)<br> sealed interface for validated payloads |
-| record | [NestedOneofToCheckValidationSemantics.NestedOneofToCheckValidationSemantics1BoxedVoid](#nestedoneoftocheckvalidationsemantics1boxedvoid)<br> boxed class to store validated null payloads |
-| record | [NestedOneofToCheckValidationSemantics.NestedOneofToCheckValidationSemantics1BoxedBoolean](#nestedoneoftocheckvalidationsemantics1boxedboolean)<br> boxed class to store validated boolean payloads |
-| record | [NestedOneofToCheckValidationSemantics.NestedOneofToCheckValidationSemantics1BoxedNumber](#nestedoneoftocheckvalidationsemantics1boxednumber)<br> boxed class to store validated Number payloads |
-| record | [NestedOneofToCheckValidationSemantics.NestedOneofToCheckValidationSemantics1BoxedString](#nestedoneoftocheckvalidationsemantics1boxedstring)<br> boxed class to store validated String payloads |
-| record | [NestedOneofToCheckValidationSemantics.NestedOneofToCheckValidationSemantics1BoxedList](#nestedoneoftocheckvalidationsemantics1boxedlist)<br> boxed class to store validated List payloads |
-| record | [NestedOneofToCheckValidationSemantics.NestedOneofToCheckValidationSemantics1BoxedMap](#nestedoneoftocheckvalidationsemantics1boxedmap)<br> boxed class to store validated Map payloads |
-| static class | [NestedOneofToCheckValidationSemantics.NestedOneofToCheckValidationSemantics1](#nestedoneoftocheckvalidationsemantics1)<br> schema class |
+| data class | [NestedOneofToCheckValidationSemantics.NestedOneofToCheckValidationSemantics1BoxedVoid](#nestedoneoftocheckvalidationsemantics1boxedvoid)<br> boxed class to store validated null payloads |
+| data class | [NestedOneofToCheckValidationSemantics.NestedOneofToCheckValidationSemantics1BoxedBoolean](#nestedoneoftocheckvalidationsemantics1boxedboolean)<br> boxed class to store validated boolean payloads |
+| data class | [NestedOneofToCheckValidationSemantics.NestedOneofToCheckValidationSemantics1BoxedNumber](#nestedoneoftocheckvalidationsemantics1boxednumber)<br> boxed class to store validated Number payloads |
+| data class | [NestedOneofToCheckValidationSemantics.NestedOneofToCheckValidationSemantics1BoxedString](#nestedoneoftocheckvalidationsemantics1boxedstring)<br> boxed class to store validated String payloads |
+| data class | [NestedOneofToCheckValidationSemantics.NestedOneofToCheckValidationSemantics1BoxedList](#nestedoneoftocheckvalidationsemantics1boxedlist)<br> boxed class to store validated List payloads |
+| data class | [NestedOneofToCheckValidationSemantics.NestedOneofToCheckValidationSemantics1BoxedMap](#nestedoneoftocheckvalidationsemantics1boxedmap)<br> boxed class to store validated Map payloads |
+| class | [NestedOneofToCheckValidationSemantics.NestedOneofToCheckValidationSemantics1](#nestedoneoftocheckvalidationsemantics1)<br> schema class |
 | sealed interface | [NestedOneofToCheckValidationSemantics.Schema0Boxed](#schema0boxed)<br> sealed interface for validated payloads |
-| record | [NestedOneofToCheckValidationSemantics.Schema0BoxedVoid](#schema0boxedvoid)<br> boxed class to store validated null payloads |
-| record | [NestedOneofToCheckValidationSemantics.Schema0BoxedBoolean](#schema0boxedboolean)<br> boxed class to store validated boolean payloads |
-| record | [NestedOneofToCheckValidationSemantics.Schema0BoxedNumber](#schema0boxednumber)<br> boxed class to store validated Number payloads |
-| record | [NestedOneofToCheckValidationSemantics.Schema0BoxedString](#schema0boxedstring)<br> boxed class to store validated String payloads |
-| record | [NestedOneofToCheckValidationSemantics.Schema0BoxedList](#schema0boxedlist)<br> boxed class to store validated List payloads |
-| record | [NestedOneofToCheckValidationSemantics.Schema0BoxedMap](#schema0boxedmap)<br> boxed class to store validated Map payloads |
-| static class | [NestedOneofToCheckValidationSemantics.Schema0](#schema0)<br> schema class |
+| data class | [NestedOneofToCheckValidationSemantics.Schema0BoxedVoid](#schema0boxedvoid)<br> boxed class to store validated null payloads |
+| data class | [NestedOneofToCheckValidationSemantics.Schema0BoxedBoolean](#schema0boxedboolean)<br> boxed class to store validated boolean payloads |
+| data class | [NestedOneofToCheckValidationSemantics.Schema0BoxedNumber](#schema0boxednumber)<br> boxed class to store validated Number payloads |
+| data class | [NestedOneofToCheckValidationSemantics.Schema0BoxedString](#schema0boxedstring)<br> boxed class to store validated String payloads |
+| data class | [NestedOneofToCheckValidationSemantics.Schema0BoxedList](#schema0boxedlist)<br> boxed class to store validated List payloads |
+| data class | [NestedOneofToCheckValidationSemantics.Schema0BoxedMap](#schema0boxedmap)<br> boxed class to store validated Map payloads |
+| class | [NestedOneofToCheckValidationSemantics.Schema0](#schema0)<br> schema class |
 | sealed interface | [NestedOneofToCheckValidationSemantics.Schema01Boxed](#schema01boxed)<br> sealed interface for validated payloads |
-| record | [NestedOneofToCheckValidationSemantics.Schema01BoxedVoid](#schema01boxedvoid)<br> boxed class to store validated null payloads |
-| static class | [NestedOneofToCheckValidationSemantics.Schema01](#schema01)<br> schema class |
+| data class | [NestedOneofToCheckValidationSemantics.Schema01BoxedVoid](#schema01boxedvoid)<br> boxed class to store validated null payloads |
+| class | [NestedOneofToCheckValidationSemantics.Schema01](#schema01)<br> schema class |
 
 ## NestedOneofToCheckValidationSemantics1Boxed
 sealed interface NestedOneofToCheckValidationSemantics1Boxed<br>
@@ -63,7 +63,7 @@ data class that stores validated null payloads, sealed permits implementation
 data class NestedOneofToCheckValidationSemantics1BoxedBoolean<br>
 implements [NestedOneofToCheckValidationSemantics1Boxed](#nestedoneoftocheckvalidationsemantics1boxed)
 
-record that stores validated boolean payloads, sealed permits implementation
+data class that stores validated boolean payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
@@ -160,19 +160,19 @@ A schema class that validates payloads
 | ----------------- | ---------------------- |
 | String | validate(arg: String, configuration: SchemaConfiguration) |
 | Nothing? | validate(arg: Nothing?, configuration: SchemaConfiguration) |
-| int | validate(arg: int, configuration: SchemaConfiguration) |
-| long | validate(arg: long, configuration: SchemaConfiguration) |
-| float | validate(arg: float, configuration: SchemaConfiguration) |
-| double | validate(arg: double, configuration: SchemaConfiguration) |
+| Int | validate(arg: Int, configuration: SchemaConfiguration) |
+| Long | validate(arg: Long, configuration: SchemaConfiguration) |
+| Float | validate(arg: Float, configuration: SchemaConfiguration) |
+| Double | validate(arg: Double, configuration: SchemaConfiguration) |
 | Number | validate(arg: Number, configuration: SchemaConfiguration) |
-| boolean | validate(arg: boolean, configuration: SchemaConfiguration) |
-| FrozenMap<Any?> | validate(arg: Map&lt;?, ?&gt;, configuration: SchemaConfiguration) |
+| Boolean | validate(arg: Boolean, configuration: SchemaConfiguration) |
+| FrozenMap<Any?> | validate(arg: Map&lt;*, *&gt;, configuration: SchemaConfiguration) |
 | FrozenList<Any?> | validate(arg: List<*>, configuration: SchemaConfiguration) |
 | [NestedOneofToCheckValidationSemantics1BoxedString](#nestedoneoftocheckvalidationsemantics1boxedstring) | validateAndBox(String, configuration: SchemaConfiguration) |
 | [NestedOneofToCheckValidationSemantics1BoxedVoid](#nestedoneoftocheckvalidationsemantics1boxedvoid) | validateAndBox(Nothing?, configuration: SchemaConfiguration) |
 | [NestedOneofToCheckValidationSemantics1BoxedNumber](#nestedoneoftocheckvalidationsemantics1boxednumber) | validateAndBox(Number, configuration: SchemaConfiguration) |
-| [NestedOneofToCheckValidationSemantics1BoxedBoolean](#nestedoneoftocheckvalidationsemantics1boxedboolean) | validateAndBox(boolean, configuration: SchemaConfiguration) |
-| [NestedOneofToCheckValidationSemantics1BoxedMap](#nestedoneoftocheckvalidationsemantics1boxedmap) | validateAndBox(Map&lt;?, ?&gt;, configuration: SchemaConfiguration) |
+| [NestedOneofToCheckValidationSemantics1BoxedBoolean](#nestedoneoftocheckvalidationsemantics1boxedboolean) | validateAndBox(Boolean, configuration: SchemaConfiguration) |
+| [NestedOneofToCheckValidationSemantics1BoxedMap](#nestedoneoftocheckvalidationsemantics1boxedmap) | validateAndBox(Map&lt;*, *&gt;, configuration: SchemaConfiguration) |
 | [NestedOneofToCheckValidationSemantics1BoxedList](#nestedoneoftocheckvalidationsemantics1boxedlist) | validateAndBox(List<*>, configuration: SchemaConfiguration) |
 | [NestedOneofToCheckValidationSemantics1Boxed](#nestedoneoftocheckvalidationsemantics1boxed) | validateAndBox(Any?, configuration: SchemaConfiguration) |
 | Any? | validate(arg: Any?, configuration: SchemaConfiguration) |
@@ -210,7 +210,7 @@ data class that stores validated null payloads, sealed permits implementation
 data class Schema0BoxedBoolean<br>
 implements [Schema0Boxed](#schema0boxed)
 
-record that stores validated boolean payloads, sealed permits implementation
+data class that stores validated boolean payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
@@ -307,19 +307,19 @@ A schema class that validates payloads
 | ----------------- | ---------------------- |
 | String | validate(arg: String, configuration: SchemaConfiguration) |
 | Nothing? | validate(arg: Nothing?, configuration: SchemaConfiguration) |
-| int | validate(arg: int, configuration: SchemaConfiguration) |
-| long | validate(arg: long, configuration: SchemaConfiguration) |
-| float | validate(arg: float, configuration: SchemaConfiguration) |
-| double | validate(arg: double, configuration: SchemaConfiguration) |
+| Int | validate(arg: Int, configuration: SchemaConfiguration) |
+| Long | validate(arg: Long, configuration: SchemaConfiguration) |
+| Float | validate(arg: Float, configuration: SchemaConfiguration) |
+| Double | validate(arg: Double, configuration: SchemaConfiguration) |
 | Number | validate(arg: Number, configuration: SchemaConfiguration) |
-| boolean | validate(arg: boolean, configuration: SchemaConfiguration) |
-| FrozenMap<Any?> | validate(arg: Map&lt;?, ?&gt;, configuration: SchemaConfiguration) |
+| Boolean | validate(arg: Boolean, configuration: SchemaConfiguration) |
+| FrozenMap<Any?> | validate(arg: Map&lt;*, *&gt;, configuration: SchemaConfiguration) |
 | FrozenList<Any?> | validate(arg: List<*>, configuration: SchemaConfiguration) |
 | [Schema0BoxedString](#schema0boxedstring) | validateAndBox(String, configuration: SchemaConfiguration) |
 | [Schema0BoxedVoid](#schema0boxedvoid) | validateAndBox(Nothing?, configuration: SchemaConfiguration) |
 | [Schema0BoxedNumber](#schema0boxednumber) | validateAndBox(Number, configuration: SchemaConfiguration) |
-| [Schema0BoxedBoolean](#schema0boxedboolean) | validateAndBox(boolean, configuration: SchemaConfiguration) |
-| [Schema0BoxedMap](#schema0boxedmap) | validateAndBox(Map&lt;?, ?&gt;, configuration: SchemaConfiguration) |
+| [Schema0BoxedBoolean](#schema0boxedboolean) | validateAndBox(Boolean, configuration: SchemaConfiguration) |
+| [Schema0BoxedMap](#schema0boxedmap) | validateAndBox(Map&lt;*, *&gt;, configuration: SchemaConfiguration) |
 | [Schema0BoxedList](#schema0boxedlist) | validateAndBox(List<*>, configuration: SchemaConfiguration) |
 | [Schema0Boxed](#schema0boxed) | validateAndBox(Any?, configuration: SchemaConfiguration) |
 | Any? | validate(arg: Any?, configuration: SchemaConfiguration) |

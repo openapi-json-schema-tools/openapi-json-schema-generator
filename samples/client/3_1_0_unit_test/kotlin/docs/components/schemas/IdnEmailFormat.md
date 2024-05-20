@@ -11,13 +11,13 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | sealed interface | [IdnEmailFormat.IdnEmailFormat1Boxed](#idnemailformat1boxed)<br> sealed interface for validated payloads |
-| record | [IdnEmailFormat.IdnEmailFormat1BoxedVoid](#idnemailformat1boxedvoid)<br> boxed class to store validated null payloads |
-| record | [IdnEmailFormat.IdnEmailFormat1BoxedBoolean](#idnemailformat1boxedboolean)<br> boxed class to store validated boolean payloads |
-| record | [IdnEmailFormat.IdnEmailFormat1BoxedNumber](#idnemailformat1boxednumber)<br> boxed class to store validated Number payloads |
-| record | [IdnEmailFormat.IdnEmailFormat1BoxedString](#idnemailformat1boxedstring)<br> boxed class to store validated String payloads |
-| record | [IdnEmailFormat.IdnEmailFormat1BoxedList](#idnemailformat1boxedlist)<br> boxed class to store validated List payloads |
-| record | [IdnEmailFormat.IdnEmailFormat1BoxedMap](#idnemailformat1boxedmap)<br> boxed class to store validated Map payloads |
-| static class | [IdnEmailFormat.IdnEmailFormat1](#idnemailformat1)<br> schema class |
+| data class | [IdnEmailFormat.IdnEmailFormat1BoxedVoid](#idnemailformat1boxedvoid)<br> boxed class to store validated null payloads |
+| data class | [IdnEmailFormat.IdnEmailFormat1BoxedBoolean](#idnemailformat1boxedboolean)<br> boxed class to store validated boolean payloads |
+| data class | [IdnEmailFormat.IdnEmailFormat1BoxedNumber](#idnemailformat1boxednumber)<br> boxed class to store validated Number payloads |
+| data class | [IdnEmailFormat.IdnEmailFormat1BoxedString](#idnemailformat1boxedstring)<br> boxed class to store validated String payloads |
+| data class | [IdnEmailFormat.IdnEmailFormat1BoxedList](#idnemailformat1boxedlist)<br> boxed class to store validated List payloads |
+| data class | [IdnEmailFormat.IdnEmailFormat1BoxedMap](#idnemailformat1boxedmap)<br> boxed class to store validated Map payloads |
+| class | [IdnEmailFormat.IdnEmailFormat1](#idnemailformat1)<br> schema class |
 
 ## IdnEmailFormat1Boxed
 sealed interface IdnEmailFormat1Boxed<br>
@@ -52,7 +52,7 @@ data class that stores validated null payloads, sealed permits implementation
 data class IdnEmailFormat1BoxedBoolean<br>
 implements [IdnEmailFormat1Boxed](#idnemailformat1boxed)
 
-record that stores validated boolean payloads, sealed permits implementation
+data class that stores validated boolean payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
@@ -149,19 +149,19 @@ A schema class that validates payloads
 | ----------------- | ---------------------- |
 | String | validate(arg: String, configuration: SchemaConfiguration) |
 | Nothing? | validate(arg: Nothing?, configuration: SchemaConfiguration) |
-| int | validate(arg: int, configuration: SchemaConfiguration) |
-| long | validate(arg: long, configuration: SchemaConfiguration) |
-| float | validate(arg: float, configuration: SchemaConfiguration) |
-| double | validate(arg: double, configuration: SchemaConfiguration) |
+| Int | validate(arg: Int, configuration: SchemaConfiguration) |
+| Long | validate(arg: Long, configuration: SchemaConfiguration) |
+| Float | validate(arg: Float, configuration: SchemaConfiguration) |
+| Double | validate(arg: Double, configuration: SchemaConfiguration) |
 | Number | validate(arg: Number, configuration: SchemaConfiguration) |
-| boolean | validate(arg: boolean, configuration: SchemaConfiguration) |
-| FrozenMap<Any?> | validate(arg: Map&lt;?, ?&gt;, configuration: SchemaConfiguration) |
+| Boolean | validate(arg: Boolean, configuration: SchemaConfiguration) |
+| FrozenMap<Any?> | validate(arg: Map&lt;*, *&gt;, configuration: SchemaConfiguration) |
 | FrozenList<Any?> | validate(arg: List<*>, configuration: SchemaConfiguration) |
 | [IdnEmailFormat1BoxedString](#idnemailformat1boxedstring) | validateAndBox(String, configuration: SchemaConfiguration) |
 | [IdnEmailFormat1BoxedVoid](#idnemailformat1boxedvoid) | validateAndBox(Nothing?, configuration: SchemaConfiguration) |
 | [IdnEmailFormat1BoxedNumber](#idnemailformat1boxednumber) | validateAndBox(Number, configuration: SchemaConfiguration) |
-| [IdnEmailFormat1BoxedBoolean](#idnemailformat1boxedboolean) | validateAndBox(boolean, configuration: SchemaConfiguration) |
-| [IdnEmailFormat1BoxedMap](#idnemailformat1boxedmap) | validateAndBox(Map&lt;?, ?&gt;, configuration: SchemaConfiguration) |
+| [IdnEmailFormat1BoxedBoolean](#idnemailformat1boxedboolean) | validateAndBox(Boolean, configuration: SchemaConfiguration) |
+| [IdnEmailFormat1BoxedMap](#idnemailformat1boxedmap) | validateAndBox(Map&lt;*, *&gt;, configuration: SchemaConfiguration) |
 | [IdnEmailFormat1BoxedList](#idnemailformat1boxedlist) | validateAndBox(List<*>, configuration: SchemaConfiguration) |
 | [IdnEmailFormat1Boxed](#idnemailformat1boxed) | validateAndBox(Any?, configuration: SchemaConfiguration) |
 | Any? | validate(arg: Any?, configuration: SchemaConfiguration) |

@@ -13,16 +13,16 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | sealed interface | [UnevaluateditemsWithItems.UnevaluateditemsWithItems1Boxed](#unevaluateditemswithitems1boxed)<br> sealed interface for validated payloads |
-| record | [UnevaluateditemsWithItems.UnevaluateditemsWithItems1BoxedList](#unevaluateditemswithitems1boxedlist)<br> boxed class to store validated List payloads |
-| static class | [UnevaluateditemsWithItems.UnevaluateditemsWithItems1](#unevaluateditemswithitems1)<br> schema class |
+| data class | [UnevaluateditemsWithItems.UnevaluateditemsWithItems1BoxedList](#unevaluateditemswithitems1boxedlist)<br> boxed class to store validated List payloads |
+| class | [UnevaluateditemsWithItems.UnevaluateditemsWithItems1](#unevaluateditemswithitems1)<br> schema class |
 | sealed interface | [UnevaluateditemsWithItems.UnevaluatedItemsBoxed](#unevaluateditemsboxed)<br> sealed interface for validated payloads |
-| record | [UnevaluateditemsWithItems.UnevaluatedItemsBoxedString](#unevaluateditemsboxedstring)<br> boxed class to store validated String payloads |
-| static class | [UnevaluateditemsWithItems.UnevaluatedItems](#unevaluateditems)<br> schema class |
-| static class | [UnevaluateditemsWithItems.UnevaluateditemsWithItemsListBuilder](#unevaluateditemswithitemslistbuilder)<br> builder for List payloads |
-| static class | [UnevaluateditemsWithItems.UnevaluateditemsWithItemsList](#unevaluateditemswithitemslist)<br> output class for List payloads |
+| data class | [UnevaluateditemsWithItems.UnevaluatedItemsBoxedString](#unevaluateditemsboxedstring)<br> boxed class to store validated String payloads |
+| class | [UnevaluateditemsWithItems.UnevaluatedItems](#unevaluateditems)<br> schema class |
+| class | [UnevaluateditemsWithItems.UnevaluateditemsWithItemsListBuilder](#unevaluateditemswithitemslistbuilder)<br> builder for List payloads |
+| class | [UnevaluateditemsWithItems.UnevaluateditemsWithItemsList](#unevaluateditemswithitemslist)<br> output class for List payloads |
 | sealed interface | [UnevaluateditemsWithItems.ItemsBoxed](#itemsboxed)<br> sealed interface for validated payloads |
-| record | [UnevaluateditemsWithItems.ItemsBoxedNumber](#itemsboxednumber)<br> boxed class to store validated Number payloads |
-| static class | [UnevaluateditemsWithItems.Items](#items)<br> schema class |
+| data class | [UnevaluateditemsWithItems.ItemsBoxedNumber](#itemsboxednumber)<br> boxed class to store validated Number payloads |
+| class | [UnevaluateditemsWithItems.Items](#items)<br> schema class |
 
 ## UnevaluateditemsWithItems1Boxed
 sealed interface UnevaluateditemsWithItems1Boxed<br>
@@ -56,29 +56,25 @@ A schema class that validates payloads
 
 ### Code Sample
 ```
-import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
-import org.openapijsonschematools.client.configurations.SchemaConfiguration;
-import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.schemas.validation.MapUtils;
-import org.openapijsonschematools.client.schemas.validation.FrozenList;
-import org.openapijsonschematools.client.schemas.validation.FrozenMap;
-import org.openapijsonschematools.client.components.schemas.UnevaluateditemsWithItems;
+import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags
+import org.openapijsonschematools.client.configurations.SchemaConfiguration
+import org.openapijsonschematools.client.exceptions.ValidationException
+import org.openapijsonschematools.client.schemas.validation.MapUtils
+import org.openapijsonschematools.client.schemas.validation.FrozenList
+import org.openapijsonschematools.client.schemas.validation.FrozenMap
+import org.openapijsonschematools.client.components.schemas.UnevaluateditemsWithItems
 
-import java.util.Arrays;
-import java.util.List;
-import java.util.AbstractMap;
-
-static final SchemaConfiguration configuration = new SchemaConfiguration(new JsonSchemaKeywordFlags.Builder().build());
+val configuration = SchemaConfiguration(JsonSchemaKeywordFlags.Builder().build())
 
 // List validation
-UnevaluateditemsWithItems.UnevaluateditemsWithItemsList validatedPayload =
+val validatedPayload: UnevaluateditemsWithItems.UnevaluateditemsWithItemsList =
     UnevaluateditemsWithItems.UnevaluateditemsWithItems1.validate(
-    new UnevaluateditemsWithItems.UnevaluateditemsWithItemsListBuilder()
+    UnevaluateditemsWithItems.UnevaluateditemsWithItemsListBuilder()
         .add(1)
 
     .build(),
     configuration
-);
+)
 ```
 
 ### Field Summary

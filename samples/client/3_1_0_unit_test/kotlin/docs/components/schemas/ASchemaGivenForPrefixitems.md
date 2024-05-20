@@ -13,21 +13,21 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | sealed interface | [ASchemaGivenForPrefixitems.ASchemaGivenForPrefixitems1Boxed](#aschemagivenforprefixitems1boxed)<br> sealed interface for validated payloads |
-| record | [ASchemaGivenForPrefixitems.ASchemaGivenForPrefixitems1BoxedVoid](#aschemagivenforprefixitems1boxedvoid)<br> boxed class to store validated null payloads |
-| record | [ASchemaGivenForPrefixitems.ASchemaGivenForPrefixitems1BoxedBoolean](#aschemagivenforprefixitems1boxedboolean)<br> boxed class to store validated boolean payloads |
-| record | [ASchemaGivenForPrefixitems.ASchemaGivenForPrefixitems1BoxedNumber](#aschemagivenforprefixitems1boxednumber)<br> boxed class to store validated Number payloads |
-| record | [ASchemaGivenForPrefixitems.ASchemaGivenForPrefixitems1BoxedString](#aschemagivenforprefixitems1boxedstring)<br> boxed class to store validated String payloads |
-| record | [ASchemaGivenForPrefixitems.ASchemaGivenForPrefixitems1BoxedList](#aschemagivenforprefixitems1boxedlist)<br> boxed class to store validated List payloads |
-| record | [ASchemaGivenForPrefixitems.ASchemaGivenForPrefixitems1BoxedMap](#aschemagivenforprefixitems1boxedmap)<br> boxed class to store validated Map payloads |
-| static class | [ASchemaGivenForPrefixitems.ASchemaGivenForPrefixitems1](#aschemagivenforprefixitems1)<br> schema class |
+| data class | [ASchemaGivenForPrefixitems.ASchemaGivenForPrefixitems1BoxedVoid](#aschemagivenforprefixitems1boxedvoid)<br> boxed class to store validated null payloads |
+| data class | [ASchemaGivenForPrefixitems.ASchemaGivenForPrefixitems1BoxedBoolean](#aschemagivenforprefixitems1boxedboolean)<br> boxed class to store validated boolean payloads |
+| data class | [ASchemaGivenForPrefixitems.ASchemaGivenForPrefixitems1BoxedNumber](#aschemagivenforprefixitems1boxednumber)<br> boxed class to store validated Number payloads |
+| data class | [ASchemaGivenForPrefixitems.ASchemaGivenForPrefixitems1BoxedString](#aschemagivenforprefixitems1boxedstring)<br> boxed class to store validated String payloads |
+| data class | [ASchemaGivenForPrefixitems.ASchemaGivenForPrefixitems1BoxedList](#aschemagivenforprefixitems1boxedlist)<br> boxed class to store validated List payloads |
+| data class | [ASchemaGivenForPrefixitems.ASchemaGivenForPrefixitems1BoxedMap](#aschemagivenforprefixitems1boxedmap)<br> boxed class to store validated Map payloads |
+| class | [ASchemaGivenForPrefixitems.ASchemaGivenForPrefixitems1](#aschemagivenforprefixitems1)<br> schema class |
 | sealed interface | [ASchemaGivenForPrefixitems.Schema1Boxed](#schema1boxed)<br> sealed interface for validated payloads |
-| record | [ASchemaGivenForPrefixitems.Schema1BoxedString](#schema1boxedstring)<br> boxed class to store validated String payloads |
-| static class | [ASchemaGivenForPrefixitems.Schema1](#schema1)<br> schema class |
+| data class | [ASchemaGivenForPrefixitems.Schema1BoxedString](#schema1boxedstring)<br> boxed class to store validated String payloads |
+| class | [ASchemaGivenForPrefixitems.Schema1](#schema1)<br> schema class |
 | sealed interface | [ASchemaGivenForPrefixitems.Schema0Boxed](#schema0boxed)<br> sealed interface for validated payloads |
-| record | [ASchemaGivenForPrefixitems.Schema0BoxedNumber](#schema0boxednumber)<br> boxed class to store validated Number payloads |
-| static class | [ASchemaGivenForPrefixitems.Schema0](#schema0)<br> schema class |
-| static class | [ASchemaGivenForPrefixitems.ASchemaGivenForPrefixitemsListBuilder](#aschemagivenforprefixitemslistbuilder)<br> builder for List payloads |
-| static class | [ASchemaGivenForPrefixitems.ASchemaGivenForPrefixitemsList](#aschemagivenforprefixitemslist)<br> output class for List payloads |
+| data class | [ASchemaGivenForPrefixitems.Schema0BoxedNumber](#schema0boxednumber)<br> boxed class to store validated Number payloads |
+| class | [ASchemaGivenForPrefixitems.Schema0](#schema0)<br> schema class |
+| class | [ASchemaGivenForPrefixitems.ASchemaGivenForPrefixitemsListBuilder](#aschemagivenforprefixitemslistbuilder)<br> builder for List payloads |
+| class | [ASchemaGivenForPrefixitems.ASchemaGivenForPrefixitemsList](#aschemagivenforprefixitemslist)<br> output class for List payloads |
 
 ## ASchemaGivenForPrefixitems1Boxed
 sealed interface ASchemaGivenForPrefixitems1Boxed<br>
@@ -62,7 +62,7 @@ data class that stores validated null payloads, sealed permits implementation
 data class ASchemaGivenForPrefixitems1BoxedBoolean<br>
 implements [ASchemaGivenForPrefixitems1Boxed](#aschemagivenforprefixitems1boxed)
 
-record that stores validated boolean payloads, sealed permits implementation
+data class that stores validated boolean payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
@@ -159,19 +159,19 @@ A schema class that validates payloads
 | ----------------- | ---------------------- |
 | String | validate(arg: String, configuration: SchemaConfiguration) |
 | Nothing? | validate(arg: Nothing?, configuration: SchemaConfiguration) |
-| int | validate(arg: int, configuration: SchemaConfiguration) |
-| long | validate(arg: long, configuration: SchemaConfiguration) |
-| float | validate(arg: float, configuration: SchemaConfiguration) |
-| double | validate(arg: double, configuration: SchemaConfiguration) |
+| Int | validate(arg: Int, configuration: SchemaConfiguration) |
+| Long | validate(arg: Long, configuration: SchemaConfiguration) |
+| Float | validate(arg: Float, configuration: SchemaConfiguration) |
+| Double | validate(arg: Double, configuration: SchemaConfiguration) |
 | Number | validate(arg: Number, configuration: SchemaConfiguration) |
-| boolean | validate(arg: boolean, configuration: SchemaConfiguration) |
-| FrozenMap<Any?> | validate(arg: Map&lt;?, ?&gt;, configuration: SchemaConfiguration) |
+| Boolean | validate(arg: Boolean, configuration: SchemaConfiguration) |
+| FrozenMap<Any?> | validate(arg: Map&lt;*, *&gt;, configuration: SchemaConfiguration) |
 | [ASchemaGivenForPrefixitemsList](#aschemagivenforprefixitemslist) | validate(arg: [List<*>](#aschemagivenforprefixitemslistbuilder), configuration: SchemaConfiguration) |
 | [ASchemaGivenForPrefixitems1BoxedString](#aschemagivenforprefixitems1boxedstring) | validateAndBox(String, configuration: SchemaConfiguration) |
 | [ASchemaGivenForPrefixitems1BoxedVoid](#aschemagivenforprefixitems1boxedvoid) | validateAndBox(Nothing?, configuration: SchemaConfiguration) |
 | [ASchemaGivenForPrefixitems1BoxedNumber](#aschemagivenforprefixitems1boxednumber) | validateAndBox(Number, configuration: SchemaConfiguration) |
-| [ASchemaGivenForPrefixitems1BoxedBoolean](#aschemagivenforprefixitems1boxedboolean) | validateAndBox(boolean, configuration: SchemaConfiguration) |
-| [ASchemaGivenForPrefixitems1BoxedMap](#aschemagivenforprefixitems1boxedmap) | validateAndBox(Map&lt;?, ?&gt;, configuration: SchemaConfiguration) |
+| [ASchemaGivenForPrefixitems1BoxedBoolean](#aschemagivenforprefixitems1boxedboolean) | validateAndBox(Boolean, configuration: SchemaConfiguration) |
+| [ASchemaGivenForPrefixitems1BoxedMap](#aschemagivenforprefixitems1boxedmap) | validateAndBox(Map&lt;*, *&gt;, configuration: SchemaConfiguration) |
 | [ASchemaGivenForPrefixitems1BoxedList](#aschemagivenforprefixitems1boxedlist) | validateAndBox([List<*>](#aschemagivenforprefixitemslistbuilder), configuration: SchemaConfiguration) |
 | [ASchemaGivenForPrefixitems1Boxed](#aschemagivenforprefixitems1boxed) | validateAndBox(Any?, configuration: SchemaConfiguration) |
 | Any? | validate(arg: Any?, configuration: SchemaConfiguration) |

@@ -13,21 +13,21 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | sealed interface | [UniqueitemsFalseWithAnArrayOfItems.UniqueitemsFalseWithAnArrayOfItems1Boxed](#uniqueitemsfalsewithanarrayofitems1boxed)<br> sealed interface for validated payloads |
-| record | [UniqueitemsFalseWithAnArrayOfItems.UniqueitemsFalseWithAnArrayOfItems1BoxedVoid](#uniqueitemsfalsewithanarrayofitems1boxedvoid)<br> boxed class to store validated null payloads |
-| record | [UniqueitemsFalseWithAnArrayOfItems.UniqueitemsFalseWithAnArrayOfItems1BoxedBoolean](#uniqueitemsfalsewithanarrayofitems1boxedboolean)<br> boxed class to store validated boolean payloads |
-| record | [UniqueitemsFalseWithAnArrayOfItems.UniqueitemsFalseWithAnArrayOfItems1BoxedNumber](#uniqueitemsfalsewithanarrayofitems1boxednumber)<br> boxed class to store validated Number payloads |
-| record | [UniqueitemsFalseWithAnArrayOfItems.UniqueitemsFalseWithAnArrayOfItems1BoxedString](#uniqueitemsfalsewithanarrayofitems1boxedstring)<br> boxed class to store validated String payloads |
-| record | [UniqueitemsFalseWithAnArrayOfItems.UniqueitemsFalseWithAnArrayOfItems1BoxedList](#uniqueitemsfalsewithanarrayofitems1boxedlist)<br> boxed class to store validated List payloads |
-| record | [UniqueitemsFalseWithAnArrayOfItems.UniqueitemsFalseWithAnArrayOfItems1BoxedMap](#uniqueitemsfalsewithanarrayofitems1boxedmap)<br> boxed class to store validated Map payloads |
-| static class | [UniqueitemsFalseWithAnArrayOfItems.UniqueitemsFalseWithAnArrayOfItems1](#uniqueitemsfalsewithanarrayofitems1)<br> schema class |
+| data class | [UniqueitemsFalseWithAnArrayOfItems.UniqueitemsFalseWithAnArrayOfItems1BoxedVoid](#uniqueitemsfalsewithanarrayofitems1boxedvoid)<br> boxed class to store validated null payloads |
+| data class | [UniqueitemsFalseWithAnArrayOfItems.UniqueitemsFalseWithAnArrayOfItems1BoxedBoolean](#uniqueitemsfalsewithanarrayofitems1boxedboolean)<br> boxed class to store validated boolean payloads |
+| data class | [UniqueitemsFalseWithAnArrayOfItems.UniqueitemsFalseWithAnArrayOfItems1BoxedNumber](#uniqueitemsfalsewithanarrayofitems1boxednumber)<br> boxed class to store validated Number payloads |
+| data class | [UniqueitemsFalseWithAnArrayOfItems.UniqueitemsFalseWithAnArrayOfItems1BoxedString](#uniqueitemsfalsewithanarrayofitems1boxedstring)<br> boxed class to store validated String payloads |
+| data class | [UniqueitemsFalseWithAnArrayOfItems.UniqueitemsFalseWithAnArrayOfItems1BoxedList](#uniqueitemsfalsewithanarrayofitems1boxedlist)<br> boxed class to store validated List payloads |
+| data class | [UniqueitemsFalseWithAnArrayOfItems.UniqueitemsFalseWithAnArrayOfItems1BoxedMap](#uniqueitemsfalsewithanarrayofitems1boxedmap)<br> boxed class to store validated Map payloads |
+| class | [UniqueitemsFalseWithAnArrayOfItems.UniqueitemsFalseWithAnArrayOfItems1](#uniqueitemsfalsewithanarrayofitems1)<br> schema class |
 | sealed interface | [UniqueitemsFalseWithAnArrayOfItems.Schema1Boxed](#schema1boxed)<br> sealed interface for validated payloads |
-| record | [UniqueitemsFalseWithAnArrayOfItems.Schema1BoxedBoolean](#schema1boxedboolean)<br> boxed class to store validated boolean payloads |
-| static class | [UniqueitemsFalseWithAnArrayOfItems.Schema1](#schema1)<br> schema class |
+| data class | [UniqueitemsFalseWithAnArrayOfItems.Schema1BoxedBoolean](#schema1boxedboolean)<br> boxed class to store validated boolean payloads |
+| class | [UniqueitemsFalseWithAnArrayOfItems.Schema1](#schema1)<br> schema class |
 | sealed interface | [UniqueitemsFalseWithAnArrayOfItems.Schema0Boxed](#schema0boxed)<br> sealed interface for validated payloads |
-| record | [UniqueitemsFalseWithAnArrayOfItems.Schema0BoxedBoolean](#schema0boxedboolean)<br> boxed class to store validated boolean payloads |
-| static class | [UniqueitemsFalseWithAnArrayOfItems.Schema0](#schema0)<br> schema class |
-| static class | [UniqueitemsFalseWithAnArrayOfItems.UniqueitemsFalseWithAnArrayOfItemsListBuilder](#uniqueitemsfalsewithanarrayofitemslistbuilder)<br> builder for List payloads |
-| static class | [UniqueitemsFalseWithAnArrayOfItems.UniqueitemsFalseWithAnArrayOfItemsList](#uniqueitemsfalsewithanarrayofitemslist)<br> output class for List payloads |
+| data class | [UniqueitemsFalseWithAnArrayOfItems.Schema0BoxedBoolean](#schema0boxedboolean)<br> boxed class to store validated boolean payloads |
+| class | [UniqueitemsFalseWithAnArrayOfItems.Schema0](#schema0)<br> schema class |
+| class | [UniqueitemsFalseWithAnArrayOfItems.UniqueitemsFalseWithAnArrayOfItemsListBuilder](#uniqueitemsfalsewithanarrayofitemslistbuilder)<br> builder for List payloads |
+| class | [UniqueitemsFalseWithAnArrayOfItems.UniqueitemsFalseWithAnArrayOfItemsList](#uniqueitemsfalsewithanarrayofitemslist)<br> output class for List payloads |
 
 ## UniqueitemsFalseWithAnArrayOfItems1Boxed
 sealed interface UniqueitemsFalseWithAnArrayOfItems1Boxed<br>
@@ -62,7 +62,7 @@ data class that stores validated null payloads, sealed permits implementation
 data class UniqueitemsFalseWithAnArrayOfItems1BoxedBoolean<br>
 implements [UniqueitemsFalseWithAnArrayOfItems1Boxed](#uniqueitemsfalsewithanarrayofitems1boxed)
 
-record that stores validated boolean payloads, sealed permits implementation
+data class that stores validated boolean payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
@@ -160,19 +160,19 @@ A schema class that validates payloads
 | ----------------- | ---------------------- |
 | String | validate(arg: String, configuration: SchemaConfiguration) |
 | Nothing? | validate(arg: Nothing?, configuration: SchemaConfiguration) |
-| int | validate(arg: int, configuration: SchemaConfiguration) |
-| long | validate(arg: long, configuration: SchemaConfiguration) |
-| float | validate(arg: float, configuration: SchemaConfiguration) |
-| double | validate(arg: double, configuration: SchemaConfiguration) |
+| Int | validate(arg: Int, configuration: SchemaConfiguration) |
+| Long | validate(arg: Long, configuration: SchemaConfiguration) |
+| Float | validate(arg: Float, configuration: SchemaConfiguration) |
+| Double | validate(arg: Double, configuration: SchemaConfiguration) |
 | Number | validate(arg: Number, configuration: SchemaConfiguration) |
-| boolean | validate(arg: boolean, configuration: SchemaConfiguration) |
-| FrozenMap<Any?> | validate(arg: Map&lt;?, ?&gt;, configuration: SchemaConfiguration) |
+| Boolean | validate(arg: Boolean, configuration: SchemaConfiguration) |
+| FrozenMap<Any?> | validate(arg: Map&lt;*, *&gt;, configuration: SchemaConfiguration) |
 | [UniqueitemsFalseWithAnArrayOfItemsList](#uniqueitemsfalsewithanarrayofitemslist) | validate(arg: [List<*>](#uniqueitemsfalsewithanarrayofitemslistbuilder), configuration: SchemaConfiguration) |
 | [UniqueitemsFalseWithAnArrayOfItems1BoxedString](#uniqueitemsfalsewithanarrayofitems1boxedstring) | validateAndBox(String, configuration: SchemaConfiguration) |
 | [UniqueitemsFalseWithAnArrayOfItems1BoxedVoid](#uniqueitemsfalsewithanarrayofitems1boxedvoid) | validateAndBox(Nothing?, configuration: SchemaConfiguration) |
 | [UniqueitemsFalseWithAnArrayOfItems1BoxedNumber](#uniqueitemsfalsewithanarrayofitems1boxednumber) | validateAndBox(Number, configuration: SchemaConfiguration) |
-| [UniqueitemsFalseWithAnArrayOfItems1BoxedBoolean](#uniqueitemsfalsewithanarrayofitems1boxedboolean) | validateAndBox(boolean, configuration: SchemaConfiguration) |
-| [UniqueitemsFalseWithAnArrayOfItems1BoxedMap](#uniqueitemsfalsewithanarrayofitems1boxedmap) | validateAndBox(Map&lt;?, ?&gt;, configuration: SchemaConfiguration) |
+| [UniqueitemsFalseWithAnArrayOfItems1BoxedBoolean](#uniqueitemsfalsewithanarrayofitems1boxedboolean) | validateAndBox(Boolean, configuration: SchemaConfiguration) |
+| [UniqueitemsFalseWithAnArrayOfItems1BoxedMap](#uniqueitemsfalsewithanarrayofitems1boxedmap) | validateAndBox(Map&lt;*, *&gt;, configuration: SchemaConfiguration) |
 | [UniqueitemsFalseWithAnArrayOfItems1BoxedList](#uniqueitemsfalsewithanarrayofitems1boxedlist) | validateAndBox([List<*>](#uniqueitemsfalsewithanarrayofitemslistbuilder), configuration: SchemaConfiguration) |
 | [UniqueitemsFalseWithAnArrayOfItems1Boxed](#uniqueitemsfalsewithanarrayofitems1boxed) | validateAndBox(Any?, configuration: SchemaConfiguration) |
 | Any? | validate(arg: Any?, configuration: SchemaConfiguration) |
@@ -188,7 +188,7 @@ sealed interface that stores validated payloads using boxed classes
 data class Schema1BoxedBoolean<br>
 implements [Schema1Boxed](#schema1boxed)
 
-record that stores validated boolean payloads, sealed permits implementation
+data class that stores validated boolean payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
@@ -223,7 +223,7 @@ sealed interface that stores validated payloads using boxed classes
 data class Schema0BoxedBoolean<br>
 implements [Schema0Boxed](#schema0boxed)
 
-record that stores validated boolean payloads, sealed permits implementation
+data class that stores validated boolean payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |

@@ -11,13 +11,13 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | sealed interface | [MinimumValidationWithSignedInteger.MinimumValidationWithSignedInteger1Boxed](#minimumvalidationwithsignedinteger1boxed)<br> sealed interface for validated payloads |
-| record | [MinimumValidationWithSignedInteger.MinimumValidationWithSignedInteger1BoxedVoid](#minimumvalidationwithsignedinteger1boxedvoid)<br> boxed class to store validated null payloads |
-| record | [MinimumValidationWithSignedInteger.MinimumValidationWithSignedInteger1BoxedBoolean](#minimumvalidationwithsignedinteger1boxedboolean)<br> boxed class to store validated boolean payloads |
-| record | [MinimumValidationWithSignedInteger.MinimumValidationWithSignedInteger1BoxedNumber](#minimumvalidationwithsignedinteger1boxednumber)<br> boxed class to store validated Number payloads |
-| record | [MinimumValidationWithSignedInteger.MinimumValidationWithSignedInteger1BoxedString](#minimumvalidationwithsignedinteger1boxedstring)<br> boxed class to store validated String payloads |
-| record | [MinimumValidationWithSignedInteger.MinimumValidationWithSignedInteger1BoxedList](#minimumvalidationwithsignedinteger1boxedlist)<br> boxed class to store validated List payloads |
-| record | [MinimumValidationWithSignedInteger.MinimumValidationWithSignedInteger1BoxedMap](#minimumvalidationwithsignedinteger1boxedmap)<br> boxed class to store validated Map payloads |
-| static class | [MinimumValidationWithSignedInteger.MinimumValidationWithSignedInteger1](#minimumvalidationwithsignedinteger1)<br> schema class |
+| data class | [MinimumValidationWithSignedInteger.MinimumValidationWithSignedInteger1BoxedVoid](#minimumvalidationwithsignedinteger1boxedvoid)<br> boxed class to store validated null payloads |
+| data class | [MinimumValidationWithSignedInteger.MinimumValidationWithSignedInteger1BoxedBoolean](#minimumvalidationwithsignedinteger1boxedboolean)<br> boxed class to store validated boolean payloads |
+| data class | [MinimumValidationWithSignedInteger.MinimumValidationWithSignedInteger1BoxedNumber](#minimumvalidationwithsignedinteger1boxednumber)<br> boxed class to store validated Number payloads |
+| data class | [MinimumValidationWithSignedInteger.MinimumValidationWithSignedInteger1BoxedString](#minimumvalidationwithsignedinteger1boxedstring)<br> boxed class to store validated String payloads |
+| data class | [MinimumValidationWithSignedInteger.MinimumValidationWithSignedInteger1BoxedList](#minimumvalidationwithsignedinteger1boxedlist)<br> boxed class to store validated List payloads |
+| data class | [MinimumValidationWithSignedInteger.MinimumValidationWithSignedInteger1BoxedMap](#minimumvalidationwithsignedinteger1boxedmap)<br> boxed class to store validated Map payloads |
+| class | [MinimumValidationWithSignedInteger.MinimumValidationWithSignedInteger1](#minimumvalidationwithsignedinteger1)<br> schema class |
 
 ## MinimumValidationWithSignedInteger1Boxed
 sealed interface MinimumValidationWithSignedInteger1Boxed<br>
@@ -52,7 +52,7 @@ data class that stores validated null payloads, sealed permits implementation
 data class MinimumValidationWithSignedInteger1BoxedBoolean<br>
 implements [MinimumValidationWithSignedInteger1Boxed](#minimumvalidationwithsignedinteger1boxed)
 
-record that stores validated boolean payloads, sealed permits implementation
+data class that stores validated boolean payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
@@ -149,19 +149,19 @@ A schema class that validates payloads
 | ----------------- | ---------------------- |
 | String | validate(arg: String, configuration: SchemaConfiguration) |
 | Nothing? | validate(arg: Nothing?, configuration: SchemaConfiguration) |
-| int | validate(arg: int, configuration: SchemaConfiguration) |
-| long | validate(arg: long, configuration: SchemaConfiguration) |
-| float | validate(arg: float, configuration: SchemaConfiguration) |
-| double | validate(arg: double, configuration: SchemaConfiguration) |
+| Int | validate(arg: Int, configuration: SchemaConfiguration) |
+| Long | validate(arg: Long, configuration: SchemaConfiguration) |
+| Float | validate(arg: Float, configuration: SchemaConfiguration) |
+| Double | validate(arg: Double, configuration: SchemaConfiguration) |
 | Number | validate(arg: Number, configuration: SchemaConfiguration) |
-| boolean | validate(arg: boolean, configuration: SchemaConfiguration) |
-| FrozenMap<Any?> | validate(arg: Map&lt;?, ?&gt;, configuration: SchemaConfiguration) |
+| Boolean | validate(arg: Boolean, configuration: SchemaConfiguration) |
+| FrozenMap<Any?> | validate(arg: Map&lt;*, *&gt;, configuration: SchemaConfiguration) |
 | FrozenList<Any?> | validate(arg: List<*>, configuration: SchemaConfiguration) |
 | [MinimumValidationWithSignedInteger1BoxedString](#minimumvalidationwithsignedinteger1boxedstring) | validateAndBox(String, configuration: SchemaConfiguration) |
 | [MinimumValidationWithSignedInteger1BoxedVoid](#minimumvalidationwithsignedinteger1boxedvoid) | validateAndBox(Nothing?, configuration: SchemaConfiguration) |
 | [MinimumValidationWithSignedInteger1BoxedNumber](#minimumvalidationwithsignedinteger1boxednumber) | validateAndBox(Number, configuration: SchemaConfiguration) |
-| [MinimumValidationWithSignedInteger1BoxedBoolean](#minimumvalidationwithsignedinteger1boxedboolean) | validateAndBox(boolean, configuration: SchemaConfiguration) |
-| [MinimumValidationWithSignedInteger1BoxedMap](#minimumvalidationwithsignedinteger1boxedmap) | validateAndBox(Map&lt;?, ?&gt;, configuration: SchemaConfiguration) |
+| [MinimumValidationWithSignedInteger1BoxedBoolean](#minimumvalidationwithsignedinteger1boxedboolean) | validateAndBox(Boolean, configuration: SchemaConfiguration) |
+| [MinimumValidationWithSignedInteger1BoxedMap](#minimumvalidationwithsignedinteger1boxedmap) | validateAndBox(Map&lt;*, *&gt;, configuration: SchemaConfiguration) |
 | [MinimumValidationWithSignedInteger1BoxedList](#minimumvalidationwithsignedinteger1boxedlist) | validateAndBox(List<*>, configuration: SchemaConfiguration) |
 | [MinimumValidationWithSignedInteger1Boxed](#minimumvalidationwithsignedinteger1boxed) | validateAndBox(Any?, configuration: SchemaConfiguration) |
 | Any? | validate(arg: Any?, configuration: SchemaConfiguration) |

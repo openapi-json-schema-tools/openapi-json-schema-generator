@@ -13,13 +13,13 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | sealed interface | [ItemsWithNullInstanceElements.ItemsWithNullInstanceElements1Boxed](#itemswithnullinstanceelements1boxed)<br> sealed interface for validated payloads |
-| record | [ItemsWithNullInstanceElements.ItemsWithNullInstanceElements1BoxedList](#itemswithnullinstanceelements1boxedlist)<br> boxed class to store validated List payloads |
-| static class | [ItemsWithNullInstanceElements.ItemsWithNullInstanceElements1](#itemswithnullinstanceelements1)<br> schema class |
-| static class | [ItemsWithNullInstanceElements.ItemsWithNullInstanceElementsListBuilder](#itemswithnullinstanceelementslistbuilder)<br> builder for List payloads |
-| static class | [ItemsWithNullInstanceElements.ItemsWithNullInstanceElementsList](#itemswithnullinstanceelementslist)<br> output class for List payloads |
+| data class | [ItemsWithNullInstanceElements.ItemsWithNullInstanceElements1BoxedList](#itemswithnullinstanceelements1boxedlist)<br> boxed class to store validated List payloads |
+| class | [ItemsWithNullInstanceElements.ItemsWithNullInstanceElements1](#itemswithnullinstanceelements1)<br> schema class |
+| class | [ItemsWithNullInstanceElements.ItemsWithNullInstanceElementsListBuilder](#itemswithnullinstanceelementslistbuilder)<br> builder for List payloads |
+| class | [ItemsWithNullInstanceElements.ItemsWithNullInstanceElementsList](#itemswithnullinstanceelementslist)<br> output class for List payloads |
 | sealed interface | [ItemsWithNullInstanceElements.ItemsBoxed](#itemsboxed)<br> sealed interface for validated payloads |
-| record | [ItemsWithNullInstanceElements.ItemsBoxedVoid](#itemsboxedvoid)<br> boxed class to store validated null payloads |
-| static class | [ItemsWithNullInstanceElements.Items](#items)<br> schema class |
+| data class | [ItemsWithNullInstanceElements.ItemsBoxedVoid](#itemsboxedvoid)<br> boxed class to store validated null payloads |
+| class | [ItemsWithNullInstanceElements.Items](#items)<br> schema class |
 
 ## ItemsWithNullInstanceElements1Boxed
 sealed interface ItemsWithNullInstanceElements1Boxed<br>
@@ -53,29 +53,25 @@ A schema class that validates payloads
 
 ### Code Sample
 ```
-import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
-import org.openapijsonschematools.client.configurations.SchemaConfiguration;
-import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.schemas.validation.MapUtils;
-import org.openapijsonschematools.client.schemas.validation.FrozenList;
-import org.openapijsonschematools.client.schemas.validation.FrozenMap;
-import org.openapijsonschematools.client.components.schemas.ItemsWithNullInstanceElements;
+import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags
+import org.openapijsonschematools.client.configurations.SchemaConfiguration
+import org.openapijsonschematools.client.exceptions.ValidationException
+import org.openapijsonschematools.client.schemas.validation.MapUtils
+import org.openapijsonschematools.client.schemas.validation.FrozenList
+import org.openapijsonschematools.client.schemas.validation.FrozenMap
+import org.openapijsonschematools.client.components.schemas.ItemsWithNullInstanceElements
 
-import java.util.Arrays;
-import java.util.List;
-import java.util.AbstractMap;
-
-static final SchemaConfiguration configuration = new SchemaConfiguration(new JsonSchemaKeywordFlags.Builder().build());
+val configuration = SchemaConfiguration(JsonSchemaKeywordFlags.Builder().build())
 
 // List validation
-ItemsWithNullInstanceElements.ItemsWithNullInstanceElementsList validatedPayload =
+val validatedPayload: ItemsWithNullInstanceElements.ItemsWithNullInstanceElementsList =
     ItemsWithNullInstanceElements.ItemsWithNullInstanceElements1.validate(
-    new ItemsWithNullInstanceElements.ItemsWithNullInstanceElementsListBuilder()
+    ItemsWithNullInstanceElements.ItemsWithNullInstanceElementsListBuilder()
         .add(null)
 
     .build(),
     configuration
-);
+)
 ```
 
 ### Field Summary

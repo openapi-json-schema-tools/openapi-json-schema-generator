@@ -13,31 +13,31 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | sealed interface | [ForbiddenProperty.ForbiddenProperty1Boxed](#forbiddenproperty1boxed)<br> sealed interface for validated payloads |
-| record | [ForbiddenProperty.ForbiddenProperty1BoxedVoid](#forbiddenproperty1boxedvoid)<br> boxed class to store validated null payloads |
-| record | [ForbiddenProperty.ForbiddenProperty1BoxedBoolean](#forbiddenproperty1boxedboolean)<br> boxed class to store validated boolean payloads |
-| record | [ForbiddenProperty.ForbiddenProperty1BoxedNumber](#forbiddenproperty1boxednumber)<br> boxed class to store validated Number payloads |
-| record | [ForbiddenProperty.ForbiddenProperty1BoxedString](#forbiddenproperty1boxedstring)<br> boxed class to store validated String payloads |
-| record | [ForbiddenProperty.ForbiddenProperty1BoxedList](#forbiddenproperty1boxedlist)<br> boxed class to store validated List payloads |
-| record | [ForbiddenProperty.ForbiddenProperty1BoxedMap](#forbiddenproperty1boxedmap)<br> boxed class to store validated Map payloads |
-| static class | [ForbiddenProperty.ForbiddenProperty1](#forbiddenproperty1)<br> schema class |
-| static class | [ForbiddenProperty.ForbiddenPropertyMapBuilder](#forbiddenpropertymapbuilder)<br> builder for Map payloads |
-| static class | [ForbiddenProperty.ForbiddenPropertyMap](#forbiddenpropertymap)<br> output class for Map payloads |
+| data class | [ForbiddenProperty.ForbiddenProperty1BoxedVoid](#forbiddenproperty1boxedvoid)<br> boxed class to store validated null payloads |
+| data class | [ForbiddenProperty.ForbiddenProperty1BoxedBoolean](#forbiddenproperty1boxedboolean)<br> boxed class to store validated boolean payloads |
+| data class | [ForbiddenProperty.ForbiddenProperty1BoxedNumber](#forbiddenproperty1boxednumber)<br> boxed class to store validated Number payloads |
+| data class | [ForbiddenProperty.ForbiddenProperty1BoxedString](#forbiddenproperty1boxedstring)<br> boxed class to store validated String payloads |
+| data class | [ForbiddenProperty.ForbiddenProperty1BoxedList](#forbiddenproperty1boxedlist)<br> boxed class to store validated List payloads |
+| data class | [ForbiddenProperty.ForbiddenProperty1BoxedMap](#forbiddenproperty1boxedmap)<br> boxed class to store validated Map payloads |
+| class | [ForbiddenProperty.ForbiddenProperty1](#forbiddenproperty1)<br> schema class |
+| class | [ForbiddenProperty.ForbiddenPropertyMapBuilder](#forbiddenpropertymapbuilder)<br> builder for Map payloads |
+| class | [ForbiddenProperty.ForbiddenPropertyMap](#forbiddenpropertymap)<br> output class for Map payloads |
 | sealed interface | [ForbiddenProperty.FooBoxed](#fooboxed)<br> sealed interface for validated payloads |
-| record | [ForbiddenProperty.FooBoxedVoid](#fooboxedvoid)<br> boxed class to store validated null payloads |
-| record | [ForbiddenProperty.FooBoxedBoolean](#fooboxedboolean)<br> boxed class to store validated boolean payloads |
-| record | [ForbiddenProperty.FooBoxedNumber](#fooboxednumber)<br> boxed class to store validated Number payloads |
-| record | [ForbiddenProperty.FooBoxedString](#fooboxedstring)<br> boxed class to store validated String payloads |
-| record | [ForbiddenProperty.FooBoxedList](#fooboxedlist)<br> boxed class to store validated List payloads |
-| record | [ForbiddenProperty.FooBoxedMap](#fooboxedmap)<br> boxed class to store validated Map payloads |
-| static class | [ForbiddenProperty.Foo](#foo)<br> schema class |
+| data class | [ForbiddenProperty.FooBoxedVoid](#fooboxedvoid)<br> boxed class to store validated null payloads |
+| data class | [ForbiddenProperty.FooBoxedBoolean](#fooboxedboolean)<br> boxed class to store validated boolean payloads |
+| data class | [ForbiddenProperty.FooBoxedNumber](#fooboxednumber)<br> boxed class to store validated Number payloads |
+| data class | [ForbiddenProperty.FooBoxedString](#fooboxedstring)<br> boxed class to store validated String payloads |
+| data class | [ForbiddenProperty.FooBoxedList](#fooboxedlist)<br> boxed class to store validated List payloads |
+| data class | [ForbiddenProperty.FooBoxedMap](#fooboxedmap)<br> boxed class to store validated Map payloads |
+| class | [ForbiddenProperty.Foo](#foo)<br> schema class |
 | sealed interface | [ForbiddenProperty.NotBoxed](#notboxed)<br> sealed interface for validated payloads |
-| record | [ForbiddenProperty.NotBoxedVoid](#notboxedvoid)<br> boxed class to store validated null payloads |
-| record | [ForbiddenProperty.NotBoxedBoolean](#notboxedboolean)<br> boxed class to store validated boolean payloads |
-| record | [ForbiddenProperty.NotBoxedNumber](#notboxednumber)<br> boxed class to store validated Number payloads |
-| record | [ForbiddenProperty.NotBoxedString](#notboxedstring)<br> boxed class to store validated String payloads |
-| record | [ForbiddenProperty.NotBoxedList](#notboxedlist)<br> boxed class to store validated List payloads |
-| record | [ForbiddenProperty.NotBoxedMap](#notboxedmap)<br> boxed class to store validated Map payloads |
-| static class | [ForbiddenProperty.Not](#not)<br> schema class |
+| data class | [ForbiddenProperty.NotBoxedVoid](#notboxedvoid)<br> boxed class to store validated null payloads |
+| data class | [ForbiddenProperty.NotBoxedBoolean](#notboxedboolean)<br> boxed class to store validated boolean payloads |
+| data class | [ForbiddenProperty.NotBoxedNumber](#notboxednumber)<br> boxed class to store validated Number payloads |
+| data class | [ForbiddenProperty.NotBoxedString](#notboxedstring)<br> boxed class to store validated String payloads |
+| data class | [ForbiddenProperty.NotBoxedList](#notboxedlist)<br> boxed class to store validated List payloads |
+| data class | [ForbiddenProperty.NotBoxedMap](#notboxedmap)<br> boxed class to store validated Map payloads |
+| class | [ForbiddenProperty.Not](#not)<br> schema class |
 
 ## ForbiddenProperty1Boxed
 sealed interface ForbiddenProperty1Boxed<br>
@@ -72,7 +72,7 @@ data class that stores validated null payloads, sealed permits implementation
 data class ForbiddenProperty1BoxedBoolean<br>
 implements [ForbiddenProperty1Boxed](#forbiddenproperty1boxed)
 
-record that stores validated boolean payloads, sealed permits implementation
+data class that stores validated boolean payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
@@ -169,19 +169,19 @@ A schema class that validates payloads
 | ----------------- | ---------------------- |
 | String | validate(arg: String, configuration: SchemaConfiguration) |
 | Nothing? | validate(arg: Nothing?, configuration: SchemaConfiguration) |
-| int | validate(arg: int, configuration: SchemaConfiguration) |
-| long | validate(arg: long, configuration: SchemaConfiguration) |
-| float | validate(arg: float, configuration: SchemaConfiguration) |
-| double | validate(arg: double, configuration: SchemaConfiguration) |
+| Int | validate(arg: Int, configuration: SchemaConfiguration) |
+| Long | validate(arg: Long, configuration: SchemaConfiguration) |
+| Float | validate(arg: Float, configuration: SchemaConfiguration) |
+| Double | validate(arg: Double, configuration: SchemaConfiguration) |
 | Number | validate(arg: Number, configuration: SchemaConfiguration) |
-| boolean | validate(arg: boolean, configuration: SchemaConfiguration) |
-| [ForbiddenPropertyMap](#forbiddenpropertymap) | validate(arg: [Map&lt;?, ?&gt;](#forbiddenpropertymapbuilder), configuration: SchemaConfiguration) |
+| Boolean | validate(arg: Boolean, configuration: SchemaConfiguration) |
+| [ForbiddenPropertyMap](#forbiddenpropertymap) | validate(arg: [Map&lt;*, *&gt;](#forbiddenpropertymapbuilder), configuration: SchemaConfiguration) |
 | FrozenList<Any?> | validate(arg: List<*>, configuration: SchemaConfiguration) |
 | [ForbiddenProperty1BoxedString](#forbiddenproperty1boxedstring) | validateAndBox(String, configuration: SchemaConfiguration) |
 | [ForbiddenProperty1BoxedVoid](#forbiddenproperty1boxedvoid) | validateAndBox(Nothing?, configuration: SchemaConfiguration) |
 | [ForbiddenProperty1BoxedNumber](#forbiddenproperty1boxednumber) | validateAndBox(Number, configuration: SchemaConfiguration) |
-| [ForbiddenProperty1BoxedBoolean](#forbiddenproperty1boxedboolean) | validateAndBox(boolean, configuration: SchemaConfiguration) |
-| [ForbiddenProperty1BoxedMap](#forbiddenproperty1boxedmap) | validateAndBox([Map&lt;?, ?&gt;](#forbiddenpropertymapbuilder), configuration: SchemaConfiguration) |
+| [ForbiddenProperty1BoxedBoolean](#forbiddenproperty1boxedboolean) | validateAndBox(Boolean, configuration: SchemaConfiguration) |
+| [ForbiddenProperty1BoxedMap](#forbiddenproperty1boxedmap) | validateAndBox([Map&lt;*, *&gt;](#forbiddenpropertymapbuilder), configuration: SchemaConfiguration) |
 | [ForbiddenProperty1BoxedList](#forbiddenproperty1boxedlist) | validateAndBox(List<*>, configuration: SchemaConfiguration) |
 | [ForbiddenProperty1Boxed](#forbiddenproperty1boxed) | validateAndBox(Any?, configuration: SchemaConfiguration) |
 | Any? | validate(arg: Any?, configuration: SchemaConfiguration) |
@@ -266,7 +266,7 @@ data class that stores validated null payloads, sealed permits implementation
 data class FooBoxedBoolean<br>
 implements [FooBoxed](#fooboxed)
 
-record that stores validated boolean payloads, sealed permits implementation
+data class that stores validated boolean payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
@@ -363,19 +363,19 @@ A schema class that validates payloads
 | ----------------- | ---------------------- |
 | String | validate(arg: String, configuration: SchemaConfiguration) |
 | Nothing? | validate(arg: Nothing?, configuration: SchemaConfiguration) |
-| int | validate(arg: int, configuration: SchemaConfiguration) |
-| long | validate(arg: long, configuration: SchemaConfiguration) |
-| float | validate(arg: float, configuration: SchemaConfiguration) |
-| double | validate(arg: double, configuration: SchemaConfiguration) |
+| Int | validate(arg: Int, configuration: SchemaConfiguration) |
+| Long | validate(arg: Long, configuration: SchemaConfiguration) |
+| Float | validate(arg: Float, configuration: SchemaConfiguration) |
+| Double | validate(arg: Double, configuration: SchemaConfiguration) |
 | Number | validate(arg: Number, configuration: SchemaConfiguration) |
-| boolean | validate(arg: boolean, configuration: SchemaConfiguration) |
-| FrozenMap<Any?> | validate(arg: Map&lt;?, ?&gt;, configuration: SchemaConfiguration) |
+| Boolean | validate(arg: Boolean, configuration: SchemaConfiguration) |
+| FrozenMap<Any?> | validate(arg: Map&lt;*, *&gt;, configuration: SchemaConfiguration) |
 | FrozenList<Any?> | validate(arg: List<*>, configuration: SchemaConfiguration) |
 | [FooBoxedString](#fooboxedstring) | validateAndBox(String, configuration: SchemaConfiguration) |
 | [FooBoxedVoid](#fooboxedvoid) | validateAndBox(Nothing?, configuration: SchemaConfiguration) |
 | [FooBoxedNumber](#fooboxednumber) | validateAndBox(Number, configuration: SchemaConfiguration) |
-| [FooBoxedBoolean](#fooboxedboolean) | validateAndBox(boolean, configuration: SchemaConfiguration) |
-| [FooBoxedMap](#fooboxedmap) | validateAndBox(Map&lt;?, ?&gt;, configuration: SchemaConfiguration) |
+| [FooBoxedBoolean](#fooboxedboolean) | validateAndBox(Boolean, configuration: SchemaConfiguration) |
+| [FooBoxedMap](#fooboxedmap) | validateAndBox(Map&lt;*, *&gt;, configuration: SchemaConfiguration) |
 | [FooBoxedList](#fooboxedlist) | validateAndBox(List<*>, configuration: SchemaConfiguration) |
 | [FooBoxed](#fooboxed) | validateAndBox(Any?, configuration: SchemaConfiguration) |
 | Any? | validate(arg: Any?, configuration: SchemaConfiguration) |
@@ -413,7 +413,7 @@ data class that stores validated null payloads, sealed permits implementation
 data class NotBoxedBoolean<br>
 implements [NotBoxed](#notboxed)
 
-record that stores validated boolean payloads, sealed permits implementation
+data class that stores validated boolean payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |

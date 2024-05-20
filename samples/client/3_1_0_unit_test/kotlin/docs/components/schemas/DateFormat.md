@@ -11,13 +11,13 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | sealed interface | [DateFormat.DateFormat1Boxed](#dateformat1boxed)<br> sealed interface for validated payloads |
-| record | [DateFormat.DateFormat1BoxedVoid](#dateformat1boxedvoid)<br> boxed class to store validated null payloads |
-| record | [DateFormat.DateFormat1BoxedBoolean](#dateformat1boxedboolean)<br> boxed class to store validated boolean payloads |
-| record | [DateFormat.DateFormat1BoxedNumber](#dateformat1boxednumber)<br> boxed class to store validated Number payloads |
-| record | [DateFormat.DateFormat1BoxedString](#dateformat1boxedstring)<br> boxed class to store validated String payloads |
-| record | [DateFormat.DateFormat1BoxedList](#dateformat1boxedlist)<br> boxed class to store validated List payloads |
-| record | [DateFormat.DateFormat1BoxedMap](#dateformat1boxedmap)<br> boxed class to store validated Map payloads |
-| static class | [DateFormat.DateFormat1](#dateformat1)<br> schema class |
+| data class | [DateFormat.DateFormat1BoxedVoid](#dateformat1boxedvoid)<br> boxed class to store validated null payloads |
+| data class | [DateFormat.DateFormat1BoxedBoolean](#dateformat1boxedboolean)<br> boxed class to store validated boolean payloads |
+| data class | [DateFormat.DateFormat1BoxedNumber](#dateformat1boxednumber)<br> boxed class to store validated Number payloads |
+| data class | [DateFormat.DateFormat1BoxedString](#dateformat1boxedstring)<br> boxed class to store validated String payloads |
+| data class | [DateFormat.DateFormat1BoxedList](#dateformat1boxedlist)<br> boxed class to store validated List payloads |
+| data class | [DateFormat.DateFormat1BoxedMap](#dateformat1boxedmap)<br> boxed class to store validated Map payloads |
+| class | [DateFormat.DateFormat1](#dateformat1)<br> schema class |
 
 ## DateFormat1Boxed
 sealed interface DateFormat1Boxed<br>
@@ -52,7 +52,7 @@ data class that stores validated null payloads, sealed permits implementation
 data class DateFormat1BoxedBoolean<br>
 implements [DateFormat1Boxed](#dateformat1boxed)
 
-record that stores validated boolean payloads, sealed permits implementation
+data class that stores validated boolean payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
@@ -149,19 +149,19 @@ A schema class that validates payloads
 | ----------------- | ---------------------- |
 | String | validate(arg: String, configuration: SchemaConfiguration) |
 | Nothing? | validate(arg: Nothing?, configuration: SchemaConfiguration) |
-| int | validate(arg: int, configuration: SchemaConfiguration) |
-| long | validate(arg: long, configuration: SchemaConfiguration) |
-| float | validate(arg: float, configuration: SchemaConfiguration) |
-| double | validate(arg: double, configuration: SchemaConfiguration) |
+| Int | validate(arg: Int, configuration: SchemaConfiguration) |
+| Long | validate(arg: Long, configuration: SchemaConfiguration) |
+| Float | validate(arg: Float, configuration: SchemaConfiguration) |
+| Double | validate(arg: Double, configuration: SchemaConfiguration) |
 | Number | validate(arg: Number, configuration: SchemaConfiguration) |
-| boolean | validate(arg: boolean, configuration: SchemaConfiguration) |
-| FrozenMap<Any?> | validate(arg: Map&lt;?, ?&gt;, configuration: SchemaConfiguration) |
+| Boolean | validate(arg: Boolean, configuration: SchemaConfiguration) |
+| FrozenMap<Any?> | validate(arg: Map&lt;*, *&gt;, configuration: SchemaConfiguration) |
 | FrozenList<Any?> | validate(arg: List<*>, configuration: SchemaConfiguration) |
 | [DateFormat1BoxedString](#dateformat1boxedstring) | validateAndBox(String, configuration: SchemaConfiguration) |
 | [DateFormat1BoxedVoid](#dateformat1boxedvoid) | validateAndBox(Nothing?, configuration: SchemaConfiguration) |
 | [DateFormat1BoxedNumber](#dateformat1boxednumber) | validateAndBox(Number, configuration: SchemaConfiguration) |
-| [DateFormat1BoxedBoolean](#dateformat1boxedboolean) | validateAndBox(boolean, configuration: SchemaConfiguration) |
-| [DateFormat1BoxedMap](#dateformat1boxedmap) | validateAndBox(Map&lt;?, ?&gt;, configuration: SchemaConfiguration) |
+| [DateFormat1BoxedBoolean](#dateformat1boxedboolean) | validateAndBox(Boolean, configuration: SchemaConfiguration) |
+| [DateFormat1BoxedMap](#dateformat1boxedmap) | validateAndBox(Map&lt;*, *&gt;, configuration: SchemaConfiguration) |
 | [DateFormat1BoxedList](#dateformat1boxedlist) | validateAndBox(List<*>, configuration: SchemaConfiguration) |
 | [DateFormat1Boxed](#dateformat1boxed) | validateAndBox(Any?, configuration: SchemaConfiguration) |
 | Any? | validate(arg: Any?, configuration: SchemaConfiguration) |

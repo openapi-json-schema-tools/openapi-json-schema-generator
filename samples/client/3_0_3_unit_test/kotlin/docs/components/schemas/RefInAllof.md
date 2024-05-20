@@ -11,13 +11,13 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | sealed interface | [RefInAllof.RefInAllof1Boxed](#refinallof1boxed)<br> sealed interface for validated payloads |
-| record | [RefInAllof.RefInAllof1BoxedVoid](#refinallof1boxedvoid)<br> boxed class to store validated null payloads |
-| record | [RefInAllof.RefInAllof1BoxedBoolean](#refinallof1boxedboolean)<br> boxed class to store validated boolean payloads |
-| record | [RefInAllof.RefInAllof1BoxedNumber](#refinallof1boxednumber)<br> boxed class to store validated Number payloads |
-| record | [RefInAllof.RefInAllof1BoxedString](#refinallof1boxedstring)<br> boxed class to store validated String payloads |
-| record | [RefInAllof.RefInAllof1BoxedList](#refinallof1boxedlist)<br> boxed class to store validated List payloads |
-| record | [RefInAllof.RefInAllof1BoxedMap](#refinallof1boxedmap)<br> boxed class to store validated Map payloads |
-| static class | [RefInAllof.RefInAllof1](#refinallof1)<br> schema class |
+| data class | [RefInAllof.RefInAllof1BoxedVoid](#refinallof1boxedvoid)<br> boxed class to store validated null payloads |
+| data class | [RefInAllof.RefInAllof1BoxedBoolean](#refinallof1boxedboolean)<br> boxed class to store validated boolean payloads |
+| data class | [RefInAllof.RefInAllof1BoxedNumber](#refinallof1boxednumber)<br> boxed class to store validated Number payloads |
+| data class | [RefInAllof.RefInAllof1BoxedString](#refinallof1boxedstring)<br> boxed class to store validated String payloads |
+| data class | [RefInAllof.RefInAllof1BoxedList](#refinallof1boxedlist)<br> boxed class to store validated List payloads |
+| data class | [RefInAllof.RefInAllof1BoxedMap](#refinallof1boxedmap)<br> boxed class to store validated Map payloads |
+| class | [RefInAllof.RefInAllof1](#refinallof1)<br> schema class |
 
 ## RefInAllof1Boxed
 sealed interface RefInAllof1Boxed<br>
@@ -52,7 +52,7 @@ data class that stores validated null payloads, sealed permits implementation
 data class RefInAllof1BoxedBoolean<br>
 implements [RefInAllof1Boxed](#refinallof1boxed)
 
-record that stores validated boolean payloads, sealed permits implementation
+data class that stores validated boolean payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
@@ -149,19 +149,19 @@ A schema class that validates payloads
 | ----------------- | ---------------------- |
 | String | validate(arg: String, configuration: SchemaConfiguration) |
 | Nothing? | validate(arg: Nothing?, configuration: SchemaConfiguration) |
-| int | validate(arg: int, configuration: SchemaConfiguration) |
-| long | validate(arg: long, configuration: SchemaConfiguration) |
-| float | validate(arg: float, configuration: SchemaConfiguration) |
-| double | validate(arg: double, configuration: SchemaConfiguration) |
+| Int | validate(arg: Int, configuration: SchemaConfiguration) |
+| Long | validate(arg: Long, configuration: SchemaConfiguration) |
+| Float | validate(arg: Float, configuration: SchemaConfiguration) |
+| Double | validate(arg: Double, configuration: SchemaConfiguration) |
 | Number | validate(arg: Number, configuration: SchemaConfiguration) |
-| boolean | validate(arg: boolean, configuration: SchemaConfiguration) |
-| FrozenMap<Any?> | validate(arg: Map&lt;?, ?&gt;, configuration: SchemaConfiguration) |
+| Boolean | validate(arg: Boolean, configuration: SchemaConfiguration) |
+| FrozenMap<Any?> | validate(arg: Map&lt;*, *&gt;, configuration: SchemaConfiguration) |
 | FrozenList<Any?> | validate(arg: List<*>, configuration: SchemaConfiguration) |
 | [RefInAllof1BoxedString](#refinallof1boxedstring) | validateAndBox(String, configuration: SchemaConfiguration) |
 | [RefInAllof1BoxedVoid](#refinallof1boxedvoid) | validateAndBox(Nothing?, configuration: SchemaConfiguration) |
 | [RefInAllof1BoxedNumber](#refinallof1boxednumber) | validateAndBox(Number, configuration: SchemaConfiguration) |
-| [RefInAllof1BoxedBoolean](#refinallof1boxedboolean) | validateAndBox(boolean, configuration: SchemaConfiguration) |
-| [RefInAllof1BoxedMap](#refinallof1boxedmap) | validateAndBox(Map&lt;?, ?&gt;, configuration: SchemaConfiguration) |
+| [RefInAllof1BoxedBoolean](#refinallof1boxedboolean) | validateAndBox(Boolean, configuration: SchemaConfiguration) |
+| [RefInAllof1BoxedMap](#refinallof1boxedmap) | validateAndBox(Map&lt;*, *&gt;, configuration: SchemaConfiguration) |
 | [RefInAllof1BoxedList](#refinallof1boxedlist) | validateAndBox(List<*>, configuration: SchemaConfiguration) |
 | [RefInAllof1Boxed](#refinallof1boxed) | validateAndBox(Any?, configuration: SchemaConfiguration) |
 | Any? | validate(arg: Any?, configuration: SchemaConfiguration) |

@@ -11,8 +11,8 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | sealed interface | [InvalidInstanceShouldNotRaiseErrorWhenFloatDivisionInf.InvalidInstanceShouldNotRaiseErrorWhenFloatDivisionInf1Boxed](#invalidinstanceshouldnotraiseerrorwhenfloatdivisioninf1boxed)<br> sealed interface for validated payloads |
-| record | [InvalidInstanceShouldNotRaiseErrorWhenFloatDivisionInf.InvalidInstanceShouldNotRaiseErrorWhenFloatDivisionInf1BoxedNumber](#invalidinstanceshouldnotraiseerrorwhenfloatdivisioninf1boxednumber)<br> boxed class to store validated Number payloads |
-| static class | [InvalidInstanceShouldNotRaiseErrorWhenFloatDivisionInf.InvalidInstanceShouldNotRaiseErrorWhenFloatDivisionInf1](#invalidinstanceshouldnotraiseerrorwhenfloatdivisioninf1)<br> schema class |
+| data class | [InvalidInstanceShouldNotRaiseErrorWhenFloatDivisionInf.InvalidInstanceShouldNotRaiseErrorWhenFloatDivisionInf1BoxedNumber](#invalidinstanceshouldnotraiseerrorwhenfloatdivisioninf1boxednumber)<br> boxed class to store validated Number payloads |
+| class | [InvalidInstanceShouldNotRaiseErrorWhenFloatDivisionInf.InvalidInstanceShouldNotRaiseErrorWhenFloatDivisionInf1](#invalidinstanceshouldnotraiseerrorwhenfloatdivisioninf1)<br> schema class |
 
 ## InvalidInstanceShouldNotRaiseErrorWhenFloatDivisionInf1Boxed
 sealed interface InvalidInstanceShouldNotRaiseErrorWhenFloatDivisionInf1Boxed<br>
@@ -46,25 +46,21 @@ A schema class that validates payloads
 
 ### Code Sample
 ```
-import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
-import org.openapijsonschematools.client.configurations.SchemaConfiguration;
-import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.schemas.validation.MapUtils;
-import org.openapijsonschematools.client.schemas.validation.FrozenList;
-import org.openapijsonschematools.client.schemas.validation.FrozenMap;
-import org.openapijsonschematools.client.components.schemas.InvalidInstanceShouldNotRaiseErrorWhenFloatDivisionInf;
+import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags
+import org.openapijsonschematools.client.configurations.SchemaConfiguration
+import org.openapijsonschematools.client.exceptions.ValidationException
+import org.openapijsonschematools.client.schemas.validation.MapUtils
+import org.openapijsonschematools.client.schemas.validation.FrozenList
+import org.openapijsonschematools.client.schemas.validation.FrozenMap
+import org.openapijsonschematools.client.components.schemas.InvalidInstanceShouldNotRaiseErrorWhenFloatDivisionInf
 
-import java.util.Arrays;
-import java.util.List;
-import java.util.AbstractMap;
-
-static final SchemaConfiguration configuration = new SchemaConfiguration(new JsonSchemaKeywordFlags.Builder().build());
+val configuration = SchemaConfiguration(JsonSchemaKeywordFlags.Builder().build())
 
 // int validation
-int validatedPayload = InvalidInstanceShouldNotRaiseErrorWhenFloatDivisionInf.InvalidInstanceShouldNotRaiseErrorWhenFloatDivisionInf1.validate(
+val validatedPayload: Int = InvalidInstanceShouldNotRaiseErrorWhenFloatDivisionInf.InvalidInstanceShouldNotRaiseErrorWhenFloatDivisionInf1.validate(
     1L,
     configuration
-);
+)
 ```
 
 ### Field Summary
@@ -77,7 +73,7 @@ int validatedPayload = InvalidInstanceShouldNotRaiseErrorWhenFloatDivisionInf.In
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| long | validate(arg: long, configuration: SchemaConfiguration) |
+| Long | validate(arg: Long, configuration: SchemaConfiguration) |
 | [InvalidInstanceShouldNotRaiseErrorWhenFloatDivisionInf1BoxedNumber](#invalidinstanceshouldnotraiseerrorwhenfloatdivisioninf1boxednumber) | validateAndBox(Number, configuration: SchemaConfiguration) |
 | [InvalidInstanceShouldNotRaiseErrorWhenFloatDivisionInf1Boxed](#invalidinstanceshouldnotraiseerrorwhenfloatdivisioninf1boxed) | validateAndBox(Any?, configuration: SchemaConfiguration) |
 | Any? | validate(arg: Any?, configuration: SchemaConfiguration) |

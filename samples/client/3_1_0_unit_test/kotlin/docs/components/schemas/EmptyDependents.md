@@ -11,13 +11,13 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | sealed interface | [EmptyDependents.EmptyDependents1Boxed](#emptydependents1boxed)<br> sealed interface for validated payloads |
-| record | [EmptyDependents.EmptyDependents1BoxedVoid](#emptydependents1boxedvoid)<br> boxed class to store validated null payloads |
-| record | [EmptyDependents.EmptyDependents1BoxedBoolean](#emptydependents1boxedboolean)<br> boxed class to store validated boolean payloads |
-| record | [EmptyDependents.EmptyDependents1BoxedNumber](#emptydependents1boxednumber)<br> boxed class to store validated Number payloads |
-| record | [EmptyDependents.EmptyDependents1BoxedString](#emptydependents1boxedstring)<br> boxed class to store validated String payloads |
-| record | [EmptyDependents.EmptyDependents1BoxedList](#emptydependents1boxedlist)<br> boxed class to store validated List payloads |
-| record | [EmptyDependents.EmptyDependents1BoxedMap](#emptydependents1boxedmap)<br> boxed class to store validated Map payloads |
-| static class | [EmptyDependents.EmptyDependents1](#emptydependents1)<br> schema class |
+| data class | [EmptyDependents.EmptyDependents1BoxedVoid](#emptydependents1boxedvoid)<br> boxed class to store validated null payloads |
+| data class | [EmptyDependents.EmptyDependents1BoxedBoolean](#emptydependents1boxedboolean)<br> boxed class to store validated boolean payloads |
+| data class | [EmptyDependents.EmptyDependents1BoxedNumber](#emptydependents1boxednumber)<br> boxed class to store validated Number payloads |
+| data class | [EmptyDependents.EmptyDependents1BoxedString](#emptydependents1boxedstring)<br> boxed class to store validated String payloads |
+| data class | [EmptyDependents.EmptyDependents1BoxedList](#emptydependents1boxedlist)<br> boxed class to store validated List payloads |
+| data class | [EmptyDependents.EmptyDependents1BoxedMap](#emptydependents1boxedmap)<br> boxed class to store validated Map payloads |
+| class | [EmptyDependents.EmptyDependents1](#emptydependents1)<br> schema class |
 
 ## EmptyDependents1Boxed
 sealed interface EmptyDependents1Boxed<br>
@@ -52,7 +52,7 @@ data class that stores validated null payloads, sealed permits implementation
 data class EmptyDependents1BoxedBoolean<br>
 implements [EmptyDependents1Boxed](#emptydependents1boxed)
 
-record that stores validated boolean payloads, sealed permits implementation
+data class that stores validated boolean payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
@@ -156,19 +156,19 @@ A schema class that validates payloads
 | ----------------- | ---------------------- |
 | String | validate(arg: String, configuration: SchemaConfiguration) |
 | Nothing? | validate(arg: Nothing?, configuration: SchemaConfiguration) |
-| int | validate(arg: int, configuration: SchemaConfiguration) |
-| long | validate(arg: long, configuration: SchemaConfiguration) |
-| float | validate(arg: float, configuration: SchemaConfiguration) |
-| double | validate(arg: double, configuration: SchemaConfiguration) |
+| Int | validate(arg: Int, configuration: SchemaConfiguration) |
+| Long | validate(arg: Long, configuration: SchemaConfiguration) |
+| Float | validate(arg: Float, configuration: SchemaConfiguration) |
+| Double | validate(arg: Double, configuration: SchemaConfiguration) |
 | Number | validate(arg: Number, configuration: SchemaConfiguration) |
-| boolean | validate(arg: boolean, configuration: SchemaConfiguration) |
-| FrozenMap<Any?> | validate(arg: Map&lt;?, ?&gt;, configuration: SchemaConfiguration) |
+| Boolean | validate(arg: Boolean, configuration: SchemaConfiguration) |
+| FrozenMap<Any?> | validate(arg: Map&lt;*, *&gt;, configuration: SchemaConfiguration) |
 | FrozenList<Any?> | validate(arg: List<*>, configuration: SchemaConfiguration) |
 | [EmptyDependents1BoxedString](#emptydependents1boxedstring) | validateAndBox(String, configuration: SchemaConfiguration) |
 | [EmptyDependents1BoxedVoid](#emptydependents1boxedvoid) | validateAndBox(Nothing?, configuration: SchemaConfiguration) |
 | [EmptyDependents1BoxedNumber](#emptydependents1boxednumber) | validateAndBox(Number, configuration: SchemaConfiguration) |
-| [EmptyDependents1BoxedBoolean](#emptydependents1boxedboolean) | validateAndBox(boolean, configuration: SchemaConfiguration) |
-| [EmptyDependents1BoxedMap](#emptydependents1boxedmap) | validateAndBox(Map&lt;?, ?&gt;, configuration: SchemaConfiguration) |
+| [EmptyDependents1BoxedBoolean](#emptydependents1boxedboolean) | validateAndBox(Boolean, configuration: SchemaConfiguration) |
+| [EmptyDependents1BoxedMap](#emptydependents1boxedmap) | validateAndBox(Map&lt;*, *&gt;, configuration: SchemaConfiguration) |
 | [EmptyDependents1BoxedList](#emptydependents1boxedlist) | validateAndBox(List<*>, configuration: SchemaConfiguration) |
 | [EmptyDependents1Boxed](#emptydependents1boxed) | validateAndBox(Any?, configuration: SchemaConfiguration) |
 | Any? | validate(arg: Any?, configuration: SchemaConfiguration) |

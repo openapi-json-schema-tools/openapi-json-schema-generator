@@ -11,19 +11,19 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | sealed interface | [RegexesAreNotAnchoredByDefaultAndAreCaseSensitive.RegexesAreNotAnchoredByDefaultAndAreCaseSensitive1Boxed](#regexesarenotanchoredbydefaultandarecasesensitive1boxed)<br> sealed interface for validated payloads |
-| record | [RegexesAreNotAnchoredByDefaultAndAreCaseSensitive.RegexesAreNotAnchoredByDefaultAndAreCaseSensitive1BoxedVoid](#regexesarenotanchoredbydefaultandarecasesensitive1boxedvoid)<br> boxed class to store validated null payloads |
-| record | [RegexesAreNotAnchoredByDefaultAndAreCaseSensitive.RegexesAreNotAnchoredByDefaultAndAreCaseSensitive1BoxedBoolean](#regexesarenotanchoredbydefaultandarecasesensitive1boxedboolean)<br> boxed class to store validated boolean payloads |
-| record | [RegexesAreNotAnchoredByDefaultAndAreCaseSensitive.RegexesAreNotAnchoredByDefaultAndAreCaseSensitive1BoxedNumber](#regexesarenotanchoredbydefaultandarecasesensitive1boxednumber)<br> boxed class to store validated Number payloads |
-| record | [RegexesAreNotAnchoredByDefaultAndAreCaseSensitive.RegexesAreNotAnchoredByDefaultAndAreCaseSensitive1BoxedString](#regexesarenotanchoredbydefaultandarecasesensitive1boxedstring)<br> boxed class to store validated String payloads |
-| record | [RegexesAreNotAnchoredByDefaultAndAreCaseSensitive.RegexesAreNotAnchoredByDefaultAndAreCaseSensitive1BoxedList](#regexesarenotanchoredbydefaultandarecasesensitive1boxedlist)<br> boxed class to store validated List payloads |
-| record | [RegexesAreNotAnchoredByDefaultAndAreCaseSensitive.RegexesAreNotAnchoredByDefaultAndAreCaseSensitive1BoxedMap](#regexesarenotanchoredbydefaultandarecasesensitive1boxedmap)<br> boxed class to store validated Map payloads |
-| static class | [RegexesAreNotAnchoredByDefaultAndAreCaseSensitive.RegexesAreNotAnchoredByDefaultAndAreCaseSensitive1](#regexesarenotanchoredbydefaultandarecasesensitive1)<br> schema class |
+| data class | [RegexesAreNotAnchoredByDefaultAndAreCaseSensitive.RegexesAreNotAnchoredByDefaultAndAreCaseSensitive1BoxedVoid](#regexesarenotanchoredbydefaultandarecasesensitive1boxedvoid)<br> boxed class to store validated null payloads |
+| data class | [RegexesAreNotAnchoredByDefaultAndAreCaseSensitive.RegexesAreNotAnchoredByDefaultAndAreCaseSensitive1BoxedBoolean](#regexesarenotanchoredbydefaultandarecasesensitive1boxedboolean)<br> boxed class to store validated boolean payloads |
+| data class | [RegexesAreNotAnchoredByDefaultAndAreCaseSensitive.RegexesAreNotAnchoredByDefaultAndAreCaseSensitive1BoxedNumber](#regexesarenotanchoredbydefaultandarecasesensitive1boxednumber)<br> boxed class to store validated Number payloads |
+| data class | [RegexesAreNotAnchoredByDefaultAndAreCaseSensitive.RegexesAreNotAnchoredByDefaultAndAreCaseSensitive1BoxedString](#regexesarenotanchoredbydefaultandarecasesensitive1boxedstring)<br> boxed class to store validated String payloads |
+| data class | [RegexesAreNotAnchoredByDefaultAndAreCaseSensitive.RegexesAreNotAnchoredByDefaultAndAreCaseSensitive1BoxedList](#regexesarenotanchoredbydefaultandarecasesensitive1boxedlist)<br> boxed class to store validated List payloads |
+| data class | [RegexesAreNotAnchoredByDefaultAndAreCaseSensitive.RegexesAreNotAnchoredByDefaultAndAreCaseSensitive1BoxedMap](#regexesarenotanchoredbydefaultandarecasesensitive1boxedmap)<br> boxed class to store validated Map payloads |
+| class | [RegexesAreNotAnchoredByDefaultAndAreCaseSensitive.RegexesAreNotAnchoredByDefaultAndAreCaseSensitive1](#regexesarenotanchoredbydefaultandarecasesensitive1)<br> schema class |
 | sealed interface | [RegexesAreNotAnchoredByDefaultAndAreCaseSensitive.XBoxed](#xboxed)<br> sealed interface for validated payloads |
-| record | [RegexesAreNotAnchoredByDefaultAndAreCaseSensitive.XBoxedString](#xboxedstring)<br> boxed class to store validated String payloads |
-| static class | [RegexesAreNotAnchoredByDefaultAndAreCaseSensitive.X](#x)<br> schema class |
+| data class | [RegexesAreNotAnchoredByDefaultAndAreCaseSensitive.XBoxedString](#xboxedstring)<br> boxed class to store validated String payloads |
+| class | [RegexesAreNotAnchoredByDefaultAndAreCaseSensitive.X](#x)<br> schema class |
 | sealed interface | [RegexesAreNotAnchoredByDefaultAndAreCaseSensitive.Schema092Boxed](#schema092boxed)<br> sealed interface for validated payloads |
-| record | [RegexesAreNotAnchoredByDefaultAndAreCaseSensitive.Schema092BoxedBoolean](#schema092boxedboolean)<br> boxed class to store validated boolean payloads |
-| static class | [RegexesAreNotAnchoredByDefaultAndAreCaseSensitive.Schema092](#schema092)<br> schema class |
+| data class | [RegexesAreNotAnchoredByDefaultAndAreCaseSensitive.Schema092BoxedBoolean](#schema092boxedboolean)<br> boxed class to store validated boolean payloads |
+| class | [RegexesAreNotAnchoredByDefaultAndAreCaseSensitive.Schema092](#schema092)<br> schema class |
 
 ## RegexesAreNotAnchoredByDefaultAndAreCaseSensitive1Boxed
 sealed interface RegexesAreNotAnchoredByDefaultAndAreCaseSensitive1Boxed<br>
@@ -58,7 +58,7 @@ data class that stores validated null payloads, sealed permits implementation
 data class RegexesAreNotAnchoredByDefaultAndAreCaseSensitive1BoxedBoolean<br>
 implements [RegexesAreNotAnchoredByDefaultAndAreCaseSensitive1Boxed](#regexesarenotanchoredbydefaultandarecasesensitive1boxed)
 
-record that stores validated boolean payloads, sealed permits implementation
+data class that stores validated boolean payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
@@ -155,19 +155,19 @@ A schema class that validates payloads
 | ----------------- | ---------------------- |
 | String | validate(arg: String, configuration: SchemaConfiguration) |
 | Nothing? | validate(arg: Nothing?, configuration: SchemaConfiguration) |
-| int | validate(arg: int, configuration: SchemaConfiguration) |
-| long | validate(arg: long, configuration: SchemaConfiguration) |
-| float | validate(arg: float, configuration: SchemaConfiguration) |
-| double | validate(arg: double, configuration: SchemaConfiguration) |
+| Int | validate(arg: Int, configuration: SchemaConfiguration) |
+| Long | validate(arg: Long, configuration: SchemaConfiguration) |
+| Float | validate(arg: Float, configuration: SchemaConfiguration) |
+| Double | validate(arg: Double, configuration: SchemaConfiguration) |
 | Number | validate(arg: Number, configuration: SchemaConfiguration) |
-| boolean | validate(arg: boolean, configuration: SchemaConfiguration) |
-| FrozenMap<Any?> | validate(arg: Map&lt;?, ?&gt;, configuration: SchemaConfiguration) |
+| Boolean | validate(arg: Boolean, configuration: SchemaConfiguration) |
+| FrozenMap<Any?> | validate(arg: Map&lt;*, *&gt;, configuration: SchemaConfiguration) |
 | FrozenList<Any?> | validate(arg: List<*>, configuration: SchemaConfiguration) |
 | [RegexesAreNotAnchoredByDefaultAndAreCaseSensitive1BoxedString](#regexesarenotanchoredbydefaultandarecasesensitive1boxedstring) | validateAndBox(String, configuration: SchemaConfiguration) |
 | [RegexesAreNotAnchoredByDefaultAndAreCaseSensitive1BoxedVoid](#regexesarenotanchoredbydefaultandarecasesensitive1boxedvoid) | validateAndBox(Nothing?, configuration: SchemaConfiguration) |
 | [RegexesAreNotAnchoredByDefaultAndAreCaseSensitive1BoxedNumber](#regexesarenotanchoredbydefaultandarecasesensitive1boxednumber) | validateAndBox(Number, configuration: SchemaConfiguration) |
-| [RegexesAreNotAnchoredByDefaultAndAreCaseSensitive1BoxedBoolean](#regexesarenotanchoredbydefaultandarecasesensitive1boxedboolean) | validateAndBox(boolean, configuration: SchemaConfiguration) |
-| [RegexesAreNotAnchoredByDefaultAndAreCaseSensitive1BoxedMap](#regexesarenotanchoredbydefaultandarecasesensitive1boxedmap) | validateAndBox(Map&lt;?, ?&gt;, configuration: SchemaConfiguration) |
+| [RegexesAreNotAnchoredByDefaultAndAreCaseSensitive1BoxedBoolean](#regexesarenotanchoredbydefaultandarecasesensitive1boxedboolean) | validateAndBox(Boolean, configuration: SchemaConfiguration) |
+| [RegexesAreNotAnchoredByDefaultAndAreCaseSensitive1BoxedMap](#regexesarenotanchoredbydefaultandarecasesensitive1boxedmap) | validateAndBox(Map&lt;*, *&gt;, configuration: SchemaConfiguration) |
 | [RegexesAreNotAnchoredByDefaultAndAreCaseSensitive1BoxedList](#regexesarenotanchoredbydefaultandarecasesensitive1boxedlist) | validateAndBox(List<*>, configuration: SchemaConfiguration) |
 | [RegexesAreNotAnchoredByDefaultAndAreCaseSensitive1Boxed](#regexesarenotanchoredbydefaultandarecasesensitive1boxed) | validateAndBox(Any?, configuration: SchemaConfiguration) |
 | Any? | validate(arg: Any?, configuration: SchemaConfiguration) |
@@ -218,7 +218,7 @@ sealed interface that stores validated payloads using boxed classes
 data class Schema092BoxedBoolean<br>
 implements [Schema092Boxed](#schema092boxed)
 
-record that stores validated boolean payloads, sealed permits implementation
+data class that stores validated boolean payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |

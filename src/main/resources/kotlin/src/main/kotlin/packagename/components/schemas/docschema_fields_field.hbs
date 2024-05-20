@@ -29,22 +29,22 @@
 | BigDecimal | {{> src/main/kotlin/packagename/components/schemas/SchemaClass/_multipleOf }} |
 {{/neq}}
 {{#neq maxItems null}}
-| Integer | {{> src/main/kotlin/packagename/components/schemas/SchemaClass/_maxItems }} |
+| Int | {{> src/main/kotlin/packagename/components/schemas/SchemaClass/_maxItems }} |
 {{/neq}}
 {{#neq minItems null}}
-| Integer | {{> src/main/kotlin/packagename/components/schemas/SchemaClass/_minItems }} |
+| Int | {{> src/main/kotlin/packagename/components/schemas/SchemaClass/_minItems }} |
 {{/neq}}
 {{#neq maxLength null }}
-| Integer | {{> src/main/kotlin/packagename/components/schemas/SchemaClass/_maxLength }} |
+| Int | {{> src/main/kotlin/packagename/components/schemas/SchemaClass/_maxLength }} |
 {{/neq}}
 {{#neq minLength null }}
-| Integer | {{> src/main/kotlin/packagename/components/schemas/SchemaClass/_minLength }} |
+| Int | {{> src/main/kotlin/packagename/components/schemas/SchemaClass/_minLength }} |
 {{/neq}}
 {{#neq maxProperties null}}
-| Integer | {{> src/main/kotlin/packagename/components/schemas/SchemaClass/_maxProperties }} |
+| Int | {{> src/main/kotlin/packagename/components/schemas/SchemaClass/_maxProperties }} |
 {{/neq}}
 {{#neq minProperties null}}
-| Integer | {{> src/main/kotlin/packagename/components/schemas/SchemaClass/_minProperties }} |
+| Int | {{> src/main/kotlin/packagename/components/schemas/SchemaClass/_minProperties }} |
 {{/neq}}
 {{#if additionalProperties}}
 | Class<? extends JsonSchema> | {{> src/main/kotlin/packagename/components/schemas/SchemaClass/_additionalProperties }} |
@@ -77,10 +77,10 @@
 | Class<? extends JsonSchema> | {{> src/main/kotlin/packagename/components/schemas/SchemaClass/_contains }} |
 {{/if}}
 {{#neq maxContains null}}
-| Integer | {{> src/main/kotlin/packagename/components/schemas/SchemaClass/_maxContains }} |
+| Int | {{> src/main/kotlin/packagename/components/schemas/SchemaClass/_maxContains }} |
 {{/neq}}
 {{#neq minContains null}}
-| Integer | {{> src/main/kotlin/packagename/components/schemas/SchemaClass/_minContains }} |
+| Int | {{> src/main/kotlin/packagename/components/schemas/SchemaClass/_minContains }} |
 {{/neq}}
 {{#if propertyNames}}
 | Class<? extends JsonSchema> | {{> src/main/kotlin/packagename/components/schemas/SchemaClass/_propertyNames }} |

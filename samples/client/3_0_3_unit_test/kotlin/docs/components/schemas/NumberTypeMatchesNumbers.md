@@ -11,8 +11,8 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | sealed interface | [NumberTypeMatchesNumbers.NumberTypeMatchesNumbers1Boxed](#numbertypematchesnumbers1boxed)<br> sealed interface for validated payloads |
-| record | [NumberTypeMatchesNumbers.NumberTypeMatchesNumbers1BoxedNumber](#numbertypematchesnumbers1boxednumber)<br> boxed class to store validated Number payloads |
-| static class | [NumberTypeMatchesNumbers.NumberTypeMatchesNumbers1](#numbertypematchesnumbers1)<br> schema class |
+| data class | [NumberTypeMatchesNumbers.NumberTypeMatchesNumbers1BoxedNumber](#numbertypematchesnumbers1boxednumber)<br> boxed class to store validated Number payloads |
+| class | [NumberTypeMatchesNumbers.NumberTypeMatchesNumbers1](#numbertypematchesnumbers1)<br> schema class |
 
 ## NumberTypeMatchesNumbers1Boxed
 sealed interface NumberTypeMatchesNumbers1Boxed<br>

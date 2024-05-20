@@ -13,10 +13,10 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | sealed interface | [RefInItems.RefInItems1Boxed](#refinitems1boxed)<br> sealed interface for validated payloads |
-| record | [RefInItems.RefInItems1BoxedList](#refinitems1boxedlist)<br> boxed class to store validated List payloads |
-| static class | [RefInItems.RefInItems1](#refinitems1)<br> schema class |
-| static class | [RefInItems.RefInItemsListBuilder](#refinitemslistbuilder)<br> builder for List payloads |
-| static class | [RefInItems.RefInItemsList](#refinitemslist)<br> output class for List payloads |
+| data class | [RefInItems.RefInItems1BoxedList](#refinitems1boxedlist)<br> boxed class to store validated List payloads |
+| class | [RefInItems.RefInItems1](#refinitems1)<br> schema class |
+| class | [RefInItems.RefInItemsListBuilder](#refinitemslistbuilder)<br> builder for List payloads |
+| class | [RefInItems.RefInItemsList](#refinitemslist)<br> output class for List payloads |
 
 ## RefInItems1Boxed
 sealed interface RefInItems1Boxed<br>
@@ -50,27 +50,23 @@ A schema class that validates payloads
 
 ### Code Sample
 ```
-import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
-import org.openapijsonschematools.client.configurations.SchemaConfiguration;
-import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.schemas.validation.MapUtils;
-import org.openapijsonschematools.client.schemas.validation.FrozenList;
-import org.openapijsonschematools.client.schemas.validation.FrozenMap;
-import org.openapijsonschematools.client.components.schemas.RefInItems;
+import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags
+import org.openapijsonschematools.client.configurations.SchemaConfiguration
+import org.openapijsonschematools.client.exceptions.ValidationException
+import org.openapijsonschematools.client.schemas.validation.MapUtils
+import org.openapijsonschematools.client.schemas.validation.FrozenList
+import org.openapijsonschematools.client.schemas.validation.FrozenMap
+import org.openapijsonschematools.client.components.schemas.RefInItems
 
-import java.util.Arrays;
-import java.util.List;
-import java.util.AbstractMap;
-
-static final SchemaConfiguration configuration = new SchemaConfiguration(new JsonSchemaKeywordFlags.Builder().build());
+val configuration = SchemaConfiguration(JsonSchemaKeywordFlags.Builder().build())
 
 // List validation
-RefInItems.RefInItemsList validatedPayload =
+val validatedPayload: RefInItems.RefInItemsList =
     RefInItems.RefInItems1.validate(
-    new RefInItems.RefInItemsListBuilder()
+    RefInItems.RefInItemsListBuilder()
     .build(),
     configuration
-);
+)
 ```
 
 ### Field Summary

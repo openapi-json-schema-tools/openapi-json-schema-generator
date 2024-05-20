@@ -11,13 +11,13 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | sealed interface | [MaxlengthValidation.MaxlengthValidation1Boxed](#maxlengthvalidation1boxed)<br> sealed interface for validated payloads |
-| record | [MaxlengthValidation.MaxlengthValidation1BoxedVoid](#maxlengthvalidation1boxedvoid)<br> boxed class to store validated null payloads |
-| record | [MaxlengthValidation.MaxlengthValidation1BoxedBoolean](#maxlengthvalidation1boxedboolean)<br> boxed class to store validated boolean payloads |
-| record | [MaxlengthValidation.MaxlengthValidation1BoxedNumber](#maxlengthvalidation1boxednumber)<br> boxed class to store validated Number payloads |
-| record | [MaxlengthValidation.MaxlengthValidation1BoxedString](#maxlengthvalidation1boxedstring)<br> boxed class to store validated String payloads |
-| record | [MaxlengthValidation.MaxlengthValidation1BoxedList](#maxlengthvalidation1boxedlist)<br> boxed class to store validated List payloads |
-| record | [MaxlengthValidation.MaxlengthValidation1BoxedMap](#maxlengthvalidation1boxedmap)<br> boxed class to store validated Map payloads |
-| static class | [MaxlengthValidation.MaxlengthValidation1](#maxlengthvalidation1)<br> schema class |
+| data class | [MaxlengthValidation.MaxlengthValidation1BoxedVoid](#maxlengthvalidation1boxedvoid)<br> boxed class to store validated null payloads |
+| data class | [MaxlengthValidation.MaxlengthValidation1BoxedBoolean](#maxlengthvalidation1boxedboolean)<br> boxed class to store validated boolean payloads |
+| data class | [MaxlengthValidation.MaxlengthValidation1BoxedNumber](#maxlengthvalidation1boxednumber)<br> boxed class to store validated Number payloads |
+| data class | [MaxlengthValidation.MaxlengthValidation1BoxedString](#maxlengthvalidation1boxedstring)<br> boxed class to store validated String payloads |
+| data class | [MaxlengthValidation.MaxlengthValidation1BoxedList](#maxlengthvalidation1boxedlist)<br> boxed class to store validated List payloads |
+| data class | [MaxlengthValidation.MaxlengthValidation1BoxedMap](#maxlengthvalidation1boxedmap)<br> boxed class to store validated Map payloads |
+| class | [MaxlengthValidation.MaxlengthValidation1](#maxlengthvalidation1)<br> schema class |
 
 ## MaxlengthValidation1Boxed
 sealed interface MaxlengthValidation1Boxed<br>
@@ -52,7 +52,7 @@ data class that stores validated null payloads, sealed permits implementation
 data class MaxlengthValidation1BoxedBoolean<br>
 implements [MaxlengthValidation1Boxed](#maxlengthvalidation1boxed)
 
-record that stores validated boolean payloads, sealed permits implementation
+data class that stores validated boolean payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
@@ -142,26 +142,26 @@ A schema class that validates payloads
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |
-| Integer | maxLength = 2 |
+| Int | maxLength = 2 |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | String | validate(arg: String, configuration: SchemaConfiguration) |
 | Nothing? | validate(arg: Nothing?, configuration: SchemaConfiguration) |
-| int | validate(arg: int, configuration: SchemaConfiguration) |
-| long | validate(arg: long, configuration: SchemaConfiguration) |
-| float | validate(arg: float, configuration: SchemaConfiguration) |
-| double | validate(arg: double, configuration: SchemaConfiguration) |
+| Int | validate(arg: Int, configuration: SchemaConfiguration) |
+| Long | validate(arg: Long, configuration: SchemaConfiguration) |
+| Float | validate(arg: Float, configuration: SchemaConfiguration) |
+| Double | validate(arg: Double, configuration: SchemaConfiguration) |
 | Number | validate(arg: Number, configuration: SchemaConfiguration) |
-| boolean | validate(arg: boolean, configuration: SchemaConfiguration) |
-| FrozenMap<Any?> | validate(arg: Map&lt;?, ?&gt;, configuration: SchemaConfiguration) |
+| Boolean | validate(arg: Boolean, configuration: SchemaConfiguration) |
+| FrozenMap<Any?> | validate(arg: Map&lt;*, *&gt;, configuration: SchemaConfiguration) |
 | FrozenList<Any?> | validate(arg: List<*>, configuration: SchemaConfiguration) |
 | [MaxlengthValidation1BoxedString](#maxlengthvalidation1boxedstring) | validateAndBox(String, configuration: SchemaConfiguration) |
 | [MaxlengthValidation1BoxedVoid](#maxlengthvalidation1boxedvoid) | validateAndBox(Nothing?, configuration: SchemaConfiguration) |
 | [MaxlengthValidation1BoxedNumber](#maxlengthvalidation1boxednumber) | validateAndBox(Number, configuration: SchemaConfiguration) |
-| [MaxlengthValidation1BoxedBoolean](#maxlengthvalidation1boxedboolean) | validateAndBox(boolean, configuration: SchemaConfiguration) |
-| [MaxlengthValidation1BoxedMap](#maxlengthvalidation1boxedmap) | validateAndBox(Map&lt;?, ?&gt;, configuration: SchemaConfiguration) |
+| [MaxlengthValidation1BoxedBoolean](#maxlengthvalidation1boxedboolean) | validateAndBox(Boolean, configuration: SchemaConfiguration) |
+| [MaxlengthValidation1BoxedMap](#maxlengthvalidation1boxedmap) | validateAndBox(Map&lt;*, *&gt;, configuration: SchemaConfiguration) |
 | [MaxlengthValidation1BoxedList](#maxlengthvalidation1boxedlist) | validateAndBox(List<*>, configuration: SchemaConfiguration) |
 | [MaxlengthValidation1Boxed](#maxlengthvalidation1boxed) | validateAndBox(Any?, configuration: SchemaConfiguration) |
 | Any? | validate(arg: Any?, configuration: SchemaConfiguration) |

@@ -12,13 +12,13 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | sealed interface | [ConstNulCharactersInStrings.ConstNulCharactersInStrings1Boxed](#constnulcharactersinstrings1boxed)<br> sealed interface for validated payloads |
-| record | [ConstNulCharactersInStrings.ConstNulCharactersInStrings1BoxedVoid](#constnulcharactersinstrings1boxedvoid)<br> boxed class to store validated null payloads |
-| record | [ConstNulCharactersInStrings.ConstNulCharactersInStrings1BoxedBoolean](#constnulcharactersinstrings1boxedboolean)<br> boxed class to store validated boolean payloads |
-| record | [ConstNulCharactersInStrings.ConstNulCharactersInStrings1BoxedNumber](#constnulcharactersinstrings1boxednumber)<br> boxed class to store validated Number payloads |
-| record | [ConstNulCharactersInStrings.ConstNulCharactersInStrings1BoxedString](#constnulcharactersinstrings1boxedstring)<br> boxed class to store validated String payloads |
-| record | [ConstNulCharactersInStrings.ConstNulCharactersInStrings1BoxedList](#constnulcharactersinstrings1boxedlist)<br> boxed class to store validated List payloads |
-| record | [ConstNulCharactersInStrings.ConstNulCharactersInStrings1BoxedMap](#constnulcharactersinstrings1boxedmap)<br> boxed class to store validated Map payloads |
-| static class | [ConstNulCharactersInStrings.ConstNulCharactersInStrings1](#constnulcharactersinstrings1)<br> schema class |
+| data class | [ConstNulCharactersInStrings.ConstNulCharactersInStrings1BoxedVoid](#constnulcharactersinstrings1boxedvoid)<br> boxed class to store validated null payloads |
+| data class | [ConstNulCharactersInStrings.ConstNulCharactersInStrings1BoxedBoolean](#constnulcharactersinstrings1boxedboolean)<br> boxed class to store validated boolean payloads |
+| data class | [ConstNulCharactersInStrings.ConstNulCharactersInStrings1BoxedNumber](#constnulcharactersinstrings1boxednumber)<br> boxed class to store validated Number payloads |
+| data class | [ConstNulCharactersInStrings.ConstNulCharactersInStrings1BoxedString](#constnulcharactersinstrings1boxedstring)<br> boxed class to store validated String payloads |
+| data class | [ConstNulCharactersInStrings.ConstNulCharactersInStrings1BoxedList](#constnulcharactersinstrings1boxedlist)<br> boxed class to store validated List payloads |
+| data class | [ConstNulCharactersInStrings.ConstNulCharactersInStrings1BoxedMap](#constnulcharactersinstrings1boxedmap)<br> boxed class to store validated Map payloads |
+| class | [ConstNulCharactersInStrings.ConstNulCharactersInStrings1](#constnulcharactersinstrings1)<br> schema class |
 | enum | [ConstNulCharactersInStrings.StringConstNulCharactersInStringsConst](#stringconstnulcharactersinstringsconst)<br>String enum |
 
 ## ConstNulCharactersInStrings1Boxed
@@ -54,7 +54,7 @@ data class that stores validated null payloads, sealed permits implementation
 data class ConstNulCharactersInStrings1BoxedBoolean<br>
 implements [ConstNulCharactersInStrings1Boxed](#constnulcharactersinstrings1boxed)
 
-record that stores validated boolean payloads, sealed permits implementation
+data class that stores validated boolean payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
@@ -151,19 +151,19 @@ A schema class that validates payloads
 | ----------------- | ---------------------- |
 | String | validate(arg: String, configuration: SchemaConfiguration) |
 | Nothing? | validate(arg: Nothing?, configuration: SchemaConfiguration) |
-| int | validate(arg: int, configuration: SchemaConfiguration) |
-| long | validate(arg: long, configuration: SchemaConfiguration) |
-| float | validate(arg: float, configuration: SchemaConfiguration) |
-| double | validate(arg: double, configuration: SchemaConfiguration) |
+| Int | validate(arg: Int, configuration: SchemaConfiguration) |
+| Long | validate(arg: Long, configuration: SchemaConfiguration) |
+| Float | validate(arg: Float, configuration: SchemaConfiguration) |
+| Double | validate(arg: Double, configuration: SchemaConfiguration) |
 | Number | validate(arg: Number, configuration: SchemaConfiguration) |
-| boolean | validate(arg: boolean, configuration: SchemaConfiguration) |
-| FrozenMap<Any?> | validate(arg: Map&lt;?, ?&gt;, configuration: SchemaConfiguration) |
+| Boolean | validate(arg: Boolean, configuration: SchemaConfiguration) |
+| FrozenMap<Any?> | validate(arg: Map&lt;*, *&gt;, configuration: SchemaConfiguration) |
 | FrozenList<Any?> | validate(arg: List<*>, configuration: SchemaConfiguration) |
 | [ConstNulCharactersInStrings1BoxedString](#constnulcharactersinstrings1boxedstring) | validateAndBox(String, configuration: SchemaConfiguration) |
 | [ConstNulCharactersInStrings1BoxedVoid](#constnulcharactersinstrings1boxedvoid) | validateAndBox(Nothing?, configuration: SchemaConfiguration) |
 | [ConstNulCharactersInStrings1BoxedNumber](#constnulcharactersinstrings1boxednumber) | validateAndBox(Number, configuration: SchemaConfiguration) |
-| [ConstNulCharactersInStrings1BoxedBoolean](#constnulcharactersinstrings1boxedboolean) | validateAndBox(boolean, configuration: SchemaConfiguration) |
-| [ConstNulCharactersInStrings1BoxedMap](#constnulcharactersinstrings1boxedmap) | validateAndBox(Map&lt;?, ?&gt;, configuration: SchemaConfiguration) |
+| [ConstNulCharactersInStrings1BoxedBoolean](#constnulcharactersinstrings1boxedboolean) | validateAndBox(Boolean, configuration: SchemaConfiguration) |
+| [ConstNulCharactersInStrings1BoxedMap](#constnulcharactersinstrings1boxedmap) | validateAndBox(Map&lt;*, *&gt;, configuration: SchemaConfiguration) |
 | [ConstNulCharactersInStrings1BoxedList](#constnulcharactersinstrings1boxedlist) | validateAndBox(List<*>, configuration: SchemaConfiguration) |
 | [ConstNulCharactersInStrings1Boxed](#constnulcharactersinstrings1boxed) | validateAndBox(Any?, configuration: SchemaConfiguration) |
 | Any? | validate(arg: Any?, configuration: SchemaConfiguration) |

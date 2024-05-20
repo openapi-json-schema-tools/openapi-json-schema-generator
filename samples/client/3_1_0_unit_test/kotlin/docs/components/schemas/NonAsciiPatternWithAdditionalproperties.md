@@ -13,26 +13,26 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | sealed interface | [NonAsciiPatternWithAdditionalproperties.NonAsciiPatternWithAdditionalproperties1Boxed](#nonasciipatternwithadditionalproperties1boxed)<br> sealed interface for validated payloads |
-| record | [NonAsciiPatternWithAdditionalproperties.NonAsciiPatternWithAdditionalproperties1BoxedMap](#nonasciipatternwithadditionalproperties1boxedmap)<br> boxed class to store validated Map payloads |
-| static class | [NonAsciiPatternWithAdditionalproperties.NonAsciiPatternWithAdditionalproperties1](#nonasciipatternwithadditionalproperties1)<br> schema class |
-| static class | [NonAsciiPatternWithAdditionalproperties.NonAsciiPatternWithAdditionalpropertiesMapBuilder](#nonasciipatternwithadditionalpropertiesmapbuilder)<br> builder for Map payloads |
-| static class | [NonAsciiPatternWithAdditionalproperties.NonAsciiPatternWithAdditionalpropertiesMap](#nonasciipatternwithadditionalpropertiesmap)<br> output class for Map payloads |
+| data class | [NonAsciiPatternWithAdditionalproperties.NonAsciiPatternWithAdditionalproperties1BoxedMap](#nonasciipatternwithadditionalproperties1boxedmap)<br> boxed class to store validated Map payloads |
+| class | [NonAsciiPatternWithAdditionalproperties.NonAsciiPatternWithAdditionalproperties1](#nonasciipatternwithadditionalproperties1)<br> schema class |
+| class | [NonAsciiPatternWithAdditionalproperties.NonAsciiPatternWithAdditionalpropertiesMapBuilder](#nonasciipatternwithadditionalpropertiesmapbuilder)<br> builder for Map payloads |
+| class | [NonAsciiPatternWithAdditionalproperties.NonAsciiPatternWithAdditionalpropertiesMap](#nonasciipatternwithadditionalpropertiesmap)<br> output class for Map payloads |
 | sealed interface | [NonAsciiPatternWithAdditionalproperties.CircumflexAccentLatinSmallLetterAWithAcuteBoxed](#circumflexaccentlatinsmallletterawithacuteboxed)<br> sealed interface for validated payloads |
-| record | [NonAsciiPatternWithAdditionalproperties.CircumflexAccentLatinSmallLetterAWithAcuteBoxedVoid](#circumflexaccentlatinsmallletterawithacuteboxedvoid)<br> boxed class to store validated null payloads |
-| record | [NonAsciiPatternWithAdditionalproperties.CircumflexAccentLatinSmallLetterAWithAcuteBoxedBoolean](#circumflexaccentlatinsmallletterawithacuteboxedboolean)<br> boxed class to store validated boolean payloads |
-| record | [NonAsciiPatternWithAdditionalproperties.CircumflexAccentLatinSmallLetterAWithAcuteBoxedNumber](#circumflexaccentlatinsmallletterawithacuteboxednumber)<br> boxed class to store validated Number payloads |
-| record | [NonAsciiPatternWithAdditionalproperties.CircumflexAccentLatinSmallLetterAWithAcuteBoxedString](#circumflexaccentlatinsmallletterawithacuteboxedstring)<br> boxed class to store validated String payloads |
-| record | [NonAsciiPatternWithAdditionalproperties.CircumflexAccentLatinSmallLetterAWithAcuteBoxedList](#circumflexaccentlatinsmallletterawithacuteboxedlist)<br> boxed class to store validated List payloads |
-| record | [NonAsciiPatternWithAdditionalproperties.CircumflexAccentLatinSmallLetterAWithAcuteBoxedMap](#circumflexaccentlatinsmallletterawithacuteboxedmap)<br> boxed class to store validated Map payloads |
-| static class | [NonAsciiPatternWithAdditionalproperties.CircumflexAccentLatinSmallLetterAWithAcute](#circumflexaccentlatinsmallletterawithacute)<br> schema class |
+| data class | [NonAsciiPatternWithAdditionalproperties.CircumflexAccentLatinSmallLetterAWithAcuteBoxedVoid](#circumflexaccentlatinsmallletterawithacuteboxedvoid)<br> boxed class to store validated null payloads |
+| data class | [NonAsciiPatternWithAdditionalproperties.CircumflexAccentLatinSmallLetterAWithAcuteBoxedBoolean](#circumflexaccentlatinsmallletterawithacuteboxedboolean)<br> boxed class to store validated boolean payloads |
+| data class | [NonAsciiPatternWithAdditionalproperties.CircumflexAccentLatinSmallLetterAWithAcuteBoxedNumber](#circumflexaccentlatinsmallletterawithacuteboxednumber)<br> boxed class to store validated Number payloads |
+| data class | [NonAsciiPatternWithAdditionalproperties.CircumflexAccentLatinSmallLetterAWithAcuteBoxedString](#circumflexaccentlatinsmallletterawithacuteboxedstring)<br> boxed class to store validated String payloads |
+| data class | [NonAsciiPatternWithAdditionalproperties.CircumflexAccentLatinSmallLetterAWithAcuteBoxedList](#circumflexaccentlatinsmallletterawithacuteboxedlist)<br> boxed class to store validated List payloads |
+| data class | [NonAsciiPatternWithAdditionalproperties.CircumflexAccentLatinSmallLetterAWithAcuteBoxedMap](#circumflexaccentlatinsmallletterawithacuteboxedmap)<br> boxed class to store validated Map payloads |
+| class | [NonAsciiPatternWithAdditionalproperties.CircumflexAccentLatinSmallLetterAWithAcute](#circumflexaccentlatinsmallletterawithacute)<br> schema class |
 | sealed interface | [NonAsciiPatternWithAdditionalproperties.AdditionalPropertiesBoxed](#additionalpropertiesboxed)<br> sealed interface for validated payloads |
-| record | [NonAsciiPatternWithAdditionalproperties.AdditionalPropertiesBoxedVoid](#additionalpropertiesboxedvoid)<br> boxed class to store validated null payloads |
-| record | [NonAsciiPatternWithAdditionalproperties.AdditionalPropertiesBoxedBoolean](#additionalpropertiesboxedboolean)<br> boxed class to store validated boolean payloads |
-| record | [NonAsciiPatternWithAdditionalproperties.AdditionalPropertiesBoxedNumber](#additionalpropertiesboxednumber)<br> boxed class to store validated Number payloads |
-| record | [NonAsciiPatternWithAdditionalproperties.AdditionalPropertiesBoxedString](#additionalpropertiesboxedstring)<br> boxed class to store validated String payloads |
-| record | [NonAsciiPatternWithAdditionalproperties.AdditionalPropertiesBoxedList](#additionalpropertiesboxedlist)<br> boxed class to store validated List payloads |
-| record | [NonAsciiPatternWithAdditionalproperties.AdditionalPropertiesBoxedMap](#additionalpropertiesboxedmap)<br> boxed class to store validated Map payloads |
-| static class | [NonAsciiPatternWithAdditionalproperties.AdditionalProperties](#additionalproperties)<br> schema class |
+| data class | [NonAsciiPatternWithAdditionalproperties.AdditionalPropertiesBoxedVoid](#additionalpropertiesboxedvoid)<br> boxed class to store validated null payloads |
+| data class | [NonAsciiPatternWithAdditionalproperties.AdditionalPropertiesBoxedBoolean](#additionalpropertiesboxedboolean)<br> boxed class to store validated boolean payloads |
+| data class | [NonAsciiPatternWithAdditionalproperties.AdditionalPropertiesBoxedNumber](#additionalpropertiesboxednumber)<br> boxed class to store validated Number payloads |
+| data class | [NonAsciiPatternWithAdditionalproperties.AdditionalPropertiesBoxedString](#additionalpropertiesboxedstring)<br> boxed class to store validated String payloads |
+| data class | [NonAsciiPatternWithAdditionalproperties.AdditionalPropertiesBoxedList](#additionalpropertiesboxedlist)<br> boxed class to store validated List payloads |
+| data class | [NonAsciiPatternWithAdditionalproperties.AdditionalPropertiesBoxedMap](#additionalpropertiesboxedmap)<br> boxed class to store validated Map payloads |
+| class | [NonAsciiPatternWithAdditionalproperties.AdditionalProperties](#additionalproperties)<br> schema class |
 
 ## NonAsciiPatternWithAdditionalproperties1Boxed
 sealed interface NonAsciiPatternWithAdditionalproperties1Boxed<br>
@@ -66,27 +66,23 @@ A schema class that validates payloads
 
 ### Code Sample
 ```
-import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
-import org.openapijsonschematools.client.configurations.SchemaConfiguration;
-import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.schemas.validation.MapUtils;
-import org.openapijsonschematools.client.schemas.validation.FrozenList;
-import org.openapijsonschematools.client.schemas.validation.FrozenMap;
-import org.openapijsonschematools.client.components.schemas.NonAsciiPatternWithAdditionalproperties;
+import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags
+import org.openapijsonschematools.client.configurations.SchemaConfiguration
+import org.openapijsonschematools.client.exceptions.ValidationException
+import org.openapijsonschematools.client.schemas.validation.MapUtils
+import org.openapijsonschematools.client.schemas.validation.FrozenList
+import org.openapijsonschematools.client.schemas.validation.FrozenMap
+import org.openapijsonschematools.client.components.schemas.NonAsciiPatternWithAdditionalproperties
 
-import java.util.Arrays;
-import java.util.List;
-import java.util.AbstractMap;
-
-static final SchemaConfiguration configuration = new SchemaConfiguration(new JsonSchemaKeywordFlags.Builder().build());
+val configuration = SchemaConfiguration(JsonSchemaKeywordFlags.Builder().build())
 
 // Map validation
-NonAsciiPatternWithAdditionalproperties.NonAsciiPatternWithAdditionalpropertiesMap validatedPayload =
+val validatedPayload: NonAsciiPatternWithAdditionalproperties.NonAsciiPatternWithAdditionalpropertiesMap =
     NonAsciiPatternWithAdditionalproperties.NonAsciiPatternWithAdditionalproperties1.validate(
-    new NonAsciiPatternWithAdditionalproperties.NonAsciiPatternWithAdditionalpropertiesMapBuilder()
+    NonAsciiPatternWithAdditionalproperties.NonAsciiPatternWithAdditionalpropertiesMapBuilder()
     .build(),
     configuration
-);
+)
 ```
 
 ### Field Summary
@@ -99,8 +95,8 @@ NonAsciiPatternWithAdditionalproperties.NonAsciiPatternWithAdditionalpropertiesM
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [NonAsciiPatternWithAdditionalpropertiesMap](#nonasciipatternwithadditionalpropertiesmap) | validate(arg: [Map&lt;?, ?&gt;](#nonasciipatternwithadditionalpropertiesmapbuilder), configuration: SchemaConfiguration) |
-| [NonAsciiPatternWithAdditionalproperties1BoxedMap](#nonasciipatternwithadditionalproperties1boxedmap) | validateAndBox([Map&lt;?, ?&gt;](#nonasciipatternwithadditionalpropertiesmapbuilder), configuration: SchemaConfiguration) |
+| [NonAsciiPatternWithAdditionalpropertiesMap](#nonasciipatternwithadditionalpropertiesmap) | validate(arg: [Map&lt;*, *&gt;](#nonasciipatternwithadditionalpropertiesmapbuilder), configuration: SchemaConfiguration) |
+| [NonAsciiPatternWithAdditionalproperties1BoxedMap](#nonasciipatternwithadditionalproperties1boxedmap) | validateAndBox([Map&lt;*, *&gt;](#nonasciipatternwithadditionalpropertiesmapbuilder), configuration: SchemaConfiguration) |
 | [NonAsciiPatternWithAdditionalproperties1Boxed](#nonasciipatternwithadditionalproperties1boxed) | validateAndBox(Any?, configuration: SchemaConfiguration) |
 | Any? | validate(arg: Any?, configuration: SchemaConfiguration) |
 
@@ -164,7 +160,7 @@ data class that stores validated null payloads, sealed permits implementation
 data class CircumflexAccentLatinSmallLetterAWithAcuteBoxedBoolean<br>
 implements [CircumflexAccentLatinSmallLetterAWithAcuteBoxed](#circumflexaccentlatinsmallletterawithacuteboxed)
 
-record that stores validated boolean payloads, sealed permits implementation
+data class that stores validated boolean payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
@@ -289,7 +285,7 @@ data class that stores validated null payloads, sealed permits implementation
 data class AdditionalPropertiesBoxedBoolean<br>
 implements [AdditionalPropertiesBoxed](#additionalpropertiesboxed)
 
-record that stores validated boolean payloads, sealed permits implementation
+data class that stores validated boolean payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |

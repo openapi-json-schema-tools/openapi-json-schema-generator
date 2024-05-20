@@ -13,21 +13,21 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | sealed interface | [NotMoreComplexSchema.NotMoreComplexSchema1Boxed](#notmorecomplexschema1boxed)<br> sealed interface for validated payloads |
-| record | [NotMoreComplexSchema.NotMoreComplexSchema1BoxedVoid](#notmorecomplexschema1boxedvoid)<br> boxed class to store validated null payloads |
-| record | [NotMoreComplexSchema.NotMoreComplexSchema1BoxedBoolean](#notmorecomplexschema1boxedboolean)<br> boxed class to store validated boolean payloads |
-| record | [NotMoreComplexSchema.NotMoreComplexSchema1BoxedNumber](#notmorecomplexschema1boxednumber)<br> boxed class to store validated Number payloads |
-| record | [NotMoreComplexSchema.NotMoreComplexSchema1BoxedString](#notmorecomplexschema1boxedstring)<br> boxed class to store validated String payloads |
-| record | [NotMoreComplexSchema.NotMoreComplexSchema1BoxedList](#notmorecomplexschema1boxedlist)<br> boxed class to store validated List payloads |
-| record | [NotMoreComplexSchema.NotMoreComplexSchema1BoxedMap](#notmorecomplexschema1boxedmap)<br> boxed class to store validated Map payloads |
-| static class | [NotMoreComplexSchema.NotMoreComplexSchema1](#notmorecomplexschema1)<br> schema class |
+| data class | [NotMoreComplexSchema.NotMoreComplexSchema1BoxedVoid](#notmorecomplexschema1boxedvoid)<br> boxed class to store validated null payloads |
+| data class | [NotMoreComplexSchema.NotMoreComplexSchema1BoxedBoolean](#notmorecomplexschema1boxedboolean)<br> boxed class to store validated boolean payloads |
+| data class | [NotMoreComplexSchema.NotMoreComplexSchema1BoxedNumber](#notmorecomplexschema1boxednumber)<br> boxed class to store validated Number payloads |
+| data class | [NotMoreComplexSchema.NotMoreComplexSchema1BoxedString](#notmorecomplexschema1boxedstring)<br> boxed class to store validated String payloads |
+| data class | [NotMoreComplexSchema.NotMoreComplexSchema1BoxedList](#notmorecomplexschema1boxedlist)<br> boxed class to store validated List payloads |
+| data class | [NotMoreComplexSchema.NotMoreComplexSchema1BoxedMap](#notmorecomplexschema1boxedmap)<br> boxed class to store validated Map payloads |
+| class | [NotMoreComplexSchema.NotMoreComplexSchema1](#notmorecomplexschema1)<br> schema class |
 | sealed interface | [NotMoreComplexSchema.NotBoxed](#notboxed)<br> sealed interface for validated payloads |
-| record | [NotMoreComplexSchema.NotBoxedMap](#notboxedmap)<br> boxed class to store validated Map payloads |
-| static class | [NotMoreComplexSchema.Not](#not)<br> schema class |
-| static class | [NotMoreComplexSchema.NotMapBuilder](#notmapbuilder)<br> builder for Map payloads |
-| static class | [NotMoreComplexSchema.NotMap](#notmap)<br> output class for Map payloads |
+| data class | [NotMoreComplexSchema.NotBoxedMap](#notboxedmap)<br> boxed class to store validated Map payloads |
+| class | [NotMoreComplexSchema.Not](#not)<br> schema class |
+| class | [NotMoreComplexSchema.NotMapBuilder](#notmapbuilder)<br> builder for Map payloads |
+| class | [NotMoreComplexSchema.NotMap](#notmap)<br> output class for Map payloads |
 | sealed interface | [NotMoreComplexSchema.FooBoxed](#fooboxed)<br> sealed interface for validated payloads |
-| record | [NotMoreComplexSchema.FooBoxedString](#fooboxedstring)<br> boxed class to store validated String payloads |
-| static class | [NotMoreComplexSchema.Foo](#foo)<br> schema class |
+| data class | [NotMoreComplexSchema.FooBoxedString](#fooboxedstring)<br> boxed class to store validated String payloads |
+| class | [NotMoreComplexSchema.Foo](#foo)<br> schema class |
 
 ## NotMoreComplexSchema1Boxed
 sealed interface NotMoreComplexSchema1Boxed<br>
@@ -62,7 +62,7 @@ data class that stores validated null payloads, sealed permits implementation
 data class NotMoreComplexSchema1BoxedBoolean<br>
 implements [NotMoreComplexSchema1Boxed](#notmorecomplexschema1boxed)
 
-record that stores validated boolean payloads, sealed permits implementation
+data class that stores validated boolean payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
@@ -159,19 +159,19 @@ A schema class that validates payloads
 | ----------------- | ---------------------- |
 | String | validate(arg: String, configuration: SchemaConfiguration) |
 | Nothing? | validate(arg: Nothing?, configuration: SchemaConfiguration) |
-| int | validate(arg: int, configuration: SchemaConfiguration) |
-| long | validate(arg: long, configuration: SchemaConfiguration) |
-| float | validate(arg: float, configuration: SchemaConfiguration) |
-| double | validate(arg: double, configuration: SchemaConfiguration) |
+| Int | validate(arg: Int, configuration: SchemaConfiguration) |
+| Long | validate(arg: Long, configuration: SchemaConfiguration) |
+| Float | validate(arg: Float, configuration: SchemaConfiguration) |
+| Double | validate(arg: Double, configuration: SchemaConfiguration) |
 | Number | validate(arg: Number, configuration: SchemaConfiguration) |
-| boolean | validate(arg: boolean, configuration: SchemaConfiguration) |
-| FrozenMap<Any?> | validate(arg: Map&lt;?, ?&gt;, configuration: SchemaConfiguration) |
+| Boolean | validate(arg: Boolean, configuration: SchemaConfiguration) |
+| FrozenMap<Any?> | validate(arg: Map&lt;*, *&gt;, configuration: SchemaConfiguration) |
 | FrozenList<Any?> | validate(arg: List<*>, configuration: SchemaConfiguration) |
 | [NotMoreComplexSchema1BoxedString](#notmorecomplexschema1boxedstring) | validateAndBox(String, configuration: SchemaConfiguration) |
 | [NotMoreComplexSchema1BoxedVoid](#notmorecomplexschema1boxedvoid) | validateAndBox(Nothing?, configuration: SchemaConfiguration) |
 | [NotMoreComplexSchema1BoxedNumber](#notmorecomplexschema1boxednumber) | validateAndBox(Number, configuration: SchemaConfiguration) |
-| [NotMoreComplexSchema1BoxedBoolean](#notmorecomplexschema1boxedboolean) | validateAndBox(boolean, configuration: SchemaConfiguration) |
-| [NotMoreComplexSchema1BoxedMap](#notmorecomplexschema1boxedmap) | validateAndBox(Map&lt;?, ?&gt;, configuration: SchemaConfiguration) |
+| [NotMoreComplexSchema1BoxedBoolean](#notmorecomplexschema1boxedboolean) | validateAndBox(Boolean, configuration: SchemaConfiguration) |
+| [NotMoreComplexSchema1BoxedMap](#notmorecomplexschema1boxedmap) | validateAndBox(Map&lt;*, *&gt;, configuration: SchemaConfiguration) |
 | [NotMoreComplexSchema1BoxedList](#notmorecomplexschema1boxedlist) | validateAndBox(List<*>, configuration: SchemaConfiguration) |
 | [NotMoreComplexSchema1Boxed](#notmorecomplexschema1boxed) | validateAndBox(Any?, configuration: SchemaConfiguration) |
 | Any? | validate(arg: Any?, configuration: SchemaConfiguration) |
@@ -208,29 +208,25 @@ A schema class that validates payloads
 
 ### Code Sample
 ```
-import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
-import org.openapijsonschematools.client.configurations.SchemaConfiguration;
-import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.schemas.validation.MapUtils;
-import org.openapijsonschematools.client.schemas.validation.FrozenList;
-import org.openapijsonschematools.client.schemas.validation.FrozenMap;
-import org.openapijsonschematools.client.components.schemas.NotMoreComplexSchema;
+import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags
+import org.openapijsonschematools.client.configurations.SchemaConfiguration
+import org.openapijsonschematools.client.exceptions.ValidationException
+import org.openapijsonschematools.client.schemas.validation.MapUtils
+import org.openapijsonschematools.client.schemas.validation.FrozenList
+import org.openapijsonschematools.client.schemas.validation.FrozenMap
+import org.openapijsonschematools.client.components.schemas.NotMoreComplexSchema
 
-import java.util.Arrays;
-import java.util.List;
-import java.util.AbstractMap;
-
-static final SchemaConfiguration configuration = new SchemaConfiguration(new JsonSchemaKeywordFlags.Builder().build());
+val configuration = SchemaConfiguration(JsonSchemaKeywordFlags.Builder().build())
 
 // Map validation
-NotMoreComplexSchema.NotMap validatedPayload =
+val validatedPayload: NotMoreComplexSchema.NotMap =
     NotMoreComplexSchema.Not.validate(
-    new NotMoreComplexSchema.NotMapBuilder()
+    NotMoreComplexSchema.NotMapBuilder()
         .foo("a")
 
     .build(),
     configuration
-);
+)
 ```
 
 ### Field Summary
@@ -242,8 +238,8 @@ NotMoreComplexSchema.NotMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [NotMap](#notmap) | validate(arg: [Map&lt;?, ?&gt;](#notmapbuilder), configuration: SchemaConfiguration) |
-| [NotBoxedMap](#notboxedmap) | validateAndBox([Map&lt;?, ?&gt;](#notmapbuilder), configuration: SchemaConfiguration) |
+| [NotMap](#notmap) | validate(arg: [Map&lt;*, *&gt;](#notmapbuilder), configuration: SchemaConfiguration) |
+| [NotBoxedMap](#notboxedmap) | validateAndBox([Map&lt;*, *&gt;](#notmapbuilder), configuration: SchemaConfiguration) |
 | [NotBoxed](#notboxed) | validateAndBox(Any?, configuration: SchemaConfiguration) |
 | Any? | validate(arg: Any?, configuration: SchemaConfiguration) |
 

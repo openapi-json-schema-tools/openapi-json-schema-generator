@@ -11,13 +11,13 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | sealed interface | [ByNumber.ByNumber1Boxed](#bynumber1boxed)<br> sealed interface for validated payloads |
-| record | [ByNumber.ByNumber1BoxedVoid](#bynumber1boxedvoid)<br> boxed class to store validated null payloads |
-| record | [ByNumber.ByNumber1BoxedBoolean](#bynumber1boxedboolean)<br> boxed class to store validated boolean payloads |
-| record | [ByNumber.ByNumber1BoxedNumber](#bynumber1boxednumber)<br> boxed class to store validated Number payloads |
-| record | [ByNumber.ByNumber1BoxedString](#bynumber1boxedstring)<br> boxed class to store validated String payloads |
-| record | [ByNumber.ByNumber1BoxedList](#bynumber1boxedlist)<br> boxed class to store validated List payloads |
-| record | [ByNumber.ByNumber1BoxedMap](#bynumber1boxedmap)<br> boxed class to store validated Map payloads |
-| static class | [ByNumber.ByNumber1](#bynumber1)<br> schema class |
+| data class | [ByNumber.ByNumber1BoxedVoid](#bynumber1boxedvoid)<br> boxed class to store validated null payloads |
+| data class | [ByNumber.ByNumber1BoxedBoolean](#bynumber1boxedboolean)<br> boxed class to store validated boolean payloads |
+| data class | [ByNumber.ByNumber1BoxedNumber](#bynumber1boxednumber)<br> boxed class to store validated Number payloads |
+| data class | [ByNumber.ByNumber1BoxedString](#bynumber1boxedstring)<br> boxed class to store validated String payloads |
+| data class | [ByNumber.ByNumber1BoxedList](#bynumber1boxedlist)<br> boxed class to store validated List payloads |
+| data class | [ByNumber.ByNumber1BoxedMap](#bynumber1boxedmap)<br> boxed class to store validated Map payloads |
+| class | [ByNumber.ByNumber1](#bynumber1)<br> schema class |
 
 ## ByNumber1Boxed
 sealed interface ByNumber1Boxed<br>
@@ -52,7 +52,7 @@ data class that stores validated null payloads, sealed permits implementation
 data class ByNumber1BoxedBoolean<br>
 implements [ByNumber1Boxed](#bynumber1boxed)
 
-record that stores validated boolean payloads, sealed permits implementation
+data class that stores validated boolean payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
@@ -149,19 +149,19 @@ A schema class that validates payloads
 | ----------------- | ---------------------- |
 | String | validate(arg: String, configuration: SchemaConfiguration) |
 | Nothing? | validate(arg: Nothing?, configuration: SchemaConfiguration) |
-| int | validate(arg: int, configuration: SchemaConfiguration) |
-| long | validate(arg: long, configuration: SchemaConfiguration) |
-| float | validate(arg: float, configuration: SchemaConfiguration) |
-| double | validate(arg: double, configuration: SchemaConfiguration) |
+| Int | validate(arg: Int, configuration: SchemaConfiguration) |
+| Long | validate(arg: Long, configuration: SchemaConfiguration) |
+| Float | validate(arg: Float, configuration: SchemaConfiguration) |
+| Double | validate(arg: Double, configuration: SchemaConfiguration) |
 | Number | validate(arg: Number, configuration: SchemaConfiguration) |
-| boolean | validate(arg: boolean, configuration: SchemaConfiguration) |
-| FrozenMap<Any?> | validate(arg: Map&lt;?, ?&gt;, configuration: SchemaConfiguration) |
+| Boolean | validate(arg: Boolean, configuration: SchemaConfiguration) |
+| FrozenMap<Any?> | validate(arg: Map&lt;*, *&gt;, configuration: SchemaConfiguration) |
 | FrozenList<Any?> | validate(arg: List<*>, configuration: SchemaConfiguration) |
 | [ByNumber1BoxedString](#bynumber1boxedstring) | validateAndBox(String, configuration: SchemaConfiguration) |
 | [ByNumber1BoxedVoid](#bynumber1boxedvoid) | validateAndBox(Nothing?, configuration: SchemaConfiguration) |
 | [ByNumber1BoxedNumber](#bynumber1boxednumber) | validateAndBox(Number, configuration: SchemaConfiguration) |
-| [ByNumber1BoxedBoolean](#bynumber1boxedboolean) | validateAndBox(boolean, configuration: SchemaConfiguration) |
-| [ByNumber1BoxedMap](#bynumber1boxedmap) | validateAndBox(Map&lt;?, ?&gt;, configuration: SchemaConfiguration) |
+| [ByNumber1BoxedBoolean](#bynumber1boxedboolean) | validateAndBox(Boolean, configuration: SchemaConfiguration) |
+| [ByNumber1BoxedMap](#bynumber1boxedmap) | validateAndBox(Map&lt;*, *&gt;, configuration: SchemaConfiguration) |
 | [ByNumber1BoxedList](#bynumber1boxedlist) | validateAndBox(List<*>, configuration: SchemaConfiguration) |
 | [ByNumber1Boxed](#bynumber1boxed) | validateAndBox(Any?, configuration: SchemaConfiguration) |
 | Any? | validate(arg: Any?, configuration: SchemaConfiguration) |

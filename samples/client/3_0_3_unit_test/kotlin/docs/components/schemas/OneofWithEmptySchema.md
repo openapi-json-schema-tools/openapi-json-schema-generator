@@ -11,24 +11,24 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | sealed interface | [OneofWithEmptySchema.OneofWithEmptySchema1Boxed](#oneofwithemptyschema1boxed)<br> sealed interface for validated payloads |
-| record | [OneofWithEmptySchema.OneofWithEmptySchema1BoxedVoid](#oneofwithemptyschema1boxedvoid)<br> boxed class to store validated null payloads |
-| record | [OneofWithEmptySchema.OneofWithEmptySchema1BoxedBoolean](#oneofwithemptyschema1boxedboolean)<br> boxed class to store validated boolean payloads |
-| record | [OneofWithEmptySchema.OneofWithEmptySchema1BoxedNumber](#oneofwithemptyschema1boxednumber)<br> boxed class to store validated Number payloads |
-| record | [OneofWithEmptySchema.OneofWithEmptySchema1BoxedString](#oneofwithemptyschema1boxedstring)<br> boxed class to store validated String payloads |
-| record | [OneofWithEmptySchema.OneofWithEmptySchema1BoxedList](#oneofwithemptyschema1boxedlist)<br> boxed class to store validated List payloads |
-| record | [OneofWithEmptySchema.OneofWithEmptySchema1BoxedMap](#oneofwithemptyschema1boxedmap)<br> boxed class to store validated Map payloads |
-| static class | [OneofWithEmptySchema.OneofWithEmptySchema1](#oneofwithemptyschema1)<br> schema class |
+| data class | [OneofWithEmptySchema.OneofWithEmptySchema1BoxedVoid](#oneofwithemptyschema1boxedvoid)<br> boxed class to store validated null payloads |
+| data class | [OneofWithEmptySchema.OneofWithEmptySchema1BoxedBoolean](#oneofwithemptyschema1boxedboolean)<br> boxed class to store validated boolean payloads |
+| data class | [OneofWithEmptySchema.OneofWithEmptySchema1BoxedNumber](#oneofwithemptyschema1boxednumber)<br> boxed class to store validated Number payloads |
+| data class | [OneofWithEmptySchema.OneofWithEmptySchema1BoxedString](#oneofwithemptyschema1boxedstring)<br> boxed class to store validated String payloads |
+| data class | [OneofWithEmptySchema.OneofWithEmptySchema1BoxedList](#oneofwithemptyschema1boxedlist)<br> boxed class to store validated List payloads |
+| data class | [OneofWithEmptySchema.OneofWithEmptySchema1BoxedMap](#oneofwithemptyschema1boxedmap)<br> boxed class to store validated Map payloads |
+| class | [OneofWithEmptySchema.OneofWithEmptySchema1](#oneofwithemptyschema1)<br> schema class |
 | sealed interface | [OneofWithEmptySchema.Schema1Boxed](#schema1boxed)<br> sealed interface for validated payloads |
-| record | [OneofWithEmptySchema.Schema1BoxedVoid](#schema1boxedvoid)<br> boxed class to store validated null payloads |
-| record | [OneofWithEmptySchema.Schema1BoxedBoolean](#schema1boxedboolean)<br> boxed class to store validated boolean payloads |
-| record | [OneofWithEmptySchema.Schema1BoxedNumber](#schema1boxednumber)<br> boxed class to store validated Number payloads |
-| record | [OneofWithEmptySchema.Schema1BoxedString](#schema1boxedstring)<br> boxed class to store validated String payloads |
-| record | [OneofWithEmptySchema.Schema1BoxedList](#schema1boxedlist)<br> boxed class to store validated List payloads |
-| record | [OneofWithEmptySchema.Schema1BoxedMap](#schema1boxedmap)<br> boxed class to store validated Map payloads |
-| static class | [OneofWithEmptySchema.Schema1](#schema1)<br> schema class |
+| data class | [OneofWithEmptySchema.Schema1BoxedVoid](#schema1boxedvoid)<br> boxed class to store validated null payloads |
+| data class | [OneofWithEmptySchema.Schema1BoxedBoolean](#schema1boxedboolean)<br> boxed class to store validated boolean payloads |
+| data class | [OneofWithEmptySchema.Schema1BoxedNumber](#schema1boxednumber)<br> boxed class to store validated Number payloads |
+| data class | [OneofWithEmptySchema.Schema1BoxedString](#schema1boxedstring)<br> boxed class to store validated String payloads |
+| data class | [OneofWithEmptySchema.Schema1BoxedList](#schema1boxedlist)<br> boxed class to store validated List payloads |
+| data class | [OneofWithEmptySchema.Schema1BoxedMap](#schema1boxedmap)<br> boxed class to store validated Map payloads |
+| class | [OneofWithEmptySchema.Schema1](#schema1)<br> schema class |
 | sealed interface | [OneofWithEmptySchema.Schema0Boxed](#schema0boxed)<br> sealed interface for validated payloads |
-| record | [OneofWithEmptySchema.Schema0BoxedNumber](#schema0boxednumber)<br> boxed class to store validated Number payloads |
-| static class | [OneofWithEmptySchema.Schema0](#schema0)<br> schema class |
+| data class | [OneofWithEmptySchema.Schema0BoxedNumber](#schema0boxednumber)<br> boxed class to store validated Number payloads |
+| class | [OneofWithEmptySchema.Schema0](#schema0)<br> schema class |
 
 ## OneofWithEmptySchema1Boxed
 sealed interface OneofWithEmptySchema1Boxed<br>
@@ -63,7 +63,7 @@ data class that stores validated null payloads, sealed permits implementation
 data class OneofWithEmptySchema1BoxedBoolean<br>
 implements [OneofWithEmptySchema1Boxed](#oneofwithemptyschema1boxed)
 
-record that stores validated boolean payloads, sealed permits implementation
+data class that stores validated boolean payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
@@ -160,19 +160,19 @@ A schema class that validates payloads
 | ----------------- | ---------------------- |
 | String | validate(arg: String, configuration: SchemaConfiguration) |
 | Nothing? | validate(arg: Nothing?, configuration: SchemaConfiguration) |
-| int | validate(arg: int, configuration: SchemaConfiguration) |
-| long | validate(arg: long, configuration: SchemaConfiguration) |
-| float | validate(arg: float, configuration: SchemaConfiguration) |
-| double | validate(arg: double, configuration: SchemaConfiguration) |
+| Int | validate(arg: Int, configuration: SchemaConfiguration) |
+| Long | validate(arg: Long, configuration: SchemaConfiguration) |
+| Float | validate(arg: Float, configuration: SchemaConfiguration) |
+| Double | validate(arg: Double, configuration: SchemaConfiguration) |
 | Number | validate(arg: Number, configuration: SchemaConfiguration) |
-| boolean | validate(arg: boolean, configuration: SchemaConfiguration) |
-| FrozenMap<Any?> | validate(arg: Map&lt;?, ?&gt;, configuration: SchemaConfiguration) |
+| Boolean | validate(arg: Boolean, configuration: SchemaConfiguration) |
+| FrozenMap<Any?> | validate(arg: Map&lt;*, *&gt;, configuration: SchemaConfiguration) |
 | FrozenList<Any?> | validate(arg: List<*>, configuration: SchemaConfiguration) |
 | [OneofWithEmptySchema1BoxedString](#oneofwithemptyschema1boxedstring) | validateAndBox(String, configuration: SchemaConfiguration) |
 | [OneofWithEmptySchema1BoxedVoid](#oneofwithemptyschema1boxedvoid) | validateAndBox(Nothing?, configuration: SchemaConfiguration) |
 | [OneofWithEmptySchema1BoxedNumber](#oneofwithemptyschema1boxednumber) | validateAndBox(Number, configuration: SchemaConfiguration) |
-| [OneofWithEmptySchema1BoxedBoolean](#oneofwithemptyschema1boxedboolean) | validateAndBox(boolean, configuration: SchemaConfiguration) |
-| [OneofWithEmptySchema1BoxedMap](#oneofwithemptyschema1boxedmap) | validateAndBox(Map&lt;?, ?&gt;, configuration: SchemaConfiguration) |
+| [OneofWithEmptySchema1BoxedBoolean](#oneofwithemptyschema1boxedboolean) | validateAndBox(Boolean, configuration: SchemaConfiguration) |
+| [OneofWithEmptySchema1BoxedMap](#oneofwithemptyschema1boxedmap) | validateAndBox(Map&lt;*, *&gt;, configuration: SchemaConfiguration) |
 | [OneofWithEmptySchema1BoxedList](#oneofwithemptyschema1boxedlist) | validateAndBox(List<*>, configuration: SchemaConfiguration) |
 | [OneofWithEmptySchema1Boxed](#oneofwithemptyschema1boxed) | validateAndBox(Any?, configuration: SchemaConfiguration) |
 | Any? | validate(arg: Any?, configuration: SchemaConfiguration) |
@@ -210,7 +210,7 @@ data class that stores validated null payloads, sealed permits implementation
 data class Schema1BoxedBoolean<br>
 implements [Schema1Boxed](#schema1boxed)
 
-record that stores validated boolean payloads, sealed permits implementation
+data class that stores validated boolean payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |

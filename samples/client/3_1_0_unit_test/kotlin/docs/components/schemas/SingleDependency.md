@@ -11,13 +11,13 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | sealed interface | [SingleDependency.SingleDependency1Boxed](#singledependency1boxed)<br> sealed interface for validated payloads |
-| record | [SingleDependency.SingleDependency1BoxedVoid](#singledependency1boxedvoid)<br> boxed class to store validated null payloads |
-| record | [SingleDependency.SingleDependency1BoxedBoolean](#singledependency1boxedboolean)<br> boxed class to store validated boolean payloads |
-| record | [SingleDependency.SingleDependency1BoxedNumber](#singledependency1boxednumber)<br> boxed class to store validated Number payloads |
-| record | [SingleDependency.SingleDependency1BoxedString](#singledependency1boxedstring)<br> boxed class to store validated String payloads |
-| record | [SingleDependency.SingleDependency1BoxedList](#singledependency1boxedlist)<br> boxed class to store validated List payloads |
-| record | [SingleDependency.SingleDependency1BoxedMap](#singledependency1boxedmap)<br> boxed class to store validated Map payloads |
-| static class | [SingleDependency.SingleDependency1](#singledependency1)<br> schema class |
+| data class | [SingleDependency.SingleDependency1BoxedVoid](#singledependency1boxedvoid)<br> boxed class to store validated null payloads |
+| data class | [SingleDependency.SingleDependency1BoxedBoolean](#singledependency1boxedboolean)<br> boxed class to store validated boolean payloads |
+| data class | [SingleDependency.SingleDependency1BoxedNumber](#singledependency1boxednumber)<br> boxed class to store validated Number payloads |
+| data class | [SingleDependency.SingleDependency1BoxedString](#singledependency1boxedstring)<br> boxed class to store validated String payloads |
+| data class | [SingleDependency.SingleDependency1BoxedList](#singledependency1boxedlist)<br> boxed class to store validated List payloads |
+| data class | [SingleDependency.SingleDependency1BoxedMap](#singledependency1boxedmap)<br> boxed class to store validated Map payloads |
+| class | [SingleDependency.SingleDependency1](#singledependency1)<br> schema class |
 
 ## SingleDependency1Boxed
 sealed interface SingleDependency1Boxed<br>
@@ -52,7 +52,7 @@ data class that stores validated null payloads, sealed permits implementation
 data class SingleDependency1BoxedBoolean<br>
 implements [SingleDependency1Boxed](#singledependency1boxed)
 
-record that stores validated boolean payloads, sealed permits implementation
+data class that stores validated boolean payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
@@ -157,19 +157,19 @@ A schema class that validates payloads
 | ----------------- | ---------------------- |
 | String | validate(arg: String, configuration: SchemaConfiguration) |
 | Nothing? | validate(arg: Nothing?, configuration: SchemaConfiguration) |
-| int | validate(arg: int, configuration: SchemaConfiguration) |
-| long | validate(arg: long, configuration: SchemaConfiguration) |
-| float | validate(arg: float, configuration: SchemaConfiguration) |
-| double | validate(arg: double, configuration: SchemaConfiguration) |
+| Int | validate(arg: Int, configuration: SchemaConfiguration) |
+| Long | validate(arg: Long, configuration: SchemaConfiguration) |
+| Float | validate(arg: Float, configuration: SchemaConfiguration) |
+| Double | validate(arg: Double, configuration: SchemaConfiguration) |
 | Number | validate(arg: Number, configuration: SchemaConfiguration) |
-| boolean | validate(arg: boolean, configuration: SchemaConfiguration) |
-| FrozenMap<Any?> | validate(arg: Map&lt;?, ?&gt;, configuration: SchemaConfiguration) |
+| Boolean | validate(arg: Boolean, configuration: SchemaConfiguration) |
+| FrozenMap<Any?> | validate(arg: Map&lt;*, *&gt;, configuration: SchemaConfiguration) |
 | FrozenList<Any?> | validate(arg: List<*>, configuration: SchemaConfiguration) |
 | [SingleDependency1BoxedString](#singledependency1boxedstring) | validateAndBox(String, configuration: SchemaConfiguration) |
 | [SingleDependency1BoxedVoid](#singledependency1boxedvoid) | validateAndBox(Nothing?, configuration: SchemaConfiguration) |
 | [SingleDependency1BoxedNumber](#singledependency1boxednumber) | validateAndBox(Number, configuration: SchemaConfiguration) |
-| [SingleDependency1BoxedBoolean](#singledependency1boxedboolean) | validateAndBox(boolean, configuration: SchemaConfiguration) |
-| [SingleDependency1BoxedMap](#singledependency1boxedmap) | validateAndBox(Map&lt;?, ?&gt;, configuration: SchemaConfiguration) |
+| [SingleDependency1BoxedBoolean](#singledependency1boxedboolean) | validateAndBox(Boolean, configuration: SchemaConfiguration) |
+| [SingleDependency1BoxedMap](#singledependency1boxedmap) | validateAndBox(Map&lt;*, *&gt;, configuration: SchemaConfiguration) |
 | [SingleDependency1BoxedList](#singledependency1boxedlist) | validateAndBox(List<*>, configuration: SchemaConfiguration) |
 | [SingleDependency1Boxed](#singledependency1boxed) | validateAndBox(Any?, configuration: SchemaConfiguration) |
 | Any? | validate(arg: Any?, configuration: SchemaConfiguration) |

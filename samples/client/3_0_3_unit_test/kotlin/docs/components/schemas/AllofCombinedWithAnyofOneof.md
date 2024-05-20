@@ -11,37 +11,37 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | sealed interface | [AllofCombinedWithAnyofOneof.AllofCombinedWithAnyofOneof1Boxed](#allofcombinedwithanyofoneof1boxed)<br> sealed interface for validated payloads |
-| record | [AllofCombinedWithAnyofOneof.AllofCombinedWithAnyofOneof1BoxedVoid](#allofcombinedwithanyofoneof1boxedvoid)<br> boxed class to store validated null payloads |
-| record | [AllofCombinedWithAnyofOneof.AllofCombinedWithAnyofOneof1BoxedBoolean](#allofcombinedwithanyofoneof1boxedboolean)<br> boxed class to store validated boolean payloads |
-| record | [AllofCombinedWithAnyofOneof.AllofCombinedWithAnyofOneof1BoxedNumber](#allofcombinedwithanyofoneof1boxednumber)<br> boxed class to store validated Number payloads |
-| record | [AllofCombinedWithAnyofOneof.AllofCombinedWithAnyofOneof1BoxedString](#allofcombinedwithanyofoneof1boxedstring)<br> boxed class to store validated String payloads |
-| record | [AllofCombinedWithAnyofOneof.AllofCombinedWithAnyofOneof1BoxedList](#allofcombinedwithanyofoneof1boxedlist)<br> boxed class to store validated List payloads |
-| record | [AllofCombinedWithAnyofOneof.AllofCombinedWithAnyofOneof1BoxedMap](#allofcombinedwithanyofoneof1boxedmap)<br> boxed class to store validated Map payloads |
-| static class | [AllofCombinedWithAnyofOneof.AllofCombinedWithAnyofOneof1](#allofcombinedwithanyofoneof1)<br> schema class |
+| data class | [AllofCombinedWithAnyofOneof.AllofCombinedWithAnyofOneof1BoxedVoid](#allofcombinedwithanyofoneof1boxedvoid)<br> boxed class to store validated null payloads |
+| data class | [AllofCombinedWithAnyofOneof.AllofCombinedWithAnyofOneof1BoxedBoolean](#allofcombinedwithanyofoneof1boxedboolean)<br> boxed class to store validated boolean payloads |
+| data class | [AllofCombinedWithAnyofOneof.AllofCombinedWithAnyofOneof1BoxedNumber](#allofcombinedwithanyofoneof1boxednumber)<br> boxed class to store validated Number payloads |
+| data class | [AllofCombinedWithAnyofOneof.AllofCombinedWithAnyofOneof1BoxedString](#allofcombinedwithanyofoneof1boxedstring)<br> boxed class to store validated String payloads |
+| data class | [AllofCombinedWithAnyofOneof.AllofCombinedWithAnyofOneof1BoxedList](#allofcombinedwithanyofoneof1boxedlist)<br> boxed class to store validated List payloads |
+| data class | [AllofCombinedWithAnyofOneof.AllofCombinedWithAnyofOneof1BoxedMap](#allofcombinedwithanyofoneof1boxedmap)<br> boxed class to store validated Map payloads |
+| class | [AllofCombinedWithAnyofOneof.AllofCombinedWithAnyofOneof1](#allofcombinedwithanyofoneof1)<br> schema class |
 | sealed interface | [AllofCombinedWithAnyofOneof.Schema0Boxed](#schema0boxed)<br> sealed interface for validated payloads |
-| record | [AllofCombinedWithAnyofOneof.Schema0BoxedVoid](#schema0boxedvoid)<br> boxed class to store validated null payloads |
-| record | [AllofCombinedWithAnyofOneof.Schema0BoxedBoolean](#schema0boxedboolean)<br> boxed class to store validated boolean payloads |
-| record | [AllofCombinedWithAnyofOneof.Schema0BoxedNumber](#schema0boxednumber)<br> boxed class to store validated Number payloads |
-| record | [AllofCombinedWithAnyofOneof.Schema0BoxedString](#schema0boxedstring)<br> boxed class to store validated String payloads |
-| record | [AllofCombinedWithAnyofOneof.Schema0BoxedList](#schema0boxedlist)<br> boxed class to store validated List payloads |
-| record | [AllofCombinedWithAnyofOneof.Schema0BoxedMap](#schema0boxedmap)<br> boxed class to store validated Map payloads |
-| static class | [AllofCombinedWithAnyofOneof.Schema0](#schema0)<br> schema class |
+| data class | [AllofCombinedWithAnyofOneof.Schema0BoxedVoid](#schema0boxedvoid)<br> boxed class to store validated null payloads |
+| data class | [AllofCombinedWithAnyofOneof.Schema0BoxedBoolean](#schema0boxedboolean)<br> boxed class to store validated boolean payloads |
+| data class | [AllofCombinedWithAnyofOneof.Schema0BoxedNumber](#schema0boxednumber)<br> boxed class to store validated Number payloads |
+| data class | [AllofCombinedWithAnyofOneof.Schema0BoxedString](#schema0boxedstring)<br> boxed class to store validated String payloads |
+| data class | [AllofCombinedWithAnyofOneof.Schema0BoxedList](#schema0boxedlist)<br> boxed class to store validated List payloads |
+| data class | [AllofCombinedWithAnyofOneof.Schema0BoxedMap](#schema0boxedmap)<br> boxed class to store validated Map payloads |
+| class | [AllofCombinedWithAnyofOneof.Schema0](#schema0)<br> schema class |
 | sealed interface | [AllofCombinedWithAnyofOneof.Schema01Boxed](#schema01boxed)<br> sealed interface for validated payloads |
-| record | [AllofCombinedWithAnyofOneof.Schema01BoxedVoid](#schema01boxedvoid)<br> boxed class to store validated null payloads |
-| record | [AllofCombinedWithAnyofOneof.Schema01BoxedBoolean](#schema01boxedboolean)<br> boxed class to store validated boolean payloads |
-| record | [AllofCombinedWithAnyofOneof.Schema01BoxedNumber](#schema01boxednumber)<br> boxed class to store validated Number payloads |
-| record | [AllofCombinedWithAnyofOneof.Schema01BoxedString](#schema01boxedstring)<br> boxed class to store validated String payloads |
-| record | [AllofCombinedWithAnyofOneof.Schema01BoxedList](#schema01boxedlist)<br> boxed class to store validated List payloads |
-| record | [AllofCombinedWithAnyofOneof.Schema01BoxedMap](#schema01boxedmap)<br> boxed class to store validated Map payloads |
-| static class | [AllofCombinedWithAnyofOneof.Schema01](#schema01)<br> schema class |
+| data class | [AllofCombinedWithAnyofOneof.Schema01BoxedVoid](#schema01boxedvoid)<br> boxed class to store validated null payloads |
+| data class | [AllofCombinedWithAnyofOneof.Schema01BoxedBoolean](#schema01boxedboolean)<br> boxed class to store validated boolean payloads |
+| data class | [AllofCombinedWithAnyofOneof.Schema01BoxedNumber](#schema01boxednumber)<br> boxed class to store validated Number payloads |
+| data class | [AllofCombinedWithAnyofOneof.Schema01BoxedString](#schema01boxedstring)<br> boxed class to store validated String payloads |
+| data class | [AllofCombinedWithAnyofOneof.Schema01BoxedList](#schema01boxedlist)<br> boxed class to store validated List payloads |
+| data class | [AllofCombinedWithAnyofOneof.Schema01BoxedMap](#schema01boxedmap)<br> boxed class to store validated Map payloads |
+| class | [AllofCombinedWithAnyofOneof.Schema01](#schema01)<br> schema class |
 | sealed interface | [AllofCombinedWithAnyofOneof.Schema02Boxed](#schema02boxed)<br> sealed interface for validated payloads |
-| record | [AllofCombinedWithAnyofOneof.Schema02BoxedVoid](#schema02boxedvoid)<br> boxed class to store validated null payloads |
-| record | [AllofCombinedWithAnyofOneof.Schema02BoxedBoolean](#schema02boxedboolean)<br> boxed class to store validated boolean payloads |
-| record | [AllofCombinedWithAnyofOneof.Schema02BoxedNumber](#schema02boxednumber)<br> boxed class to store validated Number payloads |
-| record | [AllofCombinedWithAnyofOneof.Schema02BoxedString](#schema02boxedstring)<br> boxed class to store validated String payloads |
-| record | [AllofCombinedWithAnyofOneof.Schema02BoxedList](#schema02boxedlist)<br> boxed class to store validated List payloads |
-| record | [AllofCombinedWithAnyofOneof.Schema02BoxedMap](#schema02boxedmap)<br> boxed class to store validated Map payloads |
-| static class | [AllofCombinedWithAnyofOneof.Schema02](#schema02)<br> schema class |
+| data class | [AllofCombinedWithAnyofOneof.Schema02BoxedVoid](#schema02boxedvoid)<br> boxed class to store validated null payloads |
+| data class | [AllofCombinedWithAnyofOneof.Schema02BoxedBoolean](#schema02boxedboolean)<br> boxed class to store validated boolean payloads |
+| data class | [AllofCombinedWithAnyofOneof.Schema02BoxedNumber](#schema02boxednumber)<br> boxed class to store validated Number payloads |
+| data class | [AllofCombinedWithAnyofOneof.Schema02BoxedString](#schema02boxedstring)<br> boxed class to store validated String payloads |
+| data class | [AllofCombinedWithAnyofOneof.Schema02BoxedList](#schema02boxedlist)<br> boxed class to store validated List payloads |
+| data class | [AllofCombinedWithAnyofOneof.Schema02BoxedMap](#schema02boxedmap)<br> boxed class to store validated Map payloads |
+| class | [AllofCombinedWithAnyofOneof.Schema02](#schema02)<br> schema class |
 
 ## AllofCombinedWithAnyofOneof1Boxed
 sealed interface AllofCombinedWithAnyofOneof1Boxed<br>
@@ -76,7 +76,7 @@ data class that stores validated null payloads, sealed permits implementation
 data class AllofCombinedWithAnyofOneof1BoxedBoolean<br>
 implements [AllofCombinedWithAnyofOneof1Boxed](#allofcombinedwithanyofoneof1boxed)
 
-record that stores validated boolean payloads, sealed permits implementation
+data class that stores validated boolean payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
@@ -175,19 +175,19 @@ A schema class that validates payloads
 | ----------------- | ---------------------- |
 | String | validate(arg: String, configuration: SchemaConfiguration) |
 | Nothing? | validate(arg: Nothing?, configuration: SchemaConfiguration) |
-| int | validate(arg: int, configuration: SchemaConfiguration) |
-| long | validate(arg: long, configuration: SchemaConfiguration) |
-| float | validate(arg: float, configuration: SchemaConfiguration) |
-| double | validate(arg: double, configuration: SchemaConfiguration) |
+| Int | validate(arg: Int, configuration: SchemaConfiguration) |
+| Long | validate(arg: Long, configuration: SchemaConfiguration) |
+| Float | validate(arg: Float, configuration: SchemaConfiguration) |
+| Double | validate(arg: Double, configuration: SchemaConfiguration) |
 | Number | validate(arg: Number, configuration: SchemaConfiguration) |
-| boolean | validate(arg: boolean, configuration: SchemaConfiguration) |
-| FrozenMap<Any?> | validate(arg: Map&lt;?, ?&gt;, configuration: SchemaConfiguration) |
+| Boolean | validate(arg: Boolean, configuration: SchemaConfiguration) |
+| FrozenMap<Any?> | validate(arg: Map&lt;*, *&gt;, configuration: SchemaConfiguration) |
 | FrozenList<Any?> | validate(arg: List<*>, configuration: SchemaConfiguration) |
 | [AllofCombinedWithAnyofOneof1BoxedString](#allofcombinedwithanyofoneof1boxedstring) | validateAndBox(String, configuration: SchemaConfiguration) |
 | [AllofCombinedWithAnyofOneof1BoxedVoid](#allofcombinedwithanyofoneof1boxedvoid) | validateAndBox(Nothing?, configuration: SchemaConfiguration) |
 | [AllofCombinedWithAnyofOneof1BoxedNumber](#allofcombinedwithanyofoneof1boxednumber) | validateAndBox(Number, configuration: SchemaConfiguration) |
-| [AllofCombinedWithAnyofOneof1BoxedBoolean](#allofcombinedwithanyofoneof1boxedboolean) | validateAndBox(boolean, configuration: SchemaConfiguration) |
-| [AllofCombinedWithAnyofOneof1BoxedMap](#allofcombinedwithanyofoneof1boxedmap) | validateAndBox(Map&lt;?, ?&gt;, configuration: SchemaConfiguration) |
+| [AllofCombinedWithAnyofOneof1BoxedBoolean](#allofcombinedwithanyofoneof1boxedboolean) | validateAndBox(Boolean, configuration: SchemaConfiguration) |
+| [AllofCombinedWithAnyofOneof1BoxedMap](#allofcombinedwithanyofoneof1boxedmap) | validateAndBox(Map&lt;*, *&gt;, configuration: SchemaConfiguration) |
 | [AllofCombinedWithAnyofOneof1BoxedList](#allofcombinedwithanyofoneof1boxedlist) | validateAndBox(List<*>, configuration: SchemaConfiguration) |
 | [AllofCombinedWithAnyofOneof1Boxed](#allofcombinedwithanyofoneof1boxed) | validateAndBox(Any?, configuration: SchemaConfiguration) |
 | Any? | validate(arg: Any?, configuration: SchemaConfiguration) |
@@ -225,7 +225,7 @@ data class that stores validated null payloads, sealed permits implementation
 data class Schema0BoxedBoolean<br>
 implements [Schema0Boxed](#schema0boxed)
 
-record that stores validated boolean payloads, sealed permits implementation
+data class that stores validated boolean payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
@@ -322,19 +322,19 @@ A schema class that validates payloads
 | ----------------- | ---------------------- |
 | String | validate(arg: String, configuration: SchemaConfiguration) |
 | Nothing? | validate(arg: Nothing?, configuration: SchemaConfiguration) |
-| int | validate(arg: int, configuration: SchemaConfiguration) |
-| long | validate(arg: long, configuration: SchemaConfiguration) |
-| float | validate(arg: float, configuration: SchemaConfiguration) |
-| double | validate(arg: double, configuration: SchemaConfiguration) |
+| Int | validate(arg: Int, configuration: SchemaConfiguration) |
+| Long | validate(arg: Long, configuration: SchemaConfiguration) |
+| Float | validate(arg: Float, configuration: SchemaConfiguration) |
+| Double | validate(arg: Double, configuration: SchemaConfiguration) |
 | Number | validate(arg: Number, configuration: SchemaConfiguration) |
-| boolean | validate(arg: boolean, configuration: SchemaConfiguration) |
-| FrozenMap<Any?> | validate(arg: Map&lt;?, ?&gt;, configuration: SchemaConfiguration) |
+| Boolean | validate(arg: Boolean, configuration: SchemaConfiguration) |
+| FrozenMap<Any?> | validate(arg: Map&lt;*, *&gt;, configuration: SchemaConfiguration) |
 | FrozenList<Any?> | validate(arg: List<*>, configuration: SchemaConfiguration) |
 | [Schema0BoxedString](#schema0boxedstring) | validateAndBox(String, configuration: SchemaConfiguration) |
 | [Schema0BoxedVoid](#schema0boxedvoid) | validateAndBox(Nothing?, configuration: SchemaConfiguration) |
 | [Schema0BoxedNumber](#schema0boxednumber) | validateAndBox(Number, configuration: SchemaConfiguration) |
-| [Schema0BoxedBoolean](#schema0boxedboolean) | validateAndBox(boolean, configuration: SchemaConfiguration) |
-| [Schema0BoxedMap](#schema0boxedmap) | validateAndBox(Map&lt;?, ?&gt;, configuration: SchemaConfiguration) |
+| [Schema0BoxedBoolean](#schema0boxedboolean) | validateAndBox(Boolean, configuration: SchemaConfiguration) |
+| [Schema0BoxedMap](#schema0boxedmap) | validateAndBox(Map&lt;*, *&gt;, configuration: SchemaConfiguration) |
 | [Schema0BoxedList](#schema0boxedlist) | validateAndBox(List<*>, configuration: SchemaConfiguration) |
 | [Schema0Boxed](#schema0boxed) | validateAndBox(Any?, configuration: SchemaConfiguration) |
 | Any? | validate(arg: Any?, configuration: SchemaConfiguration) |
@@ -372,7 +372,7 @@ data class that stores validated null payloads, sealed permits implementation
 data class Schema01BoxedBoolean<br>
 implements [Schema01Boxed](#schema01boxed)
 
-record that stores validated boolean payloads, sealed permits implementation
+data class that stores validated boolean payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
@@ -469,19 +469,19 @@ A schema class that validates payloads
 | ----------------- | ---------------------- |
 | String | validate(arg: String, configuration: SchemaConfiguration) |
 | Nothing? | validate(arg: Nothing?, configuration: SchemaConfiguration) |
-| int | validate(arg: int, configuration: SchemaConfiguration) |
-| long | validate(arg: long, configuration: SchemaConfiguration) |
-| float | validate(arg: float, configuration: SchemaConfiguration) |
-| double | validate(arg: double, configuration: SchemaConfiguration) |
+| Int | validate(arg: Int, configuration: SchemaConfiguration) |
+| Long | validate(arg: Long, configuration: SchemaConfiguration) |
+| Float | validate(arg: Float, configuration: SchemaConfiguration) |
+| Double | validate(arg: Double, configuration: SchemaConfiguration) |
 | Number | validate(arg: Number, configuration: SchemaConfiguration) |
-| boolean | validate(arg: boolean, configuration: SchemaConfiguration) |
-| FrozenMap<Any?> | validate(arg: Map&lt;?, ?&gt;, configuration: SchemaConfiguration) |
+| Boolean | validate(arg: Boolean, configuration: SchemaConfiguration) |
+| FrozenMap<Any?> | validate(arg: Map&lt;*, *&gt;, configuration: SchemaConfiguration) |
 | FrozenList<Any?> | validate(arg: List<*>, configuration: SchemaConfiguration) |
 | [Schema01BoxedString](#schema01boxedstring) | validateAndBox(String, configuration: SchemaConfiguration) |
 | [Schema01BoxedVoid](#schema01boxedvoid) | validateAndBox(Nothing?, configuration: SchemaConfiguration) |
 | [Schema01BoxedNumber](#schema01boxednumber) | validateAndBox(Number, configuration: SchemaConfiguration) |
-| [Schema01BoxedBoolean](#schema01boxedboolean) | validateAndBox(boolean, configuration: SchemaConfiguration) |
-| [Schema01BoxedMap](#schema01boxedmap) | validateAndBox(Map&lt;?, ?&gt;, configuration: SchemaConfiguration) |
+| [Schema01BoxedBoolean](#schema01boxedboolean) | validateAndBox(Boolean, configuration: SchemaConfiguration) |
+| [Schema01BoxedMap](#schema01boxedmap) | validateAndBox(Map&lt;*, *&gt;, configuration: SchemaConfiguration) |
 | [Schema01BoxedList](#schema01boxedlist) | validateAndBox(List<*>, configuration: SchemaConfiguration) |
 | [Schema01Boxed](#schema01boxed) | validateAndBox(Any?, configuration: SchemaConfiguration) |
 | Any? | validate(arg: Any?, configuration: SchemaConfiguration) |
@@ -519,7 +519,7 @@ data class that stores validated null payloads, sealed permits implementation
 data class Schema02BoxedBoolean<br>
 implements [Schema02Boxed](#schema02boxed)
 
-record that stores validated boolean payloads, sealed permits implementation
+data class that stores validated boolean payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
@@ -616,19 +616,19 @@ A schema class that validates payloads
 | ----------------- | ---------------------- |
 | String | validate(arg: String, configuration: SchemaConfiguration) |
 | Nothing? | validate(arg: Nothing?, configuration: SchemaConfiguration) |
-| int | validate(arg: int, configuration: SchemaConfiguration) |
-| long | validate(arg: long, configuration: SchemaConfiguration) |
-| float | validate(arg: float, configuration: SchemaConfiguration) |
-| double | validate(arg: double, configuration: SchemaConfiguration) |
+| Int | validate(arg: Int, configuration: SchemaConfiguration) |
+| Long | validate(arg: Long, configuration: SchemaConfiguration) |
+| Float | validate(arg: Float, configuration: SchemaConfiguration) |
+| Double | validate(arg: Double, configuration: SchemaConfiguration) |
 | Number | validate(arg: Number, configuration: SchemaConfiguration) |
-| boolean | validate(arg: boolean, configuration: SchemaConfiguration) |
-| FrozenMap<Any?> | validate(arg: Map&lt;?, ?&gt;, configuration: SchemaConfiguration) |
+| Boolean | validate(arg: Boolean, configuration: SchemaConfiguration) |
+| FrozenMap<Any?> | validate(arg: Map&lt;*, *&gt;, configuration: SchemaConfiguration) |
 | FrozenList<Any?> | validate(arg: List<*>, configuration: SchemaConfiguration) |
 | [Schema02BoxedString](#schema02boxedstring) | validateAndBox(String, configuration: SchemaConfiguration) |
 | [Schema02BoxedVoid](#schema02boxedvoid) | validateAndBox(Nothing?, configuration: SchemaConfiguration) |
 | [Schema02BoxedNumber](#schema02boxednumber) | validateAndBox(Number, configuration: SchemaConfiguration) |
-| [Schema02BoxedBoolean](#schema02boxedboolean) | validateAndBox(boolean, configuration: SchemaConfiguration) |
-| [Schema02BoxedMap](#schema02boxedmap) | validateAndBox(Map&lt;?, ?&gt;, configuration: SchemaConfiguration) |
+| [Schema02BoxedBoolean](#schema02boxedboolean) | validateAndBox(Boolean, configuration: SchemaConfiguration) |
+| [Schema02BoxedMap](#schema02boxedmap) | validateAndBox(Map&lt;*, *&gt;, configuration: SchemaConfiguration) |
 | [Schema02BoxedList](#schema02boxedlist) | validateAndBox(List<*>, configuration: SchemaConfiguration) |
 | [Schema02Boxed](#schema02boxed) | validateAndBox(Any?, configuration: SchemaConfiguration) |
 | Any? | validate(arg: Any?, configuration: SchemaConfiguration) |

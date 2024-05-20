@@ -13,13 +13,13 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | sealed interface | [AdditionalpropertiesCanExistByItself.AdditionalpropertiesCanExistByItself1Boxed](#additionalpropertiescanexistbyitself1boxed)<br> sealed interface for validated payloads |
-| record | [AdditionalpropertiesCanExistByItself.AdditionalpropertiesCanExistByItself1BoxedMap](#additionalpropertiescanexistbyitself1boxedmap)<br> boxed class to store validated Map payloads |
-| static class | [AdditionalpropertiesCanExistByItself.AdditionalpropertiesCanExistByItself1](#additionalpropertiescanexistbyitself1)<br> schema class |
-| static class | [AdditionalpropertiesCanExistByItself.AdditionalpropertiesCanExistByItselfMapBuilder](#additionalpropertiescanexistbyitselfmapbuilder)<br> builder for Map payloads |
-| static class | [AdditionalpropertiesCanExistByItself.AdditionalpropertiesCanExistByItselfMap](#additionalpropertiescanexistbyitselfmap)<br> output class for Map payloads |
+| data class | [AdditionalpropertiesCanExistByItself.AdditionalpropertiesCanExistByItself1BoxedMap](#additionalpropertiescanexistbyitself1boxedmap)<br> boxed class to store validated Map payloads |
+| class | [AdditionalpropertiesCanExistByItself.AdditionalpropertiesCanExistByItself1](#additionalpropertiescanexistbyitself1)<br> schema class |
+| class | [AdditionalpropertiesCanExistByItself.AdditionalpropertiesCanExistByItselfMapBuilder](#additionalpropertiescanexistbyitselfmapbuilder)<br> builder for Map payloads |
+| class | [AdditionalpropertiesCanExistByItself.AdditionalpropertiesCanExistByItselfMap](#additionalpropertiescanexistbyitselfmap)<br> output class for Map payloads |
 | sealed interface | [AdditionalpropertiesCanExistByItself.AdditionalPropertiesBoxed](#additionalpropertiesboxed)<br> sealed interface for validated payloads |
-| record | [AdditionalpropertiesCanExistByItself.AdditionalPropertiesBoxedBoolean](#additionalpropertiesboxedboolean)<br> boxed class to store validated boolean payloads |
-| static class | [AdditionalpropertiesCanExistByItself.AdditionalProperties](#additionalproperties)<br> schema class |
+| data class | [AdditionalpropertiesCanExistByItself.AdditionalPropertiesBoxedBoolean](#additionalpropertiesboxedboolean)<br> boxed class to store validated boolean payloads |
+| class | [AdditionalpropertiesCanExistByItself.AdditionalProperties](#additionalproperties)<br> schema class |
 
 ## AdditionalpropertiesCanExistByItself1Boxed
 sealed interface AdditionalpropertiesCanExistByItself1Boxed<br>
@@ -53,29 +53,25 @@ A schema class that validates payloads
 
 ### Code Sample
 ```
-import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
-import org.openapijsonschematools.client.configurations.SchemaConfiguration;
-import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.schemas.validation.MapUtils;
-import org.openapijsonschematools.client.schemas.validation.FrozenList;
-import org.openapijsonschematools.client.schemas.validation.FrozenMap;
-import org.openapijsonschematools.client.components.schemas.AdditionalpropertiesCanExistByItself;
+import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags
+import org.openapijsonschematools.client.configurations.SchemaConfiguration
+import org.openapijsonschematools.client.exceptions.ValidationException
+import org.openapijsonschematools.client.schemas.validation.MapUtils
+import org.openapijsonschematools.client.schemas.validation.FrozenList
+import org.openapijsonschematools.client.schemas.validation.FrozenMap
+import org.openapijsonschematools.client.components.schemas.AdditionalpropertiesCanExistByItself
 
-import java.util.Arrays;
-import java.util.List;
-import java.util.AbstractMap;
-
-static final SchemaConfiguration configuration = new SchemaConfiguration(new JsonSchemaKeywordFlags.Builder().build());
+val configuration = SchemaConfiguration(JsonSchemaKeywordFlags.Builder().build())
 
 // Map validation
-AdditionalpropertiesCanExistByItself.AdditionalpropertiesCanExistByItselfMap validatedPayload =
+val validatedPayload: AdditionalpropertiesCanExistByItself.AdditionalpropertiesCanExistByItselfMap =
     AdditionalpropertiesCanExistByItself.AdditionalpropertiesCanExistByItself1.validate(
-    new AdditionalpropertiesCanExistByItself.AdditionalpropertiesCanExistByItselfMapBuilder()
+    AdditionalpropertiesCanExistByItself.AdditionalpropertiesCanExistByItselfMapBuilder()
         .additionalProperty("someAdditionalProperty", true)
 
     .build(),
     configuration
-);
+)
 ```
 
 ### Field Summary
@@ -87,8 +83,8 @@ AdditionalpropertiesCanExistByItself.AdditionalpropertiesCanExistByItselfMap val
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [AdditionalpropertiesCanExistByItselfMap](#additionalpropertiescanexistbyitselfmap) | validate(arg: [Map&lt;?, ?&gt;](#additionalpropertiescanexistbyitselfmapbuilder), configuration: SchemaConfiguration) |
-| [AdditionalpropertiesCanExistByItself1BoxedMap](#additionalpropertiescanexistbyitself1boxedmap) | validateAndBox([Map&lt;?, ?&gt;](#additionalpropertiescanexistbyitselfmapbuilder), configuration: SchemaConfiguration) |
+| [AdditionalpropertiesCanExistByItselfMap](#additionalpropertiescanexistbyitselfmap) | validate(arg: [Map&lt;*, *&gt;](#additionalpropertiescanexistbyitselfmapbuilder), configuration: SchemaConfiguration) |
+| [AdditionalpropertiesCanExistByItself1BoxedMap](#additionalpropertiescanexistbyitself1boxedmap) | validateAndBox([Map&lt;*, *&gt;](#additionalpropertiescanexistbyitselfmapbuilder), configuration: SchemaConfiguration) |
 | [AdditionalpropertiesCanExistByItself1Boxed](#additionalpropertiescanexistbyitself1boxed) | validateAndBox(Any?, configuration: SchemaConfiguration) |
 | Any? | validate(arg: Any?, configuration: SchemaConfiguration) |
 
@@ -132,7 +128,7 @@ sealed interface that stores validated payloads using boxed classes
 data class AdditionalPropertiesBoxedBoolean<br>
 implements [AdditionalPropertiesBoxed](#additionalpropertiesboxed)
 
-record that stores validated boolean payloads, sealed permits implementation
+data class that stores validated boolean payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |

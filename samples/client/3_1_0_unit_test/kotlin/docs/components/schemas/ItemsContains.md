@@ -13,26 +13,26 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | sealed interface | [ItemsContains.ItemsContains1Boxed](#itemscontains1boxed)<br> sealed interface for validated payloads |
-| record | [ItemsContains.ItemsContains1BoxedList](#itemscontains1boxedlist)<br> boxed class to store validated List payloads |
-| static class | [ItemsContains.ItemsContains1](#itemscontains1)<br> schema class |
-| static class | [ItemsContains.ItemsContainsListBuilder](#itemscontainslistbuilder)<br> builder for List payloads |
-| static class | [ItemsContains.ItemsContainsList](#itemscontainslist)<br> output class for List payloads |
+| data class | [ItemsContains.ItemsContains1BoxedList](#itemscontains1boxedlist)<br> boxed class to store validated List payloads |
+| class | [ItemsContains.ItemsContains1](#itemscontains1)<br> schema class |
+| class | [ItemsContains.ItemsContainsListBuilder](#itemscontainslistbuilder)<br> builder for List payloads |
+| class | [ItemsContains.ItemsContainsList](#itemscontainslist)<br> output class for List payloads |
 | sealed interface | [ItemsContains.ItemsBoxed](#itemsboxed)<br> sealed interface for validated payloads |
-| record | [ItemsContains.ItemsBoxedVoid](#itemsboxedvoid)<br> boxed class to store validated null payloads |
-| record | [ItemsContains.ItemsBoxedBoolean](#itemsboxedboolean)<br> boxed class to store validated boolean payloads |
-| record | [ItemsContains.ItemsBoxedNumber](#itemsboxednumber)<br> boxed class to store validated Number payloads |
-| record | [ItemsContains.ItemsBoxedString](#itemsboxedstring)<br> boxed class to store validated String payloads |
-| record | [ItemsContains.ItemsBoxedList](#itemsboxedlist)<br> boxed class to store validated List payloads |
-| record | [ItemsContains.ItemsBoxedMap](#itemsboxedmap)<br> boxed class to store validated Map payloads |
-| static class | [ItemsContains.Items](#items)<br> schema class |
+| data class | [ItemsContains.ItemsBoxedVoid](#itemsboxedvoid)<br> boxed class to store validated null payloads |
+| data class | [ItemsContains.ItemsBoxedBoolean](#itemsboxedboolean)<br> boxed class to store validated boolean payloads |
+| data class | [ItemsContains.ItemsBoxedNumber](#itemsboxednumber)<br> boxed class to store validated Number payloads |
+| data class | [ItemsContains.ItemsBoxedString](#itemsboxedstring)<br> boxed class to store validated String payloads |
+| data class | [ItemsContains.ItemsBoxedList](#itemsboxedlist)<br> boxed class to store validated List payloads |
+| data class | [ItemsContains.ItemsBoxedMap](#itemsboxedmap)<br> boxed class to store validated Map payloads |
+| class | [ItemsContains.Items](#items)<br> schema class |
 | sealed interface | [ItemsContains.ContainsBoxed](#containsboxed)<br> sealed interface for validated payloads |
-| record | [ItemsContains.ContainsBoxedVoid](#containsboxedvoid)<br> boxed class to store validated null payloads |
-| record | [ItemsContains.ContainsBoxedBoolean](#containsboxedboolean)<br> boxed class to store validated boolean payloads |
-| record | [ItemsContains.ContainsBoxedNumber](#containsboxednumber)<br> boxed class to store validated Number payloads |
-| record | [ItemsContains.ContainsBoxedString](#containsboxedstring)<br> boxed class to store validated String payloads |
-| record | [ItemsContains.ContainsBoxedList](#containsboxedlist)<br> boxed class to store validated List payloads |
-| record | [ItemsContains.ContainsBoxedMap](#containsboxedmap)<br> boxed class to store validated Map payloads |
-| static class | [ItemsContains.Contains](#contains)<br> schema class |
+| data class | [ItemsContains.ContainsBoxedVoid](#containsboxedvoid)<br> boxed class to store validated null payloads |
+| data class | [ItemsContains.ContainsBoxedBoolean](#containsboxedboolean)<br> boxed class to store validated boolean payloads |
+| data class | [ItemsContains.ContainsBoxedNumber](#containsboxednumber)<br> boxed class to store validated Number payloads |
+| data class | [ItemsContains.ContainsBoxedString](#containsboxedstring)<br> boxed class to store validated String payloads |
+| data class | [ItemsContains.ContainsBoxedList](#containsboxedlist)<br> boxed class to store validated List payloads |
+| data class | [ItemsContains.ContainsBoxedMap](#containsboxedmap)<br> boxed class to store validated Map payloads |
+| class | [ItemsContains.Contains](#contains)<br> schema class |
 
 ## ItemsContains1Boxed
 sealed interface ItemsContains1Boxed<br>
@@ -66,27 +66,23 @@ A schema class that validates payloads
 
 ### Code Sample
 ```
-import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
-import org.openapijsonschematools.client.configurations.SchemaConfiguration;
-import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.schemas.validation.MapUtils;
-import org.openapijsonschematools.client.schemas.validation.FrozenList;
-import org.openapijsonschematools.client.schemas.validation.FrozenMap;
-import org.openapijsonschematools.client.components.schemas.ItemsContains;
+import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags
+import org.openapijsonschematools.client.configurations.SchemaConfiguration
+import org.openapijsonschematools.client.exceptions.ValidationException
+import org.openapijsonschematools.client.schemas.validation.MapUtils
+import org.openapijsonschematools.client.schemas.validation.FrozenList
+import org.openapijsonschematools.client.schemas.validation.FrozenMap
+import org.openapijsonschematools.client.components.schemas.ItemsContains
 
-import java.util.Arrays;
-import java.util.List;
-import java.util.AbstractMap;
-
-static final SchemaConfiguration configuration = new SchemaConfiguration(new JsonSchemaKeywordFlags.Builder().build());
+val configuration = SchemaConfiguration(JsonSchemaKeywordFlags.Builder().build())
 
 // List validation
-ItemsContains.ItemsContainsList validatedPayload =
+val validatedPayload: ItemsContains.ItemsContainsList =
     ItemsContains.ItemsContains1.validate(
-    new ItemsContains.ItemsContainsListBuilder()
+    ItemsContains.ItemsContainsListBuilder()
     .build(),
     configuration
-);
+)
 ```
 
 ### Field Summary
@@ -174,7 +170,7 @@ data class that stores validated null payloads, sealed permits implementation
 data class ItemsBoxedBoolean<br>
 implements [ItemsBoxed](#itemsboxed)
 
-record that stores validated boolean payloads, sealed permits implementation
+data class that stores validated boolean payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
@@ -271,19 +267,19 @@ A schema class that validates payloads
 | ----------------- | ---------------------- |
 | String | validate(arg: String, configuration: SchemaConfiguration) |
 | Nothing? | validate(arg: Nothing?, configuration: SchemaConfiguration) |
-| int | validate(arg: int, configuration: SchemaConfiguration) |
-| long | validate(arg: long, configuration: SchemaConfiguration) |
-| float | validate(arg: float, configuration: SchemaConfiguration) |
-| double | validate(arg: double, configuration: SchemaConfiguration) |
+| Int | validate(arg: Int, configuration: SchemaConfiguration) |
+| Long | validate(arg: Long, configuration: SchemaConfiguration) |
+| Float | validate(arg: Float, configuration: SchemaConfiguration) |
+| Double | validate(arg: Double, configuration: SchemaConfiguration) |
 | Number | validate(arg: Number, configuration: SchemaConfiguration) |
-| boolean | validate(arg: boolean, configuration: SchemaConfiguration) |
-| FrozenMap<Any?> | validate(arg: Map&lt;?, ?&gt;, configuration: SchemaConfiguration) |
+| Boolean | validate(arg: Boolean, configuration: SchemaConfiguration) |
+| FrozenMap<Any?> | validate(arg: Map&lt;*, *&gt;, configuration: SchemaConfiguration) |
 | FrozenList<Any?> | validate(arg: List<*>, configuration: SchemaConfiguration) |
 | [ItemsBoxedString](#itemsboxedstring) | validateAndBox(String, configuration: SchemaConfiguration) |
 | [ItemsBoxedVoid](#itemsboxedvoid) | validateAndBox(Nothing?, configuration: SchemaConfiguration) |
 | [ItemsBoxedNumber](#itemsboxednumber) | validateAndBox(Number, configuration: SchemaConfiguration) |
-| [ItemsBoxedBoolean](#itemsboxedboolean) | validateAndBox(boolean, configuration: SchemaConfiguration) |
-| [ItemsBoxedMap](#itemsboxedmap) | validateAndBox(Map&lt;?, ?&gt;, configuration: SchemaConfiguration) |
+| [ItemsBoxedBoolean](#itemsboxedboolean) | validateAndBox(Boolean, configuration: SchemaConfiguration) |
+| [ItemsBoxedMap](#itemsboxedmap) | validateAndBox(Map&lt;*, *&gt;, configuration: SchemaConfiguration) |
 | [ItemsBoxedList](#itemsboxedlist) | validateAndBox(List<*>, configuration: SchemaConfiguration) |
 | [ItemsBoxed](#itemsboxed) | validateAndBox(Any?, configuration: SchemaConfiguration) |
 | Any? | validate(arg: Any?, configuration: SchemaConfiguration) |
@@ -321,7 +317,7 @@ data class that stores validated null payloads, sealed permits implementation
 data class ContainsBoxedBoolean<br>
 implements [ContainsBoxed](#containsboxed)
 
-record that stores validated boolean payloads, sealed permits implementation
+data class that stores validated boolean payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
@@ -418,19 +414,19 @@ A schema class that validates payloads
 | ----------------- | ---------------------- |
 | String | validate(arg: String, configuration: SchemaConfiguration) |
 | Nothing? | validate(arg: Nothing?, configuration: SchemaConfiguration) |
-| int | validate(arg: int, configuration: SchemaConfiguration) |
-| long | validate(arg: long, configuration: SchemaConfiguration) |
-| float | validate(arg: float, configuration: SchemaConfiguration) |
-| double | validate(arg: double, configuration: SchemaConfiguration) |
+| Int | validate(arg: Int, configuration: SchemaConfiguration) |
+| Long | validate(arg: Long, configuration: SchemaConfiguration) |
+| Float | validate(arg: Float, configuration: SchemaConfiguration) |
+| Double | validate(arg: Double, configuration: SchemaConfiguration) |
 | Number | validate(arg: Number, configuration: SchemaConfiguration) |
-| boolean | validate(arg: boolean, configuration: SchemaConfiguration) |
-| FrozenMap<Any?> | validate(arg: Map&lt;?, ?&gt;, configuration: SchemaConfiguration) |
+| Boolean | validate(arg: Boolean, configuration: SchemaConfiguration) |
+| FrozenMap<Any?> | validate(arg: Map&lt;*, *&gt;, configuration: SchemaConfiguration) |
 | FrozenList<Any?> | validate(arg: List<*>, configuration: SchemaConfiguration) |
 | [ContainsBoxedString](#containsboxedstring) | validateAndBox(String, configuration: SchemaConfiguration) |
 | [ContainsBoxedVoid](#containsboxedvoid) | validateAndBox(Nothing?, configuration: SchemaConfiguration) |
 | [ContainsBoxedNumber](#containsboxednumber) | validateAndBox(Number, configuration: SchemaConfiguration) |
-| [ContainsBoxedBoolean](#containsboxedboolean) | validateAndBox(boolean, configuration: SchemaConfiguration) |
-| [ContainsBoxedMap](#containsboxedmap) | validateAndBox(Map&lt;?, ?&gt;, configuration: SchemaConfiguration) |
+| [ContainsBoxedBoolean](#containsboxedboolean) | validateAndBox(Boolean, configuration: SchemaConfiguration) |
+| [ContainsBoxedMap](#containsboxedmap) | validateAndBox(Map&lt;*, *&gt;, configuration: SchemaConfiguration) |
 | [ContainsBoxedList](#containsboxedlist) | validateAndBox(List<*>, configuration: SchemaConfiguration) |
 | [ContainsBoxed](#containsboxed) | validateAndBox(Any?, configuration: SchemaConfiguration) |
 | Any? | validate(arg: Any?, configuration: SchemaConfiguration) |

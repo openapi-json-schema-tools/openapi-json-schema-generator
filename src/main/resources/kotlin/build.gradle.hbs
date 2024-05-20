@@ -21,10 +21,8 @@ group = "{{groupId}}"
 version = "{{artifactVersion}}"
 description = "{{artifactDescription}}"
 
-java {
-    toolchain {
-        languageVersion.set(JavaLanguageVersion.of(17))
-    }
+kotlin {
+    jvmToolchain(17)
 }
 
 tasks.wrapper {

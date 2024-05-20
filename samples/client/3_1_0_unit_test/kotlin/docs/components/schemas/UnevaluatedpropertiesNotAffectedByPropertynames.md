@@ -11,19 +11,19 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | sealed interface | [UnevaluatedpropertiesNotAffectedByPropertynames.UnevaluatedpropertiesNotAffectedByPropertynames1Boxed](#unevaluatedpropertiesnotaffectedbypropertynames1boxed)<br> sealed interface for validated payloads |
-| record | [UnevaluatedpropertiesNotAffectedByPropertynames.UnevaluatedpropertiesNotAffectedByPropertynames1BoxedVoid](#unevaluatedpropertiesnotaffectedbypropertynames1boxedvoid)<br> boxed class to store validated null payloads |
-| record | [UnevaluatedpropertiesNotAffectedByPropertynames.UnevaluatedpropertiesNotAffectedByPropertynames1BoxedBoolean](#unevaluatedpropertiesnotaffectedbypropertynames1boxedboolean)<br> boxed class to store validated boolean payloads |
-| record | [UnevaluatedpropertiesNotAffectedByPropertynames.UnevaluatedpropertiesNotAffectedByPropertynames1BoxedNumber](#unevaluatedpropertiesnotaffectedbypropertynames1boxednumber)<br> boxed class to store validated Number payloads |
-| record | [UnevaluatedpropertiesNotAffectedByPropertynames.UnevaluatedpropertiesNotAffectedByPropertynames1BoxedString](#unevaluatedpropertiesnotaffectedbypropertynames1boxedstring)<br> boxed class to store validated String payloads |
-| record | [UnevaluatedpropertiesNotAffectedByPropertynames.UnevaluatedpropertiesNotAffectedByPropertynames1BoxedList](#unevaluatedpropertiesnotaffectedbypropertynames1boxedlist)<br> boxed class to store validated List payloads |
-| record | [UnevaluatedpropertiesNotAffectedByPropertynames.UnevaluatedpropertiesNotAffectedByPropertynames1BoxedMap](#unevaluatedpropertiesnotaffectedbypropertynames1boxedmap)<br> boxed class to store validated Map payloads |
-| static class | [UnevaluatedpropertiesNotAffectedByPropertynames.UnevaluatedpropertiesNotAffectedByPropertynames1](#unevaluatedpropertiesnotaffectedbypropertynames1)<br> schema class |
+| data class | [UnevaluatedpropertiesNotAffectedByPropertynames.UnevaluatedpropertiesNotAffectedByPropertynames1BoxedVoid](#unevaluatedpropertiesnotaffectedbypropertynames1boxedvoid)<br> boxed class to store validated null payloads |
+| data class | [UnevaluatedpropertiesNotAffectedByPropertynames.UnevaluatedpropertiesNotAffectedByPropertynames1BoxedBoolean](#unevaluatedpropertiesnotaffectedbypropertynames1boxedboolean)<br> boxed class to store validated boolean payloads |
+| data class | [UnevaluatedpropertiesNotAffectedByPropertynames.UnevaluatedpropertiesNotAffectedByPropertynames1BoxedNumber](#unevaluatedpropertiesnotaffectedbypropertynames1boxednumber)<br> boxed class to store validated Number payloads |
+| data class | [UnevaluatedpropertiesNotAffectedByPropertynames.UnevaluatedpropertiesNotAffectedByPropertynames1BoxedString](#unevaluatedpropertiesnotaffectedbypropertynames1boxedstring)<br> boxed class to store validated String payloads |
+| data class | [UnevaluatedpropertiesNotAffectedByPropertynames.UnevaluatedpropertiesNotAffectedByPropertynames1BoxedList](#unevaluatedpropertiesnotaffectedbypropertynames1boxedlist)<br> boxed class to store validated List payloads |
+| data class | [UnevaluatedpropertiesNotAffectedByPropertynames.UnevaluatedpropertiesNotAffectedByPropertynames1BoxedMap](#unevaluatedpropertiesnotaffectedbypropertynames1boxedmap)<br> boxed class to store validated Map payloads |
+| class | [UnevaluatedpropertiesNotAffectedByPropertynames.UnevaluatedpropertiesNotAffectedByPropertynames1](#unevaluatedpropertiesnotaffectedbypropertynames1)<br> schema class |
 | sealed interface | [UnevaluatedpropertiesNotAffectedByPropertynames.UnevaluatedPropertiesBoxed](#unevaluatedpropertiesboxed)<br> sealed interface for validated payloads |
-| record | [UnevaluatedpropertiesNotAffectedByPropertynames.UnevaluatedPropertiesBoxedNumber](#unevaluatedpropertiesboxednumber)<br> boxed class to store validated Number payloads |
-| static class | [UnevaluatedpropertiesNotAffectedByPropertynames.UnevaluatedProperties](#unevaluatedproperties)<br> schema class |
+| data class | [UnevaluatedpropertiesNotAffectedByPropertynames.UnevaluatedPropertiesBoxedNumber](#unevaluatedpropertiesboxednumber)<br> boxed class to store validated Number payloads |
+| class | [UnevaluatedpropertiesNotAffectedByPropertynames.UnevaluatedProperties](#unevaluatedproperties)<br> schema class |
 | sealed interface | [UnevaluatedpropertiesNotAffectedByPropertynames.PropertyNamesBoxed](#propertynamesboxed)<br> sealed interface for validated payloads |
-| record | [UnevaluatedpropertiesNotAffectedByPropertynames.PropertyNamesBoxedString](#propertynamesboxedstring)<br> boxed class to store validated String payloads |
-| static class | [UnevaluatedpropertiesNotAffectedByPropertynames.PropertyNames](#propertynames)<br> schema class |
+| data class | [UnevaluatedpropertiesNotAffectedByPropertynames.PropertyNamesBoxedString](#propertynamesboxedstring)<br> boxed class to store validated String payloads |
+| class | [UnevaluatedpropertiesNotAffectedByPropertynames.PropertyNames](#propertynames)<br> schema class |
 
 ## UnevaluatedpropertiesNotAffectedByPropertynames1Boxed
 sealed interface UnevaluatedpropertiesNotAffectedByPropertynames1Boxed<br>
@@ -58,7 +58,7 @@ data class that stores validated null payloads, sealed permits implementation
 data class UnevaluatedpropertiesNotAffectedByPropertynames1BoxedBoolean<br>
 implements [UnevaluatedpropertiesNotAffectedByPropertynames1Boxed](#unevaluatedpropertiesnotaffectedbypropertynames1boxed)
 
-record that stores validated boolean payloads, sealed permits implementation
+data class that stores validated boolean payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
@@ -156,19 +156,19 @@ A schema class that validates payloads
 | ----------------- | ---------------------- |
 | String | validate(arg: String, configuration: SchemaConfiguration) |
 | Nothing? | validate(arg: Nothing?, configuration: SchemaConfiguration) |
-| int | validate(arg: int, configuration: SchemaConfiguration) |
-| long | validate(arg: long, configuration: SchemaConfiguration) |
-| float | validate(arg: float, configuration: SchemaConfiguration) |
-| double | validate(arg: double, configuration: SchemaConfiguration) |
+| Int | validate(arg: Int, configuration: SchemaConfiguration) |
+| Long | validate(arg: Long, configuration: SchemaConfiguration) |
+| Float | validate(arg: Float, configuration: SchemaConfiguration) |
+| Double | validate(arg: Double, configuration: SchemaConfiguration) |
 | Number | validate(arg: Number, configuration: SchemaConfiguration) |
-| boolean | validate(arg: boolean, configuration: SchemaConfiguration) |
-| FrozenMap<Any?> | validate(arg: Map&lt;?, ?&gt;, configuration: SchemaConfiguration) |
+| Boolean | validate(arg: Boolean, configuration: SchemaConfiguration) |
+| FrozenMap<Any?> | validate(arg: Map&lt;*, *&gt;, configuration: SchemaConfiguration) |
 | FrozenList<Any?> | validate(arg: List<*>, configuration: SchemaConfiguration) |
 | [UnevaluatedpropertiesNotAffectedByPropertynames1BoxedString](#unevaluatedpropertiesnotaffectedbypropertynames1boxedstring) | validateAndBox(String, configuration: SchemaConfiguration) |
 | [UnevaluatedpropertiesNotAffectedByPropertynames1BoxedVoid](#unevaluatedpropertiesnotaffectedbypropertynames1boxedvoid) | validateAndBox(Nothing?, configuration: SchemaConfiguration) |
 | [UnevaluatedpropertiesNotAffectedByPropertynames1BoxedNumber](#unevaluatedpropertiesnotaffectedbypropertynames1boxednumber) | validateAndBox(Number, configuration: SchemaConfiguration) |
-| [UnevaluatedpropertiesNotAffectedByPropertynames1BoxedBoolean](#unevaluatedpropertiesnotaffectedbypropertynames1boxedboolean) | validateAndBox(boolean, configuration: SchemaConfiguration) |
-| [UnevaluatedpropertiesNotAffectedByPropertynames1BoxedMap](#unevaluatedpropertiesnotaffectedbypropertynames1boxedmap) | validateAndBox(Map&lt;?, ?&gt;, configuration: SchemaConfiguration) |
+| [UnevaluatedpropertiesNotAffectedByPropertynames1BoxedBoolean](#unevaluatedpropertiesnotaffectedbypropertynames1boxedboolean) | validateAndBox(Boolean, configuration: SchemaConfiguration) |
+| [UnevaluatedpropertiesNotAffectedByPropertynames1BoxedMap](#unevaluatedpropertiesnotaffectedbypropertynames1boxedmap) | validateAndBox(Map&lt;*, *&gt;, configuration: SchemaConfiguration) |
 | [UnevaluatedpropertiesNotAffectedByPropertynames1BoxedList](#unevaluatedpropertiesnotaffectedbypropertynames1boxedlist) | validateAndBox(List<*>, configuration: SchemaConfiguration) |
 | [UnevaluatedpropertiesNotAffectedByPropertynames1Boxed](#unevaluatedpropertiesnotaffectedbypropertynames1boxed) | validateAndBox(Any?, configuration: SchemaConfiguration) |
 | Any? | validate(arg: Any?, configuration: SchemaConfiguration) |
@@ -240,32 +240,28 @@ A schema class that validates payloads
 
 ### Code Sample
 ```
-import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
-import org.openapijsonschematools.client.configurations.SchemaConfiguration;
-import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.schemas.validation.MapUtils;
-import org.openapijsonschematools.client.schemas.validation.FrozenList;
-import org.openapijsonschematools.client.schemas.validation.FrozenMap;
-import org.openapijsonschematools.client.components.schemas.UnevaluatedpropertiesNotAffectedByPropertynames;
+import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags
+import org.openapijsonschematools.client.configurations.SchemaConfiguration
+import org.openapijsonschematools.client.exceptions.ValidationException
+import org.openapijsonschematools.client.schemas.validation.MapUtils
+import org.openapijsonschematools.client.schemas.validation.FrozenList
+import org.openapijsonschematools.client.schemas.validation.FrozenMap
+import org.openapijsonschematools.client.components.schemas.UnevaluatedpropertiesNotAffectedByPropertynames
 
-import java.util.Arrays;
-import java.util.List;
-import java.util.AbstractMap;
-
-static final SchemaConfiguration configuration = new SchemaConfiguration(new JsonSchemaKeywordFlags.Builder().build());
+val configuration = SchemaConfiguration(JsonSchemaKeywordFlags.Builder().build())
 
 // String validation
-String validatedPayload = UnevaluatedpropertiesNotAffectedByPropertynames.PropertyNames.validate(
+val validatedPayload: String = UnevaluatedpropertiesNotAffectedByPropertynames.PropertyNames.validate(
     "a",
     configuration
-);
+)
 ```
 
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |
 | Set<Class<?>> | type = setOf(<br/>&nbsp;&nbsp;&nbsp;&nbsp;String::class.java<br/>)<br/> |
-| Integer | maxLength = 1 |
+| Int | maxLength = 1 |
 
 ### Method Summary
 | Modifier and Type | Method and Description |

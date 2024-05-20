@@ -11,13 +11,13 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | sealed interface | [PatternIsNotAnchored.PatternIsNotAnchored1Boxed](#patternisnotanchored1boxed)<br> sealed interface for validated payloads |
-| record | [PatternIsNotAnchored.PatternIsNotAnchored1BoxedVoid](#patternisnotanchored1boxedvoid)<br> boxed class to store validated null payloads |
-| record | [PatternIsNotAnchored.PatternIsNotAnchored1BoxedBoolean](#patternisnotanchored1boxedboolean)<br> boxed class to store validated boolean payloads |
-| record | [PatternIsNotAnchored.PatternIsNotAnchored1BoxedNumber](#patternisnotanchored1boxednumber)<br> boxed class to store validated Number payloads |
-| record | [PatternIsNotAnchored.PatternIsNotAnchored1BoxedString](#patternisnotanchored1boxedstring)<br> boxed class to store validated String payloads |
-| record | [PatternIsNotAnchored.PatternIsNotAnchored1BoxedList](#patternisnotanchored1boxedlist)<br> boxed class to store validated List payloads |
-| record | [PatternIsNotAnchored.PatternIsNotAnchored1BoxedMap](#patternisnotanchored1boxedmap)<br> boxed class to store validated Map payloads |
-| static class | [PatternIsNotAnchored.PatternIsNotAnchored1](#patternisnotanchored1)<br> schema class |
+| data class | [PatternIsNotAnchored.PatternIsNotAnchored1BoxedVoid](#patternisnotanchored1boxedvoid)<br> boxed class to store validated null payloads |
+| data class | [PatternIsNotAnchored.PatternIsNotAnchored1BoxedBoolean](#patternisnotanchored1boxedboolean)<br> boxed class to store validated boolean payloads |
+| data class | [PatternIsNotAnchored.PatternIsNotAnchored1BoxedNumber](#patternisnotanchored1boxednumber)<br> boxed class to store validated Number payloads |
+| data class | [PatternIsNotAnchored.PatternIsNotAnchored1BoxedString](#patternisnotanchored1boxedstring)<br> boxed class to store validated String payloads |
+| data class | [PatternIsNotAnchored.PatternIsNotAnchored1BoxedList](#patternisnotanchored1boxedlist)<br> boxed class to store validated List payloads |
+| data class | [PatternIsNotAnchored.PatternIsNotAnchored1BoxedMap](#patternisnotanchored1boxedmap)<br> boxed class to store validated Map payloads |
+| class | [PatternIsNotAnchored.PatternIsNotAnchored1](#patternisnotanchored1)<br> schema class |
 
 ## PatternIsNotAnchored1Boxed
 sealed interface PatternIsNotAnchored1Boxed<br>
@@ -52,7 +52,7 @@ data class that stores validated null payloads, sealed permits implementation
 data class PatternIsNotAnchored1BoxedBoolean<br>
 implements [PatternIsNotAnchored1Boxed](#patternisnotanchored1boxed)
 
-record that stores validated boolean payloads, sealed permits implementation
+data class that stores validated boolean payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
@@ -149,19 +149,19 @@ A schema class that validates payloads
 | ----------------- | ---------------------- |
 | String | validate(arg: String, configuration: SchemaConfiguration) |
 | Nothing? | validate(arg: Nothing?, configuration: SchemaConfiguration) |
-| int | validate(arg: int, configuration: SchemaConfiguration) |
-| long | validate(arg: long, configuration: SchemaConfiguration) |
-| float | validate(arg: float, configuration: SchemaConfiguration) |
-| double | validate(arg: double, configuration: SchemaConfiguration) |
+| Int | validate(arg: Int, configuration: SchemaConfiguration) |
+| Long | validate(arg: Long, configuration: SchemaConfiguration) |
+| Float | validate(arg: Float, configuration: SchemaConfiguration) |
+| Double | validate(arg: Double, configuration: SchemaConfiguration) |
 | Number | validate(arg: Number, configuration: SchemaConfiguration) |
-| boolean | validate(arg: boolean, configuration: SchemaConfiguration) |
-| FrozenMap<Any?> | validate(arg: Map&lt;?, ?&gt;, configuration: SchemaConfiguration) |
+| Boolean | validate(arg: Boolean, configuration: SchemaConfiguration) |
+| FrozenMap<Any?> | validate(arg: Map&lt;*, *&gt;, configuration: SchemaConfiguration) |
 | FrozenList<Any?> | validate(arg: List<*>, configuration: SchemaConfiguration) |
 | [PatternIsNotAnchored1BoxedString](#patternisnotanchored1boxedstring) | validateAndBox(String, configuration: SchemaConfiguration) |
 | [PatternIsNotAnchored1BoxedVoid](#patternisnotanchored1boxedvoid) | validateAndBox(Nothing?, configuration: SchemaConfiguration) |
 | [PatternIsNotAnchored1BoxedNumber](#patternisnotanchored1boxednumber) | validateAndBox(Number, configuration: SchemaConfiguration) |
-| [PatternIsNotAnchored1BoxedBoolean](#patternisnotanchored1boxedboolean) | validateAndBox(boolean, configuration: SchemaConfiguration) |
-| [PatternIsNotAnchored1BoxedMap](#patternisnotanchored1boxedmap) | validateAndBox(Map&lt;?, ?&gt;, configuration: SchemaConfiguration) |
+| [PatternIsNotAnchored1BoxedBoolean](#patternisnotanchored1boxedboolean) | validateAndBox(Boolean, configuration: SchemaConfiguration) |
+| [PatternIsNotAnchored1BoxedMap](#patternisnotanchored1boxedmap) | validateAndBox(Map&lt;*, *&gt;, configuration: SchemaConfiguration) |
 | [PatternIsNotAnchored1BoxedList](#patternisnotanchored1boxedlist) | validateAndBox(List<*>, configuration: SchemaConfiguration) |
 | [PatternIsNotAnchored1Boxed](#patternisnotanchored1boxed) | validateAndBox(Any?, configuration: SchemaConfiguration) |
 | Any? | validate(arg: Any?, configuration: SchemaConfiguration) |

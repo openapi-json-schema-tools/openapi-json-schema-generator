@@ -11,13 +11,13 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | sealed interface | [IriFormat.IriFormat1Boxed](#iriformat1boxed)<br> sealed interface for validated payloads |
-| record | [IriFormat.IriFormat1BoxedVoid](#iriformat1boxedvoid)<br> boxed class to store validated null payloads |
-| record | [IriFormat.IriFormat1BoxedBoolean](#iriformat1boxedboolean)<br> boxed class to store validated boolean payloads |
-| record | [IriFormat.IriFormat1BoxedNumber](#iriformat1boxednumber)<br> boxed class to store validated Number payloads |
-| record | [IriFormat.IriFormat1BoxedString](#iriformat1boxedstring)<br> boxed class to store validated String payloads |
-| record | [IriFormat.IriFormat1BoxedList](#iriformat1boxedlist)<br> boxed class to store validated List payloads |
-| record | [IriFormat.IriFormat1BoxedMap](#iriformat1boxedmap)<br> boxed class to store validated Map payloads |
-| static class | [IriFormat.IriFormat1](#iriformat1)<br> schema class |
+| data class | [IriFormat.IriFormat1BoxedVoid](#iriformat1boxedvoid)<br> boxed class to store validated null payloads |
+| data class | [IriFormat.IriFormat1BoxedBoolean](#iriformat1boxedboolean)<br> boxed class to store validated boolean payloads |
+| data class | [IriFormat.IriFormat1BoxedNumber](#iriformat1boxednumber)<br> boxed class to store validated Number payloads |
+| data class | [IriFormat.IriFormat1BoxedString](#iriformat1boxedstring)<br> boxed class to store validated String payloads |
+| data class | [IriFormat.IriFormat1BoxedList](#iriformat1boxedlist)<br> boxed class to store validated List payloads |
+| data class | [IriFormat.IriFormat1BoxedMap](#iriformat1boxedmap)<br> boxed class to store validated Map payloads |
+| class | [IriFormat.IriFormat1](#iriformat1)<br> schema class |
 
 ## IriFormat1Boxed
 sealed interface IriFormat1Boxed<br>
@@ -52,7 +52,7 @@ data class that stores validated null payloads, sealed permits implementation
 data class IriFormat1BoxedBoolean<br>
 implements [IriFormat1Boxed](#iriformat1boxed)
 
-record that stores validated boolean payloads, sealed permits implementation
+data class that stores validated boolean payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
@@ -149,19 +149,19 @@ A schema class that validates payloads
 | ----------------- | ---------------------- |
 | String | validate(arg: String, configuration: SchemaConfiguration) |
 | Nothing? | validate(arg: Nothing?, configuration: SchemaConfiguration) |
-| int | validate(arg: int, configuration: SchemaConfiguration) |
-| long | validate(arg: long, configuration: SchemaConfiguration) |
-| float | validate(arg: float, configuration: SchemaConfiguration) |
-| double | validate(arg: double, configuration: SchemaConfiguration) |
+| Int | validate(arg: Int, configuration: SchemaConfiguration) |
+| Long | validate(arg: Long, configuration: SchemaConfiguration) |
+| Float | validate(arg: Float, configuration: SchemaConfiguration) |
+| Double | validate(arg: Double, configuration: SchemaConfiguration) |
 | Number | validate(arg: Number, configuration: SchemaConfiguration) |
-| boolean | validate(arg: boolean, configuration: SchemaConfiguration) |
-| FrozenMap<Any?> | validate(arg: Map&lt;?, ?&gt;, configuration: SchemaConfiguration) |
+| Boolean | validate(arg: Boolean, configuration: SchemaConfiguration) |
+| FrozenMap<Any?> | validate(arg: Map&lt;*, *&gt;, configuration: SchemaConfiguration) |
 | FrozenList<Any?> | validate(arg: List<*>, configuration: SchemaConfiguration) |
 | [IriFormat1BoxedString](#iriformat1boxedstring) | validateAndBox(String, configuration: SchemaConfiguration) |
 | [IriFormat1BoxedVoid](#iriformat1boxedvoid) | validateAndBox(Nothing?, configuration: SchemaConfiguration) |
 | [IriFormat1BoxedNumber](#iriformat1boxednumber) | validateAndBox(Number, configuration: SchemaConfiguration) |
-| [IriFormat1BoxedBoolean](#iriformat1boxedboolean) | validateAndBox(boolean, configuration: SchemaConfiguration) |
-| [IriFormat1BoxedMap](#iriformat1boxedmap) | validateAndBox(Map&lt;?, ?&gt;, configuration: SchemaConfiguration) |
+| [IriFormat1BoxedBoolean](#iriformat1boxedboolean) | validateAndBox(Boolean, configuration: SchemaConfiguration) |
+| [IriFormat1BoxedMap](#iriformat1boxedmap) | validateAndBox(Map&lt;*, *&gt;, configuration: SchemaConfiguration) |
 | [IriFormat1BoxedList](#iriformat1boxedlist) | validateAndBox(List<*>, configuration: SchemaConfiguration) |
 | [IriFormat1Boxed](#iriformat1boxed) | validateAndBox(Any?, configuration: SchemaConfiguration) |
 | Any? | validate(arg: Any?, configuration: SchemaConfiguration) |

@@ -13,18 +13,18 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | sealed interface | [InvalidStringValueForDefault.InvalidStringValueForDefault1Boxed](#invalidstringvaluefordefault1boxed)<br> sealed interface for validated payloads |
-| record | [InvalidStringValueForDefault.InvalidStringValueForDefault1BoxedVoid](#invalidstringvaluefordefault1boxedvoid)<br> boxed class to store validated null payloads |
-| record | [InvalidStringValueForDefault.InvalidStringValueForDefault1BoxedBoolean](#invalidstringvaluefordefault1boxedboolean)<br> boxed class to store validated boolean payloads |
-| record | [InvalidStringValueForDefault.InvalidStringValueForDefault1BoxedNumber](#invalidstringvaluefordefault1boxednumber)<br> boxed class to store validated Number payloads |
-| record | [InvalidStringValueForDefault.InvalidStringValueForDefault1BoxedString](#invalidstringvaluefordefault1boxedstring)<br> boxed class to store validated String payloads |
-| record | [InvalidStringValueForDefault.InvalidStringValueForDefault1BoxedList](#invalidstringvaluefordefault1boxedlist)<br> boxed class to store validated List payloads |
-| record | [InvalidStringValueForDefault.InvalidStringValueForDefault1BoxedMap](#invalidstringvaluefordefault1boxedmap)<br> boxed class to store validated Map payloads |
-| static class | [InvalidStringValueForDefault.InvalidStringValueForDefault1](#invalidstringvaluefordefault1)<br> schema class |
-| static class | [InvalidStringValueForDefault.InvalidStringValueForDefaultMapBuilder](#invalidstringvaluefordefaultmapbuilder)<br> builder for Map payloads |
-| static class | [InvalidStringValueForDefault.InvalidStringValueForDefaultMap](#invalidstringvaluefordefaultmap)<br> output class for Map payloads |
+| data class | [InvalidStringValueForDefault.InvalidStringValueForDefault1BoxedVoid](#invalidstringvaluefordefault1boxedvoid)<br> boxed class to store validated null payloads |
+| data class | [InvalidStringValueForDefault.InvalidStringValueForDefault1BoxedBoolean](#invalidstringvaluefordefault1boxedboolean)<br> boxed class to store validated boolean payloads |
+| data class | [InvalidStringValueForDefault.InvalidStringValueForDefault1BoxedNumber](#invalidstringvaluefordefault1boxednumber)<br> boxed class to store validated Number payloads |
+| data class | [InvalidStringValueForDefault.InvalidStringValueForDefault1BoxedString](#invalidstringvaluefordefault1boxedstring)<br> boxed class to store validated String payloads |
+| data class | [InvalidStringValueForDefault.InvalidStringValueForDefault1BoxedList](#invalidstringvaluefordefault1boxedlist)<br> boxed class to store validated List payloads |
+| data class | [InvalidStringValueForDefault.InvalidStringValueForDefault1BoxedMap](#invalidstringvaluefordefault1boxedmap)<br> boxed class to store validated Map payloads |
+| class | [InvalidStringValueForDefault.InvalidStringValueForDefault1](#invalidstringvaluefordefault1)<br> schema class |
+| class | [InvalidStringValueForDefault.InvalidStringValueForDefaultMapBuilder](#invalidstringvaluefordefaultmapbuilder)<br> builder for Map payloads |
+| class | [InvalidStringValueForDefault.InvalidStringValueForDefaultMap](#invalidstringvaluefordefaultmap)<br> output class for Map payloads |
 | sealed interface | [InvalidStringValueForDefault.BarBoxed](#barboxed)<br> sealed interface for validated payloads |
-| record | [InvalidStringValueForDefault.BarBoxedString](#barboxedstring)<br> boxed class to store validated String payloads |
-| static class | [InvalidStringValueForDefault.Bar](#bar)<br> schema class |
+| data class | [InvalidStringValueForDefault.BarBoxedString](#barboxedstring)<br> boxed class to store validated String payloads |
+| class | [InvalidStringValueForDefault.Bar](#bar)<br> schema class |
 
 ## InvalidStringValueForDefault1Boxed
 sealed interface InvalidStringValueForDefault1Boxed<br>
@@ -59,7 +59,7 @@ data class that stores validated null payloads, sealed permits implementation
 data class InvalidStringValueForDefault1BoxedBoolean<br>
 implements [InvalidStringValueForDefault1Boxed](#invalidstringvaluefordefault1boxed)
 
-record that stores validated boolean payloads, sealed permits implementation
+data class that stores validated boolean payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
@@ -156,19 +156,19 @@ A schema class that validates payloads
 | ----------------- | ---------------------- |
 | String | validate(arg: String, configuration: SchemaConfiguration) |
 | Nothing? | validate(arg: Nothing?, configuration: SchemaConfiguration) |
-| int | validate(arg: int, configuration: SchemaConfiguration) |
-| long | validate(arg: long, configuration: SchemaConfiguration) |
-| float | validate(arg: float, configuration: SchemaConfiguration) |
-| double | validate(arg: double, configuration: SchemaConfiguration) |
+| Int | validate(arg: Int, configuration: SchemaConfiguration) |
+| Long | validate(arg: Long, configuration: SchemaConfiguration) |
+| Float | validate(arg: Float, configuration: SchemaConfiguration) |
+| Double | validate(arg: Double, configuration: SchemaConfiguration) |
 | Number | validate(arg: Number, configuration: SchemaConfiguration) |
-| boolean | validate(arg: boolean, configuration: SchemaConfiguration) |
-| [InvalidStringValueForDefaultMap](#invalidstringvaluefordefaultmap) | validate(arg: [Map&lt;?, ?&gt;](#invalidstringvaluefordefaultmapbuilder), configuration: SchemaConfiguration) |
+| Boolean | validate(arg: Boolean, configuration: SchemaConfiguration) |
+| [InvalidStringValueForDefaultMap](#invalidstringvaluefordefaultmap) | validate(arg: [Map&lt;*, *&gt;](#invalidstringvaluefordefaultmapbuilder), configuration: SchemaConfiguration) |
 | FrozenList<Any?> | validate(arg: List<*>, configuration: SchemaConfiguration) |
 | [InvalidStringValueForDefault1BoxedString](#invalidstringvaluefordefault1boxedstring) | validateAndBox(String, configuration: SchemaConfiguration) |
 | [InvalidStringValueForDefault1BoxedVoid](#invalidstringvaluefordefault1boxedvoid) | validateAndBox(Nothing?, configuration: SchemaConfiguration) |
 | [InvalidStringValueForDefault1BoxedNumber](#invalidstringvaluefordefault1boxednumber) | validateAndBox(Number, configuration: SchemaConfiguration) |
-| [InvalidStringValueForDefault1BoxedBoolean](#invalidstringvaluefordefault1boxedboolean) | validateAndBox(boolean, configuration: SchemaConfiguration) |
-| [InvalidStringValueForDefault1BoxedMap](#invalidstringvaluefordefault1boxedmap) | validateAndBox([Map&lt;?, ?&gt;](#invalidstringvaluefordefaultmapbuilder), configuration: SchemaConfiguration) |
+| [InvalidStringValueForDefault1BoxedBoolean](#invalidstringvaluefordefault1boxedboolean) | validateAndBox(Boolean, configuration: SchemaConfiguration) |
+| [InvalidStringValueForDefault1BoxedMap](#invalidstringvaluefordefault1boxedmap) | validateAndBox([Map&lt;*, *&gt;](#invalidstringvaluefordefaultmapbuilder), configuration: SchemaConfiguration) |
 | [InvalidStringValueForDefault1BoxedList](#invalidstringvaluefordefault1boxedlist) | validateAndBox(List<*>, configuration: SchemaConfiguration) |
 | [InvalidStringValueForDefault1Boxed](#invalidstringvaluefordefault1boxed) | validateAndBox(Any?, configuration: SchemaConfiguration) |
 | Any? | validate(arg: Any?, configuration: SchemaConfiguration) |
@@ -244,32 +244,28 @@ A schema class that validates payloads
 
 ### Code Sample
 ```
-import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
-import org.openapijsonschematools.client.configurations.SchemaConfiguration;
-import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.schemas.validation.MapUtils;
-import org.openapijsonschematools.client.schemas.validation.FrozenList;
-import org.openapijsonschematools.client.schemas.validation.FrozenMap;
-import org.openapijsonschematools.client.components.schemas.InvalidStringValueForDefault;
+import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags
+import org.openapijsonschematools.client.configurations.SchemaConfiguration
+import org.openapijsonschematools.client.exceptions.ValidationException
+import org.openapijsonschematools.client.schemas.validation.MapUtils
+import org.openapijsonschematools.client.schemas.validation.FrozenList
+import org.openapijsonschematools.client.schemas.validation.FrozenMap
+import org.openapijsonschematools.client.components.schemas.InvalidStringValueForDefault
 
-import java.util.Arrays;
-import java.util.List;
-import java.util.AbstractMap;
-
-static final SchemaConfiguration configuration = new SchemaConfiguration(new JsonSchemaKeywordFlags.Builder().build());
+val configuration = SchemaConfiguration(JsonSchemaKeywordFlags.Builder().build())
 
 // String validation
-String validatedPayload = InvalidStringValueForDefault.Bar.validate(
+val validatedPayload: String = InvalidStringValueForDefault.Bar.validate(
     "a",
     configuration
-);
+)
 ```
 
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |
 | Set<Class<?>> | type = setOf(<br/>&nbsp;&nbsp;&nbsp;&nbsp;String::class.java<br/>)<br/> |
-| Integer | minLength = 4 |
+| Int | minLength = 4 |
 | Any? | defaultValue = "bad" |
 
 ### Method Summary

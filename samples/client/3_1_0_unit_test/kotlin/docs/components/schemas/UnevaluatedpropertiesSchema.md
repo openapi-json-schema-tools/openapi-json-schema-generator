@@ -11,11 +11,11 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | sealed interface | [UnevaluatedpropertiesSchema.UnevaluatedpropertiesSchema1Boxed](#unevaluatedpropertiesschema1boxed)<br> sealed interface for validated payloads |
-| record | [UnevaluatedpropertiesSchema.UnevaluatedpropertiesSchema1BoxedMap](#unevaluatedpropertiesschema1boxedmap)<br> boxed class to store validated Map payloads |
-| static class | [UnevaluatedpropertiesSchema.UnevaluatedpropertiesSchema1](#unevaluatedpropertiesschema1)<br> schema class |
+| data class | [UnevaluatedpropertiesSchema.UnevaluatedpropertiesSchema1BoxedMap](#unevaluatedpropertiesschema1boxedmap)<br> boxed class to store validated Map payloads |
+| class | [UnevaluatedpropertiesSchema.UnevaluatedpropertiesSchema1](#unevaluatedpropertiesschema1)<br> schema class |
 | sealed interface | [UnevaluatedpropertiesSchema.UnevaluatedPropertiesBoxed](#unevaluatedpropertiesboxed)<br> sealed interface for validated payloads |
-| record | [UnevaluatedpropertiesSchema.UnevaluatedPropertiesBoxedString](#unevaluatedpropertiesboxedstring)<br> boxed class to store validated String payloads |
-| static class | [UnevaluatedpropertiesSchema.UnevaluatedProperties](#unevaluatedproperties)<br> schema class |
+| data class | [UnevaluatedpropertiesSchema.UnevaluatedPropertiesBoxedString](#unevaluatedpropertiesboxedstring)<br> boxed class to store validated String payloads |
+| class | [UnevaluatedpropertiesSchema.UnevaluatedProperties](#unevaluatedproperties)<br> schema class |
 
 ## UnevaluatedpropertiesSchema1Boxed
 sealed interface UnevaluatedpropertiesSchema1Boxed<br>
@@ -56,8 +56,8 @@ A schema class that validates payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| FrozenMap<String, Any?> | validate(arg: Map&lt;?, ?&gt;, configuration: SchemaConfiguration) |
-| [UnevaluatedpropertiesSchema1BoxedMap](#unevaluatedpropertiesschema1boxedmap) | validateAndBox(Map&lt;?, ?&gt;, configuration: SchemaConfiguration) |
+| FrozenMap<String, Any?> | validate(arg: Map&lt;*, *&gt;, configuration: SchemaConfiguration) |
+| [UnevaluatedpropertiesSchema1BoxedMap](#unevaluatedpropertiesschema1boxedmap) | validateAndBox(Map&lt;*, *&gt;, configuration: SchemaConfiguration) |
 | [UnevaluatedpropertiesSchema1Boxed](#unevaluatedpropertiesschema1boxed) | validateAndBox(Any?, configuration: SchemaConfiguration) |
 | Any? | validate(arg: Any?, configuration: SchemaConfiguration) |
 
@@ -93,32 +93,28 @@ A schema class that validates payloads
 
 ### Code Sample
 ```
-import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
-import org.openapijsonschematools.client.configurations.SchemaConfiguration;
-import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.schemas.validation.MapUtils;
-import org.openapijsonschematools.client.schemas.validation.FrozenList;
-import org.openapijsonschematools.client.schemas.validation.FrozenMap;
-import org.openapijsonschematools.client.components.schemas.UnevaluatedpropertiesSchema;
+import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags
+import org.openapijsonschematools.client.configurations.SchemaConfiguration
+import org.openapijsonschematools.client.exceptions.ValidationException
+import org.openapijsonschematools.client.schemas.validation.MapUtils
+import org.openapijsonschematools.client.schemas.validation.FrozenList
+import org.openapijsonschematools.client.schemas.validation.FrozenMap
+import org.openapijsonschematools.client.components.schemas.UnevaluatedpropertiesSchema
 
-import java.util.Arrays;
-import java.util.List;
-import java.util.AbstractMap;
-
-static final SchemaConfiguration configuration = new SchemaConfiguration(new JsonSchemaKeywordFlags.Builder().build());
+val configuration = SchemaConfiguration(JsonSchemaKeywordFlags.Builder().build())
 
 // String validation
-String validatedPayload = UnevaluatedpropertiesSchema.UnevaluatedProperties.validate(
+val validatedPayload: String = UnevaluatedpropertiesSchema.UnevaluatedProperties.validate(
     "a",
     configuration
-);
+)
 ```
 
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |
 | Set<Class<?>> | type = setOf(<br/>&nbsp;&nbsp;&nbsp;&nbsp;String::class.java<br/>)<br/> |
-| Integer | minLength = 3 |
+| Int | minLength = 3 |
 
 ### Method Summary
 | Modifier and Type | Method and Description |

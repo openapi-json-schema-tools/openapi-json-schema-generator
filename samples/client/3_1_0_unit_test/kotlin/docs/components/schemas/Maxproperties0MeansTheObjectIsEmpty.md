@@ -11,13 +11,13 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | sealed interface | [Maxproperties0MeansTheObjectIsEmpty.Maxproperties0MeansTheObjectIsEmpty1Boxed](#maxproperties0meanstheobjectisempty1boxed)<br> sealed interface for validated payloads |
-| record | [Maxproperties0MeansTheObjectIsEmpty.Maxproperties0MeansTheObjectIsEmpty1BoxedVoid](#maxproperties0meanstheobjectisempty1boxedvoid)<br> boxed class to store validated null payloads |
-| record | [Maxproperties0MeansTheObjectIsEmpty.Maxproperties0MeansTheObjectIsEmpty1BoxedBoolean](#maxproperties0meanstheobjectisempty1boxedboolean)<br> boxed class to store validated boolean payloads |
-| record | [Maxproperties0MeansTheObjectIsEmpty.Maxproperties0MeansTheObjectIsEmpty1BoxedNumber](#maxproperties0meanstheobjectisempty1boxednumber)<br> boxed class to store validated Number payloads |
-| record | [Maxproperties0MeansTheObjectIsEmpty.Maxproperties0MeansTheObjectIsEmpty1BoxedString](#maxproperties0meanstheobjectisempty1boxedstring)<br> boxed class to store validated String payloads |
-| record | [Maxproperties0MeansTheObjectIsEmpty.Maxproperties0MeansTheObjectIsEmpty1BoxedList](#maxproperties0meanstheobjectisempty1boxedlist)<br> boxed class to store validated List payloads |
-| record | [Maxproperties0MeansTheObjectIsEmpty.Maxproperties0MeansTheObjectIsEmpty1BoxedMap](#maxproperties0meanstheobjectisempty1boxedmap)<br> boxed class to store validated Map payloads |
-| static class | [Maxproperties0MeansTheObjectIsEmpty.Maxproperties0MeansTheObjectIsEmpty1](#maxproperties0meanstheobjectisempty1)<br> schema class |
+| data class | [Maxproperties0MeansTheObjectIsEmpty.Maxproperties0MeansTheObjectIsEmpty1BoxedVoid](#maxproperties0meanstheobjectisempty1boxedvoid)<br> boxed class to store validated null payloads |
+| data class | [Maxproperties0MeansTheObjectIsEmpty.Maxproperties0MeansTheObjectIsEmpty1BoxedBoolean](#maxproperties0meanstheobjectisempty1boxedboolean)<br> boxed class to store validated boolean payloads |
+| data class | [Maxproperties0MeansTheObjectIsEmpty.Maxproperties0MeansTheObjectIsEmpty1BoxedNumber](#maxproperties0meanstheobjectisempty1boxednumber)<br> boxed class to store validated Number payloads |
+| data class | [Maxproperties0MeansTheObjectIsEmpty.Maxproperties0MeansTheObjectIsEmpty1BoxedString](#maxproperties0meanstheobjectisempty1boxedstring)<br> boxed class to store validated String payloads |
+| data class | [Maxproperties0MeansTheObjectIsEmpty.Maxproperties0MeansTheObjectIsEmpty1BoxedList](#maxproperties0meanstheobjectisempty1boxedlist)<br> boxed class to store validated List payloads |
+| data class | [Maxproperties0MeansTheObjectIsEmpty.Maxproperties0MeansTheObjectIsEmpty1BoxedMap](#maxproperties0meanstheobjectisempty1boxedmap)<br> boxed class to store validated Map payloads |
+| class | [Maxproperties0MeansTheObjectIsEmpty.Maxproperties0MeansTheObjectIsEmpty1](#maxproperties0meanstheobjectisempty1)<br> schema class |
 
 ## Maxproperties0MeansTheObjectIsEmpty1Boxed
 sealed interface Maxproperties0MeansTheObjectIsEmpty1Boxed<br>
@@ -52,7 +52,7 @@ data class that stores validated null payloads, sealed permits implementation
 data class Maxproperties0MeansTheObjectIsEmpty1BoxedBoolean<br>
 implements [Maxproperties0MeansTheObjectIsEmpty1Boxed](#maxproperties0meanstheobjectisempty1boxed)
 
-record that stores validated boolean payloads, sealed permits implementation
+data class that stores validated boolean payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
@@ -142,26 +142,26 @@ A schema class that validates payloads
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |
-| Integer | maxProperties = 0 |
+| Int | maxProperties = 0 |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | String | validate(arg: String, configuration: SchemaConfiguration) |
 | Nothing? | validate(arg: Nothing?, configuration: SchemaConfiguration) |
-| int | validate(arg: int, configuration: SchemaConfiguration) |
-| long | validate(arg: long, configuration: SchemaConfiguration) |
-| float | validate(arg: float, configuration: SchemaConfiguration) |
-| double | validate(arg: double, configuration: SchemaConfiguration) |
+| Int | validate(arg: Int, configuration: SchemaConfiguration) |
+| Long | validate(arg: Long, configuration: SchemaConfiguration) |
+| Float | validate(arg: Float, configuration: SchemaConfiguration) |
+| Double | validate(arg: Double, configuration: SchemaConfiguration) |
 | Number | validate(arg: Number, configuration: SchemaConfiguration) |
-| boolean | validate(arg: boolean, configuration: SchemaConfiguration) |
-| FrozenMap<Any?> | validate(arg: Map&lt;?, ?&gt;, configuration: SchemaConfiguration) |
+| Boolean | validate(arg: Boolean, configuration: SchemaConfiguration) |
+| FrozenMap<Any?> | validate(arg: Map&lt;*, *&gt;, configuration: SchemaConfiguration) |
 | FrozenList<Any?> | validate(arg: List<*>, configuration: SchemaConfiguration) |
 | [Maxproperties0MeansTheObjectIsEmpty1BoxedString](#maxproperties0meanstheobjectisempty1boxedstring) | validateAndBox(String, configuration: SchemaConfiguration) |
 | [Maxproperties0MeansTheObjectIsEmpty1BoxedVoid](#maxproperties0meanstheobjectisempty1boxedvoid) | validateAndBox(Nothing?, configuration: SchemaConfiguration) |
 | [Maxproperties0MeansTheObjectIsEmpty1BoxedNumber](#maxproperties0meanstheobjectisempty1boxednumber) | validateAndBox(Number, configuration: SchemaConfiguration) |
-| [Maxproperties0MeansTheObjectIsEmpty1BoxedBoolean](#maxproperties0meanstheobjectisempty1boxedboolean) | validateAndBox(boolean, configuration: SchemaConfiguration) |
-| [Maxproperties0MeansTheObjectIsEmpty1BoxedMap](#maxproperties0meanstheobjectisempty1boxedmap) | validateAndBox(Map&lt;?, ?&gt;, configuration: SchemaConfiguration) |
+| [Maxproperties0MeansTheObjectIsEmpty1BoxedBoolean](#maxproperties0meanstheobjectisempty1boxedboolean) | validateAndBox(Boolean, configuration: SchemaConfiguration) |
+| [Maxproperties0MeansTheObjectIsEmpty1BoxedMap](#maxproperties0meanstheobjectisempty1boxedmap) | validateAndBox(Map&lt;*, *&gt;, configuration: SchemaConfiguration) |
 | [Maxproperties0MeansTheObjectIsEmpty1BoxedList](#maxproperties0meanstheobjectisempty1boxedlist) | validateAndBox(List<*>, configuration: SchemaConfiguration) |
 | [Maxproperties0MeansTheObjectIsEmpty1Boxed](#maxproperties0meanstheobjectisempty1boxed) | validateAndBox(Any?, configuration: SchemaConfiguration) |
 | Any? | validate(arg: Any?, configuration: SchemaConfiguration) |

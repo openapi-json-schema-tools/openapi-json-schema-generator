@@ -13,10 +13,10 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | sealed interface | [RefInAdditionalproperties.RefInAdditionalproperties1Boxed](#refinadditionalproperties1boxed)<br> sealed interface for validated payloads |
-| record | [RefInAdditionalproperties.RefInAdditionalproperties1BoxedMap](#refinadditionalproperties1boxedmap)<br> boxed class to store validated Map payloads |
-| static class | [RefInAdditionalproperties.RefInAdditionalproperties1](#refinadditionalproperties1)<br> schema class |
-| static class | [RefInAdditionalproperties.RefInAdditionalpropertiesMapBuilder](#refinadditionalpropertiesmapbuilder)<br> builder for Map payloads |
-| static class | [RefInAdditionalproperties.RefInAdditionalpropertiesMap](#refinadditionalpropertiesmap)<br> output class for Map payloads |
+| data class | [RefInAdditionalproperties.RefInAdditionalproperties1BoxedMap](#refinadditionalproperties1boxedmap)<br> boxed class to store validated Map payloads |
+| class | [RefInAdditionalproperties.RefInAdditionalproperties1](#refinadditionalproperties1)<br> schema class |
+| class | [RefInAdditionalproperties.RefInAdditionalpropertiesMapBuilder](#refinadditionalpropertiesmapbuilder)<br> builder for Map payloads |
+| class | [RefInAdditionalproperties.RefInAdditionalpropertiesMap](#refinadditionalpropertiesmap)<br> output class for Map payloads |
 
 ## RefInAdditionalproperties1Boxed
 sealed interface RefInAdditionalproperties1Boxed<br>
@@ -50,27 +50,23 @@ A schema class that validates payloads
 
 ### Code Sample
 ```
-import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
-import org.openapijsonschematools.client.configurations.SchemaConfiguration;
-import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.schemas.validation.MapUtils;
-import org.openapijsonschematools.client.schemas.validation.FrozenList;
-import org.openapijsonschematools.client.schemas.validation.FrozenMap;
-import org.openapijsonschematools.client.components.schemas.RefInAdditionalproperties;
+import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags
+import org.openapijsonschematools.client.configurations.SchemaConfiguration
+import org.openapijsonschematools.client.exceptions.ValidationException
+import org.openapijsonschematools.client.schemas.validation.MapUtils
+import org.openapijsonschematools.client.schemas.validation.FrozenList
+import org.openapijsonschematools.client.schemas.validation.FrozenMap
+import org.openapijsonschematools.client.components.schemas.RefInAdditionalproperties
 
-import java.util.Arrays;
-import java.util.List;
-import java.util.AbstractMap;
-
-static final SchemaConfiguration configuration = new SchemaConfiguration(new JsonSchemaKeywordFlags.Builder().build());
+val configuration = SchemaConfiguration(JsonSchemaKeywordFlags.Builder().build())
 
 // Map validation
-RefInAdditionalproperties.RefInAdditionalpropertiesMap validatedPayload =
+val validatedPayload: RefInAdditionalproperties.RefInAdditionalpropertiesMap =
     RefInAdditionalproperties.RefInAdditionalproperties1.validate(
-    new RefInAdditionalproperties.RefInAdditionalpropertiesMapBuilder()
+    RefInAdditionalproperties.RefInAdditionalpropertiesMapBuilder()
     .build(),
     configuration
-);
+)
 ```
 
 ### Field Summary
@@ -82,8 +78,8 @@ RefInAdditionalproperties.RefInAdditionalpropertiesMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [RefInAdditionalpropertiesMap](#refinadditionalpropertiesmap) | validate(arg: [Map&lt;?, ?&gt;](#refinadditionalpropertiesmapbuilder), configuration: SchemaConfiguration) |
-| [RefInAdditionalproperties1BoxedMap](#refinadditionalproperties1boxedmap) | validateAndBox([Map&lt;?, ?&gt;](#refinadditionalpropertiesmapbuilder), configuration: SchemaConfiguration) |
+| [RefInAdditionalpropertiesMap](#refinadditionalpropertiesmap) | validate(arg: [Map&lt;*, *&gt;](#refinadditionalpropertiesmapbuilder), configuration: SchemaConfiguration) |
+| [RefInAdditionalproperties1BoxedMap](#refinadditionalproperties1boxedmap) | validateAndBox([Map&lt;*, *&gt;](#refinadditionalpropertiesmapbuilder), configuration: SchemaConfiguration) |
 | [RefInAdditionalproperties1Boxed](#refinadditionalproperties1boxed) | validateAndBox(Any?, configuration: SchemaConfiguration) |
 | Any? | validate(arg: Any?, configuration: SchemaConfiguration) |
 

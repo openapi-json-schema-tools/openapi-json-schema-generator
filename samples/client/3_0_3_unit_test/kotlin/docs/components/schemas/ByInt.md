@@ -11,13 +11,13 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | sealed interface | [ByInt.ByInt1Boxed](#byint1boxed)<br> sealed interface for validated payloads |
-| record | [ByInt.ByInt1BoxedVoid](#byint1boxedvoid)<br> boxed class to store validated null payloads |
-| record | [ByInt.ByInt1BoxedBoolean](#byint1boxedboolean)<br> boxed class to store validated boolean payloads |
-| record | [ByInt.ByInt1BoxedNumber](#byint1boxednumber)<br> boxed class to store validated Number payloads |
-| record | [ByInt.ByInt1BoxedString](#byint1boxedstring)<br> boxed class to store validated String payloads |
-| record | [ByInt.ByInt1BoxedList](#byint1boxedlist)<br> boxed class to store validated List payloads |
-| record | [ByInt.ByInt1BoxedMap](#byint1boxedmap)<br> boxed class to store validated Map payloads |
-| static class | [ByInt.ByInt1](#byint1)<br> schema class |
+| data class | [ByInt.ByInt1BoxedVoid](#byint1boxedvoid)<br> boxed class to store validated null payloads |
+| data class | [ByInt.ByInt1BoxedBoolean](#byint1boxedboolean)<br> boxed class to store validated boolean payloads |
+| data class | [ByInt.ByInt1BoxedNumber](#byint1boxednumber)<br> boxed class to store validated Number payloads |
+| data class | [ByInt.ByInt1BoxedString](#byint1boxedstring)<br> boxed class to store validated String payloads |
+| data class | [ByInt.ByInt1BoxedList](#byint1boxedlist)<br> boxed class to store validated List payloads |
+| data class | [ByInt.ByInt1BoxedMap](#byint1boxedmap)<br> boxed class to store validated Map payloads |
+| class | [ByInt.ByInt1](#byint1)<br> schema class |
 
 ## ByInt1Boxed
 sealed interface ByInt1Boxed<br>
@@ -52,7 +52,7 @@ data class that stores validated null payloads, sealed permits implementation
 data class ByInt1BoxedBoolean<br>
 implements [ByInt1Boxed](#byint1boxed)
 
-record that stores validated boolean payloads, sealed permits implementation
+data class that stores validated boolean payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
@@ -149,19 +149,19 @@ A schema class that validates payloads
 | ----------------- | ---------------------- |
 | String | validate(arg: String, configuration: SchemaConfiguration) |
 | Nothing? | validate(arg: Nothing?, configuration: SchemaConfiguration) |
-| int | validate(arg: int, configuration: SchemaConfiguration) |
-| long | validate(arg: long, configuration: SchemaConfiguration) |
-| float | validate(arg: float, configuration: SchemaConfiguration) |
-| double | validate(arg: double, configuration: SchemaConfiguration) |
+| Int | validate(arg: Int, configuration: SchemaConfiguration) |
+| Long | validate(arg: Long, configuration: SchemaConfiguration) |
+| Float | validate(arg: Float, configuration: SchemaConfiguration) |
+| Double | validate(arg: Double, configuration: SchemaConfiguration) |
 | Number | validate(arg: Number, configuration: SchemaConfiguration) |
-| boolean | validate(arg: boolean, configuration: SchemaConfiguration) |
-| FrozenMap<Any?> | validate(arg: Map&lt;?, ?&gt;, configuration: SchemaConfiguration) |
+| Boolean | validate(arg: Boolean, configuration: SchemaConfiguration) |
+| FrozenMap<Any?> | validate(arg: Map&lt;*, *&gt;, configuration: SchemaConfiguration) |
 | FrozenList<Any?> | validate(arg: List<*>, configuration: SchemaConfiguration) |
 | [ByInt1BoxedString](#byint1boxedstring) | validateAndBox(String, configuration: SchemaConfiguration) |
 | [ByInt1BoxedVoid](#byint1boxedvoid) | validateAndBox(Nothing?, configuration: SchemaConfiguration) |
 | [ByInt1BoxedNumber](#byint1boxednumber) | validateAndBox(Number, configuration: SchemaConfiguration) |
-| [ByInt1BoxedBoolean](#byint1boxedboolean) | validateAndBox(boolean, configuration: SchemaConfiguration) |
-| [ByInt1BoxedMap](#byint1boxedmap) | validateAndBox(Map&lt;?, ?&gt;, configuration: SchemaConfiguration) |
+| [ByInt1BoxedBoolean](#byint1boxedboolean) | validateAndBox(Boolean, configuration: SchemaConfiguration) |
+| [ByInt1BoxedMap](#byint1boxedmap) | validateAndBox(Map&lt;*, *&gt;, configuration: SchemaConfiguration) |
 | [ByInt1BoxedList](#byint1boxedlist) | validateAndBox(List<*>, configuration: SchemaConfiguration) |
 | [ByInt1Boxed](#byint1boxed) | validateAndBox(Any?, configuration: SchemaConfiguration) |
 | Any? | validate(arg: Any?, configuration: SchemaConfiguration) |

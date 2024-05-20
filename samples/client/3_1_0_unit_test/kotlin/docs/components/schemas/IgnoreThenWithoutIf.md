@@ -12,21 +12,21 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | sealed interface | [IgnoreThenWithoutIf.IgnoreThenWithoutIf1Boxed](#ignorethenwithoutif1boxed)<br> sealed interface for validated payloads |
-| record | [IgnoreThenWithoutIf.IgnoreThenWithoutIf1BoxedVoid](#ignorethenwithoutif1boxedvoid)<br> boxed class to store validated null payloads |
-| record | [IgnoreThenWithoutIf.IgnoreThenWithoutIf1BoxedBoolean](#ignorethenwithoutif1boxedboolean)<br> boxed class to store validated boolean payloads |
-| record | [IgnoreThenWithoutIf.IgnoreThenWithoutIf1BoxedNumber](#ignorethenwithoutif1boxednumber)<br> boxed class to store validated Number payloads |
-| record | [IgnoreThenWithoutIf.IgnoreThenWithoutIf1BoxedString](#ignorethenwithoutif1boxedstring)<br> boxed class to store validated String payloads |
-| record | [IgnoreThenWithoutIf.IgnoreThenWithoutIf1BoxedList](#ignorethenwithoutif1boxedlist)<br> boxed class to store validated List payloads |
-| record | [IgnoreThenWithoutIf.IgnoreThenWithoutIf1BoxedMap](#ignorethenwithoutif1boxedmap)<br> boxed class to store validated Map payloads |
-| static class | [IgnoreThenWithoutIf.IgnoreThenWithoutIf1](#ignorethenwithoutif1)<br> schema class |
+| data class | [IgnoreThenWithoutIf.IgnoreThenWithoutIf1BoxedVoid](#ignorethenwithoutif1boxedvoid)<br> boxed class to store validated null payloads |
+| data class | [IgnoreThenWithoutIf.IgnoreThenWithoutIf1BoxedBoolean](#ignorethenwithoutif1boxedboolean)<br> boxed class to store validated boolean payloads |
+| data class | [IgnoreThenWithoutIf.IgnoreThenWithoutIf1BoxedNumber](#ignorethenwithoutif1boxednumber)<br> boxed class to store validated Number payloads |
+| data class | [IgnoreThenWithoutIf.IgnoreThenWithoutIf1BoxedString](#ignorethenwithoutif1boxedstring)<br> boxed class to store validated String payloads |
+| data class | [IgnoreThenWithoutIf.IgnoreThenWithoutIf1BoxedList](#ignorethenwithoutif1boxedlist)<br> boxed class to store validated List payloads |
+| data class | [IgnoreThenWithoutIf.IgnoreThenWithoutIf1BoxedMap](#ignorethenwithoutif1boxedmap)<br> boxed class to store validated Map payloads |
+| class | [IgnoreThenWithoutIf.IgnoreThenWithoutIf1](#ignorethenwithoutif1)<br> schema class |
 | sealed interface | [IgnoreThenWithoutIf.ThenBoxed](#thenboxed)<br> sealed interface for validated payloads |
-| record | [IgnoreThenWithoutIf.ThenBoxedVoid](#thenboxedvoid)<br> boxed class to store validated null payloads |
-| record | [IgnoreThenWithoutIf.ThenBoxedBoolean](#thenboxedboolean)<br> boxed class to store validated boolean payloads |
-| record | [IgnoreThenWithoutIf.ThenBoxedNumber](#thenboxednumber)<br> boxed class to store validated Number payloads |
-| record | [IgnoreThenWithoutIf.ThenBoxedString](#thenboxedstring)<br> boxed class to store validated String payloads |
-| record | [IgnoreThenWithoutIf.ThenBoxedList](#thenboxedlist)<br> boxed class to store validated List payloads |
-| record | [IgnoreThenWithoutIf.ThenBoxedMap](#thenboxedmap)<br> boxed class to store validated Map payloads |
-| static class | [IgnoreThenWithoutIf.Then](#then)<br> schema class |
+| data class | [IgnoreThenWithoutIf.ThenBoxedVoid](#thenboxedvoid)<br> boxed class to store validated null payloads |
+| data class | [IgnoreThenWithoutIf.ThenBoxedBoolean](#thenboxedboolean)<br> boxed class to store validated boolean payloads |
+| data class | [IgnoreThenWithoutIf.ThenBoxedNumber](#thenboxednumber)<br> boxed class to store validated Number payloads |
+| data class | [IgnoreThenWithoutIf.ThenBoxedString](#thenboxedstring)<br> boxed class to store validated String payloads |
+| data class | [IgnoreThenWithoutIf.ThenBoxedList](#thenboxedlist)<br> boxed class to store validated List payloads |
+| data class | [IgnoreThenWithoutIf.ThenBoxedMap](#thenboxedmap)<br> boxed class to store validated Map payloads |
+| class | [IgnoreThenWithoutIf.Then](#then)<br> schema class |
 | enum | [IgnoreThenWithoutIf.StringThenConst](#stringthenconst)<br>String enum |
 
 ## IgnoreThenWithoutIf1Boxed
@@ -62,7 +62,7 @@ data class that stores validated null payloads, sealed permits implementation
 data class IgnoreThenWithoutIf1BoxedBoolean<br>
 implements [IgnoreThenWithoutIf1Boxed](#ignorethenwithoutif1boxed)
 
-record that stores validated boolean payloads, sealed permits implementation
+data class that stores validated boolean payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
@@ -159,19 +159,19 @@ A schema class that validates payloads
 | ----------------- | ---------------------- |
 | String | validate(arg: String, configuration: SchemaConfiguration) |
 | Nothing? | validate(arg: Nothing?, configuration: SchemaConfiguration) |
-| int | validate(arg: int, configuration: SchemaConfiguration) |
-| long | validate(arg: long, configuration: SchemaConfiguration) |
-| float | validate(arg: float, configuration: SchemaConfiguration) |
-| double | validate(arg: double, configuration: SchemaConfiguration) |
+| Int | validate(arg: Int, configuration: SchemaConfiguration) |
+| Long | validate(arg: Long, configuration: SchemaConfiguration) |
+| Float | validate(arg: Float, configuration: SchemaConfiguration) |
+| Double | validate(arg: Double, configuration: SchemaConfiguration) |
 | Number | validate(arg: Number, configuration: SchemaConfiguration) |
-| boolean | validate(arg: boolean, configuration: SchemaConfiguration) |
-| FrozenMap<Any?> | validate(arg: Map&lt;?, ?&gt;, configuration: SchemaConfiguration) |
+| Boolean | validate(arg: Boolean, configuration: SchemaConfiguration) |
+| FrozenMap<Any?> | validate(arg: Map&lt;*, *&gt;, configuration: SchemaConfiguration) |
 | FrozenList<Any?> | validate(arg: List<*>, configuration: SchemaConfiguration) |
 | [IgnoreThenWithoutIf1BoxedString](#ignorethenwithoutif1boxedstring) | validateAndBox(String, configuration: SchemaConfiguration) |
 | [IgnoreThenWithoutIf1BoxedVoid](#ignorethenwithoutif1boxedvoid) | validateAndBox(Nothing?, configuration: SchemaConfiguration) |
 | [IgnoreThenWithoutIf1BoxedNumber](#ignorethenwithoutif1boxednumber) | validateAndBox(Number, configuration: SchemaConfiguration) |
-| [IgnoreThenWithoutIf1BoxedBoolean](#ignorethenwithoutif1boxedboolean) | validateAndBox(boolean, configuration: SchemaConfiguration) |
-| [IgnoreThenWithoutIf1BoxedMap](#ignorethenwithoutif1boxedmap) | validateAndBox(Map&lt;?, ?&gt;, configuration: SchemaConfiguration) |
+| [IgnoreThenWithoutIf1BoxedBoolean](#ignorethenwithoutif1boxedboolean) | validateAndBox(Boolean, configuration: SchemaConfiguration) |
+| [IgnoreThenWithoutIf1BoxedMap](#ignorethenwithoutif1boxedmap) | validateAndBox(Map&lt;*, *&gt;, configuration: SchemaConfiguration) |
 | [IgnoreThenWithoutIf1BoxedList](#ignorethenwithoutif1boxedlist) | validateAndBox(List<*>, configuration: SchemaConfiguration) |
 | [IgnoreThenWithoutIf1Boxed](#ignorethenwithoutif1boxed) | validateAndBox(Any?, configuration: SchemaConfiguration) |
 | Any? | validate(arg: Any?, configuration: SchemaConfiguration) |
@@ -209,7 +209,7 @@ data class that stores validated null payloads, sealed permits implementation
 data class ThenBoxedBoolean<br>
 implements [ThenBoxed](#thenboxed)
 
-record that stores validated boolean payloads, sealed permits implementation
+data class that stores validated boolean payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
@@ -306,19 +306,19 @@ A schema class that validates payloads
 | ----------------- | ---------------------- |
 | String | validate(arg: String, configuration: SchemaConfiguration) |
 | Nothing? | validate(arg: Nothing?, configuration: SchemaConfiguration) |
-| int | validate(arg: int, configuration: SchemaConfiguration) |
-| long | validate(arg: long, configuration: SchemaConfiguration) |
-| float | validate(arg: float, configuration: SchemaConfiguration) |
-| double | validate(arg: double, configuration: SchemaConfiguration) |
+| Int | validate(arg: Int, configuration: SchemaConfiguration) |
+| Long | validate(arg: Long, configuration: SchemaConfiguration) |
+| Float | validate(arg: Float, configuration: SchemaConfiguration) |
+| Double | validate(arg: Double, configuration: SchemaConfiguration) |
 | Number | validate(arg: Number, configuration: SchemaConfiguration) |
-| boolean | validate(arg: boolean, configuration: SchemaConfiguration) |
-| FrozenMap<Any?> | validate(arg: Map&lt;?, ?&gt;, configuration: SchemaConfiguration) |
+| Boolean | validate(arg: Boolean, configuration: SchemaConfiguration) |
+| FrozenMap<Any?> | validate(arg: Map&lt;*, *&gt;, configuration: SchemaConfiguration) |
 | FrozenList<Any?> | validate(arg: List<*>, configuration: SchemaConfiguration) |
 | [ThenBoxedString](#thenboxedstring) | validateAndBox(String, configuration: SchemaConfiguration) |
 | [ThenBoxedVoid](#thenboxedvoid) | validateAndBox(Nothing?, configuration: SchemaConfiguration) |
 | [ThenBoxedNumber](#thenboxednumber) | validateAndBox(Number, configuration: SchemaConfiguration) |
-| [ThenBoxedBoolean](#thenboxedboolean) | validateAndBox(boolean, configuration: SchemaConfiguration) |
-| [ThenBoxedMap](#thenboxedmap) | validateAndBox(Map&lt;?, ?&gt;, configuration: SchemaConfiguration) |
+| [ThenBoxedBoolean](#thenboxedboolean) | validateAndBox(Boolean, configuration: SchemaConfiguration) |
+| [ThenBoxedMap](#thenboxedmap) | validateAndBox(Map&lt;*, *&gt;, configuration: SchemaConfiguration) |
 | [ThenBoxedList](#thenboxedlist) | validateAndBox(List<*>, configuration: SchemaConfiguration) |
 | [ThenBoxed](#thenboxed) | validateAndBox(Any?, configuration: SchemaConfiguration) |
 | Any? | validate(arg: Any?, configuration: SchemaConfiguration) |

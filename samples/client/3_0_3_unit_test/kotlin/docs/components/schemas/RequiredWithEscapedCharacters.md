@@ -13,15 +13,15 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | sealed interface | [RequiredWithEscapedCharacters.RequiredWithEscapedCharacters1Boxed](#requiredwithescapedcharacters1boxed)<br> sealed interface for validated payloads |
-| record | [RequiredWithEscapedCharacters.RequiredWithEscapedCharacters1BoxedVoid](#requiredwithescapedcharacters1boxedvoid)<br> boxed class to store validated null payloads |
-| record | [RequiredWithEscapedCharacters.RequiredWithEscapedCharacters1BoxedBoolean](#requiredwithescapedcharacters1boxedboolean)<br> boxed class to store validated boolean payloads |
-| record | [RequiredWithEscapedCharacters.RequiredWithEscapedCharacters1BoxedNumber](#requiredwithescapedcharacters1boxednumber)<br> boxed class to store validated Number payloads |
-| record | [RequiredWithEscapedCharacters.RequiredWithEscapedCharacters1BoxedString](#requiredwithescapedcharacters1boxedstring)<br> boxed class to store validated String payloads |
-| record | [RequiredWithEscapedCharacters.RequiredWithEscapedCharacters1BoxedList](#requiredwithescapedcharacters1boxedlist)<br> boxed class to store validated List payloads |
-| record | [RequiredWithEscapedCharacters.RequiredWithEscapedCharacters1BoxedMap](#requiredwithescapedcharacters1boxedmap)<br> boxed class to store validated Map payloads |
-| static class | [RequiredWithEscapedCharacters.RequiredWithEscapedCharacters1](#requiredwithescapedcharacters1)<br> schema class |
-| static class | [RequiredWithEscapedCharacters.RequiredWithEscapedCharactersMapBuilder](#requiredwithescapedcharactersmapbuilder)<br> builder for Map payloads |
-| static class | [RequiredWithEscapedCharacters.RequiredWithEscapedCharactersMap](#requiredwithescapedcharactersmap)<br> output class for Map payloads |
+| data class | [RequiredWithEscapedCharacters.RequiredWithEscapedCharacters1BoxedVoid](#requiredwithescapedcharacters1boxedvoid)<br> boxed class to store validated null payloads |
+| data class | [RequiredWithEscapedCharacters.RequiredWithEscapedCharacters1BoxedBoolean](#requiredwithescapedcharacters1boxedboolean)<br> boxed class to store validated boolean payloads |
+| data class | [RequiredWithEscapedCharacters.RequiredWithEscapedCharacters1BoxedNumber](#requiredwithescapedcharacters1boxednumber)<br> boxed class to store validated Number payloads |
+| data class | [RequiredWithEscapedCharacters.RequiredWithEscapedCharacters1BoxedString](#requiredwithescapedcharacters1boxedstring)<br> boxed class to store validated String payloads |
+| data class | [RequiredWithEscapedCharacters.RequiredWithEscapedCharacters1BoxedList](#requiredwithescapedcharacters1boxedlist)<br> boxed class to store validated List payloads |
+| data class | [RequiredWithEscapedCharacters.RequiredWithEscapedCharacters1BoxedMap](#requiredwithescapedcharacters1boxedmap)<br> boxed class to store validated Map payloads |
+| class | [RequiredWithEscapedCharacters.RequiredWithEscapedCharacters1](#requiredwithescapedcharacters1)<br> schema class |
+| class | [RequiredWithEscapedCharacters.RequiredWithEscapedCharactersMapBuilder](#requiredwithescapedcharactersmapbuilder)<br> builder for Map payloads |
+| class | [RequiredWithEscapedCharacters.RequiredWithEscapedCharactersMap](#requiredwithescapedcharactersmap)<br> output class for Map payloads |
 
 ## RequiredWithEscapedCharacters1Boxed
 sealed interface RequiredWithEscapedCharacters1Boxed<br>
@@ -56,7 +56,7 @@ data class that stores validated null payloads, sealed permits implementation
 data class RequiredWithEscapedCharacters1BoxedBoolean<br>
 implements [RequiredWithEscapedCharacters1Boxed](#requiredwithescapedcharacters1boxed)
 
-record that stores validated boolean payloads, sealed permits implementation
+data class that stores validated boolean payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
@@ -153,19 +153,19 @@ A schema class that validates payloads
 | ----------------- | ---------------------- |
 | String | validate(arg: String, configuration: SchemaConfiguration) |
 | Nothing? | validate(arg: Nothing?, configuration: SchemaConfiguration) |
-| int | validate(arg: int, configuration: SchemaConfiguration) |
-| long | validate(arg: long, configuration: SchemaConfiguration) |
-| float | validate(arg: float, configuration: SchemaConfiguration) |
-| double | validate(arg: double, configuration: SchemaConfiguration) |
+| Int | validate(arg: Int, configuration: SchemaConfiguration) |
+| Long | validate(arg: Long, configuration: SchemaConfiguration) |
+| Float | validate(arg: Float, configuration: SchemaConfiguration) |
+| Double | validate(arg: Double, configuration: SchemaConfiguration) |
 | Number | validate(arg: Number, configuration: SchemaConfiguration) |
-| boolean | validate(arg: boolean, configuration: SchemaConfiguration) |
-| [RequiredWithEscapedCharactersMap](#requiredwithescapedcharactersmap) | validate(arg: [Map&lt;?, ?&gt;](#requiredwithescapedcharactersmapbuilder), configuration: SchemaConfiguration) |
+| Boolean | validate(arg: Boolean, configuration: SchemaConfiguration) |
+| [RequiredWithEscapedCharactersMap](#requiredwithescapedcharactersmap) | validate(arg: [Map&lt;*, *&gt;](#requiredwithescapedcharactersmapbuilder), configuration: SchemaConfiguration) |
 | FrozenList<Any?> | validate(arg: List<*>, configuration: SchemaConfiguration) |
 | [RequiredWithEscapedCharacters1BoxedString](#requiredwithescapedcharacters1boxedstring) | validateAndBox(String, configuration: SchemaConfiguration) |
 | [RequiredWithEscapedCharacters1BoxedVoid](#requiredwithescapedcharacters1boxedvoid) | validateAndBox(Nothing?, configuration: SchemaConfiguration) |
 | [RequiredWithEscapedCharacters1BoxedNumber](#requiredwithescapedcharacters1boxednumber) | validateAndBox(Number, configuration: SchemaConfiguration) |
-| [RequiredWithEscapedCharacters1BoxedBoolean](#requiredwithescapedcharacters1boxedboolean) | validateAndBox(boolean, configuration: SchemaConfiguration) |
-| [RequiredWithEscapedCharacters1BoxedMap](#requiredwithescapedcharacters1boxedmap) | validateAndBox([Map&lt;?, ?&gt;](#requiredwithescapedcharactersmapbuilder), configuration: SchemaConfiguration) |
+| [RequiredWithEscapedCharacters1BoxedBoolean](#requiredwithescapedcharacters1boxedboolean) | validateAndBox(Boolean, configuration: SchemaConfiguration) |
+| [RequiredWithEscapedCharacters1BoxedMap](#requiredwithescapedcharacters1boxedmap) | validateAndBox([Map&lt;*, *&gt;](#requiredwithescapedcharactersmapbuilder), configuration: SchemaConfiguration) |
 | [RequiredWithEscapedCharacters1BoxedList](#requiredwithescapedcharacters1boxedlist) | validateAndBox(List<*>, configuration: SchemaConfiguration) |
 | [RequiredWithEscapedCharacters1Boxed](#requiredwithescapedcharacters1boxed) | validateAndBox(Any?, configuration: SchemaConfiguration) |
 | Any? | validate(arg: Any?, configuration: SchemaConfiguration) |

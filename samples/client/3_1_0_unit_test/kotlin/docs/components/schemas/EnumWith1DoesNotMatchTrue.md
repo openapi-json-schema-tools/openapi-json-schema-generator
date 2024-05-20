@@ -12,8 +12,8 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | sealed interface | [EnumWith1DoesNotMatchTrue.EnumWith1DoesNotMatchTrue1Boxed](#enumwith1doesnotmatchtrue1boxed)<br> sealed interface for validated payloads |
-| record | [EnumWith1DoesNotMatchTrue.EnumWith1DoesNotMatchTrue1BoxedNumber](#enumwith1doesnotmatchtrue1boxednumber)<br> boxed class to store validated Number payloads |
-| static class | [EnumWith1DoesNotMatchTrue.EnumWith1DoesNotMatchTrue1](#enumwith1doesnotmatchtrue1)<br> schema class |
+| data class | [EnumWith1DoesNotMatchTrue.EnumWith1DoesNotMatchTrue1BoxedNumber](#enumwith1doesnotmatchtrue1boxednumber)<br> boxed class to store validated Number payloads |
+| class | [EnumWith1DoesNotMatchTrue.EnumWith1DoesNotMatchTrue1](#enumwith1doesnotmatchtrue1)<br> schema class |
 | enum | [EnumWith1DoesNotMatchTrue.IntegerEnumWith1DoesNotMatchTrueEnums](#integerenumwith1doesnotmatchtrueenums)<br>Integer enum |
 | enum | [EnumWith1DoesNotMatchTrue.LongEnumWith1DoesNotMatchTrueEnums](#longenumwith1doesnotmatchtrueenums)<br>Long enum |
 | enum | [EnumWith1DoesNotMatchTrue.FloatEnumWith1DoesNotMatchTrueEnums](#floatenumwith1doesnotmatchtrueenums)<br>Float enum |
@@ -51,25 +51,21 @@ A schema class that validates payloads
 
 ### Code Sample
 ```
-import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
-import org.openapijsonschematools.client.configurations.SchemaConfiguration;
-import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.schemas.validation.MapUtils;
-import org.openapijsonschematools.client.schemas.validation.FrozenList;
-import org.openapijsonschematools.client.schemas.validation.FrozenMap;
-import org.openapijsonschematools.client.components.schemas.EnumWith1DoesNotMatchTrue;
+import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags
+import org.openapijsonschematools.client.configurations.SchemaConfiguration
+import org.openapijsonschematools.client.exceptions.ValidationException
+import org.openapijsonschematools.client.schemas.validation.MapUtils
+import org.openapijsonschematools.client.schemas.validation.FrozenList
+import org.openapijsonschematools.client.schemas.validation.FrozenMap
+import org.openapijsonschematools.client.components.schemas.EnumWith1DoesNotMatchTrue
 
-import java.util.Arrays;
-import java.util.List;
-import java.util.AbstractMap;
-
-static final SchemaConfiguration configuration = new SchemaConfiguration(new JsonSchemaKeywordFlags.Builder().build());
+val configuration = SchemaConfiguration(JsonSchemaKeywordFlags.Builder().build())
 
 // int validation
-int validatedPayload = EnumWith1DoesNotMatchTrue.EnumWith1DoesNotMatchTrue1.validate(
+val validatedPayload: Int = EnumWith1DoesNotMatchTrue.EnumWith1DoesNotMatchTrue1.validate(
     1,
     configuration
-);
+)
 ```
 
 ### Field Summary
@@ -90,7 +86,7 @@ int validatedPayload = EnumWith1DoesNotMatchTrue.EnumWith1DoesNotMatchTrue1.vali
 public enum IntegerEnumWith1DoesNotMatchTrueEnums<br>
 extends `Enum<IntegerEnumWith1DoesNotMatchTrueEnums>`
 
-A class that stores Integer enum values
+A class that stores Int enum values
 
 ### Enum Constant Summary
 | Enum Constant | Description |

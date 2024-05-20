@@ -11,13 +11,13 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | sealed interface | [PatternValidation.PatternValidation1Boxed](#patternvalidation1boxed)<br> sealed interface for validated payloads |
-| record | [PatternValidation.PatternValidation1BoxedVoid](#patternvalidation1boxedvoid)<br> boxed class to store validated null payloads |
-| record | [PatternValidation.PatternValidation1BoxedBoolean](#patternvalidation1boxedboolean)<br> boxed class to store validated boolean payloads |
-| record | [PatternValidation.PatternValidation1BoxedNumber](#patternvalidation1boxednumber)<br> boxed class to store validated Number payloads |
-| record | [PatternValidation.PatternValidation1BoxedString](#patternvalidation1boxedstring)<br> boxed class to store validated String payloads |
-| record | [PatternValidation.PatternValidation1BoxedList](#patternvalidation1boxedlist)<br> boxed class to store validated List payloads |
-| record | [PatternValidation.PatternValidation1BoxedMap](#patternvalidation1boxedmap)<br> boxed class to store validated Map payloads |
-| static class | [PatternValidation.PatternValidation1](#patternvalidation1)<br> schema class |
+| data class | [PatternValidation.PatternValidation1BoxedVoid](#patternvalidation1boxedvoid)<br> boxed class to store validated null payloads |
+| data class | [PatternValidation.PatternValidation1BoxedBoolean](#patternvalidation1boxedboolean)<br> boxed class to store validated boolean payloads |
+| data class | [PatternValidation.PatternValidation1BoxedNumber](#patternvalidation1boxednumber)<br> boxed class to store validated Number payloads |
+| data class | [PatternValidation.PatternValidation1BoxedString](#patternvalidation1boxedstring)<br> boxed class to store validated String payloads |
+| data class | [PatternValidation.PatternValidation1BoxedList](#patternvalidation1boxedlist)<br> boxed class to store validated List payloads |
+| data class | [PatternValidation.PatternValidation1BoxedMap](#patternvalidation1boxedmap)<br> boxed class to store validated Map payloads |
+| class | [PatternValidation.PatternValidation1](#patternvalidation1)<br> schema class |
 
 ## PatternValidation1Boxed
 sealed interface PatternValidation1Boxed<br>
@@ -52,7 +52,7 @@ data class that stores validated null payloads, sealed permits implementation
 data class PatternValidation1BoxedBoolean<br>
 implements [PatternValidation1Boxed](#patternvalidation1boxed)
 
-record that stores validated boolean payloads, sealed permits implementation
+data class that stores validated boolean payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
@@ -149,19 +149,19 @@ A schema class that validates payloads
 | ----------------- | ---------------------- |
 | String | validate(arg: String, configuration: SchemaConfiguration) |
 | Nothing? | validate(arg: Nothing?, configuration: SchemaConfiguration) |
-| int | validate(arg: int, configuration: SchemaConfiguration) |
-| long | validate(arg: long, configuration: SchemaConfiguration) |
-| float | validate(arg: float, configuration: SchemaConfiguration) |
-| double | validate(arg: double, configuration: SchemaConfiguration) |
+| Int | validate(arg: Int, configuration: SchemaConfiguration) |
+| Long | validate(arg: Long, configuration: SchemaConfiguration) |
+| Float | validate(arg: Float, configuration: SchemaConfiguration) |
+| Double | validate(arg: Double, configuration: SchemaConfiguration) |
 | Number | validate(arg: Number, configuration: SchemaConfiguration) |
-| boolean | validate(arg: boolean, configuration: SchemaConfiguration) |
-| FrozenMap<Any?> | validate(arg: Map&lt;?, ?&gt;, configuration: SchemaConfiguration) |
+| Boolean | validate(arg: Boolean, configuration: SchemaConfiguration) |
+| FrozenMap<Any?> | validate(arg: Map&lt;*, *&gt;, configuration: SchemaConfiguration) |
 | FrozenList<Any?> | validate(arg: List<*>, configuration: SchemaConfiguration) |
 | [PatternValidation1BoxedString](#patternvalidation1boxedstring) | validateAndBox(String, configuration: SchemaConfiguration) |
 | [PatternValidation1BoxedVoid](#patternvalidation1boxedvoid) | validateAndBox(Nothing?, configuration: SchemaConfiguration) |
 | [PatternValidation1BoxedNumber](#patternvalidation1boxednumber) | validateAndBox(Number, configuration: SchemaConfiguration) |
-| [PatternValidation1BoxedBoolean](#patternvalidation1boxedboolean) | validateAndBox(boolean, configuration: SchemaConfiguration) |
-| [PatternValidation1BoxedMap](#patternvalidation1boxedmap) | validateAndBox(Map&lt;?, ?&gt;, configuration: SchemaConfiguration) |
+| [PatternValidation1BoxedBoolean](#patternvalidation1boxedboolean) | validateAndBox(Boolean, configuration: SchemaConfiguration) |
+| [PatternValidation1BoxedMap](#patternvalidation1boxedmap) | validateAndBox(Map&lt;*, *&gt;, configuration: SchemaConfiguration) |
 | [PatternValidation1BoxedList](#patternvalidation1boxedlist) | validateAndBox(List<*>, configuration: SchemaConfiguration) |
 | [PatternValidation1Boxed](#patternvalidation1boxed) | validateAndBox(Any?, configuration: SchemaConfiguration) |
 | Any? | validate(arg: Any?, configuration: SchemaConfiguration) |

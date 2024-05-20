@@ -2,63 +2,63 @@
 
 {{#eq @key "null"}}
 // null validation
-Nothing? {{../payloadVarName}} = {{../../../containerJsonPathPiece.pascalCase}}.{{../jsonPathPiece.pascalCase}}.validate(
+val {{../payloadVarName}}: Nothing? = {{../../../containerJsonPathPiece.pascalCase}}.{{../jsonPathPiece.pascalCase}}.validate(
 {{else}}
     {{#eq @key "object"}}
         {{#if ../mapOutputJsonPathPiece}}
 // Map validation
-{{../../../containerJsonPathPiece.pascalCase}}.{{../mapOutputJsonPathPiece.pascalCase}} {{../payloadVarName}} =
+val {{../payloadVarName}}: {{../../../containerJsonPathPiece.pascalCase}}.{{../mapOutputJsonPathPiece.pascalCase}} =
     {{../../../containerJsonPathPiece.pascalCase}}.{{../jsonPathPiece.pascalCase}}.validate(
         {{else}}
 // Map validation
-FrozenMap<String, Any> {{../payloadVarName}} = {{../../../containerJsonPathPiece.pascalCase}}.{{../jsonPathPiece.pascalCase}}.validate(
+val {{../payloadVarName}}: FrozenMap<String, Any?> = {{../../../containerJsonPathPiece.pascalCase}}.{{../jsonPathPiece.pascalCase}}.validate(
         {{/if}}
     {{else}}
         {{#eq @key "array"}}
             {{#if ../arrayOutputJsonPathPiece}}
 // List validation
-{{../../../containerJsonPathPiece.pascalCase}}.{{../arrayOutputJsonPathPiece.pascalCase}} {{../payloadVarName}} =
+val {{../payloadVarName}}: {{../../../containerJsonPathPiece.pascalCase}}.{{../arrayOutputJsonPathPiece.pascalCase}} =
     {{../../../containerJsonPathPiece.pascalCase}}.{{../jsonPathPiece.pascalCase}}.validate(
             {{else}}
 // List validation
-FrozenList<Any> {{../payloadVarName}} = {{../../../containerJsonPathPiece.pascalCase}}.{{../jsonPathPiece.pascalCase}}.validate(
+val {{../payloadVarName}}: FrozenList<Any?> = {{../../../containerJsonPathPiece.pascalCase}}.{{../jsonPathPiece.pascalCase}}.validate(
             {{/if}}
         {{else}}
             {{#eq @key "string" }}
 // String validation
-String {{../payloadVarName}} = {{../../../containerJsonPathPiece.pascalCase}}.{{../jsonPathPiece.pascalCase}}.validate(
+val {{../payloadVarName}}: String = {{../../../containerJsonPathPiece.pascalCase}}.{{../jsonPathPiece.pascalCase}}.validate(
             {{else}}
                 {{#eq @key "integer"}}
                     {{#or (eq ../format null) (eq ../format "int64") }}
 // long validation
-long {{../payloadVarName}} = {{../../../containerJsonPathPiece.pascalCase}}.{{../jsonPathPiece.pascalCase}}.validate(
+val {{../payloadVarName}}: Long = {{../../../containerJsonPathPiece.pascalCase}}.{{../jsonPathPiece.pascalCase}}.validate(
                     {{else}}
 // int validation
-int {{../payloadVarName}} = {{../../../containerJsonPathPiece.pascalCase}}.{{../jsonPathPiece.pascalCase}}.validate(
+val {{../payloadVarName}}: Int = {{../../../containerJsonPathPiece.pascalCase}}.{{../jsonPathPiece.pascalCase}}.validate(
                     {{/or}}
                 {{else}}
                     {{#eq @key "number"}}
                         {{#eq ../format "int64"}}
 // long validation
-long {{../payloadVarName}} = {{../../../containerJsonPathPiece.pascalCase}}.{{../jsonPathPiece.pascalCase}}.validate(
+val {{../payloadVarName}}: Long = {{../../../containerJsonPathPiece.pascalCase}}.{{../jsonPathPiece.pascalCase}}.validate(
                         {{else}}
                             {{#eq ../format "float"}}
 // float validation
-float {{../payloadVarName}} = {{../../../containerJsonPathPiece.pascalCase}}.{{../jsonPathPiece.pascalCase}}.validate(
+val {{../payloadVarName}}: Float = {{../../../containerJsonPathPiece.pascalCase}}.{{../jsonPathPiece.pascalCase}}.validate(
                             {{else}}
                                 {{#eq ../format "double"}}
 // double validation
-double {{../payloadVarName}} = {{../../../containerJsonPathPiece.pascalCase}}.{{../jsonPathPiece.pascalCase}}.validate(
+val {{../payloadVarName}}: Double = {{../../../containerJsonPathPiece.pascalCase}}.{{../jsonPathPiece.pascalCase}}.validate(
                                 {{else}}
 // int validation
-int {{../payloadVarName}} = {{../../../containerJsonPathPiece.pascalCase}}.{{../jsonPathPiece.pascalCase}}.validate(
+val {{../payloadVarName}}: Int = {{../../../containerJsonPathPiece.pascalCase}}.{{../jsonPathPiece.pascalCase}}.validate(
                                 {{/eq}}
                             {{/eq}}
                         {{/eq}}
                     {{else}}
                         {{#eq @key "boolean"}}
 // boolean validation
-boolean {{../payloadVarName}} = {{../../../containerJsonPathPiece.pascalCase}}.{{../jsonPathPiece.pascalCase}}.validate(
+val {{../payloadVarName}}: Boolean = {{../../../containerJsonPathPiece.pascalCase}}.{{../jsonPathPiece.pascalCase}}.validate(
                         {{/eq}}
                     {{/eq}}
                 {{/eq}}
@@ -68,12 +68,12 @@ boolean {{../payloadVarName}} = {{../../../containerJsonPathPiece.pascalCase}}.{
 {{/eq}}
             {{#with this}}
                 {{#and (eq type "array") ../arrayInputJsonPathPiece.pascalCase }}
-    new {{../../../containerJsonPathPiece.pascalCase}}.{{../arrayInputJsonPathPiece.pascalCase}}()
+    {{../../../containerJsonPathPiece.pascalCase}}.{{../arrayInputJsonPathPiece.pascalCase}}()
         {{> src/main/kotlin/packagename/components/schemas/helpers/payload_renderer endChar="" constructor=true }}
     .build(),
                 {{else}}
                     {{#and (eq type "object") ../mapInputJsonPathPiece.pascalCase }}
-    new {{../../../containerJsonPathPiece.pascalCase}}.{{../mapInputJsonPathPiece.pascalCase}}()
+    {{../../../containerJsonPathPiece.pascalCase}}.{{../mapInputJsonPathPiece.pascalCase}}()
         {{> src/main/kotlin/packagename/components/schemas/helpers/payload_renderer endChar="" constructor=true optionalProperties=../optionalProperties requiredProperties=../requiredProperties }}
     .build(),
                     {{else}}
@@ -82,5 +82,5 @@ boolean {{../payloadVarName}} = {{../../../containerJsonPathPiece.pascalCase}}.{
                 {{/and}}
             {{/with}}
     {{../configVarName}}
-);
+)
         {{/each}}

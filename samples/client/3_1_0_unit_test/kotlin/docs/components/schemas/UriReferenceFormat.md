@@ -11,13 +11,13 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | sealed interface | [UriReferenceFormat.UriReferenceFormat1Boxed](#urireferenceformat1boxed)<br> sealed interface for validated payloads |
-| record | [UriReferenceFormat.UriReferenceFormat1BoxedVoid](#urireferenceformat1boxedvoid)<br> boxed class to store validated null payloads |
-| record | [UriReferenceFormat.UriReferenceFormat1BoxedBoolean](#urireferenceformat1boxedboolean)<br> boxed class to store validated boolean payloads |
-| record | [UriReferenceFormat.UriReferenceFormat1BoxedNumber](#urireferenceformat1boxednumber)<br> boxed class to store validated Number payloads |
-| record | [UriReferenceFormat.UriReferenceFormat1BoxedString](#urireferenceformat1boxedstring)<br> boxed class to store validated String payloads |
-| record | [UriReferenceFormat.UriReferenceFormat1BoxedList](#urireferenceformat1boxedlist)<br> boxed class to store validated List payloads |
-| record | [UriReferenceFormat.UriReferenceFormat1BoxedMap](#urireferenceformat1boxedmap)<br> boxed class to store validated Map payloads |
-| static class | [UriReferenceFormat.UriReferenceFormat1](#urireferenceformat1)<br> schema class |
+| data class | [UriReferenceFormat.UriReferenceFormat1BoxedVoid](#urireferenceformat1boxedvoid)<br> boxed class to store validated null payloads |
+| data class | [UriReferenceFormat.UriReferenceFormat1BoxedBoolean](#urireferenceformat1boxedboolean)<br> boxed class to store validated boolean payloads |
+| data class | [UriReferenceFormat.UriReferenceFormat1BoxedNumber](#urireferenceformat1boxednumber)<br> boxed class to store validated Number payloads |
+| data class | [UriReferenceFormat.UriReferenceFormat1BoxedString](#urireferenceformat1boxedstring)<br> boxed class to store validated String payloads |
+| data class | [UriReferenceFormat.UriReferenceFormat1BoxedList](#urireferenceformat1boxedlist)<br> boxed class to store validated List payloads |
+| data class | [UriReferenceFormat.UriReferenceFormat1BoxedMap](#urireferenceformat1boxedmap)<br> boxed class to store validated Map payloads |
+| class | [UriReferenceFormat.UriReferenceFormat1](#urireferenceformat1)<br> schema class |
 
 ## UriReferenceFormat1Boxed
 sealed interface UriReferenceFormat1Boxed<br>
@@ -52,7 +52,7 @@ data class that stores validated null payloads, sealed permits implementation
 data class UriReferenceFormat1BoxedBoolean<br>
 implements [UriReferenceFormat1Boxed](#urireferenceformat1boxed)
 
-record that stores validated boolean payloads, sealed permits implementation
+data class that stores validated boolean payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
@@ -149,19 +149,19 @@ A schema class that validates payloads
 | ----------------- | ---------------------- |
 | String | validate(arg: String, configuration: SchemaConfiguration) |
 | Nothing? | validate(arg: Nothing?, configuration: SchemaConfiguration) |
-| int | validate(arg: int, configuration: SchemaConfiguration) |
-| long | validate(arg: long, configuration: SchemaConfiguration) |
-| float | validate(arg: float, configuration: SchemaConfiguration) |
-| double | validate(arg: double, configuration: SchemaConfiguration) |
+| Int | validate(arg: Int, configuration: SchemaConfiguration) |
+| Long | validate(arg: Long, configuration: SchemaConfiguration) |
+| Float | validate(arg: Float, configuration: SchemaConfiguration) |
+| Double | validate(arg: Double, configuration: SchemaConfiguration) |
 | Number | validate(arg: Number, configuration: SchemaConfiguration) |
-| boolean | validate(arg: boolean, configuration: SchemaConfiguration) |
-| FrozenMap<Any?> | validate(arg: Map&lt;?, ?&gt;, configuration: SchemaConfiguration) |
+| Boolean | validate(arg: Boolean, configuration: SchemaConfiguration) |
+| FrozenMap<Any?> | validate(arg: Map&lt;*, *&gt;, configuration: SchemaConfiguration) |
 | FrozenList<Any?> | validate(arg: List<*>, configuration: SchemaConfiguration) |
 | [UriReferenceFormat1BoxedString](#urireferenceformat1boxedstring) | validateAndBox(String, configuration: SchemaConfiguration) |
 | [UriReferenceFormat1BoxedVoid](#urireferenceformat1boxedvoid) | validateAndBox(Nothing?, configuration: SchemaConfiguration) |
 | [UriReferenceFormat1BoxedNumber](#urireferenceformat1boxednumber) | validateAndBox(Number, configuration: SchemaConfiguration) |
-| [UriReferenceFormat1BoxedBoolean](#urireferenceformat1boxedboolean) | validateAndBox(boolean, configuration: SchemaConfiguration) |
-| [UriReferenceFormat1BoxedMap](#urireferenceformat1boxedmap) | validateAndBox(Map&lt;?, ?&gt;, configuration: SchemaConfiguration) |
+| [UriReferenceFormat1BoxedBoolean](#urireferenceformat1boxedboolean) | validateAndBox(Boolean, configuration: SchemaConfiguration) |
+| [UriReferenceFormat1BoxedMap](#urireferenceformat1boxedmap) | validateAndBox(Map&lt;*, *&gt;, configuration: SchemaConfiguration) |
 | [UriReferenceFormat1BoxedList](#urireferenceformat1boxedlist) | validateAndBox(List<*>, configuration: SchemaConfiguration) |
 | [UriReferenceFormat1Boxed](#urireferenceformat1boxed) | validateAndBox(Any?, configuration: SchemaConfiguration) |
 | Any? | validate(arg: Any?, configuration: SchemaConfiguration) |

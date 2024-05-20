@@ -11,21 +11,21 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | sealed interface | [ContainsKeywordValidation.ContainsKeywordValidation1Boxed](#containskeywordvalidation1boxed)<br> sealed interface for validated payloads |
-| record | [ContainsKeywordValidation.ContainsKeywordValidation1BoxedVoid](#containskeywordvalidation1boxedvoid)<br> boxed class to store validated null payloads |
-| record | [ContainsKeywordValidation.ContainsKeywordValidation1BoxedBoolean](#containskeywordvalidation1boxedboolean)<br> boxed class to store validated boolean payloads |
-| record | [ContainsKeywordValidation.ContainsKeywordValidation1BoxedNumber](#containskeywordvalidation1boxednumber)<br> boxed class to store validated Number payloads |
-| record | [ContainsKeywordValidation.ContainsKeywordValidation1BoxedString](#containskeywordvalidation1boxedstring)<br> boxed class to store validated String payloads |
-| record | [ContainsKeywordValidation.ContainsKeywordValidation1BoxedList](#containskeywordvalidation1boxedlist)<br> boxed class to store validated List payloads |
-| record | [ContainsKeywordValidation.ContainsKeywordValidation1BoxedMap](#containskeywordvalidation1boxedmap)<br> boxed class to store validated Map payloads |
-| static class | [ContainsKeywordValidation.ContainsKeywordValidation1](#containskeywordvalidation1)<br> schema class |
+| data class | [ContainsKeywordValidation.ContainsKeywordValidation1BoxedVoid](#containskeywordvalidation1boxedvoid)<br> boxed class to store validated null payloads |
+| data class | [ContainsKeywordValidation.ContainsKeywordValidation1BoxedBoolean](#containskeywordvalidation1boxedboolean)<br> boxed class to store validated boolean payloads |
+| data class | [ContainsKeywordValidation.ContainsKeywordValidation1BoxedNumber](#containskeywordvalidation1boxednumber)<br> boxed class to store validated Number payloads |
+| data class | [ContainsKeywordValidation.ContainsKeywordValidation1BoxedString](#containskeywordvalidation1boxedstring)<br> boxed class to store validated String payloads |
+| data class | [ContainsKeywordValidation.ContainsKeywordValidation1BoxedList](#containskeywordvalidation1boxedlist)<br> boxed class to store validated List payloads |
+| data class | [ContainsKeywordValidation.ContainsKeywordValidation1BoxedMap](#containskeywordvalidation1boxedmap)<br> boxed class to store validated Map payloads |
+| class | [ContainsKeywordValidation.ContainsKeywordValidation1](#containskeywordvalidation1)<br> schema class |
 | sealed interface | [ContainsKeywordValidation.ContainsBoxed](#containsboxed)<br> sealed interface for validated payloads |
-| record | [ContainsKeywordValidation.ContainsBoxedVoid](#containsboxedvoid)<br> boxed class to store validated null payloads |
-| record | [ContainsKeywordValidation.ContainsBoxedBoolean](#containsboxedboolean)<br> boxed class to store validated boolean payloads |
-| record | [ContainsKeywordValidation.ContainsBoxedNumber](#containsboxednumber)<br> boxed class to store validated Number payloads |
-| record | [ContainsKeywordValidation.ContainsBoxedString](#containsboxedstring)<br> boxed class to store validated String payloads |
-| record | [ContainsKeywordValidation.ContainsBoxedList](#containsboxedlist)<br> boxed class to store validated List payloads |
-| record | [ContainsKeywordValidation.ContainsBoxedMap](#containsboxedmap)<br> boxed class to store validated Map payloads |
-| static class | [ContainsKeywordValidation.Contains](#contains)<br> schema class |
+| data class | [ContainsKeywordValidation.ContainsBoxedVoid](#containsboxedvoid)<br> boxed class to store validated null payloads |
+| data class | [ContainsKeywordValidation.ContainsBoxedBoolean](#containsboxedboolean)<br> boxed class to store validated boolean payloads |
+| data class | [ContainsKeywordValidation.ContainsBoxedNumber](#containsboxednumber)<br> boxed class to store validated Number payloads |
+| data class | [ContainsKeywordValidation.ContainsBoxedString](#containsboxedstring)<br> boxed class to store validated String payloads |
+| data class | [ContainsKeywordValidation.ContainsBoxedList](#containsboxedlist)<br> boxed class to store validated List payloads |
+| data class | [ContainsKeywordValidation.ContainsBoxedMap](#containsboxedmap)<br> boxed class to store validated Map payloads |
+| class | [ContainsKeywordValidation.Contains](#contains)<br> schema class |
 
 ## ContainsKeywordValidation1Boxed
 sealed interface ContainsKeywordValidation1Boxed<br>
@@ -60,7 +60,7 @@ data class that stores validated null payloads, sealed permits implementation
 data class ContainsKeywordValidation1BoxedBoolean<br>
 implements [ContainsKeywordValidation1Boxed](#containskeywordvalidation1boxed)
 
-record that stores validated boolean payloads, sealed permits implementation
+data class that stores validated boolean payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
@@ -157,19 +157,19 @@ A schema class that validates payloads
 | ----------------- | ---------------------- |
 | String | validate(arg: String, configuration: SchemaConfiguration) |
 | Nothing? | validate(arg: Nothing?, configuration: SchemaConfiguration) |
-| int | validate(arg: int, configuration: SchemaConfiguration) |
-| long | validate(arg: long, configuration: SchemaConfiguration) |
-| float | validate(arg: float, configuration: SchemaConfiguration) |
-| double | validate(arg: double, configuration: SchemaConfiguration) |
+| Int | validate(arg: Int, configuration: SchemaConfiguration) |
+| Long | validate(arg: Long, configuration: SchemaConfiguration) |
+| Float | validate(arg: Float, configuration: SchemaConfiguration) |
+| Double | validate(arg: Double, configuration: SchemaConfiguration) |
 | Number | validate(arg: Number, configuration: SchemaConfiguration) |
-| boolean | validate(arg: boolean, configuration: SchemaConfiguration) |
-| FrozenMap<Any?> | validate(arg: Map&lt;?, ?&gt;, configuration: SchemaConfiguration) |
+| Boolean | validate(arg: Boolean, configuration: SchemaConfiguration) |
+| FrozenMap<Any?> | validate(arg: Map&lt;*, *&gt;, configuration: SchemaConfiguration) |
 | FrozenList<Any?> | validate(arg: List<*>, configuration: SchemaConfiguration) |
 | [ContainsKeywordValidation1BoxedString](#containskeywordvalidation1boxedstring) | validateAndBox(String, configuration: SchemaConfiguration) |
 | [ContainsKeywordValidation1BoxedVoid](#containskeywordvalidation1boxedvoid) | validateAndBox(Nothing?, configuration: SchemaConfiguration) |
 | [ContainsKeywordValidation1BoxedNumber](#containskeywordvalidation1boxednumber) | validateAndBox(Number, configuration: SchemaConfiguration) |
-| [ContainsKeywordValidation1BoxedBoolean](#containskeywordvalidation1boxedboolean) | validateAndBox(boolean, configuration: SchemaConfiguration) |
-| [ContainsKeywordValidation1BoxedMap](#containskeywordvalidation1boxedmap) | validateAndBox(Map&lt;?, ?&gt;, configuration: SchemaConfiguration) |
+| [ContainsKeywordValidation1BoxedBoolean](#containskeywordvalidation1boxedboolean) | validateAndBox(Boolean, configuration: SchemaConfiguration) |
+| [ContainsKeywordValidation1BoxedMap](#containskeywordvalidation1boxedmap) | validateAndBox(Map&lt;*, *&gt;, configuration: SchemaConfiguration) |
 | [ContainsKeywordValidation1BoxedList](#containskeywordvalidation1boxedlist) | validateAndBox(List<*>, configuration: SchemaConfiguration) |
 | [ContainsKeywordValidation1Boxed](#containskeywordvalidation1boxed) | validateAndBox(Any?, configuration: SchemaConfiguration) |
 | Any? | validate(arg: Any?, configuration: SchemaConfiguration) |
@@ -207,7 +207,7 @@ data class that stores validated null payloads, sealed permits implementation
 data class ContainsBoxedBoolean<br>
 implements [ContainsBoxed](#containsboxed)
 
-record that stores validated boolean payloads, sealed permits implementation
+data class that stores validated boolean payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
@@ -304,19 +304,19 @@ A schema class that validates payloads
 | ----------------- | ---------------------- |
 | String | validate(arg: String, configuration: SchemaConfiguration) |
 | Nothing? | validate(arg: Nothing?, configuration: SchemaConfiguration) |
-| int | validate(arg: int, configuration: SchemaConfiguration) |
-| long | validate(arg: long, configuration: SchemaConfiguration) |
-| float | validate(arg: float, configuration: SchemaConfiguration) |
-| double | validate(arg: double, configuration: SchemaConfiguration) |
+| Int | validate(arg: Int, configuration: SchemaConfiguration) |
+| Long | validate(arg: Long, configuration: SchemaConfiguration) |
+| Float | validate(arg: Float, configuration: SchemaConfiguration) |
+| Double | validate(arg: Double, configuration: SchemaConfiguration) |
 | Number | validate(arg: Number, configuration: SchemaConfiguration) |
-| boolean | validate(arg: boolean, configuration: SchemaConfiguration) |
-| FrozenMap<Any?> | validate(arg: Map&lt;?, ?&gt;, configuration: SchemaConfiguration) |
+| Boolean | validate(arg: Boolean, configuration: SchemaConfiguration) |
+| FrozenMap<Any?> | validate(arg: Map&lt;*, *&gt;, configuration: SchemaConfiguration) |
 | FrozenList<Any?> | validate(arg: List<*>, configuration: SchemaConfiguration) |
 | [ContainsBoxedString](#containsboxedstring) | validateAndBox(String, configuration: SchemaConfiguration) |
 | [ContainsBoxedVoid](#containsboxedvoid) | validateAndBox(Nothing?, configuration: SchemaConfiguration) |
 | [ContainsBoxedNumber](#containsboxednumber) | validateAndBox(Number, configuration: SchemaConfiguration) |
-| [ContainsBoxedBoolean](#containsboxedboolean) | validateAndBox(boolean, configuration: SchemaConfiguration) |
-| [ContainsBoxedMap](#containsboxedmap) | validateAndBox(Map&lt;?, ?&gt;, configuration: SchemaConfiguration) |
+| [ContainsBoxedBoolean](#containsboxedboolean) | validateAndBox(Boolean, configuration: SchemaConfiguration) |
+| [ContainsBoxedMap](#containsboxedmap) | validateAndBox(Map&lt;*, *&gt;, configuration: SchemaConfiguration) |
 | [ContainsBoxedList](#containsboxedlist) | validateAndBox(List<*>, configuration: SchemaConfiguration) |
 | [ContainsBoxed](#containsboxed) | validateAndBox(Any?, configuration: SchemaConfiguration) |
 | Any? | validate(arg: Any?, configuration: SchemaConfiguration) |

@@ -11,8 +11,8 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | sealed interface | [BooleanTypeMatchesBooleans.BooleanTypeMatchesBooleans1Boxed](#booleantypematchesbooleans1boxed)<br> sealed interface for validated payloads |
-| record | [BooleanTypeMatchesBooleans.BooleanTypeMatchesBooleans1BoxedBoolean](#booleantypematchesbooleans1boxedboolean)<br> boxed class to store validated boolean payloads |
-| static class | [BooleanTypeMatchesBooleans.BooleanTypeMatchesBooleans1](#booleantypematchesbooleans1)<br> schema class |
+| data class | [BooleanTypeMatchesBooleans.BooleanTypeMatchesBooleans1BoxedBoolean](#booleantypematchesbooleans1boxedboolean)<br> boxed class to store validated boolean payloads |
+| class | [BooleanTypeMatchesBooleans.BooleanTypeMatchesBooleans1](#booleantypematchesbooleans1)<br> schema class |
 
 ## BooleanTypeMatchesBooleans1Boxed
 sealed interface BooleanTypeMatchesBooleans1Boxed<br>
@@ -25,7 +25,7 @@ sealed interface that stores validated payloads using boxed classes
 data class BooleanTypeMatchesBooleans1BoxedBoolean<br>
 implements [BooleanTypeMatchesBooleans1Boxed](#booleantypematchesbooleans1boxed)
 
-record that stores validated boolean payloads, sealed permits implementation
+data class that stores validated boolean payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |

@@ -13,18 +13,18 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | sealed interface | [ItemsDoesNotLookInApplicatorsValidCase.ItemsDoesNotLookInApplicatorsValidCase1Boxed](#itemsdoesnotlookinapplicatorsvalidcase1boxed)<br> sealed interface for validated payloads |
-| record | [ItemsDoesNotLookInApplicatorsValidCase.ItemsDoesNotLookInApplicatorsValidCase1BoxedList](#itemsdoesnotlookinapplicatorsvalidcase1boxedlist)<br> boxed class to store validated List payloads |
-| static class | [ItemsDoesNotLookInApplicatorsValidCase.ItemsDoesNotLookInApplicatorsValidCase1](#itemsdoesnotlookinapplicatorsvalidcase1)<br> schema class |
-| static class | [ItemsDoesNotLookInApplicatorsValidCase.ItemsDoesNotLookInApplicatorsValidCaseListBuilder](#itemsdoesnotlookinapplicatorsvalidcaselistbuilder)<br> builder for List payloads |
-| static class | [ItemsDoesNotLookInApplicatorsValidCase.ItemsDoesNotLookInApplicatorsValidCaseList](#itemsdoesnotlookinapplicatorsvalidcaselist)<br> output class for List payloads |
+| data class | [ItemsDoesNotLookInApplicatorsValidCase.ItemsDoesNotLookInApplicatorsValidCase1BoxedList](#itemsdoesnotlookinapplicatorsvalidcase1boxedlist)<br> boxed class to store validated List payloads |
+| class | [ItemsDoesNotLookInApplicatorsValidCase.ItemsDoesNotLookInApplicatorsValidCase1](#itemsdoesnotlookinapplicatorsvalidcase1)<br> schema class |
+| class | [ItemsDoesNotLookInApplicatorsValidCase.ItemsDoesNotLookInApplicatorsValidCaseListBuilder](#itemsdoesnotlookinapplicatorsvalidcaselistbuilder)<br> builder for List payloads |
+| class | [ItemsDoesNotLookInApplicatorsValidCase.ItemsDoesNotLookInApplicatorsValidCaseList](#itemsdoesnotlookinapplicatorsvalidcaselist)<br> output class for List payloads |
 | sealed interface | [ItemsDoesNotLookInApplicatorsValidCase.ItemsBoxed](#itemsboxed)<br> sealed interface for validated payloads |
-| record | [ItemsDoesNotLookInApplicatorsValidCase.ItemsBoxedVoid](#itemsboxedvoid)<br> boxed class to store validated null payloads |
-| record | [ItemsDoesNotLookInApplicatorsValidCase.ItemsBoxedBoolean](#itemsboxedboolean)<br> boxed class to store validated boolean payloads |
-| record | [ItemsDoesNotLookInApplicatorsValidCase.ItemsBoxedNumber](#itemsboxednumber)<br> boxed class to store validated Number payloads |
-| record | [ItemsDoesNotLookInApplicatorsValidCase.ItemsBoxedString](#itemsboxedstring)<br> boxed class to store validated String payloads |
-| record | [ItemsDoesNotLookInApplicatorsValidCase.ItemsBoxedList](#itemsboxedlist)<br> boxed class to store validated List payloads |
-| record | [ItemsDoesNotLookInApplicatorsValidCase.ItemsBoxedMap](#itemsboxedmap)<br> boxed class to store validated Map payloads |
-| static class | [ItemsDoesNotLookInApplicatorsValidCase.Items](#items)<br> schema class |
+| data class | [ItemsDoesNotLookInApplicatorsValidCase.ItemsBoxedVoid](#itemsboxedvoid)<br> boxed class to store validated null payloads |
+| data class | [ItemsDoesNotLookInApplicatorsValidCase.ItemsBoxedBoolean](#itemsboxedboolean)<br> boxed class to store validated boolean payloads |
+| data class | [ItemsDoesNotLookInApplicatorsValidCase.ItemsBoxedNumber](#itemsboxednumber)<br> boxed class to store validated Number payloads |
+| data class | [ItemsDoesNotLookInApplicatorsValidCase.ItemsBoxedString](#itemsboxedstring)<br> boxed class to store validated String payloads |
+| data class | [ItemsDoesNotLookInApplicatorsValidCase.ItemsBoxedList](#itemsboxedlist)<br> boxed class to store validated List payloads |
+| data class | [ItemsDoesNotLookInApplicatorsValidCase.ItemsBoxedMap](#itemsboxedmap)<br> boxed class to store validated Map payloads |
+| class | [ItemsDoesNotLookInApplicatorsValidCase.Items](#items)<br> schema class |
 
 ## ItemsDoesNotLookInApplicatorsValidCase1Boxed
 sealed interface ItemsDoesNotLookInApplicatorsValidCase1Boxed<br>
@@ -58,27 +58,23 @@ A schema class that validates payloads
 
 ### Code Sample
 ```
-import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
-import org.openapijsonschematools.client.configurations.SchemaConfiguration;
-import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.schemas.validation.MapUtils;
-import org.openapijsonschematools.client.schemas.validation.FrozenList;
-import org.openapijsonschematools.client.schemas.validation.FrozenMap;
-import org.openapijsonschematools.client.components.schemas.ItemsDoesNotLookInApplicatorsValidCase;
+import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags
+import org.openapijsonschematools.client.configurations.SchemaConfiguration
+import org.openapijsonschematools.client.exceptions.ValidationException
+import org.openapijsonschematools.client.schemas.validation.MapUtils
+import org.openapijsonschematools.client.schemas.validation.FrozenList
+import org.openapijsonschematools.client.schemas.validation.FrozenMap
+import org.openapijsonschematools.client.components.schemas.ItemsDoesNotLookInApplicatorsValidCase
 
-import java.util.Arrays;
-import java.util.List;
-import java.util.AbstractMap;
-
-static final SchemaConfiguration configuration = new SchemaConfiguration(new JsonSchemaKeywordFlags.Builder().build());
+val configuration = SchemaConfiguration(JsonSchemaKeywordFlags.Builder().build())
 
 // List validation
-ItemsDoesNotLookInApplicatorsValidCase.ItemsDoesNotLookInApplicatorsValidCaseList validatedPayload =
+val validatedPayload: ItemsDoesNotLookInApplicatorsValidCase.ItemsDoesNotLookInApplicatorsValidCaseList =
     ItemsDoesNotLookInApplicatorsValidCase.ItemsDoesNotLookInApplicatorsValidCase1.validate(
-    new ItemsDoesNotLookInApplicatorsValidCase.ItemsDoesNotLookInApplicatorsValidCaseListBuilder()
+    ItemsDoesNotLookInApplicatorsValidCase.ItemsDoesNotLookInApplicatorsValidCaseListBuilder()
     .build(),
     configuration
-);
+)
 ```
 
 ### Field Summary
@@ -165,7 +161,7 @@ data class that stores validated null payloads, sealed permits implementation
 data class ItemsBoxedBoolean<br>
 implements [ItemsBoxed](#itemsboxed)
 
-record that stores validated boolean payloads, sealed permits implementation
+data class that stores validated boolean payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
@@ -262,19 +258,19 @@ A schema class that validates payloads
 | ----------------- | ---------------------- |
 | String | validate(arg: String, configuration: SchemaConfiguration) |
 | Nothing? | validate(arg: Nothing?, configuration: SchemaConfiguration) |
-| int | validate(arg: int, configuration: SchemaConfiguration) |
-| long | validate(arg: long, configuration: SchemaConfiguration) |
-| float | validate(arg: float, configuration: SchemaConfiguration) |
-| double | validate(arg: double, configuration: SchemaConfiguration) |
+| Int | validate(arg: Int, configuration: SchemaConfiguration) |
+| Long | validate(arg: Long, configuration: SchemaConfiguration) |
+| Float | validate(arg: Float, configuration: SchemaConfiguration) |
+| Double | validate(arg: Double, configuration: SchemaConfiguration) |
 | Number | validate(arg: Number, configuration: SchemaConfiguration) |
-| boolean | validate(arg: boolean, configuration: SchemaConfiguration) |
-| FrozenMap<Any?> | validate(arg: Map&lt;?, ?&gt;, configuration: SchemaConfiguration) |
+| Boolean | validate(arg: Boolean, configuration: SchemaConfiguration) |
+| FrozenMap<Any?> | validate(arg: Map&lt;*, *&gt;, configuration: SchemaConfiguration) |
 | FrozenList<Any?> | validate(arg: List<*>, configuration: SchemaConfiguration) |
 | [ItemsBoxedString](#itemsboxedstring) | validateAndBox(String, configuration: SchemaConfiguration) |
 | [ItemsBoxedVoid](#itemsboxedvoid) | validateAndBox(Nothing?, configuration: SchemaConfiguration) |
 | [ItemsBoxedNumber](#itemsboxednumber) | validateAndBox(Number, configuration: SchemaConfiguration) |
-| [ItemsBoxedBoolean](#itemsboxedboolean) | validateAndBox(boolean, configuration: SchemaConfiguration) |
-| [ItemsBoxedMap](#itemsboxedmap) | validateAndBox(Map&lt;?, ?&gt;, configuration: SchemaConfiguration) |
+| [ItemsBoxedBoolean](#itemsboxedboolean) | validateAndBox(Boolean, configuration: SchemaConfiguration) |
+| [ItemsBoxedMap](#itemsboxedmap) | validateAndBox(Map&lt;*, *&gt;, configuration: SchemaConfiguration) |
 | [ItemsBoxedList](#itemsboxedlist) | validateAndBox(List<*>, configuration: SchemaConfiguration) |
 | [ItemsBoxed](#itemsboxed) | validateAndBox(Any?, configuration: SchemaConfiguration) |
 | Any? | validate(arg: Any?, configuration: SchemaConfiguration) |

@@ -11,13 +11,13 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | sealed interface | [UniqueitemsFalseValidation.UniqueitemsFalseValidation1Boxed](#uniqueitemsfalsevalidation1boxed)<br> sealed interface for validated payloads |
-| record | [UniqueitemsFalseValidation.UniqueitemsFalseValidation1BoxedVoid](#uniqueitemsfalsevalidation1boxedvoid)<br> boxed class to store validated null payloads |
-| record | [UniqueitemsFalseValidation.UniqueitemsFalseValidation1BoxedBoolean](#uniqueitemsfalsevalidation1boxedboolean)<br> boxed class to store validated boolean payloads |
-| record | [UniqueitemsFalseValidation.UniqueitemsFalseValidation1BoxedNumber](#uniqueitemsfalsevalidation1boxednumber)<br> boxed class to store validated Number payloads |
-| record | [UniqueitemsFalseValidation.UniqueitemsFalseValidation1BoxedString](#uniqueitemsfalsevalidation1boxedstring)<br> boxed class to store validated String payloads |
-| record | [UniqueitemsFalseValidation.UniqueitemsFalseValidation1BoxedList](#uniqueitemsfalsevalidation1boxedlist)<br> boxed class to store validated List payloads |
-| record | [UniqueitemsFalseValidation.UniqueitemsFalseValidation1BoxedMap](#uniqueitemsfalsevalidation1boxedmap)<br> boxed class to store validated Map payloads |
-| static class | [UniqueitemsFalseValidation.UniqueitemsFalseValidation1](#uniqueitemsfalsevalidation1)<br> schema class |
+| data class | [UniqueitemsFalseValidation.UniqueitemsFalseValidation1BoxedVoid](#uniqueitemsfalsevalidation1boxedvoid)<br> boxed class to store validated null payloads |
+| data class | [UniqueitemsFalseValidation.UniqueitemsFalseValidation1BoxedBoolean](#uniqueitemsfalsevalidation1boxedboolean)<br> boxed class to store validated boolean payloads |
+| data class | [UniqueitemsFalseValidation.UniqueitemsFalseValidation1BoxedNumber](#uniqueitemsfalsevalidation1boxednumber)<br> boxed class to store validated Number payloads |
+| data class | [UniqueitemsFalseValidation.UniqueitemsFalseValidation1BoxedString](#uniqueitemsfalsevalidation1boxedstring)<br> boxed class to store validated String payloads |
+| data class | [UniqueitemsFalseValidation.UniqueitemsFalseValidation1BoxedList](#uniqueitemsfalsevalidation1boxedlist)<br> boxed class to store validated List payloads |
+| data class | [UniqueitemsFalseValidation.UniqueitemsFalseValidation1BoxedMap](#uniqueitemsfalsevalidation1boxedmap)<br> boxed class to store validated Map payloads |
+| class | [UniqueitemsFalseValidation.UniqueitemsFalseValidation1](#uniqueitemsfalsevalidation1)<br> schema class |
 
 ## UniqueitemsFalseValidation1Boxed
 sealed interface UniqueitemsFalseValidation1Boxed<br>
@@ -52,7 +52,7 @@ data class that stores validated null payloads, sealed permits implementation
 data class UniqueitemsFalseValidation1BoxedBoolean<br>
 implements [UniqueitemsFalseValidation1Boxed](#uniqueitemsfalsevalidation1boxed)
 
-record that stores validated boolean payloads, sealed permits implementation
+data class that stores validated boolean payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
@@ -149,19 +149,19 @@ A schema class that validates payloads
 | ----------------- | ---------------------- |
 | String | validate(arg: String, configuration: SchemaConfiguration) |
 | Nothing? | validate(arg: Nothing?, configuration: SchemaConfiguration) |
-| int | validate(arg: int, configuration: SchemaConfiguration) |
-| long | validate(arg: long, configuration: SchemaConfiguration) |
-| float | validate(arg: float, configuration: SchemaConfiguration) |
-| double | validate(arg: double, configuration: SchemaConfiguration) |
+| Int | validate(arg: Int, configuration: SchemaConfiguration) |
+| Long | validate(arg: Long, configuration: SchemaConfiguration) |
+| Float | validate(arg: Float, configuration: SchemaConfiguration) |
+| Double | validate(arg: Double, configuration: SchemaConfiguration) |
 | Number | validate(arg: Number, configuration: SchemaConfiguration) |
-| boolean | validate(arg: boolean, configuration: SchemaConfiguration) |
-| FrozenMap<Any?> | validate(arg: Map&lt;?, ?&gt;, configuration: SchemaConfiguration) |
+| Boolean | validate(arg: Boolean, configuration: SchemaConfiguration) |
+| FrozenMap<Any?> | validate(arg: Map&lt;*, *&gt;, configuration: SchemaConfiguration) |
 | FrozenList<Any?> | validate(arg: List<*>, configuration: SchemaConfiguration) |
 | [UniqueitemsFalseValidation1BoxedString](#uniqueitemsfalsevalidation1boxedstring) | validateAndBox(String, configuration: SchemaConfiguration) |
 | [UniqueitemsFalseValidation1BoxedVoid](#uniqueitemsfalsevalidation1boxedvoid) | validateAndBox(Nothing?, configuration: SchemaConfiguration) |
 | [UniqueitemsFalseValidation1BoxedNumber](#uniqueitemsfalsevalidation1boxednumber) | validateAndBox(Number, configuration: SchemaConfiguration) |
-| [UniqueitemsFalseValidation1BoxedBoolean](#uniqueitemsfalsevalidation1boxedboolean) | validateAndBox(boolean, configuration: SchemaConfiguration) |
-| [UniqueitemsFalseValidation1BoxedMap](#uniqueitemsfalsevalidation1boxedmap) | validateAndBox(Map&lt;?, ?&gt;, configuration: SchemaConfiguration) |
+| [UniqueitemsFalseValidation1BoxedBoolean](#uniqueitemsfalsevalidation1boxedboolean) | validateAndBox(Boolean, configuration: SchemaConfiguration) |
+| [UniqueitemsFalseValidation1BoxedMap](#uniqueitemsfalsevalidation1boxedmap) | validateAndBox(Map&lt;*, *&gt;, configuration: SchemaConfiguration) |
 | [UniqueitemsFalseValidation1BoxedList](#uniqueitemsfalsevalidation1boxedlist) | validateAndBox(List<*>, configuration: SchemaConfiguration) |
 | [UniqueitemsFalseValidation1Boxed](#uniqueitemsfalsevalidation1boxed) | validateAndBox(Any?, configuration: SchemaConfiguration) |
 | Any? | validate(arg: Any?, configuration: SchemaConfiguration) |

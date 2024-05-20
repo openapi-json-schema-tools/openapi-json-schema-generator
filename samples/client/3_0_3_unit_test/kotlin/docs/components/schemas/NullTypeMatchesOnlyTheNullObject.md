@@ -11,8 +11,8 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | sealed interface | [NullTypeMatchesOnlyTheNullObject.NullTypeMatchesOnlyTheNullObject1Boxed](#nulltypematchesonlythenullobject1boxed)<br> sealed interface for validated payloads |
-| record | [NullTypeMatchesOnlyTheNullObject.NullTypeMatchesOnlyTheNullObject1BoxedVoid](#nulltypematchesonlythenullobject1boxedvoid)<br> boxed class to store validated null payloads |
-| static class | [NullTypeMatchesOnlyTheNullObject.NullTypeMatchesOnlyTheNullObject1](#nulltypematchesonlythenullobject1)<br> schema class |
+| data class | [NullTypeMatchesOnlyTheNullObject.NullTypeMatchesOnlyTheNullObject1BoxedVoid](#nulltypematchesonlythenullobject1boxedvoid)<br> boxed class to store validated null payloads |
+| class | [NullTypeMatchesOnlyTheNullObject.NullTypeMatchesOnlyTheNullObject1](#nulltypematchesonlythenullobject1)<br> schema class |
 
 ## NullTypeMatchesOnlyTheNullObject1Boxed
 sealed interface NullTypeMatchesOnlyTheNullObject1Boxed<br>

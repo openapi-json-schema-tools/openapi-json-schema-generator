@@ -11,13 +11,13 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | sealed interface | [MincontainsWithoutContainsIsIgnored.MincontainsWithoutContainsIsIgnored1Boxed](#mincontainswithoutcontainsisignored1boxed)<br> sealed interface for validated payloads |
-| record | [MincontainsWithoutContainsIsIgnored.MincontainsWithoutContainsIsIgnored1BoxedVoid](#mincontainswithoutcontainsisignored1boxedvoid)<br> boxed class to store validated null payloads |
-| record | [MincontainsWithoutContainsIsIgnored.MincontainsWithoutContainsIsIgnored1BoxedBoolean](#mincontainswithoutcontainsisignored1boxedboolean)<br> boxed class to store validated boolean payloads |
-| record | [MincontainsWithoutContainsIsIgnored.MincontainsWithoutContainsIsIgnored1BoxedNumber](#mincontainswithoutcontainsisignored1boxednumber)<br> boxed class to store validated Number payloads |
-| record | [MincontainsWithoutContainsIsIgnored.MincontainsWithoutContainsIsIgnored1BoxedString](#mincontainswithoutcontainsisignored1boxedstring)<br> boxed class to store validated String payloads |
-| record | [MincontainsWithoutContainsIsIgnored.MincontainsWithoutContainsIsIgnored1BoxedList](#mincontainswithoutcontainsisignored1boxedlist)<br> boxed class to store validated List payloads |
-| record | [MincontainsWithoutContainsIsIgnored.MincontainsWithoutContainsIsIgnored1BoxedMap](#mincontainswithoutcontainsisignored1boxedmap)<br> boxed class to store validated Map payloads |
-| static class | [MincontainsWithoutContainsIsIgnored.MincontainsWithoutContainsIsIgnored1](#mincontainswithoutcontainsisignored1)<br> schema class |
+| data class | [MincontainsWithoutContainsIsIgnored.MincontainsWithoutContainsIsIgnored1BoxedVoid](#mincontainswithoutcontainsisignored1boxedvoid)<br> boxed class to store validated null payloads |
+| data class | [MincontainsWithoutContainsIsIgnored.MincontainsWithoutContainsIsIgnored1BoxedBoolean](#mincontainswithoutcontainsisignored1boxedboolean)<br> boxed class to store validated boolean payloads |
+| data class | [MincontainsWithoutContainsIsIgnored.MincontainsWithoutContainsIsIgnored1BoxedNumber](#mincontainswithoutcontainsisignored1boxednumber)<br> boxed class to store validated Number payloads |
+| data class | [MincontainsWithoutContainsIsIgnored.MincontainsWithoutContainsIsIgnored1BoxedString](#mincontainswithoutcontainsisignored1boxedstring)<br> boxed class to store validated String payloads |
+| data class | [MincontainsWithoutContainsIsIgnored.MincontainsWithoutContainsIsIgnored1BoxedList](#mincontainswithoutcontainsisignored1boxedlist)<br> boxed class to store validated List payloads |
+| data class | [MincontainsWithoutContainsIsIgnored.MincontainsWithoutContainsIsIgnored1BoxedMap](#mincontainswithoutcontainsisignored1boxedmap)<br> boxed class to store validated Map payloads |
+| class | [MincontainsWithoutContainsIsIgnored.MincontainsWithoutContainsIsIgnored1](#mincontainswithoutcontainsisignored1)<br> schema class |
 
 ## MincontainsWithoutContainsIsIgnored1Boxed
 sealed interface MincontainsWithoutContainsIsIgnored1Boxed<br>
@@ -52,7 +52,7 @@ data class that stores validated null payloads, sealed permits implementation
 data class MincontainsWithoutContainsIsIgnored1BoxedBoolean<br>
 implements [MincontainsWithoutContainsIsIgnored1Boxed](#mincontainswithoutcontainsisignored1boxed)
 
-record that stores validated boolean payloads, sealed permits implementation
+data class that stores validated boolean payloads, sealed permits implementation
 
 ### Constructor Summary
 | Constructor and Description |
@@ -142,26 +142,26 @@ A schema class that validates payloads
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |
-| Integer | minContains = 1 |
+| Int | minContains = 1 |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | String | validate(arg: String, configuration: SchemaConfiguration) |
 | Nothing? | validate(arg: Nothing?, configuration: SchemaConfiguration) |
-| int | validate(arg: int, configuration: SchemaConfiguration) |
-| long | validate(arg: long, configuration: SchemaConfiguration) |
-| float | validate(arg: float, configuration: SchemaConfiguration) |
-| double | validate(arg: double, configuration: SchemaConfiguration) |
+| Int | validate(arg: Int, configuration: SchemaConfiguration) |
+| Long | validate(arg: Long, configuration: SchemaConfiguration) |
+| Float | validate(arg: Float, configuration: SchemaConfiguration) |
+| Double | validate(arg: Double, configuration: SchemaConfiguration) |
 | Number | validate(arg: Number, configuration: SchemaConfiguration) |
-| boolean | validate(arg: boolean, configuration: SchemaConfiguration) |
-| FrozenMap<Any?> | validate(arg: Map&lt;?, ?&gt;, configuration: SchemaConfiguration) |
+| Boolean | validate(arg: Boolean, configuration: SchemaConfiguration) |
+| FrozenMap<Any?> | validate(arg: Map&lt;*, *&gt;, configuration: SchemaConfiguration) |
 | FrozenList<Any?> | validate(arg: List<*>, configuration: SchemaConfiguration) |
 | [MincontainsWithoutContainsIsIgnored1BoxedString](#mincontainswithoutcontainsisignored1boxedstring) | validateAndBox(String, configuration: SchemaConfiguration) |
 | [MincontainsWithoutContainsIsIgnored1BoxedVoid](#mincontainswithoutcontainsisignored1boxedvoid) | validateAndBox(Nothing?, configuration: SchemaConfiguration) |
 | [MincontainsWithoutContainsIsIgnored1BoxedNumber](#mincontainswithoutcontainsisignored1boxednumber) | validateAndBox(Number, configuration: SchemaConfiguration) |
-| [MincontainsWithoutContainsIsIgnored1BoxedBoolean](#mincontainswithoutcontainsisignored1boxedboolean) | validateAndBox(boolean, configuration: SchemaConfiguration) |
-| [MincontainsWithoutContainsIsIgnored1BoxedMap](#mincontainswithoutcontainsisignored1boxedmap) | validateAndBox(Map&lt;?, ?&gt;, configuration: SchemaConfiguration) |
+| [MincontainsWithoutContainsIsIgnored1BoxedBoolean](#mincontainswithoutcontainsisignored1boxedboolean) | validateAndBox(Boolean, configuration: SchemaConfiguration) |
+| [MincontainsWithoutContainsIsIgnored1BoxedMap](#mincontainswithoutcontainsisignored1boxedmap) | validateAndBox(Map&lt;*, *&gt;, configuration: SchemaConfiguration) |
 | [MincontainsWithoutContainsIsIgnored1BoxedList](#mincontainswithoutcontainsisignored1boxedlist) | validateAndBox(List<*>, configuration: SchemaConfiguration) |
 | [MincontainsWithoutContainsIsIgnored1Boxed](#mincontainswithoutcontainsisignored1boxed) | validateAndBox(Any?, configuration: SchemaConfiguration) |
 | Any? | validate(arg: Any?, configuration: SchemaConfiguration) |
