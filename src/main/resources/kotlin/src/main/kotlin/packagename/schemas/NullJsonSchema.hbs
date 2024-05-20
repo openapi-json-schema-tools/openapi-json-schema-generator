@@ -33,12 +33,12 @@ open class NullJsonSchema {
             val validationMetadata =
                 ValidationMetadata(pathToItem, usedConfiguration, PathToSchemasMap(), LinkedHashSet())
             val pathToSchemasMap = getPathToSchemas(this, castArg, validationMetadata, pathSet)
-            return getNewInstance(castArg, validationMetadata.pathToItem, pathToSchemasMap)
+            return castArg
         }
 
         override fun getNewInstance(arg: Any?, pathToItem: List<Any>, pathToSchemas: PathToSchemasMap): Any? {
             if (arg == null) {
-                return getNewInstance(null, pathToItem, pathToSchemas)
+                return arg
             }
             throw RuntimeException("Invalid input type=$javaClass. It can't be instantiated by this schema")
         }

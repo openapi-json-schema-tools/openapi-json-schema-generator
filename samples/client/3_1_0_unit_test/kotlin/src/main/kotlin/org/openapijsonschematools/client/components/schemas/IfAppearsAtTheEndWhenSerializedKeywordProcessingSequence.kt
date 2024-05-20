@@ -253,13 +253,13 @@ class IfAppearsAtTheEndWhenSerializedKeywordProcessingSequence {
         }        
         override fun getNewInstance(arg: Any?, pathToItem: List<Any>, pathToSchemas: PathToSchemasMap): Any? {
             if (arg == null) {
-                return getNewInstance( null, pathToItem, pathToSchemas)
+                return arg
             } else if (arg is Boolean) {
-                return getNewInstance(arg, pathToItem, pathToSchemas)
+                return arg
             } else if (arg is Number) {
-                return getNewInstance(arg, pathToItem, pathToSchemas)
+                return arg
             } else if (arg is String) {
-                return getNewInstance(arg, pathToItem, pathToSchemas)
+                return arg
             } else if (arg is List<*>) {
                 return getNewInstance(arg, pathToItem, pathToSchemas)
             } else if (arg is Map<*, *>) {
@@ -528,13 +528,13 @@ class IfAppearsAtTheEndWhenSerializedKeywordProcessingSequence {
         }        
         override fun getNewInstance(arg: Any?, pathToItem: List<Any>, pathToSchemas: PathToSchemasMap): Any? {
             if (arg == null) {
-                return getNewInstance( null, pathToItem, pathToSchemas)
+                return arg
             } else if (arg is Boolean) {
-                return getNewInstance(arg, pathToItem, pathToSchemas)
+                return arg
             } else if (arg is Number) {
-                return getNewInstance(arg, pathToItem, pathToSchemas)
+                return arg
             } else if (arg is String) {
-                return getNewInstance(arg, pathToItem, pathToSchemas)
+                return arg
             } else if (arg is List<*>) {
                 return getNewInstance(arg, pathToItem, pathToSchemas)
             } else if (arg is Map<*, *>) {
@@ -811,13 +811,13 @@ class IfAppearsAtTheEndWhenSerializedKeywordProcessingSequence {
         }        
         override fun getNewInstance(arg: Any?, pathToItem: List<Any>, pathToSchemas: PathToSchemasMap): Any? {
             if (arg == null) {
-                return getNewInstance( null, pathToItem, pathToSchemas)
+                return arg
             } else if (arg is Boolean) {
-                return getNewInstance(arg, pathToItem, pathToSchemas)
+                return arg
             } else if (arg is Number) {
-                return getNewInstance(arg, pathToItem, pathToSchemas)
+                return arg
             } else if (arg is String) {
-                return getNewInstance(arg, pathToItem, pathToSchemas)
+                return arg
             } else if (arg is List<*>) {
                 return getNewInstance(arg, pathToItem, pathToSchemas)
             } else if (arg is Map<*, *>) {
@@ -1094,13 +1094,13 @@ class IfAppearsAtTheEndWhenSerializedKeywordProcessingSequence {
         }        
         override fun getNewInstance(arg: Any?, pathToItem: List<Any>, pathToSchemas: PathToSchemasMap): Any? {
             if (arg == null) {
-                return getNewInstance( null, pathToItem, pathToSchemas)
+                return arg
             } else if (arg is Boolean) {
-                return getNewInstance(arg, pathToItem, pathToSchemas)
+                return arg
             } else if (arg is Number) {
-                return getNewInstance(arg, pathToItem, pathToSchemas)
+                return arg
             } else if (arg is String) {
-                return getNewInstance(arg, pathToItem, pathToSchemas)
+                return arg
             } else if (arg is List<*>) {
                 return getNewInstance(arg, pathToItem, pathToSchemas)
             } else if (arg is Map<*, *>) {

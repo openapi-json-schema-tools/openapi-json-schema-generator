@@ -39,7 +39,7 @@ open class Int32JsonSchema {
             val validationMetadata =
                 ValidationMetadata(pathToItem, usedConfiguration, PathToSchemasMap(), LinkedHashSet())
             val pathToSchemasMap = getPathToSchemas(this, castArg, validationMetadata, pathSet)
-            return getNewInstance(castArg, validationMetadata.pathToItem, pathToSchemasMap)
+            return castArg
         }
 
         @Throws(ValidationException::class)
