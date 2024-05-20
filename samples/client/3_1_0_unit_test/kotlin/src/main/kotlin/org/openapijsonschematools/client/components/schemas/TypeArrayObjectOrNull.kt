@@ -155,7 +155,7 @@ class TypeArrayObjectOrNull {
             } else if (arg is Map<*, *>) {
                 return getNewInstance(arg, pathToItem, pathToSchemas)
             } else if (arg == null) {
-                return getNewInstance(null, pathToItem, pathToSchemas)
+                return arg
             }
             throw RuntimeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema")
         }

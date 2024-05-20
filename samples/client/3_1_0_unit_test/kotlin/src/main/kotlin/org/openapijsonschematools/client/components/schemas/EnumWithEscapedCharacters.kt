@@ -87,7 +87,7 @@ class EnumWithEscapedCharacters {
         }        
         override fun getNewInstance(arg: Any?, pathToItem: List<Any>, pathToSchemas: PathToSchemasMap): Any? {
             if (arg is String) {
-                return getNewInstance(arg, pathToItem, pathToSchemas)
+                return arg
             }
             throw RuntimeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema")
         }

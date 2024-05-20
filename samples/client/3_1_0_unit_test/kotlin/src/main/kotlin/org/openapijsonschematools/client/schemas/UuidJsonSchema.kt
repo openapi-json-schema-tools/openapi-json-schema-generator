@@ -36,7 +36,7 @@ open class UuidJsonSchema {
             val validationMetadata =
                 ValidationMetadata(pathToItem, usedConfiguration, PathToSchemasMap(), LinkedHashSet())
             val pathToSchemasMap = getPathToSchemas(this, castArg, validationMetadata, pathSet)
-            return getNewInstance(castArg, validationMetadata.pathToItem, pathToSchemasMap)
+            return castArg
         }
 
         @Throws(ValidationException::class)
@@ -46,7 +46,7 @@ open class UuidJsonSchema {
 
         override fun getNewInstance(arg: Any?, pathToItem: List<Any>, pathToSchemas: PathToSchemasMap): String {
             if (arg is String) {
-                return getNewInstance(arg, pathToItem, pathToSchemas)
+                return arg
             }
             throw RuntimeException("Invalid input type=$javaClass. It can't be instantiated by this schema")
         }
