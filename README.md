@@ -50,16 +50,6 @@ Currently, the following languages/frameworks are supported:
 We use a Discord server as a place to ask questions and help each other. It offers functionality very similar to Slack.
 You can join us here: https://discord.gg/mHB8WEQuYQ
 
-And many more!
-- [Docs for the java generator](docs/generators/java.md)
-- [generated client sample code](samples/client/petstore/java)
-  - [Openapi v3.0.3 general petstore spec, general features](src/test/resources/3_0/python/petstore_customized.yaml)- [generated v3.1.0 unit test client sample code](samples/client/3_1_0_unit_test/python)
-  - [Openapi json schema v3.1.0 unit test spec](src/test/resources/3_1/unit_test_spec/3_1_0_unit_test_spec.yaml)
-- [generated v3.1.0 unit test client sample code](samples/client/3_1_0_unit_test/java)
-  - [Openapi json schema v3.1.0 unit test spec](src/test/resources/3_1/unit_test_spec/3_1_0_unit_test_spec_nopaths.yaml)
-- [generated v3.0.3 unit test client sample code](samples/client/3_0_3_unit_test/java)
-  - [Openapi json schema v3.0.3 unit test spec](src/test/resources/3_0/unit_test_spec/3_0_3_unit_test_spec_nopaths.yaml)
-
 ### Can I build here?
 
 Yes; contributions are welcome!
