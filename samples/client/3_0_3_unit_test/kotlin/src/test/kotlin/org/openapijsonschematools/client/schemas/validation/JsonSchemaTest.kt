@@ -1,6 +1,5 @@
 package org.openapijsonschematools.client.schemas.validation
 
-import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags
 import org.openapijsonschematools.client.configurations.SchemaConfiguration
 import org.openapijsonschematools.client.exceptions.ValidationException
 
@@ -11,8 +10,7 @@ class JsonSchemaTest {
     internal sealed interface SomeSchemaBoxed
     internal class SomeSchemaBoxedString : SomeSchemaBoxed
     internal class SomeSchema private constructor() : JsonSchema<SomeSchemaBoxed>(
-        JsonSchemaInfo()
-            .type(setOf(String::class.java))
+        type = setOf(String::class.java)
     ) {
         override fun getNewInstance(arg: Any?, pathToItem: List<Any>, pathToSchemas: PathToSchemasMap): Any? {
             if (arg is String) {
@@ -52,7 +50,7 @@ class JsonSchemaTest {
         val pathToItem = listOf<Any>("args[0]")
         val validationMetadata = ValidationMetadata(
             pathToItem,
-            SchemaConfiguration(JsonSchemaKeywordFlags.Builder().build()),
+            SchemaConfiguration(),
             PathToSchemasMap(),
             LinkedHashSet()
         )

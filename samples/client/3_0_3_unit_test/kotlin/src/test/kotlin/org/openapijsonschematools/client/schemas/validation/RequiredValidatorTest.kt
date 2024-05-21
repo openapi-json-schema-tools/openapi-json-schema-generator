@@ -1,6 +1,5 @@
 package org.openapijsonschematools.client.schemas.validation
 
-import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags
 import org.openapijsonschematools.client.configurations.SchemaConfiguration
 import org.openapijsonschematools.client.exceptions.ValidationException
 
@@ -12,9 +11,8 @@ class RequiredValidatorTest {
     interface ObjectWithRequiredSchemaBoxed
     class ObjectWithRequiredSchemaBoxedMap : ObjectWithRequiredSchemaBoxed
     class ObjectWithRequiredSchema : JsonSchema<ObjectWithRequiredSchemaBoxed?>(
-        JsonSchemaInfo()
-            .type(setOf(Map::class.java))
-            .required(setOf("someString"))
+        type = setOf(Map::class.java),
+        required = setOf("someString")
     ) {
         override fun getNewInstance(arg: Any?, pathToItem: List<Any>, pathToSchemas: PathToSchemasMap): Any? {
             if (arg is Map<*, *>) {
@@ -43,7 +41,7 @@ class RequiredValidatorTest {
         val pathToItem = listOf<Any>("args[0]")
         val validationMetadata = ValidationMetadata(
             pathToItem,
-            SchemaConfiguration(JsonSchemaKeywordFlags.Builder().build()),
+            SchemaConfiguration(),
             PathToSchemasMap(),
             LinkedHashSet()
         )
@@ -67,7 +65,7 @@ class RequiredValidatorTest {
         val pathToItem = listOf<Any>("args[0]")
         val validationMetadata = ValidationMetadata(
             pathToItem,
-            SchemaConfiguration(JsonSchemaKeywordFlags.Builder().build()),
+            SchemaConfiguration(),
             PathToSchemasMap(),
             LinkedHashSet()
         )
@@ -87,7 +85,7 @@ class RequiredValidatorTest {
         val pathToItem = listOf<Any>("args[0]")
         val validationMetadata = ValidationMetadata(
             pathToItem,
-            SchemaConfiguration(JsonSchemaKeywordFlags.Builder().build()),
+            SchemaConfiguration(),
             PathToSchemasMap(),
             LinkedHashSet()
         )

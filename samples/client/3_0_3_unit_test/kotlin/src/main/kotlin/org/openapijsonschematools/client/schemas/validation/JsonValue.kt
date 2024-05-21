@@ -1,5 +1,7 @@
 package org.openapijsonschematools.client.schemas.validation
 
+import java.math.BigDecimal
+
 class JsonValue {
     sealed interface JsonValueBoxed {
         fun getData(): Any?
@@ -18,6 +20,12 @@ class JsonValue {
     }
 
     data class JsonValueBoxedNumber(val data: Number) : JsonValueBoxed {
+        override fun getData(): Any? {
+            return data
+        }
+    }
+
+    data class JsonValueBoxedBigDecimal(val data: BigDecimal) : JsonValueBoxed {
         override fun getData(): Any? {
             return data
         }
@@ -49,6 +57,10 @@ class JsonValue {
                 }
                 is Boolean -> {
                     return JsonValueBoxedBoolean(arg)
+                }
+
+                is BigDecimal -> {
+                    return JsonValueBoxedBigDecimal(arg)
                 }
 
                 is Number -> {
