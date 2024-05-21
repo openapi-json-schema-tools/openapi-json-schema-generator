@@ -36,7 +36,7 @@ Currently, the following languages/frameworks are supported:
   - endpoint parameter names
 - Openapi document inline schemas supported at any depth in any location
 - Generated Code: Class + method inputs are typed
-- Generated Code: Static type checking done in static languages suing builder inputs and class property access
+- Generated Code: Static type checking done in static languages using builder inputs and class property access
 - Generated Code: run-time type checking done in all generators (a payload can be validated against n schemas)
 - Generated Code re-use built in from the ground up
   - components/schemas/headers etc are generated as separate classes and imported when used via $ref
