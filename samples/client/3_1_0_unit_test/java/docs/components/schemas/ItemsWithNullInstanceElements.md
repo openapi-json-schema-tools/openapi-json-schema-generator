@@ -1,5 +1,5 @@
 # ItemsWithNullInstanceElements
-unit_test_api.components.schemas.ItemsWithNullInstanceElements.java
+org.openapijsonschematools.client.components.schemas.ItemsWithNullInstanceElements.java
 public class ItemsWithNullInstanceElements<br>
 
 A class that contains necessary nested
@@ -53,13 +53,13 @@ A schema class that validates payloads
 
 ### Code Sample
 ```
-import unit_test_api.configurations.JsonSchemaKeywordFlags;
-import unit_test_api.configurations.SchemaConfiguration;
-import unit_test_api.exceptions.ValidationException;
-import unit_test_api.schemas.validation.MapUtils;
-import unit_test_api.schemas.validation.FrozenList;
-import unit_test_api.schemas.validation.FrozenMap;
-import unit_test_api.components.schemas.ItemsWithNullInstanceElements;
+import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
+import org.openapijsonschematools.client.configurations.SchemaConfiguration;
+import org.openapijsonschematools.client.exceptions.ValidationException;
+import org.openapijsonschematools.client.schemas.validation.MapUtils;
+import org.openapijsonschematools.client.schemas.validation.FrozenList;
+import org.openapijsonschematools.client.schemas.validation.FrozenMap;
+import org.openapijsonschematools.client.components.schemas.ItemsWithNullInstanceElements;
 
 import java.util.Arrays;
 import java.util.List;
@@ -151,7 +151,7 @@ extends NullJsonSchema.NullJsonSchema1
 
 A schema class that validates payloads
 
-| Methods Inherited from class unit_test_api.schemas.NullJsonSchema.NullJsonSchema1 |
+| Methods Inherited from class org.openapijsonschematools.client.schemas.NullJsonSchema.NullJsonSchema1 |
 | ------------------------------------------------------------------ |
 | validate                                                           |
 | validateAndBox                                                     |

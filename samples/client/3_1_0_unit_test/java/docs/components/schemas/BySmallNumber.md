@@ -1,5 +1,5 @@
 # BySmallNumber
-unit_test_api.components.schemas.BySmallNumber.java
+org.openapijsonschematools.client.components.schemas.BySmallNumber.java
 public class BySmallNumber<br>
 
 A class that contains necessary nested

@@ -1,5 +1,5 @@
 # EmptyDependents
-unit_test_api.components.schemas.EmptyDependents.java
+org.openapijsonschematools.client.components.schemas.EmptyDependents.java
 public class EmptyDependents<br>
 
 A class that contains necessary nested

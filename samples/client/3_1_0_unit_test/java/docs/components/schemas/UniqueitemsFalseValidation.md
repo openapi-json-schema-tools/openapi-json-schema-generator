@@ -1,5 +1,5 @@
 # UniqueitemsFalseValidation
-unit_test_api.components.schemas.UniqueitemsFalseValidation.java
+org.openapijsonschematools.client.components.schemas.UniqueitemsFalseValidation.java
 public class UniqueitemsFalseValidation<br>
 
 A class that contains necessary nested

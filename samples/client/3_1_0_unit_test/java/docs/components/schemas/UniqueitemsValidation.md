@@ -1,5 +1,5 @@
 # UniqueitemsValidation
-unit_test_api.components.schemas.UniqueitemsValidation.java
+org.openapijsonschematools.client.components.schemas.UniqueitemsValidation.java
 public class UniqueitemsValidation<br>
 
 A class that contains necessary nested

@@ -1,5 +1,5 @@
 # IgnoreThenWithoutIf
-unit_test_api.components.schemas.IgnoreThenWithoutIf.java
+org.openapijsonschematools.client.components.schemas.IgnoreThenWithoutIf.java
 public class IgnoreThenWithoutIf<br>
 
 A class that contains necessary nested

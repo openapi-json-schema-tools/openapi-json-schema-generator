@@ -1,5 +1,5 @@
 # NonInterferenceAcrossCombinedSchemas
-unit_test_api.components.schemas.NonInterferenceAcrossCombinedSchemas.java
+org.openapijsonschematools.client.components.schemas.NonInterferenceAcrossCombinedSchemas.java
 public class NonInterferenceAcrossCombinedSchemas<br>
 
 A class that contains necessary nested

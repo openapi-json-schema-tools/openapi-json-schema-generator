@@ -1,5 +1,5 @@
 # ArrayTypeMatchesArrays
-unit_test_api.components.schemas.ArrayTypeMatchesArrays.java
+org.openapijsonschematools.client.components.schemas.ArrayTypeMatchesArrays.java
 public class ArrayTypeMatchesArrays<br>
 
 A class that contains necessary nested
@@ -44,7 +44,7 @@ extends ListJsonSchema.ListJsonSchema1
 
 A schema class that validates payloads
 
-| Methods Inherited from class unit_test_api.schemas.ListJsonSchema.ListJsonSchema1 |
+| Methods Inherited from class org.openapijsonschematools.client.schemas.ListJsonSchema.ListJsonSchema1 |
 | ------------------------------------------------------------------ |
 | validate                                                           |
 | validateAndBox                                                     |

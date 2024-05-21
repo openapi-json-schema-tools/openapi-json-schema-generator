@@ -1,4 +1,4 @@
-unit_test_api.servers.RootServer0
+org.openapijsonschematools.client.servers.RootServer0
 # Server RootServer0
 public class RootServer0
 

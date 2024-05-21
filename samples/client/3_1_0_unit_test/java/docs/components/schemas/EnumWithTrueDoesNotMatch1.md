@@ -1,5 +1,5 @@
 # EnumWithTrueDoesNotMatch1
-unit_test_api.components.schemas.EnumWithTrueDoesNotMatch1.java
+org.openapijsonschematools.client.components.schemas.EnumWithTrueDoesNotMatch1.java
 public class EnumWithTrueDoesNotMatch1<br>
 
 A class that contains necessary nested
@@ -48,13 +48,13 @@ A schema class that validates payloads
 
 ### Code Sample
 ```
-import unit_test_api.configurations.JsonSchemaKeywordFlags;
-import unit_test_api.configurations.SchemaConfiguration;
-import unit_test_api.exceptions.ValidationException;
-import unit_test_api.schemas.validation.MapUtils;
-import unit_test_api.schemas.validation.FrozenList;
-import unit_test_api.schemas.validation.FrozenMap;
-import unit_test_api.components.schemas.EnumWithTrueDoesNotMatch1;
+import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
+import org.openapijsonschematools.client.configurations.SchemaConfiguration;
+import org.openapijsonschematools.client.exceptions.ValidationException;
+import org.openapijsonschematools.client.schemas.validation.MapUtils;
+import org.openapijsonschematools.client.schemas.validation.FrozenList;
+import org.openapijsonschematools.client.schemas.validation.FrozenMap;
+import org.openapijsonschematools.client.components.schemas.EnumWithTrueDoesNotMatch1;
 
 import java.util.Arrays;
 import java.util.List;

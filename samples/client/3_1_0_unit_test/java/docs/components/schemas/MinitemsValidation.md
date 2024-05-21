@@ -1,5 +1,5 @@
 # MinitemsValidation
-unit_test_api.components.schemas.MinitemsValidation.java
+org.openapijsonschematools.client.components.schemas.MinitemsValidation.java
 public class MinitemsValidation<br>
 
 A class that contains necessary nested

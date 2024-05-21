@@ -1,5 +1,5 @@
 # TypeArrayOrObject
-unit_test_api.components.schemas.TypeArrayOrObject.java
+org.openapijsonschematools.client.components.schemas.TypeArrayOrObject.java
 public class TypeArrayOrObject<br>
 
 A class that contains necessary nested

@@ -1,5 +1,5 @@
 # NullTypeMatchesOnlyTheNullObject
-unit_test_api.components.schemas.NullTypeMatchesOnlyTheNullObject.java
+org.openapijsonschematools.client.components.schemas.NullTypeMatchesOnlyTheNullObject.java
 public class NullTypeMatchesOnlyTheNullObject<br>
 
 A class that contains necessary nested
@@ -44,7 +44,7 @@ extends NullJsonSchema.NullJsonSchema1
 
 A schema class that validates payloads
 
-| Methods Inherited from class unit_test_api.schemas.NullJsonSchema.NullJsonSchema1 |
+| Methods Inherited from class org.openapijsonschematools.client.schemas.NullJsonSchema.NullJsonSchema1 |
 | ------------------------------------------------------------------ |
 | validate                                                           |
 | validateAndBox                                                     |

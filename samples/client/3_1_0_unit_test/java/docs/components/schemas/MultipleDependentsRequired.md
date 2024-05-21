@@ -1,5 +1,5 @@
 # MultipleDependentsRequired
-unit_test_api.components.schemas.MultipleDependentsRequired.java
+org.openapijsonschematools.client.components.schemas.MultipleDependentsRequired.java
 public class MultipleDependentsRequired<br>
 
 A class that contains necessary nested

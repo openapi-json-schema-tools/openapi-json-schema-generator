@@ -1,5 +1,5 @@
 # RequiredWithEscapedCharacters
-unit_test_api.components.schemas.RequiredWithEscapedCharacters.java
+org.openapijsonschematools.client.components.schemas.RequiredWithEscapedCharacters.java
 public class RequiredWithEscapedCharacters<br>
 
 A class that contains necessary nested

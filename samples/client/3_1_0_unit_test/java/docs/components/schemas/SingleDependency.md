@@ -1,5 +1,5 @@
 # SingleDependency
-unit_test_api.components.schemas.SingleDependency.java
+org.openapijsonschematools.client.components.schemas.SingleDependency.java
 public class SingleDependency<br>
 
 A class that contains necessary nested

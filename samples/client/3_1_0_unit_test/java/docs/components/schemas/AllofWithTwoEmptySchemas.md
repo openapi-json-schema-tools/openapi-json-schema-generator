@@ -1,5 +1,5 @@
 # AllofWithTwoEmptySchemas
-unit_test_api.components.schemas.AllofWithTwoEmptySchemas.java
+org.openapijsonschematools.client.components.schemas.AllofWithTwoEmptySchemas.java
 public class AllofWithTwoEmptySchemas<br>
 
 A class that contains necessary nested
@@ -302,7 +302,7 @@ extends AnyTypeJsonSchema.AnyTypeJsonSchema1
 
 A schema class that validates payloads
 
-| Methods Inherited from class unit_test_api.schemas.AnyTypeJsonSchema.AnyTypeJsonSchema1 |
+| Methods Inherited from class org.openapijsonschematools.client.schemas.AnyTypeJsonSchema.AnyTypeJsonSchema1 |
 | ------------------------------------------------------------------ |
 | validate                                                           |
 | validateAndBox                                                     |
@@ -427,7 +427,7 @@ extends AnyTypeJsonSchema.AnyTypeJsonSchema1
 
 A schema class that validates payloads
 
-| Methods Inherited from class unit_test_api.schemas.AnyTypeJsonSchema.AnyTypeJsonSchema1 |
+| Methods Inherited from class org.openapijsonschematools.client.schemas.AnyTypeJsonSchema.AnyTypeJsonSchema1 |
 | ------------------------------------------------------------------ |
 | validate                                                           |
 | validateAndBox                                                     |

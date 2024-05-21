@@ -1,5 +1,5 @@
 # ContainsKeywordValidation
-unit_test_api.components.schemas.ContainsKeywordValidation.java
+org.openapijsonschematools.client.components.schemas.ContainsKeywordValidation.java
 public class ContainsKeywordValidation<br>
 
 A class that contains necessary nested

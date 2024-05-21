@@ -1,5 +1,5 @@
 # IgnoreElseWithoutIf
-unit_test_api.components.schemas.IgnoreElseWithoutIf.java
+org.openapijsonschematools.client.components.schemas.IgnoreElseWithoutIf.java
 public class IgnoreElseWithoutIf<br>
 
 A class that contains necessary nested

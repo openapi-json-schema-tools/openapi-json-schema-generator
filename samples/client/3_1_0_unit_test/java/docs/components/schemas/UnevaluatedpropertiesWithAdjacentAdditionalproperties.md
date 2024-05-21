@@ -1,5 +1,5 @@
 # UnevaluatedpropertiesWithAdjacentAdditionalproperties
-unit_test_api.components.schemas.UnevaluatedpropertiesWithAdjacentAdditionalproperties.java
+org.openapijsonschematools.client.components.schemas.UnevaluatedpropertiesWithAdjacentAdditionalproperties.java
 public class UnevaluatedpropertiesWithAdjacentAdditionalproperties<br>
 
 A class that contains necessary nested
@@ -69,13 +69,13 @@ A schema class that validates payloads
 
 ### Code Sample
 ```
-import unit_test_api.configurations.JsonSchemaKeywordFlags;
-import unit_test_api.configurations.SchemaConfiguration;
-import unit_test_api.exceptions.ValidationException;
-import unit_test_api.schemas.validation.MapUtils;
-import unit_test_api.schemas.validation.FrozenList;
-import unit_test_api.schemas.validation.FrozenMap;
-import unit_test_api.components.schemas.UnevaluatedpropertiesWithAdjacentAdditionalproperties;
+import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
+import org.openapijsonschematools.client.configurations.SchemaConfiguration;
+import org.openapijsonschematools.client.exceptions.ValidationException;
+import org.openapijsonschematools.client.schemas.validation.MapUtils;
+import org.openapijsonschematools.client.schemas.validation.FrozenList;
+import org.openapijsonschematools.client.schemas.validation.FrozenMap;
+import org.openapijsonschematools.client.components.schemas.UnevaluatedpropertiesWithAdjacentAdditionalproperties;
 
 import java.util.Arrays;
 import java.util.List;
@@ -230,7 +230,7 @@ extends NotAnyTypeJsonSchema.NotAnyTypeJsonSchema1
 
 A schema class that validates payloads
 
-| Methods Inherited from class unit_test_api.schemas.NotAnyTypeJsonSchema.NotAnyTypeJsonSchema1 |
+| Methods Inherited from class org.openapijsonschematools.client.schemas.NotAnyTypeJsonSchema.NotAnyTypeJsonSchema1 |
 | ------------------------------------------------------------------ |
 | validate                                                           |
 | validateAndBox                                                     |
@@ -304,7 +304,7 @@ extends StringJsonSchema.StringJsonSchema1
 
 A schema class that validates payloads
 
-| Methods Inherited from class unit_test_api.schemas.StringJsonSchema.StringJsonSchema1 |
+| Methods Inherited from class org.openapijsonschematools.client.schemas.StringJsonSchema.StringJsonSchema1 |
 | ------------------------------------------------------------------ |
 | validate                                                           |
 | validateAndBox                                                     |
@@ -429,7 +429,7 @@ extends AnyTypeJsonSchema.AnyTypeJsonSchema1
 
 A schema class that validates payloads
 
-| Methods Inherited from class unit_test_api.schemas.AnyTypeJsonSchema.AnyTypeJsonSchema1 |
+| Methods Inherited from class org.openapijsonschematools.client.schemas.AnyTypeJsonSchema.AnyTypeJsonSchema1 |
 | ------------------------------------------------------------------ |
 | validate                                                           |
 | validateAndBox                                                     |

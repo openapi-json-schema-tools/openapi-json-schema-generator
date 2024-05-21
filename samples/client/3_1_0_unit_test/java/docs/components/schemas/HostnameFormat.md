@@ -1,5 +1,5 @@
 # HostnameFormat
-unit_test_api.components.schemas.HostnameFormat.java
+org.openapijsonschematools.client.components.schemas.HostnameFormat.java
 public class HostnameFormat<br>
 
 A class that contains necessary nested
