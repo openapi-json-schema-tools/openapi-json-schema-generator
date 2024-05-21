@@ -3,7 +3,7 @@
         {{#if forDocs}}
 type = setOf({{#contains types "null"}}Void::class.java{{/contains}}{{#contains types "object"}}Map::class.java{{/contains}}{{#contains types "array"}}List::class.java{{/contains}}{{#contains types  "boolean"}}Boolean::class.java{{/contains}})
         {{~else}}
-.type(setOf({{#contains types "null"}}Void::class.java{{/contains}}{{#contains types "object"}}Map::class.java{{/contains}}{{#contains types "array"}}List::class.java{{/contains}}{{#contains types  "boolean"}}Boolean::class.java{{/contains}}))
+type = setOf({{#contains types "null"}}Void::class.java{{/contains}}{{#contains types "object"}}Map::class.java{{/contains}}{{#contains types "array"}}List::class.java{{/contains}}{{#contains types  "boolean"}}Boolean::class.java{{/contains}}),
         {{/if}}
     {{else}}
         {{#if forDocs}}
@@ -38,7 +38,7 @@ type = setOf(<br/>
             {{/each}}
 )<br/>
         {{~else}}
-.type(setOf(
+type = setOf(
             {{#each types}}
                 {{#eq this "null"}}
     Void::class.java{{#unless @last}},{{/unless}}
@@ -73,7 +73,7 @@ type = setOf(<br/>
     Boolean::class.java{{#unless @last}},{{/unless}}
                 {{/eq}}
             {{/each}}
-))
+),
         {{/if}}
     {{/and}}
 {{/if}}

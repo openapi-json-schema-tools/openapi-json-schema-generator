@@ -23,9 +23,10 @@ open class DateJsonSchema {
     }
 
     open class DateJsonSchema1 protected constructor() : JsonSchema<DateJsonSchema1Boxed>(
-        JsonSchemaInfo()
-            .type(setOf(String::class.java))
-            .format("date")
+        JsonSchemaInfo(
+            type = setOf(String::class.java),
+            format = "date"
+        )
     ), StringSchemaValidator<DateJsonSchema1BoxedString> {
         @Throws(ValidationException::class)
         override fun validate(arg: String, configuration: SchemaConfiguration?): String {

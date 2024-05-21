@@ -21,12 +21,13 @@ open class FloatJsonSchema {
     }
 
     open class FloatJsonSchema1 protected constructor() : JsonSchema<FloatJsonSchema1Boxed>(
-        JsonSchemaInfo()
-            .type(setOf(
+        JsonSchemaInfo(
+            type = setOf(
                     Int::class.java,
                     Float::class.java
-            ))
-            .format("float")
+            ),
+            format = "float"
+        )
     ), NumberSchemaValidator<FloatJsonSchema1BoxedNumber> {
         @Throws(ValidationException::class)
         override fun validate(arg: Number, configuration: SchemaConfiguration?): Number {

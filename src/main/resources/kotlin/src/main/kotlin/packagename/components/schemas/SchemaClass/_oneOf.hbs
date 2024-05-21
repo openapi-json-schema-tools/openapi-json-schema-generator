@@ -13,7 +13,7 @@ oneOf = listOf(<br>
     {{/each}}
 ))<br>
 {{~else}}
-.oneOf(listOf(
+oneOf = listOf(
     {{#each oneOf}}
         {{#if refInfo.refClass}}
             {{#if refInfo.refModule}}
@@ -25,5 +25,5 @@ oneOf = listOf(<br>
     {{jsonPathPiece.pascalCase}}::class.java{{#unless @last}},{{/unless}}
         {{/if}}
     {{/each}}
-))
+),
 {{/if}}

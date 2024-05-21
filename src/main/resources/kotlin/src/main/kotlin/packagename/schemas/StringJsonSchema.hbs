@@ -25,8 +25,9 @@ open class StringJsonSchema {
     }
 
     open class StringJsonSchema1 protected constructor() : JsonSchema<StringJsonSchema1Boxed?>(
-        JsonSchemaInfo()
-            .type(setOf(String::class.java))
+        JsonSchemaInfo(
+            type = setOf(String::class.java)
+        )
     ), StringSchemaValidator<StringJsonSchema1BoxedString?> {
         @Throws(ValidationException::class)
         override fun validate(arg: String, configuration: SchemaConfiguration?): String {

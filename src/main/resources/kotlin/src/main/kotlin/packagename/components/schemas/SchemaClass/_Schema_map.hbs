@@ -4,7 +4,7 @@
 
 
 class {{jsonPathPiece.pascalCase}} private constructor(): JsonSchema<{{jsonPathPiece.pascalCase}}Boxed>(
-    JsonSchemaInfo()
+    JsonSchemaInfo(
     {{#if types}}
         {{> src/main/kotlin/packagename/components/schemas/SchemaClass/_types }}
     {{/if}}
@@ -59,6 +59,7 @@ class {{jsonPathPiece.pascalCase}} private constructor(): JsonSchema<{{jsonPathP
     {{#if unevaluatedProperties}}
         {{> src/main/kotlin/packagename/components/schemas/SchemaClass/_unevaluatedProperties }}
     {{/if}}
+    )
 ), MapSchemaValidator<{{#if mapOutputJsonPathPiece}}{{mapOutputJsonPathPiece.pascalCase}}{{else}}FrozenMap<{{#with mapValueSchema}}{{> src/main/kotlin/packagename/components/schemas/types/schema_output_type sourceJsonPath=../jsonPath forceNull=true }}{{else}}Any?{{/with}}>{{/if}}, {{jsonPathPiece.pascalCase}}BoxedMap> {
 {{#if componentModule}}
     /*

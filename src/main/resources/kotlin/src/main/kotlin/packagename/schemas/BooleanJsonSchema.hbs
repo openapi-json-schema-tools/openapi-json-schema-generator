@@ -21,8 +21,9 @@ open class BooleanJsonSchema {
     }
 
     open class BooleanJsonSchema1 protected constructor() : JsonSchema<BooleanJsonSchema1Boxed>(
-        JsonSchemaInfo()
-            .type(setOf(Boolean::class.java))
+        JsonSchemaInfo(
+            type = setOf(Boolean::class.java)
+        )
     ), BooleanSchemaValidator<BooleanJsonSchema1BoxedBoolean> {
         @Throws(ValidationException::class)
         override fun validate(arg: Boolean, configuration: SchemaConfiguration?): Boolean {

@@ -21,14 +21,13 @@ open class Int32JsonSchema {
     }
 
     open class Int32JsonSchema1 protected constructor() : JsonSchema<Int32JsonSchema1Boxed>(
-        JsonSchemaInfo()
-            .type(
-                setOf(
-                    Int::class.java,
-                    Float::class.java
-                )
-            )
-            .format("int32")
+        JsonSchemaInfo(
+            type = setOf(
+                Int::class.java,
+                Float::class.java
+            ),
+            format = "int32"
+        )
     ), NumberSchemaValidator<Int32JsonSchema1BoxedNumber> {
         @Throws(ValidationException::class)
         override fun validate(arg: Number, configuration: SchemaConfiguration?): Number {

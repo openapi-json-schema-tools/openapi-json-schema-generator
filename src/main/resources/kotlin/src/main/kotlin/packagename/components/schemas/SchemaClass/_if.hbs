@@ -12,6 +12,6 @@ if = [{{jsonPathPiece.pascalCase}}::class.java](#{{jsonPathPiece.kebabCase}})
     {{~/with}}
 {{else}}
     {{#with if_}}
-.ifSchema({{#if refInfo.refClass}}{{#if refInfo.refModule}}{{refInfo.refModule}}.{{/if}}{{refInfo.refClass}}{{else}}{{jsonPathPiece.pascalCase}}{{/if}}::class.java)
+ifSchema = {{#if refInfo.refClass}}{{#if refInfo.refModule}}{{refInfo.refModule}}.{{/if}}{{refInfo.refClass}}{{else}}{{jsonPathPiece.pascalCase}}{{/if}}::class.java,
     {{/with}}
 {{/if}}

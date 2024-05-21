@@ -168,7 +168,7 @@ A schema class that validates payloads
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |
 | Class<? extends JsonSchema> | additionalProperties = [AdditionalProperties::class.java](#additionalproperties) |
-| List<Class<? extends JsonSchema>> | allOf = listOf(<br>&nbsp;&nbsp;&nbsp;&nbsp;[Schema0::class.java](#schema0)<br>;)<br> |
+| List<Class<? extends JsonSchema>> | allOf = listOf(<br>&nbsp;&nbsp;&nbsp;&nbsp;[Schema0::class.java](#schema0)<br>)<br> |
 
 ### Method Summary
 | Modifier and Type | Method and Description |

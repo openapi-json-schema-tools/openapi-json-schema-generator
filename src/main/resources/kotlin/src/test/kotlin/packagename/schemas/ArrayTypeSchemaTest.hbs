@@ -19,9 +19,10 @@ class ArrayTypeSchemaTest {
 
     data class ArrayWithItemsSchemaBoxedList(val data: FrozenList<String>) : ArrayWithItemsSchemaBoxed
     class ArrayWithItemsSchema : JsonSchema<ArrayWithItemsSchemaBoxed>(
-        JsonSchemaInfo()
-            .type(setOf(List::class.java))
-            .items(StringJsonSchema.StringJsonSchema1::class.java)
+        JsonSchemaInfo(
+            type = setOf(List::class.java),
+            items = StringJsonSchema.StringJsonSchema1::class.java
+        )
     ), ListSchemaValidator<FrozenList<String>, ArrayWithItemsSchemaBoxedList> {
         override fun getNewInstance(
             arg: List<*>,
@@ -100,9 +101,10 @@ class ArrayTypeSchemaTest {
         ArrayWithOutputClsSchemaBoxed
 
     class ArrayWithOutputClsSchema : JsonSchema<ArrayWithOutputClsSchemaBoxed>(
-        JsonSchemaInfo()
-            .type(setOf(List::class.java))
-            .items(StringJsonSchema.StringJsonSchema1::class.java)
+        JsonSchemaInfo(
+            type = setOf(List::class.java),
+            items = StringJsonSchema.StringJsonSchema1::class.java
+        )
     ), ListSchemaValidator<ArrayWithOutputClsSchemaList, ArrayWithOutputClsSchemaBoxedList> {
         override fun getNewInstance(
             arg: List<*>,

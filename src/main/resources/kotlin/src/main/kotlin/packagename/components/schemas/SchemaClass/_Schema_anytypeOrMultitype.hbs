@@ -4,7 +4,7 @@
 
 
 class {{jsonPathPiece.pascalCase}} private constructor(): JsonSchema<{{jsonPathPiece.pascalCase}}Boxed>(
-    JsonSchemaInfo()
+    JsonSchemaInfo(
     {{#if types}}
         {{> src/main/kotlin/packagename/components/schemas/SchemaClass/_types }}
     {{/if}}
@@ -122,6 +122,7 @@ class {{jsonPathPiece.pascalCase}} private constructor(): JsonSchema<{{jsonPathP
     {{#if unevaluatedProperties}}
         {{> src/main/kotlin/packagename/components/schemas/SchemaClass/_unevaluatedProperties }}
     {{/if}}
+    )
 ), {{#with enumInfo}}{{#if typeToValues.null}}NullEnumValidator<Null{{jsonPathPiece.pascalCase}}>, {{/if}}{{#if typeToValues.boolean}}BooleanEnumValidator<Boolean{{jsonPathPiece.pascalCase}}>, {{/if}}{{#if typeToValues.string}}StringEnumValidator<String{{jsonPathPiece.pascalCase}}>, {{/if}}{{#if typeToValues.Integer}}IntegerEnumValidator<Integer{{jsonPathPiece.pascalCase}}>, {{/if}}{{#if typeToValues.Long}}LongEnumValidator<Long{{jsonPathPiece.pascalCase}}>, {{/if}}{{#if typeToValues.Float}}FloatEnumValidator<Float{{jsonPathPiece.pascalCase}}>, {{/if}}{{#if typeToValues.Double}}DoubleEnumValidator<Double{{jsonPathPiece.pascalCase}}>, {{/if}}{{/with}}{{#each types}}{{#eq this "null"}}NullSchemaValidator<{{jsonPathPiece.pascalCase}}BoxedVoid>{{else}}{{#eq this "boolean"}}BooleanSchemaValidator<{{jsonPathPiece.pascalCase}}BoxedBoolean>{{else}}{{#or (eq this "number") (eq this "integer")}}NumberSchemaValidator<{{jsonPathPiece.pascalCase}}BoxedNumber>{{else}}{{#eq this "string"}}StringSchemaValidator<{{jsonPathPiece.pascalCase}}BoxedString>{{else}}{{#eq this "array"}}ListSchemaValidator<{{#if arrayOutputJsonPathPiece}}{{arrayOutputJsonPathPiece.pascalCase}}{{else}}FrozenList<Any?>{{/if}}, {{jsonPathPiece.pascalCase}}BoxedList>{{else}}{{#eq this "object"}}MapSchemaValidator<{{#if mapOutputJsonPathPiece}}{{mapOutputJsonPathPiece.pascalCase}}{{else}}FrozenMap<{{#with mapValueSchema}}{{> src/main/kotlin/packagename/components/schemas/types/schema_output_type sourceJsonPath=../jsonPath forceNull=true }}{{else}}Any?{{/with}}>{{/if}}, {{jsonPathPiece.pascalCase}}BoxedMap>{{/eq}}{{/eq}}{{/eq}}{{/or}}{{/eq}}{{/eq}}{{#unless @last}}, {{/unless}}{{else}}NullSchemaValidator<{{jsonPathPiece.pascalCase}}BoxedVoid>, BooleanSchemaValidator<{{jsonPathPiece.pascalCase}}BoxedBoolean>, NumberSchemaValidator<{{jsonPathPiece.pascalCase}}BoxedNumber>, StringSchemaValidator<{{jsonPathPiece.pascalCase}}BoxedString>, ListSchemaValidator<{{#if arrayOutputJsonPathPiece}}{{arrayOutputJsonPathPiece.pascalCase}}{{else}}FrozenList<Any?>{{/if}}, {{jsonPathPiece.pascalCase}}BoxedList>, MapSchemaValidator<{{#if mapOutputJsonPathPiece}}{{mapOutputJsonPathPiece.pascalCase}}{{else}}FrozenMap<{{#with mapValueSchema}}{{> src/main/kotlin/packagename/components/schemas/types/schema_output_type sourceJsonPath=../jsonPath forceNull=true }}{{else}}Any?{{/with}}>{{/if}}, {{jsonPathPiece.pascalCase}}BoxedMap>{{/each}} {
 {{#if componentModule}}
     /*

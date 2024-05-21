@@ -12,6 +12,6 @@ unevaluatedItems = [{{jsonPathPiece.pascalCase}}::class.java](#{{jsonPathPiece.k
     {{/with}}
 {{else}}
     {{#with unevaluatedItems}}
-.unevaluatedItems({{#if refInfo.refClass}}{{#if refInfo.refModule}}{{refInfo.refModule}}.{{/if}}{{refInfo.refClass}}{{else}}{{jsonPathPiece.pascalCase}}{{/if}}::class.java)
+unevaluatedItems = {{#if refInfo.refClass}}{{#if refInfo.refModule}}{{refInfo.refModule}}.{{/if}}{{refInfo.refClass}}{{else}}{{jsonPathPiece.pascalCase}}{{/if}}::class.java,
     {{/with}}
 {{/if}}

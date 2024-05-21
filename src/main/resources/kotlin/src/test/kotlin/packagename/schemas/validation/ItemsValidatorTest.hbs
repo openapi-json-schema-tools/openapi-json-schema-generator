@@ -14,9 +14,10 @@ class ItemsValidatorTest {
     interface ArrayWithItemsSchemaBoxed
     class ArrayWithItemsSchemaBoxedList : ArrayWithItemsSchemaBoxed
     class ArrayWithItemsSchema : JsonSchema<ArrayWithItemsSchemaBoxed>(
-        JsonSchemaInfo()
-            .type(setOf(List::class.java))
-            .items(StringJsonSchema.StringJsonSchema1::class.java)
+        JsonSchemaInfo(
+            type = setOf(List::class.java),
+            items = StringJsonSchema.StringJsonSchema1::class.java
+        )
     ) {
         override fun getNewInstance(arg: Any?, pathToItem: List<Any>, pathToSchemas: PathToSchemasMap): Any? {
             if (arg is List<*>) {

@@ -21,8 +21,9 @@ open class NullJsonSchema {
     }
 
     open class NullJsonSchema1 protected constructor() : JsonSchema<NullJsonSchema1Boxed>(
-        JsonSchemaInfo()
-            .type(setOf(Void::class.java))
+        JsonSchemaInfo(
+            type = setOf(Void::class.java)
+        )
     ), NullSchemaValidator<NullJsonSchema1BoxedVoid> {
         @Throws(ValidationException::class)
         override fun validate(arg: Nothing?, configuration: SchemaConfiguration?): Nothing? {

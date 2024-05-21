@@ -13,7 +13,7 @@ patternProperties = mapOf(<br>
     {{/each}}
 )<br>
 {{~else}}
-.patternProperties(mapOf(
+patternProperties = mapOf(
     {{#each patternProperties}}
         {{#if refInfo.refClass}}
             {{#if refInfo.refModule}}
@@ -25,5 +25,5 @@ patternProperties = mapOf(<br>
     Pattern.compile("{{{@key.pattern.codeEscaped}}}") to {{jsonPathPiece.pascalCase}}::class.java{{#unless @last}},{{/unless}}
         {{/if}}
     {{/each}}
-))
+),
 {{/if}}

@@ -13,7 +13,7 @@ dependentSchemas = mapOf(<br>
     {{/each}}
 )<br>
 {{~else}}
-.dependentSchemas(mapOf(
+dependentSchemas = mapOf(
     {{#each dependentSchemas}}
         {{#if refInfo.refClass}}
             {{#if refInfo.refModule}}
@@ -25,5 +25,5 @@ dependentSchemas = mapOf(<br>
     "{{{@key.original}}}" to {{jsonPathPiece.pascalCase}}::class.java{{#unless @last}},{{/unless}}
         {{/if}}
     {{/each}}
-))
+),
 {{/if}}

@@ -4,7 +4,7 @@
 
 
 class {{jsonPathPiece.pascalCase}} private constructor(): JsonSchema<{{jsonPathPiece.pascalCase}}Boxed>(
-    JsonSchemaInfo()
+    JsonSchemaInfo(
     {{#if types}}
         {{> src/main/kotlin/packagename/components/schemas/SchemaClass/_types }}
     {{/if}}
@@ -38,6 +38,7 @@ class {{jsonPathPiece.pascalCase}} private constructor(): JsonSchema<{{jsonPathP
     {{#if else_}}
         {{> src/main/kotlin/packagename/components/schemas/SchemaClass/_else }}
     {{/if}}
+    )
 ), BooleanSchemaValidator<{{jsonPathPiece.pascalCase}}BoxedBoolean>{{#and enumInfo enumInfo.typeToValues.boolean}}, BooleanEnumValidator<Boolean{{enumInfo.jsonPathPiece.pascalCase}}>{{/and}} {
 {{#if componentModule}}
     /*

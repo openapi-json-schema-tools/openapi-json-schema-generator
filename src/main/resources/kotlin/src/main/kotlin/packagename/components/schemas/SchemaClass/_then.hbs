@@ -12,6 +12,6 @@ then = [{{jsonPathPiece.pascalCase}}::class.java](#{{jsonPathPiece.kebabCase}})
     {{~/with}}
 {{else}}
     {{#with then}}
-.then({{#if refInfo.refClass}}{{#if refInfo.refModule}}{{refInfo.refModule}}.{{/if}}{{refInfo.refClass}}{{else}}{{jsonPathPiece.pascalCase}}{{/if}}::class.java)
+then ={{#if refInfo.refClass}}{{#if refInfo.refModule}}{{refInfo.refModule}}.{{/if}}{{refInfo.refClass}}{{else}}{{jsonPathPiece.pascalCase}}{{/if}}::class.java,
     {{/with}}
 {{/if}}

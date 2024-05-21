@@ -21,18 +21,19 @@ open class DoubleJsonSchema {
     }
 
     open class DoubleJsonSchema1 protected constructor() : JsonSchema<DoubleJsonSchema1Boxed>(
-        JsonSchemaInfo()
+        JsonSchemaInfo(
         {{#if generatorSettings.intsAllowedForFloatDoubleFormats}}
-            .type(setOf(
+            type = setOf(
                     Int::class.java,
                     Long::class.java,
                     Float::class.java,
                     Double::class.java
-            ))
+            ),
         {{else}}
-            .type(setOf(Double::class.java))
+            type = setOf(Double::class.java),
         {{/if}}
-            .format("double")
+            format = "double"
+        )
     ), NumberSchemaValidator<DoubleJsonSchema1BoxedNumber> {
         @Throws(ValidationException::class)
         override fun validate(arg: Number, configuration: SchemaConfiguration?): Number {

@@ -11,8 +11,9 @@ class JsonSchemaTest {
     internal sealed interface SomeSchemaBoxed
     internal class SomeSchemaBoxedString : SomeSchemaBoxed
     internal class SomeSchema private constructor() : JsonSchema<SomeSchemaBoxed>(
-        JsonSchemaInfo()
-            .type(setOf(String::class.java))
+        JsonSchemaInfo(
+            type = setOf(String::class.java)
+        )
     ) {
         override fun getNewInstance(arg: Any?, pathToItem: List<Any>, pathToSchemas: PathToSchemasMap): Any? {
             if (arg is String) {

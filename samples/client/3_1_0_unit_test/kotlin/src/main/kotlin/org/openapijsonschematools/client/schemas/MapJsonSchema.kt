@@ -22,8 +22,9 @@ open class MapJsonSchema {
     }
 
     open class MapJsonSchema1 protected constructor() : JsonSchema<MapJsonSchema1Boxed>(
-        JsonSchemaInfo()
-            .type(setOf(Map::class.java))
+        JsonSchemaInfo(
+            type = setOf(Map::class.java)
+        )
     ), MapSchemaValidator<FrozenMap<Any?>, MapJsonSchema1BoxedMap> {
         override fun getNewInstance(
             arg: Map<*, *>,

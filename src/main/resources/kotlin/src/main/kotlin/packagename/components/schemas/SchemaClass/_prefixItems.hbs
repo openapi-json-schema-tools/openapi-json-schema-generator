@@ -13,7 +13,7 @@ prefixItems = listOf(<br>
     {{/each}}
 )<br>
 {{~else}}
-.prefixItems(listOf(
+prefixItems = listOf(
     {{#each prefixItems}}
         {{#if refInfo.refClass}}
             {{#if refInfo.refModule}}
@@ -25,5 +25,5 @@ prefixItems = listOf(<br>
     {{jsonPathPiece.pascalCase}}::class.java{{#unless @last}},{{/unless}}
         {{/if}}
     {{/each}}
-))
+),
 {{/if}}

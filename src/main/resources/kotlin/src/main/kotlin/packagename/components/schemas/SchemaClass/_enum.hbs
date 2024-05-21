@@ -15,7 +15,7 @@ enumValues = setOf(<br>
     {{/each}}
 )<br>
 {{~else}}
-.enumValues(setOf(
+enumValues = setOf(
     {{#each enumInfo.valueToName}}
     {{#with @key}}
         {{#eq type "string"}}
@@ -33,5 +33,5 @@ enumValues = setOf(<br>
         {{/eq}}
     {{/with}}
     {{/each}}
-))
+),
 {{/if}}

@@ -12,6 +12,6 @@ unevaluatedProperties = [{{jsonPathPiece.pascalCase}}::class.java](#{{jsonPathPi
     {{/with}}
 {{else}}
     {{#with unevaluatedProperties}}
-.unevaluatedProperties({{#if refInfo.refClass}}{{#if refInfo.refModule}}{{refInfo.refModule}}.{{/if}}{{refInfo.refClass}}{{else}}{{jsonPathPiece.pascalCase}}{{/if}}::class.java)
+unevaluatedProperties = {{#if refInfo.refClass}}{{#if refInfo.refModule}}{{refInfo.refModule}}.{{/if}}{{refInfo.refClass}}{{else}}{{jsonPathPiece.pascalCase}}{{/if}}::class.java,
     {{/with}}
 {{/if}}

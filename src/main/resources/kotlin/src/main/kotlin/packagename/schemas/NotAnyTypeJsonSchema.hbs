@@ -69,8 +69,9 @@ open class NotAnyTypeJsonSchema {
     }
 
     open class NotAnyTypeJsonSchema1 protected constructor() : JsonSchema<NotAnyTypeJsonSchema1Boxed?>(
-        JsonSchemaInfo()
-            .not(AnyTypeJsonSchema.AnyTypeJsonSchema1::class.java)
+        JsonSchemaInfo(
+            not = AnyTypeJsonSchema.AnyTypeJsonSchema1::class.java
+        )
     ), NullSchemaValidator<NotAnyTypeJsonSchema1BoxedVoid>, BooleanSchemaValidator<NotAnyTypeJsonSchema1BoxedBoolean>,
         NumberSchemaValidator<NotAnyTypeJsonSchema1BoxedNumber>,
         StringSchemaValidator<NotAnyTypeJsonSchema1BoxedString>,

@@ -27,7 +27,7 @@ pattern = Pattern.compile(<br>
     {{/with}}
 ){{#unless @last}},{{/unless}}<br>
 {{~else}}
-.pattern(Pattern.compile(
+pattern = Pattern.compile(
     {{#with patternInfo}}
     "{{{pattern.codeEscaped}}}"{{#if flags}},{{/if}}
         {{#if flags}}
@@ -53,5 +53,5 @@ pattern = Pattern.compile(<br>
             {{/eq}}
         {{/if}}
     {{/with}}
-))
+),
 {{/if}}

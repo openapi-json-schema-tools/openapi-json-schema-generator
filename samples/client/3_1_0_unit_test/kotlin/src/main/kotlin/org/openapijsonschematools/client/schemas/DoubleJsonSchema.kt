@@ -21,14 +21,15 @@ open class DoubleJsonSchema {
     }
 
     open class DoubleJsonSchema1 protected constructor() : JsonSchema<DoubleJsonSchema1Boxed>(
-        JsonSchemaInfo()
-            .type(setOf(
+        JsonSchemaInfo(
+            type = setOf(
                     Int::class.java,
                     Long::class.java,
                     Float::class.java,
                     Double::class.java
-            ))
-            .format("double")
+            ),
+            format = "double"
+        )
     ), NumberSchemaValidator<DoubleJsonSchema1BoxedNumber> {
         @Throws(ValidationException::class)
         override fun validate(arg: Number, configuration: SchemaConfiguration?): Number {

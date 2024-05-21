@@ -22,8 +22,9 @@ open class ListJsonSchema {
     }
 
     open class ListJsonSchema1 protected constructor() : JsonSchema<ListJsonSchema1Boxed>(
-        JsonSchemaInfo()
-            .type(setOf(List::class.java))
+        JsonSchemaInfo(
+            type = setOf(List::class.java)
+        )
     ), ListSchemaValidator<FrozenList<Any?>, ListJsonSchema1BoxedList> {
         override fun getNewInstance(
             arg: List<*>,

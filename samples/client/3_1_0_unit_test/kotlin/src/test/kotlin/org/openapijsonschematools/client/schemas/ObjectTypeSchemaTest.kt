@@ -19,13 +19,12 @@ class ObjectTypeSchemaTest {
 
     data class ObjectWithPropsSchemaBoxedMap(val data: FrozenMap<Any?>) : ObjectWithPropsSchemaBoxed
     class ObjectWithPropsSchema private constructor() : JsonSchema<ObjectWithPropsSchemaBoxed>(
-        JsonSchemaInfo()
-            .type(setOf(Map::class.java))
-            .properties(
-                mapOf(
-                    "someString" to StringJsonSchema.StringJsonSchema1::class.java
-                )
+        JsonSchemaInfo(
+            type = setOf(Map::class.java),
+            properties = mapOf(
+                "someString" to StringJsonSchema.StringJsonSchema1::class.java
             )
+        )
     ), MapSchemaValidator<FrozenMap<Any?>, ObjectWithPropsSchemaBoxedMap> {
         override fun getNewInstance(
             arg: Map<*, *>,
@@ -110,9 +109,10 @@ class ObjectTypeSchemaTest {
     data class ObjectWithAddpropsSchemaBoxedMap(val data: FrozenMap<String>) : ObjectWithAddpropsSchemaBoxed {}
 
     class ObjectWithAddpropsSchema private constructor() : JsonSchema<ObjectWithAddpropsSchemaBoxed>(
-        JsonSchemaInfo()
-            .type(setOf(Map::class.java))
-            .additionalProperties(StringJsonSchema.StringJsonSchema1::class.java)
+        JsonSchemaInfo(
+            type = setOf(Map::class.java),
+            additionalProperties = StringJsonSchema.StringJsonSchema1::class.java
+        )
     ), MapSchemaValidator<FrozenMap<String>, ObjectWithAddpropsSchemaBoxedMap> {
         override fun getNewInstance(
             arg: Map<*, *>,
@@ -198,14 +198,13 @@ class ObjectTypeSchemaTest {
     }
 
     class ObjectWithPropsAndAddpropsSchema private constructor() : JsonSchema<ObjectWithPropsAndAddpropsSchemaBoxed>(
-        JsonSchemaInfo()
-            .type(setOf(Map::class.java))
-            .properties(
-                mapOf(
-                    "someString" to StringJsonSchema.StringJsonSchema1::class.java
-                )
-            )
-            .additionalProperties(BooleanJsonSchema.BooleanJsonSchema1::class.java)
+        JsonSchemaInfo(
+            type = setOf(Map::class.java),
+            properties = mapOf(
+                "someString" to StringJsonSchema.StringJsonSchema1::class.java
+            ),
+            additionalProperties = BooleanJsonSchema.BooleanJsonSchema1::class.java
+        )
     ), MapSchemaValidator<FrozenMap<Any?>, ObjectWithPropsAndAddpropsSchemaBoxedMap> {
         override fun getNewInstance(
             arg: Map<*, *>,
@@ -302,13 +301,12 @@ class ObjectTypeSchemaTest {
     }
 
     class ObjectWithOutputTypeSchema : JsonSchema<ObjectWithOutputTypeSchemaBoxed?>(
-        JsonSchemaInfo()
-            .type(setOf(Map::class.java))
-            .properties(
-                mapOf(
-                    "someString" to StringJsonSchema.StringJsonSchema1::class.java
-                )
+        JsonSchemaInfo(
+            type = setOf(Map::class.java),
+            properties = mapOf(
+                "someString" to StringJsonSchema.StringJsonSchema1::class.java
             )
+        )
     ), MapSchemaValidator<ObjectWithOutputTypeSchemaMap?, ObjectWithOutputTypeSchemaBoxedMap?> {
         override fun getNewInstance(
             arg: Map<*, *>,

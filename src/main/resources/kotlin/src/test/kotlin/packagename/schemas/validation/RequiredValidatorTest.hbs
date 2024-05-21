@@ -12,9 +12,10 @@ class RequiredValidatorTest {
     interface ObjectWithRequiredSchemaBoxed
     class ObjectWithRequiredSchemaBoxedMap : ObjectWithRequiredSchemaBoxed
     class ObjectWithRequiredSchema : JsonSchema<ObjectWithRequiredSchemaBoxed?>(
-        JsonSchemaInfo()
-            .type(setOf(Map::class.java))
-            .required(setOf("someString"))
+        JsonSchemaInfo(
+            type = setOf(Map::class.java),
+            required = setOf("someString")
+        )
     ) {
         override fun getNewInstance(arg: Any?, pathToItem: List<Any>, pathToSchemas: PathToSchemasMap): Any? {
             if (arg is Map<*, *>) {

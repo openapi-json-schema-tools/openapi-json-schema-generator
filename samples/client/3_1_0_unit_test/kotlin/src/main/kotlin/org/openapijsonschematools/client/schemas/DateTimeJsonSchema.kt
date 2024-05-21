@@ -23,9 +23,10 @@ open class DateTimeJsonSchema {
     }
 
     open class DateTimeJsonSchema1 protected constructor() : JsonSchema<DateTimeJsonSchema1Boxed>(
-        JsonSchemaInfo()
-            .type(setOf(String::class.java))
-            .format("date-time")
+        JsonSchemaInfo(
+            type = setOf(String::class.java),
+            format = "date-time"
+        )
     ), StringSchemaValidator<DateTimeJsonSchema1BoxedString> {
         @Throws(ValidationException::class)
         override fun validate(arg: String, configuration: SchemaConfiguration?): String {

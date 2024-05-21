@@ -4,7 +4,7 @@
 
 
 class {{jsonPathPiece.pascalCase}} private constructor(): JsonSchema<{{jsonPathPiece.pascalCase}}Boxed>(
-    JsonSchemaInfo()
+    JsonSchemaInfo(
     {{#if types}}
         {{> src/main/kotlin/packagename/components/schemas/SchemaClass/_types }}
     {{/if}}
@@ -56,6 +56,7 @@ class {{jsonPathPiece.pascalCase}} private constructor(): JsonSchema<{{jsonPathP
     {{#if unevaluatedItems}}
         {{> src/main/kotlin/packagename/components/schemas/SchemaClass/_unevaluatedItems }}
     {{/if}}
+    )
 ), ListSchemaValidator<{{#if arrayOutputJsonPathPiece}}{{arrayOutputJsonPathPiece.pascalCase}}{{else}}FrozenList<Any?>{{/if}}, {{jsonPathPiece.pascalCase}}BoxedList> {
 {{#if componentModule}}
     /*

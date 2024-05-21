@@ -14,13 +14,12 @@ class PropertiesValidatorTest {
     interface ObjectWithPropsSchemaBoxed
     class ObjectWithPropsSchemaBoxedMap : ObjectWithPropsSchemaBoxed
     class ObjectWithPropsSchema : JsonSchema<ObjectWithPropsSchemaBoxed>(
-        JsonSchemaInfo()
-            .type(setOf(MutableMap::class.java))
-            .properties(
-                mapOf(
-                    "someString" to StringJsonSchema.StringJsonSchema1::class.java
-                )
+        JsonSchemaInfo(
+            type = setOf(MutableMap::class.java),
+            properties = mapOf(
+                "someString" to StringJsonSchema.StringJsonSchema1::class.java
             )
+        )
     ) {
         override fun getNewInstance(arg: Any?, pathToItem: List<Any>, pathToSchemas: PathToSchemasMap): Any? {
             if (arg is Map<*, *>) {

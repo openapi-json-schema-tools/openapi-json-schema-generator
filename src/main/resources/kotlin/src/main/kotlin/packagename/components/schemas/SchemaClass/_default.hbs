@@ -21,20 +21,20 @@ defaultValue = JsonValue.of(null)
         {{/eq}}
     {{else}}
         {{#eq type "string"}}
-.defaultValue(JsonValue.of("{{{value}}}"))
+defaultValue = JsonValue.of("{{{value}}}"),
         {{else}}
             {{#or (eq type "number") (eq type "integer")}}
-.defaultValue(JsonValue.of({{{value}}}))
+defaultValue = JsonValue.of({{{value}}}),
             {{else}}
                 {{#eq type "boolean"}}
                     {{#if value}}
-.defaultValue(JsonValue.of(true))
+defaultValue = JsonValue.of(true),
                     {{else}}
-.defaultValue(JsonValue.of(false))
+defaultValue = JsonValue.of(false),
                     {{/if}}
                 {{else}}
                     {{#eq type "null"}}
-.defaultValue(JsonValue.of(null))
+defaultValue = JsonValue.of(null),
                     {{/eq}}
                 {{/eq}}
             {{/or}}

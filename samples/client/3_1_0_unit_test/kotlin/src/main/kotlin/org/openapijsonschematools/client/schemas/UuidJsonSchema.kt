@@ -23,9 +23,10 @@ open class UuidJsonSchema {
     }
 
     open class UuidJsonSchema1 protected constructor() : JsonSchema<UuidJsonSchema1Boxed>(
-        JsonSchemaInfo()
-            .type(setOf(String::class.java))
-            .format("uuid")
+        JsonSchemaInfo(
+            type = setOf(String::class.java),
+            format = "uuid"
+        )
     ), StringSchemaValidator<UuidJsonSchema1BoxedString> {
         @Throws(ValidationException::class)
         override fun validate(arg: String, configuration: SchemaConfiguration?): String {
