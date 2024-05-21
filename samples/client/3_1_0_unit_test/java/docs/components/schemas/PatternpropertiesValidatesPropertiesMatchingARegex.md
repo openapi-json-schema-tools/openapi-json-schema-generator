@@ -1,5 +1,5 @@
 # PatternpropertiesValidatesPropertiesMatchingARegex
-org.openapijsonschematools.client.components.schemas.PatternpropertiesValidatesPropertiesMatchingARegex.java
+unit_test_api.components.schemas.PatternpropertiesValidatesPropertiesMatchingARegex.java
 public class PatternpropertiesValidatesPropertiesMatchingARegex<br>
 
 A class that contains necessary nested
@@ -199,7 +199,7 @@ extends IntJsonSchema.IntJsonSchema1
 
 A schema class that validates payloads
 
-| Methods Inherited from class org.openapijsonschematools.client.schemas.IntJsonSchema.IntJsonSchema1 |
+| Methods Inherited from class unit_test_api.schemas.IntJsonSchema.IntJsonSchema1 |
 | ------------------------------------------------------------------ |
 | validate                                                           |
 | validateAndBox                                                     |

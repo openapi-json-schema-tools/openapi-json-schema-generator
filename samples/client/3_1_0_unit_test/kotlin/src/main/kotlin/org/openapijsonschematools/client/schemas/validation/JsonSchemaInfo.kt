@@ -148,19 +148,15 @@ class JsonSchemaInfo {
         return this
     }
 
-    var defaultValue: Any? = null
-    var defaultValueSet = false
-    fun defaultValue(defaultValue: Any?): JsonSchemaInfo {
+    var defaultValue: JsonValue.JsonValueBoxed? = null
+    fun defaultValue(defaultValue: JsonValue.JsonValueBoxed): JsonSchemaInfo {
         this.defaultValue = defaultValue
-        defaultValueSet = true
         return this
     }
 
-    var constValue: Any? = null
-    var constValueSet = false
-    fun constValue(constValue: Any?): JsonSchemaInfo {
+    var constValue: JsonValue.JsonValueBoxed? = null
+    fun constValue(constValue: JsonValue.JsonValueBoxed): JsonSchemaInfo {
         this.constValue = constValue
-        constValueSet = true
         return this
     }
 

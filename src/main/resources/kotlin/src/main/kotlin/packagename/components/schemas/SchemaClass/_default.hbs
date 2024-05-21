@@ -1,40 +1,40 @@
 {{#with defaultValue}}
     {{#if forDocs}}
         {{#eq type "string"}}
-defaultValue = "{{{value}}}"
+defaultValue = JsonValue.of("{{{value}}}")
         {{~else}}
             {{#or (eq type "number") (eq type "integer")}}
-defaultValue = {{{value}}}
+defaultValue = JsonValue.of({{{value}}})
             {{~else}}
                 {{#eq type "boolean"}}
                     {{#if value}}
-defaultValue = true
+defaultValue = JsonValue.of(true)
                     {{~else}}
-defaultValue = false
+defaultValue = JsonValue.of(false)
                     {{~/if}}
                 {{else}}
                     {{#eq type "null"}}
-defaultValue = null
+defaultValue = JsonValue.of(null)
                     {{~/eq}}
                 {{/eq}}
             {{/or}}
         {{/eq}}
     {{else}}
         {{#eq type "string"}}
-.defaultValue("{{{value}}}")
+.defaultValue(JsonValue.of("{{{value}}}"))
         {{else}}
             {{#or (eq type "number") (eq type "integer")}}
-.defaultValue({{{value}}})
+.defaultValue(JsonValue.of({{{value}}}))
             {{else}}
                 {{#eq type "boolean"}}
                     {{#if value}}
-.defaultValue(true)
+.defaultValue(JsonValue.of(true))
                     {{else}}
-.defaultValue(false)
+.defaultValue(JsonValue.of(false))
                     {{/if}}
                 {{else}}
                     {{#eq type "null"}}
-.defaultValue(null)
+.defaultValue(JsonValue.of(null))
                     {{/eq}}
                 {{/eq}}
             {{/or}}

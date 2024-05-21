@@ -1,5 +1,5 @@
 # AllofCombinedWithAnyofOneof
-org.openapijsonschematools.client.components.schemas.AllofCombinedWithAnyofOneof.java
+unit_test_api.components.schemas.AllofCombinedWithAnyofOneof.java
 public class AllofCombinedWithAnyofOneof<br>
 
 A class that contains necessary nested

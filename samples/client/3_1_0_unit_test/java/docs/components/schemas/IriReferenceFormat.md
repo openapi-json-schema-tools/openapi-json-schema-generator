@@ -1,5 +1,5 @@
 # IriReferenceFormat
-org.openapijsonschematools.client.components.schemas.IriReferenceFormat.java
+unit_test_api.components.schemas.IriReferenceFormat.java
 public class IriReferenceFormat<br>
 
 A class that contains necessary nested

@@ -1,5 +1,5 @@
 # AllofSimpleTypes
-org.openapijsonschematools.client.components.schemas.AllofSimpleTypes.java
+unit_test_api.components.schemas.AllofSimpleTypes.java
 public class AllofSimpleTypes<br>
 
 A class that contains necessary nested

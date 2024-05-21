@@ -1,5 +1,5 @@
 # UriFormat
-org.openapijsonschematools.client.components.schemas.UriFormat.java
+unit_test_api.components.schemas.UriFormat.java
 public class UriFormat<br>
 
 A class that contains necessary nested

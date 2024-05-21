@@ -1,5 +1,5 @@
 # MaximumValidation
-org.openapijsonschematools.client.components.schemas.MaximumValidation.java
+unit_test_api.components.schemas.MaximumValidation.java
 public class MaximumValidation<br>
 
 A class that contains necessary nested

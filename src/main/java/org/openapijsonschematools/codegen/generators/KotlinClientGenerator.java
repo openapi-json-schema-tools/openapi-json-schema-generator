@@ -712,6 +712,7 @@ public class KotlinClientGenerator extends DefaultGenerator implements Generator
         keywordValidatorFiles.add("JsonSchema");
         keywordValidatorFiles.add("JsonSchemaFactory");
         keywordValidatorFiles.add("JsonSchemaInfo");
+        keywordValidatorFiles.add("JsonValue");
         keywordValidatorFiles.add("KeywordEntry");
         keywordValidatorFiles.add("KeywordValidator");
         keywordValidatorFiles.add("LengthValidator");
@@ -1625,6 +1626,7 @@ public class KotlinClientGenerator extends DefaultGenerator implements Generator
 
     private void addDefaultValueImport(CodegenSchema schema, Set<String> imports) {
         if (schema.defaultValue != null) {
+            imports.add("import "+generatorSettings.packageName + ".schemas.validation.JsonValue");
             imports.add("import "+generatorSettings.packageName + ".schemas.validation.DefaultValueMethod");
         }
     }
@@ -1669,6 +1671,7 @@ public class KotlinClientGenerator extends DefaultGenerator implements Generator
 
     private void addConstImports(CodegenSchema schema, Set<String> imports) {
         if (schema.constInfo != null) {
+            imports.add("import "+generatorSettings.packageName + ".schemas.validation.JsonValue");
             if (schema.constInfo.typeToValues.containsKey("null")) {
                 imports.add("import "+generatorSettings.packageName + ".schemas.validation.NullEnumValidator");
                 imports.add("import "+generatorSettings.packageName + ".schemas.validation.NullValueMethod");

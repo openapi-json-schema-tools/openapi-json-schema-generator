@@ -34,10 +34,8 @@ abstract class JsonSchema<T> protected constructor(jsonSchemaInfo: JsonSchemaInf
     val uniqueItems: Boolean?
     val enumValues: Set<Any>?
     val pattern: Pattern?
-    val defaultValue: Any?
-    val defaultValueSet: Boolean
-    val constValue: Any?
-    val constValueSet: Boolean
+    val defaultValue: JsonValue.JsonValueBoxed?
+    val constValue: JsonValue.JsonValueBoxed?
     val contains: Class<out JsonSchema<*>>?
     val maxContains: Int?
     val minContains: Int?
@@ -152,10 +150,8 @@ abstract class JsonSchema<T> protected constructor(jsonSchemaInfo: JsonSchemaInf
             keywordToValidator["pattern"] = PatternValidator()
         }
         defaultValue = jsonSchemaInfo.defaultValue
-        defaultValueSet = jsonSchemaInfo.defaultValueSet
         constValue = jsonSchemaInfo.constValue
-        constValueSet = jsonSchemaInfo.constValueSet
-        if (constValueSet) {
+        if (constValue != null) {
             keywordToValidator["const"] = ConstValidator()
         }
         contains = jsonSchemaInfo.contains

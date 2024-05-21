@@ -144,7 +144,7 @@ A schema class that validates payloads
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |
-| Any? | constValue = "hello\u0000there" |
+| Any? | constValue = JsonValue.of("hello\u0000there") |
 
 ### Method Summary
 | Modifier and Type | Method and Description |

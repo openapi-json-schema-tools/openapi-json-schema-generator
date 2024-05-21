@@ -318,7 +318,7 @@ A schema class that validates payloads
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |
-| Any? | constValue = "yes" |
+| Any? | constValue = JsonValue.of("yes") |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
@@ -623,7 +623,7 @@ A schema class that validates payloads
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |
-| Any? | constValue = "other" |
+| Any? | constValue = JsonValue.of("other") |
 
 ### Method Summary
 | Modifier and Type | Method and Description |

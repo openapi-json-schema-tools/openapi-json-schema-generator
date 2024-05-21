@@ -1,5 +1,5 @@
 # MaxcontainsWithoutContainsIsIgnored
-org.openapijsonschematools.client.components.schemas.MaxcontainsWithoutContainsIsIgnored.java
+unit_test_api.components.schemas.MaxcontainsWithoutContainsIsIgnored.java
 public class MaxcontainsWithoutContainsIsIgnored<br>
 
 A class that contains necessary nested

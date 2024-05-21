@@ -1,5 +1,5 @@
 # RequiredDefaultValidation
-org.openapijsonschematools.client.components.schemas.RequiredDefaultValidation.java
+unit_test_api.components.schemas.RequiredDefaultValidation.java
 public class RequiredDefaultValidation<br>
 
 A class that contains necessary nested
@@ -345,7 +345,7 @@ extends AnyTypeJsonSchema.AnyTypeJsonSchema1
 
 A schema class that validates payloads
 
-| Methods Inherited from class org.openapijsonschematools.client.schemas.AnyTypeJsonSchema.AnyTypeJsonSchema1 |
+| Methods Inherited from class unit_test_api.schemas.AnyTypeJsonSchema.AnyTypeJsonSchema1 |
 | ------------------------------------------------------------------ |
 | validate                                                           |
 | validateAndBox                                                     |

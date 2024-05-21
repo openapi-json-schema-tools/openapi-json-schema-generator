@@ -13,6 +13,7 @@ import org.openapijsonschematools.client.schemas.validation.FrozenList
 import org.openapijsonschematools.client.schemas.validation.FrozenMap
 import org.openapijsonschematools.client.schemas.validation.JsonSchema
 import org.openapijsonschematools.client.schemas.validation.JsonSchemaInfo
+import org.openapijsonschematools.client.schemas.validation.JsonValue
 import org.openapijsonschematools.client.schemas.validation.ListSchemaValidator
 import org.openapijsonschematools.client.schemas.validation.MapSchemaValidator
 import org.openapijsonschematools.client.schemas.validation.NullSchemaValidator
@@ -78,7 +79,7 @@ class IfAppearsAtTheEndWhenSerializedKeywordProcessingSequence {
     
     class ElseSchema private constructor(): JsonSchema<ElseSchemaBoxed>(
         JsonSchemaInfo()
-            .constValue("other")
+            .constValue(JsonValue.of("other")
     ), NullSchemaValidator<ElseSchemaBoxedVoid>, BooleanSchemaValidator<ElseSchemaBoxedBoolean>, NumberSchemaValidator<ElseSchemaBoxedNumber>, StringSchemaValidator<ElseSchemaBoxedString>, ListSchemaValidator<FrozenList<Any?>, ElseSchemaBoxedList>, MapSchemaValidator<FrozenMap<Any?>, ElseSchemaBoxedMap> {
     
         companion object {
@@ -636,7 +637,7 @@ class IfAppearsAtTheEndWhenSerializedKeywordProcessingSequence {
     
     class Then private constructor(): JsonSchema<ThenBoxed>(
         JsonSchemaInfo()
-            .constValue("yes")
+            .constValue(JsonValue.of("yes")
     ), NullSchemaValidator<ThenBoxedVoid>, BooleanSchemaValidator<ThenBoxedBoolean>, NumberSchemaValidator<ThenBoxedNumber>, StringSchemaValidator<ThenBoxedString>, ListSchemaValidator<FrozenList<Any?>, ThenBoxedList>, MapSchemaValidator<FrozenMap<Any?>, ThenBoxedMap> {
     
         companion object {

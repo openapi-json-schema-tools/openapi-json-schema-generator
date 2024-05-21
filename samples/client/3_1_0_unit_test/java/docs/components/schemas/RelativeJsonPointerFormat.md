@@ -1,5 +1,5 @@
 # RelativeJsonPointerFormat
-org.openapijsonschematools.client.components.schemas.RelativeJsonPointerFormat.java
+unit_test_api.components.schemas.RelativeJsonPointerFormat.java
 public class RelativeJsonPointerFormat<br>
 
 A class that contains necessary nested

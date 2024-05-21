@@ -1,5 +1,5 @@
 # PropertiesWithEscapedCharacters
-org.openapijsonschematools.client.components.schemas.PropertiesWithEscapedCharacters.java
+unit_test_api.components.schemas.PropertiesWithEscapedCharacters.java
 public class PropertiesWithEscapedCharacters<br>
 
 A class that contains necessary nested
@@ -280,7 +280,7 @@ extends NumberJsonSchema.NumberJsonSchema1
 
 A schema class that validates payloads
 
-| Methods Inherited from class org.openapijsonschematools.client.schemas.NumberJsonSchema.NumberJsonSchema1 |
+| Methods Inherited from class unit_test_api.schemas.NumberJsonSchema.NumberJsonSchema1 |
 | ------------------------------------------------------------------ |
 | validate                                                           |
 | validateAndBox                                                     |
@@ -315,7 +315,7 @@ extends NumberJsonSchema.NumberJsonSchema1
 
 A schema class that validates payloads
 
-| Methods Inherited from class org.openapijsonschematools.client.schemas.NumberJsonSchema.NumberJsonSchema1 |
+| Methods Inherited from class unit_test_api.schemas.NumberJsonSchema.NumberJsonSchema1 |
 | ------------------------------------------------------------------ |
 | validate                                                           |
 | validateAndBox                                                     |
@@ -350,7 +350,7 @@ extends NumberJsonSchema.NumberJsonSchema1
 
 A schema class that validates payloads
 
-| Methods Inherited from class org.openapijsonschematools.client.schemas.NumberJsonSchema.NumberJsonSchema1 |
+| Methods Inherited from class unit_test_api.schemas.NumberJsonSchema.NumberJsonSchema1 |
 | ------------------------------------------------------------------ |
 | validate                                                           |
 | validateAndBox                                                     |
@@ -385,7 +385,7 @@ extends NumberJsonSchema.NumberJsonSchema1
 
 A schema class that validates payloads
 
-| Methods Inherited from class org.openapijsonschematools.client.schemas.NumberJsonSchema.NumberJsonSchema1 |
+| Methods Inherited from class unit_test_api.schemas.NumberJsonSchema.NumberJsonSchema1 |
 | ------------------------------------------------------------------ |
 | validate                                                           |
 | validateAndBox                                                     |
@@ -420,7 +420,7 @@ extends NumberJsonSchema.NumberJsonSchema1
 
 A schema class that validates payloads
 
-| Methods Inherited from class org.openapijsonschematools.client.schemas.NumberJsonSchema.NumberJsonSchema1 |
+| Methods Inherited from class unit_test_api.schemas.NumberJsonSchema.NumberJsonSchema1 |
 | ------------------------------------------------------------------ |
 | validate                                                           |
 | validateAndBox                                                     |
@@ -455,7 +455,7 @@ extends NumberJsonSchema.NumberJsonSchema1
 
 A schema class that validates payloads
 
-| Methods Inherited from class org.openapijsonschematools.client.schemas.NumberJsonSchema.NumberJsonSchema1 |
+| Methods Inherited from class unit_test_api.schemas.NumberJsonSchema.NumberJsonSchema1 |
 | ------------------------------------------------------------------ |
 | validate                                                           |
 | validateAndBox                                                     |

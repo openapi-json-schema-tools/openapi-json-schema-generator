@@ -1,5 +1,5 @@
 # DependentSchemasDependenciesWithEscapedCharacters
-org.openapijsonschematools.client.components.schemas.DependentSchemasDependenciesWithEscapedCharacters.java
+unit_test_api.components.schemas.DependentSchemasDependenciesWithEscapedCharacters.java
 public class DependentSchemasDependenciesWithEscapedCharacters<br>
 
 A class that contains necessary nested

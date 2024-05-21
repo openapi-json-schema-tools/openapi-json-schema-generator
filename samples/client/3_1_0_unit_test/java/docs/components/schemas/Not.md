@@ -1,5 +1,5 @@
 # Not
-org.openapijsonschematools.client.components.schemas.Not.java
+unit_test_api.components.schemas.Not.java
 public class Not<br>
 
 A class that contains necessary nested
@@ -199,7 +199,7 @@ extends IntJsonSchema.IntJsonSchema1
 
 A schema class that validates payloads
 
-| Methods Inherited from class org.openapijsonschematools.client.schemas.IntJsonSchema.IntJsonSchema1 |
+| Methods Inherited from class unit_test_api.schemas.IntJsonSchema.IntJsonSchema1 |
 | ------------------------------------------------------------------ |
 | validate                                                           |
 | validateAndBox                                                     |

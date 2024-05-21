@@ -1,5 +1,5 @@
 # ExclusivemaximumValidation
-org.openapijsonschematools.client.components.schemas.ExclusivemaximumValidation.java
+unit_test_api.components.schemas.ExclusivemaximumValidation.java
 public class ExclusivemaximumValidation<br>
 
 A class that contains necessary nested

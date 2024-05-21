@@ -13,6 +13,7 @@ import org.openapijsonschematools.client.schemas.validation.FrozenList
 import org.openapijsonschematools.client.schemas.validation.FrozenMap
 import org.openapijsonschematools.client.schemas.validation.JsonSchema
 import org.openapijsonschematools.client.schemas.validation.JsonSchemaInfo
+import org.openapijsonschematools.client.schemas.validation.JsonValue
 import org.openapijsonschematools.client.schemas.validation.ListSchemaValidator
 import org.openapijsonschematools.client.schemas.validation.MapSchemaValidator
 import org.openapijsonschematools.client.schemas.validation.NullSchemaValidator
@@ -78,7 +79,7 @@ class IgnoreIfWithoutThenOrElse {
     
     class IfSchema private constructor(): JsonSchema<IfSchemaBoxed>(
         JsonSchemaInfo()
-            .constValue("0")
+            .constValue(JsonValue.of("0")
     ), NullSchemaValidator<IfSchemaBoxedVoid>, BooleanSchemaValidator<IfSchemaBoxedBoolean>, NumberSchemaValidator<IfSchemaBoxedNumber>, StringSchemaValidator<IfSchemaBoxedString>, ListSchemaValidator<FrozenList<Any?>, IfSchemaBoxedList>, MapSchemaValidator<FrozenMap<Any?>, IfSchemaBoxedMap> {
     
         companion object {

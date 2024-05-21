@@ -1,5 +1,5 @@
 # MaxlengthValidation
-org.openapijsonschematools.client.components.schemas.MaxlengthValidation.java
+unit_test_api.components.schemas.MaxlengthValidation.java
 public class MaxlengthValidation<br>
 
 A class that contains necessary nested

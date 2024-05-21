@@ -78,8 +78,8 @@ class {{jsonPathPiece.pascalCase}} private constructor(): JsonSchema<{{jsonPathP
 {{#if defaultValue}}
     @Throws(ValidationException::class)
     override fun defaultValue(): String {
-        if (defaultValue is String) {
-            return defaultValue
+        if (defaultValue.getData() is String) {
+            return defaultValue.getData()
         }
         throw ValidationException("Invalid type stored in defaultValue")
     }

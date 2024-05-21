@@ -1,5 +1,5 @@
 # MaxpropertiesValidation
-org.openapijsonschematools.client.components.schemas.MaxpropertiesValidation.java
+unit_test_api.components.schemas.MaxpropertiesValidation.java
 public class MaxpropertiesValidation<br>
 
 A class that contains necessary nested

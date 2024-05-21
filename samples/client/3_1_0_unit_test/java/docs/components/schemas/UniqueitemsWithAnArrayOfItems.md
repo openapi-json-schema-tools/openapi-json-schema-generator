@@ -1,5 +1,5 @@
 # UniqueitemsWithAnArrayOfItems
-org.openapijsonschematools.client.components.schemas.UniqueitemsWithAnArrayOfItems.java
+unit_test_api.components.schemas.UniqueitemsWithAnArrayOfItems.java
 public class UniqueitemsWithAnArrayOfItems<br>
 
 A class that contains necessary nested
@@ -207,7 +207,7 @@ extends BooleanJsonSchema.BooleanJsonSchema1
 
 A schema class that validates payloads
 
-| Methods Inherited from class org.openapijsonschematools.client.schemas.BooleanJsonSchema.BooleanJsonSchema1 |
+| Methods Inherited from class unit_test_api.schemas.BooleanJsonSchema.BooleanJsonSchema1 |
 | ------------------------------------------------------------------ |
 | validate                                                           |
 | validateAndBox                                                     |
@@ -242,7 +242,7 @@ extends BooleanJsonSchema.BooleanJsonSchema1
 
 A schema class that validates payloads
 
-| Methods Inherited from class org.openapijsonschematools.client.schemas.BooleanJsonSchema.BooleanJsonSchema1 |
+| Methods Inherited from class unit_test_api.schemas.BooleanJsonSchema.BooleanJsonSchema1 |
 | ------------------------------------------------------------------ |
 | validate                                                           |
 | validateAndBox                                                     |
