@@ -4,7 +4,6 @@ import {{{packageName}}}.configurations.JsonSchemaKeywordFlags
 import {{{packageName}}}.configurations.SchemaConfiguration
 import {{{packageName}}}.exceptions.ValidationException
 import {{{packageName}}}.schemas.validation.JsonSchema
-import {{{packageName}}}.schemas.validation.JsonSchemaInfo
 import {{{packageName}}}.schemas.validation.PathToSchemasMap
 import {{{packageName}}}.schemas.validation.NullSchemaValidator
 import {{{packageName}}}.schemas.validation.ValidationMetadata
@@ -21,9 +20,7 @@ open class NullJsonSchema {
     }
 
     open class NullJsonSchema1 protected constructor() : JsonSchema<NullJsonSchema1Boxed>(
-        JsonSchemaInfo(
-            type = setOf(Void::class.java)
-        )
+        type = setOf(Void::class.java)
     ), NullSchemaValidator<NullJsonSchema1BoxedVoid> {
         @Throws(ValidationException::class)
         override fun validate(arg: Nothing?, configuration: SchemaConfiguration?): Nothing? {

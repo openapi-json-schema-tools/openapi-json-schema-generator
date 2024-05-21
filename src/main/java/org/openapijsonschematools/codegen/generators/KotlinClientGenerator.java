@@ -711,7 +711,6 @@ public class KotlinClientGenerator extends DefaultGenerator implements Generator
         keywordValidatorFiles.add("ItemsValidator");
         keywordValidatorFiles.add("JsonSchema");
         keywordValidatorFiles.add("JsonSchemaFactory");
-        keywordValidatorFiles.add("JsonSchemaInfo");
         keywordValidatorFiles.add("JsonValue");
         keywordValidatorFiles.add("KeywordEntry");
         keywordValidatorFiles.add("KeywordValidator");
@@ -1756,7 +1755,6 @@ public class KotlinClientGenerator extends DefaultGenerator implements Generator
 
     private void addCustomSchemaImports(Set<String> imports, CodegenSchema schema) {
         imports.add("import " + generatorSettings.packageName + ".schemas.validation.JsonSchema");
-        imports.add("import " + generatorSettings.packageName + ".schemas.validation.JsonSchemaInfo");
         imports.add("import "+generatorSettings.packageName + ".configurations.SchemaConfiguration");
         imports.add("import "+generatorSettings.packageName + ".exceptions.ValidationException");
         imports.add("import "+generatorSettings.packageName + ".schemas.validation.PathToSchemasMap"); // for getNewInstance

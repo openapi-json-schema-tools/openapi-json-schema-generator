@@ -4,7 +4,6 @@ import {{{packageName}}}.configurations.JsonSchemaKeywordFlags
 import {{{packageName}}}.exceptions.ValidationException
 import {{{packageName}}}.schemas.validation.FrozenMap
 import {{{packageName}}}.schemas.validation.JsonSchema
-import {{{packageName}}}.schemas.validation.JsonSchemaInfo
 import {{{packageName}}}.configurations.SchemaConfiguration
 import {{{packageName}}}.schemas.validation.PathToSchemasMap
 import {{{packageName}}}.schemas.validation.MapSchemaValidator
@@ -22,9 +21,7 @@ open class MapJsonSchema {
     }
 
     open class MapJsonSchema1 protected constructor() : JsonSchema<MapJsonSchema1Boxed>(
-        JsonSchemaInfo(
-            type = setOf(Map::class.java)
-        )
+        type = setOf(Map::class.java)
     ), MapSchemaValidator<FrozenMap<Any?>, MapJsonSchema1BoxedMap> {
         override fun getNewInstance(
             arg: Map<*, *>,

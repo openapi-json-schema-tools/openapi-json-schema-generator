@@ -4,59 +4,57 @@
 
 
 class {{jsonPathPiece.pascalCase}} private constructor(): JsonSchema<{{jsonPathPiece.pascalCase}}Boxed>(
-    JsonSchemaInfo(
     {{#if types}}
-        {{> src/main/kotlin/packagename/components/schemas/SchemaClass/_types }}
+    {{> src/main/kotlin/packagename/components/schemas/SchemaClass/_types }}
     {{/if}}
     {{#if items}}
-        {{> src/main/kotlin/packagename/components/schemas/SchemaClass/_items }}
+    {{> src/main/kotlin/packagename/components/schemas/SchemaClass/_items }}
     {{/if}}
     {{#neq maxItems null}}
-        {{> src/main/kotlin/packagename/components/schemas/SchemaClass/_maxItems }}
+    {{> src/main/kotlin/packagename/components/schemas/SchemaClass/_maxItems }}
     {{/neq}}
     {{#neq minItems null}}
-        {{> src/main/kotlin/packagename/components/schemas/SchemaClass/_minItems }}
+    {{> src/main/kotlin/packagename/components/schemas/SchemaClass/_minItems }}
     {{/neq}}
     {{#if allOf}}
-        {{> src/main/kotlin/packagename/components/schemas/SchemaClass/_allOf }}
+    {{> src/main/kotlin/packagename/components/schemas/SchemaClass/_allOf }}
     {{/if}}
     {{#if anyOf}}
-        {{> src/main/kotlin/packagename/components/schemas/SchemaClass/_anyOf }}
+    {{> src/main/kotlin/packagename/components/schemas/SchemaClass/_anyOf }}
     {{/if}}
     {{#if oneOf}}
-        {{> src/main/kotlin/packagename/components/schemas/SchemaClass/_oneOf }}
+    {{> src/main/kotlin/packagename/components/schemas/SchemaClass/_oneOf }}
     {{/if}}
     {{#if not}}
-        {{> src/main/kotlin/packagename/components/schemas/SchemaClass/_not }}
+    {{> src/main/kotlin/packagename/components/schemas/SchemaClass/_not }}
     {{/if}}
     {{#neq uniqueItems null}}
-        {{> src/main/kotlin/packagename/components/schemas/SchemaClass/_uniqueItems }}
+    {{> src/main/kotlin/packagename/components/schemas/SchemaClass/_uniqueItems }}
     {{/neq}}
     {{#if contains}}
-        {{> src/main/kotlin/packagename/components/schemas/SchemaClass/_contains }}
+    {{> src/main/kotlin/packagename/components/schemas/SchemaClass/_contains }}
     {{/if}}
     {{#neq maxContains null}}
-        {{> src/main/kotlin/packagename/components/schemas/SchemaClass/_maxContains }}
+    {{> src/main/kotlin/packagename/components/schemas/SchemaClass/_maxContains }}
     {{/neq}}
     {{#neq minContains null}}
-        {{> src/main/kotlin/packagename/components/schemas/SchemaClass/_minContains }}
+    {{> src/main/kotlin/packagename/components/schemas/SchemaClass/_minContains }}
     {{/neq}}
     {{#if prefixItems}}
-        {{> src/main/kotlin/packagename/components/schemas/SchemaClass/_prefixItems }}
+    {{> src/main/kotlin/packagename/components/schemas/SchemaClass/_prefixItems }}
     {{/if}}
     {{#if if_}}
-        {{> src/main/kotlin/packagename/components/schemas/SchemaClass/_if }}
+    {{> src/main/kotlin/packagename/components/schemas/SchemaClass/_if }}
     {{/if}}
     {{#if then}}
-        {{> src/main/kotlin/packagename/components/schemas/SchemaClass/_then }}
+    {{> src/main/kotlin/packagename/components/schemas/SchemaClass/_then }}
     {{/if}}
     {{#if else_}}
-        {{> src/main/kotlin/packagename/components/schemas/SchemaClass/_else }}
+    {{> src/main/kotlin/packagename/components/schemas/SchemaClass/_else }}
     {{/if}}
     {{#if unevaluatedItems}}
-        {{> src/main/kotlin/packagename/components/schemas/SchemaClass/_unevaluatedItems }}
+    {{> src/main/kotlin/packagename/components/schemas/SchemaClass/_unevaluatedItems }}
     {{/if}}
-    )
 ), ListSchemaValidator<{{#if arrayOutputJsonPathPiece}}{{arrayOutputJsonPathPiece.pascalCase}}{{else}}FrozenList<Any?>{{/if}}, {{jsonPathPiece.pascalCase}}BoxedList> {
 {{#if componentModule}}
     /*

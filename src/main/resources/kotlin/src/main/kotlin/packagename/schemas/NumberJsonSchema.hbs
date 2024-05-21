@@ -3,7 +3,6 @@ package {{{packageName}}}.schemas
 import {{{packageName}}}.configurations.JsonSchemaKeywordFlags
 import {{{packageName}}}.exceptions.ValidationException
 import {{{packageName}}}.schemas.validation.JsonSchema
-import {{{packageName}}}.schemas.validation.JsonSchemaInfo
 import {{{packageName}}}.configurations.SchemaConfiguration
 import {{{packageName}}}.schemas.validation.PathToSchemasMap
 import {{{packageName}}}.schemas.validation.NumberSchemaValidator
@@ -21,13 +20,11 @@ open class NumberJsonSchema {
     }
 
     open class NumberJsonSchema1 protected constructor() : JsonSchema<NumberJsonSchema1Boxed>(
-        JsonSchemaInfo(
-            type = setOf(
-                Int::class.java,
-                Long::class.java,
-                Float::class.java,
-                Double::class.java
-            )
+        type = setOf(
+            Int::class.java,
+            Long::class.java,
+            Float::class.java,
+            Double::class.java
         )
     ), NumberSchemaValidator<NumberJsonSchema1BoxedNumber> {
         @Throws(ValidationException::class)

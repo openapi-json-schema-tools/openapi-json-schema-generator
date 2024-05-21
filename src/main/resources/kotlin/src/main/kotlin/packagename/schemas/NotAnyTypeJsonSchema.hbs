@@ -6,7 +6,6 @@ import {{{packageName}}}.exceptions.ValidationException
 import {{{packageName}}}.schemas.validation.FrozenList
 import {{{packageName}}}.schemas.validation.FrozenMap
 import {{{packageName}}}.schemas.validation.JsonSchema
-import {{{packageName}}}.schemas.validation.JsonSchemaInfo
 import {{{packageName}}}.schemas.validation.PathToSchemasMap
 import {{{packageName}}}.schemas.validation.NullSchemaValidator
 import {{{packageName}}}.schemas.validation.BooleanSchemaValidator
@@ -69,9 +68,7 @@ open class NotAnyTypeJsonSchema {
     }
 
     open class NotAnyTypeJsonSchema1 protected constructor() : JsonSchema<NotAnyTypeJsonSchema1Boxed?>(
-        JsonSchemaInfo(
-            not = AnyTypeJsonSchema.AnyTypeJsonSchema1::class.java
-        )
+        not = AnyTypeJsonSchema.AnyTypeJsonSchema1::class.java
     ), NullSchemaValidator<NotAnyTypeJsonSchema1BoxedVoid>, BooleanSchemaValidator<NotAnyTypeJsonSchema1BoxedBoolean>,
         NumberSchemaValidator<NotAnyTypeJsonSchema1BoxedNumber>,
         StringSchemaValidator<NotAnyTypeJsonSchema1BoxedString>,

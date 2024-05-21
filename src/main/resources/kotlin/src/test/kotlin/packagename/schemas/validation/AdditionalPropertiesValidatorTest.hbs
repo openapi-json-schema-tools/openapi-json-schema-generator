@@ -16,13 +16,11 @@ class AdditionalPropertiesValidatorTest {
     sealed interface ObjectWithPropsSchemaBoxed
     class ObjectWithPropsSchemaBoxedMap : ObjectWithPropsSchemaBoxed
     class ObjectWithPropsSchema private constructor() : JsonSchema<ObjectWithPropsSchemaBoxed>(
-        JsonSchemaInfo(
-            type = setOf(Map::class.java),
-            properties = mapOf(
-                "someString" to StringJsonSchema.StringJsonSchema1::class.java
-            ),
-            additionalProperties = StringJsonSchema.StringJsonSchema1::class.java
-        )
+        type = setOf(Map::class.java),
+        properties = mapOf(
+            "someString" to StringJsonSchema.StringJsonSchema1::class.java
+        ),
+        additionalProperties = StringJsonSchema.StringJsonSchema1::class.java
     ) {
         override fun getNewInstance(arg: Any?, pathToItem: List<Any>, pathToSchemas: PathToSchemasMap): Map<*, *> {
             if (arg is Map<*, *>) {

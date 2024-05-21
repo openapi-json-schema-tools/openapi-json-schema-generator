@@ -4,7 +4,6 @@ import {{{packageName}}}.configurations.JsonSchemaKeywordFlags
 import {{{packageName}}}.configurations.SchemaConfiguration
 import {{{packageName}}}.exceptions.ValidationException
 import {{{packageName}}}.schemas.validation.JsonSchema
-import {{{packageName}}}.schemas.validation.JsonSchemaInfo
 import {{{packageName}}}.schemas.validation.PathToSchemasMap
 import {{{packageName}}}.schemas.validation.NumberSchemaValidator
 import {{{packageName}}}.schemas.validation.ValidationMetadata
@@ -21,17 +20,16 @@ open class FloatJsonSchema {
     }
 
     open class FloatJsonSchema1 protected constructor() : JsonSchema<FloatJsonSchema1Boxed>(
-        JsonSchemaInfo(
         {{#if generatorSettings.intsAllowedForFloatDoubleFormats}}
-            type = setOf(
-                    Int::class.java,
-                    Float::class.java
-            ),
+        type = setOf(
+                Int::class.java,
+                Float::class.java
+        ),
         {{else}}
-            type = setOf(Float::class.java),
+        type = setOf(Float::class.java),
         {{/if}}
-            format = "float"
-        )
+        format = "float"
+
     ), NumberSchemaValidator<FloatJsonSchema1BoxedNumber> {
         @Throws(ValidationException::class)
         override fun validate(arg: Number, configuration: SchemaConfiguration?): Number {
