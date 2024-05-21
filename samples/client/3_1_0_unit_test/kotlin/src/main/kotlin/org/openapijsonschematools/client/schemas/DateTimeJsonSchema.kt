@@ -4,7 +4,6 @@ import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags
 import org.openapijsonschematools.client.configurations.SchemaConfiguration
 import org.openapijsonschematools.client.exceptions.ValidationException
 import org.openapijsonschematools.client.schemas.validation.JsonSchema
-import org.openapijsonschematools.client.schemas.validation.JsonSchemaInfo
 import org.openapijsonschematools.client.schemas.validation.PathToSchemasMap
 import org.openapijsonschematools.client.schemas.validation.StringSchemaValidator
 import org.openapijsonschematools.client.schemas.validation.ValidationMetadata
@@ -23,10 +22,8 @@ open class DateTimeJsonSchema {
     }
 
     open class DateTimeJsonSchema1 protected constructor() : JsonSchema<DateTimeJsonSchema1Boxed>(
-        JsonSchemaInfo(
-            type = setOf(String::class.java),
-            format = "date-time"
-        )
+        type = setOf(String::class.java),
+        format = "date-time"
     ), StringSchemaValidator<DateTimeJsonSchema1BoxedString> {
         @Throws(ValidationException::class)
         override fun validate(arg: String, configuration: SchemaConfiguration?): String {

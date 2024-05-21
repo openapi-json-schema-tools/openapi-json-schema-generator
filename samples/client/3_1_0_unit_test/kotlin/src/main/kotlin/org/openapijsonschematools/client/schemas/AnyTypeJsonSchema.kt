@@ -6,7 +6,6 @@ import org.openapijsonschematools.client.exceptions.ValidationException
 import org.openapijsonschematools.client.schemas.validation.FrozenList
 import org.openapijsonschematools.client.schemas.validation.FrozenMap
 import org.openapijsonschematools.client.schemas.validation.JsonSchema
-import org.openapijsonschematools.client.schemas.validation.JsonSchemaInfo
 import org.openapijsonschematools.client.schemas.validation.PathToSchemasMap
 import org.openapijsonschematools.client.schemas.validation.NullSchemaValidator
 import org.openapijsonschematools.client.schemas.validation.BooleanSchemaValidator
@@ -68,7 +67,7 @@ open class AnyTypeJsonSchema {
         }
     }
 
-    open class AnyTypeJsonSchema1 protected constructor() : JsonSchema<AnyTypeJsonSchema1Boxed>(JsonSchemaInfo()),
+    open class AnyTypeJsonSchema1 protected constructor() : JsonSchema<AnyTypeJsonSchema1Boxed>(),
         NullSchemaValidator<AnyTypeJsonSchema1BoxedVoid>, BooleanSchemaValidator<AnyTypeJsonSchema1BoxedBoolean>,
         NumberSchemaValidator<AnyTypeJsonSchema1BoxedNumber>, StringSchemaValidator<AnyTypeJsonSchema1BoxedString>,
         ListSchemaValidator<FrozenList<Any?>, AnyTypeJsonSchema1BoxedList>,

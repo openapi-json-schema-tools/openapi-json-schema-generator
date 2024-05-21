@@ -49,7 +49,7 @@ class UnsetAnyTypeJsonSchema {
         }
     }
 
-    class UnsetAnyTypeJsonSchema1 private constructor() : JsonSchema<UnsetAnyTypeJsonSchema1Boxed>(JsonSchemaInfo()),
+    class UnsetAnyTypeJsonSchema1 private constructor() : JsonSchema<UnsetAnyTypeJsonSchema1Boxed>(),
         NullSchemaValidator<UnsetAnyTypeJsonSchema1BoxedVoid>,
         BooleanSchemaValidator<UnsetAnyTypeJsonSchema1BoxedBoolean>,
         NumberSchemaValidator<UnsetAnyTypeJsonSchema1BoxedNumber>,

@@ -4,7 +4,6 @@ import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags
 import org.openapijsonschematools.client.configurations.SchemaConfiguration
 import org.openapijsonschematools.client.exceptions.ValidationException
 import org.openapijsonschematools.client.schemas.validation.JsonSchema
-import org.openapijsonschematools.client.schemas.validation.JsonSchemaInfo
 import org.openapijsonschematools.client.schemas.validation.PathToSchemasMap
 import org.openapijsonschematools.client.schemas.validation.StringSchemaValidator
 import org.openapijsonschematools.client.schemas.validation.ValidationMetadata
@@ -21,10 +20,8 @@ open class DecimalJsonSchema {
     }
 
     open class DecimalJsonSchema1 protected constructor() : JsonSchema<DecimalJsonSchema1Boxed>(
-        JsonSchemaInfo(
-            type = setOf(String::class.java),
-            format = "number"
-        )
+        type = setOf(String::class.java),
+        format = "number"
     ), StringSchemaValidator<DecimalJsonSchema1BoxedString> {
         @Throws(ValidationException::class)
         override fun validate(arg: String, configuration: SchemaConfiguration?): String {

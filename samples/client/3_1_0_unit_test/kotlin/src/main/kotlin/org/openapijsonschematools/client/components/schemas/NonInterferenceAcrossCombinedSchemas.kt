@@ -13,7 +13,6 @@ import org.openapijsonschematools.client.schemas.validation.BooleanSchemaValidat
 import org.openapijsonschematools.client.schemas.validation.FrozenList
 import org.openapijsonschematools.client.schemas.validation.FrozenMap
 import org.openapijsonschematools.client.schemas.validation.JsonSchema
-import org.openapijsonschematools.client.schemas.validation.JsonSchemaInfo
 import org.openapijsonschematools.client.schemas.validation.ListSchemaValidator
 import org.openapijsonschematools.client.schemas.validation.MapSchemaValidator
 import org.openapijsonschematools.client.schemas.validation.NullSchemaValidator
@@ -68,9 +67,7 @@ class NonInterferenceAcrossCombinedSchemas {
     
     
     class IfSchema private constructor(): JsonSchema<IfSchemaBoxed>(
-        JsonSchemaInfo(
-            exclusiveMaximum = 0,
-        )
+        exclusiveMaximum = 0,
     ), NullSchemaValidator<IfSchemaBoxedVoid>, BooleanSchemaValidator<IfSchemaBoxedBoolean>, NumberSchemaValidator<IfSchemaBoxedNumber>, StringSchemaValidator<IfSchemaBoxedString>, ListSchemaValidator<FrozenList<Any?>, IfSchemaBoxedList>, MapSchemaValidator<FrozenMap<Any?>, IfSchemaBoxedMap> {
     
         companion object {
@@ -344,9 +341,7 @@ class NonInterferenceAcrossCombinedSchemas {
     
     
     class Schema0 private constructor(): JsonSchema<Schema0Boxed>(
-        JsonSchemaInfo(
-            ifSchema = IfSchema::class.java,
-        )
+        ifSchema = IfSchema::class.java,
     ), NullSchemaValidator<Schema0BoxedVoid>, BooleanSchemaValidator<Schema0BoxedBoolean>, NumberSchemaValidator<Schema0BoxedNumber>, StringSchemaValidator<Schema0BoxedString>, ListSchemaValidator<FrozenList<Any?>, Schema0BoxedList>, MapSchemaValidator<FrozenMap<Any?>, Schema0BoxedMap> {
     
         companion object {
@@ -620,9 +615,7 @@ class NonInterferenceAcrossCombinedSchemas {
     
     
     class Then private constructor(): JsonSchema<ThenBoxed>(
-        JsonSchemaInfo(
-            minimum = -10,
-        )
+        minimum = -10,
     ), NullSchemaValidator<ThenBoxedVoid>, BooleanSchemaValidator<ThenBoxedBoolean>, NumberSchemaValidator<ThenBoxedNumber>, StringSchemaValidator<ThenBoxedString>, ListSchemaValidator<FrozenList<Any?>, ThenBoxedList>, MapSchemaValidator<FrozenMap<Any?>, ThenBoxedMap> {
     
         companion object {
@@ -896,9 +889,7 @@ class NonInterferenceAcrossCombinedSchemas {
     
     
     class Schema1 private constructor(): JsonSchema<Schema1Boxed>(
-        JsonSchemaInfo(
-            then =Then::class.java,
-        )
+        then =Then::class.java,
     ), NullSchemaValidator<Schema1BoxedVoid>, BooleanSchemaValidator<Schema1BoxedBoolean>, NumberSchemaValidator<Schema1BoxedNumber>, StringSchemaValidator<Schema1BoxedString>, ListSchemaValidator<FrozenList<Any?>, Schema1BoxedList>, MapSchemaValidator<FrozenMap<Any?>, Schema1BoxedMap> {
     
         companion object {
@@ -1172,9 +1163,7 @@ class NonInterferenceAcrossCombinedSchemas {
     
     
     class ElseSchema private constructor(): JsonSchema<ElseSchemaBoxed>(
-        JsonSchemaInfo(
-            multipleOf = BigDecimal("2"),
-        )
+        multipleOf = BigDecimal("2"),
     ), NullSchemaValidator<ElseSchemaBoxedVoid>, BooleanSchemaValidator<ElseSchemaBoxedBoolean>, NumberSchemaValidator<ElseSchemaBoxedNumber>, StringSchemaValidator<ElseSchemaBoxedString>, ListSchemaValidator<FrozenList<Any?>, ElseSchemaBoxedList>, MapSchemaValidator<FrozenMap<Any?>, ElseSchemaBoxedMap> {
     
         companion object {
@@ -1448,9 +1437,7 @@ class NonInterferenceAcrossCombinedSchemas {
     
     
     class Schema2 private constructor(): JsonSchema<Schema2Boxed>(
-        JsonSchemaInfo(
-            elseSchema = ElseSchema::class.java,
-        )
+        elseSchema = ElseSchema::class.java,
     ), NullSchemaValidator<Schema2BoxedVoid>, BooleanSchemaValidator<Schema2BoxedBoolean>, NumberSchemaValidator<Schema2BoxedNumber>, StringSchemaValidator<Schema2BoxedString>, ListSchemaValidator<FrozenList<Any?>, Schema2BoxedList>, MapSchemaValidator<FrozenMap<Any?>, Schema2BoxedMap> {
     
         companion object {
@@ -1724,13 +1711,11 @@ class NonInterferenceAcrossCombinedSchemas {
     
     
     class NonInterferenceAcrossCombinedSchemas1 private constructor(): JsonSchema<NonInterferenceAcrossCombinedSchemas1Boxed>(
-        JsonSchemaInfo(
-            allOf = listOf(
-                Schema0::class.java,
-                Schema1::class.java,
-                Schema2::class.java
-            ),
-        )
+        allOf = listOf(
+            Schema0::class.java,
+            Schema1::class.java,
+            Schema2::class.java
+        ),
     ), NullSchemaValidator<NonInterferenceAcrossCombinedSchemas1BoxedVoid>, BooleanSchemaValidator<NonInterferenceAcrossCombinedSchemas1BoxedBoolean>, NumberSchemaValidator<NonInterferenceAcrossCombinedSchemas1BoxedNumber>, StringSchemaValidator<NonInterferenceAcrossCombinedSchemas1BoxedString>, ListSchemaValidator<FrozenList<Any?>, NonInterferenceAcrossCombinedSchemas1BoxedList>, MapSchemaValidator<FrozenMap<Any?>, NonInterferenceAcrossCombinedSchemas1BoxedMap> {
         /*
         NOTE: This class is auto generated by OpenAPI JSON Schema Generator.

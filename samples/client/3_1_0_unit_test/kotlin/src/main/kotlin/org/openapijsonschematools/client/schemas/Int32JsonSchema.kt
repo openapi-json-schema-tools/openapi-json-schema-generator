@@ -3,7 +3,6 @@ package org.openapijsonschematools.client.schemas
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags
 import org.openapijsonschematools.client.exceptions.ValidationException
 import org.openapijsonschematools.client.schemas.validation.JsonSchema
-import org.openapijsonschematools.client.schemas.validation.JsonSchemaInfo
 import org.openapijsonschematools.client.configurations.SchemaConfiguration
 import org.openapijsonschematools.client.schemas.validation.PathToSchemasMap
 import org.openapijsonschematools.client.schemas.validation.NumberSchemaValidator
@@ -21,13 +20,11 @@ open class Int32JsonSchema {
     }
 
     open class Int32JsonSchema1 protected constructor() : JsonSchema<Int32JsonSchema1Boxed>(
-        JsonSchemaInfo(
-            type = setOf(
-                Int::class.java,
-                Float::class.java
-            ),
-            format = "int32"
-        )
+        type = setOf(
+            Int::class.java,
+            Float::class.java
+        ),
+        format = "int32"
     ), NumberSchemaValidator<Int32JsonSchema1BoxedNumber> {
         @Throws(ValidationException::class)
         override fun validate(arg: Number, configuration: SchemaConfiguration?): Number {

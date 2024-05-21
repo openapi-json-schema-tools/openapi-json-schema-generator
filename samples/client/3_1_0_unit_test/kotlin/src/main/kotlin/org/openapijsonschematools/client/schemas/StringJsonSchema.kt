@@ -4,7 +4,6 @@ import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags
 import org.openapijsonschematools.client.configurations.SchemaConfiguration
 import org.openapijsonschematools.client.exceptions.ValidationException
 import org.openapijsonschematools.client.schemas.validation.JsonSchema
-import org.openapijsonschematools.client.schemas.validation.JsonSchemaInfo
 import org.openapijsonschematools.client.schemas.validation.PathToSchemasMap
 import org.openapijsonschematools.client.schemas.validation.StringSchemaValidator
 import org.openapijsonschematools.client.schemas.validation.ValidationMetadata
@@ -25,9 +24,7 @@ open class StringJsonSchema {
     }
 
     open class StringJsonSchema1 protected constructor() : JsonSchema<StringJsonSchema1Boxed?>(
-        JsonSchemaInfo(
-            type = setOf(String::class.java)
-        )
+        type = setOf(String::class.java)
     ), StringSchemaValidator<StringJsonSchema1BoxedString?> {
         @Throws(ValidationException::class)
         override fun validate(arg: String, configuration: SchemaConfiguration?): String {

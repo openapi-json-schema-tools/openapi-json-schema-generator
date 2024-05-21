@@ -4,7 +4,6 @@ import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags
 import org.openapijsonschematools.client.exceptions.ValidationException
 import org.openapijsonschematools.client.schemas.validation.FrozenList
 import org.openapijsonschematools.client.schemas.validation.JsonSchema
-import org.openapijsonschematools.client.schemas.validation.JsonSchemaInfo
 import org.openapijsonschematools.client.configurations.SchemaConfiguration
 import org.openapijsonschematools.client.schemas.validation.PathToSchemasMap
 import org.openapijsonschematools.client.schemas.validation.ListSchemaValidator
@@ -22,9 +21,7 @@ open class ListJsonSchema {
     }
 
     open class ListJsonSchema1 protected constructor() : JsonSchema<ListJsonSchema1Boxed>(
-        JsonSchemaInfo(
-            type = setOf(List::class.java)
-        )
+        type = setOf(List::class.java)
     ), ListSchemaValidator<FrozenList<Any?>, ListJsonSchema1BoxedList> {
         override fun getNewInstance(
             arg: List<*>,

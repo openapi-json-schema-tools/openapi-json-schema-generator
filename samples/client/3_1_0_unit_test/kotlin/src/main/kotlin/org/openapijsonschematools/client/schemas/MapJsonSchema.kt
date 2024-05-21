@@ -4,7 +4,6 @@ import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags
 import org.openapijsonschematools.client.exceptions.ValidationException
 import org.openapijsonschematools.client.schemas.validation.FrozenMap
 import org.openapijsonschematools.client.schemas.validation.JsonSchema
-import org.openapijsonschematools.client.schemas.validation.JsonSchemaInfo
 import org.openapijsonschematools.client.configurations.SchemaConfiguration
 import org.openapijsonschematools.client.schemas.validation.PathToSchemasMap
 import org.openapijsonschematools.client.schemas.validation.MapSchemaValidator
@@ -22,9 +21,7 @@ open class MapJsonSchema {
     }
 
     open class MapJsonSchema1 protected constructor() : JsonSchema<MapJsonSchema1Boxed>(
-        JsonSchemaInfo(
-            type = setOf(Map::class.java)
-        )
+        type = setOf(Map::class.java)
     ), MapSchemaValidator<FrozenMap<Any?>, MapJsonSchema1BoxedMap> {
         override fun getNewInstance(
             arg: Map<*, *>,

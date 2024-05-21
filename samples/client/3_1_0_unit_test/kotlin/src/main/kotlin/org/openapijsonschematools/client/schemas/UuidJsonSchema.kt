@@ -3,7 +3,6 @@ package org.openapijsonschematools.client.schemas
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags
 import org.openapijsonschematools.client.exceptions.ValidationException
 import org.openapijsonschematools.client.schemas.validation.JsonSchema
-import org.openapijsonschematools.client.schemas.validation.JsonSchemaInfo
 import org.openapijsonschematools.client.configurations.SchemaConfiguration
 import org.openapijsonschematools.client.schemas.validation.PathToSchemasMap
 import org.openapijsonschematools.client.schemas.validation.StringSchemaValidator
@@ -23,10 +22,8 @@ open class UuidJsonSchema {
     }
 
     open class UuidJsonSchema1 protected constructor() : JsonSchema<UuidJsonSchema1Boxed>(
-        JsonSchemaInfo(
-            type = setOf(String::class.java),
-            format = "uuid"
-        )
+        type = setOf(String::class.java),
+        format = "uuid"
     ), StringSchemaValidator<UuidJsonSchema1BoxedString> {
         @Throws(ValidationException::class)
         override fun validate(arg: String, configuration: SchemaConfiguration?): String {

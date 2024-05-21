@@ -6,7 +6,6 @@ import org.openapijsonschematools.client.exceptions.ValidationException
 import org.openapijsonschematools.client.schemas.validation.FrozenList
 import org.openapijsonschematools.client.schemas.validation.FrozenMap
 import org.openapijsonschematools.client.schemas.validation.JsonSchema
-import org.openapijsonschematools.client.schemas.validation.JsonSchemaInfo
 import org.openapijsonschematools.client.schemas.validation.PathToSchemasMap
 import org.openapijsonschematools.client.schemas.validation.NullSchemaValidator
 import org.openapijsonschematools.client.schemas.validation.BooleanSchemaValidator
@@ -69,9 +68,7 @@ open class NotAnyTypeJsonSchema {
     }
 
     open class NotAnyTypeJsonSchema1 protected constructor() : JsonSchema<NotAnyTypeJsonSchema1Boxed?>(
-        JsonSchemaInfo(
-            not = AnyTypeJsonSchema.AnyTypeJsonSchema1::class.java
-        )
+        not = AnyTypeJsonSchema.AnyTypeJsonSchema1::class.java
     ), NullSchemaValidator<NotAnyTypeJsonSchema1BoxedVoid>, BooleanSchemaValidator<NotAnyTypeJsonSchema1BoxedBoolean>,
         NumberSchemaValidator<NotAnyTypeJsonSchema1BoxedNumber>,
         StringSchemaValidator<NotAnyTypeJsonSchema1BoxedString>,

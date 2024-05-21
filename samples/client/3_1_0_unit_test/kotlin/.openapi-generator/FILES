@@ -346,7 +346,6 @@ src/main/kotlin/org/openapijsonschematools/client/schemas/validation/IntegerValu
 src/main/kotlin/org/openapijsonschematools/client/schemas/validation/ItemsValidator.kt
 src/main/kotlin/org/openapijsonschematools/client/schemas/validation/JsonSchema.kt
 src/main/kotlin/org/openapijsonschematools/client/schemas/validation/JsonSchemaFactory.kt
-src/main/kotlin/org/openapijsonschematools/client/schemas/validation/JsonSchemaInfo.kt
 src/main/kotlin/org/openapijsonschematools/client/schemas/validation/JsonValue.kt
 src/main/kotlin/org/openapijsonschematools/client/schemas/validation/KeywordEntry.kt
 src/main/kotlin/org/openapijsonschematools/client/schemas/validation/KeywordValidator.kt

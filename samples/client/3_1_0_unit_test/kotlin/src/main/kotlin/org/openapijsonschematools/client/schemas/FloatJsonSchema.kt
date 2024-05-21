@@ -4,7 +4,6 @@ import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags
 import org.openapijsonschematools.client.configurations.SchemaConfiguration
 import org.openapijsonschematools.client.exceptions.ValidationException
 import org.openapijsonschematools.client.schemas.validation.JsonSchema
-import org.openapijsonschematools.client.schemas.validation.JsonSchemaInfo
 import org.openapijsonschematools.client.schemas.validation.PathToSchemasMap
 import org.openapijsonschematools.client.schemas.validation.NumberSchemaValidator
 import org.openapijsonschematools.client.schemas.validation.ValidationMetadata
@@ -21,13 +20,12 @@ open class FloatJsonSchema {
     }
 
     open class FloatJsonSchema1 protected constructor() : JsonSchema<FloatJsonSchema1Boxed>(
-        JsonSchemaInfo(
-            type = setOf(
-                    Int::class.java,
-                    Float::class.java
-            ),
-            format = "float"
-        )
+        type = setOf(
+                Int::class.java,
+                Float::class.java
+        ),
+        format = "float"
+
     ), NumberSchemaValidator<FloatJsonSchema1BoxedNumber> {
         @Throws(ValidationException::class)
         override fun validate(arg: Number, configuration: SchemaConfiguration?): Number {
