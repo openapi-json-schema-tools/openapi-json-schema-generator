@@ -1,6 +1,5 @@
 package org.openapijsonschematools.client.schemas
 
-import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags
 import org.openapijsonschematools.client.configurations.SchemaConfiguration
 import org.openapijsonschematools.client.exceptions.ValidationException
 import org.openapijsonschematools.client.schemas.validation.FrozenList
@@ -108,6 +107,6 @@ class AnyTypeSchemaTest {
 
     companion object {
         val schema = AnyTypeJsonSchema.AnyTypeJsonSchema1.getInstance()
-        val configuration = SchemaConfiguration(JsonSchemaKeywordFlags.Builder().build())
+        val configuration = SchemaConfiguration()
     }
 }

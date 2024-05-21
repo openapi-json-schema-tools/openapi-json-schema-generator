@@ -1,6 +1,6 @@
 package {{{packageName}}}.components.schemas
 
-import {{{packageName}}}.configurations.JsonSchemaKeywordFlags
+import {{{packageName}}}.configurations.JsonSchemaKeyword
 import {{{packageName}}}.configurations.SchemaConfiguration
 import {{{packageName}}}.exceptions.ValidationException
 
@@ -10,7 +10,7 @@ import kotlin.test.assertFailsWith
 {{#with schema}}
 class {{containerJsonPathPiece.pascalCase}}Test {
     companion object {
-        val configuration = SchemaConfiguration(JsonSchemaKeywordFlags.Builder().format().build())
+        val configuration = SchemaConfiguration(disabledKeywordFlags=setOf(JsonSchemaKeyword.FORMAT))
     }
 {{#each testCases}}
     {{#with this }}

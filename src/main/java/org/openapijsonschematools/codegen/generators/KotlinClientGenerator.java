@@ -794,13 +794,9 @@ public class KotlinClientGenerator extends DefaultGenerator implements Generator
 
         // configuration
         supportingFiles.add(new SupportingFile(
-                "src/main/kotlin/packagename/configurations/JsonSchemaKeywordFlags.hbs",
+                "src/main/kotlin/packagename/configurations/JsonSchemaKeyword.hbs",
                 packagePath() + File.separatorChar + "configurations",
-                "JsonSchemaKeywordFlags.kt"));
-        supportingFiles.add(new SupportingFile(
-                "src/test/kotlin/packagename/configurations/JsonSchemaKeywordFlagsTest.hbs",
-                testPackagePath() + File.separatorChar + "configurations",
-                "JsonSchemaKeywordFlagsTest.kt"));
+                "JsonSchemaKeyword.kt"));
         supportingFiles.add(new SupportingFile(
                 "src/main/kotlin/packagename/configurations/SchemaConfiguration.hbs",
                 packagePath() + File.separatorChar + "configurations",
@@ -1759,7 +1755,7 @@ public class KotlinClientGenerator extends DefaultGenerator implements Generator
         imports.add("import "+generatorSettings.packageName + ".exceptions.ValidationException");
         imports.add("import "+generatorSettings.packageName + ".schemas.validation.PathToSchemasMap"); // for getNewInstance
         imports.add("import "+generatorSettings.packageName + ".schemas.validation.ValidationMetadata"); // for getNewInstance
-        imports.add("import "+generatorSettings.packageName + ".configurations.JsonSchemaKeywordFlags"); // for getNewInstance
+        imports.add("import "+generatorSettings.packageName + ".configurations.JsonSchemaKeyword"); // for getNewInstance
     }
 
     private void addBooleanSchemaImports(Set<String> imports, CodegenSchema schema) {

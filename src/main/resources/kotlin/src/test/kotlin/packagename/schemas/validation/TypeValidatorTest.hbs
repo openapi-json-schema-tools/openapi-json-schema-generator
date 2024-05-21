@@ -1,6 +1,5 @@
 package {{{packageName}}}.schemas.validation
 
-import {{{packageName}}}.configurations.JsonSchemaKeywordFlags
 import {{{packageName}}}.configurations.SchemaConfiguration
 import {{{packageName}}}.exceptions.ValidationException
 import {{{packageName}}}.schemas.StringJsonSchema
@@ -16,7 +15,7 @@ class TypeValidatorTest {
         val validator = TypeValidator()
         val validationMetadata = ValidationMetadata(
             ArrayList(),
-            SchemaConfiguration(JsonSchemaKeywordFlags.Builder().build()),
+            SchemaConfiguration(),
             PathToSchemasMap(),
             LinkedHashSet()
         )
@@ -35,7 +34,7 @@ class TypeValidatorTest {
         val validator = TypeValidator()
         val validationMetadata = ValidationMetadata(
             ArrayList(),
-            SchemaConfiguration(JsonSchemaKeywordFlags.Builder().build()),
+            SchemaConfiguration(),
             PathToSchemasMap(),
             LinkedHashSet()
         )

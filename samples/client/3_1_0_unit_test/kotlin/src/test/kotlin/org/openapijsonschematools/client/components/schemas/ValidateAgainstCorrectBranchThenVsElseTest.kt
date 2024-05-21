@@ -1,6 +1,6 @@
 package org.openapijsonschematools.client.components.schemas
 
-import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags
+import org.openapijsonschematools.client.configurations.JsonSchemaKeyword
 import org.openapijsonschematools.client.configurations.SchemaConfiguration
 import org.openapijsonschematools.client.exceptions.ValidationException
 
@@ -9,7 +9,7 @@ import kotlin.test.assertFailsWith
 
 class ValidateAgainstCorrectBranchThenVsElseTest {
     companion object {
-        val configuration = SchemaConfiguration(JsonSchemaKeywordFlags.Builder().format().build())
+        val configuration = SchemaConfiguration(disabledKeywordFlags=setOf(JsonSchemaKeyword.FORMAT))
     }
 
     @Test

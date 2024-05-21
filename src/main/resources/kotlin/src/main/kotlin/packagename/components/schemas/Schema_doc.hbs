@@ -136,15 +136,13 @@ A schema class that validates payloads
 
 {{headerSize}}## Code Sample
 ```
-import {{{packageName}}}.configurations.JsonSchemaKeywordFlags
 import {{{packageName}}}.configurations.SchemaConfiguration
 import {{{packageName}}}.exceptions.ValidationException
-import {{{packageName}}}.schemas.validation.MapUtils
 import {{{packageName}}}.schemas.validation.FrozenList
 import {{{packageName}}}.schemas.validation.FrozenMap
 import {{{packageName}}}.{{../subpackage}}.{{../containerJsonPathPiece.pascalCase}}
 
-val configuration = SchemaConfiguration(JsonSchemaKeywordFlags.Builder().build())
+val configuration = SchemaConfiguration()
 {{> src/main/kotlin/packagename/components/schemas/validateSchemaCodeSample payloadVarName="validatedPayload" configVarName="configuration" }}
 ```
             {{/if}}

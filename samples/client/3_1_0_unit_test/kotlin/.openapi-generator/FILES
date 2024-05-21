@@ -291,7 +291,7 @@ src/main/kotlin/org/openapijsonschematools/client/components/schemas/UriReferenc
 src/main/kotlin/org/openapijsonschematools/client/components/schemas/UriTemplateFormat.kt
 src/main/kotlin/org/openapijsonschematools/client/components/schemas/UuidFormat.kt
 src/main/kotlin/org/openapijsonschematools/client/components/schemas/ValidateAgainstCorrectBranchThenVsElse.kt
-src/main/kotlin/org/openapijsonschematools/client/configurations/JsonSchemaKeywordFlags.kt
+src/main/kotlin/org/openapijsonschematools/client/configurations/JsonSchemaKeyword.kt
 src/main/kotlin/org/openapijsonschematools/client/configurations/SchemaConfiguration.kt
 src/main/kotlin/org/openapijsonschematools/client/exceptions/BaseException.kt
 src/main/kotlin/org/openapijsonschematools/client/exceptions/InvalidAdditionalPropertyException.kt
@@ -395,7 +395,6 @@ src/main/kotlin/org/openapijsonschematools/client/servers/Server.kt
 src/main/kotlin/org/openapijsonschematools/client/servers/ServerProvider.kt
 src/main/kotlin/org/openapijsonschematools/client/servers/ServerWithVariables.kt
 src/main/kotlin/org/openapijsonschematools/client/servers/ServerWithoutVariables.kt
-src/test/kotlin/org/openapijsonschematools/client/configurations/JsonSchemaKeywordFlagsTest.kt
 src/test/kotlin/org/openapijsonschematools/client/schemas/AnyTypeSchemaTest.kt
 src/test/kotlin/org/openapijsonschematools/client/schemas/ArrayTypeSchemaTest.kt
 src/test/kotlin/org/openapijsonschematools/client/schemas/BooleanSchemaTest.kt
