@@ -2,7 +2,7 @@ package org.openapijsonschematools.client.components.schemas
 import java.time.LocalDate
 import java.time.ZonedDateTime
 import java.util.UUID
-import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags
+import org.openapijsonschematools.client.configurations.JsonSchemaKeyword
 import org.openapijsonschematools.client.configurations.SchemaConfiguration
 import org.openapijsonschematools.client.exceptions.InvalidAdditionalPropertyException
 import org.openapijsonschematools.client.exceptions.UnsetPropertyException
@@ -12,7 +12,7 @@ import org.openapijsonschematools.client.schemas.validation.BooleanSchemaValidat
 import org.openapijsonschematools.client.schemas.validation.FrozenList
 import org.openapijsonschematools.client.schemas.validation.FrozenMap
 import org.openapijsonschematools.client.schemas.validation.JsonSchema
-import org.openapijsonschematools.client.schemas.validation.JsonSchemaInfo
+import org.openapijsonschematools.client.schemas.validation.JsonValue
 import org.openapijsonschematools.client.schemas.validation.ListSchemaValidator
 import org.openapijsonschematools.client.schemas.validation.MapSchemaValidator
 import org.openapijsonschematools.client.schemas.validation.NullSchemaValidator
@@ -77,8 +77,7 @@ class IgnoreThenWithoutIf {
     
     
     class Then private constructor(): JsonSchema<ThenBoxed>(
-        JsonSchemaInfo()
-            .constValue("0")
+        constValue = JsonValue.of("0"),
     ), NullSchemaValidator<ThenBoxedVoid>, BooleanSchemaValidator<ThenBoxedBoolean>, NumberSchemaValidator<ThenBoxedNumber>, StringSchemaValidator<ThenBoxedString>, ListSchemaValidator<FrozenList<Any?>, ThenBoxedList>, MapSchemaValidator<FrozenMap<Any?>, ThenBoxedMap> {
     
         companion object {
@@ -96,7 +95,7 @@ class IgnoreThenWithoutIf {
             val pathSet: MutableSet<List<Any>> = HashSet()
             val pathToItem = listOf<Any>("args[0")
             val castArg = castToAllowedTypes(arg, pathToItem, pathSet)
-            val usedConfiguration = configuration ?: SchemaConfiguration(JsonSchemaKeywordFlags.Builder().build())
+            val usedConfiguration = configuration ?: SchemaConfiguration()
             val validatedPathToSchemas = PathToSchemasMap()
             val validationMetadata = ValidationMetadata(pathToItem, usedConfiguration, validatedPathToSchemas, LinkedHashSet())
             getPathToSchemas(this, castArg, validationMetadata, pathSet)
@@ -108,7 +107,7 @@ class IgnoreThenWithoutIf {
             val pathSet: MutableSet<List<Any>> = HashSet()
             val pathToItem = listOf<Any>("args[0")
             val castArg = castToAllowedTypes(arg, pathToItem, pathSet)
-            val usedConfiguration = configuration ?: SchemaConfiguration(JsonSchemaKeywordFlags.Builder().build())
+            val usedConfiguration = configuration ?: SchemaConfiguration()
             val validatedPathToSchemas = PathToSchemasMap()
             val validationMetadata = ValidationMetadata(pathToItem, usedConfiguration, validatedPathToSchemas, LinkedHashSet())
             getPathToSchemas(this, castArg, validationMetadata, pathSet)
@@ -120,7 +119,7 @@ class IgnoreThenWithoutIf {
             val pathSet: MutableSet<List<Any>> = HashSet()
             val pathToItem = listOf<Any>("args[0")
             val castArg = castToAllowedTypes(arg, pathToItem, pathSet)
-            val usedConfiguration = configuration ?: SchemaConfiguration(JsonSchemaKeywordFlags.Builder().build())
+            val usedConfiguration = configuration ?: SchemaConfiguration()
             val validatedPathToSchemas = PathToSchemasMap()
             val validationMetadata = ValidationMetadata(pathToItem, usedConfiguration, validatedPathToSchemas, LinkedHashSet())
             getPathToSchemas(this, castArg, validationMetadata, pathSet)
@@ -152,7 +151,7 @@ class IgnoreThenWithoutIf {
             val pathSet: MutableSet<List<Any>> = HashSet()
             val pathToItem = listOf<Any>("args[0")
             val castArg = castToAllowedTypes(arg, pathToItem, pathSet)
-            val usedConfiguration = configuration ?: SchemaConfiguration(JsonSchemaKeywordFlags.Builder().build())
+            val usedConfiguration = configuration ?: SchemaConfiguration()
             val validatedPathToSchemas = PathToSchemasMap()
             val validationMetadata = ValidationMetadata(pathToItem, usedConfiguration, validatedPathToSchemas, LinkedHashSet())
             getPathToSchemas(this, castArg, validationMetadata, pathSet)
@@ -197,7 +196,7 @@ class IgnoreThenWithoutIf {
             val pathSet: MutableSet<List<Any>> = HashSet()
             val pathToItem = listOf<Any>("args[0")
             val castArg = castToAllowedTypes(arg, pathToItem, pathSet)
-            val usedConfiguration = configuration ?: SchemaConfiguration(JsonSchemaKeywordFlags.Builder().build())
+            val usedConfiguration = configuration ?: SchemaConfiguration()
             val validationMetadata = ValidationMetadata(pathToItem, usedConfiguration, PathToSchemasMap(), LinkedHashSet())
             val pathToSchemasMap = getPathToSchemas(this, castArg, validationMetadata, pathSet)
             return getNewInstance(castArg, validationMetadata.pathToItem, pathToSchemasMap)
@@ -227,7 +226,7 @@ class IgnoreThenWithoutIf {
             val pathSet: MutableSet<List<Any>> = HashSet()
             val pathToItem = listOf<Any>("args[0")
             val castArg = castToAllowedTypes(arg, pathToItem, pathSet)
-            val usedConfiguration = configuration ?: SchemaConfiguration(JsonSchemaKeywordFlags.Builder().build())
+            val usedConfiguration = configuration ?: SchemaConfiguration()
             val validatedPathToSchemas = PathToSchemasMap()
             val validationMetadata = ValidationMetadata(pathToItem, usedConfiguration, validatedPathToSchemas, LinkedHashSet())
             val pathToSchemasMap = getPathToSchemas(this, castArg, validationMetadata, pathSet)
@@ -352,8 +351,7 @@ class IgnoreThenWithoutIf {
     
     
     class IgnoreThenWithoutIf1 private constructor(): JsonSchema<IgnoreThenWithoutIf1Boxed>(
-        JsonSchemaInfo()
-            .then(Then::class.java)
+        then =Then::class.java,
     ), NullSchemaValidator<IgnoreThenWithoutIf1BoxedVoid>, BooleanSchemaValidator<IgnoreThenWithoutIf1BoxedBoolean>, NumberSchemaValidator<IgnoreThenWithoutIf1BoxedNumber>, StringSchemaValidator<IgnoreThenWithoutIf1BoxedString>, ListSchemaValidator<FrozenList<Any?>, IgnoreThenWithoutIf1BoxedList>, MapSchemaValidator<FrozenMap<Any?>, IgnoreThenWithoutIf1BoxedMap> {
         /*
         NOTE: This class is auto generated by OpenAPI JSON Schema Generator.
@@ -377,7 +375,7 @@ class IgnoreThenWithoutIf {
             val pathSet: MutableSet<List<Any>> = HashSet()
             val pathToItem = listOf<Any>("args[0")
             val castArg = castToAllowedTypes(arg, pathToItem, pathSet)
-            val usedConfiguration = configuration ?: SchemaConfiguration(JsonSchemaKeywordFlags.Builder().build())
+            val usedConfiguration = configuration ?: SchemaConfiguration()
             val validatedPathToSchemas = PathToSchemasMap()
             val validationMetadata = ValidationMetadata(pathToItem, usedConfiguration, validatedPathToSchemas, LinkedHashSet())
             getPathToSchemas(this, castArg, validationMetadata, pathSet)
@@ -389,7 +387,7 @@ class IgnoreThenWithoutIf {
             val pathSet: MutableSet<List<Any>> = HashSet()
             val pathToItem = listOf<Any>("args[0")
             val castArg = castToAllowedTypes(arg, pathToItem, pathSet)
-            val usedConfiguration = configuration ?: SchemaConfiguration(JsonSchemaKeywordFlags.Builder().build())
+            val usedConfiguration = configuration ?: SchemaConfiguration()
             val validatedPathToSchemas = PathToSchemasMap()
             val validationMetadata = ValidationMetadata(pathToItem, usedConfiguration, validatedPathToSchemas, LinkedHashSet())
             getPathToSchemas(this, castArg, validationMetadata, pathSet)
@@ -401,7 +399,7 @@ class IgnoreThenWithoutIf {
             val pathSet: MutableSet<List<Any>> = HashSet()
             val pathToItem = listOf<Any>("args[0")
             val castArg = castToAllowedTypes(arg, pathToItem, pathSet)
-            val usedConfiguration = configuration ?: SchemaConfiguration(JsonSchemaKeywordFlags.Builder().build())
+            val usedConfiguration = configuration ?: SchemaConfiguration()
             val validatedPathToSchemas = PathToSchemasMap()
             val validationMetadata = ValidationMetadata(pathToItem, usedConfiguration, validatedPathToSchemas, LinkedHashSet())
             getPathToSchemas(this, castArg, validationMetadata, pathSet)
@@ -433,7 +431,7 @@ class IgnoreThenWithoutIf {
             val pathSet: MutableSet<List<Any>> = HashSet()
             val pathToItem = listOf<Any>("args[0")
             val castArg = castToAllowedTypes(arg, pathToItem, pathSet)
-            val usedConfiguration = configuration ?: SchemaConfiguration(JsonSchemaKeywordFlags.Builder().build())
+            val usedConfiguration = configuration ?: SchemaConfiguration()
             val validatedPathToSchemas = PathToSchemasMap()
             val validationMetadata = ValidationMetadata(pathToItem, usedConfiguration, validatedPathToSchemas, LinkedHashSet())
             getPathToSchemas(this, castArg, validationMetadata, pathSet)
@@ -478,7 +476,7 @@ class IgnoreThenWithoutIf {
             val pathSet: MutableSet<List<Any>> = HashSet()
             val pathToItem = listOf<Any>("args[0")
             val castArg = castToAllowedTypes(arg, pathToItem, pathSet)
-            val usedConfiguration = configuration ?: SchemaConfiguration(JsonSchemaKeywordFlags.Builder().build())
+            val usedConfiguration = configuration ?: SchemaConfiguration()
             val validationMetadata = ValidationMetadata(pathToItem, usedConfiguration, PathToSchemasMap(), LinkedHashSet())
             val pathToSchemasMap = getPathToSchemas(this, castArg, validationMetadata, pathSet)
             return getNewInstance(castArg, validationMetadata.pathToItem, pathToSchemasMap)
@@ -508,7 +506,7 @@ class IgnoreThenWithoutIf {
             val pathSet: MutableSet<List<Any>> = HashSet()
             val pathToItem = listOf<Any>("args[0")
             val castArg = castToAllowedTypes(arg, pathToItem, pathSet)
-            val usedConfiguration = configuration ?: SchemaConfiguration(JsonSchemaKeywordFlags.Builder().build())
+            val usedConfiguration = configuration ?: SchemaConfiguration()
             val validatedPathToSchemas = PathToSchemasMap()
             val validationMetadata = ValidationMetadata(pathToItem, usedConfiguration, validatedPathToSchemas, LinkedHashSet())
             val pathToSchemasMap = getPathToSchemas(this, castArg, validationMetadata, pathSet)

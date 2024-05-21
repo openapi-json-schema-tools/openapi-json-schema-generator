@@ -1,10 +1,8 @@
 package {{{packageName}}}.schemas
 
-import {{{packageName}}}.configurations.JsonSchemaKeywordFlags
 import {{{packageName}}}.configurations.SchemaConfiguration
 import {{{packageName}}}.exceptions.ValidationException
 import {{{packageName}}}.schemas.validation.JsonSchema
-import {{{packageName}}}.schemas.validation.JsonSchemaInfo
 import {{{packageName}}}.schemas.validation.PathToSchemasMap
 import {{{packageName}}}.schemas.validation.StringSchemaValidator
 import {{{packageName}}}.schemas.validation.ValidationMetadata
@@ -21,16 +19,15 @@ open class DecimalJsonSchema {
     }
 
     open class DecimalJsonSchema1 protected constructor() : JsonSchema<DecimalJsonSchema1Boxed>(
-        JsonSchemaInfo()
-            .type(setOf(String::class.java))
-            .format("number")
+        type = setOf(String::class.java),
+        format = "number"
     ), StringSchemaValidator<DecimalJsonSchema1BoxedString> {
         @Throws(ValidationException::class)
         override fun validate(arg: String, configuration: SchemaConfiguration?): String {
             val pathSet: MutableSet<List<Any>> = HashSet()
             val pathToItem = listOf<Any>("args[0")
             val castArg: String = castToAllowedTypes(arg, pathToItem, pathSet)
-            val usedConfiguration = configuration ?: SchemaConfiguration(JsonSchemaKeywordFlags.Builder().build())
+            val usedConfiguration = configuration ?: SchemaConfiguration()
             val validationMetadata =
                 ValidationMetadata(pathToItem, usedConfiguration, PathToSchemasMap(), LinkedHashSet())
             val pathToSchemasMap = getPathToSchemas(this, castArg, validationMetadata, pathSet)

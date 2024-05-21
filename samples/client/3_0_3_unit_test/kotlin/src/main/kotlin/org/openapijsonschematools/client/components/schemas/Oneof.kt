@@ -2,7 +2,7 @@ package org.openapijsonschematools.client.components.schemas
 import java.time.LocalDate
 import java.time.ZonedDateTime
 import java.util.UUID
-import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags
+import org.openapijsonschematools.client.configurations.JsonSchemaKeyword
 import org.openapijsonschematools.client.configurations.SchemaConfiguration
 import org.openapijsonschematools.client.exceptions.InvalidAdditionalPropertyException
 import org.openapijsonschematools.client.exceptions.UnsetPropertyException
@@ -13,7 +13,6 @@ import org.openapijsonschematools.client.schemas.validation.BooleanSchemaValidat
 import org.openapijsonschematools.client.schemas.validation.FrozenList
 import org.openapijsonschematools.client.schemas.validation.FrozenMap
 import org.openapijsonschematools.client.schemas.validation.JsonSchema
-import org.openapijsonschematools.client.schemas.validation.JsonSchemaInfo
 import org.openapijsonschematools.client.schemas.validation.ListSchemaValidator
 import org.openapijsonschematools.client.schemas.validation.MapSchemaValidator
 import org.openapijsonschematools.client.schemas.validation.NullSchemaValidator
@@ -81,8 +80,7 @@ class Oneof {
     
     
     class Schema1 private constructor(): JsonSchema<Schema1Boxed>(
-        JsonSchemaInfo()
-            .minimum(2)
+        minimum = 2,
     ), NullSchemaValidator<Schema1BoxedVoid>, BooleanSchemaValidator<Schema1BoxedBoolean>, NumberSchemaValidator<Schema1BoxedNumber>, StringSchemaValidator<Schema1BoxedString>, ListSchemaValidator<FrozenList<Any?>, Schema1BoxedList>, MapSchemaValidator<FrozenMap<Any?>, Schema1BoxedMap> {
     
         companion object {
@@ -100,7 +98,7 @@ class Oneof {
             val pathSet: MutableSet<List<Any>> = HashSet()
             val pathToItem = listOf<Any>("args[0")
             val castArg = castToAllowedTypes(arg, pathToItem, pathSet)
-            val usedConfiguration = configuration ?: SchemaConfiguration(JsonSchemaKeywordFlags.Builder().build())
+            val usedConfiguration = configuration ?: SchemaConfiguration()
             val validatedPathToSchemas = PathToSchemasMap()
             val validationMetadata = ValidationMetadata(pathToItem, usedConfiguration, validatedPathToSchemas, LinkedHashSet())
             getPathToSchemas(this, castArg, validationMetadata, pathSet)
@@ -112,7 +110,7 @@ class Oneof {
             val pathSet: MutableSet<List<Any>> = HashSet()
             val pathToItem = listOf<Any>("args[0")
             val castArg = castToAllowedTypes(arg, pathToItem, pathSet)
-            val usedConfiguration = configuration ?: SchemaConfiguration(JsonSchemaKeywordFlags.Builder().build())
+            val usedConfiguration = configuration ?: SchemaConfiguration()
             val validatedPathToSchemas = PathToSchemasMap()
             val validationMetadata = ValidationMetadata(pathToItem, usedConfiguration, validatedPathToSchemas, LinkedHashSet())
             getPathToSchemas(this, castArg, validationMetadata, pathSet)
@@ -124,7 +122,7 @@ class Oneof {
             val pathSet: MutableSet<List<Any>> = HashSet()
             val pathToItem = listOf<Any>("args[0")
             val castArg = castToAllowedTypes(arg, pathToItem, pathSet)
-            val usedConfiguration = configuration ?: SchemaConfiguration(JsonSchemaKeywordFlags.Builder().build())
+            val usedConfiguration = configuration ?: SchemaConfiguration()
             val validatedPathToSchemas = PathToSchemasMap()
             val validationMetadata = ValidationMetadata(pathToItem, usedConfiguration, validatedPathToSchemas, LinkedHashSet())
             getPathToSchemas(this, castArg, validationMetadata, pathSet)
@@ -156,7 +154,7 @@ class Oneof {
             val pathSet: MutableSet<List<Any>> = HashSet()
             val pathToItem = listOf<Any>("args[0")
             val castArg = castToAllowedTypes(arg, pathToItem, pathSet)
-            val usedConfiguration = configuration ?: SchemaConfiguration(JsonSchemaKeywordFlags.Builder().build())
+            val usedConfiguration = configuration ?: SchemaConfiguration()
             val validatedPathToSchemas = PathToSchemasMap()
             val validationMetadata = ValidationMetadata(pathToItem, usedConfiguration, validatedPathToSchemas, LinkedHashSet())
             getPathToSchemas(this, castArg, validationMetadata, pathSet)
@@ -201,7 +199,7 @@ class Oneof {
             val pathSet: MutableSet<List<Any>> = HashSet()
             val pathToItem = listOf<Any>("args[0")
             val castArg = castToAllowedTypes(arg, pathToItem, pathSet)
-            val usedConfiguration = configuration ?: SchemaConfiguration(JsonSchemaKeywordFlags.Builder().build())
+            val usedConfiguration = configuration ?: SchemaConfiguration()
             val validationMetadata = ValidationMetadata(pathToItem, usedConfiguration, PathToSchemasMap(), LinkedHashSet())
             val pathToSchemasMap = getPathToSchemas(this, castArg, validationMetadata, pathSet)
             return getNewInstance(castArg, validationMetadata.pathToItem, pathToSchemasMap)
@@ -231,7 +229,7 @@ class Oneof {
             val pathSet: MutableSet<List<Any>> = HashSet()
             val pathToItem = listOf<Any>("args[0")
             val castArg = castToAllowedTypes(arg, pathToItem, pathSet)
-            val usedConfiguration = configuration ?: SchemaConfiguration(JsonSchemaKeywordFlags.Builder().build())
+            val usedConfiguration = configuration ?: SchemaConfiguration()
             val validatedPathToSchemas = PathToSchemasMap()
             val validationMetadata = ValidationMetadata(pathToItem, usedConfiguration, validatedPathToSchemas, LinkedHashSet())
             val pathToSchemasMap = getPathToSchemas(this, castArg, validationMetadata, pathSet)
@@ -356,11 +354,10 @@ class Oneof {
     
     
     class Oneof1 private constructor(): JsonSchema<Oneof1Boxed>(
-        JsonSchemaInfo()
-            .oneOf(listOf(
-                Schema0::class.java,
-                Schema1::class.java
-            ))
+        oneOf = listOf(
+            Schema0::class.java,
+            Schema1::class.java
+        ),
     ), NullSchemaValidator<Oneof1BoxedVoid>, BooleanSchemaValidator<Oneof1BoxedBoolean>, NumberSchemaValidator<Oneof1BoxedNumber>, StringSchemaValidator<Oneof1BoxedString>, ListSchemaValidator<FrozenList<Any?>, Oneof1BoxedList>, MapSchemaValidator<FrozenMap<Any?>, Oneof1BoxedMap> {
         /*
         NOTE: This class is auto generated by OpenAPI JSON Schema Generator.
@@ -384,7 +381,7 @@ class Oneof {
             val pathSet: MutableSet<List<Any>> = HashSet()
             val pathToItem = listOf<Any>("args[0")
             val castArg = castToAllowedTypes(arg, pathToItem, pathSet)
-            val usedConfiguration = configuration ?: SchemaConfiguration(JsonSchemaKeywordFlags.Builder().build())
+            val usedConfiguration = configuration ?: SchemaConfiguration()
             val validatedPathToSchemas = PathToSchemasMap()
             val validationMetadata = ValidationMetadata(pathToItem, usedConfiguration, validatedPathToSchemas, LinkedHashSet())
             getPathToSchemas(this, castArg, validationMetadata, pathSet)
@@ -396,7 +393,7 @@ class Oneof {
             val pathSet: MutableSet<List<Any>> = HashSet()
             val pathToItem = listOf<Any>("args[0")
             val castArg = castToAllowedTypes(arg, pathToItem, pathSet)
-            val usedConfiguration = configuration ?: SchemaConfiguration(JsonSchemaKeywordFlags.Builder().build())
+            val usedConfiguration = configuration ?: SchemaConfiguration()
             val validatedPathToSchemas = PathToSchemasMap()
             val validationMetadata = ValidationMetadata(pathToItem, usedConfiguration, validatedPathToSchemas, LinkedHashSet())
             getPathToSchemas(this, castArg, validationMetadata, pathSet)
@@ -408,7 +405,7 @@ class Oneof {
             val pathSet: MutableSet<List<Any>> = HashSet()
             val pathToItem = listOf<Any>("args[0")
             val castArg = castToAllowedTypes(arg, pathToItem, pathSet)
-            val usedConfiguration = configuration ?: SchemaConfiguration(JsonSchemaKeywordFlags.Builder().build())
+            val usedConfiguration = configuration ?: SchemaConfiguration()
             val validatedPathToSchemas = PathToSchemasMap()
             val validationMetadata = ValidationMetadata(pathToItem, usedConfiguration, validatedPathToSchemas, LinkedHashSet())
             getPathToSchemas(this, castArg, validationMetadata, pathSet)
@@ -440,7 +437,7 @@ class Oneof {
             val pathSet: MutableSet<List<Any>> = HashSet()
             val pathToItem = listOf<Any>("args[0")
             val castArg = castToAllowedTypes(arg, pathToItem, pathSet)
-            val usedConfiguration = configuration ?: SchemaConfiguration(JsonSchemaKeywordFlags.Builder().build())
+            val usedConfiguration = configuration ?: SchemaConfiguration()
             val validatedPathToSchemas = PathToSchemasMap()
             val validationMetadata = ValidationMetadata(pathToItem, usedConfiguration, validatedPathToSchemas, LinkedHashSet())
             getPathToSchemas(this, castArg, validationMetadata, pathSet)
@@ -485,7 +482,7 @@ class Oneof {
             val pathSet: MutableSet<List<Any>> = HashSet()
             val pathToItem = listOf<Any>("args[0")
             val castArg = castToAllowedTypes(arg, pathToItem, pathSet)
-            val usedConfiguration = configuration ?: SchemaConfiguration(JsonSchemaKeywordFlags.Builder().build())
+            val usedConfiguration = configuration ?: SchemaConfiguration()
             val validationMetadata = ValidationMetadata(pathToItem, usedConfiguration, PathToSchemasMap(), LinkedHashSet())
             val pathToSchemasMap = getPathToSchemas(this, castArg, validationMetadata, pathSet)
             return getNewInstance(castArg, validationMetadata.pathToItem, pathToSchemasMap)
@@ -515,7 +512,7 @@ class Oneof {
             val pathSet: MutableSet<List<Any>> = HashSet()
             val pathToItem = listOf<Any>("args[0")
             val castArg = castToAllowedTypes(arg, pathToItem, pathSet)
-            val usedConfiguration = configuration ?: SchemaConfiguration(JsonSchemaKeywordFlags.Builder().build())
+            val usedConfiguration = configuration ?: SchemaConfiguration()
             val validatedPathToSchemas = PathToSchemasMap()
             val validationMetadata = ValidationMetadata(pathToItem, usedConfiguration, validatedPathToSchemas, LinkedHashSet())
             val pathToSchemasMap = getPathToSchemas(this, castArg, validationMetadata, pathSet)

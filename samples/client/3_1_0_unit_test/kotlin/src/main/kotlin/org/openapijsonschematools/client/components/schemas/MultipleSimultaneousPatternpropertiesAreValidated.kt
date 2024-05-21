@@ -4,7 +4,7 @@ import java.time.ZonedDateTime
 import java.util.AbstractMap
 import java.util.UUID
 import java.util.regex.Pattern
-import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags
+import org.openapijsonschematools.client.configurations.JsonSchemaKeyword
 import org.openapijsonschematools.client.configurations.SchemaConfiguration
 import org.openapijsonschematools.client.exceptions.InvalidAdditionalPropertyException
 import org.openapijsonschematools.client.exceptions.UnsetPropertyException
@@ -15,7 +15,6 @@ import org.openapijsonschematools.client.schemas.validation.BooleanSchemaValidat
 import org.openapijsonschematools.client.schemas.validation.FrozenList
 import org.openapijsonschematools.client.schemas.validation.FrozenMap
 import org.openapijsonschematools.client.schemas.validation.JsonSchema
-import org.openapijsonschematools.client.schemas.validation.JsonSchemaInfo
 import org.openapijsonschematools.client.schemas.validation.ListSchemaValidator
 import org.openapijsonschematools.client.schemas.validation.MapSchemaValidator
 import org.openapijsonschematools.client.schemas.validation.NullSchemaValidator
@@ -83,8 +82,7 @@ class MultipleSimultaneousPatternpropertiesAreValidated {
     
     
     class Aaa private constructor(): JsonSchema<AaaBoxed>(
-        JsonSchemaInfo()
-            .maximum(20)
+        maximum = 20,
     ), NullSchemaValidator<AaaBoxedVoid>, BooleanSchemaValidator<AaaBoxedBoolean>, NumberSchemaValidator<AaaBoxedNumber>, StringSchemaValidator<AaaBoxedString>, ListSchemaValidator<FrozenList<Any?>, AaaBoxedList>, MapSchemaValidator<FrozenMap<Any?>, AaaBoxedMap> {
     
         companion object {
@@ -102,7 +100,7 @@ class MultipleSimultaneousPatternpropertiesAreValidated {
             val pathSet: MutableSet<List<Any>> = HashSet()
             val pathToItem = listOf<Any>("args[0")
             val castArg = castToAllowedTypes(arg, pathToItem, pathSet)
-            val usedConfiguration = configuration ?: SchemaConfiguration(JsonSchemaKeywordFlags.Builder().build())
+            val usedConfiguration = configuration ?: SchemaConfiguration()
             val validatedPathToSchemas = PathToSchemasMap()
             val validationMetadata = ValidationMetadata(pathToItem, usedConfiguration, validatedPathToSchemas, LinkedHashSet())
             getPathToSchemas(this, castArg, validationMetadata, pathSet)
@@ -114,7 +112,7 @@ class MultipleSimultaneousPatternpropertiesAreValidated {
             val pathSet: MutableSet<List<Any>> = HashSet()
             val pathToItem = listOf<Any>("args[0")
             val castArg = castToAllowedTypes(arg, pathToItem, pathSet)
-            val usedConfiguration = configuration ?: SchemaConfiguration(JsonSchemaKeywordFlags.Builder().build())
+            val usedConfiguration = configuration ?: SchemaConfiguration()
             val validatedPathToSchemas = PathToSchemasMap()
             val validationMetadata = ValidationMetadata(pathToItem, usedConfiguration, validatedPathToSchemas, LinkedHashSet())
             getPathToSchemas(this, castArg, validationMetadata, pathSet)
@@ -126,7 +124,7 @@ class MultipleSimultaneousPatternpropertiesAreValidated {
             val pathSet: MutableSet<List<Any>> = HashSet()
             val pathToItem = listOf<Any>("args[0")
             val castArg = castToAllowedTypes(arg, pathToItem, pathSet)
-            val usedConfiguration = configuration ?: SchemaConfiguration(JsonSchemaKeywordFlags.Builder().build())
+            val usedConfiguration = configuration ?: SchemaConfiguration()
             val validatedPathToSchemas = PathToSchemasMap()
             val validationMetadata = ValidationMetadata(pathToItem, usedConfiguration, validatedPathToSchemas, LinkedHashSet())
             getPathToSchemas(this, castArg, validationMetadata, pathSet)
@@ -158,7 +156,7 @@ class MultipleSimultaneousPatternpropertiesAreValidated {
             val pathSet: MutableSet<List<Any>> = HashSet()
             val pathToItem = listOf<Any>("args[0")
             val castArg = castToAllowedTypes(arg, pathToItem, pathSet)
-            val usedConfiguration = configuration ?: SchemaConfiguration(JsonSchemaKeywordFlags.Builder().build())
+            val usedConfiguration = configuration ?: SchemaConfiguration()
             val validatedPathToSchemas = PathToSchemasMap()
             val validationMetadata = ValidationMetadata(pathToItem, usedConfiguration, validatedPathToSchemas, LinkedHashSet())
             getPathToSchemas(this, castArg, validationMetadata, pathSet)
@@ -203,7 +201,7 @@ class MultipleSimultaneousPatternpropertiesAreValidated {
             val pathSet: MutableSet<List<Any>> = HashSet()
             val pathToItem = listOf<Any>("args[0")
             val castArg = castToAllowedTypes(arg, pathToItem, pathSet)
-            val usedConfiguration = configuration ?: SchemaConfiguration(JsonSchemaKeywordFlags.Builder().build())
+            val usedConfiguration = configuration ?: SchemaConfiguration()
             val validationMetadata = ValidationMetadata(pathToItem, usedConfiguration, PathToSchemasMap(), LinkedHashSet())
             val pathToSchemasMap = getPathToSchemas(this, castArg, validationMetadata, pathSet)
             return getNewInstance(castArg, validationMetadata.pathToItem, pathToSchemasMap)
@@ -233,7 +231,7 @@ class MultipleSimultaneousPatternpropertiesAreValidated {
             val pathSet: MutableSet<List<Any>> = HashSet()
             val pathToItem = listOf<Any>("args[0")
             val castArg = castToAllowedTypes(arg, pathToItem, pathSet)
-            val usedConfiguration = configuration ?: SchemaConfiguration(JsonSchemaKeywordFlags.Builder().build())
+            val usedConfiguration = configuration ?: SchemaConfiguration()
             val validatedPathToSchemas = PathToSchemasMap()
             val validationMetadata = ValidationMetadata(pathToItem, usedConfiguration, validatedPathToSchemas, LinkedHashSet())
             val pathToSchemasMap = getPathToSchemas(this, castArg, validationMetadata, pathSet)
@@ -358,11 +356,10 @@ class MultipleSimultaneousPatternpropertiesAreValidated {
     
     
     class MultipleSimultaneousPatternpropertiesAreValidated1 private constructor(): JsonSchema<MultipleSimultaneousPatternpropertiesAreValidated1Boxed>(
-        JsonSchemaInfo()
-            .patternProperties(mapOf(
-                Pattern.compile("a*") to A::class.java,
-                Pattern.compile("aaa*") to Aaa::class.java
-            ))
+        patternProperties = mapOf(
+            Pattern.compile("a*") to A::class.java,
+            Pattern.compile("aaa*") to Aaa::class.java
+        ),
     ), NullSchemaValidator<MultipleSimultaneousPatternpropertiesAreValidated1BoxedVoid>, BooleanSchemaValidator<MultipleSimultaneousPatternpropertiesAreValidated1BoxedBoolean>, NumberSchemaValidator<MultipleSimultaneousPatternpropertiesAreValidated1BoxedNumber>, StringSchemaValidator<MultipleSimultaneousPatternpropertiesAreValidated1BoxedString>, ListSchemaValidator<FrozenList<Any?>, MultipleSimultaneousPatternpropertiesAreValidated1BoxedList>, MapSchemaValidator<FrozenMap<Any?>, MultipleSimultaneousPatternpropertiesAreValidated1BoxedMap> {
         /*
         NOTE: This class is auto generated by OpenAPI JSON Schema Generator.
@@ -386,7 +383,7 @@ class MultipleSimultaneousPatternpropertiesAreValidated {
             val pathSet: MutableSet<List<Any>> = HashSet()
             val pathToItem = listOf<Any>("args[0")
             val castArg = castToAllowedTypes(arg, pathToItem, pathSet)
-            val usedConfiguration = configuration ?: SchemaConfiguration(JsonSchemaKeywordFlags.Builder().build())
+            val usedConfiguration = configuration ?: SchemaConfiguration()
             val validatedPathToSchemas = PathToSchemasMap()
             val validationMetadata = ValidationMetadata(pathToItem, usedConfiguration, validatedPathToSchemas, LinkedHashSet())
             getPathToSchemas(this, castArg, validationMetadata, pathSet)
@@ -398,7 +395,7 @@ class MultipleSimultaneousPatternpropertiesAreValidated {
             val pathSet: MutableSet<List<Any>> = HashSet()
             val pathToItem = listOf<Any>("args[0")
             val castArg = castToAllowedTypes(arg, pathToItem, pathSet)
-            val usedConfiguration = configuration ?: SchemaConfiguration(JsonSchemaKeywordFlags.Builder().build())
+            val usedConfiguration = configuration ?: SchemaConfiguration()
             val validatedPathToSchemas = PathToSchemasMap()
             val validationMetadata = ValidationMetadata(pathToItem, usedConfiguration, validatedPathToSchemas, LinkedHashSet())
             getPathToSchemas(this, castArg, validationMetadata, pathSet)
@@ -410,7 +407,7 @@ class MultipleSimultaneousPatternpropertiesAreValidated {
             val pathSet: MutableSet<List<Any>> = HashSet()
             val pathToItem = listOf<Any>("args[0")
             val castArg = castToAllowedTypes(arg, pathToItem, pathSet)
-            val usedConfiguration = configuration ?: SchemaConfiguration(JsonSchemaKeywordFlags.Builder().build())
+            val usedConfiguration = configuration ?: SchemaConfiguration()
             val validatedPathToSchemas = PathToSchemasMap()
             val validationMetadata = ValidationMetadata(pathToItem, usedConfiguration, validatedPathToSchemas, LinkedHashSet())
             getPathToSchemas(this, castArg, validationMetadata, pathSet)
@@ -442,7 +439,7 @@ class MultipleSimultaneousPatternpropertiesAreValidated {
             val pathSet: MutableSet<List<Any>> = HashSet()
             val pathToItem = listOf<Any>("args[0")
             val castArg = castToAllowedTypes(arg, pathToItem, pathSet)
-            val usedConfiguration = configuration ?: SchemaConfiguration(JsonSchemaKeywordFlags.Builder().build())
+            val usedConfiguration = configuration ?: SchemaConfiguration()
             val validatedPathToSchemas = PathToSchemasMap()
             val validationMetadata = ValidationMetadata(pathToItem, usedConfiguration, validatedPathToSchemas, LinkedHashSet())
             getPathToSchemas(this, castArg, validationMetadata, pathSet)
@@ -487,7 +484,7 @@ class MultipleSimultaneousPatternpropertiesAreValidated {
             val pathSet: MutableSet<List<Any>> = HashSet()
             val pathToItem = listOf<Any>("args[0")
             val castArg = castToAllowedTypes(arg, pathToItem, pathSet)
-            val usedConfiguration = configuration ?: SchemaConfiguration(JsonSchemaKeywordFlags.Builder().build())
+            val usedConfiguration = configuration ?: SchemaConfiguration()
             val validationMetadata = ValidationMetadata(pathToItem, usedConfiguration, PathToSchemasMap(), LinkedHashSet())
             val pathToSchemasMap = getPathToSchemas(this, castArg, validationMetadata, pathSet)
             return getNewInstance(castArg, validationMetadata.pathToItem, pathToSchemasMap)
@@ -517,7 +514,7 @@ class MultipleSimultaneousPatternpropertiesAreValidated {
             val pathSet: MutableSet<List<Any>> = HashSet()
             val pathToItem = listOf<Any>("args[0")
             val castArg = castToAllowedTypes(arg, pathToItem, pathSet)
-            val usedConfiguration = configuration ?: SchemaConfiguration(JsonSchemaKeywordFlags.Builder().build())
+            val usedConfiguration = configuration ?: SchemaConfiguration()
             val validatedPathToSchemas = PathToSchemasMap()
             val validationMetadata = ValidationMetadata(pathToItem, usedConfiguration, validatedPathToSchemas, LinkedHashSet())
             val pathToSchemasMap = getPathToSchemas(this, castArg, validationMetadata, pathSet)

@@ -12,7 +12,7 @@ dependentRequired = mapOf(<br>
     {{/each}}
 )
 {{else}}
-.dependentRequired(mapOf(
+dependentRequired = mapOf(
     {{#each dependentRequired}}
     Pair(
         "{{{@key}}}",
@@ -23,5 +23,5 @@ dependentRequired = mapOf(<br>
         )
     ){{#unless @last}},{{/unless}}
     {{/each}}
-))
+),
 {{/if}}

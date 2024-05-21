@@ -711,7 +711,7 @@ public class KotlinClientGenerator extends DefaultGenerator implements Generator
         keywordValidatorFiles.add("ItemsValidator");
         keywordValidatorFiles.add("JsonSchema");
         keywordValidatorFiles.add("JsonSchemaFactory");
-        keywordValidatorFiles.add("JsonSchemaInfo");
+        keywordValidatorFiles.add("JsonValue");
         keywordValidatorFiles.add("KeywordEntry");
         keywordValidatorFiles.add("KeywordValidator");
         keywordValidatorFiles.add("LengthValidator");
@@ -794,13 +794,9 @@ public class KotlinClientGenerator extends DefaultGenerator implements Generator
 
         // configuration
         supportingFiles.add(new SupportingFile(
-                "src/main/kotlin/packagename/configurations/JsonSchemaKeywordFlags.hbs",
+                "src/main/kotlin/packagename/configurations/JsonSchemaKeyword.hbs",
                 packagePath() + File.separatorChar + "configurations",
-                "JsonSchemaKeywordFlags.kt"));
-        supportingFiles.add(new SupportingFile(
-                "src/test/kotlin/packagename/configurations/JsonSchemaKeywordFlagsTest.hbs",
-                testPackagePath() + File.separatorChar + "configurations",
-                "JsonSchemaKeywordFlagsTest.kt"));
+                "JsonSchemaKeyword.kt"));
         supportingFiles.add(new SupportingFile(
                 "src/main/kotlin/packagename/configurations/SchemaConfiguration.hbs",
                 packagePath() + File.separatorChar + "configurations",
@@ -1625,6 +1621,7 @@ public class KotlinClientGenerator extends DefaultGenerator implements Generator
 
     private void addDefaultValueImport(CodegenSchema schema, Set<String> imports) {
         if (schema.defaultValue != null) {
+            imports.add("import "+generatorSettings.packageName + ".schemas.validation.JsonValue");
             imports.add("import "+generatorSettings.packageName + ".schemas.validation.DefaultValueMethod");
         }
     }
@@ -1669,6 +1666,7 @@ public class KotlinClientGenerator extends DefaultGenerator implements Generator
 
     private void addConstImports(CodegenSchema schema, Set<String> imports) {
         if (schema.constInfo != null) {
+            imports.add("import "+generatorSettings.packageName + ".schemas.validation.JsonValue");
             if (schema.constInfo.typeToValues.containsKey("null")) {
                 imports.add("import "+generatorSettings.packageName + ".schemas.validation.NullEnumValidator");
                 imports.add("import "+generatorSettings.packageName + ".schemas.validation.NullValueMethod");
@@ -1753,12 +1751,11 @@ public class KotlinClientGenerator extends DefaultGenerator implements Generator
 
     private void addCustomSchemaImports(Set<String> imports, CodegenSchema schema) {
         imports.add("import " + generatorSettings.packageName + ".schemas.validation.JsonSchema");
-        imports.add("import " + generatorSettings.packageName + ".schemas.validation.JsonSchemaInfo");
         imports.add("import "+generatorSettings.packageName + ".configurations.SchemaConfiguration");
         imports.add("import "+generatorSettings.packageName + ".exceptions.ValidationException");
         imports.add("import "+generatorSettings.packageName + ".schemas.validation.PathToSchemasMap"); // for getNewInstance
         imports.add("import "+generatorSettings.packageName + ".schemas.validation.ValidationMetadata"); // for getNewInstance
-        imports.add("import "+generatorSettings.packageName + ".configurations.JsonSchemaKeywordFlags"); // for getNewInstance
+        imports.add("import "+generatorSettings.packageName + ".configurations.JsonSchemaKeyword"); // for getNewInstance
     }
 
     private void addBooleanSchemaImports(Set<String> imports, CodegenSchema schema) {

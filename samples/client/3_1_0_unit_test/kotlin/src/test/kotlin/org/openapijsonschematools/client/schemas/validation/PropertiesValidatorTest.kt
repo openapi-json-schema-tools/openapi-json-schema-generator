@@ -1,6 +1,5 @@
 package org.openapijsonschematools.client.schemas.validation
 
-import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags
 import org.openapijsonschematools.client.configurations.SchemaConfiguration
 import org.openapijsonschematools.client.exceptions.ValidationException
 import org.openapijsonschematools.client.schemas.StringJsonSchema
@@ -14,13 +13,10 @@ class PropertiesValidatorTest {
     interface ObjectWithPropsSchemaBoxed
     class ObjectWithPropsSchemaBoxedMap : ObjectWithPropsSchemaBoxed
     class ObjectWithPropsSchema : JsonSchema<ObjectWithPropsSchemaBoxed>(
-        JsonSchemaInfo()
-            .type(setOf(MutableMap::class.java))
-            .properties(
-                mapOf(
-                    "someString" to StringJsonSchema.StringJsonSchema1::class.java
-                )
-            )
+        type = setOf(MutableMap::class.java),
+        properties = mapOf(
+            "someString" to StringJsonSchema.StringJsonSchema1::class.java
+        )
     ) {
         override fun getNewInstance(arg: Any?, pathToItem: List<Any>, pathToSchemas: PathToSchemasMap): Any? {
             if (arg is Map<*, *>) {
@@ -50,7 +46,7 @@ class PropertiesValidatorTest {
         val pathToItem = listOf<Any>("args[0]")
         val validationMetadata = ValidationMetadata(
             pathToItem,
-            SchemaConfiguration(JsonSchemaKeywordFlags.Builder().build()),
+            SchemaConfiguration(),
             PathToSchemasMap(),
             LinkedHashSet()
         )
@@ -81,7 +77,7 @@ class PropertiesValidatorTest {
         val pathToItem = listOf<Any>("args[0]")
         val validationMetadata = ValidationMetadata(
             pathToItem,
-            SchemaConfiguration(JsonSchemaKeywordFlags.Builder().build()),
+            SchemaConfiguration(),
             PathToSchemasMap(),
             LinkedHashSet()
         )
@@ -101,7 +97,7 @@ class PropertiesValidatorTest {
         val pathToItem = listOf<Any>("args[0]")
         val validationMetadata = ValidationMetadata(
             pathToItem,
-            SchemaConfiguration(JsonSchemaKeywordFlags.Builder().build()),
+            SchemaConfiguration(),
             PathToSchemasMap(),
             LinkedHashSet()
         )

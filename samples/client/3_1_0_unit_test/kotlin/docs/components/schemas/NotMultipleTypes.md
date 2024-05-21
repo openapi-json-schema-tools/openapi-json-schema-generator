@@ -220,15 +220,13 @@ A schema class that validates payloads
 
 ### Code Sample
 ```
-import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags
 import org.openapijsonschematools.client.configurations.SchemaConfiguration
 import org.openapijsonschematools.client.exceptions.ValidationException
-import org.openapijsonschematools.client.schemas.validation.MapUtils
 import org.openapijsonschematools.client.schemas.validation.FrozenList
 import org.openapijsonschematools.client.schemas.validation.FrozenMap
 import org.openapijsonschematools.client.components.schemas.NotMultipleTypes
 
-val configuration = SchemaConfiguration(JsonSchemaKeywordFlags.Builder().build())
+val configuration = SchemaConfiguration()
 
 // int validation
 val validatedPayload: Int = NotMultipleTypes.Not.validate(

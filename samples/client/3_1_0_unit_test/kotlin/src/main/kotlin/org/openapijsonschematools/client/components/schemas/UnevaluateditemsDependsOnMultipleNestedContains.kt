@@ -3,7 +3,7 @@ import java.math.BigDecimal
 import java.time.LocalDate
 import java.time.ZonedDateTime
 import java.util.UUID
-import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags
+import org.openapijsonschematools.client.configurations.JsonSchemaKeyword
 import org.openapijsonschematools.client.configurations.SchemaConfiguration
 import org.openapijsonschematools.client.exceptions.InvalidAdditionalPropertyException
 import org.openapijsonschematools.client.exceptions.UnsetPropertyException
@@ -13,7 +13,6 @@ import org.openapijsonschematools.client.schemas.validation.BooleanSchemaValidat
 import org.openapijsonschematools.client.schemas.validation.FrozenList
 import org.openapijsonschematools.client.schemas.validation.FrozenMap
 import org.openapijsonschematools.client.schemas.validation.JsonSchema
-import org.openapijsonschematools.client.schemas.validation.JsonSchemaInfo
 import org.openapijsonschematools.client.schemas.validation.ListSchemaValidator
 import org.openapijsonschematools.client.schemas.validation.MapSchemaValidator
 import org.openapijsonschematools.client.schemas.validation.NullSchemaValidator
@@ -68,8 +67,7 @@ class UnevaluateditemsDependsOnMultipleNestedContains {
     
     
     class Contains private constructor(): JsonSchema<ContainsBoxed>(
-        JsonSchemaInfo()
-            .multipleOf(BigDecimal("2"))
+        multipleOf = BigDecimal("2"),
     ), NullSchemaValidator<ContainsBoxedVoid>, BooleanSchemaValidator<ContainsBoxedBoolean>, NumberSchemaValidator<ContainsBoxedNumber>, StringSchemaValidator<ContainsBoxedString>, ListSchemaValidator<FrozenList<Any?>, ContainsBoxedList>, MapSchemaValidator<FrozenMap<Any?>, ContainsBoxedMap> {
     
         companion object {
@@ -87,7 +85,7 @@ class UnevaluateditemsDependsOnMultipleNestedContains {
             val pathSet: MutableSet<List<Any>> = HashSet()
             val pathToItem = listOf<Any>("args[0")
             val castArg = castToAllowedTypes(arg, pathToItem, pathSet)
-            val usedConfiguration = configuration ?: SchemaConfiguration(JsonSchemaKeywordFlags.Builder().build())
+            val usedConfiguration = configuration ?: SchemaConfiguration()
             val validatedPathToSchemas = PathToSchemasMap()
             val validationMetadata = ValidationMetadata(pathToItem, usedConfiguration, validatedPathToSchemas, LinkedHashSet())
             getPathToSchemas(this, castArg, validationMetadata, pathSet)
@@ -99,7 +97,7 @@ class UnevaluateditemsDependsOnMultipleNestedContains {
             val pathSet: MutableSet<List<Any>> = HashSet()
             val pathToItem = listOf<Any>("args[0")
             val castArg = castToAllowedTypes(arg, pathToItem, pathSet)
-            val usedConfiguration = configuration ?: SchemaConfiguration(JsonSchemaKeywordFlags.Builder().build())
+            val usedConfiguration = configuration ?: SchemaConfiguration()
             val validatedPathToSchemas = PathToSchemasMap()
             val validationMetadata = ValidationMetadata(pathToItem, usedConfiguration, validatedPathToSchemas, LinkedHashSet())
             getPathToSchemas(this, castArg, validationMetadata, pathSet)
@@ -111,7 +109,7 @@ class UnevaluateditemsDependsOnMultipleNestedContains {
             val pathSet: MutableSet<List<Any>> = HashSet()
             val pathToItem = listOf<Any>("args[0")
             val castArg = castToAllowedTypes(arg, pathToItem, pathSet)
-            val usedConfiguration = configuration ?: SchemaConfiguration(JsonSchemaKeywordFlags.Builder().build())
+            val usedConfiguration = configuration ?: SchemaConfiguration()
             val validatedPathToSchemas = PathToSchemasMap()
             val validationMetadata = ValidationMetadata(pathToItem, usedConfiguration, validatedPathToSchemas, LinkedHashSet())
             getPathToSchemas(this, castArg, validationMetadata, pathSet)
@@ -143,7 +141,7 @@ class UnevaluateditemsDependsOnMultipleNestedContains {
             val pathSet: MutableSet<List<Any>> = HashSet()
             val pathToItem = listOf<Any>("args[0")
             val castArg = castToAllowedTypes(arg, pathToItem, pathSet)
-            val usedConfiguration = configuration ?: SchemaConfiguration(JsonSchemaKeywordFlags.Builder().build())
+            val usedConfiguration = configuration ?: SchemaConfiguration()
             val validatedPathToSchemas = PathToSchemasMap()
             val validationMetadata = ValidationMetadata(pathToItem, usedConfiguration, validatedPathToSchemas, LinkedHashSet())
             getPathToSchemas(this, castArg, validationMetadata, pathSet)
@@ -188,7 +186,7 @@ class UnevaluateditemsDependsOnMultipleNestedContains {
             val pathSet: MutableSet<List<Any>> = HashSet()
             val pathToItem = listOf<Any>("args[0")
             val castArg = castToAllowedTypes(arg, pathToItem, pathSet)
-            val usedConfiguration = configuration ?: SchemaConfiguration(JsonSchemaKeywordFlags.Builder().build())
+            val usedConfiguration = configuration ?: SchemaConfiguration()
             val validationMetadata = ValidationMetadata(pathToItem, usedConfiguration, PathToSchemasMap(), LinkedHashSet())
             val pathToSchemasMap = getPathToSchemas(this, castArg, validationMetadata, pathSet)
             return getNewInstance(castArg, validationMetadata.pathToItem, pathToSchemasMap)
@@ -218,7 +216,7 @@ class UnevaluateditemsDependsOnMultipleNestedContains {
             val pathSet: MutableSet<List<Any>> = HashSet()
             val pathToItem = listOf<Any>("args[0")
             val castArg = castToAllowedTypes(arg, pathToItem, pathSet)
-            val usedConfiguration = configuration ?: SchemaConfiguration(JsonSchemaKeywordFlags.Builder().build())
+            val usedConfiguration = configuration ?: SchemaConfiguration()
             val validatedPathToSchemas = PathToSchemasMap()
             val validationMetadata = ValidationMetadata(pathToItem, usedConfiguration, validatedPathToSchemas, LinkedHashSet())
             val pathToSchemasMap = getPathToSchemas(this, castArg, validationMetadata, pathSet)
@@ -343,8 +341,7 @@ class UnevaluateditemsDependsOnMultipleNestedContains {
     
     
     class Schema0 private constructor(): JsonSchema<Schema0Boxed>(
-        JsonSchemaInfo()
-            .contains(Contains::class.java)
+        contains = Contains::class.java,
     ), NullSchemaValidator<Schema0BoxedVoid>, BooleanSchemaValidator<Schema0BoxedBoolean>, NumberSchemaValidator<Schema0BoxedNumber>, StringSchemaValidator<Schema0BoxedString>, ListSchemaValidator<FrozenList<Any?>, Schema0BoxedList>, MapSchemaValidator<FrozenMap<Any?>, Schema0BoxedMap> {
     
         companion object {
@@ -362,7 +359,7 @@ class UnevaluateditemsDependsOnMultipleNestedContains {
             val pathSet: MutableSet<List<Any>> = HashSet()
             val pathToItem = listOf<Any>("args[0")
             val castArg = castToAllowedTypes(arg, pathToItem, pathSet)
-            val usedConfiguration = configuration ?: SchemaConfiguration(JsonSchemaKeywordFlags.Builder().build())
+            val usedConfiguration = configuration ?: SchemaConfiguration()
             val validatedPathToSchemas = PathToSchemasMap()
             val validationMetadata = ValidationMetadata(pathToItem, usedConfiguration, validatedPathToSchemas, LinkedHashSet())
             getPathToSchemas(this, castArg, validationMetadata, pathSet)
@@ -374,7 +371,7 @@ class UnevaluateditemsDependsOnMultipleNestedContains {
             val pathSet: MutableSet<List<Any>> = HashSet()
             val pathToItem = listOf<Any>("args[0")
             val castArg = castToAllowedTypes(arg, pathToItem, pathSet)
-            val usedConfiguration = configuration ?: SchemaConfiguration(JsonSchemaKeywordFlags.Builder().build())
+            val usedConfiguration = configuration ?: SchemaConfiguration()
             val validatedPathToSchemas = PathToSchemasMap()
             val validationMetadata = ValidationMetadata(pathToItem, usedConfiguration, validatedPathToSchemas, LinkedHashSet())
             getPathToSchemas(this, castArg, validationMetadata, pathSet)
@@ -386,7 +383,7 @@ class UnevaluateditemsDependsOnMultipleNestedContains {
             val pathSet: MutableSet<List<Any>> = HashSet()
             val pathToItem = listOf<Any>("args[0")
             val castArg = castToAllowedTypes(arg, pathToItem, pathSet)
-            val usedConfiguration = configuration ?: SchemaConfiguration(JsonSchemaKeywordFlags.Builder().build())
+            val usedConfiguration = configuration ?: SchemaConfiguration()
             val validatedPathToSchemas = PathToSchemasMap()
             val validationMetadata = ValidationMetadata(pathToItem, usedConfiguration, validatedPathToSchemas, LinkedHashSet())
             getPathToSchemas(this, castArg, validationMetadata, pathSet)
@@ -418,7 +415,7 @@ class UnevaluateditemsDependsOnMultipleNestedContains {
             val pathSet: MutableSet<List<Any>> = HashSet()
             val pathToItem = listOf<Any>("args[0")
             val castArg = castToAllowedTypes(arg, pathToItem, pathSet)
-            val usedConfiguration = configuration ?: SchemaConfiguration(JsonSchemaKeywordFlags.Builder().build())
+            val usedConfiguration = configuration ?: SchemaConfiguration()
             val validatedPathToSchemas = PathToSchemasMap()
             val validationMetadata = ValidationMetadata(pathToItem, usedConfiguration, validatedPathToSchemas, LinkedHashSet())
             getPathToSchemas(this, castArg, validationMetadata, pathSet)
@@ -463,7 +460,7 @@ class UnevaluateditemsDependsOnMultipleNestedContains {
             val pathSet: MutableSet<List<Any>> = HashSet()
             val pathToItem = listOf<Any>("args[0")
             val castArg = castToAllowedTypes(arg, pathToItem, pathSet)
-            val usedConfiguration = configuration ?: SchemaConfiguration(JsonSchemaKeywordFlags.Builder().build())
+            val usedConfiguration = configuration ?: SchemaConfiguration()
             val validationMetadata = ValidationMetadata(pathToItem, usedConfiguration, PathToSchemasMap(), LinkedHashSet())
             val pathToSchemasMap = getPathToSchemas(this, castArg, validationMetadata, pathSet)
             return getNewInstance(castArg, validationMetadata.pathToItem, pathToSchemasMap)
@@ -493,7 +490,7 @@ class UnevaluateditemsDependsOnMultipleNestedContains {
             val pathSet: MutableSet<List<Any>> = HashSet()
             val pathToItem = listOf<Any>("args[0")
             val castArg = castToAllowedTypes(arg, pathToItem, pathSet)
-            val usedConfiguration = configuration ?: SchemaConfiguration(JsonSchemaKeywordFlags.Builder().build())
+            val usedConfiguration = configuration ?: SchemaConfiguration()
             val validatedPathToSchemas = PathToSchemasMap()
             val validationMetadata = ValidationMetadata(pathToItem, usedConfiguration, validatedPathToSchemas, LinkedHashSet())
             val pathToSchemasMap = getPathToSchemas(this, castArg, validationMetadata, pathSet)
@@ -618,8 +615,7 @@ class UnevaluateditemsDependsOnMultipleNestedContains {
     
     
     class Contains1 private constructor(): JsonSchema<Contains1Boxed>(
-        JsonSchemaInfo()
-            .multipleOf(BigDecimal("3"))
+        multipleOf = BigDecimal("3"),
     ), NullSchemaValidator<Contains1BoxedVoid>, BooleanSchemaValidator<Contains1BoxedBoolean>, NumberSchemaValidator<Contains1BoxedNumber>, StringSchemaValidator<Contains1BoxedString>, ListSchemaValidator<FrozenList<Any?>, Contains1BoxedList>, MapSchemaValidator<FrozenMap<Any?>, Contains1BoxedMap> {
     
         companion object {
@@ -637,7 +633,7 @@ class UnevaluateditemsDependsOnMultipleNestedContains {
             val pathSet: MutableSet<List<Any>> = HashSet()
             val pathToItem = listOf<Any>("args[0")
             val castArg = castToAllowedTypes(arg, pathToItem, pathSet)
-            val usedConfiguration = configuration ?: SchemaConfiguration(JsonSchemaKeywordFlags.Builder().build())
+            val usedConfiguration = configuration ?: SchemaConfiguration()
             val validatedPathToSchemas = PathToSchemasMap()
             val validationMetadata = ValidationMetadata(pathToItem, usedConfiguration, validatedPathToSchemas, LinkedHashSet())
             getPathToSchemas(this, castArg, validationMetadata, pathSet)
@@ -649,7 +645,7 @@ class UnevaluateditemsDependsOnMultipleNestedContains {
             val pathSet: MutableSet<List<Any>> = HashSet()
             val pathToItem = listOf<Any>("args[0")
             val castArg = castToAllowedTypes(arg, pathToItem, pathSet)
-            val usedConfiguration = configuration ?: SchemaConfiguration(JsonSchemaKeywordFlags.Builder().build())
+            val usedConfiguration = configuration ?: SchemaConfiguration()
             val validatedPathToSchemas = PathToSchemasMap()
             val validationMetadata = ValidationMetadata(pathToItem, usedConfiguration, validatedPathToSchemas, LinkedHashSet())
             getPathToSchemas(this, castArg, validationMetadata, pathSet)
@@ -661,7 +657,7 @@ class UnevaluateditemsDependsOnMultipleNestedContains {
             val pathSet: MutableSet<List<Any>> = HashSet()
             val pathToItem = listOf<Any>("args[0")
             val castArg = castToAllowedTypes(arg, pathToItem, pathSet)
-            val usedConfiguration = configuration ?: SchemaConfiguration(JsonSchemaKeywordFlags.Builder().build())
+            val usedConfiguration = configuration ?: SchemaConfiguration()
             val validatedPathToSchemas = PathToSchemasMap()
             val validationMetadata = ValidationMetadata(pathToItem, usedConfiguration, validatedPathToSchemas, LinkedHashSet())
             getPathToSchemas(this, castArg, validationMetadata, pathSet)
@@ -693,7 +689,7 @@ class UnevaluateditemsDependsOnMultipleNestedContains {
             val pathSet: MutableSet<List<Any>> = HashSet()
             val pathToItem = listOf<Any>("args[0")
             val castArg = castToAllowedTypes(arg, pathToItem, pathSet)
-            val usedConfiguration = configuration ?: SchemaConfiguration(JsonSchemaKeywordFlags.Builder().build())
+            val usedConfiguration = configuration ?: SchemaConfiguration()
             val validatedPathToSchemas = PathToSchemasMap()
             val validationMetadata = ValidationMetadata(pathToItem, usedConfiguration, validatedPathToSchemas, LinkedHashSet())
             getPathToSchemas(this, castArg, validationMetadata, pathSet)
@@ -738,7 +734,7 @@ class UnevaluateditemsDependsOnMultipleNestedContains {
             val pathSet: MutableSet<List<Any>> = HashSet()
             val pathToItem = listOf<Any>("args[0")
             val castArg = castToAllowedTypes(arg, pathToItem, pathSet)
-            val usedConfiguration = configuration ?: SchemaConfiguration(JsonSchemaKeywordFlags.Builder().build())
+            val usedConfiguration = configuration ?: SchemaConfiguration()
             val validationMetadata = ValidationMetadata(pathToItem, usedConfiguration, PathToSchemasMap(), LinkedHashSet())
             val pathToSchemasMap = getPathToSchemas(this, castArg, validationMetadata, pathSet)
             return getNewInstance(castArg, validationMetadata.pathToItem, pathToSchemasMap)
@@ -768,7 +764,7 @@ class UnevaluateditemsDependsOnMultipleNestedContains {
             val pathSet: MutableSet<List<Any>> = HashSet()
             val pathToItem = listOf<Any>("args[0")
             val castArg = castToAllowedTypes(arg, pathToItem, pathSet)
-            val usedConfiguration = configuration ?: SchemaConfiguration(JsonSchemaKeywordFlags.Builder().build())
+            val usedConfiguration = configuration ?: SchemaConfiguration()
             val validatedPathToSchemas = PathToSchemasMap()
             val validationMetadata = ValidationMetadata(pathToItem, usedConfiguration, validatedPathToSchemas, LinkedHashSet())
             val pathToSchemasMap = getPathToSchemas(this, castArg, validationMetadata, pathSet)
@@ -893,8 +889,7 @@ class UnevaluateditemsDependsOnMultipleNestedContains {
     
     
     class Schema1 private constructor(): JsonSchema<Schema1Boxed>(
-        JsonSchemaInfo()
-            .contains(Contains1::class.java)
+        contains = Contains1::class.java,
     ), NullSchemaValidator<Schema1BoxedVoid>, BooleanSchemaValidator<Schema1BoxedBoolean>, NumberSchemaValidator<Schema1BoxedNumber>, StringSchemaValidator<Schema1BoxedString>, ListSchemaValidator<FrozenList<Any?>, Schema1BoxedList>, MapSchemaValidator<FrozenMap<Any?>, Schema1BoxedMap> {
     
         companion object {
@@ -912,7 +907,7 @@ class UnevaluateditemsDependsOnMultipleNestedContains {
             val pathSet: MutableSet<List<Any>> = HashSet()
             val pathToItem = listOf<Any>("args[0")
             val castArg = castToAllowedTypes(arg, pathToItem, pathSet)
-            val usedConfiguration = configuration ?: SchemaConfiguration(JsonSchemaKeywordFlags.Builder().build())
+            val usedConfiguration = configuration ?: SchemaConfiguration()
             val validatedPathToSchemas = PathToSchemasMap()
             val validationMetadata = ValidationMetadata(pathToItem, usedConfiguration, validatedPathToSchemas, LinkedHashSet())
             getPathToSchemas(this, castArg, validationMetadata, pathSet)
@@ -924,7 +919,7 @@ class UnevaluateditemsDependsOnMultipleNestedContains {
             val pathSet: MutableSet<List<Any>> = HashSet()
             val pathToItem = listOf<Any>("args[0")
             val castArg = castToAllowedTypes(arg, pathToItem, pathSet)
-            val usedConfiguration = configuration ?: SchemaConfiguration(JsonSchemaKeywordFlags.Builder().build())
+            val usedConfiguration = configuration ?: SchemaConfiguration()
             val validatedPathToSchemas = PathToSchemasMap()
             val validationMetadata = ValidationMetadata(pathToItem, usedConfiguration, validatedPathToSchemas, LinkedHashSet())
             getPathToSchemas(this, castArg, validationMetadata, pathSet)
@@ -936,7 +931,7 @@ class UnevaluateditemsDependsOnMultipleNestedContains {
             val pathSet: MutableSet<List<Any>> = HashSet()
             val pathToItem = listOf<Any>("args[0")
             val castArg = castToAllowedTypes(arg, pathToItem, pathSet)
-            val usedConfiguration = configuration ?: SchemaConfiguration(JsonSchemaKeywordFlags.Builder().build())
+            val usedConfiguration = configuration ?: SchemaConfiguration()
             val validatedPathToSchemas = PathToSchemasMap()
             val validationMetadata = ValidationMetadata(pathToItem, usedConfiguration, validatedPathToSchemas, LinkedHashSet())
             getPathToSchemas(this, castArg, validationMetadata, pathSet)
@@ -968,7 +963,7 @@ class UnevaluateditemsDependsOnMultipleNestedContains {
             val pathSet: MutableSet<List<Any>> = HashSet()
             val pathToItem = listOf<Any>("args[0")
             val castArg = castToAllowedTypes(arg, pathToItem, pathSet)
-            val usedConfiguration = configuration ?: SchemaConfiguration(JsonSchemaKeywordFlags.Builder().build())
+            val usedConfiguration = configuration ?: SchemaConfiguration()
             val validatedPathToSchemas = PathToSchemasMap()
             val validationMetadata = ValidationMetadata(pathToItem, usedConfiguration, validatedPathToSchemas, LinkedHashSet())
             getPathToSchemas(this, castArg, validationMetadata, pathSet)
@@ -1013,7 +1008,7 @@ class UnevaluateditemsDependsOnMultipleNestedContains {
             val pathSet: MutableSet<List<Any>> = HashSet()
             val pathToItem = listOf<Any>("args[0")
             val castArg = castToAllowedTypes(arg, pathToItem, pathSet)
-            val usedConfiguration = configuration ?: SchemaConfiguration(JsonSchemaKeywordFlags.Builder().build())
+            val usedConfiguration = configuration ?: SchemaConfiguration()
             val validationMetadata = ValidationMetadata(pathToItem, usedConfiguration, PathToSchemasMap(), LinkedHashSet())
             val pathToSchemasMap = getPathToSchemas(this, castArg, validationMetadata, pathSet)
             return getNewInstance(castArg, validationMetadata.pathToItem, pathToSchemasMap)
@@ -1043,7 +1038,7 @@ class UnevaluateditemsDependsOnMultipleNestedContains {
             val pathSet: MutableSet<List<Any>> = HashSet()
             val pathToItem = listOf<Any>("args[0")
             val castArg = castToAllowedTypes(arg, pathToItem, pathSet)
-            val usedConfiguration = configuration ?: SchemaConfiguration(JsonSchemaKeywordFlags.Builder().build())
+            val usedConfiguration = configuration ?: SchemaConfiguration()
             val validatedPathToSchemas = PathToSchemasMap()
             val validationMetadata = ValidationMetadata(pathToItem, usedConfiguration, validatedPathToSchemas, LinkedHashSet())
             val pathToSchemasMap = getPathToSchemas(this, castArg, validationMetadata, pathSet)
@@ -1168,8 +1163,7 @@ class UnevaluateditemsDependsOnMultipleNestedContains {
     
     
     class UnevaluatedItems private constructor(): JsonSchema<UnevaluatedItemsBoxed>(
-        JsonSchemaInfo()
-            .multipleOf(BigDecimal("5"))
+        multipleOf = BigDecimal("5"),
     ), NullSchemaValidator<UnevaluatedItemsBoxedVoid>, BooleanSchemaValidator<UnevaluatedItemsBoxedBoolean>, NumberSchemaValidator<UnevaluatedItemsBoxedNumber>, StringSchemaValidator<UnevaluatedItemsBoxedString>, ListSchemaValidator<FrozenList<Any?>, UnevaluatedItemsBoxedList>, MapSchemaValidator<FrozenMap<Any?>, UnevaluatedItemsBoxedMap> {
     
         companion object {
@@ -1187,7 +1181,7 @@ class UnevaluateditemsDependsOnMultipleNestedContains {
             val pathSet: MutableSet<List<Any>> = HashSet()
             val pathToItem = listOf<Any>("args[0")
             val castArg = castToAllowedTypes(arg, pathToItem, pathSet)
-            val usedConfiguration = configuration ?: SchemaConfiguration(JsonSchemaKeywordFlags.Builder().build())
+            val usedConfiguration = configuration ?: SchemaConfiguration()
             val validatedPathToSchemas = PathToSchemasMap()
             val validationMetadata = ValidationMetadata(pathToItem, usedConfiguration, validatedPathToSchemas, LinkedHashSet())
             getPathToSchemas(this, castArg, validationMetadata, pathSet)
@@ -1199,7 +1193,7 @@ class UnevaluateditemsDependsOnMultipleNestedContains {
             val pathSet: MutableSet<List<Any>> = HashSet()
             val pathToItem = listOf<Any>("args[0")
             val castArg = castToAllowedTypes(arg, pathToItem, pathSet)
-            val usedConfiguration = configuration ?: SchemaConfiguration(JsonSchemaKeywordFlags.Builder().build())
+            val usedConfiguration = configuration ?: SchemaConfiguration()
             val validatedPathToSchemas = PathToSchemasMap()
             val validationMetadata = ValidationMetadata(pathToItem, usedConfiguration, validatedPathToSchemas, LinkedHashSet())
             getPathToSchemas(this, castArg, validationMetadata, pathSet)
@@ -1211,7 +1205,7 @@ class UnevaluateditemsDependsOnMultipleNestedContains {
             val pathSet: MutableSet<List<Any>> = HashSet()
             val pathToItem = listOf<Any>("args[0")
             val castArg = castToAllowedTypes(arg, pathToItem, pathSet)
-            val usedConfiguration = configuration ?: SchemaConfiguration(JsonSchemaKeywordFlags.Builder().build())
+            val usedConfiguration = configuration ?: SchemaConfiguration()
             val validatedPathToSchemas = PathToSchemasMap()
             val validationMetadata = ValidationMetadata(pathToItem, usedConfiguration, validatedPathToSchemas, LinkedHashSet())
             getPathToSchemas(this, castArg, validationMetadata, pathSet)
@@ -1243,7 +1237,7 @@ class UnevaluateditemsDependsOnMultipleNestedContains {
             val pathSet: MutableSet<List<Any>> = HashSet()
             val pathToItem = listOf<Any>("args[0")
             val castArg = castToAllowedTypes(arg, pathToItem, pathSet)
-            val usedConfiguration = configuration ?: SchemaConfiguration(JsonSchemaKeywordFlags.Builder().build())
+            val usedConfiguration = configuration ?: SchemaConfiguration()
             val validatedPathToSchemas = PathToSchemasMap()
             val validationMetadata = ValidationMetadata(pathToItem, usedConfiguration, validatedPathToSchemas, LinkedHashSet())
             getPathToSchemas(this, castArg, validationMetadata, pathSet)
@@ -1288,7 +1282,7 @@ class UnevaluateditemsDependsOnMultipleNestedContains {
             val pathSet: MutableSet<List<Any>> = HashSet()
             val pathToItem = listOf<Any>("args[0")
             val castArg = castToAllowedTypes(arg, pathToItem, pathSet)
-            val usedConfiguration = configuration ?: SchemaConfiguration(JsonSchemaKeywordFlags.Builder().build())
+            val usedConfiguration = configuration ?: SchemaConfiguration()
             val validationMetadata = ValidationMetadata(pathToItem, usedConfiguration, PathToSchemasMap(), LinkedHashSet())
             val pathToSchemasMap = getPathToSchemas(this, castArg, validationMetadata, pathSet)
             return getNewInstance(castArg, validationMetadata.pathToItem, pathToSchemasMap)
@@ -1318,7 +1312,7 @@ class UnevaluateditemsDependsOnMultipleNestedContains {
             val pathSet: MutableSet<List<Any>> = HashSet()
             val pathToItem = listOf<Any>("args[0")
             val castArg = castToAllowedTypes(arg, pathToItem, pathSet)
-            val usedConfiguration = configuration ?: SchemaConfiguration(JsonSchemaKeywordFlags.Builder().build())
+            val usedConfiguration = configuration ?: SchemaConfiguration()
             val validatedPathToSchemas = PathToSchemasMap()
             val validationMetadata = ValidationMetadata(pathToItem, usedConfiguration, validatedPathToSchemas, LinkedHashSet())
             val pathToSchemasMap = getPathToSchemas(this, castArg, validationMetadata, pathSet)
@@ -1443,12 +1437,11 @@ class UnevaluateditemsDependsOnMultipleNestedContains {
     
     
     class UnevaluateditemsDependsOnMultipleNestedContains1 private constructor(): JsonSchema<UnevaluateditemsDependsOnMultipleNestedContains1Boxed>(
-        JsonSchemaInfo()
-            .allOf(listOf(
-                Schema0::class.java,
-                Schema1::class.java
-            ))
-            .unevaluatedItems(UnevaluatedItems::class.java)
+        allOf = listOf(
+            Schema0::class.java,
+            Schema1::class.java
+        ),
+        unevaluatedItems = UnevaluatedItems::class.java,
     ), NullSchemaValidator<UnevaluateditemsDependsOnMultipleNestedContains1BoxedVoid>, BooleanSchemaValidator<UnevaluateditemsDependsOnMultipleNestedContains1BoxedBoolean>, NumberSchemaValidator<UnevaluateditemsDependsOnMultipleNestedContains1BoxedNumber>, StringSchemaValidator<UnevaluateditemsDependsOnMultipleNestedContains1BoxedString>, ListSchemaValidator<FrozenList<Any?>, UnevaluateditemsDependsOnMultipleNestedContains1BoxedList>, MapSchemaValidator<FrozenMap<Any?>, UnevaluateditemsDependsOnMultipleNestedContains1BoxedMap> {
         /*
         NOTE: This class is auto generated by OpenAPI JSON Schema Generator.
@@ -1472,7 +1465,7 @@ class UnevaluateditemsDependsOnMultipleNestedContains {
             val pathSet: MutableSet<List<Any>> = HashSet()
             val pathToItem = listOf<Any>("args[0")
             val castArg = castToAllowedTypes(arg, pathToItem, pathSet)
-            val usedConfiguration = configuration ?: SchemaConfiguration(JsonSchemaKeywordFlags.Builder().build())
+            val usedConfiguration = configuration ?: SchemaConfiguration()
             val validatedPathToSchemas = PathToSchemasMap()
             val validationMetadata = ValidationMetadata(pathToItem, usedConfiguration, validatedPathToSchemas, LinkedHashSet())
             getPathToSchemas(this, castArg, validationMetadata, pathSet)
@@ -1484,7 +1477,7 @@ class UnevaluateditemsDependsOnMultipleNestedContains {
             val pathSet: MutableSet<List<Any>> = HashSet()
             val pathToItem = listOf<Any>("args[0")
             val castArg = castToAllowedTypes(arg, pathToItem, pathSet)
-            val usedConfiguration = configuration ?: SchemaConfiguration(JsonSchemaKeywordFlags.Builder().build())
+            val usedConfiguration = configuration ?: SchemaConfiguration()
             val validatedPathToSchemas = PathToSchemasMap()
             val validationMetadata = ValidationMetadata(pathToItem, usedConfiguration, validatedPathToSchemas, LinkedHashSet())
             getPathToSchemas(this, castArg, validationMetadata, pathSet)
@@ -1496,7 +1489,7 @@ class UnevaluateditemsDependsOnMultipleNestedContains {
             val pathSet: MutableSet<List<Any>> = HashSet()
             val pathToItem = listOf<Any>("args[0")
             val castArg = castToAllowedTypes(arg, pathToItem, pathSet)
-            val usedConfiguration = configuration ?: SchemaConfiguration(JsonSchemaKeywordFlags.Builder().build())
+            val usedConfiguration = configuration ?: SchemaConfiguration()
             val validatedPathToSchemas = PathToSchemasMap()
             val validationMetadata = ValidationMetadata(pathToItem, usedConfiguration, validatedPathToSchemas, LinkedHashSet())
             getPathToSchemas(this, castArg, validationMetadata, pathSet)
@@ -1528,7 +1521,7 @@ class UnevaluateditemsDependsOnMultipleNestedContains {
             val pathSet: MutableSet<List<Any>> = HashSet()
             val pathToItem = listOf<Any>("args[0")
             val castArg = castToAllowedTypes(arg, pathToItem, pathSet)
-            val usedConfiguration = configuration ?: SchemaConfiguration(JsonSchemaKeywordFlags.Builder().build())
+            val usedConfiguration = configuration ?: SchemaConfiguration()
             val validatedPathToSchemas = PathToSchemasMap()
             val validationMetadata = ValidationMetadata(pathToItem, usedConfiguration, validatedPathToSchemas, LinkedHashSet())
             getPathToSchemas(this, castArg, validationMetadata, pathSet)
@@ -1573,7 +1566,7 @@ class UnevaluateditemsDependsOnMultipleNestedContains {
             val pathSet: MutableSet<List<Any>> = HashSet()
             val pathToItem = listOf<Any>("args[0")
             val castArg = castToAllowedTypes(arg, pathToItem, pathSet)
-            val usedConfiguration = configuration ?: SchemaConfiguration(JsonSchemaKeywordFlags.Builder().build())
+            val usedConfiguration = configuration ?: SchemaConfiguration()
             val validationMetadata = ValidationMetadata(pathToItem, usedConfiguration, PathToSchemasMap(), LinkedHashSet())
             val pathToSchemasMap = getPathToSchemas(this, castArg, validationMetadata, pathSet)
             return getNewInstance(castArg, validationMetadata.pathToItem, pathToSchemasMap)
@@ -1603,7 +1596,7 @@ class UnevaluateditemsDependsOnMultipleNestedContains {
             val pathSet: MutableSet<List<Any>> = HashSet()
             val pathToItem = listOf<Any>("args[0")
             val castArg = castToAllowedTypes(arg, pathToItem, pathSet)
-            val usedConfiguration = configuration ?: SchemaConfiguration(JsonSchemaKeywordFlags.Builder().build())
+            val usedConfiguration = configuration ?: SchemaConfiguration()
             val validatedPathToSchemas = PathToSchemasMap()
             val validationMetadata = ValidationMetadata(pathToItem, usedConfiguration, validatedPathToSchemas, LinkedHashSet())
             val pathToSchemasMap = getPathToSchemas(this, castArg, validationMetadata, pathSet)

@@ -4,39 +4,38 @@
 
 
 class {{jsonPathPiece.pascalCase}} private constructor(): JsonSchema<{{jsonPathPiece.pascalCase}}Boxed>(
-    JsonSchemaInfo()
     {{#if types}}
-        {{> src/main/kotlin/packagename/components/schemas/SchemaClass/_types }}
+    {{> src/main/kotlin/packagename/components/schemas/SchemaClass/_types }}
     {{/if}}
     {{#if allOf}}
-        {{> src/main/kotlin/packagename/components/schemas/SchemaClass/_allOf }}
+    {{> src/main/kotlin/packagename/components/schemas/SchemaClass/_allOf }}
     {{/if}}
     {{#if anyOf}}
-        {{> src/main/kotlin/packagename/components/schemas/SchemaClass/_anyOf }}
+    {{> src/main/kotlin/packagename/components/schemas/SchemaClass/_anyOf }}
     {{/if}}
     {{#if oneOf}}
-        {{> src/main/kotlin/packagename/components/schemas/SchemaClass/_oneOf }}
+    {{> src/main/kotlin/packagename/components/schemas/SchemaClass/_oneOf }}
     {{/if}}
     {{#if not}}
-        {{> src/main/kotlin/packagename/components/schemas/SchemaClass/_not }}
+    {{> src/main/kotlin/packagename/components/schemas/SchemaClass/_not }}
     {{/if}}
     {{#if enumInfo}}
-        {{> src/main/kotlin/packagename/components/schemas/SchemaClass/_enum }}
+    {{> src/main/kotlin/packagename/components/schemas/SchemaClass/_enum }}
     {{/if}}
     {{#if defaultValue}}
-        {{> src/main/kotlin/packagename/components/schemas/SchemaClass/_default }}
+    {{> src/main/kotlin/packagename/components/schemas/SchemaClass/_default }}
     {{/if}}
     {{#if constInfo}}
-        {{> src/main/kotlin/packagename/components/schemas/SchemaClass/_const }}
+    {{> src/main/kotlin/packagename/components/schemas/SchemaClass/_const }}
     {{/if}}
     {{#if if_}}
-        {{> src/main/kotlin/packagename/components/schemas/SchemaClass/_if }}
+    {{> src/main/kotlin/packagename/components/schemas/SchemaClass/_if }}
     {{/if}}
     {{#if then}}
-        {{> src/main/kotlin/packagename/components/schemas/SchemaClass/_then }}
+    {{> src/main/kotlin/packagename/components/schemas/SchemaClass/_then }}
     {{/if}}
     {{#if else_}}
-        {{> src/main/kotlin/packagename/components/schemas/SchemaClass/_else }}
+    {{> src/main/kotlin/packagename/components/schemas/SchemaClass/_else }}
     {{/if}}
 ), NullSchemaValidator<{{jsonPathPiece.pascalCase}}BoxedVoid>{{#and enumInfo enumInfo.typeToValues.null}}, NullEnumValidator<Null{{enumInfo.jsonPathPiece.pascalCase}}>{{/and}} {
 {{#if componentModule}}

@@ -53,15 +53,13 @@ A schema class that validates payloads
 
 ### Code Sample
 ```
-import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags
 import org.openapijsonschematools.client.configurations.SchemaConfiguration
 import org.openapijsonschematools.client.exceptions.ValidationException
-import org.openapijsonschematools.client.schemas.validation.MapUtils
 import org.openapijsonschematools.client.schemas.validation.FrozenList
 import org.openapijsonschematools.client.schemas.validation.FrozenMap
 import org.openapijsonschematools.client.components.schemas.TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissing
 
-val configuration = SchemaConfiguration(JsonSchemaKeywordFlags.Builder().build())
+val configuration = SchemaConfiguration()
 
 // Map validation
 val validatedPayload: TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissing.TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissingMap =
@@ -162,15 +160,13 @@ A schema class that validates payloads
 
 ### Code Sample
 ```
-import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags
 import org.openapijsonschematools.client.configurations.SchemaConfiguration
 import org.openapijsonschematools.client.exceptions.ValidationException
-import org.openapijsonschematools.client.schemas.validation.MapUtils
 import org.openapijsonschematools.client.schemas.validation.FrozenList
 import org.openapijsonschematools.client.schemas.validation.FrozenMap
 import org.openapijsonschematools.client.components.schemas.TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissing
 
-val configuration = SchemaConfiguration(JsonSchemaKeywordFlags.Builder().build())
+val configuration = SchemaConfiguration()
 
 // int validation
 val validatedPayload: Int = TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissing.Alpha.validate(
@@ -184,7 +180,7 @@ val validatedPayload: Int = TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMis
 | ----------------- | ---------------------- |
 | Set<Class<?>> | type = setOf(<br/>&nbsp;&nbsp;&nbsp;&nbsp;Int::class.java,<br/>&nbsp;&nbsp;&nbsp;&nbsp;Long::class.java,<br/>&nbsp;&nbsp;&nbsp;&nbsp;Float::class.java,<br/>&nbsp;&nbsp;&nbsp;&nbsp;Double::class.java<br/>)<br/> |
 | Number | maximum = 3 |
-| Any? | defaultValue = 5.0 |
+| Any? | defaultValue = JsonValue.of(5.0) |
 
 ### Method Summary
 | Modifier and Type | Method and Description |

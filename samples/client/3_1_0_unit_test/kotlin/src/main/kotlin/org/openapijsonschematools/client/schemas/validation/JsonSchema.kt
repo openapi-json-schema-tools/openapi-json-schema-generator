@@ -1,6 +1,7 @@
 package org.openapijsonschematools.client.schemas.validation
 
 import org.openapijsonschematools.client.configurations.SchemaConfiguration
+import org.openapijsonschematools.client.configurations.JsonSchemaKeyword
 import org.openapijsonschematools.client.exceptions.ValidationException
 
 import java.math.BigDecimal
@@ -9,206 +10,164 @@ import java.time.ZonedDateTime
 import java.util.regex.Pattern
 import java.util.UUID
 
-abstract class JsonSchema<T> protected constructor(jsonSchemaInfo: JsonSchemaInfo) {
-    val type: Set<Class<*>>?
-    val format: String?
-    val items: Class<out JsonSchema<*>>?
-    val properties: Map<String, Class<out JsonSchema<*>>>?
-    val required: Set<String>?
-    val exclusiveMaximum: Number?
-    val exclusiveMinimum: Number?
-    val maxItems: Int?
-    val minItems: Int?
-    val maxLength: Int?
-    val minLength: Int?
-    val maxProperties: Int?
-    val minProperties: Int?
-    val maximum: Number?
-    val minimum: Number?
-    val multipleOf: BigDecimal?
-    val additionalProperties: Class<out JsonSchema<*>>?
-    val allOf: List<Class<out JsonSchema<*>>>?
-    val anyOf: List<Class<out JsonSchema<*>>>?
-    val oneOf: List<Class<out JsonSchema<*>>>?
-    val not: Class<out JsonSchema<*>>?
-    val uniqueItems: Boolean?
-    val enumValues: Set<Any>?
-    val pattern: Pattern?
-    val defaultValue: Any?
-    val defaultValueSet: Boolean
-    val constValue: Any?
-    val constValueSet: Boolean
-    val contains: Class<out JsonSchema<*>>?
-    val maxContains: Int?
-    val minContains: Int?
-    val propertyNames: Class<out JsonSchema<*>>?
-    val dependentRequired: Map<String, Set<String>>?
-    val dependentSchemas: Map<String, Class<out JsonSchema<*>>>?
-    val patternProperties: Map<Pattern, Class<out JsonSchema<*>>>?
-    val prefixItems: List<Class<out JsonSchema<*>>>?
-    val ifSchema: Class<out JsonSchema<*>>?
-    val then: Class<out JsonSchema<*>>?
-    val elseSchema: Class<out JsonSchema<*>>?
-    val unevaluatedItems: Class<out JsonSchema<*>>?
-    val unevaluatedProperties: Class<out JsonSchema<*>>?
-    private val keywordToValidator: LinkedHashMap<String, KeywordValidator>
+abstract class JsonSchema<T> protected constructor(
+    val type: Set<Class<*>>? = null,
+    val format: String? = null,
+    val items: Class<out JsonSchema<*>>? = null,
+    val properties: Map<String, Class<out JsonSchema<*>>>? = null,
+    val required: Set<String>? = null,
+    val exclusiveMaximum: Number? = null,
+    val exclusiveMinimum: Number? = null,
+    val maxItems: Int? = null,
+    val minItems: Int? = null,
+    val maxLength: Int? = null,
+    val minLength: Int? = null,
+    val maxProperties: Int? = null,
+    val minProperties: Int? = null,
+    val maximum: Number? = null,
+    val minimum: Number? = null,
+    val multipleOf: BigDecimal? = null,
+    val additionalProperties: Class<out JsonSchema<*>>? = null,
+    val allOf: List<Class<out JsonSchema<*>>>? = null,
+    val anyOf: List<Class<out JsonSchema<*>>>? = null,
+    val oneOf: List<Class<out JsonSchema<*>>>? = null,
+    val not: Class<out JsonSchema<*>>? = null,
+    val uniqueItems: Boolean? = null,
+    val enumValues: Set<Any>? = null,
+    val pattern: Pattern? = null,
+    val defaultValue: JsonValue.JsonValueBoxed? = null,
+    val constValue: JsonValue.JsonValueBoxed? = null,
+    val contains: Class<out JsonSchema<*>>? = null,
+    val maxContains: Int? = null,
+    val minContains: Int? = null,
+    val propertyNames: Class<out JsonSchema<*>>? = null,
+    val dependentRequired: Map<String, Set<String>>? = null,
+    val dependentSchemas: Map<String, Class<out JsonSchema<*>>>? = null,
+    val patternProperties: Map<Pattern, Class<out JsonSchema<*>>>? = null,
+    val prefixItems: List<Class<out JsonSchema<*>>>? = null,
+    val ifSchema: Class<out JsonSchema<*>>? = null,
+    val then: Class<out JsonSchema<*>>? = null,
+    val elseSchema: Class<out JsonSchema<*>>? = null,
+    val unevaluatedItems: Class<out JsonSchema<*>>? = null,
+    val unevaluatedProperties: Class<out JsonSchema<*>>? = null
+) {
+    private val keywordToValidator: LinkedHashMap<JsonSchemaKeyword, KeywordValidator>
 
     init {
-        val keywordToValidator = LinkedHashMap<String, KeywordValidator>()
-        type = jsonSchemaInfo.type
+        val keywordToValidator = LinkedHashMap<JsonSchemaKeyword, KeywordValidator>()
         if (type != null) {
-            keywordToValidator["type"] = TypeValidator()
+            keywordToValidator[JsonSchemaKeyword.TYPE] = TypeValidator()
         }
-        format = jsonSchemaInfo.format
         if (format != null) {
-            keywordToValidator["format"] = FormatValidator()
+            keywordToValidator[JsonSchemaKeyword.FORMAT] = FormatValidator()
         }
-        items = jsonSchemaInfo.items
         if (items != null) {
-            keywordToValidator["items"] = ItemsValidator()
+            keywordToValidator[JsonSchemaKeyword.ITEMS] = ItemsValidator()
         }
-        properties = jsonSchemaInfo.properties
         if (properties != null) {
-            keywordToValidator["properties"] = PropertiesValidator()
+            keywordToValidator[JsonSchemaKeyword.PROPERTIES] = PropertiesValidator()
         }
-        required = jsonSchemaInfo.required
         if (required != null) {
-            keywordToValidator["required"] = RequiredValidator()
+            keywordToValidator[JsonSchemaKeyword.REQUIRED] = RequiredValidator()
         }
-        exclusiveMaximum = jsonSchemaInfo.exclusiveMaximum
         if (exclusiveMaximum != null) {
-            keywordToValidator["exclusiveMaximum"] = ExclusiveMaximumValidator()
+            keywordToValidator[JsonSchemaKeyword.EXCLUSIVE_MAXIMUM] = ExclusiveMaximumValidator()
         }
-        exclusiveMinimum = jsonSchemaInfo.exclusiveMinimum
         if (exclusiveMinimum != null) {
-            keywordToValidator["exclusiveMinimum"] = ExclusiveMinimumValidator()
+            keywordToValidator[JsonSchemaKeyword.EXCLUSIVE_MINIMUM] = ExclusiveMinimumValidator()
         }
-        maxItems = jsonSchemaInfo.maxItems
         if (maxItems != null) {
-            keywordToValidator["maxItems"] = MaxItemsValidator()
+            keywordToValidator[JsonSchemaKeyword.MAX_ITEMS] = MaxItemsValidator()
         }
-        minItems = jsonSchemaInfo.minItems
         if (minItems != null) {
-            keywordToValidator["minItems"] = MinItemsValidator()
+            keywordToValidator[JsonSchemaKeyword.MIN_ITEMS] = MinItemsValidator()
         }
-        maxLength = jsonSchemaInfo.maxLength
         if (maxLength != null) {
-            keywordToValidator["maxLength"] = MaxLengthValidator()
+            keywordToValidator[JsonSchemaKeyword.MAX_LENGTH] = MaxLengthValidator()
         }
-        minLength = jsonSchemaInfo.minLength
         if (minLength != null) {
-            keywordToValidator["minLength"] = MinLengthValidator()
+            keywordToValidator[JsonSchemaKeyword.MIN_LENGTH] = MinLengthValidator()
         }
-        maxProperties = jsonSchemaInfo.maxProperties
         if (maxProperties != null) {
-            keywordToValidator["maxProperties"] = MaxPropertiesValidator()
+            keywordToValidator[JsonSchemaKeyword.MAX_PROPERTIES] = MaxPropertiesValidator()
         }
-        minProperties = jsonSchemaInfo.minProperties
         if (minProperties != null) {
-            keywordToValidator["minProperties"] = MinPropertiesValidator()
+            keywordToValidator[JsonSchemaKeyword.MIN_PROPERTIES] = MinPropertiesValidator()
         }
-        maximum = jsonSchemaInfo.maximum
         if (maximum != null) {
-            keywordToValidator["maximum"] = MaximumValidator()
+            keywordToValidator[JsonSchemaKeyword.MAXIMUM] = MaximumValidator()
         }
-        minimum = jsonSchemaInfo.minimum
         if (minimum != null) {
-            keywordToValidator["minimum"] = MinimumValidator()
+            keywordToValidator[JsonSchemaKeyword.MINIMUM] = MinimumValidator()
         }
-        multipleOf = jsonSchemaInfo.multipleOf
         if (multipleOf != null) {
-            keywordToValidator["multipleOf"] = MultipleOfValidator()
+            keywordToValidator[JsonSchemaKeyword.MULTIPLE_OF] = MultipleOfValidator()
         }
-        additionalProperties = jsonSchemaInfo.additionalProperties
         if (additionalProperties != null) {
-            keywordToValidator["additionalProperties"] = AdditionalPropertiesValidator()
+            keywordToValidator[JsonSchemaKeyword.ADDITIONAL_PROPERTIES] = AdditionalPropertiesValidator()
         }
-        allOf = jsonSchemaInfo.allOf
         if (allOf != null) {
-            keywordToValidator["allOf"] = AllOfValidator()
+            keywordToValidator[JsonSchemaKeyword.ALL_OF] = AllOfValidator()
         }
-        anyOf = jsonSchemaInfo.anyOf
         if (anyOf != null) {
-            keywordToValidator["anyOf"] = AnyOfValidator()
+            keywordToValidator[JsonSchemaKeyword.ANY_OF] = AnyOfValidator()
         }
-        oneOf = jsonSchemaInfo.oneOf
         if (oneOf != null) {
-            keywordToValidator["oneOf"] = OneOfValidator()
+            keywordToValidator[JsonSchemaKeyword.ONE_OF] = OneOfValidator()
         }
-        not = jsonSchemaInfo.not
         if (not != null) {
-            keywordToValidator["not"] = NotValidator()
+            keywordToValidator[JsonSchemaKeyword.NOT] = NotValidator()
         }
-        uniqueItems = jsonSchemaInfo.uniqueItems
         if (uniqueItems != null) {
-            keywordToValidator["uniqueItems"] = UniqueItemsValidator()
+            keywordToValidator[JsonSchemaKeyword.UNIQUE_ITEMS] = UniqueItemsValidator()
         }
-        enumValues = jsonSchemaInfo.enumValues
         if (enumValues != null) {
-            keywordToValidator["enum"] = EnumValidator()
+            keywordToValidator[JsonSchemaKeyword.ENUM] = EnumValidator()
         }
-        pattern = jsonSchemaInfo.pattern
         if (pattern != null) {
-            keywordToValidator["pattern"] = PatternValidator()
+            keywordToValidator[JsonSchemaKeyword.PATTERN] = PatternValidator()
         }
-        defaultValue = jsonSchemaInfo.defaultValue
-        defaultValueSet = jsonSchemaInfo.defaultValueSet
-        constValue = jsonSchemaInfo.constValue
-        constValueSet = jsonSchemaInfo.constValueSet
-        if (constValueSet) {
-            keywordToValidator["const"] = ConstValidator()
+        if (constValue != null) {
+            keywordToValidator[JsonSchemaKeyword.CONST] = ConstValidator()
         }
-        contains = jsonSchemaInfo.contains
         if (contains != null) {
-            keywordToValidator["contains"] = ContainsValidator()
+            keywordToValidator[JsonSchemaKeyword.CONTAINS] = ContainsValidator()
         }
-        maxContains = jsonSchemaInfo.maxContains
         if (maxContains != null) {
-            keywordToValidator["maxContains"] = MaxContainsValidator()
+            keywordToValidator[JsonSchemaKeyword.MAX_CONTAINS] = MaxContainsValidator()
         }
-        minContains = jsonSchemaInfo.minContains
         if (minContains != null) {
-            keywordToValidator["minContains"] = MinContainsValidator()
+            keywordToValidator[JsonSchemaKeyword.MIN_CONTAINS] = MinContainsValidator()
         }
-        propertyNames = jsonSchemaInfo.propertyNames
         if (propertyNames != null) {
-            keywordToValidator["propertyNames"] = PropertyNamesValidator()
+            keywordToValidator[JsonSchemaKeyword.PROPERTY_NAMES] = PropertyNamesValidator()
         }
-        dependentRequired = jsonSchemaInfo.dependentRequired
         if (dependentRequired != null) {
-            keywordToValidator["dependentRequired"] = DependentRequiredValidator()
+            keywordToValidator[JsonSchemaKeyword.DEPENDENT_REQUIRED] = DependentRequiredValidator()
         }
-        dependentSchemas = jsonSchemaInfo.dependentSchemas
         if (dependentSchemas != null) {
-            keywordToValidator["dependentSchemas"] = DependentSchemasValidator()
+            keywordToValidator[JsonSchemaKeyword.DEPENDENT_SCHEMAS] = DependentSchemasValidator()
         }
-        patternProperties = jsonSchemaInfo.patternProperties
         if (patternProperties != null) {
-            keywordToValidator["patternProperties"] = PatternPropertiesValidator()
+            keywordToValidator[JsonSchemaKeyword.PATTERN_PROPERTIES] = PatternPropertiesValidator()
         }
-        prefixItems = jsonSchemaInfo.prefixItems
         if (prefixItems != null) {
-            keywordToValidator["prefixItems"] = PrefixItemsValidator()
+            keywordToValidator[JsonSchemaKeyword.PREFIX_ITEMS] = PrefixItemsValidator()
         }
-        ifSchema = jsonSchemaInfo.ifSchema
         if (ifSchema != null) {
-            keywordToValidator["if"] = IfValidator()
+            keywordToValidator[JsonSchemaKeyword.IF] = IfValidator()
         }
-        then = jsonSchemaInfo.then
         if (then != null) {
-            keywordToValidator["then"] = ThenValidator()
+            keywordToValidator[JsonSchemaKeyword.THEN] = ThenValidator()
         }
-        elseSchema = jsonSchemaInfo.elseSchema
         if (elseSchema != null) {
-            keywordToValidator["else"] = ElseValidator()
+            keywordToValidator[JsonSchemaKeyword.ELSE] = ElseValidator()
         }
-        unevaluatedItems = jsonSchemaInfo.unevaluatedItems
         if (unevaluatedItems != null) {
-            keywordToValidator["unevaluatedItems"] = UnevaluatedItemsValidator()
+            keywordToValidator[JsonSchemaKeyword.UNEVALUATED_ITEMS] = UnevaluatedItemsValidator()
         }
-        unevaluatedProperties = jsonSchemaInfo.unevaluatedProperties
         if (unevaluatedProperties != null) {
-            keywordToValidator["unevaluatedProperties"] = UnevaluatedPropertiesValidator()
+            keywordToValidator[JsonSchemaKeyword.UNEVALUATED_PROPERTIES] = UnevaluatedPropertiesValidator()
         }
         this.keywordToValidator = keywordToValidator
     }
@@ -406,31 +365,31 @@ abstract class JsonSchema<T> protected constructor(jsonSchemaInfo: JsonSchemaInf
             arg: Any?,
             validationMetadata: ValidationMetadata
         ): PathToSchemasMap {
-            val disabledKeywords: LinkedHashSet<String> =
-                validationMetadata.configuration.disabledKeywordFlags.keywords
+            val disabledKeywords: Set<JsonSchemaKeyword> =
+                validationMetadata.configuration.disabledKeywordFlags
             val pathToSchemas = PathToSchemasMap()
             val thisKeywordToValidator = jsonSchema.keywordToValidator
             var containsPathToSchemas: List<PathToSchemasMap>? = null
-            if (thisKeywordToValidator.containsKey("contains")) {
+            if (thisKeywordToValidator.containsKey(JsonSchemaKeyword.CONTAINS)) {
                 containsPathToSchemas = jsonSchema.getContainsPathToSchemas(arg, validationMetadata)
             }
             var patternPropertiesPathToSchemas: PathToSchemasMap? = null
-            if (thisKeywordToValidator.containsKey("patternProperties")) {
+            if (thisKeywordToValidator.containsKey(JsonSchemaKeyword.PATTERN_PROPERTIES)) {
                 patternPropertiesPathToSchemas = jsonSchema.getPatternPropertiesPathToSchemas(arg, validationMetadata)
             }
             var ifPathToSchemas: PathToSchemasMap? = null
-            if (thisKeywordToValidator.containsKey("if")) {
+            if (thisKeywordToValidator.containsKey(JsonSchemaKeyword.IF)) {
                 ifPathToSchemas = jsonSchema.getIfPathToSchemas(arg, validationMetadata)
             }
             var knownPathToSchemas: PathToSchemasMap? = null
             for ((jsonKeyword, validator) in thisKeywordToValidator) {
                 if (disabledKeywords.contains(jsonKeyword)) {
-                    val typeIntegerUseCase = jsonKeyword == "format" && "int" == jsonSchema.format
+                    val typeIntegerUseCase = jsonKeyword == JsonSchemaKeyword.FORMAT && "int" == jsonSchema.format
                     if (!typeIntegerUseCase) {
                         continue
                     }
                 }
-                if ("unevaluatedItems" == jsonKeyword || "unevaluatedProperties" == jsonKeyword) {
+                if (JsonSchemaKeyword.UNEVALUATED_ITEMS == jsonKeyword || JsonSchemaKeyword.UNEVALUATED_PROPERTIES == jsonKeyword) {
                     knownPathToSchemas = pathToSchemas
                 }
                 val data = ValidationData(

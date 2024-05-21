@@ -1,10 +1,8 @@
 package {{{packageName}}}.schemas
 
-import {{{packageName}}}.configurations.JsonSchemaKeywordFlags
 import {{{packageName}}}.configurations.SchemaConfiguration
 import {{{packageName}}}.exceptions.ValidationException
 import {{{packageName}}}.schemas.validation.JsonSchema
-import {{{packageName}}}.schemas.validation.JsonSchemaInfo
 import {{{packageName}}}.schemas.validation.FrozenMap
 import {{{packageName}}}.schemas.validation.PathToSchemasMap
 import {{{packageName}}}.schemas.validation.MapSchemaValidator
@@ -19,13 +17,10 @@ class ObjectTypeSchemaTest {
 
     data class ObjectWithPropsSchemaBoxedMap(val data: FrozenMap<Any?>) : ObjectWithPropsSchemaBoxed
     class ObjectWithPropsSchema private constructor() : JsonSchema<ObjectWithPropsSchemaBoxed>(
-        JsonSchemaInfo()
-            .type(setOf(Map::class.java))
-            .properties(
-                mapOf(
-                    "someString" to StringJsonSchema.StringJsonSchema1::class.java
-                )
-            )
+        type = setOf(Map::class.java),
+        properties = mapOf(
+            "someString" to StringJsonSchema.StringJsonSchema1::class.java
+        )
     ), MapSchemaValidator<FrozenMap<Any?>, ObjectWithPropsSchemaBoxedMap> {
         override fun getNewInstance(
             arg: Map<*, *>,
@@ -54,7 +49,7 @@ class ObjectTypeSchemaTest {
             val pathSet: MutableSet<List<Any>> = HashSet()
             val pathToItem = listOf<Any>("args[0")
             val castArg: Map<*, *> = castToAllowedTypes(arg, pathToItem, pathSet)
-            val usedConfiguration = configuration ?: SchemaConfiguration(JsonSchemaKeywordFlags.Builder().build())
+            val usedConfiguration = configuration ?: SchemaConfiguration()
             val validationMetadata =
                 ValidationMetadata(pathToItem, usedConfiguration, PathToSchemasMap(), LinkedHashSet())
             val pathToSchemasMap = getPathToSchemas(this, castArg, validationMetadata, pathSet)
@@ -110,9 +105,8 @@ class ObjectTypeSchemaTest {
     data class ObjectWithAddpropsSchemaBoxedMap(val data: FrozenMap<String>) : ObjectWithAddpropsSchemaBoxed {}
 
     class ObjectWithAddpropsSchema private constructor() : JsonSchema<ObjectWithAddpropsSchemaBoxed>(
-        JsonSchemaInfo()
-            .type(setOf(Map::class.java))
-            .additionalProperties(StringJsonSchema.StringJsonSchema1::class.java)
+        type = setOf(Map::class.java),
+        additionalProperties = StringJsonSchema.StringJsonSchema1::class.java
     ), MapSchemaValidator<FrozenMap<String>, ObjectWithAddpropsSchemaBoxedMap> {
         override fun getNewInstance(
             arg: Map<*, *>,
@@ -142,7 +136,7 @@ class ObjectTypeSchemaTest {
             val pathSet: MutableSet<List<Any>> = HashSet()
             val pathToItem = listOf<Any>("args[0")
             val castArg: Map<*, *> = castToAllowedTypes(arg, pathToItem, pathSet)
-            val usedConfiguration = configuration ?: SchemaConfiguration(JsonSchemaKeywordFlags.Builder().build())
+            val usedConfiguration = configuration ?: SchemaConfiguration()
             val validationMetadata =
                 ValidationMetadata(pathToItem, usedConfiguration, PathToSchemasMap(), LinkedHashSet())
             val pathToSchemasMap = getPathToSchemas(this, castArg, validationMetadata, pathSet)
@@ -198,14 +192,11 @@ class ObjectTypeSchemaTest {
     }
 
     class ObjectWithPropsAndAddpropsSchema private constructor() : JsonSchema<ObjectWithPropsAndAddpropsSchemaBoxed>(
-        JsonSchemaInfo()
-            .type(setOf(Map::class.java))
-            .properties(
-                mapOf(
-                    "someString" to StringJsonSchema.StringJsonSchema1::class.java
-                )
-            )
-            .additionalProperties(BooleanJsonSchema.BooleanJsonSchema1::class.java)
+        type = setOf(Map::class.java),
+        properties = mapOf(
+            "someString" to StringJsonSchema.StringJsonSchema1::class.java
+        ),
+        additionalProperties = BooleanJsonSchema.BooleanJsonSchema1::class.java
     ), MapSchemaValidator<FrozenMap<Any?>, ObjectWithPropsAndAddpropsSchemaBoxedMap> {
         override fun getNewInstance(
             arg: Map<*, *>,
@@ -234,7 +225,7 @@ class ObjectTypeSchemaTest {
             val pathSet: MutableSet<List<Any>> = HashSet()
             val pathToItem = listOf<Any>("args[0")
             val castArg: Map<*, *> = castToAllowedTypes(arg, pathToItem, pathSet)
-            val usedConfiguration = configuration ?: SchemaConfiguration(JsonSchemaKeywordFlags.Builder().build())
+            val usedConfiguration = configuration ?: SchemaConfiguration()
             val validationMetadata =
                 ValidationMetadata(pathToItem, usedConfiguration, PathToSchemasMap(), LinkedHashSet())
             val pathToSchemasMap = getPathToSchemas(this, castArg, validationMetadata, pathSet)
@@ -302,13 +293,10 @@ class ObjectTypeSchemaTest {
     }
 
     class ObjectWithOutputTypeSchema : JsonSchema<ObjectWithOutputTypeSchemaBoxed?>(
-        JsonSchemaInfo()
-            .type(setOf(Map::class.java))
-            .properties(
-                mapOf(
-                    "someString" to StringJsonSchema.StringJsonSchema1::class.java
-                )
-            )
+        type = setOf(Map::class.java),
+        properties = mapOf(
+            "someString" to StringJsonSchema.StringJsonSchema1::class.java
+        )
     ), MapSchemaValidator<ObjectWithOutputTypeSchemaMap?, ObjectWithOutputTypeSchemaBoxedMap?> {
         override fun getNewInstance(
             arg: Map<*, *>,
@@ -337,7 +325,7 @@ class ObjectTypeSchemaTest {
             val pathSet: MutableSet<List<Any>> = HashSet()
             val pathToItem = listOf<Any>("args[0")
             val castArg: Map<*, *> = castToAllowedTypes(arg, pathToItem, pathSet)
-            val usedConfiguration = configuration ?: SchemaConfiguration(JsonSchemaKeywordFlags.Builder().build())
+            val usedConfiguration = configuration ?: SchemaConfiguration()
             val validationMetadata =
                 ValidationMetadata(pathToItem, usedConfiguration, PathToSchemasMap(), LinkedHashSet())
             val pathToSchemasMap = getPathToSchemas(this, castArg, validationMetadata, pathSet)
@@ -558,7 +546,7 @@ class ObjectTypeSchemaTest {
     }
 
     companion object {
-        val configuration = SchemaConfiguration(JsonSchemaKeywordFlags.Builder().build())
+        val configuration = SchemaConfiguration()
         val validationMetadata = ValidationMetadata(
             listOf("args[0"),
             configuration,

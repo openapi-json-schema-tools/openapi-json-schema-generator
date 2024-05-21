@@ -1,10 +1,8 @@
 package org.openapijsonschematools.client.schemas
 
-import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags
 import org.openapijsonschematools.client.configurations.SchemaConfiguration
 import org.openapijsonschematools.client.exceptions.ValidationException
 import org.openapijsonschematools.client.schemas.validation.JsonSchema
-import org.openapijsonschematools.client.schemas.validation.JsonSchemaInfo
 import org.openapijsonschematools.client.schemas.validation.FrozenList
 import org.openapijsonschematools.client.schemas.validation.PathToSchemasMap
 import org.openapijsonschematools.client.schemas.validation.ListSchemaValidator
@@ -19,9 +17,8 @@ class ArrayTypeSchemaTest {
 
     data class ArrayWithItemsSchemaBoxedList(val data: FrozenList<String>) : ArrayWithItemsSchemaBoxed
     class ArrayWithItemsSchema : JsonSchema<ArrayWithItemsSchemaBoxed>(
-        JsonSchemaInfo()
-            .type(setOf(List::class.java))
-            .items(StringJsonSchema.StringJsonSchema1::class.java)
+        type = setOf(List::class.java),
+        items = StringJsonSchema.StringJsonSchema1::class.java
     ), ListSchemaValidator<FrozenList<String>, ArrayWithItemsSchemaBoxedList> {
         override fun getNewInstance(
             arg: List<*>,
@@ -49,7 +46,7 @@ class ArrayTypeSchemaTest {
             val pathSet: MutableSet<List<Any>> = HashSet()
             val pathToItem = listOf<Any>("args[0")
             val castArg: List<*> = castToAllowedTypes(arg, pathToItem, pathSet)
-            val usedConfiguration = configuration ?: SchemaConfiguration(JsonSchemaKeywordFlags.Builder().build())
+            val usedConfiguration = configuration ?: SchemaConfiguration()
             val validationMetadata =
                 ValidationMetadata(pathToItem, usedConfiguration, PathToSchemasMap(), LinkedHashSet())
             val pathToSchemasMap = getPathToSchemas(this, castArg, validationMetadata, pathSet)
@@ -100,9 +97,8 @@ class ArrayTypeSchemaTest {
         ArrayWithOutputClsSchemaBoxed
 
     class ArrayWithOutputClsSchema : JsonSchema<ArrayWithOutputClsSchemaBoxed>(
-        JsonSchemaInfo()
-            .type(setOf(List::class.java))
-            .items(StringJsonSchema.StringJsonSchema1::class.java)
+        type = setOf(List::class.java),
+        items = StringJsonSchema.StringJsonSchema1::class.java
     ), ListSchemaValidator<ArrayWithOutputClsSchemaList, ArrayWithOutputClsSchemaBoxedList> {
         override fun getNewInstance(
             arg: List<*>,
@@ -131,7 +127,7 @@ class ArrayTypeSchemaTest {
             val pathSet: MutableSet<List<Any>> = HashSet()
             val pathToItem = listOf<Any>("args[0")
             val castArg: List<*> = castToAllowedTypes(arg, pathToItem, pathSet)
-            val usedConfiguration = configuration ?: SchemaConfiguration(JsonSchemaKeywordFlags.Builder().build())
+            val usedConfiguration = configuration ?: SchemaConfiguration()
             val validationMetadata =
                 ValidationMetadata(pathToItem, usedConfiguration, PathToSchemasMap(), LinkedHashSet())
             val pathToSchemasMap = getPathToSchemas(this, castArg, validationMetadata, pathSet)
@@ -240,7 +236,7 @@ class ArrayTypeSchemaTest {
     }
 
     companion object {
-        val configuration = SchemaConfiguration(JsonSchemaKeywordFlags.Builder().build())
+        val configuration = SchemaConfiguration()
         val validationMetadata = ValidationMetadata(
             listOf("args[0"),
             configuration,

@@ -13,7 +13,7 @@ properties = mapOf(<br>
     {{/each}}
 )<br>
 {{~else}}
-.properties(mapOf(
+properties = mapOf(
     {{#each properties}}
         {{#if refInfo.refClass}}
             {{#if refInfo.refModule}}
@@ -25,5 +25,5 @@ properties = mapOf(<br>
     "{{{@key.original}}}" to {{jsonPathPiece.pascalCase}}::class.java{{#unless @last}},{{/unless}}
         {{/if}}
     {{/each}}
-))
+),
 {{/if}}

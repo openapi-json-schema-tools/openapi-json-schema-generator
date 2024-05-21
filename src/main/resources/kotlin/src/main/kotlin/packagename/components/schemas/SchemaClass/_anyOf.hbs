@@ -13,7 +13,7 @@ anyOf = listOf(<br>
     {{/each}}
 )<br>
 {{~else}}
-.anyOf(listOf(
+anyOf = listOf(
     {{#each anyOf}}
         {{#if refInfo.refClass}}
             {{#if refInfo.refModule}}
@@ -25,5 +25,5 @@ anyOf = listOf(<br>
     {{jsonPathPiece.pascalCase}}::class.java{{#unless @last}},{{/unless}}
         {{/if}}
     {{/each}}
-))
+),
 {{/if}}

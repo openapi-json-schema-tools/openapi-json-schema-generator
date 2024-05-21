@@ -1,10 +1,8 @@
 package org.openapijsonschematools.client.schemas
 
-import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags
 import org.openapijsonschematools.client.exceptions.ValidationException
 import org.openapijsonschematools.client.schemas.validation.FrozenMap
 import org.openapijsonschematools.client.schemas.validation.JsonSchema
-import org.openapijsonschematools.client.schemas.validation.JsonSchemaInfo
 import org.openapijsonschematools.client.configurations.SchemaConfiguration
 import org.openapijsonschematools.client.schemas.validation.PathToSchemasMap
 import org.openapijsonschematools.client.schemas.validation.MapSchemaValidator
@@ -22,8 +20,7 @@ open class MapJsonSchema {
     }
 
     open class MapJsonSchema1 protected constructor() : JsonSchema<MapJsonSchema1Boxed>(
-        JsonSchemaInfo()
-            .type(setOf(Map::class.java))
+        type = setOf(Map::class.java)
     ), MapSchemaValidator<FrozenMap<Any?>, MapJsonSchema1BoxedMap> {
         override fun getNewInstance(
             arg: Map<*, *>,
@@ -50,7 +47,7 @@ open class MapJsonSchema {
             val pathSet: MutableSet<List<Any>> = HashSet()
             val pathToItem = listOf<Any>("args[0")
             val castArg: Map<*, *> = castToAllowedTypes(arg, pathToItem, pathSet)
-            val usedConfiguration = configuration ?: SchemaConfiguration(JsonSchemaKeywordFlags.Builder().build())
+            val usedConfiguration = configuration ?: SchemaConfiguration()
             val validationMetadata =
                 ValidationMetadata(pathToItem, usedConfiguration, PathToSchemasMap(), LinkedHashSet())
             val pathToSchemasMap = getPathToSchemas(this, castArg, validationMetadata, pathSet)

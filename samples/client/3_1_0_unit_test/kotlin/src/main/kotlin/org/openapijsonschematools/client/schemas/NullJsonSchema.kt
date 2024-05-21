@@ -1,10 +1,8 @@
 package org.openapijsonschematools.client.schemas
 
-import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags
 import org.openapijsonschematools.client.configurations.SchemaConfiguration
 import org.openapijsonschematools.client.exceptions.ValidationException
 import org.openapijsonschematools.client.schemas.validation.JsonSchema
-import org.openapijsonschematools.client.schemas.validation.JsonSchemaInfo
 import org.openapijsonschematools.client.schemas.validation.PathToSchemasMap
 import org.openapijsonschematools.client.schemas.validation.NullSchemaValidator
 import org.openapijsonschematools.client.schemas.validation.ValidationMetadata
@@ -21,15 +19,14 @@ open class NullJsonSchema {
     }
 
     open class NullJsonSchema1 protected constructor() : JsonSchema<NullJsonSchema1Boxed>(
-        JsonSchemaInfo()
-            .type(setOf(Void::class.java))
+        type = setOf(Void::class.java)
     ), NullSchemaValidator<NullJsonSchema1BoxedVoid> {
         @Throws(ValidationException::class)
         override fun validate(arg: Nothing?, configuration: SchemaConfiguration?): Nothing? {
             val pathSet: MutableSet<List<Any>> = HashSet()
             val pathToItem = listOf<Any>("args[0")
             val castArg: Nothing? = castToAllowedTypes(arg, pathToItem, pathSet)
-            val usedConfiguration = configuration ?: SchemaConfiguration(JsonSchemaKeywordFlags.Builder().build())
+            val usedConfiguration = configuration ?: SchemaConfiguration()
             val validationMetadata =
                 ValidationMetadata(pathToItem, usedConfiguration, PathToSchemasMap(), LinkedHashSet())
             val pathToSchemasMap = getPathToSchemas(this, castArg, validationMetadata, pathSet)

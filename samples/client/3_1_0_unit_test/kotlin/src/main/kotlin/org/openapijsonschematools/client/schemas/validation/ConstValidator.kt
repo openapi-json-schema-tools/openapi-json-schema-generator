@@ -9,10 +9,10 @@ class ConstValidator : BigDecimalValidator(), KeywordValidator {
     override fun validate(
         data: ValidationData
     ): PathToSchemasMap? {
-        if (!data.schema.constValueSet) {
+        if (data.schema.constValue == null) {
             return null
         }
-        val constValue: Any? = data.schema.constValue
+        val constValue: Any? = data.schema.constValue.getData()
         if (data.arg is Number) {
             val castArg = getBigDecimal(data.arg)
             if (castArg == constValue) {

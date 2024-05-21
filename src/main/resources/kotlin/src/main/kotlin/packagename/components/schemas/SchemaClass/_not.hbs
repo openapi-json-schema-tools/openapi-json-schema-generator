@@ -12,6 +12,6 @@ not = [{{jsonPathPiece.pascalCase}}::class.java](#{{jsonPathPiece.kebabCase}})
     {{~/with}}
 {{else}}
     {{#with not}}
-.not({{#if refInfo.refClass}}{{#if refInfo.refModule}}{{refInfo.refModule}}.{{/if}}{{refInfo.refClass}}{{else}}{{jsonPathPiece.pascalCase}}{{/if}}::class.java)
+not = {{#if refInfo.refClass}}{{#if refInfo.refModule}}{{refInfo.refModule}}.{{/if}}{{refInfo.refClass}}{{else}}{{jsonPathPiece.pascalCase}}{{/if}}::class.java,
     {{/with}}
 {{/if}}

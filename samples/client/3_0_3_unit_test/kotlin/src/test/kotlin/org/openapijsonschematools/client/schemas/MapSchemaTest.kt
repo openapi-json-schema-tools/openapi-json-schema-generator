@@ -1,6 +1,5 @@
 package org.openapijsonschematools.client.schemas
 
-import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags
 import org.openapijsonschematools.client.configurations.SchemaConfiguration
 import org.openapijsonschematools.client.exceptions.ValidationException
 import org.openapijsonschematools.client.schemas.validation.JsonSchema
@@ -38,7 +37,7 @@ class MapSchemaTest {
     }
 
     companion object {
-        val configuration = SchemaConfiguration(JsonSchemaKeywordFlags.Builder().build())
+        val configuration = SchemaConfiguration()
         val mapJsonSchema = MapJsonSchema.MapJsonSchema1.getInstance()
         val validationMetadata = ValidationMetadata(
             listOf("args[0"),

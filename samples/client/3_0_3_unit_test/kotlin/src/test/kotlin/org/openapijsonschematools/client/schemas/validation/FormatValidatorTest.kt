@@ -1,6 +1,5 @@
 package org.openapijsonschematools.client.schemas.validation
 
-import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags
 import org.openapijsonschematools.client.configurations.SchemaConfiguration
 import org.openapijsonschematools.client.exceptions.ValidationException
 import org.openapijsonschematools.client.schemas.IntJsonSchema
@@ -410,7 +409,7 @@ class FormatValidatorTest {
     companion object {
         val validationMetadata = ValidationMetadata(
             ArrayList(),
-            SchemaConfiguration(JsonSchemaKeywordFlags.Builder().build()),
+            SchemaConfiguration(),
             PathToSchemasMap(),
             LinkedHashSet()
         )

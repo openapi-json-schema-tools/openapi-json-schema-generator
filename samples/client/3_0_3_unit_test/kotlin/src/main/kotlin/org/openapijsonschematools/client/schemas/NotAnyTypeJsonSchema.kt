@@ -1,12 +1,10 @@
 package org.openapijsonschematools.client.schemas
 
-import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags
 import org.openapijsonschematools.client.configurations.SchemaConfiguration
 import org.openapijsonschematools.client.exceptions.ValidationException
 import org.openapijsonschematools.client.schemas.validation.FrozenList
 import org.openapijsonschematools.client.schemas.validation.FrozenMap
 import org.openapijsonschematools.client.schemas.validation.JsonSchema
-import org.openapijsonschematools.client.schemas.validation.JsonSchemaInfo
 import org.openapijsonschematools.client.schemas.validation.PathToSchemasMap
 import org.openapijsonschematools.client.schemas.validation.NullSchemaValidator
 import org.openapijsonschematools.client.schemas.validation.BooleanSchemaValidator
@@ -69,8 +67,7 @@ open class NotAnyTypeJsonSchema {
     }
 
     open class NotAnyTypeJsonSchema1 protected constructor() : JsonSchema<NotAnyTypeJsonSchema1Boxed?>(
-        JsonSchemaInfo()
-            .not(AnyTypeJsonSchema.AnyTypeJsonSchema1::class.java)
+        not = AnyTypeJsonSchema.AnyTypeJsonSchema1::class.java
     ), NullSchemaValidator<NotAnyTypeJsonSchema1BoxedVoid>, BooleanSchemaValidator<NotAnyTypeJsonSchema1BoxedBoolean>,
         NumberSchemaValidator<NotAnyTypeJsonSchema1BoxedNumber>,
         StringSchemaValidator<NotAnyTypeJsonSchema1BoxedString>,
@@ -81,7 +78,7 @@ open class NotAnyTypeJsonSchema {
             val pathSet: MutableSet<List<Any>> = HashSet()
             val pathToItem = listOf<Any>("args[0]")
             val castArg: Nothing? = castToAllowedTypes(arg, pathToItem, pathSet)
-            val usedConfiguration = configuration ?: SchemaConfiguration(JsonSchemaKeywordFlags.Builder().build())
+            val usedConfiguration = configuration ?: SchemaConfiguration()
             val validatedPathToSchemas = PathToSchemasMap()
             val validationMetadata =
                 ValidationMetadata(pathToItem, usedConfiguration, validatedPathToSchemas, LinkedHashSet())
@@ -94,7 +91,7 @@ open class NotAnyTypeJsonSchema {
             val pathSet: MutableSet<List<Any>> = HashSet()
             val pathToItem = listOf<Any>("args[0]")
             val castArg: Boolean = castToAllowedTypes(arg, pathToItem, pathSet)
-            val usedConfiguration = configuration ?: SchemaConfiguration(JsonSchemaKeywordFlags.Builder().build())
+            val usedConfiguration = configuration ?: SchemaConfiguration()
             val validatedPathToSchemas = PathToSchemasMap()
             val validationMetadata =
                 ValidationMetadata(pathToItem, usedConfiguration, validatedPathToSchemas, LinkedHashSet())
@@ -107,7 +104,7 @@ open class NotAnyTypeJsonSchema {
             val pathSet: MutableSet<List<Any>> = HashSet()
             val pathToItem = listOf<Any>("args[0]")
             val castArg: Number = castToAllowedTypes(arg, pathToItem, pathSet)
-            val usedConfiguration = configuration ?: SchemaConfiguration(JsonSchemaKeywordFlags.Builder().build())
+            val usedConfiguration = configuration ?: SchemaConfiguration()
             val validatedPathToSchemas = PathToSchemasMap()
             val validationMetadata =
                 ValidationMetadata(pathToItem, usedConfiguration, validatedPathToSchemas, LinkedHashSet())
@@ -140,7 +137,7 @@ open class NotAnyTypeJsonSchema {
             val pathSet: MutableSet<List<Any>> = HashSet()
             val pathToItem = listOf<Any>("args[0]")
             val castArg: String = castToAllowedTypes(arg, pathToItem, pathSet)
-            val usedConfiguration = configuration ?: SchemaConfiguration(JsonSchemaKeywordFlags.Builder().build())
+            val usedConfiguration = configuration ?: SchemaConfiguration()
             val validatedPathToSchemas = PathToSchemasMap()
             val validationMetadata =
                 ValidationMetadata(pathToItem, usedConfiguration, validatedPathToSchemas, LinkedHashSet())
@@ -188,7 +185,7 @@ open class NotAnyTypeJsonSchema {
             val pathSet: MutableSet<List<Any>> = HashSet()
             val pathToItem = listOf<Any>("args[0]")
             val castArg: List<*> = castToAllowedTypes(arg, pathToItem, pathSet)
-            val usedConfiguration = configuration ?: SchemaConfiguration(JsonSchemaKeywordFlags.Builder().build())
+            val usedConfiguration = configuration ?: SchemaConfiguration()
             val validatedPathToSchemas = PathToSchemasMap()
             val validationMetadata =
                 ValidationMetadata(pathToItem, usedConfiguration, validatedPathToSchemas, LinkedHashSet())
@@ -222,7 +219,7 @@ open class NotAnyTypeJsonSchema {
             val pathSet: MutableSet<List<Any>> = HashSet()
             val pathToItem = listOf<Any>("args[0]")
             val castArg: Map<*, *> = castToAllowedTypes(arg, pathToItem, pathSet)
-            val usedConfiguration = configuration ?: SchemaConfiguration(JsonSchemaKeywordFlags.Builder().build())
+            val usedConfiguration = configuration ?: SchemaConfiguration()
             val validatedPathToSchemas = PathToSchemasMap()
             val validationMetadata =
                 ValidationMetadata(pathToItem, usedConfiguration, validatedPathToSchemas, LinkedHashSet())

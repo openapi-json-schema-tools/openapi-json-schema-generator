@@ -12,6 +12,6 @@ contains = [{{jsonPathPiece.pascalCase}}::class.java](#{{jsonPathPiece.kebabCase
     {{/with}}
 {{else}}
     {{#with contains}}
-.contains({{#if refInfo.refClass}}{{#if refInfo.refModule}}{{refInfo.refModule}}.{{/if}}{{refInfo.refClass}}{{else}}{{jsonPathPiece.pascalCase}}{{/if}}::class.java)
+contains = {{#if refInfo.refClass}}{{#if refInfo.refModule}}{{refInfo.refModule}}.{{/if}}{{refInfo.refClass}}{{else}}{{jsonPathPiece.pascalCase}}{{/if}}::class.java,
     {{/with}}
 {{/if}}

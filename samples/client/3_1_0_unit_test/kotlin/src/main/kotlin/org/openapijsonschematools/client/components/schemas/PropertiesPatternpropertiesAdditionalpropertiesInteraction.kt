@@ -4,7 +4,7 @@ import java.time.ZonedDateTime
 import java.util.AbstractMap
 import java.util.UUID
 import java.util.regex.Pattern
-import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags
+import org.openapijsonschematools.client.configurations.JsonSchemaKeyword
 import org.openapijsonschematools.client.configurations.SchemaConfiguration
 import org.openapijsonschematools.client.exceptions.InvalidAdditionalPropertyException
 import org.openapijsonschematools.client.exceptions.UnsetPropertyException
@@ -17,7 +17,6 @@ import org.openapijsonschematools.client.schemas.validation.BooleanSchemaValidat
 import org.openapijsonschematools.client.schemas.validation.FrozenList
 import org.openapijsonschematools.client.schemas.validation.FrozenMap
 import org.openapijsonschematools.client.schemas.validation.JsonSchema
-import org.openapijsonschematools.client.schemas.validation.JsonSchemaInfo
 import org.openapijsonschematools.client.schemas.validation.ListSchemaValidator
 import org.openapijsonschematools.client.schemas.validation.MapSchemaValidator
 import org.openapijsonschematools.client.schemas.validation.MapUtils
@@ -86,8 +85,7 @@ class PropertiesPatternpropertiesAdditionalpropertiesInteraction {
     
     
     class Fo private constructor(): JsonSchema<FoBoxed>(
-        JsonSchemaInfo()
-            .minItems(2)
+        minItems = 2,
     ), NullSchemaValidator<FoBoxedVoid>, BooleanSchemaValidator<FoBoxedBoolean>, NumberSchemaValidator<FoBoxedNumber>, StringSchemaValidator<FoBoxedString>, ListSchemaValidator<FrozenList<Any?>, FoBoxedList>, MapSchemaValidator<FrozenMap<Any?>, FoBoxedMap> {
     
         companion object {
@@ -105,7 +103,7 @@ class PropertiesPatternpropertiesAdditionalpropertiesInteraction {
             val pathSet: MutableSet<List<Any>> = HashSet()
             val pathToItem = listOf<Any>("args[0")
             val castArg = castToAllowedTypes(arg, pathToItem, pathSet)
-            val usedConfiguration = configuration ?: SchemaConfiguration(JsonSchemaKeywordFlags.Builder().build())
+            val usedConfiguration = configuration ?: SchemaConfiguration()
             val validatedPathToSchemas = PathToSchemasMap()
             val validationMetadata = ValidationMetadata(pathToItem, usedConfiguration, validatedPathToSchemas, LinkedHashSet())
             getPathToSchemas(this, castArg, validationMetadata, pathSet)
@@ -117,7 +115,7 @@ class PropertiesPatternpropertiesAdditionalpropertiesInteraction {
             val pathSet: MutableSet<List<Any>> = HashSet()
             val pathToItem = listOf<Any>("args[0")
             val castArg = castToAllowedTypes(arg, pathToItem, pathSet)
-            val usedConfiguration = configuration ?: SchemaConfiguration(JsonSchemaKeywordFlags.Builder().build())
+            val usedConfiguration = configuration ?: SchemaConfiguration()
             val validatedPathToSchemas = PathToSchemasMap()
             val validationMetadata = ValidationMetadata(pathToItem, usedConfiguration, validatedPathToSchemas, LinkedHashSet())
             getPathToSchemas(this, castArg, validationMetadata, pathSet)
@@ -129,7 +127,7 @@ class PropertiesPatternpropertiesAdditionalpropertiesInteraction {
             val pathSet: MutableSet<List<Any>> = HashSet()
             val pathToItem = listOf<Any>("args[0")
             val castArg = castToAllowedTypes(arg, pathToItem, pathSet)
-            val usedConfiguration = configuration ?: SchemaConfiguration(JsonSchemaKeywordFlags.Builder().build())
+            val usedConfiguration = configuration ?: SchemaConfiguration()
             val validatedPathToSchemas = PathToSchemasMap()
             val validationMetadata = ValidationMetadata(pathToItem, usedConfiguration, validatedPathToSchemas, LinkedHashSet())
             getPathToSchemas(this, castArg, validationMetadata, pathSet)
@@ -161,7 +159,7 @@ class PropertiesPatternpropertiesAdditionalpropertiesInteraction {
             val pathSet: MutableSet<List<Any>> = HashSet()
             val pathToItem = listOf<Any>("args[0")
             val castArg = castToAllowedTypes(arg, pathToItem, pathSet)
-            val usedConfiguration = configuration ?: SchemaConfiguration(JsonSchemaKeywordFlags.Builder().build())
+            val usedConfiguration = configuration ?: SchemaConfiguration()
             val validatedPathToSchemas = PathToSchemasMap()
             val validationMetadata = ValidationMetadata(pathToItem, usedConfiguration, validatedPathToSchemas, LinkedHashSet())
             getPathToSchemas(this, castArg, validationMetadata, pathSet)
@@ -206,7 +204,7 @@ class PropertiesPatternpropertiesAdditionalpropertiesInteraction {
             val pathSet: MutableSet<List<Any>> = HashSet()
             val pathToItem = listOf<Any>("args[0")
             val castArg = castToAllowedTypes(arg, pathToItem, pathSet)
-            val usedConfiguration = configuration ?: SchemaConfiguration(JsonSchemaKeywordFlags.Builder().build())
+            val usedConfiguration = configuration ?: SchemaConfiguration()
             val validationMetadata = ValidationMetadata(pathToItem, usedConfiguration, PathToSchemasMap(), LinkedHashSet())
             val pathToSchemasMap = getPathToSchemas(this, castArg, validationMetadata, pathSet)
             return getNewInstance(castArg, validationMetadata.pathToItem, pathToSchemasMap)
@@ -236,7 +234,7 @@ class PropertiesPatternpropertiesAdditionalpropertiesInteraction {
             val pathSet: MutableSet<List<Any>> = HashSet()
             val pathToItem = listOf<Any>("args[0")
             val castArg = castToAllowedTypes(arg, pathToItem, pathSet)
-            val usedConfiguration = configuration ?: SchemaConfiguration(JsonSchemaKeywordFlags.Builder().build())
+            val usedConfiguration = configuration ?: SchemaConfiguration()
             val validatedPathToSchemas = PathToSchemasMap()
             val validationMetadata = ValidationMetadata(pathToItem, usedConfiguration, validatedPathToSchemas, LinkedHashSet())
             val pathToSchemasMap = getPathToSchemas(this, castArg, validationMetadata, pathSet)
@@ -332,9 +330,8 @@ class PropertiesPatternpropertiesAdditionalpropertiesInteraction {
     
     
     class Foo private constructor(): JsonSchema<FooBoxed>(
-        JsonSchemaInfo()
-            .type(setOf(List::class.java))
-            .maxItems(3)
+        type = setOf(List::class.java),
+        maxItems = 3,
     ), ListSchemaValidator<FrozenList<Any?>, FooBoxedList> {
     
         companion object {
@@ -370,7 +367,7 @@ class PropertiesPatternpropertiesAdditionalpropertiesInteraction {
             val pathSet: MutableSet<List<Any>> = HashSet()
             val pathToItem = listOf<Any>("args[0")
             val castArg = castToAllowedTypes(arg, pathToItem, pathSet)
-            val usedConfiguration = configuration ?: SchemaConfiguration(JsonSchemaKeywordFlags.Builder().build())
+            val usedConfiguration = configuration ?: SchemaConfiguration()
             val validationMetadata = ValidationMetadata(pathToItem, usedConfiguration, PathToSchemasMap(), LinkedHashSet())
             val pathToSchemasMap = getPathToSchemas(this, castArg, validationMetadata, pathSet)
             return getNewInstance(castArg, validationMetadata.pathToItem, pathToSchemasMap)
@@ -563,16 +560,15 @@ class PropertiesPatternpropertiesAdditionalpropertiesInteraction {
     
     
     class PropertiesPatternpropertiesAdditionalpropertiesInteraction1 private constructor(): JsonSchema<PropertiesPatternpropertiesAdditionalpropertiesInteraction1Boxed>(
-        JsonSchemaInfo()
-            .type(setOf(Map::class.java))
-            .properties(mapOf(
-                "foo" to Foo::class.java,
-                "bar" to Bar::class.java
-            ))
-            .additionalProperties(AdditionalProperties::class.java)
-            .patternProperties(mapOf(
-                Pattern.compile("f.o") to Fo::class.java
-            ))
+        type = setOf(Map::class.java),
+        properties = mapOf(
+            "foo" to Foo::class.java,
+            "bar" to Bar::class.java
+        ),
+        additionalProperties = AdditionalProperties::class.java,
+        patternProperties = mapOf(
+            Pattern.compile("f.o") to Fo::class.java
+        ),
     ), MapSchemaValidator<PropertiesPatternpropertiesAdditionalpropertiesInteractionMap, PropertiesPatternpropertiesAdditionalpropertiesInteraction1BoxedMap> {
         /*
         NOTE: This class is auto generated by OpenAPI JSON Schema Generator.
@@ -615,7 +611,7 @@ class PropertiesPatternpropertiesAdditionalpropertiesInteraction {
             val pathSet: MutableSet<List<Any>> = HashSet()
             val pathToItem = listOf<Any>("args[0")
             val castArg = castToAllowedTypes(arg, pathToItem, pathSet)
-            val usedConfiguration = configuration ?: SchemaConfiguration(JsonSchemaKeywordFlags.Builder().build())
+            val usedConfiguration = configuration ?: SchemaConfiguration()
             val validationMetadata = ValidationMetadata(pathToItem, usedConfiguration, PathToSchemasMap(), LinkedHashSet())
             val pathToSchemasMap = getPathToSchemas(this, castArg, validationMetadata, pathSet)
             return getNewInstance(castArg, validationMetadata.pathToItem, pathToSchemasMap)

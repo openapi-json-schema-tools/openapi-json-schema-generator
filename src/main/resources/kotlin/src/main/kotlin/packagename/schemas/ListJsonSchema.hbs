@@ -1,10 +1,8 @@
 package {{{packageName}}}.schemas
 
-import {{{packageName}}}.configurations.JsonSchemaKeywordFlags
 import {{{packageName}}}.exceptions.ValidationException
 import {{{packageName}}}.schemas.validation.FrozenList
 import {{{packageName}}}.schemas.validation.JsonSchema
-import {{{packageName}}}.schemas.validation.JsonSchemaInfo
 import {{{packageName}}}.configurations.SchemaConfiguration
 import {{{packageName}}}.schemas.validation.PathToSchemasMap
 import {{{packageName}}}.schemas.validation.ListSchemaValidator
@@ -22,8 +20,7 @@ open class ListJsonSchema {
     }
 
     open class ListJsonSchema1 protected constructor() : JsonSchema<ListJsonSchema1Boxed>(
-        JsonSchemaInfo()
-            .type(setOf(List::class.java))
+        type = setOf(List::class.java)
     ), ListSchemaValidator<FrozenList<Any?>, ListJsonSchema1BoxedList> {
         override fun getNewInstance(
             arg: List<*>,
@@ -49,7 +46,7 @@ open class ListJsonSchema {
             val pathSet: MutableSet<List<Any>> = HashSet()
             val pathToItem = listOf<Any>("args[0]")
             val castArg: List<*> = castToAllowedTypes(arg, pathToItem, pathSet)
-            val usedConfiguration = configuration ?: SchemaConfiguration(JsonSchemaKeywordFlags.Builder().build())
+            val usedConfiguration = configuration ?: SchemaConfiguration()
             val validatedPathToSchemas = PathToSchemasMap()
             val validationMetadata =
                 ValidationMetadata(pathToItem, usedConfiguration, validatedPathToSchemas, LinkedHashSet())

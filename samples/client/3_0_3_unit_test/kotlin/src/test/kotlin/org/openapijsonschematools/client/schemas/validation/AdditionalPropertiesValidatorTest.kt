@@ -1,6 +1,5 @@
 package org.openapijsonschematools.client.schemas.validation
 
-import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags
 import org.openapijsonschematools.client.configurations.SchemaConfiguration
 import org.openapijsonschematools.client.schemas.MapJsonSchema
 import org.openapijsonschematools.client.schemas.StringJsonSchema
@@ -16,14 +15,11 @@ class AdditionalPropertiesValidatorTest {
     sealed interface ObjectWithPropsSchemaBoxed
     class ObjectWithPropsSchemaBoxedMap : ObjectWithPropsSchemaBoxed
     class ObjectWithPropsSchema private constructor() : JsonSchema<ObjectWithPropsSchemaBoxed>(
-        JsonSchemaInfo()
-            .type(setOf(Map::class.java))
-            .properties(
-                mapOf(
-                    "someString" to StringJsonSchema.StringJsonSchema1::class.java
-                )
-            )
-            .additionalProperties(StringJsonSchema.StringJsonSchema1::class.java)
+        type = setOf(Map::class.java),
+        properties = mapOf(
+            "someString" to StringJsonSchema.StringJsonSchema1::class.java
+        ),
+        additionalProperties = StringJsonSchema.StringJsonSchema1::class.java
     ) {
         override fun getNewInstance(arg: Any?, pathToItem: List<Any>, pathToSchemas: PathToSchemasMap): Map<*, *> {
             if (arg is Map<*, *>) {
@@ -62,7 +58,7 @@ class AdditionalPropertiesValidatorTest {
         val pathToItem = listOf<Any>("args[0]")
         val validationMetadata = ValidationMetadata(
             pathToItem,
-            SchemaConfiguration(JsonSchemaKeywordFlags.Builder().build()),
+            SchemaConfiguration(),
             PathToSchemasMap(),
             LinkedHashSet()
         )
@@ -96,7 +92,7 @@ class AdditionalPropertiesValidatorTest {
         val pathToItem = listOf<Any>("args[0]")
         val validationMetadata = ValidationMetadata(
             pathToItem,
-            SchemaConfiguration(JsonSchemaKeywordFlags.Builder().build()),
+            SchemaConfiguration(),
             PathToSchemasMap(),
             LinkedHashSet()
         )
@@ -116,7 +112,7 @@ class AdditionalPropertiesValidatorTest {
         val pathToItem = listOf<Any>("args[0]")
         val validationMetadata = ValidationMetadata(
             pathToItem,
-            SchemaConfiguration(JsonSchemaKeywordFlags.Builder().build()),
+            SchemaConfiguration(),
             PathToSchemasMap(),
             LinkedHashSet()
         )

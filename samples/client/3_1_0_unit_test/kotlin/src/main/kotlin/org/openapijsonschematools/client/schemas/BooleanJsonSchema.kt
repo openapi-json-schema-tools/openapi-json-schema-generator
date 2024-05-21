@@ -1,10 +1,8 @@
 package org.openapijsonschematools.client.schemas
 
-import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags
 import org.openapijsonschematools.client.configurations.SchemaConfiguration
 import org.openapijsonschematools.client.exceptions.ValidationException
 import org.openapijsonschematools.client.schemas.validation.JsonSchema
-import org.openapijsonschematools.client.schemas.validation.JsonSchemaInfo
 import org.openapijsonschematools.client.schemas.validation.PathToSchemasMap
 import org.openapijsonschematools.client.schemas.validation.BooleanSchemaValidator
 import org.openapijsonschematools.client.schemas.validation.ValidationMetadata
@@ -21,15 +19,14 @@ open class BooleanJsonSchema {
     }
 
     open class BooleanJsonSchema1 protected constructor() : JsonSchema<BooleanJsonSchema1Boxed>(
-        JsonSchemaInfo()
-            .type(setOf(Boolean::class.java))
+        type = setOf(Boolean::class.java)
     ), BooleanSchemaValidator<BooleanJsonSchema1BoxedBoolean> {
         @Throws(ValidationException::class)
         override fun validate(arg: Boolean, configuration: SchemaConfiguration?): Boolean {
             val pathSet: MutableSet<List<Any>> = HashSet()
             val pathToItem = listOf<Any>("args[0")
             val castArg: Boolean = castToAllowedTypes(arg, pathToItem, pathSet)
-            val usedConfiguration = configuration ?: SchemaConfiguration(JsonSchemaKeywordFlags.Builder().build())
+            val usedConfiguration = configuration ?: SchemaConfiguration()
             val validationMetadata =
                 ValidationMetadata(pathToItem, usedConfiguration, PathToSchemasMap(), LinkedHashSet())
             val pathToSchemasMap = getPathToSchemas(this, castArg, validationMetadata, pathSet)

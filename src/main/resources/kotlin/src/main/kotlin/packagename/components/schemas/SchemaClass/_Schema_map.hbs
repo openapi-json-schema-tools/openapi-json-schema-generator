@@ -4,60 +4,59 @@
 
 
 class {{jsonPathPiece.pascalCase}} private constructor(): JsonSchema<{{jsonPathPiece.pascalCase}}Boxed>(
-    JsonSchemaInfo()
     {{#if types}}
-        {{> src/main/kotlin/packagename/components/schemas/SchemaClass/_types }}
+    {{> src/main/kotlin/packagename/components/schemas/SchemaClass/_types }}
     {{/if}}
     {{#if properties}}
-        {{> src/main/kotlin/packagename/components/schemas/SchemaClass/_properties }}
+    {{> src/main/kotlin/packagename/components/schemas/SchemaClass/_properties }}
     {{/if}}
     {{#if requiredProperties}}
-        {{> src/main/kotlin/packagename/components/schemas/SchemaClass/_required }}
+    {{> src/main/kotlin/packagename/components/schemas/SchemaClass/_required }}
     {{/if}}
     {{#neq maxProperties null}}
-        {{> src/main/kotlin/packagename/components/schemas/SchemaClass/_maxProperties }}
+    {{> src/main/kotlin/packagename/components/schemas/SchemaClass/_maxProperties }}
     {{/neq}}
     {{#neq minProperties null}}
-        {{> src/main/kotlin/packagename/components/schemas/SchemaClass/_minProperties }}
+    {{> src/main/kotlin/packagename/components/schemas/SchemaClass/_minProperties }}
     {{/neq}}
     {{#if additionalProperties}}
-        {{> src/main/kotlin/packagename/components/schemas/SchemaClass/_additionalProperties }}
+    {{> src/main/kotlin/packagename/components/schemas/SchemaClass/_additionalProperties }}
     {{/if}}
     {{#if allOf}}
-        {{> src/main/kotlin/packagename/components/schemas/SchemaClass/_allOf }}
+    {{> src/main/kotlin/packagename/components/schemas/SchemaClass/_allOf }}
     {{/if}}
     {{#if anyOf}}
-        {{> src/main/kotlin/packagename/components/schemas/SchemaClass/_anyOf }}
+    {{> src/main/kotlin/packagename/components/schemas/SchemaClass/_anyOf }}
     {{/if}}
     {{#if oneOf}}
-        {{> src/main/kotlin/packagename/components/schemas/SchemaClass/_oneOf }}
+    {{> src/main/kotlin/packagename/components/schemas/SchemaClass/_oneOf }}
     {{/if}}
     {{#if not}}
-        {{> src/main/kotlin/packagename/components/schemas/SchemaClass/_not }}
+    {{> src/main/kotlin/packagename/components/schemas/SchemaClass/_not }}
     {{/if}}
     {{#if propertyNames}}
-        {{> src/main/kotlin/packagename/components/schemas/SchemaClass/_propertyNames }}
+    {{> src/main/kotlin/packagename/components/schemas/SchemaClass/_propertyNames }}
     {{/if}}
     {{#if dependentRequired}}
-        {{> src/main/kotlin/packagename/components/schemas/SchemaClass/_dependentRequired }}
+    {{> src/main/kotlin/packagename/components/schemas/SchemaClass/_dependentRequired }}
     {{/if}}
     {{#if dependentSchemas}}
-        {{> src/main/kotlin/packagename/components/schemas/SchemaClass/_dependentSchemas }}
+    {{> src/main/kotlin/packagename/components/schemas/SchemaClass/_dependentSchemas }}
     {{/if}}
     {{#if patternProperties}}
-        {{> src/main/kotlin/packagename/components/schemas/SchemaClass/_patternProperties }}
+    {{> src/main/kotlin/packagename/components/schemas/SchemaClass/_patternProperties }}
     {{/if}}
     {{#if if_}}
-        {{> src/main/kotlin/packagename/components/schemas/SchemaClass/_if }}
+    {{> src/main/kotlin/packagename/components/schemas/SchemaClass/_if }}
     {{/if}}
     {{#if then}}
-        {{> src/main/kotlin/packagename/components/schemas/SchemaClass/_then }}
+    {{> src/main/kotlin/packagename/components/schemas/SchemaClass/_then }}
     {{/if}}
     {{#if else_}}
-        {{> src/main/kotlin/packagename/components/schemas/SchemaClass/_else }}
+    {{> src/main/kotlin/packagename/components/schemas/SchemaClass/_else }}
     {{/if}}
     {{#if unevaluatedProperties}}
-        {{> src/main/kotlin/packagename/components/schemas/SchemaClass/_unevaluatedProperties }}
+    {{> src/main/kotlin/packagename/components/schemas/SchemaClass/_unevaluatedProperties }}
     {{/if}}
 ), MapSchemaValidator<{{#if mapOutputJsonPathPiece}}{{mapOutputJsonPathPiece.pascalCase}}{{else}}FrozenMap<{{#with mapValueSchema}}{{> src/main/kotlin/packagename/components/schemas/types/schema_output_type sourceJsonPath=../jsonPath forceNull=true }}{{else}}Any?{{/with}}>{{/if}}, {{jsonPathPiece.pascalCase}}BoxedMap> {
 {{#if componentModule}}

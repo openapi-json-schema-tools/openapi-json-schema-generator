@@ -11,9 +11,9 @@ allOf = listOf(<br>
 &nbsp;&nbsp;&nbsp;&nbsp;[{{jsonPathPiece.pascalCase}}::class.java](#{{jsonPathPiece.kebabCase}}){{#unless @last}},{{/unless}}<br>
         {{~/if}}
     {{/each}}
-;)<br>
+)<br>
 {{~else}}
-.allOf(listOf(
+allOf = listOf(
     {{#each allOf}}
         {{#if refInfo.refClass}}
             {{#if refInfo.refModule}}
@@ -25,5 +25,5 @@ allOf = listOf(<br>
     {{jsonPathPiece.pascalCase}}::class.java{{#unless @last}},{{/unless}}
         {{/if}}
     {{/each}}
-))
+),
 {{/if}}

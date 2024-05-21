@@ -1,6 +1,5 @@
 package {{{packageName}}}.schemas.validation
 
-import {{{packageName}}}.configurations.JsonSchemaKeywordFlags
 import {{{packageName}}}.configurations.SchemaConfiguration
 import {{{packageName}}}.exceptions.ValidationException
 import {{{packageName}}}.schemas.IntJsonSchema
@@ -410,7 +409,7 @@ class FormatValidatorTest {
     companion object {
         val validationMetadata = ValidationMetadata(
             ArrayList(),
-            SchemaConfiguration(JsonSchemaKeywordFlags.Builder().build()),
+            SchemaConfiguration(),
             PathToSchemasMap(),
             LinkedHashSet()
         )

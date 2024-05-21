@@ -1,6 +1,5 @@
 package {{{packageName}}}.schemas
 
-import {{{packageName}}}.configurations.JsonSchemaKeywordFlags
 import {{{packageName}}}.configurations.SchemaConfiguration
 import {{{packageName}}}.exceptions.ValidationException
 import {{{packageName}}}.schemas.validation.JsonSchema
@@ -41,7 +40,7 @@ class BooleanSchemaTest {
     }
 
     companion object {
-        val configuration = SchemaConfiguration(JsonSchemaKeywordFlags.Builder().build())
+        val configuration = SchemaConfiguration()
         val booleanJsonSchema = BooleanJsonSchema.BooleanJsonSchema1.getInstance()
         val validationMetadata = ValidationMetadata(
             listOf("args[0"),

@@ -12,6 +12,6 @@ propertyNames = [{{jsonPathPiece.pascalCase}}::class.java](#{{jsonPathPiece.keba
     {{/with}}
 {{else}}
     {{#with propertyNames}}
-.propertyNames({{#if refInfo.refClass}}{{#if refInfo.refModule}}{{refInfo.refModule}}.{{/if}}{{refInfo.refClass}}{{else}}{{jsonPathPiece.pascalCase}}{{/if}}::class.java)
+propertyNames = {{#if refInfo.refClass}}{{#if refInfo.refModule}}{{refInfo.refModule}}.{{/if}}{{refInfo.refClass}}{{else}}{{jsonPathPiece.pascalCase}}{{/if}}::class.java,
     {{/with}}
 {{/if}}

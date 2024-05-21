@@ -12,6 +12,6 @@ additionalProperties = [{{jsonPathPiece.pascalCase}}::class.java](#{{jsonPathPie
     {{~/with}}
 {{else}}
     {{#with additionalProperties}}
-.additionalProperties({{#if refInfo.refClass}}{{#if refInfo.refModule}}{{refInfo.refModule}}.{{/if}}{{refInfo.refClass}}{{else}}{{jsonPathPiece.pascalCase}}{{/if}}::class.java)
+additionalProperties = {{#if refInfo.refClass}}{{#if refInfo.refModule}}{{refInfo.refModule}}.{{/if}}{{refInfo.refClass}}{{else}}{{jsonPathPiece.pascalCase}}{{/if}}::class.java,
     {{/with}}
 {{/if}}

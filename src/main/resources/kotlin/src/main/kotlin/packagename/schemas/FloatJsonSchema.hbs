@@ -1,10 +1,8 @@
 package {{{packageName}}}.schemas
 
-import {{{packageName}}}.configurations.JsonSchemaKeywordFlags
 import {{{packageName}}}.configurations.SchemaConfiguration
 import {{{packageName}}}.exceptions.ValidationException
 import {{{packageName}}}.schemas.validation.JsonSchema
-import {{{packageName}}}.schemas.validation.JsonSchemaInfo
 import {{{packageName}}}.schemas.validation.PathToSchemasMap
 import {{{packageName}}}.schemas.validation.NumberSchemaValidator
 import {{{packageName}}}.schemas.validation.ValidationMetadata
@@ -21,23 +19,23 @@ open class FloatJsonSchema {
     }
 
     open class FloatJsonSchema1 protected constructor() : JsonSchema<FloatJsonSchema1Boxed>(
-        JsonSchemaInfo()
         {{#if generatorSettings.intsAllowedForFloatDoubleFormats}}
-            .type(setOf(
-                    Int::class.java,
-                    Float::class.java
-            ))
+        type = setOf(
+                Int::class.java,
+                Float::class.java
+        ),
         {{else}}
-            .type(setOf(Float::class.java))
+        type = setOf(Float::class.java),
         {{/if}}
-            .format("float")
+        format = "float"
+
     ), NumberSchemaValidator<FloatJsonSchema1BoxedNumber> {
         @Throws(ValidationException::class)
         override fun validate(arg: Number, configuration: SchemaConfiguration?): Number {
             val pathSet: MutableSet<List<Any>> = HashSet()
             val pathToItem = listOf<Any>("args[0")
             val castArg: Number = castToAllowedTypes(arg, pathToItem, pathSet)
-            val usedConfiguration = configuration ?: SchemaConfiguration(JsonSchemaKeywordFlags.Builder().build())
+            val usedConfiguration = configuration ?: SchemaConfiguration()
             val validationMetadata =
                 ValidationMetadata(pathToItem, usedConfiguration, PathToSchemasMap(), LinkedHashSet())
             val pathToSchemasMap = getPathToSchemas(this, castArg, validationMetadata, pathSet)
