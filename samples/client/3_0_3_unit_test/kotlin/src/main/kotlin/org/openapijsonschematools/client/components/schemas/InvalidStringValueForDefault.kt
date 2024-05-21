@@ -83,8 +83,11 @@ class InvalidStringValueForDefault {
         }
         @Throws(ValidationException::class)
         override fun defaultValue(): String {
-            if (defaultValue.getData() is String) {
-                return defaultValue.getData()
+            if (defaultValue != null) {
+                val defaultValueData = defaultValue.getData()
+                if (defaultValueData is String) {
+                    return defaultValueData
+                }
             }
             throw ValidationException("Invalid type stored in defaultValue")
         }
