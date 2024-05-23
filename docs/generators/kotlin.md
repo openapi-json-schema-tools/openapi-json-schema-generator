@@ -171,12 +171,12 @@ These options may be applied as additional-properties (cli) or configOptions (pl
 | Name | Supported | Defined By |
 | ---- | --------- | ---------- |
 |schemas|✓|OAS3
-|responses|✓|OAS3
-|parameters|✓|OAS3
+|responses|✗|OAS3
+|parameters|✗|OAS3
 |examples|✗|OAS3
-|requestBodies|✓|OAS3
-|headers|✓|OAS3
-|securitySchemes|✓|OAS3
+|requestBodies|✗|OAS3
+|headers|✗|OAS3
+|securitySchemes|✗|OAS3
 |links|✗|OAS3
 |callbacks|✗|OAS3
 |pathItems|✗|OAS3
@@ -211,39 +211,39 @@ These options may be applied as additional-properties (cli) or configOptions (pl
 | ---- | --------- | ---------- |
 |Readme|✓|ToolingExtension
 |Servers|✓|OAS3
-|Security|✓|OAS2,OAS3
+|Security|✗|OAS2,OAS3
 |ComponentSchemas|✓|OAS3
-|ComponentResponses|✓|OAS3
-|ComponentParameters|✓|OAS3
-|ComponentRequestBodies|✓|OAS3
-|ComponentHeaders|✓|OAS3
-|ComponentSecuritySchemes|✓|OAS3
+|ComponentResponses|✗|OAS3
+|ComponentParameters|✗|OAS3
+|ComponentRequestBodies|✗|OAS3
+|ComponentHeaders|✗|OAS3
+|ComponentSecuritySchemes|✗|OAS3
 |ComponentLinks|✗|OAS3
 |ComponentCallbacks|✗|OAS3
 |ComponentPathItems|✗|OAS3
-|Api|✓|ToolingExtension
+|Api|✗|ToolingExtension
 
 ### Global Feature
 | Name | Supported | Defined By |
 | ---- | --------- | ---------- |
-|Info|✓|OAS2,OAS3
+|Info|✗|OAS2,OAS3
 |Servers|✓|OAS3
-|Paths|✓|OAS2,OAS3
+|Paths|✗|OAS2,OAS3
 |Webhooks|✗|OAS3
 |Components|✓|OAS3
-|Security|✓|OAS2,OAS3
+|Security|✗|OAS2,OAS3
 |Tags|✗|OAS2,OAS3
 |ExternalDocs|✗|OAS2,OAS3
 
 ### Operation Feature
 | Name | Supported | Defined By |
 | ---- | --------- | ---------- |
-|Responses_HttpStatusCode|✓|OAS3
-|Responses_RangedResponseCodes|✓|OAS3
-|Responses_Default|✓|OAS3
-|Responses_RedirectionResponse|✓|OAS3
-|Security|✓|OAS2,OAS3
-|Servers|✓|OAS3
+|Responses_HttpStatusCode|✗|OAS3
+|Responses_RangedResponseCodes|✗|OAS3
+|Responses_Default|✗|OAS3
+|Responses_RedirectionResponse|✗|OAS3
+|Security|✗|OAS2,OAS3
+|Servers|✗|OAS3
 
 ### Parameter Feature
 | Name | Supported | Defined By |
@@ -315,10 +315,10 @@ These options may be applied as additional-properties (cli) or configOptions (pl
 ### Security Feature
 | Name | Supported | Defined By |
 | ---- | --------- | ---------- |
-|HTTP_Basic|✓|OAS2,OAS3
-|ApiKey|✓|OAS2,OAS3
+|HTTP_Basic|✗|OAS2,OAS3
+|ApiKey|✗|OAS2,OAS3
 |OpenIDConnect|✗|OAS3
-|HTTP_Bearer|✓|OAS2,OAS3
+|HTTP_Bearer|✗|OAS2,OAS3
 |OAuth2_Implicit|✗|OAS2,OAS3
 |OAuth2_Password|✗|OAS2,OAS3
 |OAuth2_ClientCredentials|✗|OAS2,OAS3
@@ -327,7 +327,7 @@ These options may be applied as additional-properties (cli) or configOptions (pl
 ### Wire Format Feature
 | Name | Supported | Defined By |
 | ---- | --------- | ---------- |
-|JSON|✓|OAS2,OAS3
+|JSON|✗|OAS2,OAS3
 |XML|✗|OAS2,OAS3
 |PROTOBUF|✗|ToolingExtension
 |Custom|✗|OAS2,OAS3
