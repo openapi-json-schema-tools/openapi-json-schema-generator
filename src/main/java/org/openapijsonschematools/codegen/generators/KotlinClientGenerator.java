@@ -228,42 +228,42 @@ public class KotlinClientGenerator extends DefaultGenerator implements Generator
         .includeDocumentationFeatures(
             DocumentationFeature.Readme,
             DocumentationFeature.Servers,
-            DocumentationFeature.Security,
-            DocumentationFeature.ComponentSchemas,
-            DocumentationFeature.ComponentSecuritySchemes,
-            DocumentationFeature.ComponentRequestBodies,
-            DocumentationFeature.ComponentResponses,
-            DocumentationFeature.ComponentHeaders,
-            DocumentationFeature.ComponentParameters,
-            DocumentationFeature.Api
+//            DocumentationFeature.Security,
+            DocumentationFeature.ComponentSchemas
+//            DocumentationFeature.ComponentSecuritySchemes,
+//            DocumentationFeature.ComponentRequestBodies,
+//            DocumentationFeature.ComponentResponses,
+//            DocumentationFeature.ComponentHeaders,
+//            DocumentationFeature.ComponentParameters,
+//            DocumentationFeature.Api
         )
         .includeGlobalFeatures(
             GlobalFeature.Components,
-            GlobalFeature.Servers,
-            GlobalFeature.Security,
-            GlobalFeature.Paths,
-            GlobalFeature.Info
+            GlobalFeature.Servers
+//            GlobalFeature.Security,
+//            GlobalFeature.Paths,
+//            GlobalFeature.Info
         )
         .includeComponentsFeatures(
-            ComponentsFeature.schemas,
-            ComponentsFeature.securitySchemes,
-            ComponentsFeature.requestBodies,
-            ComponentsFeature.responses,
-            ComponentsFeature.headers,
-            ComponentsFeature.parameters
+            ComponentsFeature.schemas
+//            ComponentsFeature.securitySchemes,
+//            ComponentsFeature.requestBodies,
+//            ComponentsFeature.responses,
+//            ComponentsFeature.headers,
+//            ComponentsFeature.parameters
         )
         .includeSecurityFeatures(
-            SecurityFeature.ApiKey,
-            SecurityFeature.HTTP_Basic,
-            SecurityFeature.HTTP_Bearer
+//            SecurityFeature.ApiKey,
+//            SecurityFeature.HTTP_Basic,
+//            SecurityFeature.HTTP_Bearer
         )
         .includeOperationFeatures(
-            OperationFeature.Security,
-            OperationFeature.Servers,
-            OperationFeature.Responses_Default,
-            OperationFeature.Responses_HttpStatusCode,
-            OperationFeature.Responses_RangedResponseCodes,
-            OperationFeature.Responses_RedirectionResponse
+//            OperationFeature.Security,
+//            OperationFeature.Servers,
+//            OperationFeature.Responses_Default,
+//            OperationFeature.Responses_HttpStatusCode,
+//            OperationFeature.Responses_RangedResponseCodes,
+//            OperationFeature.Responses_RedirectionResponse
         )
         .includeSchemaFeatures(
             SchemaFeature.AdditionalProperties,
@@ -310,7 +310,7 @@ public class KotlinClientGenerator extends DefaultGenerator implements Generator
             SchemaFeature.UniqueItems
         )
         .includeWireFormatFeatures(
-            WireFormatFeature.JSON
+//            WireFormatFeature.JSON
         )
         .build();
     public static final GeneratorMetadata generatorMetadata = GeneratorMetadata.newBuilder()
