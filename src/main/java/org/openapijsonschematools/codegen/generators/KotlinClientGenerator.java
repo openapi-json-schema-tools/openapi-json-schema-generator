@@ -318,7 +318,7 @@ public class KotlinClientGenerator extends DefaultGenerator implements Generator
         .language(GeneratorLanguage.KOTLIN)
         .languageVersion("1.9.23")
         .type(GeneratorType.CLIENT)
-        .stability(Stability.EXPERIMENTAL)
+        .stability(Stability.STABLE)
         .featureSet(featureSet)
         .generationMessage(String.format(Locale.ROOT, "OpenAPI JSON Schema Generator: %s (%s)", "kotlin", GeneratorType.CLIENT))
         .helpMsg(String.join(

@@ -17,7 +17,7 @@ Currently, the following languages/frameworks are supported:
 
 | Feature                                                                                                              | [Python](docs/generators/python.md) | [Java](docs/generators/java.md) | [Kotlin](docs/generators/kotlin.md) |
 |----------------------------------------------------------------------------------------------------------------------|-------------------------------------|---------------------------------|-------------------------------------|
-| Generator status                                                                                                     | stable                              | stable                          | experimental                        |
+| Generator status                                                                                                     | stable                              | stable                          | stable                                   |
 | Openapi v3.0.0-3.1.0 ingestion                                                                                       | X                                   | X                               | X                                   |
 | Json Schema 2020-12 Support (components/schemas)                                                                     | X                                   | X                               | X                                   |
 | Component schema classes + documentation produced                                                                    | X                                   | X                               | X                                   |
