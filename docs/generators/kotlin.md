@@ -7,7 +7,7 @@ title: Documentation for the kotlin generator
 | Property | Value | Notes |
 | -------- | ----- | ----- |
 | generator name | kotlin | pass this to the generate command after -g |
-| generator stability | EXPERIMENTAL | |
+| generator stability | STABLE | |
 | generator type | CLIENT | |
 | generator language | Kotlin | |
 | generator language version | 1.9.23 | |
