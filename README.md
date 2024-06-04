@@ -168,7 +168,7 @@ Once built, `run-in-docker.sh` will act as an executable for openapi-json-schema
 ```sh
 ./bin/run-in-docker.sh help # Executes 'help' command for openapi-json-schema-generator-cli
 ./bin/run-in-docker.sh list # Executes 'list' command for openapi-json-schema-generator-cli
-./bin/run-in-docker.sh /gen/bin/python-petstore.sh  # Builds the Go client
+./bin/run-in-docker.sh /gen/bin/python-petstore.sh  # Builds the Python client
 ./bin/run-in-docker.sh generate -i src/test/resources/3_0/petstore.yaml \
     -g go -o /gen/out/python-petstore -p packageName=petstore_api # generates python client, outputs locally to ./out/python-petstore
 ```
